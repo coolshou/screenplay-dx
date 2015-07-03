@@ -1,0 +1,4413 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Finnish <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-Country: Finland\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Valitse kieli"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Tervetuloa käyttämään Iomega ScreenPlay Media Playeriä"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Tämä ohjattu toiminto opastaa laitteen yhdistämisessä kotiverkkoon. Kun laite on yhdistetty, sillä voi käyttää ja toistaa myös verkon muihin laitteisiin tallennettua mediaa."
+
+msgid "Select Next to continue."
+msgstr "Jatka valitsemalla Seuraava."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "Kun pika-aloitustila on PÄÄLLÄ, virrankulutus on suurempi, mutta laite on käytettävissä verkossa ja sen käynnistysaika on lyhyempi."
+
+msgid "Select your TV type"
+msgstr "Valitse television tyyppi"
+
+msgid "Select your connection"
+msgstr "Valitse yhteys"
+
+msgid "Skip"
+msgstr "Ohita"
+
+msgid "Do you want to skip?"
+msgstr "Haluatko ohittaa?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "Kiinteä IP"
+
+msgid "IP address"
+msgstr "IP-osoite"
+
+msgid "Netmask"
+msgstr "Verkkopeite"
+
+msgid "Gateway"
+msgstr "Välityspalvelin"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "Asetus on valmis"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Ohjattu toiminto"
+
+msgid "You have successfully completed device configuration"
+msgstr "Laite on määritetty onnistuneesti."
+
+msgid "Next"
+msgstr "Seuraava"
+
+msgid "Later"
+msgstr "Myöhemmin"
+
+msgid "Movie"
+msgstr "Elokuva"
+
+msgid "Music"
+msgstr "Musiikki"
+
+msgid "Photo"
+msgstr "Valokuvat"
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Online media"
+msgstr "Online-media"
+
+msgid "Folders"
+msgstr "Kansiot"
+
+msgid "Recent"
+msgstr "Viimeisimmät"
+
+msgid "Local storage"
+msgstr "Paikallinen säilö"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Mediapalvelin"
+
+msgid "Shared folder"
+msgstr "Jaettu kansio"
+
+msgid "All Movies"
+msgstr "Kaikki elokuvat"
+
+msgid "All Music"
+msgstr "Kaikki musiikki"
+
+msgid "Playlist"
+msgstr "Soittoluettelo"
+
+msgid "Artist"
+msgstr "Esittäjä"
+
+msgid "Genre"
+msgstr "Tyylilaji"
+
+msgid "Album"
+msgstr "Albumi"
+
+msgid "Now Playing"
+msgstr "Nyt toistetaan"
+
+msgid "All Photos"
+msgstr "Kaikki valokuvat"
+
+msgid "Date"
+msgstr "Päivämäärä"
+
+msgid "Albums"
+msgstr "Albumit"
+
+msgid "Preview mode"
+msgstr "Esikatselutila"
+
+msgid "List mode"
+msgstr "Luettelotila"
+
+msgid "Thumbnail mode"
+msgstr "Pienoiskuvatila"
+
+msgid "This folder is empty or unavailable."
+msgstr "Tämä kansio on tyhjä tai se ei ole käytettävissä"
+
+msgid "Delete"
+msgstr "Poista"
+
+msgid "Create"
+msgstr "Luo"
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Rename"
+msgstr "Nimeä uudelleen"
+
+msgid "Clear"
+msgstr "Tyhjennä"
+
+msgid "Move"
+msgstr "Siirrä"
+
+msgid "Save"
+msgstr "Tallenna"
+
+msgid "Create album"
+msgstr "Luo albumi"
+
+msgid "Edit album"
+msgstr "Muokkaa albumia"
+
+msgid "Add to list"
+msgstr "Lisää luetteloon"
+
+msgid "Remove from list"
+msgstr "Poista luettelosta"
+
+msgid "Move focus"
+msgstr "Siirrä kohdistus"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Yhtään albumia ei ole. Luotko uuden albumin?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Haluatko varmasti poistaa albumin?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Haluatko varmasti poistaa tiedostot luettelosta?"
+
+msgid "This folder is empty"
+msgstr "Tämä kansio on tyhjä"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Väärä käyttäjänimi tai salasana"
+
+msgid "This media server cannot be accessed"
+msgstr "Tämä mediapalvelin ei ole käytettävissä"
+
+msgid "No server found"
+msgstr "Yhtään palvelinta ei löydy"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Haluatko varmasti poistaa tiedoston?"
+
+msgid "Normal"
+msgstr "Normaali"
+
+msgid "Repeat one"
+msgstr "Toista yksi"
+
+msgid "Repeat all"
+msgstr "Toista kaikki"
+
+msgid "Repeat all and shuffle"
+msgstr "Toista kaikki ja sekoita"
+
+msgid "Shuffle"
+msgstr "Sekoita"
+
+msgid "Pan"
+msgstr "Panoroi"
+
+msgid "Rotate right"
+msgstr "Kierrä oikealle"
+
+msgid "Rotate left"
+msgstr "Kierrä vasemmalle"
+
+msgid "Zoom in"
+msgstr "Lähennä"
+
+msgid "Zoom out"
+msgstr "Loitonna"
+
+msgid "Repeat"
+msgstr "Toista"
+
+msgid "Info bar"
+msgstr "Tietopalkki"
+
+msgid "Audio"
+msgstr "Ääni"
+
+msgid "Audio channel"
+msgstr "Äänikanava"
+
+msgid "No audio channel"
+msgstr "Ei äänikanavaa"
+
+msgid "Subtitle"
+msgstr "Tekstitys"
+
+msgid "Subtitle off"
+msgstr "Tekstitys pois"
+
+msgid "No subtitle"
+msgstr "Ei tekstitystä"
+
+msgid "Unsupported subtitle"
+msgstr "Tekstitystä ei tueta"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Jatka toistoa valitsemalla [OK] tai aloita video alusta valitsemalla [Peruuta]"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Valittua tiedostoa ei voi toistaa. Katso käyttöoppaasta lisätietoja tuetuista tiedostomuodoista."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Yrität toistaa videotiedostoa, joka sisältää äänen monikanavalähdön. Tätä ei tueta. Vaihda digitaaliseen äänilähtöön ja yhdistä HD Media Player AV-vastaanottimeen, joka tukee valittua äänen pakkausta."
+
+msgid "No chapter"
+msgstr "Ei kohtausta"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Tätä videovalikkoa ei voi toistaa. Haluatko toistaa videotiedoston?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Haluatko jatkaa toistoa vai aloittaa uudelleen alusta?"
+
+msgid "Next Song:"
+msgstr "Seuraava laulu:"
+
+msgid "Current Song"
+msgstr "Nykyinen laulu"
+
+msgid "File Type"
+msgstr "Tiedoston tyyppi"
+
+msgid "Duration:"
+msgstr "Kesto:"
+
+msgid "File Size"
+msgstr "Tiedoston koko"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Tätä DivX-vuokravideota on katsottu X kertaa Y katselukerrasta, haluatko jatkaa videon katselua?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Laitettasi ei ole hyväksytty toistamaan tätä suojattua DivX-videota."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Tätä DivX-vuokravideota on katsottu Y kertaa Y katselukerrasta. Tämän DivX-videon vuokra-aika on päättynyt."
+
+msgid "Unsupported DivX DRM version."
+msgstr "DivX:n DRM-versio ei ole tuettu."
+
+msgid "Video resolution is not supported."
+msgstr "Videoresoluutio ei ole tuettu."
+
+msgid "Video frame rate is not supported."
+msgstr "Videon kuvanopus ei ole tuettu."
+
+msgid "Audio format is not supported."
+msgstr "Audiomuoto ei ole tuettu."
+
+msgid "Audio/Video"
+msgstr "Audio/Video"
+
+msgid "Playback"
+msgstr "Toisto"
+
+msgid "System"
+msgstr "Järjestelmä"
+
+msgid "Network"
+msgstr "Verkko"
+
+msgid "Shut down"
+msgstr "Sammutus"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Määritä laitteen äänen ja kuvan lähtöasetukset"
+
+msgid "Configure playback settings"
+msgstr "Määritä toistoasetukset"
+
+msgid "Configure basic settings of system"
+msgstr "Määritä järjestelmän perusasetukset"
+
+msgid "Configure network settings"
+msgstr "Määritä verkkoasetukset"
+
+msgid "Video output"
+msgstr "Videolähtö"
+
+msgid "Configure video output of system"
+msgstr "Määritä järjestelmän videolähtö"
+
+msgid "Composite"
+msgstr "Komposiitti"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "Määritä NTSC- tai PAL-signaali"
+
+msgid "Component"
+msgstr "Komponentti"
+
+msgid "Configure display resolution of Component"
+msgstr "Määritä komponenttiliitännän näytön tarkkuus"
+
+msgid "Color space"
+msgstr "Väritila"
+
+msgid "Configure color space of Component"
+msgstr "Määritä komponenttiliitännän väritila"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "Määritä HDMI-liitännän näytön tarkkuus"
+
+msgid "Configure color space of HDMI"
+msgstr "Määritä HDMI-liitännän väritila"
+
+msgid "RGB High"
+msgstr "RGB korkea"
+
+msgid "RGB Low"
+msgstr "RGB matala"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Näytön tarkkuus"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Kuvasuhde"
+
+msgid "Configure screen format of system"
+msgstr "Määritä järjestelmän näyttömuoto"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Äänilähtö"
+
+msgid "Configure audio output channel of system"
+msgstr "Määritä järjestelmän äänen lähtökanava"
+
+msgid "Stereo"
+msgstr "Stereo"
+
+msgid "Digital"
+msgstr "Digitaalinen"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Haluatko varmasti vaihtaa videon tarkkuutta?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Haluatko varmasti vaihtaa videolähdön muotoa?"
+
+msgid "Subtitle mode"
+msgstr "Tekstitystila"
+
+msgid "Turn on/off subtitle"
+msgstr "Tekstitys päälle/pois"
+
+msgid "Subtitle font size"
+msgstr "Tekstityksen koko"
+
+msgid "Select subtitle font size"
+msgstr "Valitse tekstityksen fonttikoko"
+
+msgid "Subtitle type"
+msgstr "Tekstitystyyppi"
+
+msgid "Select the additional encoding"
+msgstr "Valitse valinnainen koodaus"
+
+msgid "Western Europe (ISO)"
+msgstr "Läntinen Eurooppa (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Keski-Eurooppa (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Keski-Eurooppa (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Perinteinen kiinalainen (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Yksinkertaistettu kiina (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Japanilainen (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Korealainen (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kyrillinen (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kyrillinen (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Kreikka (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Kreikka (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Arabialainen (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Audioraitanäyttö"
+
+msgid "Set the display mode while music playing"
+msgstr "Aseta musiikintoiston näyttötila"
+
+msgid "File name"
+msgstr "Tiedostonimi"
+
+msgid "Title"
+msgstr "Nimi"
+
+msgid "Photo scaling"
+msgstr "Valokuvan skaalaus"
+
+msgid "Configure the photo scaling mode"
+msgstr "Määritä valokuvan skaalaustila"
+
+msgid "Keep as original"
+msgstr "Pidä alkuperäisenä"
+
+msgid "Fit to screen"
+msgstr "Sovita näyttöön"
+
+msgid "Display in full screen"
+msgstr "Näytä kokonäyttötilassa"
+
+msgid "Transition effect"
+msgstr "Siirtymätehoste"
+
+msgid "Select the transition effect"
+msgstr "Valitse siirtymätehoste"
+
+
+
+
+msgid "Fade"
+msgstr "Häivytä"
+
+msgid "Wipe"
+msgstr "Pyyhkäise"
+
+msgid "Zoom"
+msgstr "Zoomaa"
+
+msgid "Push"
+msgstr "Työnnä"
+
+msgid "Replace"
+msgstr "Korvaa"
+
+msgid "Checker board"
+msgstr "Shakkiruudukko"
+
+msgid "Random"
+msgstr "Satunnainen"
+
+msgid "Slideshow Interval"
+msgstr "Kuvien aikaväli diaesityksessä"
+
+msgid "Configure the interval of slideshow"
+msgstr "Määritä diaesityksen aikaväli"
+
+msgid "second"
+msgstr "sekunti"
+
+msgid "seconds"
+msgstr "sekuntia"
+
+msgid "3 Seconds"
+msgstr "3 sekuntia"
+
+msgid "5 Seconds"
+msgstr "5 sekuntia"
+
+msgid "10 Seconds"
+msgstr "10 sekuntia"
+
+msgid "20 Seconds"
+msgstr "20 sekuntia"
+
+msgid "30 Seconds"
+msgstr "30 sekuntia"
+
+msgid "minute"
+msgstr "minuutti"
+
+msgid "minutes"
+msgstr "minuuttia"
+
+msgid "1 Minute"
+msgstr "1 minuutti"
+
+msgid "5 Minutes"
+msgstr "5 minuuttia"
+
+msgid "Browser display"
+msgstr "Selainnäyttö"
+
+msgid "Set the display mode of media browser"
+msgstr "Aseta mediaselaimen näyttötila"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "Määritä DivX DRM VOD -asetukset"
+
+msgid "Register"
+msgstr "Rekisteröi"
+
+msgid "Deregister"
+msgstr "Poista rekisteröinti"
+
+msgid "Activation"
+msgstr "Aktivointi"
+
+msgid "Deactivation"
+msgstr "Aktivoinnin poisto"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Laitteesi on jo rekisteröity. Haluatko varmasti poistaa rekisteröinnin?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "Sinun on rekisteröitävä laitteesi voidaksesi toistaa suojattuja DivX-videoita."
+
+msgid "Registration code:"
+msgstr "Rekisteröintikoodi:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Rekisteröi osoitteessa http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Rekisteröinnin poistokoodi:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Poista rekisteröinti osoitteessa http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Haluatko jatkaa rekisteröintiä?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Mediapalvelin päälle/pois"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Jaettu kansio käyttöön / pois käytöstä"
+
+msgid "Workgroup name"
+msgstr "Työryhmän nimi"
+
+msgid "Device name"
+msgstr "Laitteen nimi"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Automaattinen kirjautuminen"
+
+msgid "Turn on/off auto-login"
+msgstr "Automaattinen kirjautuminen päälle/pois"
+
+msgid "Clear account information"
+msgstr "Tyhjennä tilitiedot"
+
+msgid "Delete the preset password?"
+msgstr "Poista valmiiksi määritetty salasana?"
+
+msgid "Manual SSID"
+msgstr "Manuaalinen SSID"
+
+msgid "Connection setup"
+msgstr "Yhteysasetus"
+
+msgid "Wire"
+msgstr "Johto"
+
+msgid "Wireless"
+msgstr "Langaton"
+
+msgid "Network setup"
+msgstr "Verkkoasetus"
+
+msgid "Wireless setup"
+msgstr "Langaton asetus"
+
+msgid "Does not contain"
+msgstr "Ei sisällä"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Tuotteen nimi ei voi sisältää mitään seuraavista merkeistä \\ / : * ? â?? ; | tyhjien merkkien kanssa. Tämä nimi ei voi olla yli 15 merkkiä pitkä."
+
+msgid "The device name can not contain any of following "
+msgstr "Laitteen nimi ei voi sisältää mitään seuraavista "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "ja tyhjiä merkkejä. Laitteen nimi ei voi ylittää 15 merkkiä."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 ei ole sallittu arvo. Vain numerot 1 - 233 ovat sallittuja. Tarkista IP-osoite ja anna se uudelleen."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Vain numerot 0 - 255 ovat sallittuja. Tarkista IP-osoite ja anna se uudelleen."
+
+msgid "Cannot find access point."
+msgstr "Tukiasemaa ei löydy."
+
+msgid "The AP is not exist. Please check again."
+msgstr "Tukiasemaa ei ole. Tarkista uudelleen."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Väärä salausavain. Yritä uudelleen."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "BitTorrent päälle/pois"
+
+msgid "Connection mode"
+msgstr "Yhteystila"
+
+msgid "Connection type"
+msgstr "Yhteystyyppi"
+
+msgid "WPS setup"
+msgstr "WPS-asetus"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "Paina tukiaseman WPS-painiketta ennen kuin painat Yhdistä-painiketta"
+
+msgid "Auto search"
+msgstr "Automaattinen haku"
+
+msgid "Site survey"
+msgstr "Verkkohaku"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Langattoman tukiaseman tunnistus"
+
+msgid "MAC address"
+msgstr "MAC-osoite"
+
+msgid "Please waiting..."
+msgstr "Odotetaan..."
+
+msgid "Connect Successfully!"
+msgstr "Yhdistetty."
+
+msgid "Do you want replace this profile?"
+msgstr "Haluatko korvata tämän profiilin?"
+
+msgid "Network is disconnected."
+msgstr "Yhteys verkkoon on katkaistu."
+
+msgid "Can not detect wireless module."
+msgstr "Langatonta moduulia ei havaita."
+
+msgid "The profile space is full!"
+msgstr "Profiilitila on täysi."
+
+msgid "Access point detecting..."
+msgstr "Tunnistetaan tukiasemaa..."
+
+msgid "The network encryption key is not valid."
+msgstr "Verkon salausavain ei kelpaa."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID ei saa olla tyhjä."
+
+msgid "No security"
+msgstr "Suojaus puuttuu"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Asetus valmis. Tallennetaanko tämä verkkoyhteys?"
+
+msgid "The SSID is empty."
+msgstr "SSID on tyhjä."
+
+msgid "Can not set this profile to favorite."
+msgstr "Tätä profiilia ei voi asettaa suosikiksi."
+
+msgid "Access point can not be found"
+msgstr "Tukiasemaa ei löydy"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Tukiasemaa ei löydy"
+
+msgid "Please enter your encryption key"
+msgstr "Anna salausavain"
+
+msgid "The device could not connect to the network."
+msgstr "Laitetta ei voi yhdistää verkkoon."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Ei yhteyttä palvelimeen. Tarkista verkon määritys."
+
+msgid "Wireless favorites"
+msgstr "Langattomat suosikit"
+
+msgid "Connect now"
+msgstr "Yhdistä nyt"
+
+msgid "Favorite"
+msgstr "Suosikki"
+
+
+msgid "Encryption key"
+msgstr "Salausavaimen"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Kieli"
+
+msgid "Select a display language"
+msgstr "Valitse näyttökieli"
+
+msgid "English"
+msgstr "Englanti"
+
+msgid "French"
+msgstr "Ranska"
+
+msgid "German"
+msgstr "Saksa"
+
+msgid "Italian"
+msgstr "Italia"
+
+msgid "Spanish"
+msgstr "Espanja"
+
+msgid "Portuguese"
+msgstr "Portugali"
+
+msgid "Dutch"
+msgstr "Hollanti"
+
+msgid "Greek"
+msgstr "Kreikka"
+
+msgid "Polish"
+msgstr "Puola"
+
+msgid "Russian"
+msgstr "Venäjä"
+
+msgid "Swedish"
+msgstr "Ruotsi"
+
+msgid "Japanese"
+msgstr "Japani"
+
+msgid "Simplified Chinese"
+msgstr "Yksinkertaistettu kiina"
+
+msgid "Traditional Chinese"
+msgstr "Perinteinen kiina"
+
+msgid "Korean"
+msgstr "Korea"
+
+msgid "Finnish"
+msgstr "Suomi"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Portugali (Brasilia)"
+
+msgid "Hebrew"
+msgstr "Heprea"
+
+msgid "Arabic"
+msgstr "arabia"
+
+msgid "Czech"
+msgstr "tšekki"
+
+msgid "Turkish"
+msgstr "Turkki"
+
+msgid "Danish"
+msgstr "tanska"
+
+msgid "Norwegian"
+msgstr "norja"
+
+msgid "Media library"
+msgstr "Mediakirjasto"
+
+msgid "Turn on/off media library"
+msgstr "Mediakirjasto päälle/pois"
+
+msgid "Screensaver delay"
+msgstr "Näytönsäästäjän viive"
+
+msgid "Configure screensaver delay time"
+msgstr "Määritä näytönsäästäjän viiveaika"
+
+msgid "Never"
+msgstr "Ei koskaan"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 minuuttia"
+
+msgid "15 Minutes"
+msgstr "15 minuuttia"
+
+msgid "Quick start mode"
+msgstr "Pika-aloitustila"
+
+msgid "System reset"
+msgstr "Järjestelmän nollaus"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Haluatko varmasti palauttaa tämän laitteen tehdasasetuksille?"
+
+msgid "About"
+msgstr "Tietoja"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "HD Media Playeriin liittyviä lisätietoja löydät käyttöoppaasta tai käymällä"
+
+msgid "Restart"
+msgstr "Käynnistä uudelleen"
+
+msgid "Rebooting"
+msgstr "Uudelleenkäynnistys"
+
+msgid "Update device"
+msgstr "Päivitä laite"
+
+msgid "New firmware"
+msgstr "Uusi laitteisto-ohjelmisto"
+
+msgid "New firmware found"
+msgstr "Uusi laiteohjelmisto löytyi"
+
+msgid "version"
+msgstr "versio"
+
+msgid "Firmware Version"
+msgstr "Ohjelmiston versio"
+
+msgid "Current version"
+msgstr "Nykyinen versio"
+
+msgid "New version"
+msgstr "Uusi versio"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Uusi laiteohjelmisto löytyi. Haluatko päivittää?"
+
+msgid "Invalid firmware"
+msgstr "Virheellinen laiteohjelmisto"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "Tarkista viimeisin laiteohjelmisto ja päivitä laite."
+
+msgid "Checking for recent updates"
+msgstr "Päivityksiä tarkistetaan"
+
+msgid "Searching for updates..."
+msgstr "Etsitään päivityksiä..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Laite ei voi ladata päivityksiä. Tarkista verkkoyhteys."
+
+msgid "Your device is up to date."
+msgstr "Laitteesi on ajan tasalla."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Mediasoittimesi on päivitetty. ÄLÄ katkaise virtaa tai irrota liitettyä muistilaitetta."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Päivitys valmis. Mediasoitin käynnistyy nyt uudelleen."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Liitä laiteohjelmiston sisältävä USB-asema palauttaaksesi mediasoittimen."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Laitteisto-ohjelmiston päivitys epäonnistui. Laite käynnistyy uudelleen."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Laitteisto-ohjelmiston päivitys epäonnistui. Tarkista verkkoyhteys ja yritä uudelleen."
+
+msgid "OK"
+msgstr "OK"
+
+
+
+
+
+
+msgid "On"
+msgstr "Käytössä"
+
+msgid "Off"
+msgstr "Ei käytössä"
+
+msgid "Auto"
+msgstr "Automaattinen"
+
+msgid "Manual"
+msgstr "Manuaalinen"
+
+msgid "Search"
+msgstr "Etsi"
+
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Retry"
+msgstr "Yritä uudelleen"
+
+msgid "Copy"
+msgstr "Kopioi"
+
+msgid "Go Back"
+msgstr "Palaa takaisin"
+
+msgid "Help"
+msgstr "Ohje"
+
+msgid "Exit"
+msgstr "Lopeta"
+
+msgid "Unknown"
+msgstr "Tuntematon"
+
+
+msgid "Play"
+msgstr "Toista"
+
+msgid "Pause"
+msgstr "Keskeytä"
+
+msgid "Stop"
+msgstr "Lopeta"
+
+msgid "Eject"
+msgstr "Poista"
+
+msgid "Empty"
+msgstr "Tyhjä"
+
+msgid "Standby mode"
+msgstr "Valmiustila"
+
+msgid "Loading data"
+msgstr "Ladataan tietoa"
+
+msgid "All"
+msgstr "Kaikki"
+
+msgid "Contains"
+msgstr "Sisältää"
+
+msgid "Starts with"
+msgstr "Alkaa"
+
+msgid "Unsupported"
+msgstr "Ei tuettu"
+
+msgid "Space"
+msgstr "Väli"
+
+msgid "Equal to"
+msgstr "Yhtä kuin"
+
+msgid "Not Equal to"
+msgstr "Eri kuin"
+
+msgid "Untitled volume"
+msgstr "Nimetön asema"
+
+msgid "Additional encoding support"
+msgstr "Vaihtoehtoisen koodauksen tuki"
+
+msgid "Subtitle default"
+msgstr "Tekstin oletus"
+
+msgid "Subtitle border"
+msgstr "Tekstin rajaus"
+
+msgid "Thick"
+msgstr "Paksu"
+
+msgid "Thin"
+msgstr "Ohut"
+
+msgid "Account"
+msgstr "Tili"
+
+msgid "anonymous"
+msgstr "anonyymi"
+
+msgid "Connecting"
+msgstr "Yhdistetään"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Valitse poistettava laite."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Haluatko varmasti poistaa tämän laitteen?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Varoitus: poista USB-muistilaite turvallisesti ennen irrottamista."
+
+msgid "The device is busy. Please try later."
+msgstr "Laite on varattu. Yritä myöhemmin."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Odota niin kauan kun muistilaitetta poistetaan..."
+
+msgid "No storage present"
+msgstr "Ei tallennusvälinettä"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "Mediakirjaston käännös tarvitsee enemmän tallennustilaa:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Skannataan liitettyä tallennusvälinettä. Ensimmäinen skannaus saattaa kestää kauemmin. Odota..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "USB-porttiin liitettyä laitetta ei tunnisteta"
+
+msgid "Storage can not aggregate"
+msgstr "Tallennusväline ei voi yhdistää"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "Mediakirjasto ei tue journaloitua tiedostojärjestelmää. Toisto on yhä tuettu."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Mediakirjastoa ei voi luoda kirjoitussuojatulle asemalle."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Mediakirjaston luonti ei onnistu. Tarkista tallennusvälineen asetukset."
+
+msgid "Unrecognized USB device"
+msgstr "Tunnistamaton USB-laite"
+
+msgid "Scanning the attached USB device..."
+msgstr "Etsitään liitettyä USB-laitetta..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "Surround-ääntä sisältäviä ääniraitoja toistettaessa digitaalisen äänilähdön asetuksissa on oltava AV-vastaanotin, joka tukee oikeaa äänimuotoa."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "ÄLÄ katkaise verkkovirtaa tai poista mitään tallennuslevyä."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "HD Media Playeriä päivitetään. ÄLÄ sammuta laitetta, poista virtalähdettä tai irrota mitään liitettyä tallennusvälinettä."
+
+msgid "Upgrade complete!"
+msgstr "Päivitys on tehty."
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "Päivitykset asennettiin onnistuneesti. Laite käynnistyy nyt uudelleen..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "USB-porttiin liitettyä laitetta ei tunnisteta."
+
+msgid "Device is shutting down..."
+msgstr "Laite sammutetaan..."
+
+msgid "Local device is disconnected."
+msgstr "Yhteys paikalliseen laitteeseen on katkaistu."
+
+msgid "Do you really want to restart device?"
+msgstr "Haluatko käynnistää laitteen uudelleen?"
+
+msgid "Action cancelled"
+msgstr "Toiminto peruutettu"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "On tapahtunut vakava järjestelmävirhe. Laite käynnistyy uudelleen¡K"
+
+msgid "To restart device, press the power button of your remote."
+msgstr "Käynnistä laite uudelleen painamalla kaukosäätimen virtapainiketta."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Haku valmis. Tuloksia ei löytynyt."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Paina [Asetus]-painiketta, jos haluat käyttää monikielistä syöttöä"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Selaa Flickr-palvelua"
+
+msgid "My recent"
+msgstr "Viimeisimmät omat"
+
+msgid "Last 7 days interesting"
+msgstr "Viimeiset 7 päivää mielenkiintoinen"
+
+msgid "Most recent uploads"
+msgstr "Uusimmat lataukset"
+
+msgid "Hot tags"
+msgstr "Kuumat tagit"
+
+msgid "Contacts"
+msgstr "Yhteystiedot"
+
+msgid "Photostream"
+msgstr "Valokuvavirta"
+
+msgid "Tags"
+msgstr "Tagit"
+
+msgid "Delete one"
+msgstr "Poista yksi"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Avainsana"
+
+msgid "Flickr members"
+msgstr "Flickr-jäsenet"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Haluatko poistaa tämän kohteen?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Haluatko poistaa kaikki kohteet?"
+
+msgid "This member has been added to your contact list."
+msgstr "Tämä jäsen on lisätty yhteysluetteloosi."
+
+msgid "This member has been add to your contact list."
+msgstr "Tämä jäsen on lisätty yhteysluetteloosi."
+
+msgid "Could not find any tag list."
+msgstr "Yhtään tunnisteluetteloa ei löydy."
+
+msgid "Could not find any contact list."
+msgstr "Yhtään yhteysluetteloa ei löydy."
+
+msgid "There is no friend available."
+msgstr "Yhtään ystävää ei ole paikalla."
+
+msgid "A friend cannot be found."
+msgstr "Ystävää ei löydy."
+
+msgid "There is no content available."
+msgstr "Sisältöä ei ole saatavilla."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Haku valmis. Tuloksia ei löytynyt."
+
+msgid "Now playing:"
+msgstr "Nyt toistetaan"
+
+msgid "Last station:"
+msgstr "Viimeinen asema:"
+
+msgid "My presets"
+msgstr "Omat esiasetukset"
+
+msgid "Stations"
+msgstr "Asemat"
+
+msgid "Preferences"
+msgstr "Asetukset"
+
+msgid "Sign in / Sign out"
+msgstr "Kirjaudu sisään / Kirjaudu ulos"
+
+msgid "About Live365"
+msgstr "Tietoja Live365:stä"
+
+msgid "Remove station"
+msgstr "Poista asema"
+
+msgid "Add to my presets"
+msgstr "Lisää esiasetuksiini"
+
+msgid "Free stations"
+msgstr "Ilmaiset asemat"
+
+msgid "VIP stations"
+msgstr "VIP-asemat"
+
+msgid "Recommendations"
+msgstr "Suositukset"
+
+msgid "Thumbs up"
+msgstr "Peukut pystyyn"
+
+msgid "Thumbs down"
+msgstr "Peukut alas"
+
+
+
+
+msgid "Email track"
+msgstr "Sähköpostikappale"
+
+msgid "Audio quality"
+msgstr "Äänenlaatu"
+
+msgid "Sort"
+msgstr "Järjestä"
+
+msgid "All stations"
+msgstr "Kaikki asemat"
+
+msgid "Only high"
+msgstr "Vain korkea"
+
+msgid "Medium to high"
+msgstr "Keskitasoisesta korkeaan"
+
+msgid "Low to medium"
+msgstr "Matalasta keskitasoiseen"
+
+msgid "Only low"
+msgstr "Vain matala"
+
+msgid "Sort stations alphabetically"
+msgstr "Lajittele asemat aakkosjärjestyksessä"
+
+msgid "Sort stations by popularity"
+msgstr "Lajittele asemat suosion mukaan"
+
+msgid "Sign in"
+msgstr "Kirjaudu sisään"
+
+msgid "Don't have an account?"
+msgstr "Eikö ole tiliä?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Virheellinen käyttäjänimi ja salasana, yritä uudelleen."
+
+msgid "Save the account information?"
+msgstr "Tallennetaanko tilitiedot?"
+
+msgid "Save username only"
+msgstr "Tallenna vain käyttäjänimi"
+
+msgid "Are you sure to sign out?"
+msgstr "Haluatko varmasti kirjautua ulos?"
+
+msgid "The station is removed from your presets."
+msgstr "Asema on poistettu esiasetuksistasi."
+
+msgid "The station is added to your presets."
+msgstr "Asema on lisätty esiasetuksiisi."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Sinun on kirjauduttava käyttääksesi tätä toimintoa. Kirjaudutko nyt?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Kiitos tämän kappaleen luokittelusta. Mukavaa että pidit siitä."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Kiitos tämän kappaleen luokittelusta. Harmi, ettet pitänyt siitä."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "Kappaletiedot on lähetetty. Tarkista sähköpostisi."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Jos sinulla ei ole Live365-tiliä, siirry osoitteeseen http://www.live365.com saadaksesi jäsenyyden tai tullaksesi VIP-jäseneksi."
+
+
+msgid "Video"
+msgstr "Video"
+
+
+
+
+msgid "Preference"
+msgstr "Asetus"
+
+msgid "Most favorites"
+msgstr "Suosikit"
+
+msgid "Most viewed"
+msgstr "Katsotuimmat"
+
+msgid "Most popular"
+msgstr "Suosituimmat"
+
+msgid "Top rated"
+msgstr "Korkein luokitus"
+
+msgid "Most recent"
+msgstr "Uusimmat"
+
+msgid "My videos"
+msgstr "Omat videot"
+
+msgid "Favorites"
+msgstr "Suosikit"
+
+
+
+
+msgid "Today"
+msgstr "Tänään"
+
+msgid "This week"
+msgstr "Tällä viikolla"
+
+msgid "This month"
+msgstr "Tässä kuussa"
+
+msgid "All time"
+msgstr "Kaikkina aikoina"
+
+msgid "Rate video"
+msgstr "Luokittele video"
+
+msgid "Related"
+msgstr "Liittyvät"
+
+msgid "Full screen"
+msgstr "Koko näyttö"
+
+msgid "Info"
+msgstr "Info"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Kirjaudu ulos"
+
+msgid "Delete account"
+msgstr "Poista tili"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Käyttäjänimi"
+
+msgid "Password"
+msgstr "Salasana"
+
+msgid "Current location"
+msgstr "Nykyinen sijainti"
+
+msgid "Worldwide"
+msgstr "Maailmanlaajuinen"
+
+msgid "Germany"
+msgstr "Saksa"
+
+msgid "France"
+msgstr "Ranska"
+
+msgid "Spain"
+msgstr "Espanja"
+
+msgid "Italy"
+msgstr "Italia"
+
+msgid "Taiwan"
+msgstr "Taiwan"
+
+msgid "South Korea"
+msgstr "Etelä-Korea"
+
+
+
+msgid "Russia"
+msgstr "Venäjä"
+
+msgid "Video playback quality"
+msgstr "Videon toistolaatu"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Tätä videota ei ole juuri nyt saatavilla."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Kiitos luokituksesta."
+
+msgid "The video has been added to your favorites."
+msgstr "Tämä video on lisätty suosikkeihisi."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Haluatko varmasti poistaa tämän tilin?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Haluatko varmasti poistaa kaikki tilit?"
+
+msgid "Login fail."
+msgstr "Kirjautuminen epäonnistui."
+
+
+
+
+msgid "No content available."
+msgstr "Sisältöä ei käytettävissä."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Lisää/Poista medialaajennuksia"
+
+msgid "Manage users"
+msgstr "Hallitse käyttäjiä"
+
+msgid "All (Mix)"
+msgstr "Kaikki (Sekoitus)"
+
+msgid "Business & Finance"
+msgstr "Liiketoiminta ja rahoitus"
+
+msgid "Cars"
+msgstr "Autot"
+
+msgid "Comedy"
+msgstr "Komedia"
+
+msgid "Cocking $ drinks"
+msgstr "Ruoanlaitto ja juomat"
+
+msgid "Education"
+msgstr "Koulutus"
+
+msgid "Fashion & luxury"
+msgstr "Muoti ja ylellisyystuotteet"
+
+msgid "Health & fitness"
+msgstr "Terveys ja kunto"
+
+msgid "Kids & cartoons"
+msgstr "Lapset ja sarjakuvat"
+
+msgid "Learn a languages"
+msgstr "Kielten oppiminen"
+
+
+
+
+msgid "News & politics"
+msgstr "Uutiset ja politiikka"
+
+msgid "Parenting"
+msgstr "Vanhemmuus"
+
+msgid "Relationships"
+msgstr "Suhteet"
+
+msgid "Science & nature"
+msgstr "Tiede ja luonto"
+
+msgid "Showbiz news"
+msgstr "Viihdeuutiset"
+
+msgid "Society & culture"
+msgstr "Yhteiskunta ja kulttuuri"
+
+msgid "Sports"
+msgstr "Urheilu"
+
+msgid "Technology"
+msgstr "Teknologia"
+
+msgid "Travel"
+msgstr "Matkailu"
+
+msgid "Video games"
+msgstr "Videopelit"
+
+msgid "General"
+msgstr "Yleistä"
+
+msgid "Dashboard"
+msgstr "Koontinäyttö"
+
+msgid "Now playing"
+msgstr "Nyt toistetaan"
+
+msgid "Both"
+msgstr "Molemmat"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Lisää omiin kanaviin"
+
+msgid "Remove from my channels"
+msgstr "Poista omista kanavista"
+
+msgid "Rate/Favorite"
+msgstr "Luokittele/Suosikki"
+
+msgid "Episodes"
+msgstr "Episodit"
+
+
+
+msgid "My rating"
+msgstr "Oma luokittelu"
+
+msgid "My favorite"
+msgstr "Oma suosikki"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Lisää medialaajennus koontinäyttöön"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Lisää medialaajennukset manuaalisesti (mCoden kautta)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Poista medialaajennus koontinäytöstä"
+
+msgid "Shows + Episodes"
+msgstr "Ohjelmat ja episodit"
+
+msgid "Shows"
+msgstr "Ohjelmat"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Linkki"
+
+msgid "Login"
+msgstr "Kirjaudu sisään"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "Voidaksesi asettaa mukautettuja kanavia, sinun on linkitettävä soittimesi Mediafly-tiliin."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Mediafly-tilit ovat täysin ilmaisia ja ne tarjoavat siinulle mahdollisuuden ohjata keskitetysti ilmaista suosikki-online-sisältöäsi."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Vaihtoehto 1: Avaa tietokoneen verkkoselain ja navigoi osoitteeseen:"
+
+msgid "and enter this association code:"
+msgstr "ja anna tämä liitäntäkoodi:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Vaihtoehto 2: Kirjaudu Mediafly-tilillesi käyttäjänimellä ja salasanalla."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Kaikki videot"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Väliaika"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Laajakuva"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 minuuttia"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 minuuttia"
+
+msgid "30 Minutes"
+msgstr "30 minuuttia"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Iomega HD Media Player"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Haluatko päivittää?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Yrität toistaa videotiedostoa, joka sisältää äänen monikanavalähdön. Tätä ei tueta. Vaihda digitaaliseen äänilähtöön ja yhdistä HD Media Player AV-vastaanottimeen, joka tukee valittua äänen pakkausta."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Äänikanava"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Ohjelmistopäivitys"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Videojakso"
+
+msgid "Music sequence"
+msgstr "Musiikkijakso"
+
+msgid "Slideshow sequence"
+msgstr "Diaesitysjakso"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Pyyhintä oikealle"
+
+msgid "Wipe left"
+msgstr "Pyyhintä vasemmalle"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "HD Media Player -asemaasi päivitetään. ÄLÄ katkaise virtaa tai poista tallennusvälinettä."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Tuotteen nimi ei voi sisältää mitään seuraavista merkeistä \\ / : * ? â?? ; | tyhjien merkkien kanssa. Tämä nimi ei voi olla yli 15 merkkiä pitkä."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Läntinen Eurooppa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Laitteen asentaminen kotiverkkoon onnistui."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "HDD"
+msgstr "Kiintolevy"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Sammutus"
+
+msgid "HDMI settings"
+msgstr "HDMI-asetukset"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Skaalaa vääristymän kanssa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Tuotteen nimi ei saa sisältää mitään seuraavista merkeistä \\ / : * ? ¡§ ; | välilyöntien kanssa. Tässä nimessä ei saa olla yli 15 merkkiä."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "Sisällön koostaminen"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Omat yhteystiedot"
+
+msgid "My tags"
+msgstr "Omat tagit"
+
+msgid "Owner profile"
+msgstr "Omistajan profiili"
+
+msgid "Play mode"
+msgstr "Toistotila"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Lajittelu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "Edellinen"
+
+
+
+
+
+
+msgid "ON"
+msgstr "Päällä"
+
+msgid "OFF"
+msgstr "Pois päältä"
+
+msgid "NEXT"
+msgstr "Seuraava"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Kansio"
+
+msgid "Album browser"
+msgstr "Albumiselain"
+
+msgid "Add photo to album"
+msgstr "Lisää valokuva albumiin"
+
+msgid "Select | Unselect item(s)"
+msgstr "Valitse | Poista valinnat"
+
+msgid "Select album"
+msgstr "Valitse albumi"
+
+msgid "Processing"
+msgstr "Käsitellään"
+
+msgid "Select all"
+msgstr "Valitse kaikki"
+
+msgid "Unselect all"
+msgstr "Poista kaikki valinnat"
+
+msgid "Album name"
+msgstr "Albumin nimi"
+
+msgid "Completed"
+msgstr "Valmis"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Haluatko lisätä xxxx valokuvaa albumiin?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Haluatko lopettaa tiedostojen lisäämisen?"
+
+msgid "Selected album has deleted."
+msgstr "Valitut albumit on poistettu."
+
+msgid "Selected photo has been removed from the album."
+msgstr "Valitut valokuvat on poistettu albumista."
+
+msgid "The album has been renamed."
+msgstr "Albumi on nimetty uudelleen."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Haluatko poistaa valitut valokuvat albumista?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Haluatko poistaa valitun albumin?\nValokuvia ei poisteta."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Albumin nimi on jo käytössä. Kokeile jotain muuta nimeä."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Haluatko varmasti nimetä tämän albumin uudelleen?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Virhe kirjoitettaessa. Tarkista paikallinen tallennusväline. Se voi olla täynnä tai kirjoitussuojattuna."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Virhe lähdetiedostoa luettaessa, tarkista paikallinen tallennusväline."
+
+msgid "File management"
+msgstr "Tiedostonhallinta"
+
+
+
+msgid "Select source"
+msgstr "Valitse lähde"
+
+msgid "File(s)"
+msgstr "Tiedosto(a)"
+
+msgid "Folder(s)"
+msgstr "Kansio(ta)"
+
+msgid "Yes to all"
+msgstr "Kyllä kaikkiin"
+
+msgid "No to all"
+msgstr "Ei kaikkiin"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Kopioi, siirrä tai poista kohteet"
+
+msgid "Remove photo"
+msgstr "Poista valokuva"
+
+msgid "Rename or delete album"
+msgstr "Nimeä uudelleen tai poista albumi"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Tallennusvälinettä ei löydy. Aseta tallennusväline ja virkistä uudelleen."
+
+msgid "Would you like to overwrite it?"
+msgstr "Kirjoitetaanko yli?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Haluatko kopioida valitut tiedostot?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Haluatko siirtää valitut tiedostot?"
+
+
+
+msgid "Chapter"
+msgstr "Luku"
+
+msgid "Title and Edition"
+msgstr "Nimi ja versio"
+
+msgid "Menu"
+msgstr "Valikko"
+
+msgid "Operation not supported"
+msgstr "Toiminto ei tuettu"
+
+msgid "File Date"
+msgstr "Päivämäärä"
+
+msgid "Resolution"
+msgstr "Tarkkuus"
+
+msgid "Turkish (Windows-1254)"
+msgstr "turkki (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "heprea (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Lähetä"
+
+msgid "Check network status"
+msgstr "Tarkista verkon tila"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Avaimen tyyppivirhe!\n Jos avaimen tyyppi on heksa-arvo, varmista arvoksi A–F, 0–9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Avaimen pituusvirhe!\n Jos avaimen tyyppi on ASCII, pituuden pitää olla 5, 13 tai 16.\nJos avaimen tyyppi on heksa-arvo, pituuden pitää olla 10, 26 tai 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Avaimen pituusvirhe!\n WPAPSK-avaimen pituuden pitää olla 8–64!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Tyyppivirhe!\n 64 merkkiä pitkän WPAPSK-avaimen pitää olla heksa-arvo (A–F, 0–9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "IP-osoite on epäkelpo. Tarkista IP-osoite ja yritä uudelleen."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "Sähköpostiosoite on epäkelpo. Tarkista sähköpostiosoite ja yritä uudelleen."
+
+msgid "Invalid character(s) in first name."
+msgstr "Etunimessä epäkelpo merkki."
+
+msgid "Invalid character(s) in last name."
+msgstr "Sukunimessä epäkelpo merkki."
+
+
+
+msgid "Hungarian"
+msgstr "unkari"
+
+msgid "Serial number:"
+msgstr "Sarjanumero:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Käynnistä uudelleen painamalla kaukosäätimen virtapainiketta."
+
+msgid "Creator"
+msgstr "Tekijä"
+
+msgid "Web browser"
+msgstr "Web-selain"
+
+msgid "Add to contacts"
+msgstr "Lisää yhteystietoihin"
+
+msgid "Recently upload"
+msgstr "Vasta lähetetyt"
+
+msgid "Photo set"
+msgstr "Valokuvasarja"
+
+msgid "Friends"
+msgstr "Ystävät"
+
+msgid "There is no contact."
+msgstr "Ei yhteystietoja."
+
+msgid "There is no tag."
+msgstr "Ei tunnistetta."
+
+msgid "Search Results"
+msgstr "Hakutulokset"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Haluatko varmasti poistaa tämän aseman?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Haluatko lisätä tämän aseman esiasetuksiin?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Kuuntele tuhansia Internet-radioasemia ilman mainoksia! Live365:lla on lähetyksiä Radio Disneyssä, Santana, David Bynne, Pat Metheny ja Paul Oakenfold, kuten myös asemilla, jotka on luonut joku kaltaisesi musiikin ystävä! Selaa suosittuja tyylilajeja kuten rock, hip-hop, jazz ja new age. Tai löydä aarteita harvinaisemmista tyyleistä kuten gospel, komedia, anime, hindi, trip-hop, 30-luku, glam, tribaalimusiikki, kelttimusiikki tai joku sadoista muista tyyleistä."
+
+msgid "Japan"
+msgstr "japani"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Tämä tiedosto ei ole tällä hetkellä käytettävissä. Yritä myöhemmin uudelleen."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Haluatko arvioida tämän videon? Kirjaudu!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Haluatko lisätä suosikkeihin? Kirjaudu!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Paina TOISTO/TAUKO katsoaksesi kokonäytössä."
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "Ei voi yhdistää YouTubeen. Tuntematon verkkovirhe tapahtui. Tarkista verkkoasetukset ja yritä uudelleen."
+
+msgid "Poor"
+msgstr "Heikko"
+
+msgid "Nothing special"
+msgstr "Ei erityinen"
+
+msgid "Worth watching"
+msgstr "Katsomisen arvoinen"
+
+msgid "Pretty cool"
+msgstr "Aika hyvä"
+
+msgid "Awesome"
+msgstr "Erinomainen"
+
+msgid "Show info"
+msgstr "Näytä tiedot"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "Laitteen lämpötila on yli 60 astetta, kiintolevy sammutetaan."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "Laitteen lämpötila on yli 65 astetta, laite sammutetaan."
+
+msgid "Configure"
+msgstr "Määritä"
+
+msgid "Delete album"
+msgstr "Poista albumi"
+
+msgid "Rename album"
+msgstr "Nimeä albumi uudelleen"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Poista soittolista"
+
+msgid "Rename playlist"
+msgstr "Nimeä soittolista uudelleen"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Soittolistaa ei ole olemassa. Luotko uuden soittolistan?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Haluatko varmasti poistaa soittolistan?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Haluatko varmasti tyhjentää tämän soittolistan tiedostoista?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Haluatko lopettaa tiedostojen lisäämisen?"
+
+msgid "The selected album has been deleted."
+msgstr "Valitut albumit on poistettu."
+
+msgid "The selected photo has been removed from album."
+msgstr "Valitut valokuvat on poistettu albumista."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Virhe etätiedostoa luettaessa. Tarkista mediapalvelimen tai verkon tila."
+
+msgid "The selected music has been deleted."
+msgstr "Valittu musiikki on poistettu."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "Haluatko lisätä xxxx musiikkitiedostoa albumiin?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Haluatko lopettaa musiikin lisäämisen?"
+
+msgid "The playlist has been renamed."
+msgstr "Soittolista on nimetty uudelleen."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Haluatko poistaa valitun musiikin soittolistasta?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Haluatko poistaa valitun soittolistan?\nMusiikkia ei poisteta."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Soittolistan nimi on jo käytössä. Kokeile jotain muuta nimeä."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Haluatko varmasti nimetä soittolistan uudelleen?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Tallennusvälinettä ja mediapalvelinta ei löydy. Aseta tallennusväline tai tarkista verkon määritys ja virkistä uudelleen."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "Tässä kansiossa on jo tiedosto, jonka nimi on:Kirjoitetaanko yli?"
+
+msgid "Process completed."
+msgstr "Prosessi valmis."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Kansion nimi ei voi sisältää mitään seuraavista merkeistä \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Albumin nimi ei voi sisältää välilyöntiä tai mitään seuraavista merkeistä \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nTiedostonimen enimmäispituus on xx merkkiä."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Soittolistan nimi ei voi sisältää välilyöntiä tai mitään seuraavista merkeistä \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nTiedostonimen enimmäispituus on xx merkkiä."
+
+msgid "Select"
+msgstr "Valitse"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "JOS ET HYVÄKSY NÄITÄ EHTOJA, SINUN TULEE VÄLITTÖMÄSTI PALAUTTAA TUOTE ALKUPERÄISESSÄ PAKKAUKSESSAAN OSTOPAIKKAAN. SAAT TÄYDEN HYVITYKSEN OSTOHINNASTA KOLMENKYMMENEN (30) PÄIVÄN AJAN TUOTTEEN OSTOPÄIVÄMÄÄRÄSTÄ."
+
+msgid "MediaflyVideo"
+msgstr "Video"
+
+msgid "Accept"
+msgstr "Hyväksyä"
+
+msgid "Decline"
+msgstr "Kieltäytyä"
+
+msgid "Rename or delete playlist"
+msgstr "Nimeä tai Poista soittolista"
+
+msgid "The playlist has been created."
+msgstr "Soittolista on luotu."
+
+msgid "Select music"
+msgstr "Valitse musiikki"
+
+msgid "Select playlist"
+msgstr "Valitse soittolista"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Haluatko lisätä xxx musiikkia soittolistan?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Haluatko lisätä xxx valokuva-albumiin?"
+
+msgid "Remove music from playlist"
+msgstr "Poista musiikkia soittolistan"
+
+msgid "Sort music"
+msgstr "Järjestä musiikki"
+
+msgid "Move up"
+msgstr "Siirrä ylös"
+
+msgid "Move down"
+msgstr "Siirrä alas"
+
+msgid "Are you sure to change the sort?"
+msgstr "Oletko varma muuttaa lajitella?"
+
+msgid "Remove or sort playlist"
+msgstr "Poista tai lajitella soittolista"
+
+msgid "Remove music"
+msgstr "Poista musiikki"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Oletko varma että haluat poistaa valitun musiikkia soittolistan?"
+
+msgid "Photo album"
+msgstr "Kuva-albumi"
+
+msgid "The album has been created."
+msgstr "Albumi on luotu."
+
+msgid "Select photo"
+msgstr "Valitse kuva"
+
+msgid "Add to album"
+msgstr "Lisää albumiin"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Videota ei voi ladata.  Ei-tuettu muoto."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "Laajennuksen käyttö mahdollistaa tuetuissa muodoissa olevan videon virtautuksen. Kaikkea virtautettua videosisältöä ei tueta."
+
+msgid "Enable for Favorites"
+msgstr "Ota käyttöön suosikeille"
+
+msgid "Enable for all websites"
+msgstr "Ota käyttöön kaikille sivustoille"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Selaimen suorituskyvyn parantamiseksi Flash-lisäosa on käytössä vain suosikkeihin kuuluvien sivustojen kanssa. Jos haluat ottaa lisäosan käyttöön kaikkien sivustojen kanssa, siirry Asetus-valikon kohtaan Verkko. "
+
+
+msgid "Photos"
+msgstr "Valokuvat"
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Cancel"
+msgstr "Peruuta"
+
+msgid "Confirm"
+msgstr "Vahvista"
+
+msgid "Bookmarks"
+msgstr "Kirjanmerkit"
+
+msgid "Add Bookmark"
+msgstr "Lisää kirjanmerkki"
+
+msgid "Edit Bookmark"
+msgstr "Muokkaa kirjanmerkkiä"
+
+msgid "Clear Bookmarks"
+msgstr "Poista kirjanmerkit"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Haluatko varmasti poistaa kirjanmerkkisi?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Haluatko varmasti poistaa tämän kirjanmerkin?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "Palvelin [server-name] tarjosi varmennetta, jonka on antanut yhteisö, joka ei ole luotettu. Jatketaanko?"
+
+msgid "[url] is not available."
+msgstr "[url] ei ole käytettävissä."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "Jokin ongelma on havaittu."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "WWW-sivun lataaminen osoitteesta [url] ei onnistu."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Voit kokeilla seuraavia asioita:"
+
+msgid "Reload this web page later."
+msgstr "Lataa tämä WWW-sivu myöhemmin uudelleen."
+
+msgid "Return to the previous web page."
+msgstr "Palaa edelliselle WWW-sivulle."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Haluatko varmasti poistaa historiatiedot?"
+
+msgid "Clear History"
+msgstr "Poista historiatiedot"
+
+msgid "History"
+msgstr "Historiatiedot"
+
+msgid "No Title"
+msgstr "Ei otsikkoa"
+
+msgid "The history is empty."
+msgstr "Ei historiatietoja."
+
+msgid "HTTP Authentication"
+msgstr "HTTP-todennus"
+
+msgid "Authentication Required"
+msgstr "Todennus vaaditaan"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "Palvelin [server-hostname] osoitteessa [url-name] vaatii käyttäjänimen ja salasanan."
+
+msgid "User Name:"
+msgstr "Käyttäjänimi:"
+
+msgid "Password:"
+msgstr "Salasana:"
+
+msgid "Pop-up Window"
+msgstr "Ponnahdusikkuna"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "Haluatko avata ponnahdusikkunan toimialueesta [domain-name]?"
+
+msgid "New Window"
+msgstr "Uusi ikkuna"
+
+msgid "New URL [url] from [url]"
+msgstr "Uusi URL-osoite [url] osoitteesta [url]"
+
+msgid "Same"
+msgstr "Sama"
+
+msgid "Insecure to Secure"
+msgstr "Suojaamaton suojatuksi"
+
+msgid "Secure to Insecure"
+msgstr "Suojattu suojaamattomaksi"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Haluatko nähdä tämän hälytyksen jatkossa?"
+
+msgid "Security Warning"
+msgstr "Turvallisuusvaroitus"
+
+msgid "Started"
+msgstr "Aloitettu"
+
+msgid "Loading"
+msgstr "Lataa"
+
+msgid "Done"
+msgstr "Valmis"
+
+msgid "Title of the page."
+msgstr "Sivun otsikko."
+
+msgid "Goto"
+msgstr "Siirry"
+
+
+
+msgid "Forward"
+msgstr "Eteenpäin"
+
+
+
+msgid "Refresh"
+msgstr "Virkistä"
+
+msgid "Cursor"
+msgstr "Kohdistin"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Kaukosäätimen käyttäminen selaimessa"
+
+msgid "Exit web browser"
+msgstr "Poistu selaimesta"
+
+msgid "Move cursor in web browser"
+msgstr "Siirrä kohdistinta selaimessa"
+
+msgid "Click to select links in web browser"
+msgstr "Valitse selaimen linkkejä napsauttamalla"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Alt-näppäin käytettäessä selaimen näppäimistöä"
+
+msgid "Back to previous web page"
+msgstr "Takaisin edelliselle sivulle"
+
+msgid "Display URL bar and web browser options"
+msgstr "Näytä URL-palkki ja selaimen asetukset"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "Lähetä URL-osoite tai teksti Enter-painikkeella"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Vieritä sivuja ylös/alas-painikkeilla"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Symbol-näppäin käytettäessä selaimen näppäimistöä"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Välilyöntinäppäin käytettäessä selaimen näppäimistöä"
+
+msgid "Show this information again?"
+msgstr "Näytetäänkö tämä tieto uudelleen?"
+
+msgid "NO"
+msgstr "EI"
+
+msgid "YES"
+msgstr "KYLLÄ"
+
+msgid "Eject USB device"
+msgstr "Poista USB-laite"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Beta-selaimella voi katsoa Suosikit-luettelossa näkyvää suosittua sisältöä. Voit siirtyä myös muihin sivustoihin; videosisältöä on saatavilla ainoastaan Suosikit-luettelossa näkyvistä sivustoista."
+
+msgid "Downloading update..."
+msgstr "Ladataan päivitystä..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Mediakirjastossa on otettava käyttöön ennen Haku-toiminnolla."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "IOMEGA-KÄYTTÖOIKEUSSOPIMUS"
+
+msgid "IF YOU DO NOT…"
+msgstr "JOS SINÄ ET..."
+
+msgid "Digital without HDMI audio"
+msgstr "Digitaalinen ilman HDMI-ääntä"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "Tähän DivX-vuokraukseen on käytetty X/Y katselukertaa"
+
+msgid "Continue?"
+msgstr "Jatketaanko?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Haluatko varmasti lopettaa tiedostojen kopioinnin?"
+
+msgid "Mediafly dashboard"
+msgstr "Mediaflyn koontinäyttö"
+
+msgid "My channels"
+msgstr "Omat kanavat"
+
+msgid "Popular channels"
+msgstr "Suositut kanavat"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Haluatko varmasti poistaa tämän tilin?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Haluatko varmasti lisätä shown:"
+
+msgid "This episode"
+msgstr "Tämä jakso"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Tämä jakso on lisätty kanavaasi. Muita vaihtoehtoja löytyy Mediafly.com-sivustosta."
+
+msgid "All Episodes in this show"
+msgstr "Kaikki tämän shown jaksot"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Tämä show on lisätty kanavaasi. Muita vaihtoehtoja löytyy Mediafly.com-sivustosta."
+
+msgid "What would you like to remove?"
+msgstr "Mitä haluat poistaa?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Tämä jakso on poistettu kanavastasi. Muita vaihtoehtoja löytyy Mediafly.com-sivustosta."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Tämä show on poistettu kanavastasi. Muita vaihtoehtoja löytyy Mediafly.com-sivustosta."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Haluatko arvioida tämän shown/jakson?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Kiitos. Muita vaihtoehtoja löytyy Mediafly.com-sivustosta."
+
+msgid "View episodes"
+msgstr "Katso jaksot"
+
+msgid "Add content source"
+msgstr "Lisää sisältölähde"
+
+msgid "Add via mcode"
+msgstr "Lisää mcodella"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Avaa alla oleva sisältölähteen mCode"
+
+msgid "an mCode is used to activate private content source"
+msgstr "mCodea käytetään yksityisen sisältölähteen aktivointiin"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "Sisältölähde on lisätty Mediaflyn koontinäyttöön."
+
+msgid "Invalid mCode, please try again."
+msgstr "Virheellinen mCode. Yritä uudelleen."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Lisää kaupunki"
+
+msgid "City management"
+msgstr "Kaupunkien hallinta"
+
+msgid "Search location"
+msgstr "Hae sijainti"
+
+msgid "Change temperature unit"
+msgstr "Vaihda lämpötilan yksikkö"
+
+msgid "Please define your default city location."
+msgstr "Määritä oletuskaupungin sijainti."
+
+msgid "Do you want to clear all city?"
+msgstr "Haluatko poistaa kaikki kaupungit?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Haluatko poistaa valitun kaupungin?"
+
+msgid "No result, please search again."
+msgstr "Ei tuloksia. Hae uudelleen."
+
+msgid "Remove movie Info"
+msgstr "Poista elokuvan tiedot"
+
+msgid "Rescan Movie Info"
+msgstr "Etsi elokuvan tiedot uudelleen"
+
+
+
+msgid "Manual search"
+msgstr "Manuaalinen haku"
+
+
+
+msgid "Please wait..."
+msgstr "Odota…"
+
+msgid "Are you sure you want to remove content info?"
+msgstr "Haluatko varmasti poistaa sisältötiedot?"
+
+msgid "Content info has been removed."
+msgstr "Sisältötiedot on poistettu."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "Tiedot TMDb-palvelusta"
+
+msgid "No need"
+msgstr "Ei tarvetta"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "Sisältötietoja ei löytynyt verkkotietokannasta. Vaihda hakusanoja ja yritä uudelleen."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Elokuvatietojen tallennus epäonnistui. Tarkista verkkoyhteys."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Elokuvatietojen tallennus epäonnistui. Tallennustila voi olla täynnä tai kirjoitussuojattuna."
+
+msgid "Add to playlist"
+msgstr "Lisää soittolistaan"
+
+msgid "Back"
+msgstr "Takaisin"
+
+msgid "Connect"
+msgstr "Yhdistä"
+
+msgid "Create playlist"
+msgstr "Luo soittolista"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS on epäkelpo. Tarkista DNS ja yritä uudelleen."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Haluatko poistaa valitut tiedostot?"
+
+msgid "Edit playlist"
+msgstr "Muokkaa soittolistaa"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Yhdyskäytävä on epäkelpo. Tarkista yhdyskäytävä ja yritä uudelleen."
+
+msgid "Home"
+msgstr "Koti"
+
+msgid "It should not be empty!"
+msgstr "Ei voi olla tyhjä!"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Select destination"
+msgstr "Valitse kohde"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Aliverkon peite on epäkelpo. Tarkista aliverkon peite ja yritä uudelleen."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Laitteen yhteys mediapalvelimeen on katkennut."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Valittu musiikki on poistettu soittolistasta."
+
+msgid "Yes"
+msgstr "Kyllä"
+
+msgid "Movies"
+msgstr "Elokuva"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Käytä videon tiedot valitsemalla 'ENTER'."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Hakee elokuvatietoja.\nOdota…"
+msgid "Delete all"
+msgstr "Poista kaikki"
+
+msgid "Wind velocity:"
+msgstr "tuulen nopeus"
+
+msgid "Humidity:"
+msgstr "kosteus"
+
+msgid "High/Low"
+msgstr "High / Low"
+
+msgid "Wind direction:"
+msgstr "tuulen suunta"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather palvelin ei vastaa. Yritä myöhemmin uudelleen."
+
+msgid "Movie info auto scan"
+msgstr "Movie info Auto Scan"
+
+msgid "Ignore"
+msgstr "sivuuttaa"
+
+msgid "Scan movie info"
+msgstr "Scan movie info"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Työryhmän nimi ei voi sisältää välilyöntiä tai mitään seuraavista merkeistä \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nTiedostonimen enimmäispituus on xx merkkiä."
+

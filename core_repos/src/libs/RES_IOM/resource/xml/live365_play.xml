@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/live365/Media Player_live365_bg.jpg">
+	<ctrlgrp> 
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+	</ctrlgrp>
+	<include filename="./inc_optionmenu_widgets_live365.xml"/>
+
+	<text text="@@station" x="171" y="154" w="652" h="38" fontsize="36" textcolor="0xff343298" align="left"/>
+	
+	<image x="255" y="248" w="227" h="227" image="@@album_icon" default_image="image/live365/Generic_live365_streaming_cd.png" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+	<image x="449" y="248" w="765" h="227" image="image/live365/Music-Player_live365_streaming_list_bg.png" bg="1"/> 
+
+	<text text="@@songname" x="534" y="272" w="630" h="32" fontsize="30" numlines="1" textcolor="0xff43a7a7" speed="1" delay="2" align="left"/> 
+	<image x="533" y="306" w="503" h="2" image="image/live365/Generic_live365_streaming_list_line.png" bg="1"/> 
+	
+	<text x="534" y="327" w="630" h="25" text="@@artist" fortsize="20" textcolor="0xff4b4b4b" align="left" speed="1" delay="2"/>  
+	<image x="533" y="356" w="503" h="2" image="image/live365/Generic_live365_streaming_list_line.png" bg="1"/> 
+	
+	
+	<text x="534" y="374" w="630" h="25" text="@@album" fortsize="20" textcolor="0xff4b4b4b" align="left" speed="1" delay="2"/>  
+	<image x="533" y="406" w="503" h="2" image="image/live365/Generic_live365_streaming_list_line.png" bg="1"/> 
+	
+	<text x="534" y="424" w="145" h="25" text="@@audio_currenttime" fortsize="20" textcolor="0xff4b4b4b" align="left" speed="1" delay="2"/>  
+	<text x="965" y="424" w="145" h="25" fontsize="20" text="@@station_biterate" align="left" textcolor="0xff4b4b4b"/>
+	<image x="533" y="456" w="503" h="2" image="image/live365/Generic_live365_streaming_list_line.png" bg="1"/> 
+
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_live365_icon.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+
+  <text id="subheadline" text="$$Connecting"/>
+  <image id="step" image="image/wizard_step_5_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <motion_icon x="234" y="291" w="253" h="163" count="12" base_filename="image/wizard_wired_progress_n" suffix_name="png"/> 
+  
+  <text text="@@STATUS_INFO" x="100" y="170" w="520" h="30" fontsize="26" align="hcenter" textcolor="0xEDC831"/>
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

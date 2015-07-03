@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<rules>
+	<file default_policy="0" delimiter="=" type="0">
+		<source>/conf_src/config_factory_default</source>
+		<target>/tmp/conf/config</target>
+		<itemset>
+			<item>
+				<label>FWUDSERVER</label>
+				<policy>1</policy>
+			</item> 
+			<item>
+				<label>FWUDPASSWD</label>
+				<policy>3</policy>
+			</item> 
+		</itemset>
+	</file>
+</rules>

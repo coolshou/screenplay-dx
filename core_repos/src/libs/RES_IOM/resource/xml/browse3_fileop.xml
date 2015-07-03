@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg" type="basic">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr" turbo_trigger="10" turbo_multi="10" />
+	<linebreak/>
+  
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+
+  <text text="@@pagecounter" x="810" y="156" w="200" h="26" fontsize="20" align="right" textcolor="0xffffff"/>
+	<include filename="./inc_setup_entry_basic_title.xml"/>
+	
+	<include filename="./inc_list_browse.xml"/>
+
+	<include filename="./inc_headline_property.xml"/>
+
+	<include filename="./inc_decoration.xml"/>
+
+	<include filename="./inc_optionmenu_widgets_file_management.xml"/>
+
+	<!-- Show the actions of source -->
+	<wrapper cols="1" colspacing="0" fontsize="20" align="left" disable="@@disable-PROMPT_SOURCE" textcolor="0xffffff">
+		<image image="image/filemanagement/hot_key_pause_play.png" x="299" y="658" w="46" h="33"/>
+		<text text="$$Select | Unselect item(s)" x="356" y="666" w="300" h="22"/>
+		<image image="image/filemanagement/hot_key_option.png" x="673" y="658" w="46" h="33"/>
+		<text text="$$Copy, move or delete item(s)" x="731" y="666" w="300" h="22"/>
+	</wrapper>
+
+	<!-- Show the actions of destination -->
+	<table cols="1" colspacing="0" fontsize="20" align="left" disable="@@disable-PROMPT_DEST" textcolor="0xffffff">
+		<image image="image/filemanagement/hot_key_option.png" x="581" y="658" w="46" h="33"/>
+		<text text="$$Confirm" x="639" y="666" w="300" h="22"/>
+	</table>
+
+	<include filename="./inc_loading.xml"/>
+
+	<include filename="./inc_browse3_fileop_msg.xml"/>
+
+</page>

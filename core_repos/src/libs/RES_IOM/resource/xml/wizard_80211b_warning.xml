@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp lbmask="l">
+    <button valkey="NEXT"
+      	focused_bg="image/common_button_B_btn_f.png"
+      	normal_bg="image/common_button_B_btn_n.png"
+      	click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+   
+  <text id="subheadline" text="$$Wireless network"/>
+  <image id="step" image="image/wizard_step_2_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$Low signal strength" x="122" y="177" w="482" h="25" fontsize="20" numlines="4"/>
+  <text text="$$The wireless network you have chosen has a weak signal. This may cause video to not play smoothly." x="122" y="200" w="482" h="50" fontsize="20" numlines="2"/>
+  <text text="$$Would you like to continue anyway?" x="122" y="260" w="482" h="50" fontsize="20"/>
+<!--  <text text="$$802.11b Network Detected." x="122" y="177" w="482" h="30" fontsize="20"/>
+  <text text="$$The access point that you selected is 802.11b, it would not be enough to play video smoothly." x="122" y="207" w="482" h="100" fontsize="20" numlines="4"/>-->
+
+  <imgbtn image="@@bg-NEXT" x="223" y="398" w="275" h="36" text="$$Next" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-NEXT" actnoseltextcolor="0x3333333"/>
+  <include filename="./inc_setup_headline_property.xml" />
+
+</page>

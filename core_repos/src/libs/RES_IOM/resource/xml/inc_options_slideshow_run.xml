@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="image/slideshow_options_menu_bg_x6.png" x="336" y="0" w="608" h="138" bg="1" disable="@@disable-options_bg"/>
+	<table x="367" y="38" h="75" w="546" cols="6" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0"/>
+		<image image="@@bg-QML1"/>
+		<image image="@@bg-QML2"/>
+		<image image="@@bg-QML3"/>
+		<image image="@@bg-QML4"/>
+		<image image="@@bg-QML5"/>
+	</table>
+	<table x="367" y="38" h="75" w="546" cols="6" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@lightbar-QML0" bg="1"/>
+		<image image="@@lightbar-QML1" bg="1"/>
+		<image image="@@lightbar-QML2" bg="1"/>
+		<image image="@@lightbar-QML3" bg="1"/>
+		<image image="@@lightbar-QML4" bg="1"/>
+		<image image="@@lightbar-QML5" bg="1"/>
+	</table>
+
+</wrapper>

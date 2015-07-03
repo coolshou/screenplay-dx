@@ -1,0 +1,31 @@
+menu "Rally features"
+	config RALLY
+		bool "Support Rally"
+		default n
+		help
+			Support Rally
+	config LLTD
+		bool "Support LLTD"
+		default n
+		help
+			Support LLTD
+	config SUPPORT_WMAPRO_IN_DEVICE_DESCRIPTION
+		bool "Support WMAPRO in device description"
+		default n
+		help
+			If you want to support WMAPRO in device description, please enable this option."
+	config SUPPORT_RENDERER_USING_STATE
+		depends on RALLY
+		bool "Support to response render's state"
+		default n
+		help
+			Support to response render's state
+	config SUPPORT_RENDERER_SELECT_PROFILE
+		depends on RALLY
+		bool "Support renderer to select profile"
+		default n
+		help
+			If the media file format is WMVHIGH_PRO, WMVMED_PRO or WMAPRO, our renderer cannot play them.
+			But Windows7 can transform these format to other format which maybe our renderer can play.
+			Open this config our renderer will select the best one of them and play it.
+endmenu

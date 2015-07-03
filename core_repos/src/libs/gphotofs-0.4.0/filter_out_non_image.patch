@@ -1,0 +1,14 @@
+--- gphotofs-0.4.0/gphotofs.c.org	2009-09-01 15:14:49.000000000 +0800
++++ gphotofs-0.4.0/gphotofs.c	2009-09-01 15:15:31.000000000 +0800
+@@ -212,7 +212,10 @@
+       if (ret != 0) {
+          goto error;
+       }
+-
++#if 1
++      if (strncmp( info.file.type, "image", 5 ))
++	      continue;
++#endif
+       stbuf = g_new0(struct stat, 1);
+       stbuf->st_mode = S_IFREG | 0644;
+       stbuf->st_nlink = 1;

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Ken Zhao <xzhao@redsonic.com> -->
+<page background="./image/dsm320rd_home.jpg" numitems="4">
+
+	<vfd heading="D-LINK" pagetype="MAIN" message=""/>
+
+  <include filename="./info.xml"/>
+  <ctrlgrp more_select="right" lbmask="UD">
+    <button valkey="FOLDER" focused_bg="image/lightbar-320rdhome-mymedia.gif"/>
+    <linebreak/>
+    <button valkey="ALL" focused_bg="image/lightbar-320rdhome-dvd.gif"/>
+    <linebreak/>
+    <button valkey="ARTIST" focused_bg="image/lightbar-320rdhome-cardreader.gif"/>
+    <linebreak/>
+    <button valkey="ALBUM" focused_bg="image/lightbar-320rdhome-online.gif"/>
+    <linebreak/>
+    <button valkey="GENRE" focused_bg="image/lightbar-320rdhome-online.gif"/>
+    <linebreak/>
+    <button valkey="PLAYLIST" focused_bg="image/lightbar-320rdhome-online.gif"/>
+    <linebreak/>
+    <button valkey="RECENT" focused_bg="image/lightbar-320rdhome-online.gif"/>
+  </ctrlgrp>
+
+  <table x="178" y="108" w="341" h="476" rowspacing="7" cols="1" rows="7">
+    <image image="@@bg-FOLDER" group="C0"/>
+    <image image="@@bg-ALL" group="C1"/>
+    <image image="@@bg-ARTIST" group="C2"/>
+    <image image="@@bg-ALBUM" group="C3"/>
+    <image image="@@bg-GENRE" group="C4"/>
+    <image image="@@bg-PLAYLIST" group="C5"/>
+    <image image="@@bg-RECENT" group="C6"/>
+  </table>
+  <table x="185" y="108" w="341" h="476" rowspacing="7" cols="1" rows="7"
+         textcolor="0x666666" activetextcolor="0xFFFFFF">
+    <text text="$$BY FOLDER" group="C0" lmargin="63" h="63" ymargin="16" active="@@act-FOLDER"/>
+    <text text="$$ALL MUSIC" group="C1" lmargin="63" h="63" ymargin="16" active="@@act-ALL"/>
+    <text text="$$BY ARTIST" group="C2" lmargin="63" h="63" ymargin="16" active="@@act-ARTIST"/>
+    <text text="$$BY ALBUM" group="C3" lmargin="63" h="63" ymargin="16" active="@@act-ALBUM"/>
+    <text text="$$BY GENRE" group="C4" lmargin="63" h="63" ymargin="16" active="@@act-GENRE"/>
+    <text text="$$BY PLAYLIST" group="C5" lmargin="63" h="63" ymargin="16" active="@@act-PLAYLIST"/>
+    <text text="$$MOST RECENT" group="C6" lmargin="63" h="63" ymargin="16" active="@@act-RECENT"/>
+  </table>
+
+  <!-- fixed -->
+  <image image="@@keyicon_ex" x="530" y="53" w="50" h="50"/>
+  <image image="@@keyicon" x="590" y="53" w="50" h="50"/>
+  <image image="@@volume" group="V" x="240" y="360" w="284" h="55"/> 
+
+</page>

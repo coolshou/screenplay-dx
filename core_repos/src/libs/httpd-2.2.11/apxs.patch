@@ -1,0 +1,22 @@
+--- apxs.org	2010-03-26 18:10:26.000000000 +0800
++++ apxs	2010-03-26 19:03:54.000000000 +0800
+@@ -199,19 +199,6 @@
+     ($httpd = $0) =~ s:support/apxs$::;
+ }
+ 
+-unless (-x "$httpd") {
+-	error("$httpd not found or not executable");
+-	exit 1;
+-}
+-
+-unless (grep /mod_so/, `. $envvars && $httpd -l`) {
+-    error("Sorry, no shared object support for Apache");
+-    error("available under your platform. Make sure");
+-    error("the Apache module mod_so is compiled into");
+-    error("your server binary `$httpd'.");
+-    exit 1;
+-}
+-
+ sub get_config_vars{
+     my ($file, $rh_config) = @_;
+ 

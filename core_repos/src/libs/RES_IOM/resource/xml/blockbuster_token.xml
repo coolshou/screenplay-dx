@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<button valkey="Code1"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Code2"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Code3"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Code4"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Code5"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<linebreak/>
+		<button valkey="Activate" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+	</ctrlgrp>
+	<text text="@@info_text" x="297" y="154" w="685" h="100" numlines="2" fontsize="20" textcolor="0xfff2f2f2" align="hcenter"/>
+	<wrapper y="270" w="125" h="155" fontsize="76" textcolor="0xff000000" align="hcenter">
+		<imgbtn x="297" text="@@code1_text" image="@@bg-Code1" disable="@@disable-Code1" active="@@act-Code1" selected="@@sel-Code1" click="@@click-Code1" bg="1"/>
+		<imgbtn x="437" text="@@code2_text" image="@@bg-Code2" disable="@@disable-Code2" active="@@act-Code2" selected="@@sel-Code2" click="@@click-Code2" bg="1"/>
+		<imgbtn x="577" text="@@code3_text" image="@@bg-Code3" disable="@@disable-Code3" active="@@act-Code3" selected="@@sel-Code3" click="@@click-Code3" bg="1"/>
+		<imgbtn x="717" text="@@code4_text" image="@@bg-Code4" disable="@@disable-Code4" active="@@act-Code4" selected="@@sel-Code4" click="@@click-Code4" bg="1"/>
+		<imgbtn x="857" text="@@code5_text" image="@@bg-Code5" disable="@@disable-Code5" active="@@act-Code5" selected="@@sel-Code5" click="@@click-Code5" bg="1"/>
+	</wrapper>
+
+	<wrapper y="231" w="34" h="44">
+		<imgbtn x="350" image="@@code1_up_arrow_image"/>
+		<imgbtn x="490" image="@@code2_up_arrow_image"/>
+		<imgbtn x="632" image="@@code3_up_arrow_image"/>
+		<imgbtn x="770" image="@@code4_up_arrow_image"/>
+		<imgbtn x="910" image="@@code5_up_arrow_image"/>
+	</wrapper>
+
+	<wrapper y="440" w="34" h="44">
+		<imgbtn x="350" image="@@code1_down_arrow_image"/>
+		<imgbtn x="490" image="@@code2_down_arrow_image"/>
+		<imgbtn x="632" image="@@code3_down_arrow_image"/>
+		<imgbtn x="770" image="@@code4_down_arrow_image"/>
+		<imgbtn x="910" image="@@code5_down_arrow_image"/>
+	</wrapper>
+
+	<imgbtn x="534" y="554" w="210" h="49" text="$$Activate" image="@@bg-Activate" fontsize="20" align="hcenter"
+		textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040"
+		disable="@@disable-Activate" active="@@act-Activate" selected="@@sel-Activate" click="@@click-Activate"/>
+	<text text="@@alart_text" x="297" y="468" w="685" h="22" fontsize="20" textcolor="0xfffcb040" align="hcenter"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

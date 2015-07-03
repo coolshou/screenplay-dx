@@ -1,0 +1,11 @@
+--- list.c	2010-05-04 18:12:54.638267279 +0800
++++ list2.c	2010-05-04 18:15:07.562264970 +0800
+@@ -174,7 +174,7 @@
+   if (m_list_size(l) == 0 && !l->head)
+     DBUG_RETURN(- 1);
+ 
+-  if (element == NULL || element == l->head)//remove head
++  if (element == NULL)//remove head
+   {
+     (*data)= l->head->data;
+     old= l->head;

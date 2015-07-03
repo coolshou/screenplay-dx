@@ -1,0 +1,16 @@
+prefix=/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/QtWebKit
+qt_config=lex yacc uic resources qt release incremental link_prl no_mocdepend release stl qt_no_framework cross_compile release shared dll embedded largefile stl precompile_header def_files_disabled exceptions_off dylib create_prl link_prl depend_includepath QTDIR_build building-libs depend_includepath standalone_package depend_includepath embedded qt_install_headers qt warn_on depend_includepath qmake_cache target_qt hide_symbols bsymbolic_functions create_libtool create_pc link_pkgconfig no_debug_info moc thread shared dll
+moc_location=/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt/bin/moc
+uic_location=/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt/bin/uic
+
+Name: Qtwebkit
+Description: Qtwebkit Library
+Version: 4.7.0
+Libs: -L${libdir} -lQtWebKit 
+Libs.private: -L/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt/lib -L../JavaScriptCore/release -L$(SMP86XX_ROOTFS_PATH)//lib -L/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/DCCHD/dcchd_SMP8652_3_8_8_rc_17_aqua.mips/directfb//lib  -ljscore -lQtGui -L/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt/lib -L$(SMP86XX_ROOTFS_PATH)//lib -L/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/DCCHD/dcchd_SMP8652_3_8_8_rc_17_aqua.mips/directfb//lib -lQtNetwork -lQtCore -ldirectfb -ldirect -lfusion -lpthread   
+Cflags: -DQT_SHARED -I/root/projects/SMP/Vudu/core_repos/src/libs/../../src/libs/3_8_0/netflix/sigma_smp86xx_nrd-v2.0.4_20091229/nrd-3.0.2-591521/qt/include -I${includedir}
+Requires: QtCore QtGui QtNetwork
+

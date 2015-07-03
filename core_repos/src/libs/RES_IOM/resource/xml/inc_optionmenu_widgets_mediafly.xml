@@ -1,0 +1,11 @@
+
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@disable-optionmenu">
+	<mlmenuview ctrlname="mlmenu-optionmenu" changed="@@mlmenu-optionmenu-changed" style="infinity_optionmenu"     
+		x="0" y="0" w="1280" h="155"
+		nodename_color="0x4b4b4b" nodeicon_y="0" nodename_y="120"
+		focus_icon=""/>
+	<image image="image/mediafly/mediafly_option_menu_bg.png" x="0" y="0" w="1280" h="130" bg="1"/>
+</wrapper>
+</wrapper>

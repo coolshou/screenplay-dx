@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- plugins-howto.qdoc -->
+  <title>Qt 4.7: How to Create Qt Plugins</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>How to Create Qt Plugins</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-higher-level-api-writing-qt-extensions">The Higher-Level API: Writing Qt Extensions</a></li>
+<li class="level1"><a href="#the-lower-level-api-extending-qt-applications">The Lower-Level API: Extending Qt Applications</a></li>
+<li class="level1"><a href="#locating-plugins">Locating Plugins</a></li>
+<li class="level1"><a href="#static-plugins">Static Plugins</a></li>
+</ul>
+</div>
+<h1 class="title">How to Create Qt Plugins</h1>
+<span class="subtitle"></span>
+<!-- $$$plugins-howto.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="qt-debug-plugins"></a><a name="qt-no-plugin-check"></a><p>Qt provides two APIs for creating plugins:</p>
+<ul>
+<li>A higher-level API for writing extensions to Qt itself: custom database drivers, image formats, text codecs, custom styles, etc.</li>
+<li>A lower-level API for extending Qt applications.</li>
+</ul>
+<p>For example, if you want to write a custom <a href="qstyle.html">QStyle</a> subclass and have Qt applications load it dynamically, you would use the higher-level API.</p>
+<p>Since the higher-level API is built on top of the lower-level API, some issues are common to both.</p>
+<p>If you want to provide plugins for use with <i>Qt Designer</i>, see the <a href="qtdesigner.html">QtDesigner</a> module documentation.</p>
+<p>Topics:</p>
+<a name="the-higher-level-api-writing-qt-extensions"></a>
+<h2>The Higher-Level API: Writing Qt Extensions</h2>
+<p>Writing a plugin that extends Qt itself is achieved by subclassing the appropriate plugin base class, implementing a few functions, and adding a macro.</p>
+<p>There are several plugin base classes. Derived plugins are stored by default in sub-directories of the standard plugin directory. Qt will not find plugins if they are not stored in the right directory.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Base Class</th><th >Directory Name</th><th >Key Case Sensitivity</th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qaccessiblebridgeplugin.html">QAccessibleBridgePlugin</a></p></td><td ><p><tt>accessiblebridge</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qaccessibleplugin.html">QAccessiblePlugin</a></p></td><td ><p><tt>accessible</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qdecorationplugin.html">QDecorationPlugin</a></p></td><td ><p><tt>decorations</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qfontengineplugin.html">QFontEnginePlugin</a></p></td><td ><p><tt>fontengines</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qiconengineplugin.html">QIconEnginePlugin</a></p></td><td ><p><tt>iconengines</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qimageioplugin.html">QImageIOPlugin</a></p></td><td ><p><tt>imageformats</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qinputcontextplugin.html">QInputContextPlugin</a></p></td><td ><p><tt>inputmethods</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qkbddriverplugin.html">QKbdDriverPlugin</a></p></td><td ><p><tt>kbddrivers</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmousedriverplugin.html">QMouseDriverPlugin</a></p></td><td ><p><tt>mousedrivers</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qscreendriverplugin.html">QScreenDriverPlugin</a></p></td><td ><p><tt>gfxdrivers</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qscriptextensionplugin.html">QScriptExtensionPlugin</a></p></td><td ><p><tt>script</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qsqldriverplugin.html">QSqlDriverPlugin</a></p></td><td ><p><tt>sqldrivers</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qstyleplugin.html">QStylePlugin</a></p></td><td ><p><tt>styles</tt></p></td><td ><p>Case Insensitive</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qtextcodecplugin.html">QTextCodecPlugin</a></p></td><td ><p><tt>codecs</tt></p></td><td ><p>Case Sensitive</p></td></tr>
+</table>
+<p>Suppose that you have a new style class called <tt>MyStyle</tt> that you want to make available as a plugin. The required code is straightforward, here is the class definition (<tt>mystyleplugin.h</tt>):</p>
+<pre class="highlightedCode brush: cpp"> class MyStylePlugin : public QStylePlugin
+ {
+ public:
+     QStringList keys() const;
+     QStyle *create(const QString &amp;key);
+ };</pre>
+<p>Ensure that the class implementation is located in a <tt>.cpp</tt> file (including the class definition):</p>
+<pre class="highlightedCode brush: cpp"> #include &quot;mystyleplugin.h&quot;
+
+ QStringList MyStylePlugin::keys() const
+ {
+     return QStringList() &lt;&lt; &quot;MyStyle&quot;;
+ }
+
+ QStyle *MyStylePlugin::create(const QString &amp;key)
+ {
+     if (key.toLower() == &quot;mystyle&quot;)
+         return new MyStyle;
+     return 0;
+ }
+
+ Q_EXPORT_PLUGIN2(pnp_mystyleplugin, MyStylePlugin)</pre>
+<p>(Note that <a href="qstyleplugin.html">QStylePlugin</a> is case insensitive, and the lower-case version of the key is used in our <a href="qstyleplugin.html#create">create()</a> implementation; most other plugins are case sensitive.)</p>
+<p>For database drivers, image formats, text codecs, and most other plugin types, no explicit object creation is required. Qt will find and create them as required. Styles are an exception, since you might want to set a style explicitly in code. To apply a style, use code like this:</p>
+<pre class="highlightedCode brush: cpp"> QApplication::setStyle(QStyleFactory::create(&quot;MyStyle&quot;));</pre>
+<p>Some plugin classes require additional functions to be implemented. See the class documentation for details of the virtual functions that must be reimplemented for each type of plugin.</p>
+<p>The <a href="tools-styleplugin.html">Style Plugin Example</a> shows how to implement a plugin that extends the <a href="qstyleplugin.html">QStylePlugin</a> base class.</p>
+<a name="the-lower-level-api-extending-qt-applications"></a>
+<h2>The Lower-Level API: Extending Qt Applications</h2>
+<p>Not only Qt itself but also Qt application can be extended through plugins. This requires the application to detect and load plugins using <a href="qpluginloader.html">QPluginLoader</a>. In that context, plugins may provide arbitrary functionality and are not limited to database drivers, image formats, text codecs, styles, and the other types of plugin that extend Qt's functionality.</p>
+<p>Making an application extensible through plugins involves the following steps:</p>
+<ol type="1">
+<li>Define a set of interfaces (classes with only pure virtual functions) used to talk to the plugins.</li>
+<li>Use the <a href="qtplugin.html#Q_DECLARE_INTERFACE">Q_DECLARE_INTERFACE</a>() macro to tell Qt's <a href="metaobjects.html#meta-object-system">meta-object system</a> about the interface.</li>
+<li>Use <a href="qpluginloader.html">QPluginLoader</a> in the application to load the plugins.</li>
+<li>Use <a href="qobject.html#qobject_cast">qobject_cast</a>() to test whether a plugin implements a given interface.</li>
+</ol>
+<p>Writing a plugin involves these steps:</p>
+<ol type="1">
+<li>Declare a plugin class that inherits from <a href="qobject.html">QObject</a> and from the interfaces that the plugin wants to provide.</li>
+<li>Use the <a href="qobject.html#Q_INTERFACES">Q_INTERFACES</a>() macro to tell Qt's <a href="metaobjects.html#meta-object-system">meta-object system</a> about the interfaces.</li>
+<li>Export the plugin using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro.</li>
+<li>Build the plugin using a suitable <tt>.pro</tt> file.</li>
+</ol>
+<p>For example, here's the definition of an interface class:</p>
+<pre class="highlightedCode brush: cpp"> class FilterInterface
+ {
+ public:
+     virtual ~FilterInterface() {}
+
+     virtual QStringList filters() const = 0;
+     virtual QImage filterImage(const QString &amp;filter, const QImage &amp;image,
+                                QWidget *parent) = 0;
+ };</pre>
+<p>Here's the definition of a plugin class that implements that interface:</p>
+<pre class="highlightedCode brush: cpp"> #include &lt;QObject&gt;
+ #include &lt;QStringList&gt;
+ #include &lt;QImage&gt;
+
+ #include &lt;plugandpaint/interfaces.h&gt;
+
+ class ExtraFiltersPlugin : public QObject, public FilterInterface
+ {
+     Q_OBJECT
+     Q_INTERFACES(FilterInterface)
+
+ public:
+     QStringList filters() const;
+     QImage filterImage(const QString &amp;filter, const QImage &amp;image,
+                        QWidget *parent);
+ };</pre>
+<p>The <a href="tools-plugandpaint.html">Plug &amp; Paint</a> example documentation explains this process in detail. See also <a href="designer-creating-custom-widgets.html">Creating Custom Widgets for Qt Designer</a> for information about issues that are specific to <i>Qt Designer</i>. You can also take a look at the <a href="tools-echoplugin.html">Echo Plugin Example</a> is a more trivial example on how to implement a plugin that extends Qt applications. Please note that a <a href="qcoreapplication.html">QCoreApplication</a> must have been initialized before plugins can be loaded.</p>
+<a name="locating-plugins"></a>
+<h2>Locating Plugins</h2>
+<p>Qt applications automatically know which plugins are available, because plugins are stored in the standard plugin subdirectories. Because of this applications don't require any code to find and load plugins, since Qt handles them automatically.</p>
+<p>During development, the directory for plugins is <tt>QTDIR/plugins</tt> (where <tt>QTDIR</tt> is the directory where Qt is installed), with each type of plugin in a subdirectory for that type, e.g&#x2e; <tt>styles</tt>. If you want your applications to use plugins and you don't want to use the standard plugins path, have your installation process determine the path you want to use for the plugins, and save the path, e.g&#x2e; using <a href="qsettings.html">QSettings</a>, for the application to read when it runs. The application can then call <a href="qcoreapplication.html#addLibraryPath">QCoreApplication::addLibraryPath</a>() with this path and your plugins will be available to the application. Note that the final part of the path (e.g&#x2e;, <tt>styles</tt>) cannot be changed.</p>
+<p>If you want the plugin to be loadable then one approach is to create a subdirectory under the application and place the plugin in that directory. If you distribute any of the plugins that come with Qt (the ones located in the <tt>plugins</tt> directory), you must copy the sub-directory under <tt>plugins</tt> where the plugin is located to your applications root folder (i.e&#x2e;, do not include the <tt>plugins</tt> directory).</p>
+<p><b>Note:</b> In Symbian all binaries must be located in the directory \sys\bin, so each Qt plugin has a stub with the same basename as the plugin dll and suffix &quot;.qtplugin&quot; to make Qt extension plugins work similarly to other platforms. When trying to locate the plugin, Qt actually looks for the stub instead of the plugin binary. While plugin stub files have the suffix &quot;.qtplugin&quot;, they can still be loaded also by specifying a filename with the normal library suffix &quot;.dll&quot; for <a href="qpluginloader.html">QPluginLoader</a>, so normally application developer doesn't need to care about the different suffix of the stub. Because of the way applications can be installed on ROM or various other drives in Symbian, Qt looks for the stub from the same directory on all available drives if it is not located in the given directory when loading a plugin.</p>
+<p>For more information about deployment, see the <a href="deployment.html">Deploying Qt Applications</a> and <a href="deployment-plugins.html">Deploying Plugins</a> documentation.</p>
+<a name="static-plugins"></a>
+<h2>Static Plugins</h2>
+<p>The normal and most flexible way to include a plugin with an application is to compile it into a dynamic library that is shipped separately, and detected and loaded at runtime.</p>
+<p>Plugins can be linked statically against your application. If you build the static version of Qt, this is the only option for including Qt's predefined plugins. Using static plugins makes the deployment less error-prone, but has the disadvantage that no functionality from plugins can be added without a complete rebuild and redistribution of the application.</p>
+<p>When compiled as a static library, Qt provides the following static plugins:</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Plugin name</th><th >Type</th><th >Description</th></tr></thead>
+<tr class="odd topAlign"><td ><p><tt>qtaccessiblecompatwidgets</tt></p></td><td ><p>Accessibility</p></td><td ><p>Accessibility for Qt 3 support widgets</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qtaccessiblewidgets</tt></p></td><td ><p>Accessibility</p></td><td ><p>Accessibility for Qt widgets</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qdecorationdefault</tt></p></td><td ><p>Decorations (Qt Extended)</p></td><td ><p>Default style</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qdecorationwindows</tt></p></td><td ><p>Decorations (Qt Extended)</p></td><td ><p>Windows style</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qgif</tt></p></td><td ><p>Image formats</p></td><td ><p>GIF</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qjpeg</tt></p></td><td ><p>Image formats</p></td><td ><p>JPEG</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qmng</tt></p></td><td ><p>Image formats</p></td><td ><p>MNG</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qico</tt></p></td><td ><p>Image formats</p></td><td ><p>ICO</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qsvg</tt></p></td><td ><p>Image formats</p></td><td ><p>SVG</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qtiff</tt></p></td><td ><p>Image formats</p></td><td ><p>TIFF</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qimsw_multi</tt></p></td><td ><p>Input methods (Qt Extended)</p></td><td ><p>Input Method Switcher</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qwstslibmousehandler</tt></p></td><td ><p>Mouse drivers (Qt Extended)</p></td><td ><p><tt>tslib</tt> mouse</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qgfxtransformed</tt></p></td><td ><p>Graphic drivers (Qt Extended)</p></td><td ><p>Transformed screen</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qgfxvnc</tt></p></td><td ><p>Graphic drivers (Qt Extended)</p></td><td ><p>VNC</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qscreenvfb</tt></p></td><td ><p>Graphic drivers (Qt Extended)</p></td><td ><p>Virtual frame buffer</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qsqldb2</tt></p></td><td ><p>SQL driver</p></td><td ><p>IBM DB2</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qsqlibase</tt></p></td><td ><p>SQL driver</p></td><td ><p>Borland InterBase</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qsqlite</tt></p></td><td ><p>SQL driver</p></td><td ><p>SQLite version 3</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qsqlite2</tt></p></td><td ><p>SQL driver</p></td><td ><p>SQLite version 2</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qsqlmysql</tt></p></td><td ><p>SQL driver</p></td><td ><p>MySQL</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qsqloci</tt></p></td><td ><p>SQL driver</p></td><td ><p>Oracle (OCI)</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qsqlodbc</tt></p></td><td ><p>SQL driver</p></td><td ><p>Open Database Connectivity (ODBC)</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qsqlpsql</tt></p></td><td ><p>SQL driver</p></td><td ><p>PostgreSQL</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qsqltds</tt></p></td><td ><p>SQL driver</p></td><td ><p>Sybase Adaptive Server (TDS)</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qcncodecs</tt></p></td><td ><p>Text codecs</p></td><td ><p>Simplified Chinese (People's Republic of China)</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qjpcodecs</tt></p></td><td ><p>Text codecs</p></td><td ><p>Japanese</p></td></tr>
+<tr class="odd topAlign"><td ><p><tt>qkrcodecs</tt></p></td><td ><p>Text codecs</p></td><td ><p>Korean</p></td></tr>
+<tr class="even topAlign"><td ><p><tt>qtwcodecs</tt></p></td><td ><p>Text codecs</p></td><td ><p>Traditional Chinese (Taiwan)</p></td></tr>
+</table>
+<p>To link statically against those plugins, you need to use the <a href="qtplugin.html#Q_IMPORT_PLUGIN">Q_IMPORT_PLUGIN</a>() macro in your application and you need to add the required plugins to your build using <tt>QTPLUGIN</tt>. For example, in your <tt>main.cpp</tt>:</p>
+<pre class="highlightedCode brush: cpp"> #include &lt;QApplication&gt;
+ #include &lt;QtPlugin&gt;
+
+ Q_IMPORT_PLUGIN(qjpeg)
+ Q_IMPORT_PLUGIN(qgif)
+ Q_IMPORT_PLUGIN(qkrcodecs)
+
+ int main(int argc, char *argv[])
+ {
+     QApplication app(argc, argv);
+     ...
+     return app.exec();
+ }</pre>
+<p>In the <tt>.pro</tt> file for your application, you need the following entry:</p>
+<pre class="highlightedCode brush: cpp"> QTPLUGIN     += qjpeg \
+                 qgif \
+                 qkrcodecs</pre>
+<p>It is also possible to create your own static plugins, by following these steps:</p>
+<ol type="1">
+<li>Add <tt>CONFIG += static</tt> to your plugin's <tt>.pro</tt> file.</li>
+<li>Use the <a href="qtplugin.html#Q_IMPORT_PLUGIN">Q_IMPORT_PLUGIN</a>() macro in your application.</li>
+<li>Link your application with your plugin library using <tt>LIBS</tt> in the <tt>.pro</tt> file.</li>
+</ol>
+<p>See the <a href="tools-plugandpaint.html">Plug &amp; Paint</a> example and the associated <a href="tools-plugandpaintplugins-basictools.html">Basic Tools</a> plugin for details on how to do this.</p>
+<p><b>Note:</b> If you are not using qmake to build your application you need to make sure that the <tt>QT_STATICPLUGIN</tt> preprocessor macro is defined.</p>
+</div>
+<p>See also <a href="qpluginloader.html">QPluginLoader</a>, <a href="qlibrary.html">QLibrary</a>, and <a href="tools-plugandpaint.html">Plug &amp; Paint Example</a>.</p>
+<!-- @@@plugins-howto.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+
+  <include filename="./inc_setup_title.xml" />
+
+  <listbox valkey="wizard_securitype_list" autoenter="1" move="row" cols="1" rows="6" lbmask="l" loop_scroll="1"/>
+
+  <image image="@@ss-prev" x="623" y="175" w="22" h="22"/>
+  <image image="image/browser_list_frame_bg_n.png" x="118" y="173" w="485" h="239" bg="1"/>
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+
+  <table x="180" y="199" w="350" h="228"
+           cols="1" rows="6" colspacing="0" rowspacing="0" >
+    <image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+    <image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+    <image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+    <image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+    <image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+    <image image="" ymargin="0" bg="1"/>
+  </table>
+
+  <table x="126" y="180" w="490" h="226" rows="6" rowspacing="2"
+         lbimage="image/common_button_A_btn_f.png" clickimage="image/common_button_A_btn_p.png">
+    <image lightbar="@@lightbar-wizard_securitype_list-0" active="@@act-wizard_securitype_list-0"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-1" active="@@act-wizard_securitype_list-1"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-2" active="@@act-wizard_securitype_list-2"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-3" active="@@act-wizard_securitype_list-3"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-4" active="@@act-wizard_securitype_list-4"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-5" active="@@act-wizard_securitype_list-5"/>
+  </table>
+
+  <table x="115" y="189" w="490" h="210"
+    cols="1" rows="6" colspacing="0" rowspacing="18"
+    fontsize="20" textcolor="0xFFFFFF" actnoseltextcolor="0x3333333" align="hcenter">
+    <text text="@@wizard_securitype_list-0"  active="@@act-wizard_securitype_list-0" xmargin="110" />
+    <text text="@@wizard_securitype_list-1"  active="@@act-wizard_securitype_list-1" xmargin="110" />
+    <text text="@@wizard_securitype_list-2"  active="@@act-wizard_securitype_list-2" xmargin="110" />
+    <text text="@@wizard_securitype_list-3"  active="@@act-wizard_securitype_list-3" xmargin="110" />
+    <text text="@@wizard_securitype_list-4"  active="@@act-wizard_securitype_list-4" xmargin="110" />
+    <text text="@@wizard_securitype_list-5"  active="@@act-wizard_securitype_list-5" xmargin="110" />
+  </table>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

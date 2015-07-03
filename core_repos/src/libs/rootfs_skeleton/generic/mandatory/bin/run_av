@@ -1,0 +1,13 @@
+#!/bin/sh
+# let osd go
+sleep 2
+while [ ! -f "/tmp/firstrunosd" ]; do sleep 1;  done
+ifconfig
+killall -9 DMARender
+if [ -f /tmp/STOP_DMARENDER ]; then echo "/tmp/STOP_DMARENDER exists, DMARender spawn stopped"; sleep 10000; fi
+killall -9 MediaLogic
+cd /bin
+MediaLogic AV MSGL_FATAL &
+cd /bin
+exec DMARender
+

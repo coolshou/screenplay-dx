@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <listbox valkey="wlan_begin_list" autoenter="1" move="row" cols="1" rows="3" lbmask="l" loop_scroll="1"/>
+
+  <table x="185" y="188" w="913" h="147" lbimage="./image/settings_focus_btn.png" cols="1" rows="3" align="left, top">
+    <image lightbar="@@lightbar-wlan_begin_list-0" active="@@act-wlan_begin_list-0" h="49"/>
+    <image lightbar="@@lightbar-wlan_begin_list-1" active="@@act-wlan_begin_list-1" h="49"/>
+    <image lightbar="@@lightbar-wlan_begin_list-2" active="@@act-wlan_begin_list-2" h="49"/>
+  </table>
+
+  <table x="220" y="188" w="532" h="147"  textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30" align="left"
+	  cols="1" rows="3">
+	  <text text="@@ss-wlan_begin-0" active="@@act-wlan_begin_list-0"/>
+	  <text text="@@ss-wlan_begin-1" active="@@act-wlan_begin_list-1"/>
+	  <text text="@@ss-wlan_begin-2" active="@@act-wlan_begin_list-2"/>
+  </table>
+
+  <include filename="./inc_loading.xml"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

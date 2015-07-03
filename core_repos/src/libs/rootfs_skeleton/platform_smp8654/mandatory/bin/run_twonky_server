@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#twonkymedia server
+mkdir -p /tmp/TwonkyVision
+mkdir -p /tmp/twonkymedia
+ln -s /usr/local/twky/cgi-bin /tmp/TwonkyVision/cgi-bin
+ln -s /usr/local/twky/radio.m3u /tmp/TwonkyVision/radio.m3u
+ln -s /usr/local/twky/RevisionHistory /tmp/TwonkyVision/RevisionHistory
+ln -s /usr/local/twky/twonkymedia.sh /tmp/TwonkyVision/twonkymedia.sh
+ln -s /usr/local/twky/licence-en.rtf /tmp/TwonkyVision/licence-en.rtf
+ln -s /usr/local/twky/plugins /tmp/TwonkyVision/plugins
+ln -s /usr/local/twky/resources /tmp/TwonkyVision/resources
+ln -s /usr/local/twky/twonkymedia /tmp/TwonkyVision/twonkymedia
+ln -s /usr/local/twky/twonkymediaserver /tmp/TwonkyVision/twonkymediaserver

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+  <ctrlgrp lbmask="lrud">
+    <button valkey="CHECK"
+	    focused_bg="image/common_btn_f.png"
+		normal_bg="image/common_btn_n.png"/>
+  </ctrlgrp>
+  <include filename="./inc_setup_entry_basic_title.xml" />
+    <wrapper textcolor="0xffffff">
+
+  <text text="@@msg-value0" x="255" y="248" w="768" h="34" fontsize="26" align="hcenter"/> 
+  <!--<text text="@@firmware_version" x="710" y="248" w="300" h="34" fontsize="26" align="left"/>-->
+  <text text="$$Check latest firmware and upgrade device." x="255" y="290" w="768" h="116" align="hcenter" fontsize="26" numlines="3"/>
+
+
+  </wrapper>
+  <imgbtn x="484" y="460" w="300" h="40" image="@@bg-CHECK" text="$$OK" align="hcenter" fontsize="20" selected_fontsize="20" textcolor="0xffffff"  active="@@act-CHECK" actnoseltextcolor="0xffffff"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

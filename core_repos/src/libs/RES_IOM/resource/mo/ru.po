@@ -1,0 +1,4414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2010-07-16 15:36-0000\n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Russian <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\\n\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIA\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Выберите язык"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Проигрыватель мультимедиа Iomega ScreenPlay"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Этот мастер поможет вам подключить устройство к домашней сети. После подключения устройства его также можно использовать, чтобы найти и воспроизвести файлы мультимедиа, хранящиеся на других сетевых дисках."
+
+msgid "Select Next to continue."
+msgstr "Для продолжения выберите «Далее»."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "Если включен режим «Быстрый запуск», потребление электроэнергии будет выше, но это обеспечит постоянный доступ к устройству по сети и уменьшит время его запуска."
+
+msgid "Select your TV type"
+msgstr "Выберите тип телевизора"
+
+msgid "Select your connection"
+msgstr "Выберите тип подключения"
+
+msgid "Skip"
+msgstr "Пропустить"
+
+msgid "Do you want to skip?"
+msgstr "Пропустить?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "Статический IP-адрес"
+
+msgid "IP address"
+msgstr "IP-адрес"
+
+msgid "Netmask"
+msgstr "Маска сети"
+
+msgid "Gateway"
+msgstr "Шлюз"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "Установка завершена"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Мастер"
+
+msgid "You have successfully completed device configuration"
+msgstr "Настройка устройства успешно завершена."
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "Later"
+msgstr "Позднее"
+
+msgid "Movie"
+msgstr "Фильм"
+
+msgid "Music"
+msgstr "Музыка"
+
+msgid "Photo"
+msgstr "Фотографии"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Online media"
+msgstr "Интернет-СМИ"
+
+msgid "Folders"
+msgstr "Папки"
+
+msgid "Recent"
+msgstr "Недавние"
+
+msgid "Local storage"
+msgstr "Локальное устройство хранения"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Медиа-сервер"
+
+msgid "Shared folder"
+msgstr "Общая папка"
+
+msgid "All Movies"
+msgstr "Все фильмы"
+
+msgid "All Music"
+msgstr "Вся музыка"
+
+msgid "Playlist"
+msgstr "Список воспроизведения"
+
+msgid "Artist"
+msgstr "Исполнитель"
+
+msgid "Genre"
+msgstr "Жанр"
+
+msgid "Album"
+msgstr "Альбом"
+
+msgid "Now Playing"
+msgstr "Воспроизводится"
+
+msgid "All Photos"
+msgstr "Все фотографии"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Albums"
+msgstr "Альбомы"
+
+msgid "Preview mode"
+msgstr "Режим предварительного просмотра"
+
+msgid "List mode"
+msgstr "Режим списка"
+
+msgid "Thumbnail mode"
+msgstr "Режим эскизов"
+
+msgid "This folder is empty or unavailable."
+msgstr "Папка пуста или недоступна."
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Rename"
+msgstr "Переименовать"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "Move"
+msgstr "Переместить"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Create album"
+msgstr "Создать альбом"
+
+msgid "Edit album"
+msgstr "Редактировать альбом"
+
+msgid "Add to list"
+msgstr "Добавить в список"
+
+msgid "Remove from list"
+msgstr "Удалить из списка"
+
+msgid "Move focus"
+msgstr "Сместить фокус"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Альбомы отсутствуют. Создать новый альбом?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Действительно удалить альбом?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Действительно удалить файлы из списка?"
+
+msgid "This folder is empty"
+msgstr "Папка пуста"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Неверное имя пользователя или пароль"
+
+msgid "This media server cannot be accessed"
+msgstr "Доступ к этому мультимедийному серверу невозможен"
+
+msgid "No server found"
+msgstr "Серверы не найдены"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Действительно удалить файл?"
+
+msgid "Normal"
+msgstr "Обычный"
+
+msgid "Repeat one"
+msgstr "Повторить одну"
+
+msgid "Repeat all"
+msgstr "Повторить все"
+
+msgid "Repeat all and shuffle"
+msgstr "Повторить все и воспроизводить в случайном порядке"
+
+msgid "Shuffle"
+msgstr "В случайном порядке"
+
+msgid "Pan"
+msgstr "Обрезать и растянуть"
+
+msgid "Rotate right"
+msgstr "Повернуть вправо"
+
+msgid "Rotate left"
+msgstr "Повернуть влево"
+
+msgid "Zoom in"
+msgstr "Увеличить"
+
+msgid "Zoom out"
+msgstr "Уменьшить"
+
+msgid "Repeat"
+msgstr "Повторить"
+
+msgid "Info bar"
+msgstr "Панель информации"
+
+msgid "Audio"
+msgstr "Аудио"
+
+msgid "Audio channel"
+msgstr "Аудиодорожка"
+
+msgid "No audio channel"
+msgstr "Аудиодорожка отсутствует"
+
+msgid "Subtitle"
+msgstr "Субтитры"
+
+msgid "Subtitle off"
+msgstr "Субтитры отключены"
+
+msgid "No subtitle"
+msgstr "Субтитры отсутствуют"
+
+msgid "Unsupported subtitle"
+msgstr "Неподдерживаемые субтитры"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Выберите [ОК] для возобновления воспроизведения или [Отмена] для воспроизведения видео с начала"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Не удается воспроизвести выбранный файл. Обратитесь к руководству пользователя, в котором перечислены поддерживаемые форматы файлов."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Видеофайл, выбранный для воспроизведения, содержит многоканальный звук, который не поддерживается. Переключитесь на цифровой аудиовыход и подключите проигрыватель HD-мультимедиа к AV-ресиверу, который поддерживает этот аудиокодек."
+
+msgid "No chapter"
+msgstr "Раздел отсутствует"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Невозможно воспроизвести меню видео. Воспроизвести видеофайл?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Возобновить воспроизведение или воспроизвести с начала?"
+
+msgid "Next Song:"
+msgstr "Следующая композиция:"
+
+msgid "Current Song"
+msgstr "Текущая композиция"
+
+msgid "File Type"
+msgstr "Тип файла"
+
+msgid "Duration:"
+msgstr "Длительность:"
+
+msgid "File Size"
+msgstr "Размер файла"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Для этого прокатного видео DivX использовано X из Y просмотров; продолжить просмотр видео?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Вашему устройству не разрешено воспроизведение этого защищенного видео DivX."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Для этого прокатного видео DivX использовано X из Y просмотров. Срок проката этого видео DivX истек."
+
+msgid "Unsupported DivX DRM version."
+msgstr "Неподдерживаемая версия DivX DRM."
+
+msgid "Video resolution is not supported."
+msgstr "Видеоразрешение не поддерживается."
+
+msgid "Video frame rate is not supported."
+msgstr "Частота кадров не поддерживается."
+
+msgid "Audio format is not supported."
+msgstr "Аудиоформат не поддерживается."
+
+msgid "Audio/Video"
+msgstr "Аудио/видео"
+
+msgid "Playback"
+msgstr "Воспроизведение"
+
+msgid "System"
+msgstr "Система"
+
+msgid "Network"
+msgstr "Сеть"
+
+msgid "Shut down"
+msgstr "Выключение"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Настроить параметры аудио- и видеовыхода устройства"
+
+msgid "Configure playback settings"
+msgstr "Настроить параметры воспроизведения"
+
+msgid "Configure basic settings of system"
+msgstr "Настроить основные параметры системы"
+
+msgid "Configure network settings"
+msgstr "Настроить параметры сети"
+
+msgid "Video output"
+msgstr "Видеовыход"
+
+msgid "Configure video output of system"
+msgstr "Настроить видеовыход системы"
+
+msgid "Composite"
+msgstr "Композитный"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "Настроить сигнал NTSC или PAL"
+
+msgid "Component"
+msgstr "Компонентный"
+
+msgid "Configure display resolution of Component"
+msgstr "Настроить разрешение отображения для компонентного сигнала"
+
+msgid "Color space"
+msgstr "Цветовое пространство"
+
+msgid "Configure color space of Component"
+msgstr "Настроить цветовое пространство для компонентного сигнала"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "Настроить разрешение отображения для сигнала HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "Настроить цветовое пространство для сигнала HDMI"
+
+msgid "RGB High"
+msgstr "RGB High"
+
+msgid "RGB Low"
+msgstr "RGB Low"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Разрешение дисплея"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Формат кадра"
+
+msgid "Configure screen format of system"
+msgstr "Настроить формат экрана системы"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Аудиовыход"
+
+msgid "Configure audio output channel of system"
+msgstr "Настроить канал аудиовыхода системы"
+
+msgid "Stereo"
+msgstr "Стерео"
+
+msgid "Digital"
+msgstr "Цифровой"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Действительно изменить разрешение видео?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Действительно изменить формат видеовыхода?"
+
+msgid "Subtitle mode"
+msgstr "Режим субтитров"
+
+msgid "Turn on/off subtitle"
+msgstr "Включить/выключить субтитры"
+
+msgid "Subtitle font size"
+msgstr "Размер шрифта субтитров"
+
+msgid "Select subtitle font size"
+msgstr "Выбрать размер шрифта субтитров"
+
+msgid "Subtitle type"
+msgstr "Тип субтитров"
+
+msgid "Select the additional encoding"
+msgstr "Выбрать дополнительную кодировку"
+
+msgid "Western Europe (ISO)"
+msgstr "Западноевропейская (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Центральноевропейская (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Центральноевропейская (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Китайская традиционная (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Китайский упрощенный (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Японская (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Корейская (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Кириллица (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Кириллица (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Греческая (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Греческая (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Арабская (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Отображение аудиодорожки"
+
+msgid "Set the display mode while music playing"
+msgstr "Установить режим отображения во время воспроизведения музыки"
+
+msgid "File name"
+msgstr "Имя файла"
+
+msgid "Title"
+msgstr "Название"
+
+msgid "Photo scaling"
+msgstr "Масштабирование фотографий"
+
+msgid "Configure the photo scaling mode"
+msgstr "Настроить режим масштабирования фотографий"
+
+msgid "Keep as original"
+msgstr "Сохранить исходное"
+
+msgid "Fit to screen"
+msgstr "По размерам экрана"
+
+msgid "Display in full screen"
+msgstr "Отобразить во весь экран"
+
+msgid "Transition effect"
+msgstr "Переходный эффект"
+
+msgid "Select the transition effect"
+msgstr "Выбрать эффект перехода"
+
+
+
+
+msgid "Fade"
+msgstr "Затухание"
+
+msgid "Wipe"
+msgstr "Замещение"
+
+msgid "Zoom"
+msgstr "Увеличение"
+
+msgid "Push"
+msgstr "Вытеснение"
+
+msgid "Replace"
+msgstr "Заменить"
+
+msgid "Checker board"
+msgstr "Шахматная доска"
+
+msgid "Random"
+msgstr "В случайном порядке"
+
+msgid "Slideshow Interval"
+msgstr "Интервал слайдшоу"
+
+msgid "Configure the interval of slideshow"
+msgstr "Настроить интервал слайдшоу"
+
+msgid "second"
+msgstr "секунда"
+
+msgid "seconds"
+msgstr "секунды"
+
+msgid "3 Seconds"
+msgstr "3 секунды"
+
+msgid "5 Seconds"
+msgstr "5 секунд"
+
+msgid "10 Seconds"
+msgstr "10 секунд"
+
+msgid "20 Seconds"
+msgstr "20 секунд"
+
+msgid "30 Seconds"
+msgstr "30 секунд"
+
+msgid "minute"
+msgstr "минута"
+
+msgid "minutes"
+msgstr "минуты"
+
+msgid "1 Minute"
+msgstr "1 минута"
+
+msgid "5 Minutes"
+msgstr "5 минут"
+
+msgid "Browser display"
+msgstr "Отображение браузера"
+
+msgid "Set the display mode of media browser"
+msgstr "Установить режим отображения браузера мультимедиа"
+
+msgid "DivX DRM VOD"
+msgstr "Видео по запросу (VOD) DivX DRM"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "Настроить параметры DivX DRM VOD"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Deregister"
+msgstr "Отмена регистрации"
+
+msgid "Activation"
+msgstr "Включение"
+
+msgid "Deactivation"
+msgstr "Выключение"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Ваше устройство уже зарегистрировано. Действительно отменить регистрацию?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "Для воспроизведения защищенного видео DivX необходимо зарегистрировать ваше устройство."
+
+msgid "Registration code:"
+msgstr "Код регистрации:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Зарегистрируйтесь на сайте http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Код отмены регистрации:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Отмените регистрацию на сайте http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Продолжить регистрацию?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Включить/выключить медиа-сервер"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Включить/выключить общую папку"
+
+msgid "Workgroup name"
+msgstr "Имя рабочей группы"
+
+msgid "Device name"
+msgstr "Имя устройства"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Автоматический вход в систему"
+
+msgid "Turn on/off auto-login"
+msgstr "Включить/выключить автоматический вход в систему"
+
+msgid "Clear account information"
+msgstr "Удалить информацию об учетной записи"
+
+msgid "Delete the preset password?"
+msgstr "Удалить предустановленный пароль?"
+
+msgid "Manual SSID"
+msgstr "SSID вручную"
+
+msgid "Connection setup"
+msgstr "Установка соединения"
+
+msgid "Wire"
+msgstr "Проводное"
+
+msgid "Wireless"
+msgstr "Беспроводное"
+
+msgid "Network setup"
+msgstr "Настройка сети"
+
+msgid "Wireless setup"
+msgstr "Настройка беспроводного соединения"
+
+msgid "Does not contain"
+msgstr "Не содержит"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Имя устройства не должно содержать символы \\ / : * ? â?? ; | и пустые символы. Имя не может содержать более 15 символов."
+
+msgid "The device name can not contain any of following "
+msgstr "Имя устройства не может содержать любые из следующих "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "символов и пробелы. Длина имени устройства не может превышать 15 символов."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "Нельзя использовать число 0, разрешены только числа от 1 до 223. Проверьте свой IP-адрес и введите его снова."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Разрешены только числа от 0 до 255. Проверьте свой IP-адрес и введите его снова."
+
+msgid "Cannot find access point."
+msgstr "Не удается найти точку доступа."
+
+msgid "The AP is not exist. Please check again."
+msgstr "Точка доступа не существует. Повторите проверку."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Неверный ключ шифрования. Повторите попытку."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "Включить/выключить BitTorrent"
+
+msgid "Connection mode"
+msgstr "Режим подключения"
+
+msgid "Connection type"
+msgstr "Тип подключения"
+
+msgid "WPS setup"
+msgstr "Установка WPS"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "Нажмите кнопку 'WPS' в прикладной программе, перед тем как нажать кнопку 'Подключиться'."
+
+msgid "Auto search"
+msgstr "Автопоиск"
+
+msgid "Site survey"
+msgstr "Обзор сайта"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Обнаружение беспроводной точки доступа..."
+
+msgid "MAC address"
+msgstr "MAC-адрес"
+
+msgid "Please waiting..."
+msgstr "Подождите..."
+
+msgid "Connect Successfully!"
+msgstr "Успешно подключено!"
+
+msgid "Do you want replace this profile?"
+msgstr "Заменить профиль?"
+
+msgid "Network is disconnected."
+msgstr "Сеть отключена."
+
+msgid "Can not detect wireless module."
+msgstr "Не удается обнаружить беспроводной модуль."
+
+msgid "The profile space is full!"
+msgstr "Место для профиля заполнено!"
+
+msgid "Access point detecting..."
+msgstr "Обнаружение точки доступа..."
+
+msgid "The network encryption key is not valid."
+msgstr "Недействительный ключ сетевого шифрования."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID не может быть пустым!"
+
+msgid "No security"
+msgstr "Защита отсутствует"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Установка завершена. Сохранить это сетевое подключение?"
+
+msgid "The SSID is empty."
+msgstr "Пустой SSID."
+
+msgid "Can not set this profile to favorite."
+msgstr "Невозможно добавить данный профиль к избранному."
+
+msgid "Access point can not be found"
+msgstr "Невозможно найти точку доступа"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Невозможно найти точку доступа"
+
+msgid "Please enter your encryption key"
+msgstr "Введите ключ шифрования"
+
+msgid "The device could not connect to the network."
+msgstr "Не удалось подключить устройство к сети."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Разрыв подключения к серверу. Проверьте настройки сети."
+
+msgid "Wireless favorites"
+msgstr "Избранное (беспроводное подключение)"
+
+msgid "Connect now"
+msgstr "Соединять"
+
+msgid "Favorite"
+msgstr "Избранное"
+
+
+msgid "Encryption key"
+msgstr "Ключ шифрования"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Select a display language"
+msgstr "Выбрать язык отображения"
+
+msgid "English"
+msgstr "английский"
+
+msgid "French"
+msgstr "французский"
+
+msgid "German"
+msgstr "немецкий"
+
+msgid "Italian"
+msgstr "итальянский"
+
+msgid "Spanish"
+msgstr "испанский"
+
+msgid "Portuguese"
+msgstr "португальский"
+
+msgid "Dutch"
+msgstr "голландский"
+
+msgid "Greek"
+msgstr "Греческая"
+
+msgid "Polish"
+msgstr "польский"
+
+msgid "Russian"
+msgstr "русский"
+
+msgid "Swedish"
+msgstr "шведский"
+
+msgid "Japanese"
+msgstr "японский"
+
+msgid "Simplified Chinese"
+msgstr "упрощенный китайский"
+
+msgid "Traditional Chinese"
+msgstr "традиционный китайский"
+
+msgid "Korean"
+msgstr "корейский"
+
+msgid "Finnish"
+msgstr "Финский"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Португальский (Бразилия)"
+
+msgid "Hebrew"
+msgstr "Иврит"
+
+msgid "Arabic"
+msgstr "Арабский"
+
+msgid "Czech"
+msgstr "Чешский"
+
+msgid "Turkish"
+msgstr "Турецкая"
+
+msgid "Danish"
+msgstr "Датский"
+
+msgid "Norwegian"
+msgstr "Норвежский"
+
+msgid "Media library"
+msgstr "Библиотека мультимедиа"
+
+msgid "Turn on/off media library"
+msgstr "Включить/выключить библиотеку мультимедиа"
+
+msgid "Screensaver delay"
+msgstr "Интервал заставки"
+
+msgid "Configure screensaver delay time"
+msgstr "Настроить интервал запуска заставки"
+
+msgid "Never"
+msgstr "Никогда"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 минут"
+
+msgid "15 Minutes"
+msgstr "15 минут"
+
+msgid "Quick start mode"
+msgstr "Режим быстрого старта"
+
+msgid "System reset"
+msgstr "Сброс настроек системы"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Действительно восстановить заводские параметры устройства?"
+
+msgid "About"
+msgstr "О программе"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "Для получения дополнительной информации о проигрывателе HD-мультимедиа см. руководство пользователя или посетите"
+
+msgid "Restart"
+msgstr "Перезапустить"
+
+msgid "Rebooting"
+msgstr "Перезагрузка"
+
+msgid "Update device"
+msgstr "Обновление устройства"
+
+msgid "New firmware"
+msgstr "Новое программное обеспечение"
+
+msgid "New firmware found"
+msgstr "Новая прошивка найдено"
+
+msgid "version"
+msgstr "версия"
+
+msgid "Firmware Version"
+msgstr "Версия программного обеспечения"
+
+msgid "Current version"
+msgstr "Текущая версия"
+
+msgid "New version"
+msgstr "Новая версия"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Новая прошивка найдено. Выполнить обновление?"
+
+msgid "Invalid firmware"
+msgstr "Неверное программное обеспечение"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "Проверьте возможность обновления программного обеспечения и обновите устройство."
+
+msgid "Checking for recent updates"
+msgstr "Проверка обновлений..."
+
+msgid "Searching for updates..."
+msgstr "Поиск обновлений..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Устройству не удалось загрузить обновления, проверьте сетевое подключение."
+
+msgid "Your device is up to date."
+msgstr "Обновление устройства не требуется."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Выполняется обновление вашего проигрывателя мультимедиа. НЕ отключайте электропитание и НЕ отсоединяйте устройство."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Обновление завершено. Будет выполнена перезагрузка проигрывателя."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Вставьте USB-накопитель с фирменным программным обеспечением для восстановления проигрывателя мультимедиа."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Ошибка обновления программного обеспечения. Будет выполнен перезапуск устройства."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Ошибка обновления программного обеспечения. Проверьте сетевое подключение и повторите попытку."
+
+msgid "OK"
+msgstr "ОК"
+
+
+
+
+
+
+msgid "On"
+msgstr "Вкл."
+
+msgid "Off"
+msgstr "Выкл."
+
+msgid "Auto"
+msgstr "Авто"
+
+msgid "Manual"
+msgstr "Руководство"
+
+msgid "Search"
+msgstr "Поиск"
+
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Retry"
+msgstr "Повторить"
+
+msgid "Copy"
+msgstr "Копировать"
+
+msgid "Go Back"
+msgstr "Вернуться"
+
+msgid "Help"
+msgstr "Справка"
+
+msgid "Exit"
+msgstr "Выход"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+
+msgid "Play"
+msgstr "Воспроизведение"
+
+msgid "Pause"
+msgstr "Пауза"
+
+msgid "Stop"
+msgstr "Остановить"
+
+msgid "Eject"
+msgstr "Извлечь"
+
+msgid "Empty"
+msgstr "Пустой"
+
+msgid "Standby mode"
+msgstr "Режим ожидания"
+
+msgid "Loading data"
+msgstr "Загрузка данных..."
+
+msgid "All"
+msgstr "Все"
+
+msgid "Contains"
+msgstr "Содержит"
+
+msgid "Starts with"
+msgstr "Начинается с"
+
+msgid "Unsupported"
+msgstr "Неподдерживаемый"
+
+msgid "Space"
+msgstr "Место"
+
+msgid "Equal to"
+msgstr "Равно"
+
+msgid "Not Equal to"
+msgstr "Не равно"
+
+msgid "Untitled volume"
+msgstr "Том без названия"
+
+msgid "Additional encoding support"
+msgstr "Поддержка дополнительных кодировок"
+
+msgid "Subtitle default"
+msgstr "Субтитры по умолчанию"
+
+msgid "Subtitle border"
+msgstr "Границы субтитров"
+
+msgid "Thick"
+msgstr "Толстые"
+
+msgid "Thin"
+msgstr "Тонкие"
+
+msgid "Account"
+msgstr "Учетная запись"
+
+msgid "anonymous"
+msgstr "без имени"
+
+msgid "Connecting"
+msgstr "Подключение..."
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Выберите устройство, которое вы хотите извлечь."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Действительно извлечь это устройство?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Предупреждение. Выполните безопасное извлечение USB-накопителя перед его отсоединением."
+
+msgid "The device is busy. Please try later."
+msgstr "Устройство занято. Повторите попытку позже."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Подождите, пока накопитель не будет извлечен..."
+
+msgid "No storage present"
+msgstr "Устройство хранения отсутствует"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "Составление мультимедийной библиотеки требует больше места на устройстве хранения:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Сканирование присоединенного устройства хранения. Первое сканирование может занять много времени. Подождите..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "Не удается распознать устройство, подключенное к USB-порту"
+
+msgid "Storage can not aggregate"
+msgstr "Объем хранения не может суммироваться"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "Библиотека мультимедиа не поддерживает файловую систему с отслеживанием изменений. Тем не менее воспроизведение поддерживается."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Невозможно создать библиотеку мультимедиа на устройстве хранения, доступном только для чтения."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Невозможно создать библиотеку мультимедиа. Проверьте параметры устройства хранения."
+
+msgid "Unrecognized USB device"
+msgstr "Неизвестное USB-устройство"
+
+msgid "Scanning the attached USB device..."
+msgstr "Сканирование подключенного USB-устройства..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "При выбранном цифровом аудиовыходе для воспроизведения аудиодорожки с многоканальным звуком необходим AV-ресивер с соответствующей поддержкой аудиоформата."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "НЕ отключайте электропитание и какие-либо диски."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "Выполняется обновление проигрывателя HD-мультимедиа. ЗАПРЕЩАЕТСЯ выключать устройство, отсоединять блок питания и какой-либо подключенный накопитель."
+
+msgid "Upgrade complete!"
+msgstr "Обновление завершено!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "Обновления были успешно установлены. Перезапуск устройства..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "Невозможно распознать устройство, подключенное к USB-порту."
+
+msgid "Device is shutting down..."
+msgstr "Выключение устройства..."
+
+msgid "Local device is disconnected."
+msgstr "Локальное устройство отключено."
+
+msgid "Do you really want to restart device?"
+msgstr "Действительно перезапустить устройство?"
+
+msgid "Action cancelled"
+msgstr "Действие отменено"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "Произошла неисправимая ошибка. Будет выполнен перезапуск устройства."
+
+msgid "To restart device, press the power button of your remote."
+msgstr "Для перезапуска устройства нажмите кнопку питания на пульте ДУ."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Поиск завершен. Результаты отсутствуют."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Нажмите клавишу [Функция], чтобы включить многоязычный ввод"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Открыть Flickr"
+
+msgid "My recent"
+msgstr "Недавние"
+
+msgid "Last 7 days interesting"
+msgstr "Интересное за последние 7 дней"
+
+msgid "Most recent uploads"
+msgstr "Последние загрузки"
+
+msgid "Hot tags"
+msgstr "Горячие теги"
+
+msgid "Contacts"
+msgstr "Контакты"
+
+msgid "Photostream"
+msgstr "Photostream"
+
+msgid "Tags"
+msgstr "Теги"
+
+msgid "Delete one"
+msgstr "Удалить один"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Ключевое слово"
+
+msgid "Flickr members"
+msgstr "Члены Flickr"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Действительно удалить этот элемент?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Действительно удалить все элементы?"
+
+msgid "This member has been added to your contact list."
+msgstr "Этот участник был добавлен в список контактов."
+
+msgid "This member has been add to your contact list."
+msgstr "Этот участник был добавлен в список контактов."
+
+msgid "Could not find any tag list."
+msgstr "Не удалось найти список тегов."
+
+msgid "Could not find any contact list."
+msgstr "Не удалось найти список контактов."
+
+msgid "There is no friend available."
+msgstr "Друзья недоступны."
+
+msgid "A friend cannot be found."
+msgstr "Невозможно найти друга."
+
+msgid "There is no content available."
+msgstr "Содержимое недоступно."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Поиск завершен. Результаты отсутствуют."
+
+msgid "Now playing:"
+msgstr "Воспроизводится"
+
+msgid "Last station:"
+msgstr "Последняя станция:"
+
+msgid "My presets"
+msgstr "Мой список станций"
+
+msgid "Stations"
+msgstr "Станции"
+
+msgid "Preferences"
+msgstr "Настройки пользователя"
+
+msgid "Sign in / Sign out"
+msgstr "Регистрация/отмена регистрации"
+
+msgid "About Live365"
+msgstr "О службе Live365"
+
+msgid "Remove station"
+msgstr "Удалить станцию"
+
+msgid "Add to my presets"
+msgstr "Добавить в мой список станций"
+
+msgid "Free stations"
+msgstr "Свободные станции"
+
+msgid "VIP stations"
+msgstr "Станции VIP"
+
+msgid "Recommendations"
+msgstr "Рекомендации"
+
+msgid "Thumbs up"
+msgstr "Хорошо"
+
+msgid "Thumbs down"
+msgstr "Плохо"
+
+
+
+
+msgid "Email track"
+msgstr "Отправить дорожку по эл. почте"
+
+msgid "Audio quality"
+msgstr "Качество аудио"
+
+msgid "Sort"
+msgstr "Сортировать"
+
+msgid "All stations"
+msgstr "Все станции"
+
+msgid "Only high"
+msgstr "Только с высоким рейтингом"
+
+msgid "Medium to high"
+msgstr "Рейтинг от среднего до высокого"
+
+msgid "Low to medium"
+msgstr "Рейтинг от низкого до среднего"
+
+msgid "Only low"
+msgstr "Только с низким рейтингом"
+
+msgid "Sort stations alphabetically"
+msgstr "Сортировать станции по алфавиту"
+
+msgid "Sort stations by popularity"
+msgstr "Сортировать станции по популярности"
+
+msgid "Sign in"
+msgstr "Регистрация"
+
+msgid "Don't have an account?"
+msgstr "У вас нет учетной записи?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Неверное имя пользователя или пароль, повторите попытку."
+
+msgid "Save the account information?"
+msgstr "Сохранить сведения учетной записи?"
+
+msgid "Save username only"
+msgstr "Сохранить только имя пользователя"
+
+msgid "Are you sure to sign out?"
+msgstr "Действительно отменить регистрацию?"
+
+msgid "The station is removed from your presets."
+msgstr "Станция удалена из вашего списка станций."
+
+msgid "The station is added to your presets."
+msgstr "Станция добавлена в ваш список станций."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Для использования этой функции необходимо войти в систему. Войти в систему?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Спасибо за оценку этой дорожки. Замечательно, что она вам понравилась."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Спасибо за оценку этой дорожки. Жаль, что она вам не понравилась."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "Сведения о дорожке были отправлены. Проверьте свою эл. почту."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Если у вас нет учетной записи Live365, посетите http://www.live365.com, чтобы создать ее или стать VIP."
+
+
+msgid "Video"
+msgstr "Видео"
+
+
+
+
+msgid "Preference"
+msgstr "Настройка пользователя"
+
+msgid "Most favorites"
+msgstr "Самые любимые"
+
+msgid "Most viewed"
+msgstr "Самые просматриваемые"
+
+msgid "Most popular"
+msgstr "Самые популярные"
+
+msgid "Top rated"
+msgstr "С наивысшим рейтингом"
+
+msgid "Most recent"
+msgstr "Самые последние"
+
+msgid "My videos"
+msgstr "Мои видеозаписи"
+
+msgid "Favorites"
+msgstr "Избранное"
+
+
+
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "This week"
+msgstr "На этой неделе"
+
+msgid "This month"
+msgstr "В этом месяце"
+
+msgid "All time"
+msgstr "За все время"
+
+msgid "Rate video"
+msgstr "Оценить видео"
+
+msgid "Related"
+msgstr "Связано"
+
+msgid "Full screen"
+msgstr "На весь экран"
+
+msgid "Info"
+msgstr "Сведения"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Отмена регистрации"
+
+msgid "Delete account"
+msgstr "Удалить учетную запись"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Current location"
+msgstr "Текущее местоположение"
+
+msgid "Worldwide"
+msgstr "Весь мир"
+
+msgid "Germany"
+msgstr "Германия"
+
+msgid "France"
+msgstr "Франция"
+
+msgid "Spain"
+msgstr "Испания"
+
+msgid "Italy"
+msgstr "Италия"
+
+msgid "Taiwan"
+msgstr "Тайвань"
+
+msgid "South Korea"
+msgstr "Южная Корея"
+
+
+
+msgid "Russia"
+msgstr "Россия"
+
+msgid "Video playback quality"
+msgstr "Качество воспроизведения видео"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Это видео в настоящий момент недоступно."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Благодарим за оценку."
+
+msgid "The video has been added to your favorites."
+msgstr "Видео было добавлено в избранное."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Действительно удалить учетную запись?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Действительно удалить все учетные записи?"
+
+msgid "Login fail."
+msgstr "Ошибка входа в систему."
+
+
+
+
+msgid "No content available."
+msgstr "Содержимое недоступно."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Добавить/удалить подключаемый модуль мультимедиа"
+
+msgid "Manage users"
+msgstr "Управление пользователями"
+
+msgid "All (Mix)"
+msgstr "Все (смешан.)"
+
+msgid "Business & Finance"
+msgstr "Бизнес и финансы"
+
+msgid "Cars"
+msgstr "Автомобили"
+
+msgid "Comedy"
+msgstr "Комедия"
+
+msgid "Cocking $ drinks"
+msgstr "Еда и напитки"
+
+msgid "Education"
+msgstr "Образование"
+
+msgid "Fashion & luxury"
+msgstr "Мода и роскошь"
+
+msgid "Health & fitness"
+msgstr "Здоровье и фитнес"
+
+msgid "Kids & cartoons"
+msgstr "Дети и мультфильмы"
+
+msgid "Learn a languages"
+msgstr "Изучение языков"
+
+
+
+
+msgid "News & politics"
+msgstr "Новости и политика"
+
+msgid "Parenting"
+msgstr "Воспитание"
+
+msgid "Relationships"
+msgstr "Отношения людей"
+
+msgid "Science & nature"
+msgstr "Наука и природа"
+
+msgid "Showbiz news"
+msgstr "Новости шоубизнеса"
+
+msgid "Society & culture"
+msgstr "Общество и культура"
+
+msgid "Sports"
+msgstr "Спорт"
+
+msgid "Technology"
+msgstr "Технологии"
+
+msgid "Travel"
+msgstr "Путешествия"
+
+msgid "Video games"
+msgstr "Видеоигры"
+
+msgid "General"
+msgstr "Общее"
+
+msgid "Dashboard"
+msgstr "Панель инструментов"
+
+msgid "Now playing"
+msgstr "Воспроизводится"
+
+msgid "Both"
+msgstr "Оба"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Добавить в мои каналы"
+
+msgid "Remove from my channels"
+msgstr "Удалить из моих каналов"
+
+msgid "Rate/Favorite"
+msgstr "Оценить/избранное"
+
+msgid "Episodes"
+msgstr "Серии"
+
+
+
+msgid "My rating"
+msgstr "Мой рейтинг"
+
+msgid "My favorite"
+msgstr "Мое избранное"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Добавить подключаемый модуль мультимедиа на панель инструментов"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Добавить подключаемый модуль мультимедиа вручную (через mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Удалить подключаемый модуль мультимедиа с панели инструментов"
+
+msgid "Shows + Episodes"
+msgstr "Шоу + серии"
+
+msgid "Shows"
+msgstr "Шоу"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Привязать"
+
+msgid "Login"
+msgstr "Вход в систему"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "Для настройки ваших персонализированных каналов необходимо привязать ваш проигрыватель к учетной записи Mediafly."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Учетные записи Mediafly - абсолютно бесплатны; они позволяют централизованно управлять вашим любимым бесплатным онлайн-содержимым."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Способ 1. Откройте веб-браузер на вашем компьютере и перейдите по ссылке:"
+
+msgid "and enter this association code:"
+msgstr "а затем введите этот код ассоциации:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Способ 2. Войдите в систему, используя ваше имя пользователя и пароль Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Все видеозаписи"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Интервал"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Широкоэкранный"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 минуты"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 минут"
+
+msgid "30 Minutes"
+msgstr "30 минут"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Проигрыватель HD-мультимедиа Iomega"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Выполнить обновление?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Видеофайл, выбранный для воспроизведения, содержит многоканальный звук, который не поддерживается. Переключитесь на цифровой аудиовыход и  подключите проигрыватель HD-мультимедиа к AV-ресиверу, который поддерживает этот аудиокодек."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Аудиодорожка"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Обновление программного обеспечения"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Последовательность видео"
+
+msgid "Music sequence"
+msgstr "Последовательность музыки"
+
+msgid "Slideshow sequence"
+msgstr "Последовательность слайдшоу"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Вытеснение вправо"
+
+msgid "Wipe left"
+msgstr "Вытеснение влево"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Выполняется обновление проигрывателя HD-мультимедиа. НЕ отключайте электропитание или присоединенное устройство хранения."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Имя устройства не должно содержать символы \\ / : * ? â?? ; | и пустые символы. Имя не может содержать более 15 символов. "
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Западноевропейская"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Настройка устройства для работы в домашней сети выполнена успешно."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "Интернет"
+
+msgid "HDD"
+msgstr "Жесткий диск"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Выключение"
+
+msgid "HDMI settings"
+msgstr "Параметры HDMI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Масштабирование с изменением пропорций"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Имя устройства не должно содержать символы \\ / : * ? ¡§ ; | и пробелы. Длина имени не должна превышать 15 символов."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "Сбор содержимого"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Мои контакты"
+
+msgid "My tags"
+msgstr "Мои теги"
+
+msgid "Owner profile"
+msgstr "Профиль владельца"
+
+msgid "Play mode"
+msgstr "Режим воспроизведения"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Сортировка"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "Назад"
+
+
+
+
+
+
+msgid "ON"
+msgstr "Вкл."
+
+msgid "OFF"
+msgstr "Выкл."
+
+msgid "NEXT"
+msgstr "Следующий"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Папка"
+
+msgid "Album browser"
+msgstr "Обзор альбомов"
+
+msgid "Add photo to album"
+msgstr "Добавить фотографию в альбом"
+
+msgid "Select | Unselect item(s)"
+msgstr "Выбрать/отменить выбор"
+
+msgid "Select album"
+msgstr "Выбрать альбом"
+
+msgid "Processing"
+msgstr "Обработка"
+
+msgid "Select all"
+msgstr "Выбрать все"
+
+msgid "Unselect all"
+msgstr "Отменить выбор для всех элементов"
+
+msgid "Album name"
+msgstr "Имя альбома"
+
+msgid "Completed"
+msgstr "Выполнено"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Добавить xxxx фото в альбом?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Действительно остановить добавление файлов?"
+
+msgid "Selected album has deleted."
+msgstr "Выбранный альбом удален."
+
+msgid "Selected photo has been removed from the album."
+msgstr "Выбранная фотография удалена из альбома."
+
+msgid "The album has been renamed."
+msgstr "Альбом переименован."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Действительно удалить выбранные фотографии из альбома?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Действительно удалить выбранный альбом?\nФотографии не будут удалены из хранилища."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Имя альбома уже существует. Используйте другое имя."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Действительно переименовать альбом?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Ошибка записи. Проверьте локальное хранилище. Оно может быть заполнено или доступно только для чтения."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Ошибка чтения исходного файла, проверьте локальное хранилище."
+
+msgid "File management"
+msgstr "Управление файлами"
+
+
+
+msgid "Select source"
+msgstr "Выберите источник"
+
+msgid "File(s)"
+msgstr "Файлы"
+
+msgid "Folder(s)"
+msgstr "Папки"
+
+msgid "Yes to all"
+msgstr "Да для всех"
+
+msgid "No to all"
+msgstr "Нет для всех"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Копировать, переместить или удалить элементы"
+
+msgid "Remove photo"
+msgstr "Удалить фотографию"
+
+msgid "Rename or delete album"
+msgstr "Переименовать или удалить альбом"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Накопитель не найден. Вставьте накопитель и обновите экран."
+
+msgid "Would you like to overwrite it?"
+msgstr "Перезаписать?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Копировать выбранные файлы?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Переместить выбранные файлы?"
+
+
+
+msgid "Chapter"
+msgstr "Глава"
+
+msgid "Title and Edition"
+msgstr "Название и редакция"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Operation not supported"
+msgstr "Функция не поддерживается"
+
+msgid "File Date"
+msgstr "Дата файла"
+
+msgid "Resolution"
+msgstr "Разрешение"
+
+msgid "Turkish (Windows-1254)"
+msgstr "Турецкий (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "Иврит (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Check network status"
+msgstr "Проверить состояние сети"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Ошибка типа ключа!\n Если тип ключа шестнадцатеричный, то убедитесь, что ключевое значение A~F, 0~9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Ошибка длины ключа!\nЕсли тип ключа ASCII, то длина ключа должна быть 5, 13, или 16.\n Если тип ключа шестнадцатеричный, то длина ключа должна быть 10, 26 или 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Ошибка длины ключа!\n Длина WPAPSK должна быть 8~64!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Ошибка типа ключа!\n Ключ WPAPSK с длиной 64 должен быть шестнадцатеричным (A~F, 0~9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "Неверный IP-адрес. Проверьте IP-адрес и повторите попытку."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "Неверный адрес электронной почты. Проверьте свой адрес электронной почты и повторите попытку."
+
+msgid "Invalid character(s) in first name."
+msgstr "Имя содержит недопустимые символы."
+
+msgid "Invalid character(s) in last name."
+msgstr "Фамилия содержит недопустимые символы."
+
+
+
+msgid "Hungarian"
+msgstr "Венгерский"
+
+msgid "Serial number:"
+msgstr "Серийный номер:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Нажмите кнопку питания на пульте ДУ, чтобы перезапустить систему."
+
+msgid "Creator"
+msgstr "Автор"
+
+msgid "Web browser"
+msgstr "Веб-браузер"
+
+msgid "Add to contacts"
+msgstr "Добавить в контакты"
+
+msgid "Recently upload"
+msgstr "Недавно загруженные файлы"
+
+msgid "Photo set"
+msgstr "Набор фотографий"
+
+msgid "Friends"
+msgstr "Друзья"
+
+msgid "There is no contact."
+msgstr "Контакт отсутствует."
+
+msgid "There is no tag."
+msgstr "Тег отсутствует."
+
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Действительно удалить эту станцию?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Действительно сохранить эту станцию?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Слушайте тысячи Интернет-радиостанций без рекламы! При помощи службы Live365 вы можете слушать вещание Radio Disney, композиции таких музыкальных исполнителей как Santana, David Bynne, Pat Metheny и Paul Oakenfold, а также радиостанции, созданные такими же меломанами, как и вы! Находите без труда композиции в жанрах Rock, Hip-hop, Jazz и New age. Или открывайте для себя сокровища менее популярных жанров, таких как Gospel, Comedy, Hindi, Trip-hop, Glam, Tribal, Celtic, музыку тридцатых годов, музыкальные композиции из японских мультфильмов Anime и многое другое."
+
+msgid "Japan"
+msgstr "Япония"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Файл в настоящее время недоступен. Повторите попытку позже."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Хотите оценить это видео? Зарегистрируйтесь прямо сейчас!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Хотите добавить видео в избранное? Зарегистрируйтесь прямо сейчас!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Нажмите кнопку PLAY/PAUSE для просмотра видео в полноэкранном режиме."
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "Не удается подключиться к YouTube. Неизвестная ошибка сети. Проверьте параметры сети и повторите попытку."
+
+msgid "Poor"
+msgstr "Слабо"
+
+msgid "Nothing special"
+msgstr "Ничего особенного"
+
+msgid "Worth watching"
+msgstr "Стоит посмотреть"
+
+msgid "Pretty cool"
+msgstr "Довольно здорово"
+
+msgid "Awesome"
+msgstr "Потрясающе"
+
+msgid "Show info"
+msgstr "Показать сведения"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "Если температура устройства превысит 60°C, то жесткий диск будет остановлен."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "Если температура устройства превысит 65°C, то работа устройства будет прекращена."
+
+msgid "Configure"
+msgstr "Настроить"
+
+msgid "Delete album"
+msgstr "Удалить альбом"
+
+msgid "Rename album"
+msgstr "Переименовать альбом"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Удалить список воспроизведения"
+
+msgid "Rename playlist"
+msgstr "Переименовать список воспроизведения"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Нет списков воспроизведения. Создать новый список?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Действительно удалить список воспроизведения?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Действительно удалить файлы из списка воспроизведения?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Действительно остановить добавление файлов?"
+
+msgid "The selected album has been deleted."
+msgstr "Выбранный альбом удален."
+
+msgid "The selected photo has been removed from album."
+msgstr "Выбранная фотография удалена из альбома."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Ошибка удаленного чтения файла. Проверьте медиа-сервер или состояние сетевого подключения."
+
+msgid "The selected music has been deleted."
+msgstr "Выбранная музыка удалена."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "Добавить музыку xxxx в альбом?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Действительно остановить добавление музыки?"
+
+msgid "The playlist has been renamed."
+msgstr "Список воспроизведения переименован."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Действительно удалить выбранную музыку из списка воспроизведения?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Действительно удалить выбранный список воспроизведения?\nМузыка не будет удалена из хранилища."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Имя списка воспроизведения уже существует. Используйте другое имя."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Действительно переименовать список воспроизведения?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Устройство хранения и медиа-сервер не найдены. Подключите устройство хранения или проверьте сетевые настройки, а затем обновите экран."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "В папке уже содержится файл с именем:Перезаписать файл?"
+
+msgid "Process completed."
+msgstr "Операция завершена."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Имя папки не должно содержать следующие символы: \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Имя альбома не должно содержать пробелы или следующие символы: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nДлина имени файла ограничена xx символами."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Имя списка воспроизведения не должно содержать пробелы или следующие символы: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nДлина имени файла ограничена xx символами."
+
+msgid "Select"
+msgstr "Выбрать/отменить выбор"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "ЕСЛИ ВЫ НЕ СОГЛАСНЫ С ДАННЫМИ УСЛОВИЯМИ, НЕОБХОДИМО В ТЕЧЕНИЕ ТРИДЦАТИ (30) ДНЕЙ СО ДНЯ ПЕРВИЧНОЙ ПОКУПКИ ПОЛНОСТЬЮ ВЕРНУТЬ ПРОДУКТ В ОРИГИНАЛЬНОЙ УПАКОВКЕ НЕПОСРЕДСТВЕННО В МЕСТО ПРИОБРЕТЕНИЯ ПРОДУКТА ДЛЯ ПОЛНОГО ВОЗМЕЩЕНИЯ ЕГО ПРОДАЖНОЙ СТОИМОСТИ.."
+
+msgid "MediaflyVideo"
+msgstr "Видео"
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "Decline"
+msgstr "Снижение"
+
+msgid "Rename or delete playlist"
+msgstr "Переименовать или удалить плейлист"
+
+msgid "The playlist has been created."
+msgstr "Плейлист был создан."
+
+msgid "Select music"
+msgstr "Выберите музыку"
+
+msgid "Select playlist"
+msgstr "Выберите плейлист"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Вы хотите добавить ххх музыки в плейлист?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Вы хотите добавить ххх фото в альбом?"
+
+msgid "Remove music from playlist"
+msgstr "Удалить из списка воспроизведения музыки"
+
+msgid "Sort music"
+msgstr "Сортировать музыку"
+
+msgid "Move up"
+msgstr "Вверх"
+
+msgid "Move down"
+msgstr "Вниз"
+
+msgid "Are you sure to change the sort?"
+msgstr "Вы уверены, что с изменением рода?"
+
+msgid "Remove or sort playlist"
+msgstr "Удалить или отсортировать плейлист"
+
+msgid "Remove music"
+msgstr "Удалить музыки"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Вы уверены, что хотите удалить выбранный музыку из плейлиста?"
+
+msgid "Photo album"
+msgstr "Фотоальбом"
+
+msgid "The album has been created."
+msgstr "Альбом был создан."
+
+msgid "Select photo"
+msgstr "выберите фото"
+
+msgid "Add to album"
+msgstr "Добавить в альбом"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Невозможно загрузить видеофайл.  Формат не поддерживается."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "Подключение дополнительного программного модуля позволит вам просматривать потоковое видео поддерживаемых форматов.  Поддерживается не все содержимое потокового видео."
+
+msgid "Enable for Favorites"
+msgstr "Включить для Избранного"
+
+msgid "Enable for all websites"
+msgstr "Включить для всех веб-сайтов"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Чтобы повысить производительность веб-браузера, модуль Flash включен только для веб-сайтов, добавленных в Избранное.  Чтобы включить модуль для всех веб-сайтов, откройте пункт «Сеть» в меню «Параметры». "
+
+
+msgid "Photos"
+msgstr "Фотографии"
+msgid "Ok"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Confirm"
+msgstr "Подтвердить"
+
+msgid "Bookmarks"
+msgstr "Закладки"
+
+msgid "Add Bookmark"
+msgstr "Добавить закладку"
+
+msgid "Edit Bookmark"
+msgstr "Редактировать закладку"
+
+msgid "Clear Bookmarks"
+msgstr "Удалить закладки"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Действительно удалить закладки?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Действительно удалить эту закладку?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "Сервер [server-name] предъявил сертификат, выпущенный веб-узлом не из списка доверенных. Продолжить?"
+
+msgid "[url] is not available."
+msgstr "Адрес [url] недоступен."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "К сожалению, возникла проблема."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "Веб-страница по адресу [url] не может быть загружена."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Попытайтесь выполнить следующие действия:"
+
+msgid "Reload this web page later."
+msgstr "Повторно загрузите эту веб-страницу позже."
+
+msgid "Return to the previous web page."
+msgstr "Вернитесь к предыдущей веб-странице."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Действительно очистить историю?"
+
+msgid "Clear History"
+msgstr "Очистить историю"
+
+msgid "History"
+msgstr "История"
+
+msgid "No Title"
+msgstr "Нет заглавия"
+
+msgid "The history is empty."
+msgstr "Записи отсутствуют."
+
+msgid "HTTP Authentication"
+msgstr "Аутентификация HTTP"
+
+msgid "Authentication Required"
+msgstr "Требуется аутентификация"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "Сервер [server-hostname] по адресу [url-name] требует имя пользователя и пароль."
+
+msgid "User Name:"
+msgstr "Имя пользователя:"
+
+msgid "Password:"
+msgstr "Пароль:"
+
+msgid "Pop-up Window"
+msgstr "Всплывающее окно"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "Открыть всплывающее окно от [domain-name]?"
+
+msgid "New Window"
+msgstr "Новое окно"
+
+msgid "New URL [url] from [url]"
+msgstr "Новый адрес URL [url] от [url]"
+
+msgid "Same"
+msgstr "Такой же"
+
+msgid "Insecure to Secure"
+msgstr "От небезопасных к безопасным"
+
+msgid "Secure to Insecure"
+msgstr "От безопасных к небезопасным"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Показывать это предупреждение в следующий раз?"
+
+msgid "Security Warning"
+msgstr "Предупреждение системы безопасности"
+
+msgid "Started"
+msgstr "Запущено"
+
+msgid "Loading"
+msgstr "Загрузка..."
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Title of the page."
+msgstr "Заглавие страницы."
+
+msgid "Goto"
+msgstr "Перейти"
+
+
+
+msgid "Forward"
+msgstr "Вперед"
+
+
+
+msgid "Refresh"
+msgstr "Обновить"
+
+msgid "Cursor"
+msgstr "Курсор"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Использование пульта дистанционного управления в веб-браузере "
+
+msgid "Exit web browser"
+msgstr "Выйти из веб-браузера"
+
+msgid "Move cursor in web browser"
+msgstr "Переместить курсор в веб-браузере"
+
+msgid "Click to select links in web browser"
+msgstr "Щелкните для выбора ссылок в веб-браузере"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Кнопка Alt при использовании клавиатуры веб-браузера"
+
+msgid "Back to previous web page"
+msgstr "Вернуться на предыдущую веб-страницу"
+
+msgid "Display URL bar and web browser options"
+msgstr "Показать строку ввода URL-адреса и параметры веб-браузера"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "Кнопка Enter для отправки URL-адреса или текстового ввода"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Кнопки Up/Down для прокрутки веб-страниц"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Кнопка Symbol при использовании клавиатуры веб-браузера"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Пробел при использовании клавиатуры веб-браузера"
+
+msgid "Show this information again?"
+msgstr "Показать эти сведения еще раз?"
+
+msgid "NO"
+msgstr "НЕТ"
+
+msgid "YES"
+msgstr "ДА "
+
+msgid "Eject USB device"
+msgstr "Извлечь USB устройства"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Бета-версия веб-браузера позволяет просматривать популярное содержимое из списка «Избранное». При этом можно переходить к другим веб-сайтам; видеофайлы доступны только из веб-сайтов списка «Избранное»."
+
+msgid "Downloading update..."
+msgstr "Загрузка обновления..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Медиатека нужно активировать перед использованием функции 'Поиск'."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "ЛИЦЕНЗИОННОЕ СОГЛАШЕНИЕ IOMEGA"
+
+msgid "IF YOU DO NOT…"
+msgstr "ЕСЛИ ВЫ НЕ…"
+
+msgid "Digital without HDMI audio"
+msgstr "Цифровой без HDMI-аудио"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "Прокат DivX использовал X режимов отображения из Y"
+
+msgid "Continue?"
+msgstr "Продолжить?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Действительно остановить копирование файлов?"
+
+msgid "Mediafly dashboard"
+msgstr "Панель Mediafly"
+
+msgid "My channels"
+msgstr "Мои каналы"
+
+msgid "Popular channels"
+msgstr "Популярные каналы"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Действительно удалить эту учетную запись?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Действительно добавить программу:"
+
+msgid "This episode"
+msgstr "Данный эпизод"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Данный эпизод был добавлен в ваш канал. Доступ к дополнительным возможностям можно получить на Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "Все эпизоды в данной программе"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Данная программа была добавлена в ваш канал. Доступ к дополнительным возможностям можно получить на Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "Что нужно удалить?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Данный эпизод был удален из вашего канала. Доступ к дополнительным возможностям можно получить на Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Данная программа была удалена из вашего канала. Доступ к дополнительным возможностям можно получить на Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Хотите оценить данную программу/эпизод?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Спасибо. Доступ к дополнительным возможностям можно получить на Mediafly.com."
+
+msgid "View episodes"
+msgstr "Просмотреть эпизоды"
+
+msgid "Add content source"
+msgstr "Добавить источник содержимого"
+
+msgid "Add via mcode"
+msgstr "Добавить через mcode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Введите mCode источника содержимого ниже"
+
+msgid "an mCode is used to activate private content source"
+msgstr "mCode используется для активации источника частного содержимого"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "Источник содержимого был успешно добавлен на вашу панель Mediafly."
+
+msgid "Invalid mCode, please try again."
+msgstr "Неверный mCode, повторите попытку."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Добавить город"
+
+msgid "City management"
+msgstr "Управление городом"
+
+msgid "Search location"
+msgstr "Поиск местоположения"
+
+msgid "Change temperature unit"
+msgstr "Изменить единицы измерения температуры"
+
+msgid "Please define your default city location."
+msgstr "Укажите местоположение вашего города по умолчанию."
+
+msgid "Do you want to clear all city?"
+msgstr "Очистить все города?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Удалить выбранный город?"
+
+msgid "No result, please search again."
+msgstr "Нет данных, повторите поиск."
+
+msgid "Remove movie Info"
+msgstr "Удалить сведения о фильме"
+
+msgid "Rescan Movie Info"
+msgstr "Повторное считывание сведений о фильме"
+
+
+
+msgid "Manual search"
+msgstr "Поиск вручную"
+
+
+
+msgid "Please wait..."
+msgstr "Пожалуйста, подождите..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "Действительно удалить сведения о содержимом?"
+
+msgid "Content info has been removed."
+msgstr "Сведения о содержимом были удалены."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "Сведения предоставлены TMDb"
+
+msgid "No need"
+msgstr "Нет необходимости"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "В интерактивной базе данных сведения о содержимом не найдены. Измените условие поиска и повторите попытку."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Не удалось сохранить сведения о фильме. Проверьте сетевое подключение."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Не удалось сохранить сведения о фильме. Хранилище может быть заполнено или доступно только для чтения."
+
+msgid "Add to playlist"
+msgstr "Добавить в список воспроизведения"
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Connect"
+msgstr "Подключить"
+
+msgid "Create playlist"
+msgstr "Создать список воспроизведения"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "Неверный DNS. Проверьте DNS и повторите попытку."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Удалить выбранные файлы?"
+
+msgid "Edit playlist"
+msgstr "Редактировать список воспроизведения"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Неверный шлюз. Проверьте шлюз и повторите попытку."
+
+msgid "Home"
+msgstr "Домой"
+
+msgid "It should not be empty!"
+msgstr "Эта графа не должна быть пустой!"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Select destination"
+msgstr "Выберите место назначения"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Неверная маска подсети. Проверьте маску подсети и повторите попытку."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Произошел разрыв связи устройства с сервером мультимедиа."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Выбранная музыка удалена из списка воспроизведения."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Movies"
+msgstr "Фильм"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Чтобы применить данные сведения о видео, нажмите кнопку ENTER."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Получение сведений о фильме.\nПожалуйста, подождите..."
+msgid "Delete all"
+msgstr "Удалить все"
+
+msgid "Wind velocity:"
+msgstr "скорость ветра"
+
+msgid "Humidity:"
+msgstr "влажность"
+
+msgid "High/Low"
+msgstr "Высокое / низкое"
+
+msgid "Wind direction:"
+msgstr "направление ветра"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather сервер не отвечает. Пожалуйста, повторите попытку позже."
+
+msgid "Movie info auto scan"
+msgstr "Фильм информация автоматического сканирования"
+
+msgid "Ignore"
+msgstr "игнорировать"
+
+msgid "Scan movie info"
+msgstr "Сканирование фильм информация"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Имя рабочей группы не должно содержать пробелы или следующие символы: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nДлина имени файла ограничена xx символами."
+

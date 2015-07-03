@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<wrapper>
+	<wrapper  textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040" y="582" w="210" h="49" fontsize="20" align="hcenter">
+		<imgbtn x="106" text="@@action_1_text" image="@@bg-BUTTON1" x_offset="@@action_1_xoffset" 
+			disable="@@disable-BUTTON1" active="@@act-BUTTON1" selected="@@sel-BUTTON1" click="@@click-BUTTON1"/>
+		<imgbtn x="320" text="@@action_2_text" image="@@bg-BUTTON2" x_offset="@@action_2_xoffset" 
+			disable="@@disable-BUTTON2" active="@@act-BUTTON2" selected="@@sel-BUTTON2" click="@@click-BUTTON2"/>
+		<imgbtn x="534" text="@@action_3_text" image="@@bg-BUTTON3" x_offset="@@action_3_xoffset" 
+			disable="@@disable-BUTTON3" active="@@act-BUTTON3" selected="@@sel-BUTTON3" click="@@click-BUTTON3"/>
+		<imgbtn x="748" text="@@action_4_text" image="@@bg-BUTTON4" x_offset="@@action_4_xoffset" 
+			disable="@@disable-BUTTON4" active="@@act-BUTTON4" selected="@@sel-BUTTON4" click="@@click-BUTTON4"/>
+		<imgbtn x="961" text="@@action_5_text" image="@@bg-BUTTON5" x_offset="@@action_5_xoffset" 
+			disable="@@disable-BUTTON5" active="@@act-BUTTON5" selected="@@sel-BUTTON5" click="@@click-BUTTON5"/>
+	</wrapper>
+</wrapper>
+

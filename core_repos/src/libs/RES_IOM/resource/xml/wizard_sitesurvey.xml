@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+
+  <text id="subheadline" text="$$Wireless network: Select your wireless network"/>
+  <image id="step" image="image/wizard_step_2_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <listbox valkey="wizard_securitype_list" autoenter="1" move="row" cols="1" rows="6" lbmask="l" loop_scroll="1"/>
+
+  <image image="@@ss-prev" x="623" y="175" w="22" h="22"/>
+  <image image="image/browser_list_frame_bg_n.png" x="118" y="173" w="485" h="239" bg="1"/>
+
+  <table x="180" y="199" w="350" h="228"
+           cols="1" rows="6" colspacing="0" rowspacing="0" >
+    <image image="@@browse_0_line" ymargin="0" bg="1"/>
+    <image image="@@browse_1_line" ymargin="0" bg="1"/>
+    <image image="@@browse_2_line" ymargin="0" bg="1"/>
+    <image image="@@browse_3_line" ymargin="0" bg="1"/>
+    <image image="@@browse_4_line" ymargin="0" bg="1"/>
+    <image image="@@browse_5_line" ymargin="0" bg="1"/>
+  </table>
+
+  <table x="126" y="181" w="490" h="226" rows="6" rowspacing="2"
+         lbimage="image/common_button_A_btn_f.png" clickimage="image/common_button_A_btn_p.png">
+    <image lightbar="@@lightbar-wizard_securitype_list-0" active="@@act-wizard_securitype_list-0"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-1" active="@@act-wizard_securitype_list-1"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-2" active="@@act-wizard_securitype_list-2"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-3" active="@@act-wizard_securitype_list-3"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-4" active="@@act-wizard_securitype_list-4"/>
+    <image lightbar="@@lightbar-wizard_securitype_list-5" active="@@act-wizard_securitype_list-5"/>
+  </table>
+
+  <table x="146" y="189" w="300" h="210"
+    cols="1" rows="6" colspacing="0" rowspacing="18"
+    textcolor="0xFFFFFF"  actnoseltextcolor="0x333333" fontsize="20">
+    <text text="@@ss-essid-0" active="@@act-wizard_securitype_list-0"/>
+    <text text="@@ss-essid-1" active="@@act-wizard_securitype_list-1"/>
+    <text text="@@ss-essid-2" active="@@act-wizard_securitype_list-2"/>
+    <text text="@@ss-essid-3" active="@@act-wizard_securitype_list-3"/>
+    <text text="@@ss-essid-4" active="@@act-wizard_securitype_list-4"/>
+    <text text="@@ss-essid-5" active="@@act-wizard_securitype_list-5"/>
+  </table>
+
+  <table x="502" y="186" w="29" h="214"  cols="1" rows="6" rowspacing="14">
+    <image image="@@ss-wep-0" />
+    <image image="@@ss-wep-1" />
+    <image image="@@ss-wep-2" />
+    <image image="@@ss-wep-3" />
+    <image image="@@ss-wep-4" />
+    <image image="@@ss-wep-5" />
+  </table>
+
+  <table x="549" y="185" w="33" h="217"  cols="1" rows="6" rowspacing="11">
+    <image image="@@ss-signal-percent-icon-0" />
+    <image image="@@ss-signal-percent-icon-1" />
+    <image image="@@ss-signal-percent-icon-2" />
+    <image image="@@ss-signal-percent-icon-3" />
+    <image image="@@ss-signal-percent-icon-4" />
+    <image image="@@ss-signal-percent-icon-5" />
+  </table>
+
+
+  <image image="@@ss-more" x="623" y="388" w="22" h="22"/>
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

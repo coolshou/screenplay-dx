@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Ken Zhao <ken_zhao@alphanetworks.com> -->
+<page background="image/browser_list_background_bg_n.png" type="basic">
+  <ctrlgrp lbmask="l">
+    <ctrlgrp valkey="sub1"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="TV_SCAN" value="TV_SCAN-value" vmap="0:32"
+		v0="$$4:3 " 
+		v1="$$16:9" 
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub2"
+               focused_bg="image/combo_highlight.png"
+               normal_bg="image/combo.png">
+      <combo valkey="VIDEO_OUT" value="VIDEO_OUT-value" vmap="0:6:4:1:2"
+	       v0="$$Composite" 
+	       v1="$$S-Video/AV"
+	       v2="$$RGB"
+	       v3="$$YUV"
+	       v4="$$HDMI"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="video_out_res"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png"
+	      disabled_bg="image/textbox_darken.png">
+	<combo valkey="VIDEO_OUT_RES" value="VIDEO_OUT_RES-value" vmap="8:0:1:4:5:6:7:9:10"
+	       v0="$$AUTO"
+	       v1="$$480i@60HZ"
+	       v2="$$480p@60HZ"
+	       v3="$$720p@50HZ"
+	       v4="$$720p@60HZ"
+	       v5="$$1080i@50HZ"
+	       v6="$$1080i@60HZ"
+	       v7="$$1080p@50HZ"
+	       v8="$$1080p@60HZ"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub5"
+            focused_bg="image/combo_highlight.png"
+            normal_bg="image/combo.png">
+      <combo valkey="AUDIO_OUT" value="AUDIO_OUT-value"
+            v0="$$Analog"
+            v1="$$Digital"
+            arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <button valkey="OK"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+    <button valkey="CANCEL"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+  </ctrlgrp>
+
+  <image id="headline" image="image/Setup_Audio_Video.png" />
+  
+  <table x="20" y="140" w="327" h="254"
+	  rows="6" rowspacing="10" fontsize="20" align="right" textcolor="0xf0f0f0">
+    <text text="$$Aspect ratio:"/>
+    <text text="$$Video output:"/>
+    <text text="$$Display resolution:"/>
+    <text text="$$NTSC/PAL:"/>
+    <text text="$$Audio output:"/>
+  </table>
+  <!-- Give the background of combos. -->
+  <table x="350" y="140" w="252" h="254" cols="1" rows="6" rowspacing="5">
+    <image image="@@bg-sub1" />
+    <image image="@@bg-sub2" />
+    <image image="@@bg-video_out_res" />
+    <image image="@@bg-sub4" />
+    <image image="@@bg-sub5" />
+    <image image="@@bg-sub6" />
+  </table>
+  <!-- Give the foreground of combos. -->
+  <table x="350" y="140" w="252" h="254" cols="1" rows="6" rowspacing="5"
+         textcolor="0xf0f0f0" selectedtextcolor="0x000000" activetextcolor="0x000000"
+         fontsize="20" actnoseltextcolor="0x000000">
+    <text text="@@TV_SCAN" 
+           selected="@@sel-TV_SCAN" active="@@act-TV_SCAN"/>
+    <text text="@@VIDEO_OUT" 
+	     selected="@@sel-VIDEO_OUT" active="@@act-VIDEO_OUT"/>
+    <text text="@@VIDEO_OUT_RES" 
+	     selected="@@sel-VIDEO_OUT_RES" active="@@act-VIDEO_OUT_RES"/>
+    <text text="NTSC" disable="0"/>
+    <text text="@@AUDIO_OUT" 
+		selected="@@sel-AUDIO_OUT" active="@@act-AUDIO_OUT"/>
+  </table>
+  <table x="574" y="140" w="28" h="254" cols="1" rows="6" rowspacing="5">
+    <image image="@@arrow-TV_SCAN"/>
+    <image image="@@arrow-VIDEO_OUT"/>
+    <image image="@@arrow-VIDEO_OUT_RES"/>
+    <image image=""/>
+    <image image="@@arrow-AUDIO_OUT"/>
+  </table>
+  <table x="338" y="404" w="226" h="36" cols="2" colspacing="10" align="hcenter" fontsize="18">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+   
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

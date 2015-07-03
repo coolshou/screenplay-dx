@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+	<ctrlgrp>
+			<button valkey="OK"
+					focused_bg="image/pandora/pandora_common_buttons_f.png"
+					normal_bg="image/pandora/pandora_common_buttons_n.png"/>
+			<button valkey="CANCEL"
+					focused_bg="image/pandora/pandora_common_buttons_f.png"
+					normal_bg="image/pandora/pandora_common_buttons_n.png"/>
+	</ctrlgrp>
+	<imgbtn image="@@bg-OK" text="Continue" x="250" y="562" w="358" h="46" active="@@act-OK" fontsize="24" textcolor="0x0"  align="hcenter"/>
+
+	<imgbtn image="@@bg-CANCEL" text="Cancel" x="667" y="562" w="358" h="46" active="@@act-CANCEL" fontsize="24" textcolor="0x0" align="hcenter"/>
+
+	<include filename="./inc_pandora_messagebox.xml" />
+	<include filename="./inc_decoration_online.xml"/>
+</page>

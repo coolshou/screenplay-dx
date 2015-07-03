@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ -f "/tmp/dmaosd_ready" ]; then
+  ifconfig
+  killall -9 dmaosd
+fi
+PAGEDIR=/osd
+echo ${PAGEDIR}
+cd ${PAGEDIR}
+if [ -f "/tmp/STOP_OSD" ]; then
+  cd /
+  echo "/tmp/STOP_OSD exists. osd spawn stopped."
+  exec sleep 10000
+fi
+cd ${PAGEDIR}
+exec ../bin/dmaosd

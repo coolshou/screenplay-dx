@@ -1,0 +1,14 @@
+#!/bin/sh -x
+touch /tmp/STOP_DMARENDER
+touch /tmp/STOP_PICRENDER
+touch /tmp/STOP_MMS
+touch /tmp/STOP_USBMOUNT
+killall -9 DMARender
+killall -9 PICRender
+killall -9 MediaLogic 
+killall -9 MediaLogic_PIC
+killall -9 mms
+killall -9 usbmount
+killall -9 server
+killall -9 dhcp-client
+killall -9 dhcpcd

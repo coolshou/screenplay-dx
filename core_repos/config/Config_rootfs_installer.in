@@ -1,0 +1,71 @@
+menu "rootfs installer"
+	depends on BUILD_ROOTFS
+
+	choice
+		prompt "rootfs skeleton generic"
+		config	ROOTFS_SKELETON_GENERIC
+			bool "generic"
+	endchoice
+	choice
+		depends on !PLATFORM_X86
+		prompt "Select the type of share library"
+		config	INSTALL_UCLIBC
+			depends on !PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+			bool "Install uClibc"
+		config	INSTALL_GLIBC
+			depends on PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+			bool "Install GLIBC"
+	endchoice
+	choice
+		depends on INSTALL_UCLIBC && (PLATFORM_SMP8634 || PLATFORM_SMP8654)
+		prompt	"uClibc version"
+		config	UCLIBC_0_9_28
+			bool "uClibc-0.9.28"
+	endchoice
+	config UCLIBC_VERSION
+		string 
+		default "0.9.28" if UCLIBC_0_9_28 && PLATFORM_SMP8634
+		default "0.9.28_by_3_4_0" if UCLIBC_0_9_28 && PLATFORM_SMP8654_TOOLCHAIN_3_4_0
+		default "0.9.28_by_3_6_0" if UCLIBC_0_9_28 && PLATFORM_SMP8654_TOOLCHAIN_3_6_0
+
+	choice
+		depends on INSTALL_GLIBC
+		prompt	"GLIBC version"
+		config	GLIBC_2_8
+			bool "GLIBc-2.8"
+	endchoice
+	config GLIBC_VERSION
+		string 
+		default "2.8_by_mips_4_3_2" if GLIBC_2_8
+
+	config	BUSYBOX
+		bool "Build busybox"
+		default y
+		choice
+			depends on BUSYBOX
+			prompt "busybox"
+			config	BUSYBOX_1_10_0
+				bool "busybox 1.10.0"
+		endchoice
+		choice
+			depends on BUSYBOX
+			prompt "busybox"
+			config	BUSYBOX_1_10_0_CONFIG_GENERIC
+				depends on BUSYBOX_1_10_0
+				bool "generic configuration"
+			config	BUSYBOX_1_10_0_CONFIG_FOR_NETWORKING
+				depends on BUSYBOX_1_10_0 && ENABLE_NETWORKING 
+				bool "busybox for networking enabled"
+				help
+					If you need any networking enabled feature. Use this one.
+		endchoice
+		config	BUSYBOX_VERSION
+			string
+			default "1.10.0" if BUSYBOX_1_10_0
+	config INIT_SOFTLINK_TO_BUSYBOX
+		bool "Softlink init to busybox"
+		default n
+		depends on BUSYBOX
+
+endmenu
+

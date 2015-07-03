@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp> 
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		 <button valkey="OK"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			click_effect="tp"/>
+	</ctrlgrp>
+	<wrapper y="421" w="210" h="49" align="hcenter" fontsize="20" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029">
+		<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" x="535"/>
+	</wrapper>
+
+	<wrapper x="178" w="924" h="24" fontsize="20" align="hcenter" numlines="1" textcolor="0xffbababa">
+		<text text="$$We're sorry. We have encountered a technical error." x="178" y="278"/>
+		<text text="$$Please retry and, if the problem persists, go to " x="178" y="302" w="440"/>
+		<text text="@@title" x="618" y="302" w="250" textcolor="0xfffcb040"/>
+		<text text="$$for assistance. " x="868" y="302" w="150"/> 
+	</wrapper>
+	<text text="@@message" x="178" y="326" w="924" h="72" align="hcenter" fontsize="20" numlines="3" textcolor="0xffbababa"/>
+
+	<include filename="./blockbuster_common_msgbox.xml"/>
+</page>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page x="0" y="0" w="1280" h="300">
+	<ctrlgrp>
+		<eventbox_keyboard valkey="keyboard" autoenter="1"/>
+	</ctrlgrp>
+
+	<image image="image/espial/web_browse_virtual-keyboard.png" x="0" y="0" w="1280" h="300"/>
+	<widget_keyboard ctrlname="keyboard" x="311" y="50" h="188" w="658" cols="14" rows="4"
+			align="hcenter" textcolor="0xcccccc"  activetextcolor="0xffffff" changed="@@keyboard_changed"/>
+	<image image="image/espial/web_browse_input_box_f.png" x="311" y="3" w="658" h="47"/>
+	<texttail text="@@input_01_text" x="327" y="17" w="625" h="20" align="left" fontsize="20" textcolor="0x424242" ignore_translate="1"/>
+	<text text="Press [OPTION] key for multi-lingual input" x="327" y="255" w="625" h="18" fontsize="16" textcolor="0xffffff" align="hcenter"/>
+</page>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Walker Wang <wwang@alphanetworks.com> -->
+<page background="image/message_background_bg_n.png" w="409" h="223">
+  <ctrlgrp>
+    <button valkey="OK" 
+	focused_bg="image/common_button_E_btn_f.png" 
+	normal_bg="image/common_button_E_btn_n.png"
+	click_bg="image/common_button_E_btn_p.png"/>
+  </ctrlgrp>
+  <text text="@@title"  x="30" y="60" w="354" h="30"
+	textcolor="0x101010" fontsize="24" align="left"/>
+  <text text="@@message" x="30" y="90" w="354" h="30"
+        textcolor="0x101010" fontsize="24" align="left"/>
+  <imgbtn x="152" y="159" w="130" h="39" image="@@bg-OK" text="$$OK" align="hcenter" fontsize="18" active="@@act-OK" actnoseltextcolor="0x3333333"/>
+</page>

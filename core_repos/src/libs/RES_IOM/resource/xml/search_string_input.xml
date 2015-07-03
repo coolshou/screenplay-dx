@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browser_list_background_bg_n.png">
+<image id="headline" image="image/search_1title_n.png"/>
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+    <linebreak/>
+    <button valkey="OK"
+      	focused_bg="image/common_button_B_btn_f.png"
+      	normal_bg="image/common_button_B_btn_n.png"
+      	click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+
+  <text id="subheadline" text="$$Enter the string you want to search"/>
+
+  <image image="image/string_input_area.png" x="125" y="130" w="465" h="50" />
+  <texttail text="@@input_01_text" x="135" y="145" w="455" h="30"  textcolor="0x3b3b3b" ignore_translate="1"/>
+
+  <include filename="./inc_setup_keyboard.xml" />
+
+  <imgbtn image="@@bg-OK" text="$$OK" x="200" y="405" w="320" h="40" fontsize="18" align="hcenter" textcolor="0xEDC831"active="@@act-OK" actnoseltextcolor="0x3333333"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg" type="basic">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1"  turbo_trigger="5" turbo_multi="10"/>
+	  <linebreak/>
+	  <include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+  <include filename="./inc_optionmenu_widgets_audio_playlist.xml"/>
+
+    <image image="@@page_title_icon" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio" bg="1"/>
+    <text text="@@headline" x="157" y="62" w="1100" h="42" align="left" fontsize="40" textcolor="@@headline_color" bg="1"/>
+    <text text="@@title" x="157" y="109" w="1100" h="28" align="left" fontsize="24" textcolor="0xffffff" bg="1"/>
+    <text text="@@pagecounter" x="925" y="113" w="200" h="26" fontsize="20" align="right" textcolor="0xffffff" bg="1"/>
+    <image image="@@moreprev" x="626" y="150" w="29" h="21" bg="1"/>
+    <table x="185" y="188" w="913" h="343"
+         cols="1" rows="7" colspacing="0" rowspacing="0"
+         lbimage="image/settings_focus_btn.png" fontsize="22" textcolor="0xffffff" selected_fontsize="30" actnoseltextcolor="0x00ccff">
+    <text text="@@browselist_0_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" speed="@@browse_0_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_1_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" speed="@@browse_1_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_2_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" speed="@@browse_2_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_3_text" xmargin="105" ymargin="16"
+	    lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" speed="@@browse_3_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_4_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" speed="@@browse_4_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_5_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" speed="@@browse_5_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_6_text" xmargin="105" ymargin="16"
+          lightbar="@@lightbar-browselist-6" active="@@act-browselist-6" speed="@@browse_6_speed" delay="2" bg="1"/>
+
+    <!--<text text="@@browselist_7_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-7" active="@@act-browselist-7" speed="@@browse_7_speed" delay="2"/>-->
+
+    </table>
+    <wrapper x="222" w="719" h="42">
+    <image image="@@browse_0_checked" ymargin="0" y="187" bg="1"/>
+    <image image="@@browse_1_checked" ymargin="0" y="236" bg="1"/>
+    <image image="@@browse_2_checked" ymargin="0" y="285" bg="1"/>
+    <image image="@@browse_3_checked" ymargin="0" y="334" bg="1"/>
+    <image image="@@browse_4_checked" ymargin="0" y="383" bg="1"/>
+    <image image="@@browse_5_checked" ymargin="0" y="432" bg="1"/>
+    <image image="@@browse_6_checked" ymargin="0" y="481" bg="1"/>
+    </wrapper>
+    <image image="@@morenext" x="626" y="551" w="29" h="21" bg="1"/>
+    
+    <image image="@@checked_0_icon" x="299" y="658" w="46" h="33"/>
+    <text text="@@checked_0_text" x="356" y="666" w="300" h="22" fontsize="20" textcolor="0xffffff"/>
+    <image image="@@option_icon" x="673" y="658" w="46" h="33"/>
+    <text text="@@option_text" x="731" y="666" w="300" h="22" fontsize="20" textcolor="0xffffff"/>
+    
+    <image image="@@checked_1_icon" x="85" y="658" w="46" h="33"/>
+    <text text="@@checked_1_text" x="143" y="666" w="300" h="22" fontsize="20" textcolor="0xffffff"/>
+    <image image="@@move_up_icon" x="442" y="658" w="46" h="33"/>
+    <text text="@@move_up_text" x="500" y="666" w="100" h="22" fontsize="20" textcolor="0xffffff"/>
+    <image image="@@move_down_icon" x="682" y="658" w="46" h="33"/>
+    <text text="@@move_down_text" x="740" y="666" w="120" h="22" fontsize="20" textcolor="0xffffff"/>
+    <image image="@@confirm_icon" x="922" y="658" w="46" h="33"/>
+    <text text="@@confirm_text" x="980" y="666" w="120" h="22" fontsize="20" textcolor="0xffffff"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

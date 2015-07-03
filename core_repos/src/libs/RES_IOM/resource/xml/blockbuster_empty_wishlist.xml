@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/blockbuster/bb_browse_bg.jpg" ignore_desktop_settings="1">
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+	</ctrlgrp>
+
+	<image x="105" y="140" w="1070" h="49" image="@@ourlist_bar"/>
+
+	<text text="@@inform_text" x="100" y="340" w="1040" h="50" numlines="2" align="hcenter" fontsize="20" textcolor="0xff727272"/>
+
+	<include filename="./blockbuster_common.xml"/>
+</page>

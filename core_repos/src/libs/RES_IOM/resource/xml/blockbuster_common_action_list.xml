@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<wrapper>
+	<wrapper  textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040" y="582" w="210" h="49" fontsize="20" align="hcenter">
+		<imgbtn x="106" text="@@actionlist_0_text" image="@@bg-actionlist-0" x_offset="@@action_0_xoffset" 
+			disable="@@disable-BUTTON1" active="@@act-actionlist-0" selected="@@sel-actionlist-0" click="@@click-actionlist-0"/>
+		<imgbtn x="320" text="@@actionlist_1_text" image="@@bg-actionlist-1" x_offset="@@action_1_xoffset" 
+			disable="@@disable-BUTTON2" active="@@act-actionlist-1" selected="@@sel-actionlist-1" click="@@click-actionlist-1"/>
+		<imgbtn x="534" text="@@actionlist_2_text" image="@@bg-actionlist-2" x_offset="@@action_2_xoffset" 
+			disable="@@disable-BUTTON3" active="@@act-actionlist-2" selected="@@sel-actionlist-2" click="@@click-actionlist-2"/>
+		<imgbtn x="748" text="@@actionlist_3_text" image="@@bg-actionlist-3" x_offset="@@action_3_xoffset" 
+			disable="@@disable-BUTTON4" active="@@act-actionlist-3" selected="@@sel-actionlist-3" click="@@click-actionlist-3"/>
+		<imgbtn x="961" text="@@actionlist_4_text" image="@@bg-actionlist-4" x_offset="@@action_4_xoffset" 
+			disable="@@disable-BUTTON5" active="@@act-actionlist-4" selected="@@sel-actionlist-4" click="@@click-actionlist-4"/>
+	</wrapper>
+
+	<wrapper y="587" w="41" h="39">
+		<image image="@@actionlist-next" x="1182"/>
+		<image image="@@actionlist-prev" x="71"/>
+	</wrapper>
+</wrapper>
+

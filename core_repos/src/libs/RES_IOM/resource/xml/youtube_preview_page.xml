@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--<page type="basic" overlay="1">-->
+<page background="./image/welcome_background_bg.jpg">
+	<ctrlgrp lbmask="LR">
+		<listbox valkey="browselist" autoenter="1" move="page" cols="1" rows="5" lbmask="lr"  loop_scroll="1" disable_light_bar_click="1"/>
+		<linebreak/>
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+	</ctrlgrp>
+  	<include filename="./inc_optionmenu_widgets_youtube.xml"/>
+
+	<image image="image/youtube/youtube_logo.png" x="129" y="74" w="150" h="75"/>
+
+	<table x="756" y="179" w="435" h="450" cols="1" rows="5">
+		<image image="image/youtube/youtube_player_preview_mode_Select_frame_n.png" w="435" h="90"/>
+		<image image="image/youtube/youtube_player_preview_mode_Select_frame_n.png" w="435" h="90"/>
+		<image image="image/youtube/youtube_player_preview_mode_Select_frame_n.png" w="435" h="90"/>
+		<image image="image/youtube/youtube_player_preview_mode_Select_frame_n.png" w="435" h="90"/>
+		<image image="image/youtube/youtube_player_preview_mode_Select_frame_n.png" w="435" h="90"/>
+	</table>
+
+ <image image="@@video_info" x="756" y="179" w="435" h="450" textcolor="0x000000"/>
+ 
+	<table x="756" y="179" w="435" h="450" fontsize="14" selected_fontsize="14"
+         cols="1" rows="5" colspacing="0" rowspacing="0"
+		 lbimage="image/youtube/youtube_player_preview_mode_Select_frame_f.png"  
+		 textcolor="0xb8b8b8" actnoseltextcolor="0xb8b8b8" actoverlistcolor="0xb8b8b8" 
+		 activetextcolor="0xb8b8b8" selectedtextcolor="0xb8b8b8" align="top">
+    	<text text="@@browse_0_views" lmargin="231" ymargin="64"
+		  lightbar="@@lightbar-browselist-0" active="@@act-browselist"
+		  selected="@@browse_0_select" disable="@@disable-browselist"/>
+	    <text text="@@browse_1_views" lmargin="231" ymargin="64"
+		  lightbar="@@lightbar-browselist-1" active="@@act-browselist" 
+		  selected="@@browse_1_select" disable="@@disable-browselist"/>
+    	<text text="@@browse_2_views" lmargin="231" ymargin="64" 
+		  lightbar="@@lightbar-browselist-2" active="@@act-browselist" 
+		  selected="@@browse_2_select" disable="@@disable-browselist"/>
+    	<text text="@@browse_3_views" lmargin="231" ymargin="64" 
+		  lightbar="@@lightbar-browselist-3" active="@@act-browselist" 
+		  selected="@@browse_3_select" disable="@@disable-browselist"/>
+    	<text text="@@browse_4_views" lmargin="231" ymargin="64" 
+		  lightbar="@@lightbar-browselist-4" active="@@act-browselist" 
+		  selected="@@browse_4_select" disable="@@disable-browselist"/>
+	</table>
+ 
+	<wrapper x="901" w="260" h="22" fontsize="20" textcolor="0xffffff"> 
+		<text text="@@browselist_0_text" y="192" speed="1" delay="2"/>	
+		<text text="@@browselist_1_text" y="282" speed="1" delay="2"/>	
+		<text text="@@browselist_2_text" y="372" speed="1" delay="2"/>	
+		<text text="@@browselist_3_text" y="462" speed="1" delay="2"/>	
+		<text text="@@browselist_4_text" y="552" speed="1" delay="2"/>	
+	</wrapper>
+
+	<wrapper x="901" w="74" h="16" align="top" fontsize="14" textcolor="0xb8b8b8">
+		<text text="@@browse_0_duration" y="243" />
+		<text text="@@browse_1_duration" y="333" />
+		<text text="@@browse_2_duration" y="423" />
+		<text text="@@browse_3_duration" y="513" />
+		<text text="@@browse_4_duration" y="603" />
+	</wrapper>
+
+	<!-- Stars -->
+	<wrapper x="901" w="142" h="28">
+		<image image="@@browse_0_stars" y="217"/>
+		<image image="@@browse_1_stars" y="307"/>
+		<image image="@@browse_2_stars" y="397"/>
+		<image image="@@browse_3_stars" y="487"/>
+		<image image="@@browse_4_stars" y="577"/>
+	</wrapper>
+
+<!--	<wrapper x="443" w="120" h="70" align="hcenter" scale_type="fixratio" scale="100">-->
+	<wrapper x="766" w="120" h="68" align="hcenter" scale="100">
+	    <image image="@@browse_0_icon" ymargin="0" y="191"/>
+    	<image image="@@browse_1_icon" ymargin="0" y="281"/>
+	    <image image="@@browse_2_icon" ymargin="0" y="371"/>
+    	<image image="@@browse_3_icon" ymargin="0" y="461"/>
+	    <image image="@@browse_4_icon" ymargin="0" y="551"/>
+  	</wrapper>
+
+	<text text="@@option_title" x="840" y="38" w="400" h="28" fontsize="24" textcolor="0xffb300"/>
+	<image image="@@moreprev" x="954" y="149" w="39" h="22"/>
+	<image image="@@morenext" x="954" y="643" w="39" h="22" />
+
+<!-- info -->
+	<image image="@@info_bg" x="756" y="179" w="435" h="458" textcolor="0x000000"/>
+	<image image="@@video_info" x="756" y="179" w="435" h="458"/>
+	<text text="@@info_title" x="796" y="205" w="356" h="28" fontsize="26" textcolor="0xffffff" align="left" 
+		speed="1" delay="2"/>
+	<text text="@@info_date" x="796" y="254" w="356" h="20" fontsize="18" textcolor="0xb8b8b8" align="left"/>
+	<text text="@@info_views" x="796" y="288" w="190" h="20" fontsize="18" textcolor="0xb8b8b8" align="left"/>	
+	<image image="@@info_stars" x="1012" y="278" w="142" h="28"/>
+	<text text="@@info_description" x="796" y="328" w="356" h="290" fontsize="20" textcolor="0xffffff" 
+			align="left" numlines="8"/>	
+
+<!-- end of info -->
+
+	<wrapper x="390" y="137" h="26" w="500" align="hcenter" disable="@@disable-options_bg">
+		<text text="@@text-options" fontsize="24" textcolor="0xffffff" align="hcenter"/>
+	</wrapper>
+
+	<text text="@@pagecounter" x="1064" y="148" h="26" w="120" fontsize="24" align="right" textcolor="0xffffff"/>
+	
+<!-- movie pip -->
+	<image image="image/youtube/youtube_player_preview_mode_screen_frame.png" x="96" y="174" w="622" h="470"/>
+	<image image="@@preview_rect_image" default_image="@@default_preview_rect_image" 
+		x="103" y="181" w="608" h="456" textcolor="@@preview_rect_color" keycolor="1" ignore_keycolor="1"/>
+	<image image="@@movies_frame_top" x="103" y="181" w="608" h="456" scale="100"/>
+
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

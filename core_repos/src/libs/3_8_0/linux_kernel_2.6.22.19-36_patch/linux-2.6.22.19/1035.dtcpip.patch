@@ -1,0 +1,49 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/net/ipv4/tcp_ipv4.c linux-2.6.22.19/net/ipv4/tcp_ipv4.c
+--- linux-2.6.22.19.ref/net/ipv4/tcp_ipv4.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/net/ipv4/tcp_ipv4.c	2009-07-31 09:58:15.000000000 -0700
+@@ -1550,6 +1550,7 @@
+ int tcp_v4_do_rcv(struct sock *sk, struct sk_buff *skb)
+ {
+ 	struct sock *rsk;
++	int ttl = ((struct iphdr *)skb_network_header(skb))->ttl;
+ #ifdef CONFIG_TCP_MD5SIG
+ 	/*
+ 	 * We really want to reject the packet as early as possible
+@@ -1568,6 +1569,7 @@
+ 			goto reset;
+ 		}
+ 		TCP_CHECK_TIMER(sk);
++		inet_sk(sk)->mc_ttl = ttl;
+ 		return 0;
+ 	}
+ 
+@@ -1594,6 +1596,7 @@
+ 		goto reset;
+ 	}
+ 	TCP_CHECK_TIMER(sk);
++	inet_sk(sk)->mc_ttl = ttl;
+ 	return 0;
+ 
+ reset:
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1035.dtcpip.patch linux-2.6.22.19/README.1035.dtcpip.patch
+--- linux-2.6.22.19.ref/README.1035.dtcpip.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1035.dtcpip.patch	2009-07-31 09:58:59.000000000 -0700
+@@ -0,0 +1,18 @@
++Feature:
++--------
++Adding more support for DTCP-IP.
++
++Prerequisite patch numbers:
++---------------------------
++none
++
++Primary author:
++---------------
++Sue Chang
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++all
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: licensewizard.cpp Example File (dialogs/licensewizard/licensewizard.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">licensewizard.cpp Example File</h1>
+<span class="small-subtitle">dialogs/licensewizard/licensewizard.cpp</span>
+<!-- $$$dialogs/licensewizard/licensewizard.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &quot;licensewizard.h&quot;
+
+ LicenseWizard::LicenseWizard(QWidget *parent)
+     : QWizard(parent)
+ {
+     setPage(Page_Intro, new IntroPage);
+     setPage(Page_Evaluate, new EvaluatePage);
+     setPage(Page_Register, new RegisterPage);
+     setPage(Page_Details, new DetailsPage);
+     setPage(Page_Conclusion, new ConclusionPage);
+
+     setStartId(Page_Intro);
+
+ #ifndef Q_WS_MAC
+     setWizardStyle(ModernStyle);
+ #endif
+     setOption(HaveHelpButton, true);
+     setPixmap(QWizard::LogoPixmap, QPixmap(&quot;:/images/logo.png&quot;));
+
+     connect(this, SIGNAL(helpRequested()), this, SLOT(showHelp()));
+
+     setWindowTitle(tr(&quot;License Wizard&quot;));
+ }
+
+ void LicenseWizard::showHelp()
+ {
+     static QString lastHelpMessage;
+
+     QString message;
+
+     switch (currentId()) {
+     case Page_Intro:
+         message = tr(&quot;The decision you make here will affect which page you &quot;
+                      &quot;get to see next.&quot;);
+         break;
+     case Page_Evaluate:
+         message = tr(&quot;Make sure to provide a valid email address, such as &quot;
+                      &quot;toni.buddenbrook@example.de.&quot;);
+         break;
+     case Page_Register:
+         message = tr(&quot;If you don't provide an upgrade key, you will be &quot;
+                      &quot;asked to fill in your details.&quot;);
+         break;
+     case Page_Details:
+         message = tr(&quot;Make sure to provide a valid email address, such as &quot;
+                      &quot;thomas.gradgrind@example.co.uk.&quot;);
+         break;
+     case Page_Conclusion:
+         message = tr(&quot;You must accept the terms and conditions of the &quot;
+                      &quot;license to proceed.&quot;);
+         break;
+     default:
+         message = tr(&quot;This help is likely not to be of any help.&quot;);
+     }
+
+     if (lastHelpMessage == message)
+         message = tr(&quot;Sorry, I already gave what help I could. &quot;
+                      &quot;Maybe you should try asking a human?&quot;);
+
+     QMessageBox::information(this, tr(&quot;License Wizard Help&quot;), message);
+
+     lastHelpMessage = message;
+ }
+
+ IntroPage::IntroPage(QWidget *parent)
+     : QWizardPage(parent)
+ {
+     setTitle(tr(&quot;Introduction&quot;));
+     setPixmap(QWizard::WatermarkPixmap, QPixmap(&quot;:/images/watermark.png&quot;));
+
+     topLabel = new QLabel(tr(&quot;This wizard will help you register your copy of &quot;
+                              &quot;&lt;i&gt;Super Product One&lt;/i&gt;&amp;trade; or start &quot;
+                              &quot;evaluating the product.&quot;));
+     topLabel-&gt;setWordWrap(true);
+
+     registerRadioButton = new QRadioButton(tr(&quot;&amp;Register your copy&quot;));
+     evaluateRadioButton = new QRadioButton(tr(&quot;&amp;Evaluate the product for 30 &quot;
+                                               &quot;days&quot;));
+     registerRadioButton-&gt;setChecked(true);
+
+     QVBoxLayout *layout = new QVBoxLayout;
+     layout-&gt;addWidget(topLabel);
+     layout-&gt;addWidget(registerRadioButton);
+     layout-&gt;addWidget(evaluateRadioButton);
+     setLayout(layout);
+ }
+
+ int IntroPage::nextId() const
+ {
+     if (evaluateRadioButton-&gt;isChecked()) {
+         return LicenseWizard::Page_Evaluate;
+     } else {
+         return LicenseWizard::Page_Register;
+     }
+ }
+
+ EvaluatePage::EvaluatePage(QWidget *parent)
+     : QWizardPage(parent)
+ {
+     setTitle(tr(&quot;Evaluate &lt;i&gt;Super Product One&lt;/i&gt;&amp;trade;&quot;));
+     setSubTitle(tr(&quot;Please fill both fields. Make sure to provide a valid &quot;
+                    &quot;email address (e.g., john.smith@example.com).&quot;));
+
+     nameLabel = new QLabel(tr(&quot;N&amp;ame:&quot;));
+     nameLineEdit = new QLineEdit;
+     nameLabel-&gt;setBuddy(nameLineEdit);
+
+     emailLabel = new QLabel(tr(&quot;&amp;Email address:&quot;));
+     emailLineEdit = new QLineEdit;
+     emailLineEdit-&gt;setValidator(new QRegExpValidator(QRegExp(&quot;.*@.*&quot;), this));
+     emailLabel-&gt;setBuddy(emailLineEdit);
+
+     registerField(&quot;evaluate.name*&quot;, nameLineEdit);
+     registerField(&quot;evaluate.email*&quot;, emailLineEdit);
+
+     QGridLayout *layout = new QGridLayout;
+     layout-&gt;addWidget(nameLabel, 0, 0);
+     layout-&gt;addWidget(nameLineEdit, 0, 1);
+     layout-&gt;addWidget(emailLabel, 1, 0);
+     layout-&gt;addWidget(emailLineEdit, 1, 1);
+     setLayout(layout);
+ }
+
+ int EvaluatePage::nextId() const
+ {
+     return LicenseWizard::Page_Conclusion;
+ }
+
+ RegisterPage::RegisterPage(QWidget *parent)
+     : QWizardPage(parent)
+ {
+     setTitle(tr(&quot;Register Your Copy of &lt;i&gt;Super Product One&lt;/i&gt;&amp;trade;&quot;));
+     setSubTitle(tr(&quot;If you have an upgrade key, please fill in &quot;
+                    &quot;the appropriate field.&quot;));
+
+     nameLabel = new QLabel(tr(&quot;N&amp;ame:&quot;));
+     nameLineEdit = new QLineEdit;
+     nameLabel-&gt;setBuddy(nameLineEdit);
+
+     upgradeKeyLabel = new QLabel(tr(&quot;&amp;Upgrade key:&quot;));
+     upgradeKeyLineEdit = new QLineEdit;
+     upgradeKeyLabel-&gt;setBuddy(upgradeKeyLineEdit);
+
+     registerField(&quot;register.name*&quot;, nameLineEdit);
+     registerField(&quot;register.upgradeKey&quot;, upgradeKeyLineEdit);
+
+     QGridLayout *layout = new QGridLayout;
+     layout-&gt;addWidget(nameLabel, 0, 0);
+     layout-&gt;addWidget(nameLineEdit, 0, 1);
+     layout-&gt;addWidget(upgradeKeyLabel, 1, 0);
+     layout-&gt;addWidget(upgradeKeyLineEdit, 1, 1);
+     setLayout(layout);
+ }
+
+ int RegisterPage::nextId() const
+ {
+     if (upgradeKeyLineEdit-&gt;text().isEmpty()) {
+         return LicenseWizard::Page_Details;
+     } else {
+         return LicenseWizard::Page_Conclusion;
+     }
+ }
+
+ DetailsPage::DetailsPage(QWidget *parent)
+     : QWizardPage(parent)
+ {
+     setTitle(tr(&quot;Fill In Your Details&quot;));
+     setSubTitle(tr(&quot;Please fill all three fields. Make sure to provide a valid &quot;
+                    &quot;email address (e.g., tanaka.aya@example.co.jp).&quot;));
+
+     companyLabel = new QLabel(tr(&quot;&amp;Company name:&quot;));
+     companyLineEdit = new QLineEdit;
+     companyLabel-&gt;setBuddy(companyLineEdit);
+
+     emailLabel = new QLabel(tr(&quot;&amp;Email address:&quot;));
+     emailLineEdit = new QLineEdit;
+     emailLineEdit-&gt;setValidator(new QRegExpValidator(QRegExp(&quot;.*@.*&quot;), this));
+     emailLabel-&gt;setBuddy(emailLineEdit);
+
+     postalLabel = new QLabel(tr(&quot;&amp;Postal address:&quot;));
+     postalLineEdit = new QLineEdit;
+     postalLabel-&gt;setBuddy(postalLineEdit);
+
+     registerField(&quot;details.company*&quot;, companyLineEdit);
+     registerField(&quot;details.email*&quot;, emailLineEdit);
+     registerField(&quot;details.postal*&quot;, postalLineEdit);
+
+     QGridLayout *layout = new QGridLayout;
+     layout-&gt;addWidget(companyLabel, 0, 0);
+     layout-&gt;addWidget(companyLineEdit, 0, 1);
+     layout-&gt;addWidget(emailLabel, 1, 0);
+     layout-&gt;addWidget(emailLineEdit, 1, 1);
+     layout-&gt;addWidget(postalLabel, 2, 0);
+     layout-&gt;addWidget(postalLineEdit, 2, 1);
+     setLayout(layout);
+ }
+
+ int DetailsPage::nextId() const
+ {
+     return LicenseWizard::Page_Conclusion;
+ }
+
+ ConclusionPage::ConclusionPage(QWidget *parent)
+     : QWizardPage(parent)
+ {
+     setTitle(tr(&quot;Complete Your Registration&quot;));
+     setPixmap(QWizard::WatermarkPixmap, QPixmap(&quot;:/images/watermark.png&quot;));
+
+     bottomLabel = new QLabel;
+     bottomLabel-&gt;setWordWrap(true);
+
+     agreeCheckBox = new QCheckBox(tr(&quot;I agree to the terms of the license&quot;));
+
+     registerField(&quot;conclusion.agree*&quot;, agreeCheckBox);
+
+     QVBoxLayout *layout = new QVBoxLayout;
+     layout-&gt;addWidget(bottomLabel);
+     layout-&gt;addWidget(agreeCheckBox);
+     setLayout(layout);
+ }
+
+ int ConclusionPage::nextId() const
+ {
+     return -1;
+ }
+
+ void ConclusionPage::initializePage()
+ {
+     QString licenseText;
+
+     if (wizard()-&gt;hasVisitedPage(LicenseWizard::Page_Evaluate)) {
+         licenseText = tr(&quot;&lt;u&gt;Evaluation License Agreement:&lt;/u&gt; &quot;
+                          &quot;You can use this software for 30 days and make one &quot;
+                          &quot;backup, but you are not allowed to distribute it.&quot;);
+     } else if (wizard()-&gt;hasVisitedPage(LicenseWizard::Page_Details)) {
+         licenseText = tr(&quot;&lt;u&gt;First-Time License Agreement:&lt;/u&gt; &quot;
+                          &quot;You can use this software subject to the license &quot;
+                          &quot;you will receive by email.&quot;);
+     } else {
+         licenseText = tr(&quot;&lt;u&gt;Upgrade License Agreement:&lt;/u&gt; &quot;
+                          &quot;This software is licensed under the terms of your &quot;
+                          &quot;current license.&quot;);
+     }
+     bottomLabel-&gt;setText(licenseText);
+ }
+
+ void ConclusionPage::setVisible(bool visible)
+ {
+     QWizardPage::setVisible(visible);
+
+     if (visible) {
+         wizard()-&gt;setButtonText(QWizard::CustomButton1, tr(&quot;&amp;Print&quot;));
+         wizard()-&gt;setOption(QWizard::HaveCustomButton1, true);
+         connect(wizard(), SIGNAL(customButtonClicked(int)),
+                 this, SLOT(printButtonClicked()));
+     } else {
+         wizard()-&gt;setOption(QWizard::HaveCustomButton1, false);
+         disconnect(wizard(), SIGNAL(customButtonClicked(int)),
+                    this, SLOT(printButtonClicked()));
+     }
+ }
+
+ void ConclusionPage::printButtonClicked()
+ {
+     QPrinter printer;
+     QPrintDialog dialog(&amp;printer, this);
+     if (dialog.exec())
+         QMessageBox::warning(this, tr(&quot;Print License&quot;),
+                              tr(&quot;As an environmentally friendly measure, the &quot;
+                                 &quot;license text will not actually be printed.&quot;));
+ }</pre>
+</div>
+<!-- @@@dialogs/licensewizard/licensewizard.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,632 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/Kconfig.debug linux-2.6.22.19/arch/mips/Kconfig.debug
+--- linux-2.6.22.19.ref/arch/mips/Kconfig.debug	2009-03-20 20:30:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/Kconfig.debug	2009-03-20 20:32:03.000000000 -0700
+@@ -95,4 +95,14 @@
+ 	  hardware debugging with a logic analyzer and need to see all traffic
+ 	  on the bus.
+ 
++config HWTRIGGER
++	bool "Generate hardware trigger points for kernel detected errors"
++	help
++	  If you say Y here the kernel will generate some sort of hardware event
++	  that can be detected by extrnal test equipment. The exact event is
++	  determined by the _HWTRIGGER macro in include/asm-mips/bug.h.
++	  Only useful when you have the test equipment available and are tracking
++	  down difficuly hardware/software bugs.
++	  Say N unless you know what you're doing.
++
+ endmenu
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/kernel/branch.c linux-2.6.22.19/arch/mips/kernel/branch.c
+--- linux-2.6.22.19.ref/arch/mips/kernel/branch.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/kernel/branch.c	2009-03-20 20:32:03.000000000 -0700
+@@ -209,11 +209,13 @@
+ 	return 0;
+ 
+ unaligned:
++	HWTRIGGER(regs, SIGBUS, "unaligned epc");
+ 	printk("%s: unaligned epc - sending SIGBUS.\n", current->comm);
+ 	force_sig(SIGBUS, current);
+ 	return -EFAULT;
+ 
+ sigill:
++	HWTRIGGER(regs, SIGBUS, "DSP branch but not DSP ASE");
+ 	printk("%s: DSP branch but not DSP ASE - sending SIGBUS.\n", current->comm);
+ 	force_sig(SIGBUS, current);
+ 	return -EFAULT;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/kernel/signal.c linux-2.6.22.19/arch/mips/kernel/signal.c
+--- linux-2.6.22.19.ref/arch/mips/kernel/signal.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/kernel/signal.c	2009-03-20 20:32:03.000000000 -0700
+@@ -423,6 +423,7 @@
+ 	/* Unreached */
+ 
+ badframe:
++	CHWTRIGGER(&regs, SIGSEGV, "_sys_sigreturn");
+ 	force_sig(SIGSEGV, current);
+ }
+ #endif /* CONFIG_TRAD_SIGNALS */
+@@ -469,6 +470,7 @@
+ 	/* Unreached */
+ 
+ badframe:
++	CHWTRIGGER(&regs, SIGSEGV, "_sys_rt_sigreturn");
+ 	force_sig(SIGSEGV, current);
+ }
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/kernel/traps.c linux-2.6.22.19/arch/mips/kernel/traps.c
+--- linux-2.6.22.19.ref/arch/mips/kernel/traps.c	2009-03-20 20:30:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/kernel/traps.c	2009-03-20 20:32:03.000000000 -0700
+@@ -21,6 +21,7 @@
+ #include <linux/kallsyms.h>
+ #include <linux/bootmem.h>
+ #include <linux/interrupt.h>
++#include <linux/ptrace.h>
+ 
+ #include <asm/bootinfo.h>
+ #include <asm/branch.h>
+@@ -328,6 +329,8 @@
+ 	unsigned long dvpret = dvpe();
+ #endif /* CONFIG_MIPS_MT_SMTC */
+ 
++	HWTRIGGER(regs, SIGSEGV, "die");
++
+ 	console_verbose();
+ 	spin_lock_irq(&die_lock);
+ 	bust_spinlocks(1);
+@@ -375,6 +378,12 @@
+ 	int data = regs->cp0_cause & 4;
+ 	int action = MIPS_BE_FATAL;
+ 
++	/*
++	 * This should be done after searching the exception table
++	 * But on Malta this should never happen, so do it early
++	 */
++	HWTRIGGER(regs, SIGBUS, "do_be");
++
+ 	/* XXX For now.  Fixme, this searches the wrong table ...  */
+ 	if (data && !user_mode(regs))
+ 		fixup = search_dbe_tables(exception_epc(regs));
+@@ -607,6 +616,7 @@
+ 	info.si_signo = SIGFPE;
+ 	info.si_errno = 0;
+ 	info.si_addr = (void __user *) regs->cp0_epc;
++	CHWTRIGGER(regs, SIGFPE, "do_ov");
+ 	force_sig_info(SIGFPE, &info, current);
+ }
+ 
+@@ -646,12 +656,15 @@
+ 		own_fpu(1);	/* Using the FPU again.  */
+ 
+ 		/* If something went wrong, signal */
+-		if (sig)
++		if (sig) {
++			CHWTRIGGER(regs, sig, "do_fpe");
+ 			force_sig(sig, current);
++		}
+ 
+ 		return;
+ 	}
+ 
++	CHWTRIGGER(regs, SIGFPE, "do_fpe");
+ 	force_sig(SIGFPE, current);
+ }
+ 
+@@ -690,18 +703,30 @@
+ 		info.si_signo = SIGFPE;
+ 		info.si_errno = 0;
+ 		info.si_addr = (void __user *) regs->cp0_epc;
++		CHWTRIGGER(regs, SIGFPE, "do_bp");
+ 		force_sig_info(SIGFPE, &info, current);
+ 		break;
+ 	case BRK_BUG:
+ 		die("Kernel bug detected", regs);
+ 		break;
++	case BRK_HWTRIGGER << 10:
++		if (user_mode(regs)) {
++			CHWTRIGGER(regs, (unsigned int)0, "userland trigger");
++			compute_return_epc(regs);
++			return;
++		}
++		/* Fall through */
+ 	default:
+ 		die_if_kernel("Break instruction in kernel code", regs);
++		if (!(current->ptrace & PT_PTRACED) ||
++		    (bcode != (BRK_SSTEPBP << 10)))
++			CHWTRIGGER(regs, SIGTRAP, "do_bp");
+ 		force_sig(SIGTRAP, current);
+ 	}
+ 	return;
+ 
+ out_sigsegv:
++	CHWTRIGGER(regs, SIGSEGV, "do_bp");
+ 	force_sig(SIGSEGV, current);
+ }
+ 
+@@ -734,6 +759,7 @@
+ 		info.si_signo = SIGFPE;
+ 		info.si_errno = 0;
+ 		info.si_addr = (void __user *) regs->cp0_epc;
++		CHWTRIGGER(regs, SIGFPE, "do_tr");
+ 		force_sig_info(SIGFPE, &info, current);
+ 		break;
+ 	case BRK_BUG:
+@@ -741,11 +767,13 @@
+ 		break;
+ 	default:
+ 		die_if_kernel("Trap instruction in kernel code", regs);
++		CHWTRIGGER(regs, SIGTRAP, "do_tr");
+ 		force_sig(SIGTRAP, current);
+ 	}
+ 	return;
+ 
+ out_sigsegv:
++	CHWTRIGGER(regs, SIGSEGV, "do_tr");
+ 	force_sig(SIGSEGV, current);
+ }
+ 
+@@ -760,6 +788,7 @@
+ 	if (!simulate_rdhwr(regs))
+ 		return;
+ 
++	CHWTRIGGER(regs, SIGILL, "do_ri");
+ 	force_sig(SIGILL, current);
+ }
+ 
+@@ -794,8 +823,10 @@
+ 			int sig;
+ 			sig = fpu_emulator_cop1Handler(regs,
+ 						&current->thread.fpu, 0);
+-			if (sig)
++			if (sig) {
++				CHWTRIGGER(regs, sig, "do_cpu");
+ 				force_sig(sig, current);
++			}
+ #ifdef CONFIG_MIPS_MT_FPAFF
+ 			else {
+ 			/*
+@@ -835,11 +866,13 @@
+ 		break;
+ 	}
+ 
++	CHWTRIGGER(regs, SIGILL, "do_cpu");
+ 	force_sig(SIGILL, current);
+ }
+ 
+ asmlinkage void do_mdmx(struct pt_regs *regs)
+ {
++	CHWTRIGGER(regs, SIGILL, "do_mdmx");
+ 	force_sig(SIGILL, current);
+ }
+ 
+@@ -849,6 +882,7 @@
+ 	 * We use the watch exception where available to detect stack
+ 	 * overflows.
+ 	 */
++	CHWTRIGGER(regs, 0, "do_watch");
+ 	dump_tlb_all();
+ 	show_regs(regs);
+ 	panic("Caught WATCH exception - probably caused by stack overflow.");
+@@ -859,6 +893,7 @@
+ 	const int field = 2 * sizeof(unsigned long);
+ 	int multi_match = regs->cp0_status & ST0_TS;
+ 
++	CHWTRIGGER(regs, 0, "do_mcheck");
+ 	show_regs(regs);
+ 
+ 	if (multi_match) {
+@@ -914,6 +949,7 @@
+ 	}
+ 	die_if_kernel("MIPS MT Thread exception in kernel", regs);
+ 
++	CHWTRIGGER(regs, SIGILL, "do_mt");
+ 	force_sig(SIGILL, current);
+ }
+ 
+@@ -923,6 +959,7 @@
+ 	if (cpu_has_dsp)
+ 		panic("Unexpected DSP exception\n");
+ 
++	CHWTRIGGER(regs, SIGFPE, "do_dsp");
+ 	force_sig(SIGILL, current);
+ }
+ 
+@@ -933,6 +970,7 @@
+ 	 * caused by a new unknown cpu type or after another deadly
+ 	 * hard/software error.
+ 	 */
++	HWTRIGGER(regs, 0, "do_reserved");
+ 	show_regs(regs);
+ 	panic("Caught reserved exception %ld - should not happen.",
+ 	      (regs->cp0_cause & 0x7f) >> 2);
+@@ -1082,6 +1120,7 @@
+ 
+ static asmlinkage void do_default_vi(void)
+ {
++	HWTRIGGER(get_irq_regs(), 0, "do_default_vi");
+ 	show_regs(get_irq_regs());
+ 	panic("Caught unexpected vectored interrupt.");
+ }
+@@ -1535,3 +1574,60 @@
+ 	flush_icache_range(ebase, ebase + 0x400);
+ 	flush_tlb_handlers();
+ }
++
++#ifdef CONFIG_HWTRIGGER
++
++void
++hwtriggerinfo(char *file, int line, void *rp, unsigned int code, char *why)
++{
++	struct pt_regs *regs = (struct pt_regs *)rp;
++	if (why) {
++		char *who = (!regs || !user_mode(regs)) ?
++			"Kernel" : current->comm;
++		printk(KERN_DEBUG "%s:%d: HWTRIGGER(%u) for %s: %s\n",
++		       file, line, code, who, why);
++	}
++	if (regs)
++		show_registers(regs);
++	else
++		dump_stack();
++}
++
++/*
++ * Decide if HWTRIGGER is needed
++ */
++
++int
++chwtrigger(void *rp)
++{
++	struct pt_regs *regs = (struct pt_regs *)rp;
++	struct {
++		char *comm;
++		int len;
++	} *p, ignored[] = {
++		{"crashme", 7},
++		{"lat_sig", 0}
++	};
++#define NIGNORED (sizeof(ignored)/sizeof(ignored[0]))
++
++	/* Unconditional trigger from kernel mode */
++	if (regs && !user_mode(regs))
++		return 1;
++
++	/* Ignore some userland programs */
++	for (p = ignored; p < &ignored[NIGNORED]; p++) {
++		if (p->len) {
++			if (strncmp(current->comm, p->comm, p->len) == 0)
++				return 0;
++		} else {
++			if (strcmp (current->comm, p->comm) == 0)
++				return 0;
++		}
++	}
++
++	/* Trigger on everything else */
++	return 1;
++}
++
++
++#endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/kernel/unaligned.c linux-2.6.22.19/arch/mips/kernel/unaligned.c
+--- linux-2.6.22.19.ref/arch/mips/kernel/unaligned.c	2009-03-20 20:30:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/kernel/unaligned.c	2009-03-20 20:32:03.000000000 -0700
+@@ -523,18 +523,21 @@
+ 		return 1;
+ 
+ 	die_if_kernel ("Unhandled kernel unaligned access", regs);
++	CHWTRIGGER(regs, SIGSEGV, "emulate_load_store_insn");
+ 	send_sig(SIGSEGV, current, 1);
+ 
+ 	return 0;
+ 
+ sigbus:
+ 	die_if_kernel("Unhandled kernel unaligned access", regs);
++	CHWTRIGGER(regs, SIGBUS, "emulate_load_store_insn");
+ 	send_sig(SIGBUS, current, 1);
+ 
+ 	return 0;
+ 
+ sigill:
+ 	die_if_kernel("Unhandled kernel unaligned access or invalid instruction", regs);
++	CHWTRIGGER(regs, SIGILL, "emulate_load_store_insn");
+ 	send_sig(SIGILL, current, 1);
+ 
+ 	return 0;
+@@ -592,6 +595,7 @@
+ 
+ sigbus:
+ 	die_if_kernel("Kernel unaligned instruction access", regs);
++	CHWTRIGGER(regs, SIGBUS, "do_ade");
+ 	force_sig(SIGBUS, current);
+ 
+ 	/*
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/mm/fault.c linux-2.6.22.19/arch/mips/mm/fault.c
+--- linux-2.6.22.19.ref/arch/mips/mm/fault.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/mm/fault.c	2009-03-20 20:32:03.000000000 -0700
+@@ -130,6 +130,7 @@
+ bad_area_nosemaphore:
+ 	/* User mode accesses just cause a SIGSEGV */
+ 	if (user_mode(regs)) {
++		CHWTRIGGER(regs, SIGSEGV, "do_page_fault");
+ 		tsk->thread.cp0_badvaddr = address;
+ 		tsk->thread.error_code = write;
+ #if 0
+@@ -160,6 +161,8 @@
+ 	 * Oops. The kernel tried to access some bad page. We'll have to
+ 	 * terminate things with extreme prejudice.
+ 	 */
++	HWTRIGGER(regs, 0, "do_page_fault");
++
+ 	bust_spinlocks(1);
+ 
+ 	printk(KERN_ALERT "CPU %d Unable to handle kernel paging request at "
+@@ -190,7 +193,9 @@
+ 	/* Kernel mode? Handle exceptions or die */
+ 	if (!user_mode(regs))
+ 		goto no_context;
+-	else
++
++	CHWTRIGGER(regs, SIGBUS, "do_page_fault");
++
+ 	/*
+ 	 * Send a sigbus, regardless of whether we were in kernel
+ 	 * or user mode.
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/include/asm-mips/break.h linux-2.6.22.19/include/asm-mips/break.h
+--- linux-2.6.22.19.ref/include/asm-mips/break.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/asm-mips/break.h	2009-03-20 20:32:03.000000000 -0700
+@@ -27,6 +27,7 @@
+ #define BRK_STACKOVERFLOW 9	/* For Ada stackchecking */
+ #define BRK_NORLD	10	/* No rld found - not used by Linux/MIPS */
+ #define _BRK_THREADBP	11	/* For threads, user bp (used by debuggers) */
++#define BRK_HWTRIGGER	511	/* Userland hwtrigger */
+ #define BRK_BUG		512	/* Used by BUG() */
+ #define BRK_KDB		513	/* Used in KDB_ENTER() */
+ #define BRK_MULOVF	1023	/* Multiply overflow */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/include/asm-mips/bug.h linux-2.6.22.19/include/asm-mips/bug.h
+--- linux-2.6.22.19.ref/include/asm-mips/bug.h	2009-03-20 20:30:40.000000000 -0700
++++ linux-2.6.22.19/include/asm-mips/bug.h	2009-03-20 20:36:08.000000000 -0700
+@@ -3,6 +3,51 @@
+ 
+ #include <asm/sgidefs.h>
+ 
++#ifdef CONFIG_HWTRIGGER
++
++/* Hardware assisted debugging */
++
++extern void hwtriggerinfo(char *file, int line, void *regs,
++			  unsigned int code, char *why);
++extern int chwtrigger(void *regs);
++
++#if defined(CONFIG_TANGO3)
++#define _HWTRIGGER(code)						\
++do {									\
++	*(volatile unsigned int *)0xa4001000 = code;			\
++	__asm__ __volatile__ ("sync");					\
++} while (0)
++#elif defined(CONFIG_TANGO2)
++#define _HWTRIGGER(code)						\
++do {									\
++	*(volatile unsigned int *)0xb0020000 = code;			\
++	__asm__ __volatile__ ("sync");					\
++} while (0)
++#else
++#define _HWTRIGGER(code)						\
++do {									\
++	*(volatile unsigned int *)0xbfc00000 = code;			\
++	__asm__ __volatile__ ("sync");					\
++} while (0)
++#endif
++
++#define HWTRIGGER(regs, code, why)					\
++do {									\
++	_HWTRIGGER(code);						\
++	hwtriggerinfo(__FILE__, __LINE__, regs, code, why);		\
++} while (0)
++
++#define CHWTRIGGER(regs, code, why)					\
++do {									\
++	if (chwtrigger(regs))						\
++		HWTRIGGER(regs, code, why);				\
++} while (0)
++#else
++#define _HWTRIGGER(code)
++#define HWTRIGGER(regs, code, why)
++#define CHWTRIGGER(regs, code, why)
++#endif
++
+ #ifdef CONFIG_BUG
+ 
+ #include <asm/break.h>
+@@ -15,6 +60,7 @@
+ 
+ #define BUG()								\
+ do {									\
++	_HWTRIGGER(0xffff);						\
+ 	printk("<0> BUG on %s:%d (%s).\n", __FILE__, __LINE__, __FUNCTION__); \
+ 	__asm__ __volatile__("break %0" : : "i" (BRK_BUG));		\
+ } while (0)
+@@ -25,6 +71,7 @@
+ 
+ #define BUG_ON(condition)						\
+ do {									\
++	if (condition) _HWTRIGGER(0xffff);				\
+ 	__asm__ __volatile__("tne $0, %0, %1"				\
+ 			     : : "r" (condition), "i" (BRK_BUG));	\
+ } while (0)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/include/linux/jbd2.h linux-2.6.22.19/include/linux/jbd2.h
+--- linux-2.6.22.19.ref/include/linux/jbd2.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/jbd2.h	2009-03-20 20:32:03.000000000 -0700
+@@ -260,6 +260,7 @@
+ #define J_ASSERT(assert)						\
+ do {									\
+ 	if (!(assert)) {						\
++		HWTRIGGER(0, 0, "JBD assertion");			\
+ 		printk (KERN_EMERG					\
+ 			"Assertion failure in %s() at %s:%d: \"%s\"\n",	\
+ 			__FUNCTION__, __FILE__, __LINE__, # assert);	\
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/lib/list_debug.c linux-2.6.22.19/lib/list_debug.c
+--- linux-2.6.22.19.ref/lib/list_debug.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/lib/list_debug.c	2009-03-20 20:32:03.000000000 -0700
+@@ -21,12 +21,14 @@
+ 			      struct list_head *next)
+ {
+ 	if (unlikely(next->prev != prev)) {
++		HWTRIGGER(0, 0, "list_add corruption");
+ 		printk(KERN_ERR "list_add corruption. next->prev should be "
+ 			"prev (%p), but was %p. (next=%p).\n",
+ 			prev, next->prev, next);
+ 		BUG();
+ 	}
+ 	if (unlikely(prev->next != next)) {
++		HWTRIGGER(0, 0, "list_add corruption");
+ 		printk(KERN_ERR "list_add corruption. prev->next should be "
+ 			"next (%p), but was %p. (prev=%p).\n",
+ 			next, prev->next, prev);
+@@ -62,11 +64,13 @@
+ void list_del(struct list_head *entry)
+ {
+ 	if (unlikely(entry->prev->next != entry)) {
++		HWTRIGGER(0, 0, "list_del corruption");
+ 		printk(KERN_ERR "list_del corruption. prev->next should be %p, "
+ 				"but was %p\n", entry, entry->prev->next);
+ 		BUG();
+ 	}
+ 	if (unlikely(entry->next->prev != entry)) {
++		HWTRIGGER(0, 0, "list_del corruption");
+ 		printk(KERN_ERR "list_del corruption. next->prev should be %p, "
+ 				"but was %p\n", entry, entry->next->prev);
+ 		BUG();
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/lib/spinlock_debug.c linux-2.6.22.19/lib/spinlock_debug.c
+--- linux-2.6.22.19.ref/lib/spinlock_debug.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/lib/spinlock_debug.c	2009-03-20 20:32:03.000000000 -0700
+@@ -56,6 +56,8 @@
+ 	if (!debug_locks_off())
+ 		return;
+ 
++	HWTRIGGER(0, 0, "spin_bug");
++
+ 	if (lock->owner && lock->owner != SPINLOCK_OWNER_INIT)
+ 		owner = lock->owner;
+ 	printk(KERN_EMERG "BUG: spinlock %s on CPU#%d, %s/%d\n",
+@@ -113,6 +115,7 @@
+ 		/* lockup suspected: */
+ 		if (print_once) {
+ 			print_once = 0;
++			HWTRIGGER(0, 0, "__spin_lock_debug");
+ 			printk(KERN_EMERG "BUG: spinlock lockup on CPU#%d, "
+ 					"%s/%d, %p\n",
+ 				raw_smp_processor_id(), current->comm,
+@@ -159,6 +162,7 @@
+ 	if (!debug_locks_off())
+ 		return;
+ 
++	HWTRIGGER(0, 0, "rwlock_bug");
+ 	printk(KERN_EMERG "BUG: rwlock %s on CPU#%d, %s/%d, %p\n",
+ 		msg, raw_smp_processor_id(), current->comm,
+ 		current->pid, lock);
+@@ -183,6 +187,7 @@
+ 		/* lockup suspected: */
+ 		if (print_once) {
+ 			print_once = 0;
++			HWTRIGGER(0, 0, "__read_lock_debug");
+ 			printk(KERN_EMERG "BUG: read-lock lockup on CPU#%d, "
+ 					"%s/%d, %p\n",
+ 				raw_smp_processor_id(), current->comm,
+@@ -258,6 +263,7 @@
+ 		/* lockup suspected: */
+ 		if (print_once) {
+ 			print_once = 0;
++			HWTRIGGER(0, 0, "__write_lock_debug");
+ 			printk(KERN_EMERG "BUG: write-lock lockup on CPU#%d, "
+ 					"%s/%d, %p\n",
+ 				raw_smp_processor_id(), current->comm,
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/mm/page_alloc.c linux-2.6.22.19/mm/page_alloc.c
+--- linux-2.6.22.19.ref/mm/page_alloc.c	2009-03-20 20:30:41.000000000 -0700
++++ linux-2.6.22.19/mm/page_alloc.c	2009-03-20 20:32:03.000000000 -0700
+@@ -189,6 +189,7 @@
+ 
+ static void bad_page(struct page *page)
+ {
++	HWTRIGGER(0, 0x36a9, "bad_page");
+ 	printk(KERN_EMERG "Bad page state in process '%s'\n"
+ 		KERN_EMERG "page:%p flags:0x%0*lx mapping:%p mapcount:%d count:%d\n"
+ 		KERN_EMERG "Trying to fix it up, but a reboot is needed\n"
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/mm/slab.c linux-2.6.22.19/mm/slab.c
+--- linux-2.6.22.19.ref/mm/slab.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/mm/slab.c	2009-03-20 20:32:03.000000000 -0700
+@@ -1815,6 +1815,8 @@
+ 			/* Mismatch ! */
+ 			/* Print header */
+ 			if (lines == 0) {
++				HWTRIGGER(task_pt_regs(current), 0,
++					  "slab corruption");
+ 				printk(KERN_ERR
+ 					"Slab corruption: %s start=%p, len=%d\n",
+ 					cachep->name, realobj, size);
+@@ -2134,6 +2136,7 @@
+ 	 */
+ 	if (!name || in_interrupt() || (size < BYTES_PER_WORD) ||
+ 	    size > KMALLOC_MAX_SIZE || dtor) {
++		HWTRIGGER(0, 0, "kmem_cache_create :early error");
+ 		printk(KERN_ERR "%s: Early error in slab %s\n", __FUNCTION__,
+ 				name);
+ 		BUG();
+@@ -2693,6 +2696,7 @@
+ 	WARN_ON(slabp->nodeid != nodeid);
+ 
+ 	if (slab_bufctl(slabp)[objnr] + 1 <= SLAB_LIMIT + 1) {
++		HWTRIGGER(0, 0, "slab_put_obj: double free");
+ 		printk(KERN_ERR "slab: double free detected in cache "
+ 				"'%s', objp %p\n", cachep->name, objp);
+ 		BUG();
+@@ -2820,6 +2824,7 @@
+ static void kfree_debugcheck(const void *objp)
+ {
+ 	if (!virt_addr_valid(objp)) {
++		HWTRIGGER(0, 0, "kfree_debugcheck: out of range");
+ 		printk(KERN_ERR "kfree_debugcheck: out of range ptr %lxh.\n",
+ 		       (unsigned long)objp);
+ 		BUG();
+@@ -2901,10 +2906,19 @@
+ 	/* Check slab's freelist to see if this obj is there. */
+ 	for (i = slabp->free; i != BUFCTL_END; i = slab_bufctl(slabp)[i]) {
+ 		entries++;
+-		if (entries > cachep->num || i >= cachep->num)
++		if (entries > cachep->num || i >= cachep->num) {
++			if (entries > cachep->num)
++				HWTRIGGER(0, 0,
++					 "check_slabp: entries > cachep->num");
++			if (i > cachep->num)
++				HWTRIGGER(0, 0,
++					  "check_slabp: i > cachep->num");
+ 			goto bad;
++		}
+ 	}
+ 	if (entries != cachep->num - slabp->inuse) {
++		HWTRIGGER(0, 0,
++			  "check_slabp: entries != cachep->num-slabp->inuse");
+ bad:
+ 		printk(KERN_ERR "slab: Internal list corruption detected in "
+ 				"cache '%s'(%d), slabp %p(%d). Hexdump:\n",
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1028.hwtrigger.patch linux-2.6.22.19/README.1028.hwtrigger.patch
+--- linux-2.6.22.19.ref/README.1028.hwtrigger.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1028.hwtrigger.patch	2009-03-20 20:37:33.000000000 -0700
+@@ -0,0 +1,19 @@
++Feature:
++--------
++H/W trigger points for kernel crashes, to be able to get caught by JTAG
++device (e.g. FS2 navigator).
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++MIPS Technology
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

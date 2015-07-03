@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<page background="./image/welcome_background_bg.jpg" large_image_cache_num="3" medium_image_cache_num="16" small_image_cache_num="13">
+
+  	<text text="NETWORK" x="258" y="126" w="370" h="42" fontsize="40" textcolor="0xffb300"/>
+	<text text="@@title" x="258" y="171" w="370" h="22" fontsize="24" textcolor="0xffffff"/>
+
+	<image image="image/network_search_box.png" x="385" y="232" w="510" h="60"/>
+
+	<text text="@@ip_num0" x="391" y="240" w="120" h="50" align="hcenter" fontsize="20" textcolor="0x000000"/>
+	<text text="@@ip_num1" x="518" y="240" w="120" h="50" align="hcenter" fontsize="20" textcolor="0x000000"/>
+	<text text="@@ip_num2" x="649" y="240" w="120" h="50" align="hcenter" fontsize="20" textcolor="0x000000"/>
+	<text text="@@ip_num3" x="778" y="240" w="120" h="50" align="hcenter" fontsize="20" textcolor="0x000000"/>
+
+	<ctrlgrp>
+
+	<button valkey="NUM1"
+		focused_bg="./image/keyboard_number_1_btn_f.png"
+		normal_bg="./image/keyboard_number_1_btn_n.png"/>
+	<button valkey="NUM2"
+		focused_bg="./image/keyboard_number_2_btn_f.png"
+		normal_bg="./image/keyboard_number_2_btn_n.png"/>
+	<button valkey="NUM3"
+		focused_bg="./image/keyboard_number_3_btn_f.png"
+		normal_bg="./image/keyboard_number_3_btn_n.png"/>
+	<button valkey="NUM4"
+		focused_bg="./image/keyboard_number_4_btn_f.png"
+		normal_bg="./image/keyboard_number_4_btn_n.png"/>
+	<button valkey="NUM5"
+		focused_bg="./image/keyboard_number_5_btn_f.png"
+		normal_bg="./image/keyboard_number_5_btn_n.png"/>
+	<button valkey="NUM6"
+		focused_bg="./image/keyboard_number_6_btn_f.png"
+		normal_bg="./image/keyboard_number_6_btn_n.png"/>
+	<button valkey="NUM7"
+		focused_bg="./image/keyboard_number_7_btn_f.png"
+		normal_bg="./image/keyboard_number_7_btn_n.png"/>
+	<button valkey="NUM8"
+		focused_bg="./image/keyboard_number_8_btn_f.png"
+		normal_bg="./image/keyboard_number_8_btn_n.png"/>
+	<button valkey="NUM9"
+		focused_bg="./image/keyboard_number_9_btn_f.png"
+		normal_bg="./image/keyboard_number_9_btn_n.png"/>
+	<button valkey="NUM0"
+		focused_bg="./image/keyboard_number_0_btn_f.png"
+		normal_bg="./image/keyboard_number_0_btn_n.png"/>
+
+	<linebreak/>
+
+	<button valkey="DELETE"
+		focused_bg="./image/keyboard_delet_btn_f.png"
+		normal_bg="./image/keyboard_delet_btn_n.png"/>
+	<button valkey="LEFT" 
+		focused_bg="./image/keyboard_left_btn_f.png"
+		normal_bg="./image/keyboard_left_btn_n.png"/>
+	<button valkey="RIGHT"
+		focused_bg="./image/keyboard_right_btn_f.png"
+		normal_bg="./image/keyboard_right_btn_n.png"/>
+	<button valkey="CLEAR"
+		focused_bg="./image/keyboard_clear_btn_f.png"
+		normal_bg="./image/keyboard_clear_btn_n.png"/>
+
+	<linebreak/>
+
+	 <button valkey="BACK"
+		 focused_bg="./image/common_btn_n.png"
+		 normal_bg="./image/common_btn_f.png"/>
+	 <button valkey="NEXT"
+		 focused_bg="./image/common_btn_n.png"
+		 normal_bg="./image/common_btn_f.png"/>
+
+ </ctrlgrp>
+ 
+
+ <table x="377" y="299" w="527" h="50" cols="10">
+	 <imgbtn image="@@bg-NUM1" text="" active="@@act-NUM1"/>
+	 <imgbtn image="@@bg-NUM2" text="" active="@@act-NUM2"/>
+	 <imgbtn image="@@bg-NUM3" text="" active="@@act-NUM3"/>
+	 <imgbtn image="@@bg-NUM4" text="" active="@@act-NUM4"/>
+	 <imgbtn image="@@bg-NUM5" text="" active="@@act-NUM5"/>
+	 <imgbtn image="@@bg-NUM6" text="" active="@@act-NUM6"/>
+	 <imgbtn image="@@bg-NUM7" text="" active="@@act-NUM7"/>
+	 <imgbtn image="@@bg-NUM8" text="" active="@@act-NUM8"/>
+	 <imgbtn image="@@bg-NUM9" text="" active="@@act-NUM9"/>
+	 <imgbtn image="@@bg-NUM0" text="" active="@@act-NUM0"/>
+ </table>
+ <table x="377" y="353" w="527" h="54" cols="4">
+	 <imgbtn image="@@bg-DELETE" text="" active="@@act-DELETE"/>
+	 <imgbtn image="@@bg-LEFT" text="" active="@@act-LEFT"/>
+	 <imgbtn image="@@bg-RIGHT" text="" active="@@act-RIGHT"/>
+	 <imgbtn image="@@bg-CLEAR" text="" active="@@act-CLEAR"/>
+ </table>
+
+ <imgbtn image="@@bg-BACK" text="BACK" active="@@act-BACK" actnoseltextcolor="0xffffff" x="313" y="452" w="303" h="61" align="hcenter" fontsize="20"/>
+ <imgbtn image="@@bg-NEXT" text="@@next" active="@@act-NEXT" actnoseltextcolor="0xffffff" x="641" y="452" w="303" h="61" align="hcenter" fontsize="20"/>
+
+</page>

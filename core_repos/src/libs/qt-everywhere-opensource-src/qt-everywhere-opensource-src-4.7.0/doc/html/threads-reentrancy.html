@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- threads.qdoc -->
+  <title>Qt 4.7: Reentrancy and Thread-Safety</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Reentrancy and Thread-Safety</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+  <link rel="prev" href="threads-synchronizing.html" />
+  <link rel="next" href="threads-qobject.html" />
+  <link rel="prev" href="threads-synchronizing.html" />
+  <link rel="next" href="threads-qobject.html" />
+<h1 class="title">Reentrancy and Thread-Safety</h1>
+<span class="subtitle"></span>
+<!-- $$$threads-reentrancy.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="reentrant"></a><a name="thread-safe"></a><p>Throughout the documentation, the terms <i>reentrant</i> and <i>thread-safe</i> are used to mark classes and functions to indicate how they can be used in multithread applications:</p>
+<ul>
+<li>A <i>thread-safe</i> function can be called simultaneously from multiple threads, even when the invocations use shared data, because all references to the shared data are serialized.</li>
+<li>A <i>reentrant</i> function can also be called simultaneously from multiple threads, but only if each invocation uses its own data.</li>
+</ul>
+<p>Hence, a <i>thread-safe</i> function is always <i>reentrant</i>, but a <i>reentrant</i> function is not always <i>thread-safe</i>.</p>
+<p>By extension, a class is said to be <i>reentrant</i> if its member functions can be called safely from multiple threads, as long as each thread uses a <i>different</i> instance of the class. The class is <i>thread-safe</i> if its member functions can be called safely from multiple threads, even if all the threads use the <i>same</i> instance of the class.</p>
+<p>C++ classes are often reentrant, simply because they only access their own member data. Any thread can call a member function on an instance of a reentrant class, as long as no other thread can call a member function on the <i>same</i> instance of the class at the same time. For example, the <tt>Counter</tt> class below is reentrant:</p>
+<pre class="highlightedCode brush: cpp"> class Counter
+ {
+ public:
+     Counter() { n = 0; }
+
+     void increment() { ++n; }
+     void decrement() { --n; }
+     int value() const { return n; }
+
+ private:
+     int n;
+ };</pre>
+<p>The class isn't thread-safe, because if multiple threads try to modify the data member <tt>n</tt>, the result is undefined. This is because the <tt>++</tt> and <tt>--</tt> operators aren't always atomic. Indeed, they usually expand to three machine instructions:</p>
+<ol type="1">
+<li>Load the variable's value in a register.</li>
+<li>Increment or decrement the register's value.</li>
+<li>Store the register's value back into main memory.</li>
+</ol>
+<p>If thread A and thread B load the variable's old value simultaneously, increment their register, and store it back, they end up overwriting each other, and the variable is incremented only once!</p>
+<p>Clearly, the access must be serialized: Thread A must perform steps 1, 2, 3 without interruption (atomically) before thread B can perform the same steps; or vice versa. An easy way to make the class thread-safe is to protect all access to the data members with a <a href="qmutex.html">QMutex</a>:</p>
+<pre class="highlightedCode brush: cpp"> class Counter
+ {
+ public:
+     Counter() { n = 0; }
+
+     void increment() { QMutexLocker locker(&amp;mutex); ++n; }
+     void decrement() { QMutexLocker locker(&amp;mutex); --n; }
+     int value() const { QMutexLocker locker(&amp;mutex); return n; }
+
+ private:
+     mutable QMutex mutex;
+     int n;
+ };</pre>
+<p>The <a href="qmutexlocker.html">QMutexLocker</a> class automatically locks the mutex in its constructor and unlocks it when the destructor is invoked, at the end of the function. Locking the mutex ensures that access from different threads will be serialized. The <tt>mutex</tt> data member is declared with the <tt>mutable</tt> qualifier because we need to lock and unlock the mutex in <tt>value()</tt>, which is a const function.</p>
+<p>Many Qt classes are <i>reentrant</i>, but they are not made <i>thread-safe</i>, because making them thread-safe would incur the extra overhead of repeatedly locking and unlocking a <a href="qmutex.html">QMutex</a>. For example, <a href="qstring.html">QString</a> is reentrant but not thread-safe. You can safely access <i>different</i> instances of <a href="qstring.html">QString</a> from multiple threads simultaneously, but you can't safely access the <i>same</i> instance of <a href="qstring.html">QString</a> from multiple threads simultaneously (unless you protect the accesses yourself with a <a href="qmutex.html">QMutex</a>).</p>
+<p>Some Qt classes and functions are thread-safe. These are mainly the thread-related classes (e.g&#x2e; <a href="qmutex.html">QMutex</a>) and fundamental functions (e.g&#x2e; <a href="qcoreapplication.html#postEvent">QCoreApplication::postEvent</a>()).</p>
+<p><b>Note:</b> Qt Classes are only documented as <i>thread-safe</i> if they are intended to be used by multiple threads.</p>
+<p><b>Note:</b> Terminology in the multithreading domain isn't entirely standardized. POSIX uses definitions of reentrant and thread-safe that are somewhat different for its C APIs. When using other object-oriented C++ class libraries with Qt, be sure the definitions are understood.</p>
+</div>
+<!-- @@@threads-reentrancy.html -->
+<p>
+[Previous: <a href="threads-synchronizing.html">Synchronizing Threads</a>]
+[Next: <a href="threads-qobject.html">Threads and QObjects</a>]
+</p>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

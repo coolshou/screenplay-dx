@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+
+    <include filename="./inc_loading.xml"/>
+  <wrapper textcolor="0xffffff">
+  <text text="@@reboot_msg" x="330" y="455" w="620" h="80" fontsize="24" align="hcenter" numlines="3"/>
+  </wrapper>
+  <include filename="./inc_decoration.xml"/>
+</page>

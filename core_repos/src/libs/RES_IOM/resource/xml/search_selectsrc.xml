@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" wait_seconds="1">
+
+	<include filename="./inc_browse_basic_title.xml" />
+<!--
+<text text="@@pagecounter" x="872" y="172" w="118" h="26" fontsize="24" textcolor="0xffffff"/>
+-->
+	<listbox valkey="serverlist" move="row" cols="1" rows="7" lbmask="l"/>
+
+	<image image="@@listprev" x="626" y="150" w="29" h="21"/>
+<!--
+	<table x="125" y="184" w="630" h="409" selected_fontsize="26" cols="1" rows="8" colspacing="0" rowspacing="0" ymargin="0" lbimage="image/villa_fileManagement_select_button_left.png" fontsize="20">
+-->
+	<table x="185" y="188" w="913" h="343" fontsize="22" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" rows="7" rowspacing="0" lbimage="image/settings_focus_btn.png">
+	    <text text="@@serverlist-0" lmargin="35" lightbar="@@lightbar-serverlist-0" active="@@act-serverlist-0"/>
+	    <text text="@@serverlist-1" lmargin="35" lightbar="@@lightbar-serverlist-1" active="@@act-serverlist-1"/>
+	    <text text="@@serverlist-2" lmargin="35" lightbar="@@lightbar-serverlist-2" active="@@act-serverlist-2"/>
+	    <text text="@@serverlist-3" lmargin="35" lightbar="@@lightbar-serverlist-3" active="@@act-serverlist-3"/>
+	    <text text="@@serverlist-4" lmargin="35" lightbar="@@lightbar-serverlist-4" active="@@act-serverlist-4"/>
+	    <text text="@@serverlist-5" lmargin="35" lightbar="@@lightbar-serverlist-5" active="@@act-serverlist-5"/>
+	    <text text="@@serverlist-6" lmargin="35" lightbar="@@lightbar-serverlist-6" active="@@act-serverlist-6"/>
+	</table>
+
+	<image image="@@listmore" x="626" y="551" w="29" h="21"/>
+
+<!--
+  <wrapper x="125" w="627" h="1" ymargin="0" bg="1" >
+    <image image="@@browser_0_line" y="183"/>
+    <image image="@@browser_1_line" y="234"/>
+    <image image="@@browser_2_line" y="285"/>
+    <image image="@@browser_3_line" y="336"/>
+    <image image="@@browser_4_line" y="387"/>
+    <image image="@@browser_5_line" y="438"/>
+    <image image="@@browser_6_line" y="489"/>
+    <image image="@@browser_7_line" y="540"/>
+    <image image="@@browser_8_line" y="591"/>
+  </wrapper>
+
+  <table rows="8" x="150" y="185" w="60" h="409">
+    <image image="@@browser_icon-0"/>
+    <image image="@@browser_icon-1"/>
+    <image image="@@browser_icon-2"/>
+    <image image="@@browser_icon-3"/>
+    <image image="@@browser_icon-4"/>
+    <image image="@@browser_icon-5"/>
+    <image image="@@browser_icon-6"/>
+    <image image="@@browser_icon-7"/>
+  </table>
+-->
+	<include filename="./inc_decoration.xml"/>
+ </page>

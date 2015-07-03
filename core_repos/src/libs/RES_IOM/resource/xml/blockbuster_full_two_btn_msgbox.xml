@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp> 
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		 <button valkey="CANCEL"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			click_effect="tp"/>
+		<button valkey="OK"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			click_effect="tp"/>
+	</ctrlgrp>
+	<wrapper y="421" w="210" h="49" align="hcenter" fontsize="20" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029">
+		<imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" x="427"/>
+		<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" x="642"/>
+	</wrapper>
+	<include filename="./inc_blockbuster_msgbox.xml"/>
+	<include filename="./blockbuster_common_msgbox.xml"/>
+</page>

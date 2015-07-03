@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <text text="$$Detecting Wireless Access Point" x="330" y="243" w="620" h="26" fontsize="24" textcolor="0xffffff" align="hcenter"/>
+  <image image="@@watting_img" x="587" y="286" w="158" h="133"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

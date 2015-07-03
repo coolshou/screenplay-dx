@@ -1,0 +1,12 @@
+--- gphotofs-0.4.0/gphotofs.c	2007-07-27 21:33:27.000000000 +0800
++++ ../gphotofs-0.4.0/gphotofs.c	2009-04-09 16:51:04.000000000 +0800
+@@ -25,6 +25,9 @@
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <sys/time.h>
++#ifndef __LC_CTYPE__
++#include <locale.h>
++#endif
+ 
+ /*
+  * Static variables set by command line arguments.

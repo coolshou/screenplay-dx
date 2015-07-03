@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg">
+	<ctrlgrp>
+		<button valkey="SHUTDOWN"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"/>
+		<button valkey="RESTART"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"/>
+		<button valkey="CANCEL"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"/>
+	</ctrlgrp>
+    <include filename="./inc_setup_entry_basic_title.xml" />
+    <wrapper textcolor="0xffffff" fontsize="20">
+	<imgbtn image="@@bg-SHUTDOWN" text="$$Shut down" active="@@act-SHUTDOWN" x="137" y="339" w="300" h="40" align="hcenter" selected_fontsize="20"/>
+
+	<imgbtn image="@@bg-RESTART" text="$$Restart" active="@@act-RESTART" x="488" y="339" w="300" h="40" align="hcenter" selected_fontsize="20"/>
+
+	<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" x="839" y="339" w="300" h="40" align="hcenter" selected_fontsize="20"/>
+    </wrapper>
+    <include filename="./inc_decoration.xml"/>
+</page>

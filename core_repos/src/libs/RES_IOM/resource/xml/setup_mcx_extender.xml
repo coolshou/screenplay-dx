@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<page background="image/browser_list_background_bg_n.png" type="basic">
+	<ctrlgrp lbmask="lUDr" >
+		<button valkey="SETUP"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/>
+		<button valkey="REMOVEINFO"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/>
+		<button valkey="LEARNMORE"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/> 
+		<button valkey="AUTOSTART"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/> 
+		<button valkey="REMOTECTRL"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/> 
+		<button valkey="LAUNCH"
+			focused_bg="image/common_button_A_btn_f.png" 
+			click_bg="image/common_button_A_btn_p.png"/>
+		<linebreak/> 
+	</ctrlgrp>  
+	<image id="headline" image="image/settings_extender_1title_n.png" />  
+	<text id="subheadline" text="$$Windows Media Center Extender setup and settings"/>
+
+	<image bg="1" image="image/browser_list_frame_bg_n.png" x="118" y="173" w="485" h="239"/>
+	<image bg="1" image="image/browser_menu_line.png" x="180" y="216" w="350" h="5"/>
+	<table x="126" y="181" w="490" h="226" 
+		cols="1" rows="6" rowspacing="2"
+		fontsize="20" actnoseltextcolor="0x3333333" textcolor="0xFFFFFF" >
+		<image image="@@bg-SETUP"/>
+		<image image="@@bg-REMOVEINFO"/>
+		<image image="@@bg-LEARNMORE"/>
+		<image image="@@bg-AUTOSTART"/>
+		<image image="@@bg-REMOTECTRL"/>
+		<image image="@@bg-LAUNCH"/>
+	</table>
+
+	<table x="191" y="181" w="490" h="226" 
+		cols="1" rows="6" rowspacing="2"
+		fontsize="20" actnoseltextcolor="0x3333333" textcolor="0xFFFFFF">
+		<text text="$$Set up Extender" active="@@act-SETUP"/>
+		<text text="$$Remove Setup Information" active="@@act-REMOVEINFO"/>
+		<text text="$$Learn More" active="@@act-LEARNMORE"/>
+		<text text="$$Automatic Start" active="@@act-AUTOSTART"/> 
+		<text text="$$Remote Control" active="@@act-REMOTECTRL"/>
+		<text text="$$Launch Extender" active="@@act-LAUNCH"/>
+	</table>
+
+	<table x="180" y="199" w="350" h="228"
+		cols="1" rows="6" colspacing="0" rowspacing="0" >
+		<image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+		<image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+		<image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+		<image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+		<image image="image/browser_menu_line.png" ymargin="0" bg="1"/>
+		<image image="" ymargin="0" bg="1"/>
+	</table>
+
+	<!-- fixed -->
+	<include filename="./inc_nav.xml"/>
+	<include filename="./info.xml"/>
+	<include filename="./inc_setup_headline_property.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>

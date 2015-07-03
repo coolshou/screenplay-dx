@@ -1,0 +1,204 @@
+#!/bin/sh
+
+. ./sysconfig
+
+echo "==================PRIMARY SYSTEM============================"
+cat ./sysconfig
+echo "============================================================"
+
+echo ""
+echo "Primary built date: $SYSCONF_BUILD_DATE"
+echo ""
+
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+insmod /lib/modules/sigmablock.ko
+
+mknod $SYSCONF_FIRMWARE_MTD_PARTITION b 254 7
+dd if=$SYSCONF_FIRMWARE_MTD_PARTITION  of=/fw_sign bs=1 count=4 skip=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+export FW_SIGN=`cat /fw_sign`
+
+echo "SYSCONF_FIRMWARE_MTD_PARTITION = $SYSCONF_FIRMWARE_MTD_PARTITION"
+echo "FW_SIGN = $FW_SIGN"
+
+#while [ 1 ]; do 
+#		/bin/sh ;
+#done
+
+if [ x$FW_SIGN == xokok ] || [ x$FW_SIGN == xf1f1 ] || [ x$FW_SIGN == xsisi ]; then
+	echo "==============================================================================="
+	echo "================ Boot from  $SYSCONF_FIRMWARE_MTD_PARTITION ==================="
+	echo "==============================================================================="
+
+	mkdir /firmware
+
+	echo "Mounting application firmware..."
+
+#   Workaround for mount without reading flash
+#	FW_SIZE=20480
+#	echo "dd $SYSCONF_FIRMWARE_MTD_PARTITION to /firmware/romfs.bin"
+#	dd if=$SYSCONF_FIRMWARE_MTD_PARTITION of=/firmware/romfs.bin bs=1024 count=$FW_SIZE
+#	mount /firmware/romfs.bin /mnt/app_firmware/
+
+	mount $SYSCONF_FIRMWARE_MTD_PARTITION /mnt/app_firmware/
+
+	if [ $? == "0" ]; then
+
+		echo "Application firmware mounted.."
+
+		if [ x$SYSCONF_BOOT_AUTH == xy ]; then
+			echo "Check the authentication of whole file.."
+			boot_auth -p /mnt/mykey.pub -s /tmp/file.sig $SYSCONF_FIRMWARE_MTD_PARTITION
+		else
+			echo "Checking md5sum for all files in application firmware.."
+			(cd /mnt/app_firmware/; md5sum -c md5sum.txt > /dev/null )
+		fi
+
+		if [ $? == "0" ]; then
+			echo "All files have been checked for their integrity..."
+			echo "Launch application firmware..."
+			if [ x$FW_SIGN == xf1f1 ]; then
+				exec switch_root /mnt/app_firmware/ /init f1f1
+			elif [ x$FW_SIGN == xsisi ]; then
+			    exec switch_root /mnt/app_firmware/ /init sisi
+			else
+				exec switch_root /mnt/app_firmware/ /init 
+			fi
+		else
+			echo "The integrity of application firmware is not guaranteed..."
+			cd /
+			umount -f /mnt/app_firmware/
+		fi
+	else
+		echo "Unable to mount application firmware..."
+	fi
+fi
+
+if [ x$SYSCONF_FIRMWARE_STORAGE_PARTITION != x ]; then
+	mknod $SYSCONF_FIRMWARE_STORAGE_PARTITION b 254 8
+	dd if=$SYSCONF_FIRMWARE_STORAGE_PARTITION  of=/storage_sign bs=1 count=4 skip=`expr $SYSCONF_STORAGE_PARTITION_SIZE - 4`
+	export STORAGE_SIGN=`cat /storage_sign`
+	echo "STORAGE_SIGN = $STORAGE_SIGN"
+fi
+
+if [ x$STORAGE_SIGN == xfpkg ]; then
+	echo "==============================================================================="
+	echo "================ Upgrade from storage partition : $SYSCONF_FIRMWARE_STORAGE_PARTITION ==================="
+	echo "==============================================================================="
+
+	echo "Mounting storage partition ..."
+	mkdir /storage
+	mount -o ro,nolock $SYSCONF_FIRMWARE_STORAGE_PARTITION /storage
+
+	if [ $? == "0" ]; then
+		echo "Getting upgrade firmware ..."
+		mkdir /firmware
+		mkdir -p /mnt/firmware;
+		mknod /dev/loop0 b 7 0;
+		mknod /dev/loop1 b 7 1;
+		mknod /dev/loop2 b 7 2;
+
+		if [ x$SYSCONF_FWUP_ENCRYPT == xy ]; then
+			fwup_dec /storage/$SYSCONF_FIRMWARE_BIN /firmware/romfs.bin;
+			echo "Mounting upgrade firmware ..."
+			mount -o loop /firmware/romfs.bin /mnt/firmware/
+			export RET=$?
+			echo "RET = $RET"
+		else
+			echo "Mounting upgrade firmware ..."
+			export LO_DEV=`losetup -f`
+			if [ x$LO_DEV != x ]; then
+				losetup -o 32  $LO_DEV /storage/$SYSCONF_FIRMWARE_BIN
+				echo "lo device : $LO_DEV , ret=$? "
+				mount $LO_DEV /mnt/firmware/
+				export RET=$?
+				echo "RET = $RET"
+			else
+				export RET="255"
+			fi
+		fi
+
+		if [ $RET == "0" ]; then
+
+			echo "Upgrade firmware mounted.."
+
+			if [ x$SYSCONF_BOOT_AUTH == xy ]; then
+				echo "Check the authentication of whole file.."
+				boot_auth -o 32 -p /mnt/mykey.pub -s /tmp/file.sig /storage/$SYSCONF_FIRMWARE_BIN
+			else
+				echo "Checking md5sum for all files in upgrade firmware.."
+				(cd /mnt/firmware/; md5sum -c md5sum.txt > /dev/null )
+			fi
+
+			if [ $? == "0" ]; then
+				echo "All files have been checked for their integrity..."
+				echo "Launch application firmware..."
+
+				exec switch_root /mnt/firmware/ /init upgrade $SYSCONF_FIRMWARE_STORAGE_PARTITION $SYSCONF_FIRMWARE_BIN
+
+			else
+				echo "The integrity of application firmware is not guaranteed..."
+			fi
+			cd /
+			umount -f /mnt/firmware/
+		else
+			echo "Unable to mount upgrade firmware ..."
+		fi
+
+		rm -f /firmware/romfs.bin
+		if [ x$LO_DEV != x ]; then
+			losetup -d $LO_DEV
+		fi
+
+		# we don't need storage partition anymore
+		umount /storage
+
+	else
+		echo "Unable to mount storage partition ..."
+	fi
+	#
+	# Launch original application here
+	#
+	# 1. Clear STORAGE_SIGN
+	# 2. Clear FW_SIGN
+
+	dd if=/dev/zero of=$SYSCONF_FIRMWARE_STORAGE_PARTITION  bs=1 count=4 seek=`expr $SYSCONF_STORAGE_PARTITION_SIZE - 4`
+	echo "okok" > /tmp/restore_fw_sign
+	dd if=/tmp/restore_fw_sign of=$SYSCONF_FIRMWARE_MTD_PARTITION bs=1 count=4 seek=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+	sync
+	sleep 1
+	sync
+	sleep 1
+	sync
+	sleep 1
+	reboot -f
+fi
+
+if [ x$SYSCONF_DOUBLE_SPLASH_SCREEN == xy ]; then
+dd if=/dev/zero of=$SYSCONF_FIRMWARE_MTD_PARTITION bs=1 count=4 seek=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+dd if=$SYSCONF_FIRMWARE_MTD_PARTITION of=/fw_sign bs=1 count=4 skip=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+fi
+
+echo "Launch mdev for checking firmware in USB storage..."
+
+/etc/mdev.sh &
+
+while [ 1 ]; do
+	sleep 1;
+	if [ -f /firmware_ok ]; then
+		echo "A new firmware has been found and loaded to memory.";
+		echo "Prepare to firmware upgrade...";
+		break;
+	fi
+done;
+
+# Mark (both) romfs as fwup if we go to USB firmware upgrade
+echo "fwup" > /fw_sign
+dd if=/fw_sign  of=$SYSCONF_FIRMWARE_MTD_PARTITION bs=1 count=4 seek=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+
+# Do fail safe upgrade from storage
+DEVICE=/dev/`cat /firmware_ok`
+killall -9 mdev
+exec switch_root /mnt/firmware/ /init upgrade $DEVICE $SYSCONF_FIRMWARE_BIN 
+	
+

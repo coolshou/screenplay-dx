@@ -1,0 +1,5 @@
+Fonts in the NRD 3.0 Reference App
+
+The NRD 3.0 Reference Application requires that these fonts be available to Qt/Webkit 
+in the default Qt fonts directory on the device in Qt's lib/fonts directory (the exact 
+location of this directory on your device is dependent on your Qt build configuration).   

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+	<ctrlgrp valkey="main" lbmask="LR">
+		<eventbox_keyboard valkey="keyboard" autoenter="1" lbmask="LRlr"/>
+  		<listbox valkey="browselist" move="row" cols="1" rows="5" autoenter="1" lbmask="lr"/>
+	</ctrlgrp>
+
+	<widget_keyboard ctrlname="keyboard" x="95" y="226" h="247" w="658" cols="14" rows="5" align="hcenter" textcolor="0x0"  activetextcolor="0x0" changed="@@keyboard_changed" extra_height="10" extra_index="0"/>
+  
+    <image image="image/pandora/input_box_f.png" x="95" y="235" w="516" h="46" bg="1"/> 
+    <texttail text="@@input_01_text" x="105" y="244" h="28" w="500" textcolor="0x0" fontsize="26" ignore_translate="1"/>
+   
+	<text text="@@master_headline" x="95" y="79" w="1094" h="52" align="left" fontsize="48" textcolor="0xffffff"/>
+	
+	<wrapper x="814" w="366" h="43">
+		<image y="229" image="@@browselist_0_line"/>
+		<image y="278" image="@@browselist_1_line"/>
+		<image y="327" image="@@browselist_2_line"/>
+		<image y="376" image="@@browselist_3_line"/>
+		<image y="425" image="@@browselist_4_line"/>
+	</wrapper>
+
+	<image x="967" y="175" w="43" h="43" image="@@listprev"/>
+	<image x="967" y="476" w="43" h="43" image="@@listnext"/>
+
+	<wrapper  x="825" w="344" h="28" fontsize="24"  colspacing="0" rowspacing="0"  clickimage="image/pandora_new_station_select_bar.png" textcolor="0x0" align="left">
+		<text text="@@browselist_0_text" y="237" active="@@act-browselist-0" selected="@@browse_0_select" speed="@@browse_0_speed" delay="2" disable="@@disable-browselist"/>
+		<text text="@@browselist_1_text" y="287" active="@@act-browselist-1" selected="@@browse_1_select" speed="@@browse_1_speed" delay="2" disable="@@disable-browselist"/>
+		<text text="@@browselist_2_text" y="335" active="@@act-browselist-2" selected="@@browse_2_select" speed="@@browse_2_speed" delay="2" disable="@@disable-browselist"/>
+		<text text="@@browselist_3_text" y="383" active="@@act-browselist-3" selected="@@browse_3_select" speed="@@browse_3_speed" delay="2" disable="@@disable-browselist"/>
+		<text text="@@browselist_4_text" y="433" active="@@act-browselist-4" selected="@@browse_4_select" speed="@@browse_4_speed" delay="2" disable="@@disable-browselist"/>
+	</wrapper>
+
+    <!--text text="$$Press [Option] key for multi-lingual input" x="95" y="583" w="658" h="20" align="hcenter" fontsize="16" textcolor="0x0" disable="@@disable-OPTION"/-->
+	
+	<include filename="./inc_pandora_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/> 	
+
+	<image image="@@alert_icon" x="317" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="443" y="656" w="102" h="26"/>
+
+</page>

@@ -1,0 +1,836 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/inode.c linux-2.6.22.19/fs/udf/inode.c
+--- linux-2.6.22.19.ref/fs/udf/inode.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/inode.c	2009-07-10 18:11:41.000000000 -0700
+@@ -1309,6 +1309,7 @@
+ 		case ICBTAG_FILE_TYPE_REALTIME:
+ 		case ICBTAG_FILE_TYPE_REGULAR:
+ 		case ICBTAG_FILE_TYPE_UNDEF:
++		case ICBTAG_FILE_TYPE_VAT20:
+ 		{
+ 			if (UDF_I_ALLOCTYPE(inode) == ICBTAG_FLAG_AD_IN_ICB)
+ 				inode->i_data.a_ops = &udf_adinicb_aops;
+@@ -1346,6 +1347,21 @@
+ 			inode->i_mode = S_IFLNK|S_IRWXUGO;
+ 			break;
+ 		}
++		case ICBTAG_FILE_TYPE_MAIN:
++		{
++			udf_debug("METADATA FILE-----\n");
++			break;
++		}
++		case ICBTAG_FILE_TYPE_MIRROR:
++		{
++			udf_debug("METADATA MIRROR FILE-----\n");
++			break;
++		}
++		case ICBTAG_FILE_TYPE_BITMAP:
++		{
++			udf_debug("METADATA BITMAP FILE-----\n");
++			break;
++		}
+ 		default:
+ 		{
+ 			printk(KERN_ERR "udf: udf_fill_inode(ino %ld) failed unknown file type=%d\n",
+@@ -1957,6 +1973,14 @@
+ 			*elen = le32_to_cpu(lad->extLength) & UDF_EXTENT_LENGTH_MASK;
+ 			break;
+ 		}
++		case ICBTAG_FLAG_AD_IN_ICB:
++		{
++			etype = EXT_RECORDED_ALLOCATED;
++			eloc->logicalBlockNum = UDF_I_LOCATION(inode).logicalBlockNum;
++			eloc->partitionReferenceNum = UDF_I_LOCATION(inode).partitionReferenceNum;
++			*elen = UDF_I_LENALLOC(inode);
++			break;
++		}
+ 		default:
+ 		{
+ 			udf_debug("alloc_type = %d unsupported\n", UDF_I_ALLOCTYPE(inode));
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/misc.c linux-2.6.22.19/fs/udf/misc.c
+--- linux-2.6.22.19.ref/fs/udf/misc.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/misc.c	2009-07-10 18:11:41.000000000 -0700
+@@ -214,10 +214,10 @@
+ 	if (block == 0xFFFFFFFF)
+ 		return NULL;
+ 
+-	bh = udf_tread(sb, block + UDF_SB_SESSION(sb));
++	bh = udf_tread(sb, block + UDF_SB_SESSION(sb)); 
+ 	if (!bh)
+ 	{
+-		udf_debug("block=%d, location=%d: read failed\n", block + UDF_SB_SESSION(sb), location);
++		udf_debug("block=%d, location=%d: read failed\n", block + UDF_SB_SESSION(sb), location); 
+ 		return NULL;
+ 	}
+ 
+@@ -228,7 +228,7 @@
+ 	if ( location != le32_to_cpu(tag_p->tagLocation) )
+ 	{
+ 		udf_debug("location mismatch block %u, tag %u != %u\n",
+-			block + UDF_SB_SESSION(sb), le32_to_cpu(tag_p->tagLocation), location);
++			block + UDF_SB_SESSION(sb), le32_to_cpu(tag_p->tagLocation), location); 
+ 		goto error_out;
+ 	}
+ 	
+@@ -260,7 +260,7 @@
+ 		return bh;
+ 	}
+ 	udf_debug("Crc failure block %d: crc = %d, crclen = %d\n",
+-		block + UDF_SB_SESSION(sb), le16_to_cpu(tag_p->descCRC), le16_to_cpu(tag_p->descCRCLength));
++		block + UDF_SB_SESSION(sb), le16_to_cpu(tag_p->descCRC), le16_to_cpu(tag_p->descCRCLength)); 
+ 
+ error_out:
+ 	brelse(bh);
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/osta_udf.h linux-2.6.22.19/fs/udf/osta_udf.h
+--- linux-2.6.22.19.ref/fs/udf/osta_udf.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/osta_udf.h	2009-07-10 18:11:41.000000000 -0700
+@@ -149,7 +149,7 @@
+ 	__le32		locSparingTable[4];
+ } __attribute__ ((packed));
+ 
+-/* Metadata Partition Map (UDF 2.4.0 2.2.10) */
++/* Metadata Partition Map (UDF 2.50 2.2.10) */
+ struct metadataPartitionMap
+ {
+ 	uint8_t		partitionMapType;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/partition.c linux-2.6.22.19/fs/udf/partition.c
+--- linux-2.6.22.19.ref/fs/udf/partition.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/partition.c	2009-07-10 18:14:24.000000000 -0700
+@@ -219,3 +219,170 @@
+ 
+ 	return 0;
+ }
++
++static uint32_t udf_get_addr_from_short_ad(struct super_block *sb, short_ad *p, int desc_count, int block)
++{
++	int i;
++	int crt_blocks=0;
++
++	if (p == NULL)
++		return 0xFFFFFFFF;
++	
++	udf_debug("SHORT AD SEARCHING BLOCK %d\n",block);
++	
++	for (i=0; i<desc_count; i++)
++	{
++		uint32_t extent_len;
++		int blocks_in_extent;
++
++		extent_len = le32_to_cpu(p[i].extLength);
++		/* keep least 30 sign bits (ecma 167 14.14.1.1) */
++		extent_len &= ((1<<30) - 1);
++	
++		blocks_in_extent = extent_len>>sb->s_blocksize_bits;
++		if ((crt_blocks + blocks_in_extent) > block)
++			break;
++		crt_blocks += blocks_in_extent;
++	}
++
++	/* not found */
++	if (i == desc_count)
++	{
++		udf_debug("block %d not found in allocation desc\n",block);
++		return 0xFFFFFFFF;
++	}
++
++	/* block offset in current extent */
++	block -= crt_blocks;
++
++	block = le32_to_cpu(p[i].extPosition) + block;
++	return block;
++}
++
++static uint32_t udf_try_read_meta(struct super_block *sb, uint32_t block, uint16_t partition, uint32_t offset, struct inode* inode)
++{
++	uint32_t metad_blk;
++	uint32_t phy_blk;
++	struct buffer_head *bh = NULL;
++	
++	metad_blk = 0;
++	
++	switch(UDF_I_ALLOCTYPE(inode))
++	{
++		case ICBTAG_FLAG_AD_SHORT:
++		{
++			short_ad *sa;
++			int len;
++			udf_debug("ICB flag is ICBTAG_FLAG_AD_SHORT\n");
++			len = UDF_I_LENALLOC(inode)/sizeof(short_ad);
++			if (len == 0)
++			{
++				udf_error(sb, __FUNCTION__, "Inode has 0 alloc\n");
++				return 0xFFFFFFFF;
++			}
++			sa = (short_ad*)(UDF_I_DATA(inode) + UDF_I_LENEATTR(inode));
++			if (sa == NULL)
++			{
++				udf_error(sb, __FUNCTION__, "Inode has null alloc desc\n");
++				return 0xFFFFFFFF;
++			}
++				
++			metad_blk = udf_get_addr_from_short_ad(sb, sa, len, block);
++		}
++		break;
++		case ICBTAG_FLAG_AD_LONG:
++			udf_debug("ICB flag is ICBTAG_FLAG_AD_LONG\n");
++			return 0xFFFFFFFF;
++			break;
++		case ICBTAG_FLAG_AD_IN_ICB:
++			udf_debug("ICB flag is ICBTAG_FLAG_AD_IN_ICB\n");
++			break;
++		case ICBTAG_FLAG_AD_EXTENDED:
++			udf_debug("ICB flag is ICBTAG_FLAG_AD_EXTENDED !!!!!!!\n");
++			return 0xFFFFFFFF;
++			break;
++	}
++
++
++	/* map to sparable/physical partition desc */
++	phy_blk = udf_get_pblock(sb, metad_blk, UDF_SB_PARTNUM(sb, partition), offset);
++
++	udf_debug("block=%d partition=%d realblk=%d physical=%d\n",block, partition, metad_blk, phy_blk);
++
++	/* try to read from the physical location */
++	bh = udf_tread(sb, phy_blk);
++
++	if (bh)
++	{
++		udf_debug("udf_try_read_meta SUCCEEDED\n");
++		brelse(bh);
++		return phy_blk;
++	}
++	else
++	{
++		udf_debug("udf_try_read_meta FAILED\n");
++		return 0xFFFFFFFF;
++	}
++}
++
++uint32_t udf_get_pblock_meta25(struct super_block *sb, uint32_t block, uint16_t partition, uint32_t offset)
++{
++	uint32_t retblk;
++	struct inode *inode;
++
++	udf_debug("READING from METADATA\n");
++
++	inode = UDF_SB_TYPEMETA(sb,partition).s_metadata_fe;
++
++	if (inode)
++	{
++		retblk = udf_try_read_meta(sb, block, partition, offset, inode);
++
++		if(retblk == 0xFFFFFFFF)
++		{
++			udf_warning(sb, __FUNCTION__, "OOOOPS ... error reading from METADATA, trying to read from MIRROR");
++			goto _read_mirror;
++		}
++	}
++	else 	/* metadata inode is NULL */
++	{
++		kernel_lb_addr addr;
++		
++		udf_warning(sb, __FUNCTION__, "metadata inode is null. hmmm, will try reading from mirror file");
++
++_read_mirror:
++		/*
++			The metadata mirror file was not accessed yet and there was an error reading from the metadata file
++			hence we switch to the mirror file.
++		*/
++		if (UDF_SB_TYPEMETA(sb, partition).s_mirror_fe == NULL)
++		{
++			/* check the mirror file entry */
++			addr.logicalBlockNum = UDF_SB_TYPEMETA(sb, partition).s_mirror_file_loc;
++			addr.partitionReferenceNum = UDF_SB_PARTNUM(sb, partition);
++
++			udf_debug("MIRROR block=%d part=%d\n",addr.logicalBlockNum,addr.partitionReferenceNum);
++
++			UDF_SB_TYPEMETA(sb, partition).s_mirror_fe = udf_iget(sb, addr);
++
++			if (UDF_SB_TYPEMETA(sb, partition).s_mirror_fe == NULL)
++			{
++				udf_error(sb, __FUNCTION__, "mirror inode efe not found and metadata inode is missing too, exiting...");
++				return 0xFFFFFFFF;
++			}
++		}
++
++		inode = UDF_SB_TYPEMETA(sb, partition).s_mirror_fe;
++
++		if (inode == NULL)
++		{
++			udf_error(sb, __FUNCTION__, "mirror inode is null");
++			return 0xFFFFFFFF;
++		}
++
++		retblk = udf_try_read_meta(sb, block, partition, offset, inode);
++	}
++
++	return retblk;
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/super.c linux-2.6.22.19/fs/udf/super.c
+--- linux-2.6.22.19.ref/fs/udf/super.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/super.c	2009-07-10 18:14:24.000000000 -0700
+@@ -335,6 +335,7 @@
+ 		{
+ 			case Opt_novrs:
+ 				uopt->novrs = 1;
++				break;
+ 			case Opt_bs:
+ 				if (match_int(&args[0], &option))
+ 					return 0;
+@@ -523,6 +524,9 @@
+ 	return sb->s_blocksize;
+ }
+ 
++/* Only search for VRS within this range */
++#define VRS_SECTOR_LIMIT 0x8000
++
+ static int
+ udf_vrs(struct super_block *sb, int silent)
+ {
+@@ -533,6 +537,7 @@
+ 	int iso9660=0;
+ 	int nsr02=0;
+ 	int nsr03=0;
++	int i=0;
+ 
+ 	/* Block size must be a multiple of 512 */
+ 	if (sb->s_blocksize & 511)
+@@ -559,7 +564,7 @@
+ 		vsd = (struct volStructDesc *)(bh->b_data +
+ 			(sector & (sb->s_blocksize - 1)));
+ 
+-		if (vsd->stdIdent[0] == 0)
++		if ((vsd->stdIdent[0] == 0) || (i++ > VRS_SECTOR_LIMIT))
+ 		{
+ 			brelse(bh);
+ 			break;
+@@ -643,15 +648,14 @@
+ 	uint16_t ident;
+ 	uint32_t location;
+ 	int i;
++	int varlastblock = udf_variable_to_fixed(lastblock);
++	int last[] =  { (UDF_SB_SESSION(sb) + 256), lastblock, lastblock - 1, lastblock + 1,
++					lastblock - 2, lastblock - 150, lastblock - 152,
++					varlastblock, varlastblock - 2,
++					varlastblock - 150, varlastblock - 152 };
+ 
+ 	if (lastblock)
+ 	{
+-		int varlastblock = udf_variable_to_fixed(lastblock);
+-		int last[] =  { lastblock, lastblock - 2,
+-				lastblock - 150, lastblock - 152,
+-				varlastblock, varlastblock - 2,
+-				varlastblock - 150, varlastblock - 152 };
+-
+ 		lastblock = 0;
+ 
+ 		/* Search for an anchor volume descriptor pointer */
+@@ -676,25 +680,40 @@
+ 
+ 			if (ident == TAG_IDENT_AVDP)
+ 			{
+-				if (location == last[i] - UDF_SB_SESSION(sb))
++				if (location == last[i] - UDF_SB_SESSION(sb)) 
+ 				{
+-					lastblock = UDF_SB_ANCHOR(sb)[0] = last[i] - UDF_SB_SESSION(sb);
+-					UDF_SB_ANCHOR(sb)[1] = last[i] - 256 - UDF_SB_SESSION(sb);
++					lastblock = UDF_SB_ANCHOR(sb)[0] = last[i] - UDF_SB_SESSION(sb); 
++					UDF_SB_ANCHOR(sb)[1] = last[i] - 256 - UDF_SB_SESSION(sb); 
+ 				}
+-				else if (location == udf_variable_to_fixed(last[i]) - UDF_SB_SESSION(sb))
++				else if (location == udf_variable_to_fixed(last[i]) - UDF_SB_SESSION(sb)) 
+ 				{
+ 					UDF_SET_FLAG(sb, UDF_FLAG_VARCONV);
+-					lastblock = UDF_SB_ANCHOR(sb)[0] = udf_variable_to_fixed(last[i]) - UDF_SB_SESSION(sb);
+-					UDF_SB_ANCHOR(sb)[1] = lastblock - 256 - UDF_SB_SESSION(sb);
++					lastblock = UDF_SB_ANCHOR(sb)[0] = udf_variable_to_fixed(last[i]) - UDF_SB_SESSION(sb); 
++					UDF_SB_ANCHOR(sb)[1] = lastblock - 256 - UDF_SB_SESSION(sb); 
+ 				}
+ 				else
+ 					udf_debug("Anchor found at block %d, location mismatch %d.\n",
+ 						last[i], location);
+ 			}
+-			else if (ident == TAG_IDENT_FE || ident == TAG_IDENT_EFE)
++			else if (UDF_SB_SESSION(sb))		/* multisession */
+ 			{
+-				lastblock = last[i];
+-				UDF_SB_ANCHOR(sb)[3] = 512;
++				if (!(bh = sb_bread(sb, UDF_SB_SESSION(sb) + 256)))
++				{
++					ident = location = 0;
++				}
++				else
++				{
++					ident = le16_to_cpu(((tag *)bh->b_data)->tagIdent);
++					location = le32_to_cpu(((tag *)bh->b_data)->tagLocation);
++					brelse(bh);
++				}
++
++				if (ident == TAG_IDENT_AVDP &&
++					location == UDF_SB_SESSION(sb) + 256)
++				{
++					lastblock = last[i];
++					UDF_SB_ANCHOR(sb)[1] = UDF_SB_SESSION(sb) + 256;
++				}
+ 			}
+ 			else
+ 			{
+@@ -710,14 +729,14 @@
+ 				}
+ 	
+ 				if (ident == TAG_IDENT_AVDP &&
+-					location == last[i] - 256 - UDF_SB_SESSION(sb))
++					location == last[i] - 256 - UDF_SB_SESSION(sb)) 
+ 				{
+ 					lastblock = last[i];
+ 					UDF_SB_ANCHOR(sb)[1] = last[i] - 256;
+ 				}
+ 				else
+ 				{
+-					if (last[i] < 312 + UDF_SB_SESSION(sb) || !(bh = sb_bread(sb, last[i] - 312 - UDF_SB_SESSION(sb))))
++					if (last[i] < 312 + UDF_SB_SESSION(sb) || !(bh = sb_bread(sb, last[i] - 312 - UDF_SB_SESSION(sb)))) 
+ 					{
+ 						ident = location = 0;
+ 					}
+@@ -742,7 +761,42 @@
+ 
+ 	if (!lastblock)
+ 	{
+-		/* We havn't found the lastblock. check 312 */
++		/* We haven't found the lastblock. Check for VAT presence and then at location 512 for AVDP */
++		for (i = 0; !lastblock && i < ARRAY_SIZE(last); i++) {
++			uint8_t fileType = 0xFF;
++
++			if (last[i] < 0 || !(bh = sb_bread(sb, last[i])))
++			{
++				ident = location = 0;
++			}
++			else
++			{
++				ident = le16_to_cpu(((tag *)bh->b_data)->tagIdent);
++				fileType = ((struct fileEntry *)bh->b_data)->icbTag.fileType;
++				brelse(bh);
++			}
++
++			if ((ident == TAG_IDENT_FE || ident == TAG_IDENT_EFE) &&
++			    (fileType == ICBTAG_FILE_TYPE_VAT20 || fileType == ICBTAG_FILE_TYPE_VAT15))
++			{
++				lastblock = last[i];
++				/*
++					Check if there's a valid AVDP at sector 256.
++					If true, then ignore any AVDP at sector 512 (s. note from UDF 2.50 3/2.2.3)
++				*/
++				if ((bh = udf_read_tagged(sb, 256, 256, &ident)) &&
++					(ident == TAG_IDENT_AVDP))
++				{
++					brelse(bh);
++				}
++				else
++				{
++					UDF_SB_ANCHOR(sb)[3] = 512;
++				}
++			}
++		}
++		
++		/* We haven't found the lastblock. check 312 */
+ 		if ((bh = sb_bread(sb, 312 + UDF_SB_SESSION(sb))))
+ 		{
+ 			ident = le16_to_cpu(((tag *)bh->b_data)->tagIdent);
+@@ -909,6 +963,95 @@
+ 	}
+ }
+ 
++static int
++udf_load_metadata_file_entries(struct super_block *sb, int part, kernel_lb_addr *fileset)
++{
++	kernel_lb_addr addr;
++
++	/* metadata address */
++	addr.logicalBlockNum = UDF_SB_TYPEMETA(sb, part).s_meta_file_loc;
++	addr.partitionReferenceNum = UDF_SB_PARTNUM(sb, part);
++	
++	udf_debug("METADATA: block=%d part=%d\n",addr.logicalBlockNum,addr.partitionReferenceNum);
++	
++	UDF_SB_TYPEMETA(sb, part).s_metadata_fe = udf_iget(sb, addr);
++	
++	if (UDF_SB_TYPEMETA(sb,part).s_metadata_fe == NULL)
++	{
++		udf_warning(sb, __FUNCTION__, "metadata inode efe not found, will try mirror inode.");
++
++		/* mirror file entry */
++		addr.logicalBlockNum = UDF_SB_TYPEMETA(sb, part).s_mirror_file_loc;
++		addr.partitionReferenceNum = UDF_SB_PARTNUM(sb, part);
++
++		udf_debug("METADATA MIRROR: block=%d part=%d\n",addr.logicalBlockNum,addr.partitionReferenceNum);
++
++		UDF_SB_TYPEMETA(sb, part).s_mirror_fe = udf_iget(sb, addr);
++
++		if (UDF_SB_TYPEMETA(sb, part).s_mirror_fe == NULL)
++		{
++			udf_error(sb, __FUNCTION__, "mirror inode efe not found and metadata inode is missing too, exiting...");
++			goto error_exit;
++		}
++	}
++
++	/* 
++	   bitmap file entry
++	   Note: Load only if bitmap file location differs from 0xFFFFFFFF (DCN-5102) 
++	*/
++	if (UDF_SB_TYPEMETA(sb, part).s_bitmap_file_loc != 0xFFFFFFFF)
++	{
++		addr.logicalBlockNum = UDF_SB_TYPEMETA(sb, part).s_bitmap_file_loc;
++		addr.partitionReferenceNum = UDF_SB_PARTNUM(sb, part);
++		
++		udf_debug("block=%d part=%d\n",addr.logicalBlockNum,addr.partitionReferenceNum);
++	
++		UDF_SB_TYPEMETA(sb, part).s_bitmap_fe = udf_iget(sb, addr);
++		
++		if (UDF_SB_TYPEMETA(sb,part).s_bitmap_fe == NULL)
++		{
++			if (sb->s_flags & MS_RDONLY)
++				udf_warning(sb, __FUNCTION__, "bitmap inode efe not found but it's ok since the disc is mounted read-only");
++			else
++			{
++				udf_error(sb, __FUNCTION__, "bitmap inode efe not found and attempted read-write mount");
++				goto error_exit;
++			}
++		}
++	}
++	udf_debug("udf_load_metadata_file_entries Ok\n");
++	
++	return 0;
++
++error_exit:
++	return 1;
++}
++
++static void
++udf_release_metadata(struct super_block *sb)
++{
++	int i;
++	/* release metadata */
++	udf_debug("Releasing metadata!\n");
++	for (i=0; i<UDF_SB_NUMPARTS(sb); i++)
++	{
++		if(UDF_SB_PARTTYPE(sb,i) == UDF_METADATA_MAP25)
++		{
++			if(UDF_SB_TYPEMETA(sb,i).s_metadata_fe)
++				iput(UDF_SB_TYPEMETA(sb,i).s_metadata_fe);
++			UDF_SB_TYPEMETA(sb,i).s_metadata_fe = NULL;
++
++			if(UDF_SB_TYPEMETA(sb,i).s_mirror_fe)
++				iput(UDF_SB_TYPEMETA(sb,i).s_mirror_fe);
++			UDF_SB_TYPEMETA(sb,i).s_mirror_fe = NULL;
++
++			if(UDF_SB_TYPEMETA(sb,i).s_bitmap_fe)
++				iput(UDF_SB_TYPEMETA(sb,i).s_bitmap_fe);
++			UDF_SB_TYPEMETA(sb,i).s_bitmap_fe = NULL;
++		}
++	}
++}
++
+ static void 
+ udf_load_fileset(struct super_block *sb, struct buffer_head *bh, kernel_lb_addr *root)
+ {
+@@ -928,6 +1071,7 @@
+ udf_load_partdesc(struct super_block *sb, struct buffer_head *bh)
+ {
+ 	struct partitionDesc *p;
++	int matched_part_desc=0;
+ 	int i;
+ 
+ 	p = (struct partitionDesc *)bh->b_data;
+@@ -936,8 +1080,22 @@
+ 	{
+ 		udf_debug("Searching map: (%d == %d)\n", 
+ 			UDF_SB_PARTMAPS(sb)[i].s_partition_num, le16_to_cpu(p->partitionNumber));
+-		if (UDF_SB_PARTMAPS(sb)[i].s_partition_num == le16_to_cpu(p->partitionNumber))
++
++		/* workaround problems caused by Vista */
++		if (UDF_SB_PARTMAPS(sb)[i].s_partition_num >= UDF_SB_NUMPARTS(sb)) {
++			udf_debug("Changing parition# from %d to ", UDF_SB_PARTMAPS(sb)[i].s_partition_num);
++			UDF_SB_PARTMAPS(sb)[i].s_partition_num %= (UDF_SB_NUMPARTS(sb)); 
++			udf_debug("%d\n", UDF_SB_PARTMAPS(sb)[i].s_partition_num);
++		} else {
++			udf_debug("Keeping partition# %d out of %d partitions\n", 
++					UDF_SB_PARTMAPS(sb)[i].s_partition_num, UDF_SB_NUMPARTS(sb));
++		}
++
++		if ((UDF_SB_PARTMAPS(sb)[i].s_partition_num == le16_to_cpu(p->partitionNumber)) || 
++		    ((UDF_SB_PARTMAPS(sb)[i].s_partition_num % UDF_SB_NUMPARTS(sb)) == (le16_to_cpu(p->partitionNumber) % UDF_SB_NUMPARTS(sb)))) 
+ 		{
++			matched_part_desc++;
++			udf_debug("Found desc for part %d id(%d)\n",i,UDF_SB_PARTMAPS(sb)[i].s_partition_num);
+ 			UDF_SB_PARTLEN(sb,i) = le32_to_cpu(p->partitionLength); /* blocks */
+ 			UDF_SB_PARTROOT(sb,i) = le32_to_cpu(p->partitionStartingLocation);
+ 			if (le32_to_cpu(p->accessType) == PD_ACCESS_TYPE_READ_ONLY)
+@@ -1006,19 +1164,22 @@
+ 					}
+ 				}
+ 			}
+-			break;
++			/* break; */
+ 		}
+ 	}
+-	if (i == UDF_SB_NUMPARTS(sb))
++	if (matched_part_desc == 0)
+ 	{
+ 		udf_debug("Partition (%d) not found in partition map\n", le16_to_cpu(p->partitionNumber));
+ 	}
+ 	else
+ 	{
++		for (i=0; i<UDF_SB_NUMPARTS(sb); i++)
++		{
+ 		udf_debug("Partition (%d:%d type %x) starts at physical %d, block length %d\n",
+ 			le16_to_cpu(p->partitionNumber), i, UDF_SB_PARTTYPE(sb,i),
+ 			UDF_SB_PARTROOT(sb,i), UDF_SB_PARTLEN(sb,i));
+ 	}
++	}
+ }
+ 
+ static int 
+@@ -1055,7 +1216,9 @@
+ 					UDF_SB_PARTTYPE(sb,i) = UDF_VIRTUAL_MAP15;
+ 					UDF_SB_PARTFUNC(sb,i) = udf_get_pblock_virt15;
+ 				}
+-				else if (le16_to_cpu(((__le16 *)upm2->partIdent.identSuffix)[0]) == 0x0200)
++                                else if ((le16_to_cpu(((uint16_t *)upm2->partIdent.identSuffix)[0]) == 0x0200) ||
++                                                 (le16_to_cpu(((uint16_t *)upm2->partIdent.identSuffix)[0]) == 0x0250) ||
++                                                 (le16_to_cpu(((uint16_t *)upm2->partIdent.identSuffix)[0]) == 0x0260))
+ 				{
+ 					UDF_SB_PARTTYPE(sb,i) = UDF_VIRTUAL_MAP20;
+ 					UDF_SB_PARTFUNC(sb,i) = udf_get_pblock_virt20;
+@@ -1088,6 +1251,29 @@
+ 				}
+ 				UDF_SB_PARTFUNC(sb,i) = udf_get_pblock_spar15;
+ 			}
++			else if (!strncmp(upm2->partIdent.ident, UDF_ID_METADATA, strlen(UDF_ID_METADATA)))
++			{
++				struct metadataPartitionMap *mdm = (struct metadataPartitionMap *)&(lvd->partitionMaps[offset]);
++				udf_debug("Parsing Logical vol part %d type %d  id=%s\n",i,type,UDF_ID_METADATA);
++				
++				UDF_SB_PARTTYPE(sb,i) = UDF_METADATA_MAP25;
++				UDF_SB_PARTFUNC(sb,i) = udf_get_pblock_meta25;
++
++				UDF_SB_TYPEMETA(sb,i).s_meta_file_loc = le32_to_cpu(mdm->metadataFileLoc);
++				UDF_SB_TYPEMETA(sb,i).s_mirror_file_loc = le32_to_cpu(mdm->metadataMirrorFileLoc);
++				UDF_SB_TYPEMETA(sb,i).s_bitmap_file_loc = le32_to_cpu(mdm->metadataBitmapFileLoc);
++				UDF_SB_TYPEMETA(sb,i).s_alloc_unit_size = le32_to_cpu(mdm->allocUnitSize);
++				UDF_SB_TYPEMETA(sb,i).s_align_unit_size = le16_to_cpu(mdm->alignUnitSize);
++				UDF_SB_TYPEMETA(sb,i).s_dup_md_flag = mdm->flags & 0x01;
++				
++				udf_debug("Metadata Ident suffix=0x%x\n", (le16_to_cpu(((__le16 *)mdm->partIdent.identSuffix)[0])));
++				udf_debug("Metadata part num=%d\n",le16_to_cpu(mdm->partitionNum));
++				udf_debug("Metadata part alloc unit size=%d\n",le32_to_cpu(mdm->allocUnitSize));
++				udf_debug("Metadata file loc=%d\n",le32_to_cpu(mdm->metadataFileLoc));
++				udf_debug("Mirror file loc=%d\n",le32_to_cpu(mdm->metadataMirrorFileLoc));
++				udf_debug("Bitmap file loc=%d\n",le32_to_cpu(mdm->metadataBitmapFileLoc));
++				udf_debug("Duplicate Flag: %d %d\n", UDF_SB_TYPEMETA(sb,i).s_dup_md_flag, mdm->flags);
++			}
+ 			else
+ 			{
+ 				udf_debug("Unknown ident: %s\n", upm2->partIdent.ident);
+@@ -1298,7 +1484,15 @@
+ 		return 0;
+ 	}
+ 	else 
++	{
++		/* 
++			usefull to know the last written block because it helps in udf_find_anchor() 
++			especially when the anchor is not at block 256
++		*/
++		if (!UDF_SB_LASTBLOCK(sb))
++			UDF_SB_LASTBLOCK(sb) = udf_get_last_block(sb);
+ 		return !block;
++	}
+ }
+ 
+ static int
+@@ -1406,7 +1600,7 @@
+ 					UDF_SB_TYPEVIRT(sb,i).s_start_offset =
+ 						le16_to_cpu(((struct virtualAllocationTable20 *)bh->b_data + udf_ext0_offset(UDF_SB_VAT(sb)))->lengthHeader) +
+ 							udf_ext0_offset(UDF_SB_VAT(sb));
+-					UDF_SB_TYPEVIRT(sb,i).s_num_entries = (UDF_SB_VAT(sb)->i_size -
++					UDF_SB_TYPEVIRT(sb,i).s_num_entries = (UDF_SB_VAT(sb)->i_size + udf_ext0_offset(UDF_SB_VAT(sb)) -
+ 						UDF_SB_TYPEVIRT(sb,i).s_start_offset) >> 2;
+ 					brelse(bh);
+ 				}
+@@ -1624,6 +1818,17 @@
+ 		sb->s_flags |= MS_RDONLY;
+ 	}
+ 
++	/* check for metadata partitions and load the associated data if there's any found */
++	for (i = 0; i < UDF_SB_NUMPARTS(sb); i++)
++	{
++		if( (UDF_SB_PARTTYPE(sb, i) == UDF_METADATA_MAP25) &&
++			udf_load_metadata_file_entries(sb, i, &fileset) )
++		{
++			printk( "UDF-fs: error loading MetaData partition map %d\n", i );
++			goto error_out;
++		}
++	}
++	
+ 	if ( udf_find_fileset(sb, &fileset, &rootdir) )
+ 	{
+ 		printk("UDF-fs: No fileset found\n");
+@@ -1633,10 +1838,32 @@
+ 	if (!silent)
+ 	{
+ 		kernel_timestamp ts;
++                int k;
++                uint8_t vid[128] = "";
++
++                for (k=0; k<UDF_SB_NUMPARTS(sb); k++)
++                {
++                        if (UDF_SB_PARTTYPE(sb,k) == UDF_VIRTUAL_MAP20)
++                        {
++                                struct buffer_head *bh = NULL;
++                                uint32_t pos;
++
++                                pos = udf_block_map(UDF_SB_VAT(sb), 0);
++                                bh = sb_bread(sb, pos);
++                                memcpy (vid, ((struct virtualAllocationTable20 *)(bh->b_data + udf_ext0_offset(UDF_SB_VAT(sb))))->logicalVolIdent, 128);
++                                vid[127] = '\0';                /* just to be sure */
++                                brelse(bh);
++                                break;
++                        }
++                }
++
++                if (vid[0] == '\0')
++                        memcpy (vid, UDF_SB_VOLIDENT(sb), 32);
++
+ 		udf_time_to_stamp(&ts, UDF_SB_RECORDTIME(sb));
+ 		udf_info("UDF %s (%s) Mounting volume '%s', timestamp %04u/%02u/%02u %02u:%02u (%x)\n",
+ 			UDFFS_VERSION, UDFFS_DATE,
+-			UDF_SB_VOLIDENT(sb), ts.year, ts.month, ts.day, ts.hour, ts.minute,
++                        vid, ts.year, ts.month, ts.day, ts.hour, ts.minute,
+ 			ts.typeAndTimezone);
+ 	}
+ 	if (!(sb->s_flags & MS_RDONLY))
+@@ -1665,6 +1892,7 @@
+ 	return 0;
+ 
+ error_out:
++	udf_release_metadata(sb);
+ 	if (UDF_SB_VAT(sb))
+ 		iput(UDF_SB_VAT(sb));
+ 	if (UDF_SB_NUMPARTS(sb))
+@@ -1742,6 +1970,9 @@
+ udf_put_super(struct super_block *sb)
+ {
+ 	int i;
++	udf_debug("udf_put_super!!!!!\n");
++
++	udf_release_metadata(sb);
+ 
+ 	if (UDF_SB_VAT(sb))
+ 		iput(UDF_SB_VAT(sb));
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/udfdecl.h linux-2.6.22.19/fs/udf/udfdecl.h
+--- linux-2.6.22.19.ref/fs/udf/udfdecl.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/udfdecl.h	2009-07-10 18:11:41.000000000 -0700
+@@ -133,6 +133,7 @@
+ extern uint32_t udf_get_pblock_virt15(struct super_block *, uint32_t, uint16_t, uint32_t);
+ extern uint32_t udf_get_pblock_virt20(struct super_block *, uint32_t, uint16_t, uint32_t);
+ extern uint32_t udf_get_pblock_spar15(struct super_block *, uint32_t, uint16_t, uint32_t);
++extern uint32_t udf_get_pblock_meta25(struct super_block *, uint32_t, uint16_t, uint32_t);
+ extern int udf_relocate_blocks(struct super_block *, long, long *);
+ 
+ /* unicode.c */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/fs/udf/udf_sb.h linux-2.6.22.19/fs/udf/udf_sb.h
+--- linux-2.6.22.19.ref/fs/udf/udf_sb.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/fs/udf/udf_sb.h	2009-07-10 18:11:41.000000000 -0700
+@@ -4,7 +4,7 @@
+ /* Since UDF 2.01 is ISO 13346 based... */
+ #define UDF_SUPER_MAGIC			0x15013346
+ 
+-#define UDF_MAX_READ_VERSION		0x0201
++#define UDF_MAX_READ_VERSION		0x0250
+ #define UDF_MAX_WRITE_VERSION		0x0201
+ 
+ #define UDF_FLAG_USE_EXTENDED_FE	0
+@@ -43,6 +43,7 @@
+ {\
+ 	if (UDF_SB(X))\
+ 	{\
++		if (UDF_SB_PARTMAPS(X))\
+ 		kfree(UDF_SB_PARTMAPS(X));\
+ 		UDF_SB_PARTMAPS(X) = NULL;\
+ 	}\
+@@ -115,6 +116,7 @@
+ #define UDF_SB_PARTNUM(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_partition_num )
+ #define UDF_SB_TYPESPAR(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_type_specific.s_sparing )
+ #define UDF_SB_TYPEVIRT(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_type_specific.s_virtual )
++#define UDF_SB_TYPEMETA(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_type_specific.s_metadata )
+ #define UDF_SB_PARTFUNC(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_partition_func )
+ #define UDF_SB_PARTFLAGS(X,Y)			( UDF_SB_PARTMAPS(X)[(Y)].s_partition_flags )
+ #define UDF_SB_BITMAP(X,Y,Z,I)			( UDF_SB_PARTMAPS(X)[(Y)].Z.s_bitmap->s_block_bitmap[I] )
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/include/linux/udf_fs.h linux-2.6.22.19/include/linux/udf_fs.h
+--- linux-2.6.22.19.ref/include/linux/udf_fs.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/udf_fs.h	2009-07-10 18:11:41.000000000 -0700
+@@ -32,8 +32,8 @@
+ #define UDF_PREALLOCATE
+ #define UDF_DEFAULT_PREALLOC_BLOCKS	8
+ 
+-#define UDFFS_DATE			"2004/29/09"
+-#define UDFFS_VERSION			"0.9.8.1"
++#define UDFFS_DATE			"2005/21/07"
++#define UDFFS_VERSION			"0.9.9"
+ 
+ #undef UDFFS_DEBUG
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/include/linux/udf_fs_sb.h linux-2.6.22.19/include/linux/udf_fs_sb.h
+--- linux-2.6.22.19.ref/include/linux/udf_fs_sb.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/udf_fs_sb.h	2009-07-10 18:11:41.000000000 -0700
+@@ -23,6 +23,22 @@
+ #define UDF_VIRTUAL_MAP15		0x1512U
+ #define UDF_VIRTUAL_MAP20		0x2012U
+ #define UDF_SPARABLE_MAP15		0x1522U
++#define UDF_METADATA_MAP25		0x2511U
++
++
++struct udf_meta_data
++{
++	__u32	s_meta_file_loc;
++	__u32	s_mirror_file_loc;
++	__u32	s_bitmap_file_loc;
++	__u32	s_alloc_unit_size;
++	__u16	s_align_unit_size;
++	__u8 	s_dup_md_flag;
++	struct inode *s_metadata_fe;
++	struct inode *s_mirror_fe;
++	struct inode *s_bitmap_fe;
++};
++
+ 
+ struct udf_sparing_data
+ {
+@@ -64,6 +80,7 @@
+ 	{
+ 		struct udf_sparing_data s_sparing;
+ 		struct udf_virtual_data s_virtual;
++		struct udf_meta_data s_metadata;
+ 	} s_type_specific;
+ 	__u32	(*s_partition_func)(struct super_block *, __u32, __u16, __u32);
+ 	__u16	s_volumeseqnum;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1009.udf.patch linux-2.6.22.19/README.1009.udf.patch
+--- linux-2.6.22.19.ref/README.1009.udf.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1009.udf.patch	2009-07-10 18:15:14.000000000 -0700
+@@ -0,0 +1,18 @@
++Feature:
++--------
++Support for UDF 2.5 or above
++
++Prerequisite patch numbers:
++---------------------------
++none
++
++Primary author:
++---------------
++Sebastian Manciulea/YH Lin
++
++Related to which chip version SMP86xx xx=?
++------------------------------------------
++all
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

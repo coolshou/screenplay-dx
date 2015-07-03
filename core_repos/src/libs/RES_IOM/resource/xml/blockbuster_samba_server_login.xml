@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<button valkey="Running"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Completed"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Schedule"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="Notification"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="FileLocation"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+                <button valkey="USERNAME"
+                        focused_bg="image/blockbuster/bb_prefrernce_signin_box_f.png"
+                        normal_bg="image/blockbuster/bb_prefrernce_signin_box_n.png"
+                        click_bg="image/blockbuster/bb_prefrernce_signin_box_c.png"/>
+                <linebreak/>
+                <button valkey="PASSWORD"
+                        focused_bg="image/blockbuster/bb_prefrernce_signin_box_f.png"
+                        normal_bg="image/blockbuster/bb_prefrernce_signin_box_n.png"
+                        click_bg="image/blockbuster/bb_prefrernce_signin_box_c.png"/>
+                <linebreak/>
+		<button valkey="CANCEL"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="OK"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="@@bg-Running" text="$$Download" 
+			active="@@act-Running" selected="@@sel-Running" click="@@click-Running" 
+			clicked="@@clicked-Running"/>
+		<imgbtn image="@@bg-Completed" text="$$Completed" 
+			active="@@act-Completed" selected="@@sel-Completed" click="@@click-Completed" 
+			clicked="@@clicked-Completed"/>
+		<imgbtn image="@@bg-Schedule" text="$$Download schedule" 
+			active="@@act-Schedule" selected="@@sel-Schedule" click="@@click-Schedule" 
+			clicked="@@clicked-Schedule"/>
+		<imgbtn image="@@bg-Notification" text="$$Notification" 
+			active="@@act-Notification" selected="@@sel-Notification" click="@@click-Notification" 
+			clicked="@@clicked-Notification"/>
+		<imgbtn image="@@bg-FileLocation" text="$$Select file location" 
+			active="@@act-FileLocation" selected="@@sel-FileLocation" click="@@click-FileLocation" 
+			clicked="@@clicked-FileLocation"/>
+	</table>
+
+	<!-- Samba Server Sign In -->
+
+        <text text="$$Account:" x="327" y="283" w="150" h="26" fontsize="24" textcolor="0xfff2f2f2" align="right" disable="@@disable-Account"/>
+        <imgbtn image="@@bg-USERNAME" x="500" y="267" w="374" h="50" disable="@@disable-USERNAME"/>
+        <text text="@@USERNAME" x="518" y="281" w="228" h="26" align="left" fontsize="24" textcolor="0xfff2f2f2"/>
+
+        <text text="$$Password:" x="327" y="377" w="150" h="26" fontsize="24" textcolor="0xfff2f2f2" align="right" disable="@@disable-Account"/>
+        <imgbtn image="@@bg-PASSWORD" x="500" y="361" w="374" h="50" disable="@@disable-PASSWORD"/>
+        <text text="@@PASSWORD" x="518" y="375" w="228" h="26" align="left" fontsize="24" textcolor="0xfff2f2f2"/>
+
+	<wrapper textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040" y="582" w="210" h="49" fontsize="20" align="hcenter">
+		<imgbtn x="427" text="$$Cancel" image="@@bg-CANCEL" disable="@@disable-CANCEL" active="@@act-CANCEL" selected="@@sel-CANCEL" click="@@click-CANCEL"/>
+		<imgbtn x="642" text="$$OK" image="@@bg-OK" disable="@@disable-OK" active="@@act-OK" selected="@@sel-OK" click="@@click-OK"/>
+	</wrapper>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

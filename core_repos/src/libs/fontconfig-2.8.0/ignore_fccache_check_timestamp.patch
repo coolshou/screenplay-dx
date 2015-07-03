@@ -1,0 +1,12 @@
+diff -uNr fontconfig-2.8.0-ori/src/fccache.c fontconfig-2.8.0/src/fccache.c
+--- fontconfig-2.8.0-ori/src/fccache.c	2009-11-19 07:49:09.000000000 +0800
++++ fontconfig-2.8.0/src/fccache.c	2010-10-22 19:27:58.000000000 +0800
+@@ -522,7 +522,7 @@
+     if (FcDebug () & FC_DBG_CACHE)
+ 	printf ("FcCacheTimeValid dir \"%s\" cache time %d dir time %d\n",
+ 		FcCacheDir (cache), cache->mtime, (int) dir_stat->st_mtime);
+-    return cache->mtime == (int) dir_stat->st_mtime;
++    return FcTrue;
+ }
+ 
+ /*

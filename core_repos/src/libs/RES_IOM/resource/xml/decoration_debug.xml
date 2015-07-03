@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<wrapper>
+  <image image="@@keyicon" x="604" y="30" w="58" h="41" align="hcenter" />
+  <image image="@@keyicon_ex" x="604" y="72" w="58" h="41" align="hcenter" />
+  <image image="@@state" x="604" y="30" w="58" h="41" align="hcenter"/>
+  <image image="@@volume" x="225" y="370" w="275" h="41"/>
+  <image image="./image/infor_doc.gif" x="40" y="50" h="40" w="640" transparency="128"/>
+  <text  text="Not For TakeHome Beta Tester" x="240" y="60" h="20" w="400" fontsize="18" textcolor="0xF0F0F0" />
+</wrapper>

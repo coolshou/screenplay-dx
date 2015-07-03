@@ -1,0 +1,11 @@
+--- ../linux_kernel_2.6.22.19-4/drivers/net/tango2_enet.c	2009-01-19 16:08:35.000000000 +0800
++++ drivers/net/tango2_enet.c	2009-02-05 19:31:56.000000000 +0800
+@@ -981,7 +981,7 @@
+ 		int i;
+ 
+ 		/* try to probe phy if not given */
+-		for (i = 1; i < 32; i++) {
++		for (i = 0; i < 32; i++) {
+ 			uint32_t id;
+ 			int val;
+ 

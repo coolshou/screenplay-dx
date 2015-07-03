@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<wrapper>
+  <table x="187" y="596" w="905" h="61"
+         cols="7" rows="1" colspacing="42" align="hcenter" scale="100">
+    <image name="th0" image="@@browse_0_thumbnail" default_image="@@browse_0_default_image" disable="@@disable-browse"/>
+    <image name="th1" image="@@browse_1_thumbnail" default_image="@@browse_1_default_image" disable="@@disable-browse"/>
+    <image name="th2" image="@@browse_2_thumbnail" default_image="@@browse_2_default_image" disable="@@disable-browse"/>
+    <image name="th3" image="@@browse_3_thumbnail" default_image="@@browse_3_default_image" disable="@@disable-browse"/>
+    <image name="th4" image="@@browse_4_thumbnail" default_image="@@browse_4_default_image" disable="@@disable-browse"/>
+    <image name="th5" image="@@browse_5_thumbnail" default_image="@@browse_5_default_image" disable="@@disable-browse"/>
+    <image name="th6" image="@@browse_6_thumbnail" default_image="@@browse_6_default_image" disable="@@disable-browse"/>
+  </table>
+    <table x="130" y="593" w="921" h="67" 
+         cols="7" rows="1" colspacing="26" align="hcenter">
+		 <text text="@@browse_0_text" disable="@@disable-browse"/>
+		 <text text="@@browse_1_text" disable="@@disable-browse"/>
+		 <text text="@@browse_2_text" disable="@@disable-browse"/>
+		 <text text="@@browse_3_text" disable="@@disable-browse"/>
+		 <text text="@@browse_4_text" disable="@@disable-browse"/>
+		 <text text="@@browse_5_text" disable="@@disable-browse"/>
+		 <text text="@@browse_6_text" disable="@@disable-browse"/>
+  </table>
+
+    <table x="160" y="543" w="921" h="67" 
+         cols="7" rows="1" colspacing="26" align="hcenter">
+		 <text text="@@browse_0_h" disable="@@disable-browse"/>
+		 <text text="@@browse_1_h" disable="@@disable-browse"/>
+		 <text text="@@browse_2_h" disable="@@disable-browse"/>
+		 <text text="@@browse_3_h" disable="@@disable-browse"/>
+		 <text text="@@browse_4_h" disable="@@disable-browse"/>
+		 <text text="@@browse_5_h" disable="@@disable-browse"/>
+		 <text text="@@browse_6_h" disable="@@disable-browse"/>
+  </table>
+    <table x="160" y="573" w="921" h="67" 
+         cols="7" rows="1" colspacing="26" align="hcenter">
+		 <text text="@@browse_0_l" disable="@@disable-browse"/>
+		 <text text="@@browse_1_l" disable="@@disable-browse"/>
+		 <text text="@@browse_2_l" disable="@@disable-browse"/>
+		 <text text="@@browse_3_l" disable="@@disable-browse"/>
+		 <text text="@@browse_4_l" disable="@@disable-browse"/>
+		 <text text="@@browse_5_l" disable="@@disable-browse"/>
+		 <text text="@@browse_6_l" disable="@@disable-browse"/>
+  </table>
+
+  <image  x="136" y="604" w="38" h="27" image="@@moreprev"/>
+  <image  x="1113" y="604" w="38" h="27" image="@@morenext"/>
+</wrapper>
+
+

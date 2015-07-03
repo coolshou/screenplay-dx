@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/mediafly/mediafly_bg.jpg">
+  <ctrlgrp>
+     <button valkey="BTN1"
+	 focused_bg="image/mediafly/mediafly_association_code_btn_f.png"
+	 normal_bg="image/mediafly/mediafly_association_code_btn_n.png"/>
+     <button valkey="BTN2"
+	 focused_bg="image/mediafly/mediafly_association_code_btn_f.png"
+	 normal_bg="image/mediafly/mediafly_association_code_btn_n.png"/>
+  </ctrlgrp>
+
+	<text x="318" y="254" w="644" h="116" fontsize="26" textcolor="0x4b4b4b" text="@@message" align="hcenter" numlines="4"/>
+
+	<imgbtn x="297" y="381" w="343" h="78" image="@@bg-BTN1" text="" align="hcenter" 
+	fontsize="20" textcolor="0xffffff"  active="@@act-BTN1" actnoseltextcolor="0x005811"/>
+
+	<text x="324" y="411" w="288" h="22" fontsize="20" text="@@text-BTN1" align="hcenter"
+	textcolor="0xffffff"  active="@@act-BTN1" actnoseltextcolor="0x005811"
+	actoverlistcolor="0x005811" activetextcolor="0x005811" selectedtextcolor="0x005811"/>
+
+
+	<imgbtn x="640" y="381" w="343" h="78" image="@@bg-BTN2" text="" align="hcenter" 
+	fontsize="20" textcolor="0xffffff"  active="@@act-BTN2" actnoseltextcolor="0x005811"/>
+
+	<text x="668" y="411" w="288" h="22" fontsize="20" text="@@text-BTN2" align="hcenter"
+	textcolor="0xffffff"  active="@@act-BTN2" actnoseltextcolor="0x005811"
+	actoverlistcolor="0x005811" activetextcolor="0x005811" selectedtextcolor="0x005811"/>
+
+	<include filename="./inc_decoration_online.xml"/>
+</page>

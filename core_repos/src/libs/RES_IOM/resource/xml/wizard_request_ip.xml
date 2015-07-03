@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+
+  <text id="subheadline" text="$$Wired network"/>
+  <image id="step" image="image/wizard_step_3_indicator_n.png"/>  
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$Please wait" x="277" y="200" w="520" h="30" fontsize="26" align="hleft" textcolor="0xEDC831"/>
+
+  <motion_icon x="225" y="250" w="253" h="163" count="12" base_filename="image/wizard_wired_progress_n" suffix_name="png"/> 
+  
+<include filename="./inc_setup_headline_property.xml" />
+
+</page>

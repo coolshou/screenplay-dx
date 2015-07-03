@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+  <ctrlgrp>
+    <button valkey="FW_UPGRADING_FAIL_OK"
+      	focused_bg="image/common_btn_f.png"
+		normal_bg="image/common_btn_n.png"
+		click_bg="image/common_btn_f.png" />
+  </ctrlgrp>
+
+    <wrapper textcolor="0xffffff">
+  <text text="@@upgrading_fail_msg" x="256" y="260" w="768" h="140" fontsize="30" numlines="3" align="hcenter"/>
+  </wrapper>
+  <imgbtn x="477" y="438" w="343" h="78" image="@@bg-FW_UPGRADING_FAIL_OK" text="$$OK" align="hcenter" fontsize="24" textcolor="0xffffff" active="@@act-FW_UPGRADING_FAIL_OK" actnoseltextcolor="0xffffff"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

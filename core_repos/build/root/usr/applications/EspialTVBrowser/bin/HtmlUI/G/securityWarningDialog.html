@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+<script type="text/javascript">
+
+/* Method called to close the dialog */
+function closeDialog(){
+	Espial.setSecurityWarningDialogEnabled(Espial.securityWarningType, document.getElementById("securityCheckbox").checked);
+	Espial.closeDialog(1);
+}
+
+function dialogMsg1()
+{
+	var str = "";
+
+	if(Espial.securityWarningType == 0) // see SecurityWarningType in EspialBrowserTypes.h 
+	{
+		str = "Unsicher zu sicher";
+	}
+	else if(Espial.securityWarningType == 1) // see SecurityWarningType in EspialBrowserTypes.h
+	{
+		str = "Sicher zu unsicher";
+	}
+	return str;
+}
+
+function dialogMsg2()
+{
+	return "Möchten Sie auf diese Meldung erneut hingewiesen werden?";
+}
+
+/* This method is called when a button is hilighted (mouse over) */
+function hilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(../Images/button-delete-left-hil.png)";
+  }
+
+  if (sliver != null) {     document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver-hil.png)";
+  }
+  if (right != null) {     document.getElementById(right).style.backgroundImage = "url(../Images/button-right-hil.png)";
+  }
+}
+
+/* This method is called when a button is dehilighted (mouse out) */
+function deHilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(../Images/button-delete-left.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver.png)";   }
+   if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(../Images/button-right.png)";   }
+}
+
+</script>
+
+<!-- linking common dialog style file -->
+<link type="text/css" href="dialog.css" rel="stylesheet">
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+<body highlight="false" style="background-color:black" onload="deHilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');">
+
+<div id="dialog">
+	<!-- Using images to create the round corners of the dialog page -->
+	<img id="dialogLeftTopBg" src="../Images/dialog-corner-lefttop.png" />
+	<img id="dialogRightTopBg" src="../Images/dialog-corner-righttop.png" />
+	<img id="dialogLeftBottomBg" src="../Images/dialog-corner-leftbottom.png" />
+	<img id="dialogRightBottomBg" src="../Images/dialog-corner-rightbottom.png" />
+	<!-- The message of the dialog -->	
+	<div id="dialogMsg">
+		<img id="dialogMsgLeftTopBg" src="../Images/dialog-msg-lefttop.png" />
+		<img id="dialogMsgRightTopBg" src="../Images/dialog-msg-righttop.png" />
+		<img id="dialogMsgLeftBottomBg" src="../Images/dialog-msg-leftbottom.png" />
+		<img id="dialogMsgRightBottomBg" src="../Images/dialog-msg-rightbottom.png" />
+		<div id="dialogTitle">Sicherheitswarnung</div>
+		<div id="dialogText">
+			<img id="dialogIcon" src="../Images/dialog-icon.png">
+			<!-- <script type="text/javascript">document.write(Espial.dialogMsg);</script>  -->
+			<script type="text/javascript">document.write(dialogMsg1());</script>
+		</div>
+	</div>
+
+	<!-- Checkbox -->
+	<div id="dialogSecurityCheckbox" style="HIGHLIGHT: true;">
+		<input id="securityCheckbox" type="checkbox" checked>
+		<script type="text/javascript">document.write(dialogMsg2());</script>
+	</div>
+	
+	<!-- Button -->
+	<div id="dialogButtons">
+          <table style="padding-left:60px;" cellspacing="0" cellpadding="0" HIGHLIGHT="false" 
+                 onmouseout="deHilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+                 onmouseover="hilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+                 onclick="closeDialog();">
+            <tr>
+              <td id='okButtonLeft' style="width:17px;height:34px;background-image:url('../Images/button-add-left-hil.png');padding:0px;">&nbsp;</td>
+    	      	<td id='okButtonSliver' style="width:40px;background-repeat:repeat-x;background-image:url('../Images/button-sliver-hil.png');text-align:center"> <b>Ok</b> </td>
+              <td id='okButtonRight' style="width:18px;background-image:url('../Images/button-right-hil.png');padding:0px;">&nbsp;</td>
+            </tr>
+          </table>
+	</div>
+
+</div>
+
+</body>
+</html>

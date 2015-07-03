@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2011, ALPHA Networks, inc. -->
+<page background="image/accu_weather/accuweather_bg.jpg" bg="1">
+
+	<ctrlgrp>
+        <listbox valkey="citylist" cols="1" rows="7" move="page" autoenter="1" lbmask="lr" loop_scroll="1" disable_light_bar_click="1"/>
+        <include filename="./inc_optionmenu_ctrlgrp.xml"/>
+	</ctrlgrp>
+
+  	<text text="@@aw_citymanager_page_title" x="86" y="128" w="487" h="42" fontsize="28" textcolor="0xFFFFFF" align="left" />
+
+    <image image="@@aw_citypage_up" x="625" y="220" w="30" h="29"/>
+    <image image="@@aw_citypage_down" x="625" y="607" w="30" h="29"/>
+
+	<table x="289" y="254" w="730" h="348" fontsize="22" selected_fontsize="22" cols="1" rows="7" colspacing="0" rowspacing="2" lbimage="image/accu_weather/accuweather_select_bar_long.png" clickimage="" textcolor="0xc1c1c1" actnoseltextcolor="0xc1c1c1" actoverlistcolor="0xffffff" activetextcolor="0xffffff" selectedtextcolor="0xffffff" auto_translate="1" align="hcenter">
+		<text text="@@citylist_0_text" xmargin="5" lightbar="@@lightbar-citylist-0" active="@@act-citylist" selected="@@browse_0_select" speed="@@browse_0_speed" delay="2"/>
+		<text text="@@citylist_1_text" xmargin="5" lightbar="@@lightbar-citylist-1" active="@@act-citylist" selected="@@browse_1_select" speed="@@browse_1_speed" delay="2"/>
+		<text text="@@citylist_2_text" xmargin="5" lightbar="@@lightbar-citylist-2" active="@@act-citylist" selected="@@browse_2_select" speed="@@browse_2_speed" delay="2"/>
+        <text text="@@citylist_3_text" xmargin="5" lightbar="@@lightbar-citylist-3" active="@@act-citylist" selected="@@browse_3_select" speed="@@browse_3_speed" delay="2"/>
+        <text text="@@citylist_4_text" xmargin="5" lightbar="@@lightbar-citylist-4" active="@@act-citylist" selected="@@browse_4_select" speed="@@browse_4_speed" delay="2"/>
+        <text text="@@citylist_5_text" xmargin="5" lightbar="@@lightbar-citylist-5" active="@@act-citylist" selected="@@browse_5_select" speed="@@browse_5_speed" delay="2"/>
+        <text text="@@citylist_6_text" xmargin="5" lightbar="@@lightbar-citylist-6" active="@@act-citylist" selected="@@browse_6_select" speed="@@browse_6_speed" delay="2"/>
+	</table>
+
+	<image image="@@bg-star" x="0" y="0" w="30" h="30" attr_num="7" attr_cur="@@star_index" disable="@@disable_star">
+	<attr x_offset="242" y_offset="262"/>
+	<attr x_offset="242" y_offset="312"/>
+	<attr x_offset="242" y_offset="362"/>
+	<attr x_offset="242" y_offset="412"/>
+	<attr x_offset="242" y_offset="462"/>
+	<attr x_offset="242" y_offset="512"/>
+	<attr x_offset="242" y_offset="562"/>
+	</image>
+
+	<image image="@@bg-deleteitem" x="0" y="0" w="35" h="36" attr_num="7" attr_cur="@@deleteitem_index" disable="@@disable_deleteitem">
+		<attr x_offset="1015" y_offset="262"/>
+		<attr x_offset="1015" y_offset="312"/>
+		<attr x_offset="1015" y_offset="362"/>
+		<attr x_offset="1015" y_offset="412"/>
+		<attr x_offset="1015" y_offset="462"/>
+		<attr x_offset="1015" y_offset="512"/>
+		<attr x_offset="1015" y_offset="562"/>
+	</image>
+
+	<image image="@@bg-setstar" x="0" y="0" w="35" h="36" attr_num="7" attr_cur="@@setstar_index" disable="@@disable_setstar">	
+		<attr x_offset="1053" y_offset="262"/>
+		<attr x_offset="1053" y_offset="312"/>
+		<attr x_offset="1053" y_offset="362"/>
+		<attr x_offset="1053" y_offset="412"/>
+		<attr x_offset="1053" y_offset="462"/>
+		<attr x_offset="1053" y_offset="512"/>
+		<attr x_offset="1053" y_offset="562"/>
+	</image>
+
+
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="302" w="790" h="2"/>
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="352" w="790" h="2"/>
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="402" w="790" h="2"/>
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="452" w="790" h="2"/>
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="502" w="790" h="2"/>
+	<image image="image/accu_weather/city/accuweather_text_line.png" x="271" y="552" w="790" h="2"/>
+	
+
+	<include filename="./inc_weather_decoration.xml"/>
+	
+	<include filename="./inc_optionmenu_widgets_weather.xml"/>
+
+</page>
+

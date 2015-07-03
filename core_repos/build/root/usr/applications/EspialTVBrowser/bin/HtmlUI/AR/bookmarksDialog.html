@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir='rtl'>
+	
+	<head>
+		
+		<title>إضافة / تحرير المرجعية</title>
+		
+		<script type="text/javascript">
+		var str_Bookmarks = "العلامات";
+		
+		var str_AddBookmark = "إضافة علامة";
+		var str_EditBookmark = "تحرير علامة";
+		var str_ClearBookmarks = "مسح العلامات";
+		
+		var str_ClearBookmarksConfirm = "هل أنت متأكد من أنك تريد مسح العلامات؟";
+		
+		var str_RemoveBookmarkConfirm = "هل أنت متأكد من أنك تريد مسح هذه العلامة؟";
+		
+/* Method called to close the dialog */
+function closeDialog(okCancel){
+    var title = document.getElementById('titleInput').value;
+    var url = document.getElementById('urlInput').value;
+    if(url.length <= 0)
+    {
+        Espial.closeDialog(false);
+        return;
+    }
+
+    if(okCancel)
+    {
+        if(url.indexOf("://") < 0)
+            url = "http://" + url;
+
+        if(Espial.bookmarkOldURL)
+        {
+            Espial.editBookmark(url, title, Espial.bookmarkOldURL);
+        }
+        else
+        {
+            Espial.addBookmark(url, title);
+        }
+    }
+
+    Espial.closeDialog(okCancel);
+}
+
+		
+		/* This method is called when the text field is focused (but not editable yet). */
+		function focusField(barId, inputId, leftId, rightId) {
+			/* Change the color of the field, to show that it has the focus */
+			document.getElementById(leftId).src = "../Images/toolbar-textfield-leftside-over.png";
+			document.getElementById(barId).style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide-over.png')";
+			document.getElementById(rightId).src = "../Images/toolbar-textfield-rightside-over.png";
+			
+			document.getElementById(inputId).style.color = "white";
+		}
+		
+		/* This method is called when the text field becomes editable */
+		function activateField(barId, inputId, leftId, rightId) {
+			/* Change the color of the field, to show that it can be edited now */
+			document.getElementById(leftId).src = "../Images/toolbar-textfield-leftside-activated.png";
+			document.getElementById(barId).style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide-activated.png')";
+			document.getElementById(rightId).src = "../Images/toolbar-textfield-rightside-activated.png";
+			
+			document.getElementById(inputId).style.color = "black";
+		}
+		
+		/* This method is called when the text field loses focus */
+		function removeFocusField(barId, inputId, leftId, rightId) {
+			/* Change the color of the field back to white */
+			document.getElementById(leftId).src = "../Images/toolbar-textfield-leftside.png";
+			document.getElementById(barId).style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide.png')";
+			document.getElementById(rightId).src = "../Images/toolbar-textfield-rightside.png";
+			
+			document.getElementById(inputId).style.color = "white";
+		}
+		
+		/* This method is called when a button is hilighted (mouse over) */
+		function hilightButton(left, sliver, right) {
+			if (left != null) {
+				document.getElementById(left).style.backgroundImage = "url(../Images/button-right-hil.png)";
+			}
+			
+			if (sliver != null) {     document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver-hil.png)";
+			} 
+			if (right != null) {     document.getElementById(right).style.backgroundImage = "url(../Images/button-delete-left-hil.png)";
+			}
+		}
+		
+		/* This method is called when a button is dehilighted (mouse out) */
+		function deHilightButton(left, sliver, right) {
+			if (left != null) {
+				document.getElementById(left).style.backgroundImage = "url(../Images/button-right.png)";
+			}
+			
+			if (sliver != null) {
+				document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver.png)";   }
+			if (right != null) {
+				document.getElementById(right).style.backgroundImage = "url(../Images/button-delete-left.png)";   }
+		}
+		
+		
+		function initDialog()
+		{
+			// document.getElementById("dialogTitle").innerHTML = Espial.bookmarkAction;
+			// document.getElementById("dialogMsgText").innerHTML = Espial.bookmarkAction;
+			
+			document.getElementById("titleInput").value=Espial.bookmarkTitle;
+			document.getElementById("urlInput").value=Espial.bookmarkURL;
+			
+		}
+		
+		</script>
+		
+		<!-- linking common dialog style file -->
+		<link type="text/css" href="dialog.css" rel="stylesheet">
+		
+		<style type="text/css">
+			<!-- add here any style specific to this dialog -->
+			
+			/* Style for the lines with the label and input field */
+			form#dialogForm {
+			padding-left: 10px;		/* Value equal with dialogMsg div's padding */
+			padding-top: 10px;
+			position: relative;
+			}
+			div.inputLine {
+			height: 36px;			/* Value equal with the height of the background image used for the input fields */
+			position: relative;
+			margin-top: 5px;
+			}	
+			div.inputLabel {
+			width: 80px;
+			float: right; 
+			padding-top: 8px;		/* Aligns the text to the textfield (inputBar) */			
+			}		
+			div.inputBar {
+			position: absolute;		/* Every element on the bar will be positioned relative to this div */
+			background-image: url('../Images/toolbar-textfield-middle-1pixelswide.png');	/* The image used as a background for the field */
+			background-repeat: repeat-x;
+			height: 50px;			/* Height of the background image */
+			top: 0px;
+			left: 0px;
+			right: 100px;
+			}
+			img.inputLeftSide {
+			position: absolute;		
+			left: 0px;			/* Left corner image placed left in the input bar */
+			background-color: black;
+			}
+			img.inputRightSide {
+			position: absolute;
+			right: 0px;			/* Right corner image placed right in the input bar */
+			background-color: black;
+			}
+			div.inputBar input {
+			border-style: hidden;	/* Hide border from the input field, as we use a background image (see .inputBar) */
+			border-width: 0px;
+			position: absolute;
+			left: 18px;				/* this equals the width of the left corner image used in inputLeftSide */
+			top: 8px;				/* give the y coordinate of the field, relative to the inputBar */
+			width: 90%;				/* don't use all the space, as there are the left and right side corner images */
+			height: 26px;
+			background: transparent;
+			font-family: arial, sans-serif;	/* setting the font style and color for the text fields */
+			font-size: 1em;
+			font-weight: normal;		
+			color: white;
+			text-align: right;
+			}
+			
+			/* Div containing the buttons of the dialog */
+			div#dialogButtons {
+			margin-top: 20px;			/* Distance from the dialog message area */
+			}
+			
+			div#dialogMsgText {
+			font-size: 1em;
+			padding: 10px;		
+			overflow: hidden;			/* Text should not flow out from the area, if it is too large */			 
+			padding-left: 20px;			/* align text with title text */
+			}
+			
+		</style>
+	</head>		
+	<body highlight="false" onload="initDialog();">
+		
+		<div id="dialog">
+			<!-- Using images to create the round corners of the dialog page -->
+			<img id="dialogLeftTopBg" src="../Images/dialog-corner-lefttop.png" />
+			<img id="dialogRightTopBg" src="../Images/dialog-corner-righttop.png" />
+			<img id="dialogLeftBottomBg" src="../Images/dialog-corner-leftbottom.png" />
+			<img id="dialogRightBottomBg" src="../Images/dialog-corner-rightbottom.png" />
+			<!-- The message of the dialog -->	
+			<div id="dialogMsg">
+				<img id="dialogMsgLeftTopBg" src="../Images/dialog-msg-lefttop.png" />
+				<img id="dialogMsgRightTopBg" src="../Images/dialog-msg-righttop.png" />
+				<img id="dialogMsgLeftBottomBg" src="../Images/dialog-msg-leftbottom.png" />
+				<img id="dialogMsgRightBottomBg" src="../Images/dialog-msg-rightbottom.png" />
+				<div id="dialogTitle">&nbsp;</div>
+				<div id="dialogMsgText">
+					&nbsp;
+				</div>
+			</div>	
+			
+			<!-- Form with the input fields and buttons -->
+			<form id="dialogForm">	
+				<!-- Fields -->
+				<div class="inputLine">
+					<div class="inputLabel">العنوان</div>
+					<div id="tit-input-bar" class="inputBar">
+						<img id="tit-left-img" class="inputLeftSide" src="../Images/toolbar-textfield-leftside.png" />
+						<img id="tit-right-img" class="inputRightSide" src="../Images/toolbar-textfield-rightside.png" />
+						<input id='titleInput' type="text" value="" size="40" HIGHLIGHT="false"
+							onmouseover="focusField('tit-input-bar', 'titleInput', 'tit-left-img', 'tit-right-img');" onfocus="activateField('tit-input-bar', 'titleInput', 'tit-left-img', 'tit-right-img');" onmouseout="removeFocusField('tit-input-bar', 'titleInput', 'tit-left-img', 'tit-right-img');" onblur="removeFocusField('tit-input-bar', 'titleInput', 'tit-left-img', 'tit-right-img');" />				
+					</div>
+				</div>		
+				<div class="inputLine">
+					<div class="inputLabel">عنوان الموقع</div>
+					<div id="url-input-bar" class="inputBar">
+						<img id="url-left-img" class="inputLeftSide" src="../Images/toolbar-textfield-leftside.png" />
+						<img id="url-right-img" class="inputRightSide" src="../Images/toolbar-textfield-rightside.png" />
+						<input id='urlInput' type="text" value="" size="40" HIGHLIGHT="false"
+							onmouseover="focusField('url-input-bar', 'urlInput', 'url-left-img', 'url-right-img');" onfocus="activateField('url-input-bar', 'urlInput', 'url-left-img', 'url-right-img');" onmouseout="removeFocusField('url-input-bar', 'urlInput', 'url-left-img', 'url-right-img');" onblur="removeFocusField('url-input-bar', 'urlInput', 'url-left-img', 'url-right-img');" />
+					</div>		
+				</div>
+				
+				<!-- Button -->
+				<div id="dialogButtons">
+					
+					<table width="100%">
+						<tr>
+							<td align="right">
+								<table style="padding-right:20px;" cellspacing="0" cellpadding="0" HIGHLIGHT="false"
+									onmouseout="deHilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+									onmouseover="hilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+									onclick="closeDialog(true);">
+									<tr>
+										<td id='okButtonLeft' style="width:17px;height:34px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+										<td id='okButtonSliver' style="width:40px;background-repeat:repeat-x;background-image:url('../Images/button-sliver.png');text-align:center"> <b>موافق</b> </td>
+										<td id='okButtonRight' style="width:18px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+							
+							<td>
+								<table style="padding-left:20px;" cellspacing="0" cellpadding="0" HIGHLIGHT="false"
+									onmouseout="deHilightButton('cancelButtonLeft', 'cancelButtonSliver', 'cancelButtonRight');"
+									onmouseover="hilightButton('cancelButtonLeft', 'cancelButtonSliver', 'cancelButtonRight');"
+									onclick="closeDialog(false);">
+									<tr>
+										<td id='cancelButtonLeft' style="width:17px;height:34px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+										<td id='cancelButtonSliver' style="width:40px;background-repeat:repeat-x;background-image:url('../Images/button-sliver.png');"> <b>إلغاء</b> </td>
+										<td id='cancelButtonRight' style="width:18px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<div>
+							
+					</form>	<!-- dialogForm -->
+					
+				</div> <!-- dialog -->
+				
+			</body>
+		</html>

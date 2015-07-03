@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Ken Zhao <ken_zhao@alphanetworks.com> -->
+<wrapper>
+  <widget_property>
+	  <item id="headline" x="250" y="157" w="800" h="46" align="left" />
+    <item id="subheadline" x="290" y="53" w="400" h="30" fontsize="24" align="left" /> 
+	<item id="pagecounter" x="799" y="172" w="200" h="24" fontsize="20" align="right" textcolor="0xe2e2e2"/>
+  </widget_property>
+</wrapper>

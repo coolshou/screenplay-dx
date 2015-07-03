@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp >
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="1" rows="2" lbmask="lr"  loop_scroll="1"/>
+	</ctrlgrp>
+
+    <include filename="./inc_setup_entry_basic_title.xml" />
+
+	<wrapper x="185" w="913" h="49" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30" lbimage="image/settings_focus_btn.png" clickimage="image/settings_focus_btn.png">
+		 <image lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" selected="@@browse_0_select" y="188"/>
+		 <image lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" selected="@@browse_1_select" y="237"/>
+	</wrapper>
+	<wrapper x="220" w="532" h="36" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30">
+		<text text="@@browse_0_name" ymargin="0" y="194" active="@@act-browselist-0" selected="@@browse_0_select" />
+		<text text="@@browse_1_name" ymargin="0" y="243" active="@@act-browselist-1" selected="@@browse_1_select" />
+	</wrapper>
+
+	<include filename="./inc_decoration.xml"/>
+</page>
+

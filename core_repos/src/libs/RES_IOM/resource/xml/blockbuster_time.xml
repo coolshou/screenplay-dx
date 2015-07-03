@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<button valkey="Running"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Completed"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Schedule"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="Notification"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="FileLocation"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+		<button valkey="Time1"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Time2"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Time3"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+		<button valkey="Time4"
+			normal_bg="image/blockbuster/bb_configure_digit_frame_n.png"
+			focused_bg="image/blockbuster/bb_configure_digit_frame_f.png"/>
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="@@bg-Running" text="$$Download" 
+			active="@@act-Running" selected="@@sel-Running" click="@@click-Running" 
+			clicked="@@clicked-Running"/>
+		<imgbtn image="@@bg-Completed" text="$$Completed" 
+			active="@@act-Completed" selected="@@sel-Completed" click="@@click-Completed" 
+			clicked="@@clicked-Completed"/>
+		<imgbtn image="@@bg-Schedule" text="$$Download schedule" 
+			active="@@act-Schedule" selected="@@sel-Schedule" click="@@click-Schedule" 
+			clicked="@@clicked-Schedule"/>
+		<imgbtn image="@@bg-Notification" text="$$Notification" 
+			active="@@act-Notification" selected="@@sel-Notification" click="@@click-Notification" 
+			clicked="@@clicked-Notification"/>
+		<imgbtn image="@@bg-FileLocation" text="$$Select file location" 
+			active="@@act-FileLocation" selected="@@sel-FileLocation" click="@@click-FileLocation" 
+			clicked="@@clicked-FileLocation"/>
+	</table>
+
+	<wrapper y="270" w="125" h="155" fontsize="76" textcolor="0xff000000" align="hcenter">
+		<imgbtn x="344" text="@@time1_text" image="@@bg-Time1" active="@@act-Time1" selected="@@sel-Time1" click="@@click-Time1" disable="@@disable-Time"/>
+		<imgbtn x="484" text="@@time2_text" image="@@bg-Time2" active="@@act-Time2" selected="@@sel-Time2" click="@@click-Time2" disable="@@disable-Time"/>
+		<imgbtn x="672" text="@@time3_text" image="@@bg-Time3" active="@@act-Time3" selected="@@sel-Time3" click="@@click-Time3" disable="@@disable-Time"/>
+		<imgbtn x="812" text="@@time4_text" image="@@bg-Time4" active="@@act-Time4" selected="@@sel-Time4" click="@@click-Time4" disable="@@disable-Time"/>
+	</wrapper>
+
+	<image image="image/blockbuster/bb_preference_colon_mark.png" x="625" y="306" w="30" h="83" disable="@@disable-Time"/>
+
+	<wrapper y="232" w="34" h="44">
+		<imgbtn x="397" image="@@time1_up_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="536" image="@@time2_up_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="725" image="@@time3_up_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="865" image="@@time4_up_arrow_image" disable="@@disable-Time"/>
+	</wrapper>
+
+	<wrapper y="440" w="34" h="44">
+		<imgbtn x="397" image="@@time1_down_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="536" image="@@time2_down_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="725" image="@@time3_down_arrow_image" disable="@@disable-Time"/>
+		<imgbtn x="865" image="@@time4_down_arrow_image" disable="@@disable-Time"/>
+	</wrapper>
+	<text text="@@TimeType_text" x="426" y="535" w="428" h="22" align="hcenter" textcolor="0xfffcb040"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

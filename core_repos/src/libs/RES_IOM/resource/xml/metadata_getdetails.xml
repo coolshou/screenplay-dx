@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp>
+		<textbox valkey="metadata_overview" numlines="5" directkey_table="UD[]"/>
+<!-- We don't put a button because textbox upper will need to scroll by Up/Down Key
+        <button valkey="OK" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+-->
+	</ctrlgrp>
+	<!--
+	<image image="@@metadata_left_arrow" x="0" y="0" w="39" h="53" align="hcenter" scale_type="fixratio" scale="100"/>
+	-->
+    <include filename="./inc_browse_basic_title.xml" />
+	<text text="@@metadata_title" x="373" y="168" w="400" h="22" align="left" fontsize="18" textcolor="0xffffff" />
+	<image image="@@metadata_thumbnail_bg" x="157" y="151" w="184" h="256" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@metadata_thumbnail" x="168" y="161" w="163" h="236" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@metadata_music_thumbnail" x="277" y="209" w="197" h="197" align="hcenter" scale_type="fixratio" scale="100"/>
+    <wrapper x="373" w="710" h="22" align="left" fontsize="18" textcolor="0xffffff">
+
+	<text text="@@result_prompt_msg" x="271" y="203" numlines="3"/>
+
+	<text text="@@metadata_year" y="200"/>
+<!--
+	<text text="@@metadata_mpaa" y="237"/>
+-->
+	<text text="@@metadata_runtime" y="242"/>
+	<text text="@@metadata_genre" y="279"/>
+	<text text="@@metadata_director" y="316"/>
+	<text text="@@metadata_actor" y="353" h="70" numlines="3"/>
+    </wrapper>
+
+<wrapper x="353" w="769" h="1" bg="1">
+    <image image="@@metadata_seperator" y="193" bg="1"/>
+    <image image="@@metadata_seperator" y="232" bg="1"/>
+    <image image="@@metadata_seperator" y="271" bg="1"/>
+    <image image="@@metadata_seperator" y="310" bg="1"/>
+    <image image="@@metadata_seperator" y="341" bg="1"/>
+</wrapper>
+
+
+	<text text="@@metadata_music_artist" x="498" y="217" w="578" h="28" align="left" fontsize="28" textcolor="0xc1c1c1" />
+	<text text="@@metadata_music_genre" x="498" y="257" w="578" h="28" align="left" fontsize="28" textcolor="0xc1c1c1" />
+	<text text="@@metadata_music_year" x="498" y="297" w="578" h="28" align="left" fontsize="28" textcolor="0xc1c1c1" />
+
+
+	<text text="@@metadata_firstaired" x="433" y="217" w="578" h="28" align="left" fontsize="28" textcolor="0xc1c1c1" />
+
+	<image image="@@metadata_separate_line" x="274" y="426" w="740" h="1"/>
+	
+	<!-- text area -->
+	<text text="@@metadata_overview" x="168" y="435" w="924" h="120" align="left" fontsize="18" textcolor="0xc1c1c1" numlines="@@numlines-metadata_overview" id="metadata_overview" start_line="@@start_line-metadata_overview" disable_tail_dots="1"/>
+
+	<image image="@@metadata_separate_line" x="274" y="545" w="740" h="1"/>
+
+	<!-- prev / next indication -->
+    <!--
+	<text text="@@metadata_prev_page" x="274" y="551" w="350" h="22" align="left" fontsize="20" textcolor="0x565656" active="@@prev-metadata_overview" actnoseltextcolor="0xff8400"/>
+
+	<text text="@@metadata_next_page" x="661" y="551" w="350" h="22" align="right" fontsize="20" textcolor="0x565656" active="@@next-metadata_overview" actnoseltextcolor="0xff8400"/>
+    -->
+    <wrapper x="1100" bg="1" w="29" h="21">
+    <image image="@@prev-metadata_overview" y="430"/>
+    <image image="@@next-metadata_overview" y="530"/>
+    </wrapper>
+	<text text="$$Press 'OK' to apply the information for video." x="201" y="658" w="880" h="22" align="hcenter" fontsize="18" textcolor="0xffffff"/>
+
+    <!--<imgbtn image="@@bg-OK" text="$$OK" x="488" y="506" w="300" h="40" fontsize="20" align="hcenter" textcolor="0xffffff" active="@@act-OK" actnoseltextcolor="0xffffff"/>-->
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

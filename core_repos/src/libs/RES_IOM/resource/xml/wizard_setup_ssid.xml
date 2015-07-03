@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+    <linebreak/>
+    <button valkey="OK"
+      	focused_bg="image/common_button_B_btn_f.png"
+      	normal_bg="image/common_button_B_btn_n.png"
+      	click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+
+  <text id="subheadline" text="$$Wireless network: Please enter your network name"/>
+  <image id="step" image="image/wizard_step_3_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+
+  <image image="image/string_input_area.png" x="312" y="230" w="516" h="46" />
+  <texttail text="@@input_01_text" x="329" y="238" w="479" h="28"  textcolor="0x3b3b3b" fontsize="26" ignore_translate="1"/>
+
+  <include filename="./inc_setup_keyboard.xml" />
+  
+  <imgbtn image="@@bg-OK" text="$$Next" x="223" y="405" w="275" h="36" fontsize="24" align="hcenter" textcolor="0xEDC831" active="@@act-OK" actnoseltextcolor="0x3333333"/>
+  <include filename="./inc_setup_headline_property.xml" />
+
+</page>

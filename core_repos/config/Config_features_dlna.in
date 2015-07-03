@@ -1,0 +1,10 @@
+
+menu "DLNA features"
+	config DLNA_CHOOSE_TRANSCODED_URI_FOR_WTV
+		bool "Choose transcoded URI for WTV."
+		default y
+		help
+			Add algorithm on resource selection to choose transcoded URI for WTV.
+endmenu
+
+

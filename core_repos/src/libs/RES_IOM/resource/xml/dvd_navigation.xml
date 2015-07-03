@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page> 
+  <ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<button valkey="QML0"
+            normal_bg="/osd/image/options_menu_audio_channel_icon_n.png"
+            focused_bg="/osd/image/options_menu_audio_channel_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Audio channel"/>
+	<button valkey="QML1"
+            normal_bg="/osd/image/video_options_menu_subtitle_icon_n.png"
+            focused_bg="/osd/image/video_options_menu_subtitle_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Subtitle"/>
+	<button valkey="QML2"
+            normal_bg="/osd/image/options_menu_menu_icon_n.png"
+            focused_bg="/osd/image/options_menu_menu_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Menu"/>
+  </ctrlgrp>
+  <image image="@@icon" x="940" y="120" w="50" h="53" disable="@@disable_icon"/>
+  <image image="@@speed" x="1000" y="120" w="50" h="53" disable="@@disable_speed"/>
+  
+  <!-- information -->
+  <image image="@@video_inforbar" x="259" y="570" w="764" h="115" bg="1"/>
+
+  <image x="365" y="607" w="54" h="23" image="@@speed_state"/>
+  <image image="@@play_state" x="281" y="598" w="69" h="60"/>
+
+  <progress_bar name="video_time_bar" x="428" y="649" w="511" h="20" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable"/>
+
+  <text text="@@info_filename" x="435" y="589" w="493" h="29" fontsize="24" textcolor="0x41413f" speed="1" delay="2" align="left" auto_translate="1"/>
+  <text text="@@info_video" x="435" y="629" w="300" h="18" fontsize="14" textcolor="0x7d7d7d"/>
+  <text text="@@info_audio" x="735" y="629" w="192" h="18" fontsize="14" textcolor="0x7d7d7d" align="right"/>
+
+  <text text="@@info_cur_time" x="365" y="649" w="68" h="18" fontsize="14" textcolor="0x41413f" align="left"/>
+  <text text="@@info_duration" x="939" y="649" w="68" h="18" fontsize="14" textcolor="0x7c7c7c" align="left"/>
+
+  <image image="@@repeat-ico" x="946" y="603" w="48" h="36"/>
+  
+	<image image="/osd/image/options_bg.png" x="0" y="0" w="1280" h="570" bg="1" disable="@@disable-options_bg"/>
+	<table x="526" y="170" h="78" w="228" cols="3" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0"/>
+		<image image="@@bg-QML1"/>
+		<image image="@@bg-QML2"/>
+	</table>
+  <text x="162" y="258" w="958" h="36" text="@@text-OPTION" fontsize="30" textcolor="0x00ccff" align="hcenter" disable="@@disable-text-options"/>
+  <text text="@@mod_txt" x="162" y="294" w="958" h="32" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+  <image image="@@mod_img" x="1146" y="54" w="80" h="80"/> 
+  
+  <include filename="volume_control.xml"/>
+</page>

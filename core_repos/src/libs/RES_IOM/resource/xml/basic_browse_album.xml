@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browser_list_background_bg_n.png" type="basic" numitems="6" >
+  <albumbook name="browser_album" x="320" y="100" w="360" h="360"/>
+  <listbox valkey="browselist" move="page" cols="1" rows="6" lbmask="l"  loop_scroll="1"/>
+  <include filename="./inc_loading.xml"/>
+  <include filename="./inc_album_browse.xml"/>
+</page>

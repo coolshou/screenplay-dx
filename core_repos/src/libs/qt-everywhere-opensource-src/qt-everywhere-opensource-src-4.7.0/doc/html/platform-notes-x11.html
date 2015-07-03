@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- platform-notes.qdoc -->
+  <title>Qt 4.7: Platform Notes - X11</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Platform Notes - X11</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#aix-5-2">AIX - 5.2</a></li>
+<li class="level1"><a href="#freebsd-6-0-release">FreeBSD - 6.0-RELEASE</a></li>
+<li class="level1"><a href="#hp-ux">HP-UX</a></li>
+<li class="level2"><a href="#pa-risc-b-11-11-or-later">PA-RISC - B.11.11 or later</a></li>
+<li class="level2"><a href="#itanium-b-11-23-or-later">Itanium - B.11.23 or later</a></li>
+<li class="level2"><a href="#opengl-support">OpenGL Support</a></li>
+<li class="level1"><a href="#irix-6-5-x">IRIX - 6.5&#x2e;x</a></li>
+<li class="level1"><a href="#linux">Linux</a></li>
+<li class="level2"><a href="#installation-problems">Installation problems</a></li>
+<li class="level1"><a href="#solaris-9-or-later">Solaris - 9 or later</a></li>
+<li class="level2"><a href="#unpackaging-and-solaris-tar">Unpackaging and Solaris tar</a></li>
+<li class="level2"><a href="#cc-on-solaris">CC on Solaris</a></li>
+<li class="level2"><a href="#gcc-on-solaris">GCC on Solaris</a></li>
+</ul>
+</div>
+<h1 class="title">Platform Notes - X11</h1>
+<span class="subtitle"></span>
+<!-- $$$platform-notes-x11.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This page contains information about the X11 platforms Qt is currently known to run on, with links to platform-specific notes. More information about the combinations of platforms and compilers supported by Qt can be found on the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
+<a name="aix"></a><a name="aix-5-2"></a>
+<h2>AIX - 5.2</h2>
+<p>Qt has been tested on AIX 5.2, using the <a href="compiler-notes.html#ibm-xlc-aix">xlC</a> compiler.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Compiler</th><th >Notes</th></tr></thead>
+<tr class="odd topAlign"><td ><p>xlC</p></td><td ><p>If Qt is built correctly but all symbols are reported to be missing when you link an application, your makeC++SharedLib script might be out of date. Make sure you have the latest version from the <a href="http://www-306.ibm.com/software/awdtools/vacpp/support/">IBM website</a>.</p></td></tr>
+<tr class="even topAlign"><td ><p>GCC</p></td><td ><p>We have tested earlier versions of Qt 4 successfully with GCC version 3.3 and above. Some versions of GCC may fail to link Qt with a &quot;TOC overflow&quot; message. Fix this by upgrading to the latest maintenance release of the dynamic linker. On AIX this is bos.rte.bind_cmds.4.1&#x2e;5&#x2e;3 or later. Some versions of GCC may fail to build Qt with STL and large-file support enabled, due to <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=9551">a bug in GCC</a>. Fix this by upgrading to the latest maintenance release of the compiler. It is also possible to work around this problem by running configure with either <tt>-no-stl</tt> or <tt>-no-largefile</tt>.</p></td></tr>
+</table>
+<a name="freebsd"></a><a name="freebsd-6-0-release"></a>
+<h2>FreeBSD - 6.0-RELEASE</h2>
+<p><b>Note:</b> <a href="#freebsd">FreeBSD</a> is a community supported platform. See the <a href="supported-platforms.html">Supported Platforms</a> page for more information.</p>
+<p>The system compiler on <a href="#freebsd">FreeBSD</a> 4.x is gcc 2.95.4, which is not officially supported by Qt 4. We develop using and recommend ports/lang/gcc34. You will need to run configure with the <tt>-platform freebsd-g++34</tt> arguments. Optionally, you may use ports/lang/icc.</p>
+<p>The system compiler on <a href="#freebsd">FreeBSD</a> 5.x and 6.x is GCC 3.4&#x2e;4, which should be sufficient to build Qt. You do not need to add any special arguments when running configure. Optionally, you may use ports/lang/icc.</p>
+<p>Note that we do not actively test <a href="#freebsd">FreeBSD</a> 4.x and 5.x&#x2e; Our developers migrated to 6.x after the Qt 4 launch. <a href="#freebsd">FreeBSD</a>-CURRENT is not supported.</p>
+<a name="hp-ux"></a><a name="hp-ux"></a>
+<h2>HP-UX</h2>
+<p>Qt supports HP-UX on both PA-RISC and the Itanium (IA64) architectures.</p>
+<a name="pa-risc-b-11-11-or-later"></a>
+<h3>PA-RISC - B.11.11 or later</h3>
+<p>You can configure Qt for aCC in 32 and 64 bit mode (hpux-acc-64 or hpux-acc-32), or gcc in 32 bit mode (hpux-g++). The default platform is hpux-acc-32. The minimum required version for aCC (HP ANSI C++) on PA-RISC is A.03.57. The supported gcc compiler is gcc 3.4&#x2e;3&#x2e;</p>
+<a name="itanium-b-11-23-or-later"></a>
+<h3>Itanium - B.11.23 or later</h3>
+<p>You can configure Qt for aCC in 32 and 64 bit mode (hpuxi-acc-64 or hpuxi-acc-32). gcc is currently unsupported. The default platform is hpuxi-acc-64. The minimum required version for aCC (HP ANSI C++) on Itanium is A.06.12.</p>
+<a name="opengl-support"></a>
+<h3>OpenGL Support</h3>
+<p>Qt's <a href="qtopengl.html">OpenGL</a> module requires GLX 1.3 or later to be installed. This is available for HP-UX 11i - see the <a href="http://docs.hp.com/en/5992-2331/ch04s02.html">Graphics and Technical Computing Software</a> section of the release notes for more information.</p>
+<a name="irix"></a><a name="irix-6-5-x"></a>
+<h2>IRIX - 6.5&#x2e;x</h2>
+<p><b>IRIX is an unsupported platform - please see Qt's online <a href="http://qt.nokia.com/doc/supported-platforms.html">Platform Support Policy</a> for details.</b></p>
+<p>Unpackaging and IRIX tar: Because of long filenames some files will be cut off incorrectly with IRIX tar. Please use GNU tar to unpack Qt packages.</p>
+<a name="linux"></a>
+<h2>Linux</h2>
+<p>There are no known problems with using Qt on production versions of Linux/x86, Linux/ppc, Linux/amd64 and Linux/ia64 (including Altix(R)).</p>
+<p>For the gcc/g++ compiler, please also see the relevant <a href="compiler-notes.html#gcc">compiler page</a>.</p>
+<a name="installation-problems"></a>
+<h3>Installation problems</h3>
+<p>See also the <a href="http://qt.nokia.com/developer/faqs/qt/installation">Installation FAQ</a>.</p>
+<p>If you experience problems when installing new open source versions of Qt versions, try to use the open source Qt archives (e.g&#x2e;, RPM) provided by your Linux distribution. If you need to install the source (.tgz) archive, be aware that you will probably end up with two different versions of the Qt library installed on your system, which will probably lead to link errors, like this:</p>
+<pre class="highlightedCode brush: cpp"> undefined reference to `_vt.11QPushButton'</pre>
+<p>Fix this by removing the old version of the library.</p>
+<p>If you have problems installing open source versions of Qt provided by your Linux distribution (e.g&#x2e;, RPM), please consult the maintainers of the distribution, not us.</p>
+<p>Some RPM versions have problems installing some of the Qt RPM archives where installation stops with an error message warning about a &quot;Failed Dependency&quot;. Use the <tt>--nodeps</tt> option to <tt>rpm</tt> to workaround this problem.</p>
+<a name="solaris"></a><a name="solaris-9-or-later"></a>
+<h2>Solaris - 9 or later</h2>
+<a name="unpackaging-and-solaris-tar"></a>
+<h3>Unpackaging and Solaris tar</h3>
+<p>On some Solaris systems, both Solaris tar and GNU tar have been reported to truncate long filenames. We recommend using star instead (http://star.berlios.de).</p>
+<a name="cc-on-solaris"></a>
+<h3>CC on Solaris</h3>
+<p>Be sure to check our <a href="compiler-notes.html#sun-studio">Forte Developer / Sun Studio</a> notes.</p>
+<a name="gcc-on-solaris"></a>
+<h3>GCC on Solaris</h3>
+<p>Be sure to check the installation notes for <a href="#gcc-on-solaris">GCC on Solaris</a>. Do not use GCC with Sun's assembler/linker, this will result in link-time errors in shared libraries. Use GNU binutils instead.</p>
+<p>GCC 3.2&#x2e;* is known to miscompile Qt due to an optimizer bug that will cause the resulting binaries to hang. Please use GCC 3.4&#x2e;2 or later.</p>
+</div>
+<!-- @@@platform-notes-x11.html -->
+<p>
+</p>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

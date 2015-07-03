@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/live365/Media Player_live365_bg.jpg" type="basic">
+	<ctrlgrp lbmask="l" more_select="right">
+		<button valkey="USERNAME"
+			focused_bg="image/live365/Generic_live365_focus_bar.png"/>
+		<linebreak/>
+		<button valkey="PASSWORD"
+			focused_bg="image/live365/Generic_live365_focus_bar.png"/>
+		<linebreak/>
+		<button valkey="OK"
+			focused_bg="image/live365/Generic_live365_btn_f.png"
+			normal_bg="image/live365/Generic_live365_btn_n.png"/>
+		<linebreak/>
+	</ctrlgrp>
+
+	<text text="$$Sign in" x="169" y="121" w="748" h="50" align="left" fontsize="42" textcolor="0xff343298"/>
+		
+	<imgbtn image="@@bg-USERNAME" text="" x="0" y="229" w="1206" h="49" active="@@act-USERNAME"/>
+	<imgbtn image="@@bg-PASSWORD" text="" x="0" y="280" w="1206" h="49" active="@@act-PASSWORD"/>
+
+	<wrapper x="171" w="508" h="49" textcolor="0xff4b4b4b" activetextcolor="0xff000092" fontsize="20" selected_fontsize="26" align="left">
+		<text text="$$Username" y="229" active="@@act-USERNAME" selected="@@sel-USERNAME"/>
+		<text text="$$Password" y="279" active="@@act-PASSWORD" selected="@@sel-PASSWORD"/>
+	</wrapper>
+
+	<imgbtn image="@@bg-OK" text="$$Sign in" x="143" y="478" w="331" h="65" textcolor="0xffffff" fontsize="22" align="hcenter"/>
+
+	<include filename="./inc_loading.xml" />
+	<include filename="./inc_live365_icon.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>
+

@@ -1,0 +1,10 @@
+--- httpd.conf.org	2010-04-02 15:29:20.000000000 +0800
++++ httpd.conf	2010-04-02 15:36:35.000000000 +0800
+@@ -307,6 +307,7 @@
+     #
+     AddType application/x-compress .Z
+     AddType application/x-gzip .gz .tgz
++    AddType application/x-httpd-php .php .phtml
+ 
+     #
+     # AddHandler allows you to map certain file extensions to "handlers":

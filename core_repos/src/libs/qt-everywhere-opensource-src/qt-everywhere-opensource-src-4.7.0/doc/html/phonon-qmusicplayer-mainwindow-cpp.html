@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: mainwindow.cpp Example File (phonon/qmusicplayer/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">phonon/qmusicplayer/mainwindow.cpp</span>
+<!-- $$$phonon/qmusicplayer/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ***************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &quot;mainwindow.h&quot;
+
+ MainWindow::MainWindow()
+ {
+     audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+     mediaObject = new Phonon::MediaObject(this);
+     metaInformationResolver = new Phonon::MediaObject(this);
+
+     mediaObject-&gt;setTickInterval(1000);
+     connect(mediaObject, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
+     connect(mediaObject, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
+             this, SLOT(stateChanged(Phonon::State,Phonon::State)));
+     connect(metaInformationResolver, SIGNAL(stateChanged(Phonon::State,Phonon::State)),
+             this, SLOT(metaStateChanged(Phonon::State,Phonon::State)));
+     connect(mediaObject, SIGNAL(currentSourceChanged(Phonon::MediaSource)),
+             this, SLOT(sourceChanged(Phonon::MediaSource)));
+     connect(mediaObject, SIGNAL(aboutToFinish()), this, SLOT(aboutToFinish()));
+
+     Phonon::createPath(mediaObject, audioOutput);
+
+     setupActions();
+     setupMenus();
+     setupUi();
+     timeLcd-&gt;display(&quot;00:00&quot;);
+ }
+
+ void MainWindow::addFiles()
+ {
+     QStringList files = QFileDialog::getOpenFileNames(this, tr(&quot;Select Music Files&quot;),
+         QDesktopServices::storageLocation(QDesktopServices::MusicLocation));
+
+     if (files.isEmpty())
+         return;
+
+     int index = sources.size();
+     foreach (QString string, files) {
+             Phonon::MediaSource source(string);
+
+         sources.append(source);
+     }
+     if (!sources.isEmpty())
+         metaInformationResolver-&gt;setCurrentSource(sources.at(index));
+
+ }
+
+ void MainWindow::about()
+ {
+     QMessageBox::information(this, tr(&quot;About Music Player&quot;),
+         tr(&quot;The Music Player example shows how to use Phonon - the multimedia&quot;
+            &quot; framework that comes with Qt - to create a simple music player.&quot;));
+ }
+
+ void MainWindow::stateChanged(Phonon::State newState, Phonon::State <span class="comment">/* oldState */</span>)
+ {
+     switch (newState) {
+         case Phonon::ErrorState:
+             if (mediaObject-&gt;errorType() == Phonon::FatalError) {
+                 QMessageBox::warning(this, tr(&quot;Fatal Error&quot;),
+                 mediaObject-&gt;errorString());
+             } else {
+                 QMessageBox::warning(this, tr(&quot;Error&quot;),
+                 mediaObject-&gt;errorString());
+             }
+             break;
+         case Phonon::PlayingState:
+                 playAction-&gt;setEnabled(false);
+                 pauseAction-&gt;setEnabled(true);
+                 stopAction-&gt;setEnabled(true);
+                 break;
+         case Phonon::StoppedState:
+                 stopAction-&gt;setEnabled(false);
+                 playAction-&gt;setEnabled(true);
+                 pauseAction-&gt;setEnabled(false);
+                 timeLcd-&gt;display(&quot;00:00&quot;);
+                 break;
+         case Phonon::PausedState:
+                 pauseAction-&gt;setEnabled(false);
+                 stopAction-&gt;setEnabled(true);
+                 playAction-&gt;setEnabled(true);
+                 break;
+         case Phonon::BufferingState:
+                 break;
+         default:
+             ;
+     }
+ }
+
+ void MainWindow::tick(qint64 time)
+ {
+     QTime displayTime(0, (time / 60000) % 60, (time / 1000) % 60);
+
+     timeLcd-&gt;display(displayTime.toString(&quot;mm:ss&quot;));
+ }
+
+ void MainWindow::tableClicked(int row, int <span class="comment">/* column */</span>)
+ {
+     bool wasPlaying = mediaObject-&gt;state() == Phonon::PlayingState;
+
+     mediaObject-&gt;stop();
+     mediaObject-&gt;clearQueue();
+
+     if (row &gt;= sources.size())
+         return;
+
+     mediaObject-&gt;setCurrentSource(sources[row]);
+
+     if (wasPlaying)
+         mediaObject-&gt;play();
+     else
+         mediaObject-&gt;stop();
+ }
+
+ void MainWindow::sourceChanged(const Phonon::MediaSource &amp;source)
+ {
+     musicTable-&gt;selectRow(sources.indexOf(source));
+     timeLcd-&gt;display(&quot;00:00&quot;);
+ }
+
+ void MainWindow::metaStateChanged(Phonon::State newState, Phonon::State <span class="comment">/* oldState */</span>)
+ {
+     if (newState == Phonon::ErrorState) {
+         QMessageBox::warning(this, tr(&quot;Error opening files&quot;),
+             metaInformationResolver-&gt;errorString());
+         while (!sources.isEmpty() &amp;&amp;
+                !(sources.takeLast() == metaInformationResolver-&gt;currentSource())) {}  <span class="comment">/* loop */</span>;
+         return;
+     }
+
+     if (newState != Phonon::StoppedState &amp;&amp; newState != Phonon::PausedState)
+         return;
+
+     if (metaInformationResolver-&gt;currentSource().type() == Phonon::MediaSource::Invalid)
+             return;
+
+     QMap&lt;QString, QString&gt; metaData = metaInformationResolver-&gt;metaData();
+
+     QString title = metaData.value(&quot;TITLE&quot;);
+     if (title == &quot;&quot;)
+         title = metaInformationResolver-&gt;currentSource().fileName();
+
+     QTableWidgetItem *titleItem = new QTableWidgetItem(title);
+     titleItem-&gt;setFlags(titleItem-&gt;flags() ^ Qt::ItemIsEditable);
+     QTableWidgetItem *artistItem = new QTableWidgetItem(metaData.value(&quot;ARTIST&quot;));
+     artistItem-&gt;setFlags(artistItem-&gt;flags() ^ Qt::ItemIsEditable);
+     QTableWidgetItem *albumItem = new QTableWidgetItem(metaData.value(&quot;ALBUM&quot;));
+     albumItem-&gt;setFlags(albumItem-&gt;flags() ^ Qt::ItemIsEditable);
+     QTableWidgetItem *yearItem = new QTableWidgetItem(metaData.value(&quot;DATE&quot;));
+     yearItem-&gt;setFlags(yearItem-&gt;flags() ^ Qt::ItemIsEditable);
+
+     int currentRow = musicTable-&gt;rowCount();
+     musicTable-&gt;insertRow(currentRow);
+     musicTable-&gt;setItem(currentRow, 0, titleItem);
+     musicTable-&gt;setItem(currentRow, 1, artistItem);
+     musicTable-&gt;setItem(currentRow, 2, albumItem);
+     musicTable-&gt;setItem(currentRow, 3, yearItem);
+
+     if (musicTable-&gt;selectedItems().isEmpty()) {
+         musicTable-&gt;selectRow(0);
+         mediaObject-&gt;setCurrentSource(metaInformationResolver-&gt;currentSource());
+     }
+
+     Phonon::MediaSource source = metaInformationResolver-&gt;currentSource();
+     int index = sources.indexOf(metaInformationResolver-&gt;currentSource()) + 1;
+     if (sources.size() &gt; index) {
+         metaInformationResolver-&gt;setCurrentSource(sources.at(index));
+     }
+     else {
+         musicTable-&gt;resizeColumnsToContents();
+         if (musicTable-&gt;columnWidth(0) &gt; 300)
+             musicTable-&gt;setColumnWidth(0, 300);
+     }
+ }
+
+ void MainWindow::aboutToFinish()
+ {
+     int index = sources.indexOf(mediaObject-&gt;currentSource()) + 1;
+     if (sources.size() &gt; index) {
+         mediaObject-&gt;enqueue(sources.at(index));
+     }
+ }
+
+ void MainWindow::setupActions()
+ {
+     playAction = new QAction(style()-&gt;standardIcon(QStyle::SP_MediaPlay), tr(&quot;Play&quot;), this);
+     playAction-&gt;setShortcut(tr(&quot;Ctrl+P&quot;));
+     playAction-&gt;setDisabled(true);
+     pauseAction = new QAction(style()-&gt;standardIcon(QStyle::SP_MediaPause), tr(&quot;Pause&quot;), this);
+     pauseAction-&gt;setShortcut(tr(&quot;Ctrl+A&quot;));
+     pauseAction-&gt;setDisabled(true);
+     stopAction = new QAction(style()-&gt;standardIcon(QStyle::SP_MediaStop), tr(&quot;Stop&quot;), this);
+     stopAction-&gt;setShortcut(tr(&quot;Ctrl+S&quot;));
+     stopAction-&gt;setDisabled(true);
+     nextAction = new QAction(style()-&gt;standardIcon(QStyle::SP_MediaSkipForward), tr(&quot;Next&quot;), this);
+     nextAction-&gt;setShortcut(tr(&quot;Ctrl+N&quot;));
+     previousAction = new QAction(style()-&gt;standardIcon(QStyle::SP_MediaSkipBackward), tr(&quot;Previous&quot;), this);
+     previousAction-&gt;setShortcut(tr(&quot;Ctrl+R&quot;));
+     addFilesAction = new QAction(tr(&quot;Add &amp;Files&quot;), this);
+     addFilesAction-&gt;setShortcut(tr(&quot;Ctrl+F&quot;));
+     exitAction = new QAction(tr(&quot;E&amp;xit&quot;), this);
+     exitAction-&gt;setShortcuts(QKeySequence::Quit);
+     aboutAction = new QAction(tr(&quot;A&amp;bout&quot;), this);
+     aboutAction-&gt;setShortcut(tr(&quot;Ctrl+B&quot;));
+     aboutQtAction = new QAction(tr(&quot;About &amp;Qt&quot;), this);
+     aboutQtAction-&gt;setShortcut(tr(&quot;Ctrl+Q&quot;));
+
+     connect(playAction, SIGNAL(triggered()), mediaObject, SLOT(play()));
+     connect(pauseAction, SIGNAL(triggered()), mediaObject, SLOT(pause()) );
+     connect(stopAction, SIGNAL(triggered()), mediaObject, SLOT(stop()));
+     connect(addFilesAction, SIGNAL(triggered()), this, SLOT(addFiles()));
+     connect(exitAction, SIGNAL(triggered()), this, SLOT(close()));
+     connect(aboutAction, SIGNAL(triggered()), this, SLOT(about()));
+     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+ }
+
+ void MainWindow::setupMenus()
+ {
+     QMenu *fileMenu = menuBar()-&gt;addMenu(tr(&quot;&amp;File&quot;));
+     fileMenu-&gt;addAction(addFilesAction);
+     fileMenu-&gt;addSeparator();
+     fileMenu-&gt;addAction(exitAction);
+
+     QMenu *aboutMenu = menuBar()-&gt;addMenu(tr(&quot;&amp;Help&quot;));
+     aboutMenu-&gt;addAction(aboutAction);
+     aboutMenu-&gt;addAction(aboutQtAction);
+ }
+
+ void MainWindow::setupUi()
+ {
+     QToolBar *bar = new QToolBar;
+
+     bar-&gt;addAction(playAction);
+     bar-&gt;addAction(pauseAction);
+     bar-&gt;addAction(stopAction);
+
+     seekSlider = new Phonon::SeekSlider(this);
+     seekSlider-&gt;setMediaObject(mediaObject);
+
+     volumeSlider = new Phonon::VolumeSlider(this);
+     volumeSlider-&gt;setAudioOutput(audioOutput);
+     volumeSlider-&gt;setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
+
+     QLabel *volumeLabel = new QLabel;
+     volumeLabel-&gt;setPixmap(QPixmap(&quot;images/volume.png&quot;));
+
+     QPalette palette;
+     palette.setBrush(QPalette::Light, Qt::darkGray);
+
+     timeLcd = new QLCDNumber;
+     timeLcd-&gt;setPalette(palette);
+
+     QStringList headers;
+     headers &lt;&lt; tr(&quot;Title&quot;) &lt;&lt; tr(&quot;Artist&quot;) &lt;&lt; tr(&quot;Album&quot;) &lt;&lt; tr(&quot;Year&quot;);
+
+     musicTable = new QTableWidget(0, 4);
+     musicTable-&gt;setHorizontalHeaderLabels(headers);
+     musicTable-&gt;setSelectionMode(QAbstractItemView::SingleSelection);
+     musicTable-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+     connect(musicTable, SIGNAL(cellPressed(int,int)),
+             this, SLOT(tableClicked(int,int)));
+
+     QHBoxLayout *seekerLayout = new QHBoxLayout;
+     seekerLayout-&gt;addWidget(seekSlider);
+     seekerLayout-&gt;addWidget(timeLcd);
+
+     QHBoxLayout *playbackLayout = new QHBoxLayout;
+     playbackLayout-&gt;addWidget(bar);
+     playbackLayout-&gt;addStretch();
+     playbackLayout-&gt;addWidget(volumeLabel);
+     playbackLayout-&gt;addWidget(volumeSlider);
+
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+     mainLayout-&gt;addWidget(musicTable);
+     mainLayout-&gt;addLayout(seekerLayout);
+     mainLayout-&gt;addLayout(playbackLayout);
+
+     QWidget *widget = new QWidget;
+     widget-&gt;setLayout(mainLayout);
+
+     setCentralWidget(widget);
+     setWindowTitle(&quot;Phonon Music Player&quot;);
+ }</pre>
+</div>
+<!-- @@@phonon/qmusicplayer/mainwindow.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

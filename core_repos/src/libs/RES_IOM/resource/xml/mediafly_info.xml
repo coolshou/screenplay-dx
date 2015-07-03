@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/mediafly/mediafly_bg.jpg">
+
+	<text x="97" y="115" w="600" h="44" fontsize="42" textcolor="0x4b4b4b" text="$$Show info" />
+	<image x="199" y="190" w="354" h="256" image="image/mediafly/mediafly_show_info_frame.png" />
+	<image x="209" y="202" w="232" h="232" image="@@media_icon" scale="100" />
+	<image x="209" y="202" w="232" h="232" image="image/mediafly/mediafly_show_info_blister.png" scale="100" />
+
+	<text x="610" y="196" w="520" h="32" fontsize="30" textcolor="0x3c6e14" text="@@media_title" align="left" speed="1" />
+<!--	<text x="533" y="269" w="472" h="18" fontsize="16" textcolor="0xe2e2e2" text="@@media_date" align="left" />-->
+	<text x="610" y="273" w="532" h="172" fontsize="18" textcolor="0x4b4b4b" text="@@info" algin="left, top" numlines="10" />
+	<image x="655" y="230" w="159" h="32" image="@@media_star" />
+	<image x="607" y="230" w="38" h="37" image="@@media_type" />
+	<include filename="./inc_mediafly_logo.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+
+</page>

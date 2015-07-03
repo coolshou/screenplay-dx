@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<wrapper disable="@@disable-CONFIRM">
+
+	<table x="820" y="387" w="332" h="102" rows="3" cols="1" hrow0="0" hrow2="0" disable="@@disable-CONFIRM">
+			<image image="image/villa_fileManagement_line_right.png" ymargin="0"/>
+			<text text="@@text-CONFIRM" fontsize="20" textcolor="0xe2e2e2" align="hcenter"/>
+			<image image="image/villa_fileManagement_line_right.png" ymargin="0"/>
+	</table>
+
+	<table x="820" y="504" w="333" h="52" rows="1" cols="2" disable="@@disable-CONFIRM">
+			<imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" actnoseltextcolor="0xffffff" align="hcenter" fontsize="18"/>
+			<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" actnoseltextcolor="0xffffff" align="hcenter" fontsize="18"/>
+	</table>
+
+</wrapper>

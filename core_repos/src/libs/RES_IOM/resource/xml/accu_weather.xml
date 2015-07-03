@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scraper framework="1.1" date="2010-02-24" name="accu_weather" content="weather" thumb="yahoo.png" language="en">
+	<CreateRegionUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://westerndigital.accu-weather.com/widget/utility/city-select/city-selection.asmx/GetRegionList?langID=\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateRegionUrl>
+	<GetRegionResults dest="8">
+		<RegExp input="$$3" output="&lt;results&gt;\1&lt;/results&gt;" dest="8">
+			<RegExp input="$$1" output="&lt;entity&gt;&lt;name&gt;\1&lt;/name&gt;&lt;url&gt;http://westerndigital.accu-weather.com//widget/utility/city-select/city-selection.asmx/GetCountriesInRegion?regionCode=\2&lt;/url&gt;&lt;translated_name&gt;\3&lt;/translated_name&gt;&lt;region_code&gt;\2&lt;/region_code&gt;&lt;/entity&gt;" dest="3">
+				<expression>&lt;region name=&quot;(.*?)&quot; regioncode=&quot;(.*?)&quot;&gt;(.*?)&lt;/region&gt;</expression>
+			</RegExp>
+			<expression/>
+		</RegExp>
+	</GetRegionResults>
+	<CreateCountryUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://westerndigital.accu-weather.com/widget/utility/city-select/city-selection.asmx/GetCountriesInRegion?\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateCountryUrl>
+	<GetCountryResults dest="8">
+		<RegExp input="$$3" output="&lt;results&gt;\1&lt;/results&gt;" dest="8">
+			<RegExp input="$$1" output="&lt;entity&gt;&lt;name&gt;\1&lt;/name&gt;&lt;url&gt;http://westerndigital.accu-weather.com//widget/utility/city-select/city-selection.asmx/GetCountriesInRegion?regionCode=\2&lt;/url&gt;&lt;translated_name&gt;\4&lt;/translated_name&gt;&lt;region_code&gt;\2&lt;/region_code&gt;&lt;country_code&gt;\3&lt;/country_code&gt;&lt;/entity&gt;" dest="3">
+				<expression>&lt;country name=&quot;(.*?)&quot; regioncode=&quot;(.*?)&quot; countrycode=&quot;(.*?)&quot;&gt;(.*?)&lt;/country&gt;</expression>
+			</RegExp>
+			<expression/>
+		</RegExp>
+	</GetCountryResults>
+	<CreateCityUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://westerndigital.accu-weather.com/widget/utility/city-select/city-selection.asmx/GetCitiesByCountry?\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateCityUrl>
+	<GetCityResults dest="8">
+		<RegExp input="$$3" output="&lt;results&gt;\1&lt;/results&gt;" dest="8">
+			<RegExp input="$$1" output="&lt;entity&gt;&lt;name&gt;\1&lt;/name&gt;&lt;url&gt;http://westerndigital.accu-weather.com//widget/utility/city-select/city-selection.asmx/GetCountriesInRegion?regionCode=\2&lt;/url&gt;&lt;translated_name&gt;\7&lt;/translated_name&gt;&lt;region_code&gt;\2&lt;/region_code&gt;&lt;country_code&gt;\3&lt;/country_code&gt;&lt;translated_country_name&gt;\4&lt;/translated_country_name&gt;&lt;translated_admin_name&gt;\5&lt;/translated_admin_name&gt;&lt;location_code&gt;\6&lt;/location_code&gt;&lt;/entity&gt;" dest="3">
+				<expression>&lt;city name=&quot;(.*?)&quot; regioncode=&quot;(.*?)&quot; countrycode=&quot;(.*?)&quot; translatedCountryName=&quot;(.*?)&quot; translatedAdminName=&quot;(.*?)&quot; locationCode=&quot;(.*?)&quot;&gt;(.*?)&lt;/city&gt;</expression>
+			</RegExp>
+			<expression/>
+		</RegExp>
+	</GetCityResults>
+	<CreateTokenUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://westerndigital.accu-weather.com/nmigs/acx.aspx?cb=\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateTokenUrl>
+	<GetTokenResults dest="8">
+		<RegExp input="$$1" output="&lt;acx&gt;\1&lt;/acx&gt;" dest="8">
+			<expression>&lt;acx&gt;(.*?)&lt;/acx&gt;</expression>
+		</RegExp>
+	</GetTokenResults>
+	<CreateSearchUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://iomega.accu-weather.com/widget/iomega/city-find.asp?\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateSearchUrl>
+	<GetSearchResults dest="8">
+		<RegExp input="$$3" output="&lt;results&gt;\1&lt;/results&gt;" dest="8">
+			<RegExp input="$$1" output="&lt;entity&gt;&lt;city&gt;\1&lt;/city&gt;&lt;state&gt;\2&lt;/state&gt;&lt;adminarea&gt;\3&lt;/adminarea&gt;&lt;location_code&gt;\4&lt;/location_code&gt;&lt;/entity&gt;" dest="3">
+				<expression>&lt;location.*? city=&quot;(.*?)&quot; country=&quot;(.*?)&quot; countryCode=&quot;.*?&quot; adminArea=&quot;(.*?)&quot; location=&quot;(.*?)&quot;</expression>
+			</RegExp>
+			<expression/>
+		</RegExp>
+	</GetSearchResults>
+	<CreateDetailUrl dest="3">
+		<RegExp input="$$1" output="&lt;url&gt;http://iomega.accu-weather.com/widget/iomega/weather-data.asp?\1&lt;/url&gt;" dest="3">
+			<expression>(.+)</expression>
+		</RegExp>
+	</CreateDetailUrl>
+	<GetDetailResults dest="8">
+		<RegExp input="$$5" output="&lt;results&gt;\1&lt;/results&gt;" dest="8">
+			<RegExp input="$$3" output="&lt;currentconditions&gt;\1&lt;/currentconditions&gt;" dest="5">
+				<RegExp input="$$1" output="&lt;lat&gt;\1&lt;/lat&gt;" dest="3">
+					<expression>&lt;local&gt;.*?&lt;lat&gt;(.*?)&lt;/lat&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;lon&gt;\1&lt;/lon&gt;" dest="3+">
+					<expression>&lt;local&gt;.*?&lt;lon&gt;(.*?)&lt;/lon&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;time&gt;\1&lt;/time&gt;" dest="3+">
+					<expression>&lt;local&gt;.*?&lt;time&gt;(.*?)&lt;/time&gt;.*?&lt;/local&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;speed&gt;\1&lt;/speed&gt;" dest="3+">
+					<expression>&lt;units&gt;.*?&lt;speed&gt;(.*?)&lt;/speed&gt;.*?&lt;/units&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;city&gt;\1&lt;/city&gt;" dest="3+">
+					<expression>&lt;local&gt;.*?&lt;city&gt;(.*?)&lt;/city&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;adminarea&gt;\1&lt;/adminarea&gt;" dest="3+">
+					<expression>&lt;local&gt;.*?&lt;adminArea&gt;(.*?)&lt;/adminArea&gt;.*?&lt;/local&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;state&gt;\1&lt;/state&gt;" dest="3+">
+					<expression>&lt;local&gt;.*?&lt;country.*?&gt;(.*?)&lt;/country&gt;.*?&lt;/local&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;isDaylight&gt;\1&lt;/isDaylight&gt;" dest="3+">
+					<expression>&lt;currentconditions daylight=&quot;(.*?)&quot;&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;url&gt;\1&lt;/url&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;url&gt;(.*?)&lt;/url&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;temperature&gt;\1&lt;/temperature&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;temperature&gt;(.*?)&lt;/temperature&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;humidity&gt;\1&lt;/humidity&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;humidity&gt;(.*?)&lt;/humidity&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;weathertext&gt;\1&lt;/weathertext&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;weathertext&gt;(.*?)&lt;/weathertext&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;weathericon&gt;\1&lt;/weathericon&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;weathericon&gt;(.*?)&lt;/weathericon&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;windspeed&gt;\1&lt;/windspeed&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;windspeed&gt;(.*?)&lt;/windspeed&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;winddirection&gt;\1&lt;/winddirection&gt;" dest="3+">
+					<expression>&lt;currentconditions.*?&gt;.*?&lt;winddirection&gt;(.*?)&lt;/winddirection&gt;.*?&lt;/currentconditions&gt;</expression>
+				</RegExp>
+				<RegExp input="$$1" output="&lt;radar&gt;\1&lt;/radar&gt;" dest="3+">
+					<expression>&lt;images&gt;.*?&lt;radar&gt;(.*?)&lt;/radar&gt;.*?&lt;/images&gt;</expression>
+				</RegExp>
+			<expression/>
+			</RegExp>
+			<RegExp input="$$1" output="&lt;day&gt;&lt;daycode&gt;\1&lt;/daycode&gt;&lt;txtshort&gt;\2&lt;/txtshort&gt;&lt;weathericon&gt;\3&lt;/weathericon&gt;&lt;hightemperature&gt;\4&lt;/hightemperature&gt;&lt;lowtemperature&gt;\5&lt;/lowtemperature&gt;&lt;/day&gt;" dest="5+">
+				<expression>&lt;day number=&quot;.*?&quot;&gt;.*?&lt;daycode&gt;(.*?)&lt;/daycode&gt;.*?&lt;daytime&gt;.*?&lt;txtshort&gt;(.*?)&lt;/txtshort&gt;.*?&lt;weathericon&gt;(.*?)&lt;/weathericon&gt;.*?&lt;hightemperature&gt;(.*?)&lt;/hightemperature&gt;.*?&lt;lowtemperature&gt;(.*?)&lt;/lowtemperature&gt;.*?&lt;/daytime&gt;.*?&lt;/day&gt;</expression>
+			</RegExp>
+			<RegExp input="$$1" output="&lt;night&gt;&lt;daycode&gt;\1&lt;/daycode&gt;&lt;txtshort&gt;\2&lt;/txtshort&gt;&lt;weathericon&gt;\3&lt;/weathericon&gt;&lt;hightemperature&gt;\4&lt;/hightemperature&gt;&lt;lowtemperature&gt;\5&lt;/lowtemperature&gt;&lt;/night&gt;" dest="5+">
+				<expression>&lt;day number=&quot;.*?&quot;&gt;.*?&lt;daycode&gt;(.*?)&lt;/daycode&gt;.*?&lt;nighttime&gt;.*?&lt;txtshort&gt;(.*?)&lt;/txtshort&gt;.*?&lt;weathericon&gt;(.*?)&lt;/weathericon&gt;.*?&lt;hightemperature&gt;(.*?)&lt;/hightemperature&gt;.*?&lt;lowtemperature&gt;(.*?)&lt;/lowtemperature&gt;.*?&lt;/nighttime&gt;.*?&lt;/day&gt;</expression>
+			</RegExp>
+		<expression/>
+		</RegExp>
+	</GetDetailResults>
+</scraper>
+

@@ -1,0 +1,4409 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Czech <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Zvolte jazyk"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Vítá vás přehrávač médií Iomega ScreenPlay"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Tento průvodce vás provede procesem připojování tohoto zařízení do domácí sítě. Jakmile bude zařízení připojeno, můžete z jiných zařízení v síti přehrávat a přistupovat k mediálním souborům, které jsou na něm uloženy."
+
+msgid "Select Next to continue."
+msgstr "Pokračujte klepnutím na tlačítko Další."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "Pokud je zapnutý režim rychlého spuštění, zařízení bude spotřebovávat více energie, ale čas jeho spuštění a doba, za kterou bude v síti dostupné, bude kratší."
+
+msgid "Select your TV type"
+msgstr "Vyberte typ televize"
+
+msgid "Select your connection"
+msgstr "Vyberte typ připojení"
+
+msgid "Skip"
+msgstr "Přeskočit"
+
+msgid "Do you want to skip?"
+msgstr "Chcete přeskočit?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "Statická adresa IP"
+
+msgid "IP address"
+msgstr "Adresa IP"
+
+msgid "Netmask"
+msgstr "Maska podsítě"
+
+msgid "Gateway"
+msgstr "Brána"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "Nastavení je dokončeno"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Průvodce"
+
+msgid "You have successfully completed device configuration"
+msgstr "Konfigurace zařízení byla úspěšně dokončena."
+
+msgid "Next"
+msgstr "Další"
+
+msgid "Later"
+msgstr "Novější"
+
+msgid "Movie"
+msgstr "Film"
+
+msgid "Music"
+msgstr "Hudba"
+
+msgid "Photo"
+msgstr "Fotografie"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Online media"
+msgstr "Média online"
+
+msgid "Folders"
+msgstr "Složky"
+
+msgid "Recent"
+msgstr "Poslední"
+
+msgid "Local storage"
+msgstr "Místní úložiště"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Mediální server"
+
+msgid "Shared folder"
+msgstr "Sdílená složka"
+
+msgid "All Movies"
+msgstr "Všechny filmy"
+
+msgid "All Music"
+msgstr "Veškerá hudba"
+
+msgid "Playlist"
+msgstr "Seznam přehrávaných titulů"
+
+msgid "Artist"
+msgstr "Interpret"
+
+msgid "Genre"
+msgstr "Žánr"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Now Playing"
+msgstr "Přehrávání"
+
+msgid "All Photos"
+msgstr "Veškeré fotografie"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Albums"
+msgstr "Alba"
+
+msgid "Preview mode"
+msgstr "Režim náhledu"
+
+msgid "List mode"
+msgstr "Režim seznamu"
+
+msgid "Thumbnail mode"
+msgstr "Režim náhledů"
+
+msgid "This folder is empty or unavailable."
+msgstr "Tato složka je prázdná nebo není dostupná."
+
+msgid "Delete"
+msgstr "Odstranit"
+
+msgid "Create"
+msgstr "Vytvořit"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Rename"
+msgstr "Přejmenovat"
+
+msgid "Clear"
+msgstr "Vymazat"
+
+msgid "Move"
+msgstr "Přesunout"
+
+msgid "Save"
+msgstr "Uložit"
+
+msgid "Create album"
+msgstr "Vytvořit album"
+
+msgid "Edit album"
+msgstr "Upravit album"
+
+msgid "Add to list"
+msgstr "Přidat do seznamu"
+
+msgid "Remove from list"
+msgstr "Odstranit ze seznamu"
+
+msgid "Move focus"
+msgstr "Přepnout aktivní objekt"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Album neexistuje. Chcete vytvořit nové album?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Jste si jisti, že chcete album odstranit?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Jste si jisti, že chcete soubory ze seznamu vymazat?"
+
+msgid "This folder is empty"
+msgstr "Složka je prázdná"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Neplatné uživatelské jméno nebo heslo"
+
+msgid "This media server cannot be accessed"
+msgstr "Tento server médií není přístupný"
+
+msgid "No server found"
+msgstr "Server nebyl nalezen"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Jste si jisti, že chcete soubor odstranit?"
+
+msgid "Normal"
+msgstr "Normální"
+
+msgid "Repeat one"
+msgstr "Opakovat jeden"
+
+msgid "Repeat all"
+msgstr "Opakovat všechny"
+
+msgid "Repeat all and shuffle"
+msgstr "Opakovat všechny náhodně"
+
+msgid "Shuffle"
+msgstr "Náhodně"
+
+msgid "Pan"
+msgstr "Otočit"
+
+msgid "Rotate right"
+msgstr "Otočit doprava"
+
+msgid "Rotate left"
+msgstr "Otočit doleva"
+
+msgid "Zoom in"
+msgstr "Přiblížit"
+
+msgid "Zoom out"
+msgstr "Oddálit"
+
+msgid "Repeat"
+msgstr "Opakovat"
+
+msgid "Info bar"
+msgstr "Informační panel"
+
+msgid "Audio"
+msgstr "Zvuk"
+
+msgid "Audio channel"
+msgstr "Audiokanál"
+
+msgid "No audio channel"
+msgstr "Žádný audiokanál"
+
+msgid "Subtitle"
+msgstr "Titulky"
+
+msgid "Subtitle off"
+msgstr "Titulky vypnuty"
+
+msgid "No subtitle"
+msgstr "Žádné titulky"
+
+msgid "Unsupported subtitle"
+msgstr "Nepodporované titulky"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Přehrávání obnovíte možností [OK] nebo video znovu spustíte možností [Zrušit]."
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Vybraný soubor nelze přehrát. Informace o podporovaných formátech souborů naleznete v uživatelské příručce."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Videosoubor, který chcete přehrát, obsahuje více audiokanálů, což není podporováno. Přepněte na digitální audiovýstup a připojte přehrávač HD Media Player k přijímači AV, který podporuje audiokodek."
+
+msgid "No chapter"
+msgstr "Žádná kapitola"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Nabídku tohoto videa nelze zobrazit. Chcete soubor videa přehrát?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Chcete obnovit přehrávání nebo začít od začátku?"
+
+msgid "Next Song:"
+msgstr "Následující skladba:"
+
+msgid "Current Song"
+msgstr "Aktuální skladba"
+
+msgid "File Type"
+msgstr "Typ souboru:"
+
+msgid "Duration:"
+msgstr "Délka:"
+
+msgid "File Size"
+msgstr "Velikost souboru"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Pronájem videa DivX byl použit X z Y možností, chcete pokračovat v přehrávání videa?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Vaše zařízení není oprávněno k přehrávání chráněných videí DivX."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Pronájem videa DivX byl použit Y z Y možností. Platnost vypršela."
+
+msgid "Unsupported DivX DRM version."
+msgstr "Nepodporovaná verze DivX DRM."
+
+msgid "Video resolution is not supported."
+msgstr "Nepodporované rozlišení videa."
+
+msgid "Video frame rate is not supported."
+msgstr "Nepodporovaná snímková frekvence videa."
+
+msgid "Audio format is not supported."
+msgstr "Nepodporovaný formát zvuku."
+
+msgid "Audio/Video"
+msgstr "Audio/Video"
+
+msgid "Playback"
+msgstr "Přehrávání"
+
+msgid "System"
+msgstr "Systém"
+
+msgid "Network"
+msgstr "Síť"
+
+msgid "Shut down"
+msgstr "Vypnout"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Nakonfigurujte zvukový výstup a výstup videa zařízení"
+
+msgid "Configure playback settings"
+msgstr "Nakonfigurujte nastavení přehrávání"
+
+msgid "Configure basic settings of system"
+msgstr "Nakonfigurujte základní nastavení systému"
+
+msgid "Configure network settings"
+msgstr "Nakonfigurujte nastavení sítě"
+
+msgid "Video output"
+msgstr "Výstup videa"
+
+msgid "Configure video output of system"
+msgstr "Nakonfigurujte výstup videa systému"
+
+msgid "Composite"
+msgstr "Kompozitní"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "Nakonfigurujte signál NTSC nebo PAL"
+
+msgid "Component"
+msgstr "Komponenta"
+
+msgid "Configure display resolution of Component"
+msgstr "Nakonfigurujte rozlišení displeje komponenty"
+
+msgid "Color space"
+msgstr "Barevný prostor"
+
+msgid "Configure color space of Component"
+msgstr "Nakonfigurujte barevný prostor komponenty"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "Nakonfigurujte rozlišení displeje HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "Nakonfigurujte barevný prostor HDMI"
+
+msgid "RGB High"
+msgstr "Vysoký RGB"
+
+msgid "RGB Low"
+msgstr "Nízký RGB"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Rozlišení displeje"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Poměr stran"
+
+msgid "Configure screen format of system"
+msgstr "Nakonfigurujte formát obrazovky systému"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Výstup audia"
+
+msgid "Configure audio output channel of system"
+msgstr "Nakonfigurujte kanál zvukového výstupu systému"
+
+msgid "Stereo"
+msgstr "Stereo"
+
+msgid "Digital"
+msgstr "Digitální"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Jste si jisti, že chcete změnit rozlišení videa?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Jste si jisti, že chcete změnit formát výstupu videa?"
+
+msgid "Subtitle mode"
+msgstr "Zobrazení titulků"
+
+msgid "Turn on/off subtitle"
+msgstr "Vypnout/Zapnout titulky"
+
+msgid "Subtitle font size"
+msgstr "Velikost písma titulků"
+
+msgid "Select subtitle font size"
+msgstr "Vyberte velikost písma titulků"
+
+msgid "Subtitle type"
+msgstr "Typ titulků"
+
+msgid "Select the additional encoding"
+msgstr "Kódování titulků"
+
+msgid "Western Europe (ISO)"
+msgstr "Západní Evropa (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Střední Evropa (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Střední Evropa (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Tradiční čínština (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Zjednodušená čínština (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Japonština (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Korejština (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Cyrilice (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Cyrilice (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Řečtina (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Řečtina (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Arabské (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Zobrazení zvukové stopy"
+
+msgid "Set the display mode while music playing"
+msgstr "Nastavte režim displeje při přehrávání"
+
+msgid "File name"
+msgstr "Jméno souboru"
+
+msgid "Title"
+msgstr "Název"
+
+msgid "Photo scaling"
+msgstr "Změna velikosti fotografií"
+
+msgid "Configure the photo scaling mode"
+msgstr "Nakonfigurujte režim měřítka fotografií"
+
+msgid "Keep as original"
+msgstr "Ponechat původní"
+
+msgid "Fit to screen"
+msgstr "Přizpůsobit obrazovce"
+
+msgid "Display in full screen"
+msgstr "Zobrazit přes celou obrazovku"
+
+msgid "Transition effect"
+msgstr "Efekt přechodu"
+
+msgid "Select the transition effect"
+msgstr "Vyberte efekt přechodu fotografií"
+
+
+
+
+msgid "Fade"
+msgstr "Prolínání"
+
+msgid "Wipe"
+msgstr "Smazat"
+
+msgid "Zoom"
+msgstr "Přiblížit"
+
+msgid "Push"
+msgstr "Stisknout"
+
+msgid "Replace"
+msgstr "Nahradit"
+
+msgid "Checker board"
+msgstr "Šachovnice"
+
+msgid "Random"
+msgstr "Náhodně"
+
+msgid "Slideshow Interval"
+msgstr "Prodleva mezi snímky"
+
+msgid "Configure the interval of slideshow"
+msgstr "Nakonfigurujte interval přechodu v prezentaci"
+
+msgid "second"
+msgstr "sekunda"
+
+msgid "seconds"
+msgstr "sekundy"
+
+msgid "3 Seconds"
+msgstr "3 sekundy"
+
+msgid "5 Seconds"
+msgstr "5 sekund"
+
+msgid "10 Seconds"
+msgstr "10 sekund"
+
+msgid "20 Seconds"
+msgstr "20 sekund"
+
+msgid "30 Seconds"
+msgstr "30 sekund"
+
+msgid "minute"
+msgstr "minuta"
+
+msgid "minutes"
+msgstr "minuty"
+
+msgid "1 Minute"
+msgstr "1 minuta"
+
+msgid "5 Minutes"
+msgstr "5 minut"
+
+msgid "Browser display"
+msgstr "Způsob zobrazení"
+
+msgid "Set the display mode of media browser"
+msgstr "Nastavte režim displeje prohlížeče médií"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "Nakonfigurujte nastavení DivX DRM VOD"
+
+msgid "Register"
+msgstr "Registrovat"
+
+msgid "Deregister"
+msgstr "Zrušit registraci"
+
+msgid "Activation"
+msgstr "Aktivace"
+
+msgid "Deactivation"
+msgstr "Deaktivace"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Vaše zařízení je registrováno. Opravdu chcete registraci zrušit?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "Abyste mohli přehrávat chráněná DivX videa, musíte příslušné zařízení zaregistrovat."
+
+msgid "Registration code:"
+msgstr "Registrační kód:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Registrovat se na stránkách http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Kód zrušení registrace:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Zrušit registraci na stránkách http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Chcete pokračovat v registraci?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Zapnout/Vypnout mediální server"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Zapnout/Vypnout sdílenou složku"
+
+msgid "Workgroup name"
+msgstr "Název pracovní skupiny"
+
+msgid "Device name"
+msgstr "Název zařízení"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Automatické přihlášení"
+
+msgid "Turn on/off auto-login"
+msgstr "Zapnout/Vypnout automatické přihlášení"
+
+msgid "Clear account information"
+msgstr "Vymazat informace o účtu"
+
+msgid "Delete the preset password?"
+msgstr "Chcete přednastavené heslo odstranit?"
+
+msgid "Manual SSID"
+msgstr "Ruční SSID"
+
+msgid "Connection setup"
+msgstr "Nastavení připojení"
+
+msgid "Wire"
+msgstr "Kabelové připojení"
+
+msgid "Wireless"
+msgstr "Bezdrátové připojení"
+
+msgid "Network setup"
+msgstr "Nastavení sítě"
+
+msgid "Wireless setup"
+msgstr "Nastavení bezdrátového připojení"
+
+msgid "Does not contain"
+msgstr "Neobsahuje"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Název produktu nesmí obsahovat znaky \\ / : * ? â?? ; | a prázdné znaky. Název nesmí být delší než 15 znaků."
+
+msgid "The device name can not contain any of following "
+msgstr "Název zařízení nesmí obsahovat následující "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "a prázdné znaky. Název zařízení nesmí být delší než 15 znaků."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "Číslo 0 není platný vstup, povolena jsou pouze čísla od 1 do 223. Zkontrolujte adresu IP a zadejte ji znovu."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Jsou povolena pouze čísla od 0 do 255. Zkontrolujte adresu IP a zadejte ji znovu."
+
+msgid "Cannot find access point."
+msgstr "Nelze nalézt přístupový bod."
+
+msgid "The AP is not exist. Please check again."
+msgstr "Příslupový bod neexistuje. Proveďte kontrolu."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Neplatný šifrovací klíč. Akci opakujte."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "Zapnout/Vypnout BitTorrent"
+
+msgid "Connection mode"
+msgstr "Režim připojení"
+
+msgid "Connection type"
+msgstr "Typ připojení"
+
+msgid "WPS setup"
+msgstr "Nastavení WPS"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "Dříve než klepněte na tlačítko „Připojit“, na přístupovém bodě klepněte na tlačítko „WPS“."
+
+msgid "Auto search"
+msgstr "Automatické vyhledávání"
+
+msgid "Site survey"
+msgstr "Průzkum"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Vyhledávání bezdrátového přístupového bodu"
+
+msgid "MAC address"
+msgstr "Adresa MAC"
+
+msgid "Please waiting..."
+msgstr "Čekejte..."
+
+msgid "Connect Successfully!"
+msgstr "Úspěšně připojeno!"
+
+msgid "Do you want replace this profile?"
+msgstr "Chcete tento profil nahradit?"
+
+msgid "Network is disconnected."
+msgstr "Síť je odpojena."
+
+msgid "Can not detect wireless module."
+msgstr "Bezdrátový modul nelze nalézt."
+
+msgid "The profile space is full!"
+msgstr "Volné místo profilu je plné!"
+
+msgid "Access point detecting..."
+msgstr "Probíhá vyhledávání přístupového bodu..."
+
+msgid "The network encryption key is not valid."
+msgstr "Klíč šifrování sítě je neplatný."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "Pole SSID nesmí být prázdné!"
+
+msgid "No security"
+msgstr "Bez zabezpečení"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Nastavení je dokončeno. Chcete toto síťové připojení uložit?"
+
+msgid "The SSID is empty."
+msgstr "Pole SSID je prázdné."
+
+msgid "Can not set this profile to favorite."
+msgstr "Tento profil nelze nastavit do oblíbených."
+
+msgid "Access point can not be found"
+msgstr "Přístupový bod nelze nalézt"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Přístupový bod nelze nalézt"
+
+msgid "Please enter your encryption key"
+msgstr "Zadejte klíč šifrování"
+
+msgid "The device could not connect to the network."
+msgstr "Zařízení se nemůže k síti připojit."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Server je odpojen. Zkontrolujte konfiguraci sítě."
+
+msgid "Wireless favorites"
+msgstr "Oblíbené bezdrátové sítě"
+
+msgid "Connect now"
+msgstr "Připojit nyní"
+
+msgid "Favorite"
+msgstr "Oblíbené"
+
+
+msgid "Encryption key"
+msgstr "Šifrovací klíč"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Jazyk"
+
+msgid "Select a display language"
+msgstr "Vyberte jazyk displeje"
+
+msgid "English"
+msgstr "Angličtina"
+
+msgid "French"
+msgstr "Francouzština"
+
+msgid "German"
+msgstr "Němčina"
+
+msgid "Italian"
+msgstr "Italština"
+
+msgid "Spanish"
+msgstr "Španělština"
+
+msgid "Portuguese"
+msgstr "Portugalština"
+
+msgid "Dutch"
+msgstr "Nizozemština"
+
+msgid "Greek"
+msgstr "Řečtina"
+
+msgid "Polish"
+msgstr "Polština"
+
+msgid "Russian"
+msgstr "Ruština"
+
+msgid "Swedish"
+msgstr "Švédština"
+
+msgid "Japanese"
+msgstr "Japonština"
+
+msgid "Simplified Chinese"
+msgstr "Zjednodušená čínština"
+
+msgid "Traditional Chinese"
+msgstr "Tradiční čínština"
+
+msgid "Korean"
+msgstr "Korejština"
+
+msgid "Finnish"
+msgstr "Dokončit"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Brazílie (portugalština)"
+
+msgid "Hebrew"
+msgstr "Hebrejština"
+
+msgid "Arabic"
+msgstr "Arabština"
+
+msgid "Czech"
+msgstr "Čeština"
+
+msgid "Turkish"
+msgstr "Turečtina"
+
+msgid "Danish"
+msgstr "Dánština"
+
+msgid "Norwegian"
+msgstr "Norština"
+
+msgid "Media library"
+msgstr "Knihovna médií"
+
+msgid "Turn on/off media library"
+msgstr "Zapnout/Vypnout knihovnu médií"
+
+msgid "Screensaver delay"
+msgstr "Zpoždění spořiče obrazovky"
+
+msgid "Configure screensaver delay time"
+msgstr "Nakonfigurujte zpoždění spořiče obrazovky"
+
+msgid "Never"
+msgstr "Nikdy"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 minut"
+
+msgid "15 Minutes"
+msgstr "15 minut"
+
+msgid "Quick start mode"
+msgstr "Režim rychlého spuštění"
+
+msgid "System reset"
+msgstr "Resetování systému"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Jste si jisti, že chcete obnovit tovární nastavení tohoto zařízení?"
+
+msgid "About"
+msgstr "O systému"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "Více informací o přehrávači HD Media Player naleznete v uživatelské příručce nebo na adrese"
+
+msgid "Restart"
+msgstr "Restartovat"
+
+msgid "Rebooting"
+msgstr "Restartování"
+
+msgid "Update device"
+msgstr "Aktualizovat zařízení"
+
+msgid "New firmware"
+msgstr "Nový firmware"
+
+msgid "New firmware found"
+msgstr "Nalezena nová verze firmwaru"
+
+msgid "version"
+msgstr "verze"
+
+msgid "Firmware Version"
+msgstr "Verze firmwaru"
+
+msgid "Current version"
+msgstr "Aktuální verze"
+
+msgid "New version"
+msgstr "Nová verze"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Nalezena nová verze firmwaru. Chcete provést aktualizaci?"
+
+msgid "Invalid firmware"
+msgstr "Neplatný firmware"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "Vyhledat nejnovější firmware a aktualizovat zařízení."
+
+msgid "Checking for recent updates"
+msgstr "Vyhledávání posledních aktualizací"
+
+msgid "Searching for updates..."
+msgstr "Vyhledávání aktualizací..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Nelze stáhnout aktualizace do zařízení. Zkontrolujte síťové připojení."
+
+msgid "Your device is up to date."
+msgstr "Vaše zařízení bylo aktualizováno."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Probíhá aktualizace přehrávače médií. NEODPOJUJTE zdroj napájení ani připojené úložiště."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Aktualizace dokončena. Přehrávač bude nyní znovu spuštěn."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Připojením jednotky USB s příslušným firmware aktualizujte přehrávač médií."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Aktualizace firmwaru selhala. Zařízení bude restartováno."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Aktualizace firmwaru selhala. Zkontroluje připojení k síti a akci zopakujte."
+
+msgid "OK"
+msgstr "OK"
+
+
+
+
+
+
+msgid "On"
+msgstr "Zapnuto"
+
+msgid "Off"
+msgstr "Vypnuto"
+
+msgid "Auto"
+msgstr "Automatický"
+
+msgid "Manual"
+msgstr "Ručně"
+
+msgid "Search"
+msgstr "Hledat"
+
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Retry"
+msgstr "Opakovat"
+
+msgid "Copy"
+msgstr "Kopírovat"
+
+msgid "Go Back"
+msgstr "Zpět"
+
+msgid "Help"
+msgstr "Nápověda"
+
+msgid "Exit"
+msgstr "Zavřít"
+
+msgid "Unknown"
+msgstr "Neznámý"
+
+
+msgid "Play"
+msgstr "Přehrát"
+
+msgid "Pause"
+msgstr "Pozastavit"
+
+msgid "Stop"
+msgstr "Zastavit"
+
+msgid "Eject"
+msgstr "Vysunout"
+
+msgid "Empty"
+msgstr "Prázdné"
+
+msgid "Standby mode"
+msgstr "Pohotovostní režim"
+
+msgid "Loading data"
+msgstr "Načítání dat"
+
+msgid "All"
+msgstr "Vše"
+
+msgid "Contains"
+msgstr "Obsahuje"
+
+msgid "Starts with"
+msgstr "Začíná"
+
+msgid "Unsupported"
+msgstr "Nepodporováno"
+
+msgid "Space"
+msgstr "Mezera"
+
+msgid "Equal to"
+msgstr "Rovno"
+
+msgid "Not Equal to"
+msgstr "Nerovno"
+
+msgid "Untitled volume"
+msgstr "Nepojmenovaná jednotka"
+
+msgid "Additional encoding support"
+msgstr "Podpora dodatečného kódování"
+
+msgid "Subtitle default"
+msgstr "Výchozí titulky"
+
+msgid "Subtitle border"
+msgstr "Ohraničení titulků"
+
+msgid "Thick"
+msgstr "Silné"
+
+msgid "Thin"
+msgstr "Slabé"
+
+msgid "Account"
+msgstr "Účet"
+
+msgid "anonymous"
+msgstr "anonymní"
+
+msgid "Connecting"
+msgstr "Připojování"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Zvolte zařízení které chcete vysunout odpojit"
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Jste si jisti, že chcete odstranit toto zařízení?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Varování: před odebráním úložiště USB jej bezpečně vysuňte."
+
+msgid "The device is busy. Please try later."
+msgstr "Zařízení je zaneprázdněno. Opakujte akci později."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Čekejte, dokud se jednotka úložiště nevysune..."
+
+msgid "No storage present"
+msgstr "Nenalezeno žádné úložiště"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "Kompilace knihovny médií vyžaduje více volného prostoru úložiště"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Prověřování připojeného úložiště. Poprvé může prověřování trvat déle. Čekejte..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "Nelze rozeznat zařízení připojené k portu USB."
+
+msgid "Storage can not aggregate"
+msgstr "Úložiště nelze seskupit"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "Knihovna médií nepodporuje žurnálovací souborový systém. Přehrávání je však podporováno."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Nelze vytvořit knihovnu médií na úložišti chráněném proti zápisu."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Nelze vytvořit knihovnu médií. Zkontrolujte nastavení úložiště."
+
+msgid "Unrecognized USB device"
+msgstr "Nerozpoznané zařízení USB"
+
+msgid "Scanning the attached USB device..."
+msgstr "Prověřování připojeného zařízení USB..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "Pokud chcete přehrát audiostopu s prostorovým zvukem, musí být nastaven digitální audiovýstup a připojen přijímač AV, který podporuje daný audioformát."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "NEODPOJUJTE střídavé napájení ani disk úložiště."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "Váš přehrávač médií HD je aktualizován. NEVYPÍNEJTE zařízení, NEODPOJUJTE střídavé napájení ani připojené úložiště."
+
+msgid "Upgrade complete!"
+msgstr "Aktualizace byla dokončena!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "Aktualizace byly úspěšně nainstalovány. Zařízení bude nyní restartováno..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "Zařízení připojené v portu USB nelze rozpoznat."
+
+msgid "Device is shutting down..."
+msgstr "Zařízení se vypíná..."
+
+msgid "Local device is disconnected."
+msgstr "Místní zařízení je odpojeno."
+
+msgid "Do you really want to restart device?"
+msgstr "Opravdu chcete zařízení restartovat?"
+
+msgid "Action cancelled"
+msgstr "Akce byla zrušena"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "Nastala závažná chyba systému. Zařízení bude restartováno."
+
+msgid "To restart device, press the power button of your remote."
+msgstr "Stisknutím vypínače na ovladači zařízení restartujete."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Hledání dokončeno. Žádné výsledky nenalezeny."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Vícejazyčný vstup zapnete stisknutím klávesy [Možnosti]"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Prohledat Flickr"
+
+msgid "My recent"
+msgstr "Poslední"
+
+msgid "Last 7 days interesting"
+msgstr "Nejzajímavější za posledních 7 dní"
+
+msgid "Most recent uploads"
+msgstr "Nejnovější aktualizace"
+
+msgid "Hot tags"
+msgstr "Nejnovější tagy"
+
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgid "Photostream"
+msgstr "Photostream"
+
+msgid "Tags"
+msgstr "Tagy"
+
+msgid "Delete one"
+msgstr "Odstranit jednu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Klíčové heslo"
+
+msgid "Flickr members"
+msgstr "Uživatelé služby Flickr"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Jste si jisti, že chcete tuto položku odstranit?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Jste si jisti, že chcete všechny položky odstranit?"
+
+msgid "This member has been added to your contact list."
+msgstr "Tento člen byl přidán do seznamu kontaktů."
+
+msgid "This member has been add to your contact list."
+msgstr "Tento člen byl přidán do seznamu kontaktů."
+
+msgid "Could not find any tag list."
+msgstr "Seznam značek nelze nalézt."
+
+msgid "Could not find any contact list."
+msgstr "Seznam kontaktů nelze nalézt."
+
+msgid "There is no friend available."
+msgstr "Žádný přítel není dostupný."
+
+msgid "A friend cannot be found."
+msgstr "Přítele nelze nalézt."
+
+msgid "There is no content available."
+msgstr "Obsah není dostupný."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Hledání dokončeno. Žádné výsledky nenalezeny."
+
+msgid "Now playing:"
+msgstr "Přehrávání"
+
+msgid "Last station:"
+msgstr "Poslední stanice:"
+
+msgid "My presets"
+msgstr "Mé předvolby"
+
+msgid "Stations"
+msgstr "Stanice"
+
+msgid "Preferences"
+msgstr "Předvolby"
+
+msgid "Sign in / Sign out"
+msgstr "Přihlásit / odhlásit"
+
+msgid "About Live365"
+msgstr "O službě Live365"
+
+msgid "Remove station"
+msgstr "Odebrat stanici"
+
+msgid "Add to my presets"
+msgstr "Přidat do předvoleb"
+
+msgid "Free stations"
+msgstr "Bezplatné stanice"
+
+msgid "VIP stations"
+msgstr "Stanice VIP"
+
+msgid "Recommendations"
+msgstr "Doporučení"
+
+msgid "Thumbs up"
+msgstr "Líbí se mi"
+
+msgid "Thumbs down"
+msgstr "Nelíbí se mi"
+
+
+
+
+msgid "Email track"
+msgstr "Upozorňování e-mailem"
+
+msgid "Audio quality"
+msgstr "Kvalita zvuku"
+
+msgid "Sort"
+msgstr "Uspořádat"
+
+msgid "All stations"
+msgstr "Všechny stanice"
+
+msgid "Only high"
+msgstr "Pouze vysoká kvalita"
+
+msgid "Medium to high"
+msgstr "Střední až vysoká kvalita"
+
+msgid "Low to medium"
+msgstr "Nízká až střední kvalita"
+
+msgid "Only low"
+msgstr "Pouze nízká kvalita"
+
+msgid "Sort stations alphabetically"
+msgstr "Seřadit stanice abecedně"
+
+msgid "Sort stations by popularity"
+msgstr "Seřadit stanice dle popularity"
+
+msgid "Sign in"
+msgstr "Přihlásit se"
+
+msgid "Don't have an account?"
+msgstr "Nemáte účet?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Uživatelské jméno a heslo je neplatné, zkuste to znovu."
+
+msgid "Save the account information?"
+msgstr "Chcete uložit informace o účtu?"
+
+msgid "Save username only"
+msgstr "Uložit pouze uživatelské jméno"
+
+msgid "Are you sure to sign out?"
+msgstr "Opravdu se chcete odhlásit?"
+
+msgid "The station is removed from your presets."
+msgstr "Stanice byla odebrána z předvoleb."
+
+msgid "The station is added to your presets."
+msgstr "Stanice byla přidána do předvoleb."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Abyste mohli využívat tuto funkci, musíte se přihlásit. Chcete se nyní přihlásit?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Děkujeme vám, že jste ohodnotili tuto stopu. Jsme rádi, že se vám líbí."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Děkujeme vám, že jste ohodnotili tuto stopu. Omlouváme se, že neodpovídá vašemu vkusu."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "Informace o stopě byly odeslány. Zkontrolujte svou poštovní schránku."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Pokud nemáte účet u služby Live365, navštivte stránky http://www.live365.com a zaregistrujte se jako běžný uživatel nebo VIP člen ."
+
+
+msgid "Video"
+msgstr "Video"
+
+
+
+
+msgid "Preference"
+msgstr "Předvolby"
+
+msgid "Most favorites"
+msgstr "Nejoblíbenější"
+
+msgid "Most viewed"
+msgstr "Nejprohlíženější"
+
+msgid "Most popular"
+msgstr "Nejpopulárnější"
+
+msgid "Top rated"
+msgstr "Nejlépe hodnocené"
+
+msgid "Most recent"
+msgstr "Nejnovější"
+
+msgid "My videos"
+msgstr "Má videa"
+
+msgid "Favorites"
+msgstr "Oblíbené"
+
+
+
+
+msgid "Today"
+msgstr "Dnes"
+
+msgid "This week"
+msgstr "Tento týden"
+
+msgid "This month"
+msgstr "Tento měsíc"
+
+msgid "All time"
+msgstr "Vždy"
+
+msgid "Rate video"
+msgstr "Hodnotit video"
+
+msgid "Related"
+msgstr "Související témata"
+
+msgid "Full screen"
+msgstr "Celá obrazovka"
+
+msgid "Info"
+msgstr "Informace"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Odhlásit"
+
+msgid "Delete account"
+msgstr "Odstranit účet"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+msgid "Password"
+msgstr "Heslo"
+
+msgid "Current location"
+msgstr "Aktuální umístění"
+
+msgid "Worldwide"
+msgstr "Celý svět"
+
+msgid "Germany"
+msgstr "Německo"
+
+msgid "France"
+msgstr "Francie"
+
+msgid "Spain"
+msgstr "Španělsko"
+
+msgid "Italy"
+msgstr "Itálie"
+
+msgid "Taiwan"
+msgstr "Tchaj-wan"
+
+msgid "South Korea"
+msgstr "Jižní Korea"
+
+
+
+msgid "Russia"
+msgstr "Rusko"
+
+msgid "Video playback quality"
+msgstr "Kvalita přehrávání videa"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Toto video není v současné době k dispozici."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Děkujeme za hodnocení."
+
+msgid "The video has been added to your favorites."
+msgstr "Video bylo přidáno do oblíbených."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Opravdu chcete účet odstranit?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Opravdu chcete odstranit všechny účty?"
+
+msgid "Login fail."
+msgstr "Přihlášení se nezdařilo."
+
+
+
+
+msgid "No content available."
+msgstr "K dispozici není žádný obsah."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Přidat nebo odebrat doplňky médií"
+
+msgid "Manage users"
+msgstr "Spravovat uživatele"
+
+msgid "All (Mix)"
+msgstr "Vše (mix)"
+
+msgid "Business & Finance"
+msgstr "Obchod a finance"
+
+msgid "Cars"
+msgstr "Vozidla"
+
+msgid "Comedy"
+msgstr "Komedie"
+
+msgid "Cocking $ drinks"
+msgstr "Jídlo a pití"
+
+msgid "Education"
+msgstr "Vzdělávání"
+
+msgid "Fashion & luxury"
+msgstr "Móda a luxusní zboží"
+
+msgid "Health & fitness"
+msgstr "Zdraví a životní styl"
+
+msgid "Kids & cartoons"
+msgstr "Děti a komiksy"
+
+msgid "Learn a languages"
+msgstr "Studium jazyků"
+
+
+
+
+msgid "News & politics"
+msgstr "Zprávy a politika"
+
+msgid "Parenting"
+msgstr "Rodičovství"
+
+msgid "Relationships"
+msgstr "Vztahy"
+
+msgid "Science & nature"
+msgstr "Věda a příroda"
+
+msgid "Showbiz news"
+msgstr "Zprávy ze světa šoubyznysu"
+
+msgid "Society & culture"
+msgstr "Společnost a kultura"
+
+msgid "Sports"
+msgstr "Sport"
+
+msgid "Technology"
+msgstr "Technologie"
+
+msgid "Travel"
+msgstr "Cestování"
+
+msgid "Video games"
+msgstr "Videohry"
+
+msgid "General"
+msgstr "Obecné"
+
+msgid "Dashboard"
+msgstr "Ovládací panel"
+
+msgid "Now playing"
+msgstr "Přehrávání"
+
+msgid "Both"
+msgstr "Obojí"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Přidat k mým kanálům"
+
+msgid "Remove from my channels"
+msgstr "Odebrat z kanálů"
+
+msgid "Rate/Favorite"
+msgstr "Hodnocení / oblíbené"
+
+msgid "Episodes"
+msgstr "Díly"
+
+
+
+msgid "My rating"
+msgstr "Mé hodnocení"
+
+msgid "My favorite"
+msgstr "Oblíbené položky"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Přidat doplněk médií na ovládací panel"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Přidat doplňky médií ručně (pomocí mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Odebrat doplněk médií z ovládacího panelu"
+
+msgid "Shows + Episodes"
+msgstr "Pořady a díly"
+
+msgid "Shows"
+msgstr "Pořady"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Odkaz"
+
+msgid "Login"
+msgstr "Přihlásit"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "Abyste mohli nastavovat kanály dle svých požadavků, musíte propojit přehrávač s účtem služby Mediafly."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Účty služby Mediafly jsou bezplatné a umožňují řízení a správu oblíbeného bezplatného obsahu online z jednoho místa."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Možnost 1: Otevřete webový prohlížeč v počítači, přejděte na stránky:"
+
+msgid "and enter this association code:"
+msgstr "a zadejte tento kód:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Možnost 2: Přihlášení pomocí uživatelského jména a hesla služby Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Veškeré video"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Délka intervalu"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Širokoúhlý"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 minuty"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 minut"
+
+msgid "30 Minutes"
+msgstr "30 minut"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Iomega HD Media Player"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Chcete provést aktualizaci?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Videosoubor, který chcete přehrát, obsahuje více audiokanálů, což není podporováno. Přepněte na digitální audiovýstup a připojte přehrávač HD Media Player k přijímači AV, který podporuje audiokodek."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Audiokanál"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Aktualizace firmwaru"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Posloupnost videí"
+
+msgid "Music sequence"
+msgstr "Posloupnost hudby"
+
+msgid "Slideshow sequence"
+msgstr "Posloupnost obrazů"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Přejet vpravo"
+
+msgid "Wipe left"
+msgstr "Přejet vlevo"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Přehrávač HD Media Player je aktualizován. NEODPOJUJTE napájecí kabel nebo připojené úložiště."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Název produktu nesmí obsahovat znaky \\ / : * ? â?? ; | a prázdné znaky. Název nesmí být delší než 15 znaků."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Západní Evropa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Úspěšně jste nastavili zařízení tak, aby vyhovovalo požadavkům domácí sítě."
+
+
+
+
+msgid "NEXT"
+msgstr "Další"
+
+
+
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "HDD"
+msgstr "HDD"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Vypnout"
+
+msgid "HDMI settings"
+msgstr "Nastavení HDMI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Měřítko se zkreslením"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Název výrobku nesmí obsahovat znaky  \\ / : * ? ¡§ ; | ani mezery. Název nesmí obsahovat více než 15 znaků."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "Seskupení obsahu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Mé kontakty"
+
+msgid "My tags"
+msgstr "Mé tagy"
+
+msgid "Owner profile"
+msgstr "Profil vlastníka"
+
+msgid "Play mode"
+msgstr "Režim přehrávání"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Třídění"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "ON"
+msgstr "Zapnuto"
+
+msgid "OFF"
+msgstr "Vypnuto"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "Zpět"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Složka"
+
+msgid "Album browser"
+msgstr "Prohlížeč alb"
+
+msgid "Add photo to album"
+msgstr "Přidat fotoalbum"
+
+msgid "Select | Unselect item(s)"
+msgstr "Vybrat| zrušit výběr"
+
+msgid "Select album"
+msgstr "Vybrat album"
+
+msgid "Processing"
+msgstr "Zpracování"
+
+msgid "Select all"
+msgstr "Vybrat vše"
+
+msgid "Unselect all"
+msgstr "Zrušit výběr všeho"
+
+msgid "Album name"
+msgstr "Název alba"
+
+msgid "Completed"
+msgstr "Dokončeno"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Chcete přidat xxxx fotografií do alba?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Opravdu chcete přerušit přidávání souborů?"
+
+msgid "Selected album has deleted."
+msgstr "Vybrané album bylo smazáno."
+
+msgid "Selected photo has been removed from the album."
+msgstr "Vybraná fotografie byla odstraněna z alba."
+
+msgid "The album has been renamed."
+msgstr "Album bylo přejmenováno."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Opravdu chcete vybrané fotografie odstranit z alba?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Opravdu chcete odstranit vybrané album?\nFotografie nebudou z úložiště odstraněny."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Název alba je již použit. Použijte jiný název."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Opravdu chcete album přejmenovat?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Při zápisu došlo k chybě. Zkontrolujte místní úložiště. Je možné, že je plné nebo pouze ke čtení."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Při čtení zdrojového souboru došlo k chybě. Zkontrolujte místní úložiště."
+
+msgid "File management"
+msgstr "Správa souborů"
+
+
+
+msgid "Select source"
+msgstr "Vybrat zdroj"
+
+msgid "File(s)"
+msgstr "Soubory"
+
+msgid "Folder(s)"
+msgstr "Složky"
+
+msgid "Yes to all"
+msgstr "Ano všem"
+
+msgid "No to all"
+msgstr "Ne všem"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Kopírovat, přesunout nebo odstranit položky"
+
+msgid "Remove photo"
+msgstr "Odstranit fotografii"
+
+msgid "Rename or delete album"
+msgstr "Přejmenovat nebo odstranit album"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Nebylo nalezeno žádné úložiště. Připojte úložiště a obnovte zobrazení."
+
+msgid "Would you like to overwrite it?"
+msgstr "Přejete si provést přepsání?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Chcete zkopírovat vybrané soubory?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Chcete přesunout vybrané soubory?"
+
+
+
+msgid "Chapter"
+msgstr "Kapitola"
+
+msgid "Title and Edition"
+msgstr "Název a vydání"
+
+msgid "Menu"
+msgstr "Nabídka"
+
+msgid "Operation not supported"
+msgstr "Operace není podporována"
+
+msgid "File Date"
+msgstr "Datum souboru"
+
+msgid "Resolution"
+msgstr "Rozlišení"
+
+msgid "Turkish (Windows-1254)"
+msgstr "Turečtina (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "Hebrejština (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Odeslat"
+
+msgid "Check network status"
+msgstr "Zkontrolovat stav sítě"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Chyba typu klíče!\n Pokud je klíč hexadecimální, zkontrolujte, že obsahuje znaky A – F, 0 – 9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Chyba délky klíče!\n Pokud je klíč typu ASCII, délka by měla být 5, 13 nebo 16 znaků.\nPokud je klíč hexadecimální, délka by měla být 10, 26 nebo 32 znaků."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Chyba délky klíče!\n Délka klíče WPA-PSK musí být 8 – 64 znaků!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Chyba typu klíče!\n Klíč WPA-PSK o délce 64 znaků musí být hexadecimální (A – F, 0 – 9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "Adresa IP je neplatná. Ověřte adresu IP a zkuste to znovu."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "E-mailová adresa je neplatná. Ověřte e-mailovou adresu a zkuste to znovu."
+
+msgid "Invalid character(s) in first name."
+msgstr "Neplatné znaky ve jméně."
+
+msgid "Invalid character(s) in last name."
+msgstr "Neplatné znaky v příjmení."
+
+
+
+msgid "Hungarian"
+msgstr "Maďarština"
+
+msgid "Serial number:"
+msgstr "Sériové číslo:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Restart provedete stisknutím tlačítka napájení na ovladači."
+
+msgid "Creator"
+msgstr "Autor"
+
+msgid "Web browser"
+msgstr "Webový prohlížeč"
+
+msgid "Add to contacts"
+msgstr "Přidat ke kontaktům"
+
+msgid "Recently upload"
+msgstr "Nedávno odeslané"
+
+msgid "Photo set"
+msgstr "Sada fotografií"
+
+msgid "Friends"
+msgstr "Přátelé"
+
+msgid "There is no contact."
+msgstr "Neexistuje žádný kontakt."
+
+msgid "There is no tag."
+msgstr "Neexistuje žádný štítek."
+
+msgid "Search Results"
+msgstr "Výsledky hledání"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Opravdu chcete tuto stanici odstranit?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Opravdu chcete tuto stanici přidat do předvoleb?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Poslouchejte tisíce internetových radiových stanic bez reklam! Live365 nabízí vysílání Radio Disney, Santana, David Bynne, Pat Metheny, Paul Oakenfold a také stanice vytvořené milovníky hudby jako jste vy! Snadno procházejte populárními žánry jako rock, hip-hop, jazz a new age. Nebo najděte poklady v méně obvyklých stylech jako gospel, comedy, anime, hindi, trip-hop, 30s, glam, tribal, celtic a stovkách dalších."
+
+msgid "Japan"
+msgstr "Japonsko"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Soubor je v tomto okamžiku nedostupný. Zkuste to znovu později."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Chcete videoklip ohodnotit? Přihlaste se."
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Chcete jej přidat do oblíbených? Přihlaste se."
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Stisknutím tlačítka PLAY/PAUSE spustíte zobrazení na celou obrazovku"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "Nelze se připojit k serveru YouTube. Došlo k neznámé síťové chybě. Zkontrolujte nastavení své sítě a zkuste to znovu."
+
+msgid "Poor"
+msgstr "Slabý"
+
+msgid "Nothing special"
+msgstr "Nic zvláštního"
+
+msgid "Worth watching"
+msgstr "Stojí za shlédnutí"
+
+msgid "Pretty cool"
+msgstr "Docela skvělý"
+
+msgid "Awesome"
+msgstr "Úžasný"
+
+msgid "Show info"
+msgstr "Zobrazit informace"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "Teplota zařízení přesáhla 60 stupňů. Pevný disk bude vypnut."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "Teplota zařízení přesáhla 65 stupňů. Zařízení bude vypnuto."
+
+msgid "Configure"
+msgstr "Konfigurace"
+
+msgid "Delete album"
+msgstr "Odstranit album"
+
+msgid "Rename album"
+msgstr "Přejmenovat album"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Odstranit seznam přehrávaných titulů"
+
+msgid "Rename playlist"
+msgstr "Přejmenovat seznam přehrávaných titulů"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Není dostupný žádný seznam přehrávaných titulů. Chcete vytvořit nový seznam přehrávaných titulů?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Opravdu chcete zvolený seznam přehrávaných titulů odstranit?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Opravdu chcete soubory ze seznamu přehrávaných titulů vymazat?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Opravdu chcete přerušit přidávání souborů?"
+
+msgid "The selected album has been deleted."
+msgstr "Vybrané album bylo smazáno."
+
+msgid "The selected photo has been removed from album."
+msgstr "Vybraná fotografie byla odstraněna z alba."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Chyba čtení vzdáleného souboru. Zkontrolujte aplikaci Media Server a stav sítě."
+
+msgid "The selected music has been deleted."
+msgstr "Vybraná hudba byla odstraněna."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "Chcete přidat hudbu z xxxx do alba?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Chcete přidávání hudby zastavit?"
+
+msgid "The playlist has been renamed."
+msgstr "Seznam přehrávaných titulů byl přejmenován."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Opravdu chcete vybranou hudbu ze seznamu přehrávaných titulů odebrat?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Opravdu chcete vybraný seznam přehrávaných titulů odstranit?\nHudba nebude z úložiště odstraněna."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Název seznamu přehrávaných titulů je duplicitní. Zadejte jiný název."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Opravdu chcete zvolený seznam přehrávaných titulů přejmenovat?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Nebylo nalezeno žádné úložiště ani aplikace Media Server. Vložte úložiště nebo zkontrolujte konfiguraci sítě a zkuste to znovu."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "Tato složka již obsahuje soubor s názvem:Chcete jej přepsat?"
+
+msgid "Process completed."
+msgstr "Proces byl dokončen."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Název složky nesmí obsahovat následující znaky: \\ / : * ? \" < > | "
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Název alba nesmí obsahovat následující znaky: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDélka názvu souboru je omezena na xx znaků."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Název seznamu přehrávaných titulů nesmí obsahovat následující znaky: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDélka názvu souboru je omezena na xx znaků."
+
+msgid "Select"
+msgstr "Vybrat"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "POKUD S TĚMITO PODMÍNKAMI NESOUHLASÍTE, MĚLI BYSTE CELÝ PRODUKT IHNED VRÁTIT V PŮVODNÍM OBALU NA MÍSTO, KDE JSTE JEJ POŘÍDILI, A DO TŘICETI (30) DNŮ OD VAŠEHO PŮVODNÍHO NÁKUPU VÁM BUDE VRÁCENÁ KUPNÍ CENA V PLNÉ VÝŠI."
+
+msgid "MediaflyVideo"
+msgstr "Video"
+
+msgid "Accept"
+msgstr "Přijmout"
+
+msgid "Decline"
+msgstr "Zamítnout"
+
+msgid "Rename or delete playlist"
+msgstr "Přejmenovat nebo smazat playlist"
+
+msgid "The playlist has been created."
+msgstr "Playlist byl vytvořen."
+
+msgid "Select music"
+msgstr "Vyberte hudba"
+
+msgid "Select playlist"
+msgstr "Vyberte playlist"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Chcete přidat xxx hudbu playlist?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Chcete přidat xxx fotografii do alba?"
+
+msgid "Remove music from playlist"
+msgstr "Odstraňte hudbu z playlistu"
+
+msgid "Sort music"
+msgstr "Třídit hudbu"
+
+msgid "Move up"
+msgstr "Pohyb nahoru"
+
+msgid "Move down"
+msgstr "Pohyb dolů"
+
+msgid "Are you sure to change the sort?"
+msgstr "Opravdu chcete změnit pořadí?"
+
+msgid "Remove or sort playlist"
+msgstr "Odstranit nebo seřadit playlist"
+
+msgid "Remove music"
+msgstr "Odebrání hudebních"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Jste si jisti, že chcete odstranit vybranou hudbu z playlistu?"
+
+msgid "Photo album"
+msgstr "Fotoalbum"
+
+msgid "The album has been created."
+msgstr "Album bylo vytvořeno."
+
+msgid "Select photo"
+msgstr "Vybrat foto"
+
+msgid "Add to album"
+msgstr "přidat do alba"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Nelze načíst video.  Nepodporovaný formát."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "Po zapnutí zásuvného modulu budete moci zobrazit datové proudy videa v podporovaných formátech. Není podporován veškerý obsah datových proudů videa."
+
+msgid "Enable for Favorites"
+msgstr "Povolit pro stránky v seznamu Favorites (Oblíbené)"
+
+msgid "Enable for all websites"
+msgstr "Povolit pro všechny internetové stránky"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Zásuvný modul Flash je povolen pouze pro internetové stránky uvedené v seznamu Favorites (Oblíbené), čímž dochází ke zlepšení výkonu internetového prohlížeče.Chcete-li povolit zásuvný modul pro všechny internetové stránky, přejděte do nabídky Settings (Nastavení) a zvolte možnost Network (Síť)."
+
+
+msgid "Photos"
+msgstr "Fotografie"
+msgid "Ok"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Confirm"
+msgstr "Potvrdit"
+
+msgid "Bookmarks"
+msgstr "Záložky"
+
+msgid "Add Bookmark"
+msgstr "Přidat záložku"
+
+msgid "Edit Bookmark"
+msgstr "Upravit záložku"
+
+msgid "Clear Bookmarks"
+msgstr "Smazat záložky"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Opravdu chcete záložky smazat?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Opravdu chcete tuto záložku odstranit?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "Server [název serveru] poskytl certifikát vydaný nedůvěryhodnou entitou? Chcete i přesto pokračovat?"
+
+msgid "[url] is not available."
+msgstr "Adresa [URL] není dostupná."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "Omlouváme se, ale vyskytl se problém."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "Webovou stránku na adrese [url] nelze načíst."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Můžete si vyzkoušet některé z následujících možností:"
+
+msgid "Reload this web page later."
+msgstr "Otevřete tuto webovou stránku později."
+
+msgid "Return to the previous web page."
+msgstr "Vraťte se na předchozí webovou stránku."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Opravdu chcete smazat historii?"
+
+msgid "Clear History"
+msgstr "Smazat historii"
+
+msgid "History"
+msgstr "Historie"
+
+msgid "No Title"
+msgstr "Bez názvu"
+
+msgid "The history is empty."
+msgstr "Historie je prázdná."
+
+msgid "HTTP Authentication"
+msgstr "Ověření HTTP"
+
+msgid "Authentication Required"
+msgstr "Je vyžadováno ověření"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "Server [název hostitele serveru] na adrese [název adresy URL] vyžaduje uživatelské jméno a heslo."
+
+msgid "User Name:"
+msgstr "Uživatelské jméno:"
+
+msgid "Password:"
+msgstr "Heslo:"
+
+msgid "Pop-up Window"
+msgstr "Vyskakovací okno"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "Chcete otevřít vyskakovací okno z [název domény]?"
+
+msgid "New Window"
+msgstr "Nové okno"
+
+msgid "New URL [url] from [url]"
+msgstr "Nová adresa URL [url] z [url]"
+
+msgid "Same"
+msgstr "Stejné"
+
+msgid "Insecure to Secure"
+msgstr "Nezabezpečené do zabezpečeného"
+
+msgid "Secure to Insecure"
+msgstr "Zabezpečené do nezabezpečeného"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Chcete být na tuto zprávu znovu upozorněni?"
+
+msgid "Security Warning"
+msgstr "Bezpečnostní varování"
+
+msgid "Started"
+msgstr "Zahájeno"
+
+msgid "Loading"
+msgstr "Probíhá načítání"
+
+msgid "Done"
+msgstr "Hotovo"
+
+msgid "Title of the page."
+msgstr "Název stránky."
+
+msgid "Goto"
+msgstr "Přejít na"
+
+
+
+msgid "Forward"
+msgstr "Dopředu"
+
+
+
+msgid "Refresh"
+msgstr "Obnovit"
+
+msgid "Cursor"
+msgstr "Kurzor"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Používání dálkového ovládání ve webovém prohlížeči"
+
+msgid "Exit web browser"
+msgstr "Zavřít webový prohlížeč"
+
+msgid "Move cursor in web browser"
+msgstr "Posunout kurzorem ve webovém prohlížeči"
+
+msgid "Click to select links in web browser"
+msgstr "Klepnutím vybrat odkaz ve webovém prohlížeči"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Klávesa Alt pro používání klávesnice webového prohlížeče"
+
+msgid "Back to previous web page"
+msgstr "Zpět na předchozí webovou stránku"
+
+msgid "Display URL bar and web browser options"
+msgstr "Zobrazit panel s adresou URL a možnosti webového prohlížeče"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "Stisknutím tlačítka Enter odešlete adresu URL nebo zadaný text"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Pomocí tlačítek Nahoru/Dolů můžete posouvat webové stránky"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Klávesa Symbol pro používání klávesnice webového prohlížeče"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Mezerník pro používání klávesnice webového prohlížeče"
+
+msgid "Show this information again?"
+msgstr "Zobrazit tyto informace znovu?"
+
+msgid "NO"
+msgstr "NE"
+
+msgid "YES"
+msgstr "ANO"
+
+msgid "Eject USB device"
+msgstr "Odpojit USB zařízení "
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Prostřednictvím beta verze webového prohlížeče si můžete prohlížet oblíbený obsah ze seznamu Favorites (Oblíbené). Můžete přejít na jiné webové stránky. Obsah videa je dostupný pouze z webových stránek ze seznamu Favorites (Oblíbené)."
+
+msgid "Downloading update..."
+msgstr "Stahování aktualizací..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Knihovny médií potřebují k tomu, aby před použitím funkce vyhledávání."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "LICENČNÍ SMLOUVA IOMEGA"
+
+msgid "IF YOU DO NOT…"
+msgstr "POKUD NE…"
+
+msgid "Digital without HDMI audio"
+msgstr "Digitální, bez zvuku v HDMI"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "Tento soubor DivX byl přehrán Xkrát z Y povolených shlédnutí."
+
+msgid "Continue?"
+msgstr "Přejete si pokračovat?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Opravdu chcete zastavit kopírování souborů?"
+
+msgid "Mediafly dashboard"
+msgstr "Panel Mediafly"
+
+msgid "My channels"
+msgstr "Moje kanály"
+
+msgid "Popular channels"
+msgstr "Oblíbené kanály"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Opravdu chcete odstranit tento účet?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Opravdu chcete k tomuto seriálu přidat:"
+
+msgid "This episode"
+msgstr "Tento díl"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Tento díl by přidán do vašeho kanálu. Další možnosti naleznete na stránkách Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "Všechny díly tohoto seriálu"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Tento seriál by přidán do vašeho kanálu. Další možnosti naleznete na stránkách Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "Co si přejete odstranit?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Tento díl by odebrán z vašeho kanálu. Další možnosti naleznete na stránkách Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Tento seriál by odebrán z vašeho kanálu. Další možnosti naleznete na stránkách Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Přejete si ohodnotit tento seriál či díl?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Děkujeme. Další možnosti naleznete na stránkách Mediafly.com."
+
+msgid "View episodes"
+msgstr "Zobrazit díly"
+
+msgid "Add content source"
+msgstr "Přidat zdroj obsahu"
+
+msgid "Add via mcode"
+msgstr "Přidat pomocí kódu mCode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Níže zadejte kód mCode zdroje obsahu"
+
+msgid "an mCode is used to activate private content source"
+msgstr "kód mCode slouží k aktivaci soukromého zdroje obsahu"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "Zdroj obsahu byl úspěšně přidán na panel Mediafly."
+
+msgid "Invalid mCode, please try again."
+msgstr "Neplatný kód mCode, opakujte pokus."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Přidat město"
+
+msgid "City management"
+msgstr "Správa měst"
+
+msgid "Search location"
+msgstr "Vyhledávání umístění"
+
+msgid "Change temperature unit"
+msgstr "Změnit teplotní jednotky"
+
+msgid "Please define your default city location."
+msgstr "Uveďte město, kde se nacházíte."
+
+msgid "Do you want to clear all city?"
+msgstr "Přejete si odstranit všechna města?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Chcete odstranit vybrané město?"
+
+msgid "No result, please search again."
+msgstr "Nebyl nalezen žádný odpovídající záznam. Opakujte vyhledávání."
+
+msgid "Remove movie Info"
+msgstr "Odstranit informace o filmu"
+
+msgid "Rescan Movie Info"
+msgstr "Opětovně načíst informace o filmu"
+
+
+
+msgid "Manual search"
+msgstr "Ruční vyhledávání"
+
+
+
+msgid "Please wait..."
+msgstr "Čekejte…"
+
+msgid "Are you sure you want to remove content info?"
+msgstr "Opravdu chcete odstranit informace o obsahu?"
+
+msgid "Content info has been removed."
+msgstr "Informace o obsahu byly odstraněny."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "Informace poskytla databáze TMDb."
+
+msgid "No need"
+msgstr "Není potřeba "
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "V online databázi nebyly nalezeny žádné informace o obsahu. Zadejte jiný výraz a opakujte vyhledávání. "
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Informace o filmu se nepodařilo uložit. Zkontrolujte připojení k síti. "
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Informace o filmu se nepodařilo uložit. Na úložišti nemusí být dostatek místa nebo je nastavena ochrana proti zápisu."
+
+msgid "Add to playlist"
+msgstr "Přidat do seznamu přehrávaných titulů"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Connect"
+msgstr "Připojit"
+
+msgid "Create playlist"
+msgstr "Vytvořit seznam přehrávaných titulů"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "Server DNS je neplatný. Ověřte server DNS a zkuste to znovu."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Chcete odstranit vybrané soubory?"
+
+msgid "Edit playlist"
+msgstr "Upravit seznam přehrávaných titulů"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Brána je neplatná. Ověřte bránu a zkuste to znovu."
+
+msgid "Home"
+msgstr "Domů"
+
+msgid "It should not be empty!"
+msgstr "Nesmí být prázdné!"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Select destination"
+msgstr "Vybrat cíl"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Maska podsítě je neplatná. Ověřte masku podsítě a zkuste to znovu."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Připojení zařízení k serveru médií bylo ztraceno."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Vybraná hudba byla odebrána ze seznamu přehrávaných titulů."
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "Movies"
+msgstr "Film"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Stisknutím tlačítka „ENTER“ použijete informace na dané video."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Načítání informací o filmu.\nČekejte…"
+msgid "Delete all"
+msgstr "Odstranit vše"
+
+msgid "Wind velocity:"
+msgstr "rychlost větru"
+
+msgid "Humidity:"
+msgstr "vlhkost"
+
+msgid "High/Low"
+msgstr "Vysoké / nízké"
+
+msgid "Wind direction:"
+msgstr "směr větru"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather serveru neodpovídá. Zkuste to znovu později."
+
+msgid "Movie info auto scan"
+msgstr "Informace o filmu Auto Scan"
+
+msgid "Ignore"
+msgstr "ignorovat"
+
+msgid "Scan movie info"
+msgstr "Skenování filmu info"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Název pracovní skupiny nesmí obsahovat následující znaky: \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDélka názvu souboru je omezena na xx znaků."
+

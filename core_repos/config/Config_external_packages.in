@@ -1,0 +1,779 @@
+
+menu "External packages"
+
+	config	BUILD_SIGMA_SDK
+		depends on PLATFORM_SMP8634 || PLATFORM_SMP8654 
+		bool "Build Sigma SDK"
+		default y
+
+	choice
+		depends on BUILD_SIGMA_SDK
+		prompt "Kernel version"
+		config LINUX_KERNEL_VERSION_2_6_15
+			bool "2.6.15"
+		config LINUX_KERNEL_VERSION_2_6_22
+			bool "2.6.22"
+	endchoice
+	choice
+		depends on BUILD_SIGMA_SDK
+		prompt "Kernel configuration"
+		default LINUX_KERNEL_VERSION_2_6_22_19_CONFIG_WDTV_HUT_SMP8654_WISTRON if LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH && (PRODUCT_EXT_WDTV_HUT || PRODUCT_EXT_WDTV_VILLA)
+		default LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_WDTV_HUT_SMP8654_WISTRON if LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH && (PRODUCT_EXT_WDTV_HUT || PRODUCT_EXT_WDTV_VILLA)
+		default LINUX_KERNEL_VERSION_2_6_22_CONFIG_WDTV_RV if LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_WDTV_RV
+		default LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_WDTV_RV if LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_WDTV_RV
+		config LINUX_KERNEL_VERSION_2_6_15_CONFIG_GENERIC
+			bool "2.6.15 generic config"
+			depends on LINUX_KERNEL_VERSION_2_6_15
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_GENERIC
+			bool "2.6.22 generic config"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_GENERIC
+			bool "2.6.22.19-29 generic config"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_AV_LS700L
+			bool "2.6.22 avls700l config"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_IMEDIA_HD100
+			bool "2.6.22 imediahd100 config"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_FUNTWIST
+			bool "2.6.22 funtwist config"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_EM7075
+                        bool "2.6.22 em7075 config"
+                        depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_19_CONFIG_WDTV_HUT_SMP8654_WISTRON
+			bool "2.6.22.19 tuned for WDTV Hut"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH && (PRODUCT_EXT_WDTV_HUT || PRODUCT_EXT_WDTV_VILLA)
+		config LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_WDTV_HUT_SMP8654_WISTRON
+			bool "2.6.22.19-29 tuned for WDTV Hut"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH && (PRODUCT_EXT_WDTV_HUT || PRODUCT_EXT_WDTV_VILLA)
+		config LINUX_KERNEL_VERSION_2_6_22_19_12_LMP555
+			bool "2.6.22.19-12 lmp555"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_19_12_IOM
+			bool "2.6.22.19-12 iom"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_IOM
+		config LINUX_KERNEL_VERSION_2_6_22_19_29_IOM
+			bool "2.6.22.19-29 iom"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_IOM
+		config LINUX_KERNEL_VERSION_2_6_22_19_35_IOM
+			bool "2.6.22.19-35 iom"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_7_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_IOM
+		config LINUX_KERNEL_VERSION_2_6_22_19_36_IOM
+			bool "2.6.22.19-36 iom"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_7_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_IOM
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_8AV500LE
+			bool "2.6.22.19-19 Alpha generic board (8AV500LE)"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_8AV500LE
+			bool "2.6.22.19-29 Alpha generic board (8AV500LE)"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH
+		config LINUX_KERNEL_VERSION_2_6_22_CONFIG_WDTV_RV
+			bool "2.6.22.19-19 WDTV RV ALPHA board"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_7_0_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_WDTV_RV
+		config LINUX_KERNEL_VERSION_2_6_22_19_29_CONFIG_WDTV_RV
+			bool "2.6.22.19-29 WDTV RV ALPHA board"
+			depends on LINUX_KERNEL_VERSION_2_6_22 && PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH && PRODUCT_EXT_WDTV_RV
+	endchoice
+ 	 
+	config BUILD_ZBOOT
+		depends on BUILD_SIGMA_SDK
+		bool "Build ZBOOT"
+		default y
+	config SQUEEZE_XENV_ZBOOT_YAMON
+		depends on BUILD_ZBOOT
+		bool "squzze xenv, zboot and yamon"
+		default y
+		depends on BUILD_ZBOOT
+
+
+
+	config	FONTS
+		bool "Select font library"
+
+	menu "Fonts Library "
+		config	FREETYPE
+			bool "freetype"
+			default	y
+
+		choice
+			depends on FREETYPE
+			prompt "freetype"
+			default FREETYPE_2_1_3 if !SUPPORT_DCCHD
+			default FREETYPE_2_3_9 if SUPPORT_DCCHD
+			config	FREETYPE_1_3_1
+				bool "freetype-1.3.1"
+				depends on !SUPPORT_DCCHD
+			config	FREETYPE_2_1_3
+				bool "freetype-2.1.3"
+				depends on !SUPPORT_DCCHD
+			config	FREETYPE_2_1_8
+				bool "freetype-2.1.8"
+				depends on !SUPPORT_DCCHD
+			config	FREETYPE_2_3_7
+				bool "freetype-2.3.7"
+			config	FREETYPE_2_3_9
+				bool "freetype-2.3.9"
+		endchoice
+
+		config	FREETYPE_STATIC_LIB
+			bool "Force link freetype static library"
+			depends on FREETYPE
+			default	y
+
+		config	FREETYPE_VERSION
+			string
+			default "1.3.1" if FREETYPE_1_3_1
+			default "2.1.3" if FREETYPE_2_1_3
+			default "2.1.8" if FREETYPE_2_1_8
+			default "2.3.7" if FREETYPE_2_3_7
+			default "2.3.9" if FREETYPE_2_3_9
+
+		choice
+			depends on FONTS
+			prompt "fonts"
+			config	FONT_ARPHIC
+				bool "Arphic"
+			config	FONT_ARIALBD
+				bool "Arialbd"
+			config	FONT_DYNAVIEW
+				bool "Dynaview"
+			config	FONT_HELR45W
+				bool "HELR45W"
+		endchoice
+
+		choice
+			depends on FONT_ARPHIC
+			prompt "Arphic font type"
+			config FONT_ARPHIC_HIFONT
+				bool "Arphic Hifont (*.vcp)"
+			config FONT_ARPHIC_MOBILE_FONT
+				bool "Arphic Mobile Font (*.mbf) (Support Arabic/Hindi/Thai)"
+		endchoice
+
+		config FONTS_VERSION
+			string	
+			default "arphic" if FONT_ARPHIC_HIFONT
+			default "arphic_mbf" if FONT_ARPHIC_MOBILE_FONT
+			default "Arialbd" if FONT_ARIALBD
+			default "Dynaview" if FONT_DYNAVIEW
+			default "HELR45W" if FONT_HELR45W
+
+		choice
+			prompt "Arphic font type"
+			default FONTS_LIB_TYPE_ARCHIVE
+			config FONTS_LIB_TYPE_ARCHIVE
+				depends on FONT_ARPHIC_HIFONT || FONT_ARPHIC_MOBILE_FONT
+				bool "Install archive files(*.a)"
+			config FONTS_LIB_TYPE_SO
+				depends on FONT_ARPHIC_HIFONT || FONT_ARPHIC_MOBILE_FONT
+				bool "Install archive files(*.so)"
+			config FONTS_LIB_TYPE_ALL
+				bool "Install all lib files(*.a + *.so)"
+		endchoice
+	
+		choice
+			depends on SPU_API
+			prompt "SPU font type"
+			config FONT_SPU_PLAYER_USE_FREETYPE
+				bool "SPU use Freetype API"
+			config FONT_SPU_PLAYER_USE_MBF
+				depends on FONT_ARPHIC_MOBILE_FONT
+				bool "SPU use mobile font which support Arabic/Hindi/Thai"
+		endchoice	
+	endmenu
+
+	config	DMALLOC
+		bool "dmalloc"
+		default y
+		depends on DMALLOC_DEBUG
+		choice 
+			depends on DMALLOC
+			prompt "dmalloc"
+			config	DMALLOC_5_5_2
+				bool "dmalloc-5.5.2"
+		endchoice
+		config	DMALLOC_VERSION
+			string
+			default "5.5.2" if DMALLOC_5_5_2
+		
+	config	FLAC
+		default	y
+		bool "flac"
+		choice
+			depends on FLAC
+			prompt "flac"
+			config FLAC_1_2_1
+				bool "flac-1.2.1"
+		endchoice
+	config FLAC_VERSION
+		string
+		default "1.2.1" if FLAC_1_2_1
+
+	config	LIBICONV
+		bool "libiconv"
+		default y
+		choice
+			depends on LIBICONV
+			prompt	"libiconv"
+				config	LIBICONV_1_12
+					bool "libiconv_1.12"
+		endchoice	
+	config	LIBICONV_VERSION
+		string
+		default "1.12" if LIBICONV_1_12
+
+	config	LIBJPEG	
+		bool "libjpeg"
+		default	y
+		choice
+			depends on LIBJPEG
+			prompt	"libjpeg"
+				config	LIBJPEG_V6B
+					bool "libjpeg-v6b"
+		endchoice	
+	config	LIBJPEG_VERSION
+		string
+		default "v6b" if LIBJPEG_V6B
+	
+	config	LIBPNG
+		bool "libpng"
+		default	y
+		choice
+			depends on LIBPNG
+			prompt	"libpng"
+				config	LIBPNG_1_2_44
+					bool "libpng-1.2.44"
+				config	LIBPNG_1_2_43
+					bool "libpng-1.2.43"
+				config	LIBPNG_1_2_14
+					bool "libpng-1.2.14"
+		endchoice
+	config	LIBPNG_VERSION
+		string
+		default "1.2.44" if LIBPNG_1_2_44
+		default "1.2.43" if LIBPNG_1_2_43
+		default "1.2.14" if LIBPNG_1_2_14
+
+	config	LIBUNGIF
+		bool "libungif"
+		default	y
+		choice
+			depends on LIBUNGIF
+			prompt	"libungif"
+				config	LIBUNGIF_4_1_3
+					bool "libungif_4.1.3"
+		endchoice	
+	config	LIBUNGIF_VERSION
+		string
+		default "4.1.3" if LIBUNGIF_4_1_3
+
+	config	ZLIB	
+		bool "zlib"
+		default	y
+		choice
+			depends on ZLIB
+			prompt	"zlib"
+				config	ZLIB_1_2_2
+					bool "zlib-1.2.2"
+		endchoice	
+	config	ZLIB_VERSION
+		string
+		default "1.2.2" if ZLIB_1_2_2
+
+	config	LIBCX	
+		bool 
+		default	y if WIRELESS_SUPPORT || OSSP
+		choice
+			depends on LIBCX
+			prompt	"libcx"
+				config	LIBCX_1_1_1
+					bool "libcx-1.1.1"
+		endchoice	
+	config	LIBCX_VERSION
+		string
+		default "1.1.1" if LIBCX_1_1_1
+
+	choice
+		prompt "UI Kit"
+		config	MICROWIN	
+			bool "microwin"
+			depends on !SUPPORT_DCCHD
+		config DIRECTFB
+			bool "DirectFB"
+			depends on SUPPORT_DCCHD
+	endchoice	
+	choice
+		depends on MICROWIN
+		prompt	"microwin"
+			config	MICROWIN_0_90
+			bool "microwin-0.90"
+	endchoice	
+	choice	
+		depends on MICROWIN 
+		prompt "Microwon configuration"
+		config MICROWIN_CONFIG_GENERIC
+			depends on !PLATFORM_X86
+			bool "generic configuration"
+		config MICROWIN_CONFIG_GENERIC_X86
+			depends on PLATFORM_X86
+			bool "generic configuration for x86"
+	endchoice
+	config	MICROWIN_VERSION
+		string
+		default "0.90" if MICROWIN_0_90
+	config	MICROWIN_CONFIG
+		string
+		default "microwin-0.90-config" if MICROWIN_CONFIG_GENERIC
+		default "microwin-0.90-config-x86" if MICROWIN_CONFIG_GENERIC_X86
+
+	config	TINYXML
+		default	y if SUPPORT_DCCHD_DVD_BD_NAVIGATION
+		bool "tinyxml"
+		choice
+			depends on TINYXML
+			prompt	"tinyxml"
+				config	TINYXML_2_5_3
+					bool "tinyxml_2_5_3"
+		endchoice	
+	config	TINYXML_VERSION
+		string
+		default "2_5_3" if TINYXML_2_5_3
+	
+	config	MXML
+		default	y
+		bool "mxml"
+		choice
+			depends on MXML
+			default MXML_2_6
+			prompt	"mxml"
+				config	MXML_2_2
+					bool "mxml-2.2"
+				config	MXML_2_6
+					bool "mxml-2.6"
+		endchoice	
+	config	MXML_VERSION
+		string
+		default "2.2" if MXML_2_2
+		default "2.6" if MXML_2_6
+	
+	config	SQLITE	
+		default	y
+		bool "sqlite"
+		choice
+			depends on SQLITE
+			prompt	"sqlite"
+				config	SQLITE_AMALGAMATION_3_6_11
+					bool "sqlite-amalgamation-3.6.11"
+				config	SQLITE_AMALGAMATION_3_5_9	
+					bool "sqlite-amalgamation-3.5.9"
+		endchoice	
+	config SQLITE_DEBUG
+		bool "sqlite debug"
+		default n
+		depends on SQLITE
+	config	SQLITE_VERSION
+		string
+		default "3.6.11" if SQLITE_AMALGAMATION_3_6_11
+		default "3.5.9" if SQLITE_AMALGAMATION_3_5_9
+	
+	config	TIFF	
+		default	y
+		bool "tiff"
+		choice
+			depends on TIFF
+			prompt	"tiff"
+				config	TIFF_3_7_1	
+					bool "tiff-3.7.1"
+		endchoice	
+	config	TIFF_VERSION
+		string
+		default "3.7.1" if TIFF_3_7_1
+
+	config	TREMOR
+		default	y
+		bool "tremor"
+		choice
+			depends on TREMOR
+			prompt "tremor"
+				config	TREMOR_1_0_SVN
+					bool "tremor-1.0-svn"
+		endchoice
+	config	TREMOR_VERSION
+		string
+		default "1.0-svn" if TREMOR_1_0_SVN
+
+	config	DHCPCD
+		bool "dhcpcd"
+		choice
+			depends on DHCPCD
+			prompt "dhcpcd"
+				config DHCPCD_1_3_22_PL1
+					bool "1.3.22-pl1"
+		endchoice
+	config	DHCPCD_VERSION
+		string
+		default "1.3.22-pl1" if DHCPCD_1_3_22_PL1
+
+	config	CURL
+		depends on ENABLE_NETWORKING
+		default y
+		bool "libcurl (FTP)"
+		help
+			We use it to do FTP to download firmware
+		choice
+			depends on CURL
+			prompt "curl library"
+				config CURL_7_21_1
+					bool "7.21.1"
+				config CURL_7_20_1
+					bool "7.20.1"
+				config CURL_7_19_3
+					bool "7.19.3"
+				config CURL_7_16_0
+					bool "7.16.0"
+				config CURL_7_11_0
+					bool "7.11.0"
+		endchoice
+
+	config	CURL_VERSION
+		string
+		depends on CURL
+		default "7.21.1" if CURL_7_21_1
+		default "7.20.1" if CURL_7_20_1
+		default "7.19.3" if CURL_7_19_3
+		default "7.16.0" if CURL_7_16_0
+		default "7.11.0" if CURL_7_11_0
+
+	config OPENSSL
+		depends on ENABLE_NETWORKING || HFS_MKFS_SUPPORT || SUPPORT_DCCHD_DVD_BD_NAVIGATION 
+		default y
+		bool "OpenSSL"
+		help
+			OpenSSL : Open Source Embedded SSL
+		choice
+			depends on OPENSSL
+			prompt	"openssl library"
+				config	OPENSSL_0_9_8_k
+					bool "openssl-0.9.8k"
+				config	OPENSSL_0_9_8_o
+					bool "openssl-0.9.8o"
+		endchoice	
+	config	OPENSSL_VERSION
+		string
+		default "0.9.8k" if OPENSSL_0_9_8_k
+		default "0.9.8o" if OPENSSL_0_9_8_o
+
+	config MATRIXSSL
+		depends on ENABLE_NETWORKING
+		default n
+		bool "MatrixSSL"
+		help
+			MatrixSSL : Open Source Embedded SSL
+
+	config MATRIXSSL_VERSION
+		string
+		depends on MATRIXSSL
+		default "1.2.2"
+
+	config SUPPORT_RSYNC
+		default y if SUPPORT_LOCAL_SYNC || SUPPORT_NETWORK_SYNC
+		bool "support rsync"
+
+	choice
+		depends on SUPPORT_RSYNC 
+		prompt "select rsync version"
+		config RSYNC_3_0_6
+			bool "3.0.6"
+	endchoice
+
+	config RSYNC_VERSION
+		depends on SUPPORT_RSYNC
+		string
+		default "3.0.6" if RSYNC_3_0_6
+
+	config	TWONKYMEDIA_SERVER
+		depends on TWONKYMEDIA_SERVER_SUPPORT 
+		default y
+		bool "twonkymedia server"
+	
+	choice
+		depends on TWONKYMEDIA_SERVER
+		prompt "twonkymedia server"
+		config TWONKYMEDIA_SERVER_4_4_1_SMP8634
+			bool "4.4.1"
+			depends on PLATFORM_SMP8634
+		config TWONKYMEDIA_SERVER_4_4_1_SMP8654
+			bool "4.4.1"
+			depends on PLATFORM_SMP8654 && !PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+		config TWONKYMEDIA_SERVER_5_0_0_X86
+			bool "5.0.0"
+			depends on PLATFORM_X86
+		config TWONKYMEDIA_SERVER_4_4_14_SMP8654
+			bool "4.4.14"
+			depends on PLATFORM_SMP8654 && PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+		config TWONKYMEDIA_SERVER_4_4_18_SMP8654
+			bool "4.4.18"
+			depends on PLATFORM_SMP8654 && PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+		config TWONKYMEDIA_SERVER_5_1_0_SMP8654
+			bool "5.1.0"
+			depends on PLATFORM_SMP8654 && PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+		config TWONKYMEDIA_SERVER_6_0_0_SMP8654
+			bool "6.0.0"
+			depends on PLATFORM_SMP8654 && PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+		config TWONKYMEDIA_SERVER_6_0_34_SMP8654
+			bool "6.0.34"
+			depends on PLATFORM_SMP8654 && PLATFORM_SMP8654_TOOLCHAIN_GNU_4_3_2
+	endchoice
+
+	config	TWONKYMEDIA_SERVER_VERSION
+		string
+		default "4.4.1-SMP8634" if TWONKYMEDIA_SERVER_4_4_1_SMP8634
+		default "4.4.1-SMP8654" if TWONKYMEDIA_SERVER_4_4_1_SMP8654
+		default "5.0.0-X86" if TWONKYMEDIA_SERVER_5_0_0_X86
+		default "4.4.14-SMP8654" if TWONKYMEDIA_SERVER_4_4_14_SMP8654
+		default "4.4.18-SMP8654" if TWONKYMEDIA_SERVER_4_4_18_SMP8654
+		default "5.1.0-SMP8654" if TWONKYMEDIA_SERVER_5_1_0_SMP8654
+		default "6.0.0-SMP8654" if TWONKYMEDIA_SERVER_6_0_0_SMP8654
+		default "6.0.34-SMP8654" if TWONKYMEDIA_SERVER_6_0_34_SMP8654
+
+	choice 
+		depends on PARAGON_NTFS_SUPPORT 
+		prompt "Paragon NTFS version"
+		config PARAGON_NTFS_20090720
+			bool "20090720"
+			depends on !PARAGON_NTFS_HFS_SUPPORT
+		config PARAGON_NTFS_20090817
+			bool "20090817"
+			depends on PARAGON_NTFS_HFS_SUPPORT
+		config PARAGON_NTFS_20100415
+			bool "20100415"
+			depends on PARAGON_NTFS_HFS_SUPPORT && (PLATFORM_SMP8654_SDK_3_8_2_ORIGINAL_KERNEL_PATCH || PLATFORM_SMP8654_SDK_3_8_7_ORIGINAL_KERNEL_PATCH)
+		config PARAGON_NTFS_20100908
+			bool "20100908"
+			depends on PARAGON_NTFS_HFS_SUPPORT
+	endchoice
+	config	PARAGON_NTFS_VERSION
+		string
+		default "20090720" if PARAGON_NTFS_20090720
+		default "20090817" if PARAGON_NTFS_20090817
+		default "20100415" if PARAGON_NTFS_20100415
+		default "20100908" if PARAGON_NTFS_20100908
+
+	config	PARAGON_NTFS_TOOLS
+		bool
+		default y if PARAGON_NTFS_20100415 || PARAGON_NTFS_20100908
+
+	choice
+		depends on PARAGON_HFS_FSCK_SUPPORT
+		prompt "Paragon HFS fsck support"
+		config PARAGON_HFS_FSCK_20090824
+			bool "20090824"
+		config PARAGON_HFS_FSCK_20100908
+			bool "20100908"
+	endchoice
+	config	PARAGON_HFS_FSCK_VERSION
+		string
+		default "20090824" if PARAGON_HFS_FSCK_20090824
+		default "20100908" if PARAGON_HFS_FSCK_20100908
+
+	choice
+		depends on NTFS_3G_SUPPORT
+		prompt "NTFS-3G version"
+		config NTFS_3G_2009_4_4
+			bool "2009.4.4"
+		config NTFS_3G_2009_2_1
+			bool "2009.2.1"
+	endchoice
+	config	NTFS_3G_VERSION
+		string
+		default "2009.2.1" if NTFS_3G_2009_2_1
+		default "2009.4.4" if NTFS_3G_2009_4_4
+
+	choice
+		depends on NTFS_3G_COMMERCIAL_SUPPORT
+		prompt "NTFS-3G commercial version"
+		config TNTFS_3G_20100318
+			bool "20100318 (buggy, crash)"
+			help
+				 - Fixed POSIX filename space support: non-WIN32 characters were filtered
+				   out which resulted "Failed to update a directory index entry of inode
+				   xxxxx" error messages.
+				 - Fixed potential file creation failure during low memory conditions.
+		config TNTFS_3G_20100129
+			bool "20100129"
+			help
+				  - Write performance is 15-30% or (much) more better. We expect this 
+				    results significantly better Samba/CIFS performance as well.
+				  - Resolved a Vista and later interoperability issue which may resulted
+				    some Vista and later may seeing a volume RAW. We have found that both
+				    some Windows NTFS and our drivers could create such scenario because 
+				    not all Microsoft NTFS drivers confirm to the on-disk NTFS specification.
+				  - Added posix_allocate() which was asked by some of our customers
+				    doing connected consumer devices. It may be useful for you too.
+		config TNTFS_3G_20091118
+			bool "20091118"
+			help
+				Enhance small block performance
+		config TNTFS_3G_20090927
+			bool "20090927"
+	endchoice
+	config	TNTFS_VERSION
+		string
+		default "20090927" if TNTFS_3G_20090927
+		default "20091118" if TNTFS_3G_20091118
+		default "20100129" if TNTFS_3G_20100129
+		default "20100318" if TNTFS_3G_20100318
+
+	choice
+		depends on NETATALK
+		prompt "select NETATALK version"
+		config NETATALK_2_0_3
+			bool "2.0.3"
+	endchoice
+
+	config NETATALK_VERSION
+		string
+		default "2.0.3" if NETATALK_2_0_3
+
+	config BERKELEY_DB
+		bool "Support BERKELEY database"
+		default y if NETATALK 
+
+	choice
+		depends on BERKELEY_DB
+		prompt "select berkeley-db version"
+		config BERKELEY_DB_4_2_52
+			bool "4.2.52"
+	endchoice
+	
+	config BERKELEY_DB_VERSION
+		string
+		default "4.2.52" if BERKELEY_DB_4_2_52
+	config FLICKR
+		bool "library flickr curl"
+		depends on DMA_FLICKR
+		default y
+	config XML2
+		bool "library xml2"
+		depends on FLICKR
+		default y
+
+	config FONTCONFIG
+		bool "library fontconfig"
+		depends on FREETYPE && XML2
+		default n
+
+        choice
+                depends on HOWL
+                prompt "select HOWL version"
+                config HOWL_1_0_0
+                        bool "1.0.0"
+        endchoice
+
+        config HOWL_VERSION
+                string
+                default "1.0.0" if HOWL_1_0_0
+
+	config SDPARM
+		bool "sdparm"
+		default y
+
+	config SMARTMONTOOLS
+		bool "smartmontools"
+		default n
+		default y if PRODUCT_EXT_WDTV_RV || PRODUCT_EXT_IOM_X2
+		help
+			This is "S.M.A.R.T." utility used to monitor various disk status
+		
+	config LIBMCRYPT
+		bool "libmcrypt"
+		default y if DMA_DEEZER
+
+	config NTP
+		bool "ntp"
+		default y if DMA_NETFLIX || PRODUCT_EXT_IOM
+
+	config EXPAT
+		bool
+		default y if DMA_NETFLIX || DBUS 
+
+	config UUID	
+		default y if XFS_SUPPORT 
+		bool
+	config UUID_VERSION
+		string 
+		depends on UUID
+		default "1.41.10"
+		
+	config XFS
+		default y if XFS_SUPPORT 
+		bool
+
+	config PARTED
+		depends on UUID
+		default y if PRODUCT_EXT_WDTV_RV
+		bool "Support parted"
+		help
+			This is used to mangle the partition table.
+			It is used for product with internal drive
+
+	config PCRE
+		default y if METADATA_TAGGING
+		bool "Support PCRE"
+		help
+			Perl Compatible Regular Expressions
+
+	config PCRE_VERSION
+		string
+		default "8.02" if PCRE
+	
+	config	TRANSMISSION
+		depends on DMA_BT
+		bool "transmission"
+		default	y if PRODUCT_EXT_IOM
+		choice
+			depends on TRANSMISSION
+			prompt	"transmission"
+				config	TRANSMISSION_2_03
+					bool "transmission-2.03"
+		endchoice
+			
+	config	LIBEVENT
+		depends on TRANSMISSION
+		bool "libevent"
+		default	y
+		choice
+			depends on LIBEVENT
+			prompt	"libevent"
+				config	LIBEVENT_1_4_14B_STABLE
+					bool "libevent-1.4.14b-stable"
+		endchoice
+
+	config PG8169
+		default y if PRODUCT_EXT_WDTV_RV
+		bool "Tool to change ethernet mac address for Realtek 8169"
+		help
+			Enalbe this to build pgdrv module. This could change 8169 mac address. 
+
+	config BONNIE
+		default y if PRODUCT_EXT_WDTV_RV
+		bool "bonnie++ tool to benchmark a file system"
+		help
+			This is a common utility to benchmark a filesystem. 
+			I make it default enable for RV since we have to tune the performance to certain level.
+		
+	config	MONGOOSE
+		depends on DMA_HTTP_IRDA
+		bool "Enable mongoose mini web server"
+		default	y if PRODUCT_EXT_IOM
+		choice
+			depends on MONGOOSE
+			prompt	"mongoose version"
+				config	MONGOOSE_3_0
+					bool "mongoose-3.0"
+		endchoice
+endmenu
+
+

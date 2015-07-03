@@ -1,0 +1,13 @@
+deint-type=bob
+dtv-tv-standard=hdtv60 
+dtv-signal=720p	
+dtv-connector=hdmi	
+component-tv-standard=hdtv60
+component-signal=720p		
+component-connector=ycrcb
+analog-tv-standard=ntsc
+analog-signal=ntsc	
+analog-connector=cvbs
+driver-options=$DFB_CONFIG_DIR/sigmadfbrc			
+mode=1280x720
+

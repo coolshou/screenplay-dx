@@ -1,0 +1,4405 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Turkish <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Turkish\n"
+"X-Poedit-Country: TURKEY\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Dil seçin"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Iomega ScreenPlay Media Player'a hoşgeldiniz"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Bu sihirbaz bu cihazı evinizdeki ağa bağlamanızda size rehberlik edecektir. Cihazınız ağa bağlandığında, diğer ağ sürücülerinde kayıtlı ortam dosyalarına erişmek ve bu dosyaları yürütmek için de kullanılabilir."
+
+msgid "Select Next to continue."
+msgstr "Devam etmek için İleri seçin."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "Hızlı Başlangıç Modu AÇIK olarak ayarlandığında, güç tüketimi daha yüksek olacaktır ancak cihaz ağ üzerinde hazır olacak ve başlama süresi kısalacaktır."
+
+msgid "Select your TV type"
+msgstr "TV tipinizi seçin"
+
+msgid "Select your connection"
+msgstr "Bağlantınızı seçin"
+
+msgid "Skip"
+msgstr "Atla"
+
+msgid "Do you want to skip?"
+msgstr "Atlamak istiyor musunuz?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "Statik IP"
+
+msgid "IP address"
+msgstr "IP adresi"
+
+msgid "Netmask"
+msgstr "Ağ maskesi"
+
+msgid "Gateway"
+msgstr "Ağ geçidi"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "Kurulum tamamlandı"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Sihirbaz"
+
+msgid "You have successfully completed device configuration"
+msgstr "Cihaz yapılandırmasını başarıyla tamamladınız."
+
+msgid "Next"
+msgstr "İleri"
+
+msgid "Later"
+msgstr "Daha sonra"
+
+msgid "Movie"
+msgstr "Film"
+
+msgid "Music"
+msgstr "Müzik"
+
+msgid "Photo"
+msgstr "Fotoğraflar"
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Online media"
+msgstr "Çevrimiçi ortam"
+
+msgid "Folders"
+msgstr "Klasörler"
+
+msgid "Recent"
+msgstr "Son kullanılan"
+
+msgid "Local storage"
+msgstr "Lokal depolama"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Medya sunucusu"
+
+msgid "Shared folder"
+msgstr "Paylaşılan klasörler"
+
+msgid "All Movies"
+msgstr "Tüm Filmler"
+
+msgid "All Music"
+msgstr "Tüm Müzikler"
+
+msgid "Playlist"
+msgstr "Çalma listesi"
+
+msgid "Artist"
+msgstr "Sanatçı"
+
+msgid "Genre"
+msgstr "Tür"
+
+msgid "Album"
+msgstr "Albüm"
+
+msgid "Now Playing"
+msgstr "Şimdi Yürütülüyor"
+
+msgid "All Photos"
+msgstr "Tüm Fotoğraflar"
+
+msgid "Date"
+msgstr "Tarih"
+
+msgid "Albums"
+msgstr "Albümler"
+
+msgid "Preview mode"
+msgstr "Ön izleme modu"
+
+msgid "List mode"
+msgstr "Liste modu"
+
+msgid "Thumbnail mode"
+msgstr "Önizleme modu"
+
+msgid "This folder is empty or unavailable."
+msgstr "Bu klasör boş veya kullanılmıyor."
+
+msgid "Delete"
+msgstr "Sil"
+
+msgid "Create"
+msgstr "Oluştur"
+
+msgid "Edit"
+msgstr "Düzenle"
+
+msgid "Rename"
+msgstr "Yeniden adlandır"
+
+msgid "Clear"
+msgstr "Temizle"
+
+msgid "Move"
+msgstr "Taşı"
+
+msgid "Save"
+msgstr "Kaydet"
+
+msgid "Create album"
+msgstr "Albüm oluştur"
+
+msgid "Edit album"
+msgstr "Albüm düzenle"
+
+msgid "Add to list"
+msgstr "Listeye ekle"
+
+msgid "Remove from list"
+msgstr "Listeden çıkart"
+
+msgid "Move focus"
+msgstr "Odağı taşı"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Mevcut albüm yok. Yeni albüm oluşturulsun mu?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Albümü silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Dosyaları listeden silmek istediğinizden emin misiniz?"
+
+msgid "This folder is empty"
+msgstr "Bu klasör boş"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Yanlış kullanıcı adı veya şifre"
+
+msgid "This media server cannot be accessed"
+msgstr "Bu ortam sunucusuna erişilemiyor"
+
+msgid "No server found"
+msgstr "Sunucu bulunamadı"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Dosyayı silmek istediğinizden emin misiniz?"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Repeat one"
+msgstr "Tekli tekrar et"
+
+msgid "Repeat all"
+msgstr "Tümünü tekrar et"
+
+msgid "Repeat all and shuffle"
+msgstr "Tümünü tekrar et ve karıştır"
+
+msgid "Shuffle"
+msgstr "Karıştır"
+
+msgid "Pan"
+msgstr "Pan"
+
+msgid "Rotate right"
+msgstr "Sağa döndür"
+
+msgid "Rotate left"
+msgstr "Sola döndür"
+
+msgid "Zoom in"
+msgstr "Yakınlaştır"
+
+msgid "Zoom out"
+msgstr "Uzaklaştır"
+
+msgid "Repeat"
+msgstr "Tekrarla"
+
+msgid "Info bar"
+msgstr "Bilgi çubuğu"
+
+msgid "Audio"
+msgstr "Ses"
+
+msgid "Audio channel"
+msgstr "Ses Kanalı"
+
+msgid "No audio channel"
+msgstr "Ses kanalı yok"
+
+msgid "Subtitle"
+msgstr "Altyazı"
+
+msgid "Subtitle off"
+msgstr "Altyazı kapalı"
+
+msgid "No subtitle"
+msgstr "Altyazı yok"
+
+msgid "Unsupported subtitle"
+msgstr "Desteklenmeyen altyazı"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Lütfen çalmaya devam etmek için [OK] veya videoyu tekrar oynatmak için [İptal] tuşuna basın"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Seçilen dosyayı yürütemiyor. Desteklenen dosya biçimleri için lütfen kullanıcı kılavuzuna bakın."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Oynatmaya çalıştığınız video dosyası, desteklenmeyen çoklu ses kanal çıkışlarına sahiptir. Lütfen dijital ses çıkışına geçin ve HD Media Player'ınızı ses codec'ini destekleyen bir AV alıcısına bağlayın."
+
+msgid "No chapter"
+msgstr "Bölüm yok"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Bu video menüsü oynatılamıyor. Video dosyasını oynatmak ister misiniz?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Oynatmaya devam etmek mi yoksa baştan başlatmak mı istersiniz?"
+
+msgid "Next Song:"
+msgstr "Sıradaki Şarkı:"
+
+msgid "Current Song"
+msgstr "Çalan Şarkı"
+
+msgid "File Type"
+msgstr "Dosya Tipi"
+
+msgid "Duration:"
+msgstr "Süre:"
+
+msgid "File Size"
+msgstr "Dosya Boyutu"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Kiralanan bu DivX Y görüntülemeden X tanesini kullanmış, videoyu izlemeye devam etmek istiyor musunuz?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Cihazınız bu DivX korumalı videoyu yürütmek için yetkilendirilmemiş."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Kiralanan bu DivX Y görüntülemeden Y tanesini kullanmış. Bu DivX kiralama sona ermiş."
+
+msgid "Unsupported DivX DRM version."
+msgstr "Desteklenmeyen DivX DRM sürümü."
+
+msgid "Video resolution is not supported."
+msgstr "Video çözünürlüğü desteklenmiyor."
+
+msgid "Video frame rate is not supported."
+msgstr "Video görüntü hızı desteklenmiyor."
+
+msgid "Audio format is not supported."
+msgstr "Ses biçimi desteklenmiyor."
+
+msgid "Audio/Video"
+msgstr "Ses/Video"
+
+msgid "Playback"
+msgstr "Yürüt"
+
+msgid "System"
+msgstr "Sistem"
+
+msgid "Network"
+msgstr "Ağ"
+
+msgid "Shut down"
+msgstr "Kapat"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Cihazın ses ve video çıkış ayarlarını yapılşandırın"
+
+msgid "Configure playback settings"
+msgstr "Yürütme ayarlarını yapılandırın"
+
+msgid "Configure basic settings of system"
+msgstr "Sistemin temel ayarlarını yapılandırın"
+
+msgid "Configure network settings"
+msgstr "Ağ ayarlarını yapılandırın"
+
+msgid "Video output"
+msgstr "Video çıkışı"
+
+msgid "Configure video output of system"
+msgstr "Sistemin video çıkışını yapılandırın"
+
+msgid "Composite"
+msgstr "Kompozit"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "NTSC veya PAL sinyalini yapılandırın"
+
+msgid "Component"
+msgstr "Komponent"
+
+msgid "Configure display resolution of Component"
+msgstr "Komponent ekran çözünürlüğünü yapılandırın"
+
+msgid "Color space"
+msgstr "Renk uzayı"
+
+msgid "Configure color space of Component"
+msgstr "Kompanent renk uzayını yapılandırın"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "HDMI ekran çözünürlüğünü yapılandırın"
+
+msgid "Configure color space of HDMI"
+msgstr "HDMI renk uzayını yapılandırın"
+
+msgid "RGB High"
+msgstr "RGB Yüksek"
+
+msgid "RGB Low"
+msgstr "RGB Düşük"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Görüntü çözünürlüğü"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Görüntü oranı"
+
+msgid "Configure screen format of system"
+msgstr "Sistemin ekran formatını yapılandırın"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Ses çıkışı"
+
+msgid "Configure audio output channel of system"
+msgstr "Sistemin ses çıkış kanalını yapılandırın"
+
+msgid "Stereo"
+msgstr "Stereo"
+
+msgid "Digital"
+msgstr "Dijital"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Video çözünürlüğünü değiştirmek istediğinizden emin misiniz?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Video çıkış formatını değiştirmek istediğinizden emin misiniz?"
+
+msgid "Subtitle mode"
+msgstr "Alt yazı modu"
+
+msgid "Turn on/off subtitle"
+msgstr "Alt yazı açık/kapalı"
+
+msgid "Subtitle font size"
+msgstr "Altyazı boyutu"
+
+msgid "Select subtitle font size"
+msgstr "Alt yazı yazı tipi boyutunu seçin"
+
+msgid "Subtitle type"
+msgstr "Alt yazı tipi"
+
+msgid "Select the additional encoding"
+msgstr "İlave kodlama seçin"
+
+msgid "Western Europe (ISO)"
+msgstr "Batı Avrupa (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Orta Avrupa (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Orta Avrupa (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Geleneksel Çince (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Basitleştirilmiş Çince (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Japonca (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Korece (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kiril (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kiril (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Yunanca (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Yunanca (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Arapça (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Ses izi göster"
+
+msgid "Set the display mode while music playing"
+msgstr "Müzik çalarken ekran modunu ayarlayın"
+
+msgid "File name"
+msgstr "Dosya adı"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Photo scaling"
+msgstr "Fotoğraf ölçeklendirme"
+
+msgid "Configure the photo scaling mode"
+msgstr "Fotoğraf ölçekleme modunu ayarlayın"
+
+msgid "Keep as original"
+msgstr "Orijinalini koru"
+
+msgid "Fit to screen"
+msgstr "Ekrana sığdır"
+
+msgid "Display in full screen"
+msgstr "Tam ekran göster"
+
+msgid "Transition effect"
+msgstr "Geçiş efekti"
+
+msgid "Select the transition effect"
+msgstr "Geçiş efektini ayarlayın"
+
+
+
+
+msgid "Fade"
+msgstr "Azalma"
+
+msgid "Wipe"
+msgstr "Sil"
+
+msgid "Zoom"
+msgstr "Yakınlaştır"
+
+msgid "Push"
+msgstr "İt"
+
+msgid "Replace"
+msgstr "Değiştir"
+
+msgid "Checker board"
+msgstr "Dama tahtası"
+
+msgid "Random"
+msgstr "Rastgele"
+
+msgid "Slideshow Interval"
+msgstr "Slayt Gösterisi Aralığı"
+
+msgid "Configure the interval of slideshow"
+msgstr "Slayt gösterisi aralığını yapılandırın"
+
+msgid "second"
+msgstr "saniye"
+
+msgid "seconds"
+msgstr "saniyeler"
+
+msgid "3 Seconds"
+msgstr "3 Saniye"
+
+msgid "5 Seconds"
+msgstr "5 Saniye"
+
+msgid "10 Seconds"
+msgstr "10 Saniye"
+
+msgid "20 Seconds"
+msgstr "20 Saniye"
+
+msgid "30 Seconds"
+msgstr "30 Saniye"
+
+msgid "minute"
+msgstr "dakika"
+
+msgid "minutes"
+msgstr "dakikalar"
+
+msgid "1 Minute"
+msgstr "1 Dakika"
+
+msgid "5 Minutes"
+msgstr "5 Dakika"
+
+msgid "Browser display"
+msgstr "Tarayıcı ekranı"
+
+msgid "Set the display mode of media browser"
+msgstr "Medya tarayıcı ekranını ayarlayın"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "DivX DRM VOD Ayarlarını yapılandırın"
+
+msgid "Register"
+msgstr "Kaydet"
+
+msgid "Deregister"
+msgstr "Kaydı sil"
+
+msgid "Activation"
+msgstr "Aktivasyon"
+
+msgid "Deactivation"
+msgstr "Deaktivasyon"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Cihazınız zaten kayıtlı. Kaydını silmek istediğinizden emin misiniz?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "DivX korumalı videoları yürütmek için cihazınızı kaydetmelisiniz."
+
+msgid "Registration code:"
+msgstr "Kayıt kodu:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Kayıt için http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Kayıt silme kodu:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Kayıt silme için http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Kayıt silmeye devam edilsin mi?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Medya sunucuyu aç/kapat"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Paylaşılan klasörü aç/kapat"
+
+msgid "Workgroup name"
+msgstr "Çalışma grubu adı"
+
+msgid "Device name"
+msgstr "Cihaz adı"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Otomatik oturum aç"
+
+msgid "Turn on/off auto-login"
+msgstr "Otomatik girişi aç/kapat"
+
+msgid "Clear account information"
+msgstr "Hesap bilgisini temizle"
+
+msgid "Delete the preset password?"
+msgstr "Ayarlı şifreyi sil?"
+
+msgid "Manual SSID"
+msgstr "Manuel SSID"
+
+msgid "Connection setup"
+msgstr "Bağlantı kurulumu"
+
+msgid "Wire"
+msgstr "Kablo"
+
+msgid "Wireless"
+msgstr "Kablosuz"
+
+msgid "Network setup"
+msgstr "Ağ kurulumu"
+
+msgid "Wireless setup"
+msgstr "Kablosuz kurulum"
+
+msgid "Does not contain"
+msgstr "İçermez"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Ürün adı \\ / : * ? â?? ; | karakterlerini ve boş karakterleri içeremez. Ad 15 karakterden uzun olamaz."
+
+msgid "The device name can not contain any of following "
+msgstr "Cihaz adı aşağıdaki karakterlerden birini "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "ve boşluk içeremez. Cihaz adı 15 karakterden uzun olamaz."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 geçerli bir giriş değildir, sadece 1'de 223'e kadar olan numaralara izin verilir. Lütfen IP adresinizi kontrol edin ve tekrar girin."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Sadece 0'dan 225'e kadar olan numaralara izin verilir. Lütfen IP adresinizi kontrol edin ve tekrar girin."
+
+msgid "Cannot find access point."
+msgstr "Erişim noktasını bulamıyor."
+
+msgid "The AP is not exist. Please check again."
+msgstr "AP mevcut değil. Lütfen tekrar kontrol edin."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Geçersiz şifreleme anahtarı. Lütfen tekrar deneyin."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "BitTorrent aç/kapat"
+
+msgid "Connection mode"
+msgstr "Baplantı modu"
+
+msgid "Connection type"
+msgstr "Bağlantı tipi"
+
+msgid "WPS setup"
+msgstr "WPS kurulum"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "'Bağlan' düğmesine basmadan önce AP içindeki 'WPS' düğmesine basın."
+
+msgid "Auto search"
+msgstr "Otomatik ara"
+
+msgid "Site survey"
+msgstr "Site araştırması"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Kablosuz Erişim Noktaları Algılanıyor"
+
+msgid "MAC address"
+msgstr "MAC adresi"
+
+msgid "Please waiting..."
+msgstr "Lütfen bekleyin..."
+
+msgid "Connect Successfully!"
+msgstr "Bağlantı Başarılı!"
+
+msgid "Do you want replace this profile?"
+msgstr "Bu profili değiştirmek istiyor musunuz?"
+
+msgid "Network is disconnected."
+msgstr "Ağ bağlantısı kesildi."
+
+msgid "Can not detect wireless module."
+msgstr "Kablosuz modülü algılayamıyor."
+
+msgid "The profile space is full!"
+msgstr "Profil alanı dolu!"
+
+msgid "Access point detecting..."
+msgstr "Erişim noktası algılanıyor..."
+
+msgid "The network encryption key is not valid."
+msgstr "Ağ şifreleme anahtarı geçerli değil."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID boş olmamalı!"
+
+msgid "No security"
+msgstr "Güvenlik yok"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Kurulum Tamamlandı. Bu ağ bağlantısını kaydetmek istiyor musunuz?"
+
+msgid "The SSID is empty."
+msgstr "SSID boş."
+
+msgid "Can not set this profile to favorite."
+msgstr "Bu profil sık kullanılanlara kaydedilemiyor."
+
+msgid "Access point can not be found"
+msgstr "Erişim noktası bulunamıyor"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Erişim noktası bulunamıyor"
+
+msgid "Please enter your encryption key"
+msgstr "Lütfen şifreleme anahtarınızı girin"
+
+msgid "The device could not connect to the network."
+msgstr "Cihaz ağa bağlanamıyor."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Sunucu bağlantısı kesildi. Lütfen ağ yapılandırmanızı kontrol edin."
+
+msgid "Wireless favorites"
+msgstr "Kablosuz sık kullanılanlar"
+
+msgid "Connect now"
+msgstr "Şimdi bağlan"
+
+msgid "Favorite"
+msgstr "Sık kullanılan"
+
+
+msgid "Encryption key"
+msgstr "Şifreleme Anahtarı"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Lisan"
+
+msgid "Select a display language"
+msgstr "Bir ekran dili seçin"
+
+msgid "English"
+msgstr "İngilizce"
+
+msgid "French"
+msgstr "Fransızca"
+
+msgid "German"
+msgstr "Almanca"
+
+msgid "Italian"
+msgstr "İtalyanca"
+
+msgid "Spanish"
+msgstr "İspanyolca"
+
+msgid "Portuguese"
+msgstr "Portekizce"
+
+msgid "Dutch"
+msgstr "Hollandaca"
+
+msgid "Greek"
+msgstr "Yunanca"
+
+msgid "Polish"
+msgstr "Lehçe"
+
+msgid "Russian"
+msgstr "Rusça"
+
+msgid "Swedish"
+msgstr "İsveççe"
+
+msgid "Japanese"
+msgstr "Japonca"
+
+msgid "Simplified Chinese"
+msgstr "Basitleştirilmiş Çince"
+
+msgid "Traditional Chinese"
+msgstr "Geleneksel Çince"
+
+msgid "Korean"
+msgstr "Korece"
+
+msgid "Finnish"
+msgstr "Fince"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Brezilya Portekizcesi"
+
+msgid "Hebrew"
+msgstr "İbranice"
+
+msgid "Arabic"
+msgstr "Arapça"
+
+msgid "Czech"
+msgstr "Çekçe"
+
+msgid "Turkish"
+msgstr "Türkçe"
+
+msgid "Danish"
+msgstr "Danca"
+
+msgid "Norwegian"
+msgstr "Norveçce"
+
+msgid "Media library"
+msgstr "Ortam Kitaplığı"
+
+msgid "Turn on/off media library"
+msgstr "Ortam kitaplığını aç/kapat"
+
+msgid "Screensaver delay"
+msgstr "Ekran koruyucu gecikmesi"
+
+msgid "Configure screensaver delay time"
+msgstr "Ekran koruyucu gecikme süresini yapılandırın"
+
+msgid "Never"
+msgstr "Hiç"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 Dakika"
+
+msgid "15 Minutes"
+msgstr "15 Dakika"
+
+msgid "Quick start mode"
+msgstr "Hızlı başlangıç modu"
+
+msgid "System reset"
+msgstr "Sistem reset"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Bu cihazı fabrika ayarlarına döndürmek istediğinizden emin misiniz?"
+
+msgid "About"
+msgstr "Hakkın"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "HD Media Player'ınızla ilgili daha fazla bilgi için lütfen kullanım kılavuzuna bakın veya şu adresi ziyaret edin:"
+
+msgid "Restart"
+msgstr "Tekrar başlat"
+
+msgid "Rebooting"
+msgstr "Yeniden başlatılıyor"
+
+msgid "Update device"
+msgstr "Cihazı güncelle"
+
+msgid "New firmware"
+msgstr "Yeni firmware"
+
+msgid "New firmware found"
+msgstr "Yeni firmware bulundu"
+
+msgid "version"
+msgstr "sürüm"
+
+msgid "Firmware Version"
+msgstr "Firmware Sürümü"
+
+msgid "Current version"
+msgstr "Mevcut sürüm"
+
+msgid "New version"
+msgstr "Yeni sürüm"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Yeni firmware bulundu. Güncellemek istiyor musunuz?"
+
+msgid "Invalid firmware"
+msgstr "Geçersiz firmware"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "En yeni firmware kontrolünü yapın ve cihazı yükseltin."
+
+msgid "Checking for recent updates"
+msgstr "Son güncellemeler kontrol ediliyor"
+
+msgid "Searching for updates..."
+msgstr "Güncellemeleri kontrol ediyor..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Cihaz güncellemeleri indiremiyor, lütfen ağ bağlantınızı kontrol edin."
+
+msgid "Your device is up to date."
+msgstr "Cihaz güncel."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Medya Oynatıcınız yükseltiliyor. Lütfen güç kablosunu veya bağlı depolama birimini ÇIKARTMAYTIN."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Güncelleme tamamlandı. Media player şimdi tekrar başlatılacak."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Medya Oynatıcınızı kurtarmak için firmware yüklü bir USB sürücü takın."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Firmware yükseltme başarısız. Cihaz yeniden başlatılacak."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Firmware yükseltme başarısız. Lütfen ağ bağlantınızı kontrol ederek tekrar deneyin."
+
+msgid "OK"
+msgstr "Tamam"
+
+
+
+
+
+
+msgid "On"
+msgstr "Açık"
+
+msgid "Off"
+msgstr "Kapalı"
+
+msgid "Auto"
+msgstr "Otomatik"
+
+msgid "Manual"
+msgstr "Manuel"
+
+msgid "Search"
+msgstr "Arama"
+
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Retry"
+msgstr "Tekrar dene"
+
+msgid "Copy"
+msgstr "Kopyala"
+
+msgid "Go Back"
+msgstr "Geri Git"
+
+msgid "Help"
+msgstr "Yardım"
+
+msgid "Exit"
+msgstr "Çıkış"
+
+msgid "Unknown"
+msgstr "Bilinmiyor"
+
+
+msgid "Play"
+msgstr "Yürüt"
+
+msgid "Pause"
+msgstr "Duraklat"
+
+msgid "Stop"
+msgstr "Durdur"
+
+msgid "Eject"
+msgstr "Çıkart"
+
+msgid "Empty"
+msgstr "Boş"
+
+msgid "Standby mode"
+msgstr "Bekleme modu"
+
+msgid "Loading data"
+msgstr "Veri yüklüyor"
+
+msgid "All"
+msgstr "Tümü"
+
+msgid "Contains"
+msgstr "İçerik"
+
+msgid "Starts with"
+msgstr "Şununla başlar"
+
+msgid "Unsupported"
+msgstr "Desteklenmeyen"
+
+msgid "Space"
+msgstr "Alan"
+
+msgid "Equal to"
+msgstr "Eşittir"
+
+msgid "Not Equal to"
+msgstr "Eşit değildir"
+
+msgid "Untitled volume"
+msgstr "Adsız birim"
+
+msgid "Additional encoding support"
+msgstr "Ek kodlama desteği"
+
+msgid "Subtitle default"
+msgstr "Varsayılan altyazı"
+
+msgid "Subtitle border"
+msgstr "Altyazı kenarlığı"
+
+msgid "Thick"
+msgstr "Kalın"
+
+msgid "Thin"
+msgstr "İnce"
+
+msgid "Account"
+msgstr "Hesap"
+
+msgid "anonymous"
+msgstr "anonim"
+
+msgid "Connecting"
+msgstr "Bağlanıyor"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Lütfen çıkartmak istediğiniz cihazı seçin."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Bu cihazı çıkartmak istediğinizden emin misiniz?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Uyarı: USB depolama aygıtını çıkartmadan önce güvenle ladırmalısınız."
+
+msgid "The device is busy. Please try later."
+msgstr "Cihaz meşgul. Lütfen sonra tekrar deneyin."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Depolama üniteniz kaldırılırken lütfen bekleyin."
+
+msgid "No storage present"
+msgstr "Kayıt alanı mevcut değil"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "Ortam kitaplığının derlenmesi için daha fazla kayıt alanı gerekir:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Eklenmiş kayıt alanı taranıyor. İlk kez taranıyorsa işlem daha uzun sürebilir. Lütfen bekleyin..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "USB portuna takılı cihaz tanınamadı"
+
+msgid "Storage can not aggregate"
+msgstr "Hafıza bütünleştirilemedi"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "Medya kitaplığı günlüklü dosya sistemini desteklemiyor. Yürütme hala destekleniyor."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Salt okunur hafızada ortam kiptalığı oluşturulamıyor."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Ortam kitaplığı oluşturulamadı. Lütfen hafıza ayarlarınızı kontrol edin."
+
+msgid "Unrecognized USB device"
+msgstr "Tanınamayan USB cihazı"
+
+msgid "Scanning the attached USB device..."
+msgstr "Takılan USB cihazı taranıyor..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "Surround sesli bir müzik parçasını çalabilmek için dijital ses çıkış ayarından uygun ses formatını destekleyen bir AV alıcı seçilmelidir."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "Lütfen AC güç kaynağı ya da depolama diskini ÇIKARTMAYIN."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "HD Medya Oynatıcınız yükseltiliyor.Lütfen cihazı KAPATMAYIN, güç kaynağını veya takılı depolama ünitelerini ÇIKARTMAYIN."
+
+msgid "Upgrade complete!"
+msgstr "Yükseltme tamamlandı!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "Güncellemeler başarıyla kuruldu. Cihaz şimdi yeniden başlatılıyor..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "USB porta takılan cihaz tanınmadı."
+
+msgid "Device is shutting down..."
+msgstr "Cihaz kapanıyor..."
+
+msgid "Local device is disconnected."
+msgstr "Lokal cihazın bağlantısı kesildi."
+
+msgid "Do you really want to restart device?"
+msgstr "Cihazı tekrar başlatmayı gerçekten istiyor musunuz?"
+
+msgid "Action cancelled"
+msgstr "Eylem iptal edildi"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "Önemli bir hata oluştu. Cihaz yeniden başlatılacak."
+
+msgid "To restart device, press the power button of your remote."
+msgstr "Cihazı yeniden başlatmak için, uzaktan kumandadaki güç düğmesine basın."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Arama tamamlandı. Sonuç bulunamadı."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Çoklu dil girişi için [Seçenek] tuşuna basın"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Flickr'ı keşfedin"
+
+msgid "My recent"
+msgstr "Son kullandıklarım"
+
+msgid "Last 7 days interesting"
+msgstr "Son 7 gün ilgilenilenler"
+
+msgid "Most recent uploads"
+msgstr "En son yüklenenler"
+
+msgid "Hot tags"
+msgstr "Popüler etiketler"
+
+msgid "Contacts"
+msgstr "Kİşiler"
+
+msgid "Photostream"
+msgstr "Fotoğraf akışı"
+
+msgid "Tags"
+msgstr "Etiketler"
+
+msgid "Delete one"
+msgstr "Birini sil"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Anahtar kelime"
+
+msgid "Flickr members"
+msgstr "Flickr üyeleri"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Bu öğeyi silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Tüm öğeleri silmek istediğinizden emin misiniz?"
+
+msgid "This member has been added to your contact list."
+msgstr "Bu üye kişi listenize eklendi."
+
+msgid "This member has been add to your contact list."
+msgstr "Bu üye kişi listenize eklendi."
+
+msgid "Could not find any tag list."
+msgstr "Etiket listesi bulamıyor."
+
+msgid "Could not find any contact list."
+msgstr "Kişi listesi bulamıyor."
+
+msgid "There is no friend available."
+msgstr "Mevcut arkadaşınız yok."
+
+msgid "A friend cannot be found."
+msgstr "Bir arkadaş bulunamıyor."
+
+msgid "There is no content available."
+msgstr "Mevcut içerik yok."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Arama tamamlandı. Sonuç bulunamadı."
+
+msgid "Now playing:"
+msgstr "Şimdi Yürütülüyor"
+
+msgid "Last station:"
+msgstr "Son istasyon:"
+
+msgid "My presets"
+msgstr "Ayarlılarım"
+
+msgid "Stations"
+msgstr "İstasyonlar"
+
+msgid "Preferences"
+msgstr "Tercihler"
+
+msgid "Sign in / Sign out"
+msgstr "Oturum aç / Oturum kapat"
+
+msgid "About Live365"
+msgstr "Live365 Hakkında"
+
+msgid "Remove station"
+msgstr "İstasyonu kaldır"
+
+msgid "Add to my presets"
+msgstr "Ayarlılarıma ekle"
+
+msgid "Free stations"
+msgstr "Ücretsiz istasyonlar"
+
+msgid "VIP stations"
+msgstr "VIP istasyonlar"
+
+msgid "Recommendations"
+msgstr "Öneriler"
+
+msgid "Thumbs up"
+msgstr "Parmaklar yukarı"
+
+msgid "Thumbs down"
+msgstr "Parmaklar aşağı"
+
+
+
+
+msgid "Email track"
+msgstr "Eposta izi"
+
+msgid "Audio quality"
+msgstr "Ses kalitesi"
+
+msgid "Sort"
+msgstr "Sırala"
+
+msgid "All stations"
+msgstr "Tüm istasyonlar"
+
+msgid "Only high"
+msgstr "Sadece yüksek"
+
+msgid "Medium to high"
+msgstr "Ortadan yükseğe"
+
+msgid "Low to medium"
+msgstr "Düşükten ortaya"
+
+msgid "Only low"
+msgstr "Sadece düşük"
+
+msgid "Sort stations alphabetically"
+msgstr "İstasyonları alfabetik olarak sırala"
+
+msgid "Sort stations by popularity"
+msgstr "İstasyonları popülerliğe göre sırala"
+
+msgid "Sign in"
+msgstr "Oturum aç"
+
+msgid "Don't have an account?"
+msgstr "Hesabınız yok mu?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Geçersiz kullanıcı adı ve şifre, lütfen tekrar deneyin."
+
+msgid "Save the account information?"
+msgstr "Hesap bilgisini kaydet?"
+
+msgid "Save username only"
+msgstr "Sadece kullanıcı adını kaydet"
+
+msgid "Are you sure to sign out?"
+msgstr "Oturumu kapatmak istediğinizden emin misiniz?"
+
+msgid "The station is removed from your presets."
+msgstr "İstasyon kayıtlı istasyonlardan çıkartıldı."
+
+msgid "The station is added to your presets."
+msgstr "İstasyon kayıtlı istasyonlara eklendi."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Bu özelliği kullanmak için oturum açmalısınız. Şimdi oturum açılsın mı?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Bu izi derecelendirdiğinzi için teşekkür ederiz. Beğendiğinize sevindik."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Bu izi derecelendirdiğinzi için teşekkür ederiz. Üzgünüz size uygun değil."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "İz bilgisi gönderildi. Lütfen epostanızı kontrol edin."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Eğer Live365 hesabınız yoksa, http://www.live365.com adresini ziyaret ederek üyeliğinizi başlatın veya VIP üye olun."
+
+
+msgid "Video"
+msgstr "Video"
+
+
+
+
+msgid "Preference"
+msgstr "Tercih"
+
+msgid "Most favorites"
+msgstr "En sık kullanılan"
+
+msgid "Most viewed"
+msgstr "En çok izlenen"
+
+msgid "Most popular"
+msgstr "En popüler"
+
+msgid "Top rated"
+msgstr "En beğenilen"
+
+msgid "Most recent"
+msgstr "En yeni"
+
+msgid "My videos"
+msgstr "Videolarım"
+
+msgid "Favorites"
+msgstr "Sık kullanılanlar"
+
+
+
+
+msgid "Today"
+msgstr "Bugün"
+
+msgid "This week"
+msgstr "Bu hafta"
+
+msgid "This month"
+msgstr "Bu ay"
+
+msgid "All time"
+msgstr "Her zaman"
+
+msgid "Rate video"
+msgstr "Videoyu derecelendir"
+
+msgid "Related"
+msgstr "İlgili"
+
+msgid "Full screen"
+msgstr "Tam ekran"
+
+msgid "Info"
+msgstr "Bilgi"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Oturumu kapat"
+
+msgid "Delete account"
+msgstr "Hesabı sil"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Current location"
+msgstr "Geçerli konum"
+
+msgid "Worldwide"
+msgstr "Dünya çapında"
+
+msgid "Germany"
+msgstr "Almanya"
+
+msgid "France"
+msgstr "Fransa"
+
+msgid "Spain"
+msgstr "İspanya"
+
+msgid "Italy"
+msgstr "İtalya"
+
+msgid "Taiwan"
+msgstr "Tayvan"
+
+msgid "South Korea"
+msgstr "Güney Kore"
+
+
+
+msgid "Russia"
+msgstr "Rusya"
+
+msgid "Video playback quality"
+msgstr "Video yürütme kalitesi"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Bu video şu anda kullanılamıyor."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Derecelendirme için teşekkür ederiz."
+
+msgid "The video has been added to your favorites."
+msgstr "Video sık kullanılanlarınıza eklendi."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Hesabı silmek istediğinizden emin misiniz?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Tüm hesapları silmek istediğinizden emin misiniz?"
+
+msgid "Login fail."
+msgstr "Oturum açılamadı."
+
+
+
+
+msgid "No content available."
+msgstr "Kullanılabilir içerik yok."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Medya eklentisi ekle/kaldır."
+
+msgid "Manage users"
+msgstr "Kullanıcıları yönet"
+
+msgid "All (Mix)"
+msgstr "Tümü (Karışık)"
+
+msgid "Business & Finance"
+msgstr "İş ve Fİnans"
+
+msgid "Cars"
+msgstr "Arabalar"
+
+msgid "Comedy"
+msgstr "Komedi"
+
+msgid "Cocking $ drinks"
+msgstr "Yemek ve içki"
+
+msgid "Education"
+msgstr "Eğitim"
+
+msgid "Fashion & luxury"
+msgstr "Mode ve Lüks"
+
+msgid "Health & fitness"
+msgstr "Sağlık ve fitness"
+
+msgid "Kids & cartoons"
+msgstr "Çocuklar ve çizgi film"
+
+msgid "Learn a languages"
+msgstr "Dil öğrenin"
+
+
+
+
+msgid "News & politics"
+msgstr "Haberler ve politika"
+
+msgid "Parenting"
+msgstr "Ebveynlik"
+
+msgid "Relationships"
+msgstr "İlişkiler"
+
+msgid "Science & nature"
+msgstr "Bilim ve doğa"
+
+msgid "Showbiz news"
+msgstr "Gösteri dünyası haberleri"
+
+msgid "Society & culture"
+msgstr "Toplum ve kültür"
+
+msgid "Sports"
+msgstr "Spor"
+
+msgid "Technology"
+msgstr "Teknoloji"
+
+msgid "Travel"
+msgstr "Seyahat"
+
+msgid "Video games"
+msgstr "Video oyunlar"
+
+msgid "General"
+msgstr "Genel"
+
+msgid "Dashboard"
+msgstr "Gösterge panosu"
+
+msgid "Now playing"
+msgstr "Şimdi Yürütülüyor"
+
+msgid "Both"
+msgstr "Her ikisi"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Kanallarıma ekle"
+
+msgid "Remove from my channels"
+msgstr "Kanallarımdan çıkart"
+
+msgid "Rate/Favorite"
+msgstr "Derece/Sık kullanılan"
+
+msgid "Episodes"
+msgstr "Bölümler"
+
+
+
+msgid "My rating"
+msgstr "Verdiğim derece"
+
+msgid "My favorite"
+msgstr "Sık kullanılanım"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Gösterge panosuna medya eklentisi ekle"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Medya eklentilerini manuel olarak ekle (mCode ile)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Gösterge panosundan eklenti kaldır"
+
+msgid "Shows + Episodes"
+msgstr "Şovlar + Bölümler"
+
+msgid "Shows"
+msgstr "Şovlar"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Bağlantı"
+
+msgid "Login"
+msgstr "Oturum aç"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "Kişiselleştirilmiş kanallarınızı ayarlamak için oynatıcınız Mediafly hesabı ile ilişkilendirilmelidir."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Mediafly hesapları tamamen ücretsizdir ve en sık kullandığınız ücretsiz çevrimiçi içeriğinizin merkezi şekilde kontrol ve yönetimini sağlar."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Seçenek 1: Bilgisayarınızdaki web tarayıcısını açın ve:"
+
+msgid "and enter this association code:"
+msgstr "adresine giderek bu ilişkilendirme kodunu girin:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Seçenek 2: Mediafly kullanıcı adınız ve şifrenizle oturum açın."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Tüm Videolar"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Zaman aralığı"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Geniş ekran"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 Dakika"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 Dakika"
+
+msgid "30 Minutes"
+msgstr "30 Dakika"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Iomega HD Media Player"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Güncellemek istiyor musunuz?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Oynatmaya çalıştığınız video dosyası, desteklenmeyen çoklu ses kanal çıkışlarına sahiptir. Lütfen dijital ses çıkışına geçin ve HD Media Player'ınızı ses codec'ini destekleyen bir AV alıcısına bağlayın."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Ses Kanalı"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Firmware güncelleme"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Video dizini"
+
+msgid "Music sequence"
+msgstr "Müzik dizini"
+
+msgid "Slideshow sequence"
+msgstr "Slayt gösterisi dizini"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Sağa sil"
+
+msgid "Wipe left"
+msgstr "Sola sil"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "HD Media Player'ınız güncelleniyor. Lütfen takılı hafızanın bağlantısını SÖKMEYİN."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Ürün adı \\ / : * ? â?? ; | karakterlerini ve boş karakterleri içeremez. Ad 15 karakterden uzun olamaz."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Batı Avrupa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Cihazınızı ev ağınız için başarıyla kurdunuz."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "HDD"
+msgstr "HDD"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Kapat"
+
+msgid "HDMI settings"
+msgstr "HDMI ayarları"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Distorsiyon ile ölçekle"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Ürün adı \\ / : * ? ¡§ ; | karakterleri ile birlikte boşluk karakterini içeremez. Bu ad 15 karakterden uzun olamaz."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "İçerik kümesi"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Kişilerim"
+
+msgid "My tags"
+msgstr "Etiketlerim"
+
+msgid "Owner profile"
+msgstr "Sahip profili"
+
+msgid "Play mode"
+msgstr "Yürütme modu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Sıralama"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "ON"
+msgstr "Açık"
+
+msgid "OFF"
+msgstr "Kapalı"
+
+msgid "NEXT"
+msgstr "İleri"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Klasör"
+
+msgid "Album browser"
+msgstr "Albüm gözatıcı"
+
+msgid "Add photo to album"
+msgstr "Albüme fotoğraf ekle"
+
+msgid "Select | Unselect item(s)"
+msgstr "Öğeleri Seç  | Seçimi kaldır"
+
+msgid "Select album"
+msgstr "Albüm seç"
+
+msgid "Processing"
+msgstr "İşliyor"
+
+msgid "Select all"
+msgstr "Tümünü seç"
+
+msgid "Unselect all"
+msgstr "Tümünden seçimi kaldır"
+
+msgid "Album name"
+msgstr "Albüm adı"
+
+msgid "Completed"
+msgstr "Tamamlandı"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Albüme xxxx fotoğraf eklemek istiyor musunuz?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Dosyaları eklemeyi durdurmak istediğinizden emin misiniz?"
+
+msgid "Selected album has deleted."
+msgstr "Seçilen albüm silindi."
+
+msgid "Selected photo has been removed from the album."
+msgstr "Seçilen fotoğraf albümden çıkartıldı."
+
+msgid "The album has been renamed."
+msgstr "Albüm yeniden adlandırıldı."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Seçilen fotoğrafları albümden çıkartmak istediğinize emin misiniz?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Seçilen albümü silmek istediğinizden emin misiniz?\nFotoğraflar saklama alanından silinmeyecektir."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Bu isimde bir albüm var. Lütfen başka bir isim deneyin."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Albümü yeniden adlandırmak istediğinize emin misiniz?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Yazarken hata. Lütfen lokal kayıt yerini kontrol edin. Dolu veya salt okunur olabilir."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Kaynak dosya okunurken hata, lütfen lokal kayıt yerini kontrol edin."
+
+msgid "File management"
+msgstr "Dosya yönetimi"
+
+
+
+msgid "Select source"
+msgstr "Kaynak seçin"
+
+msgid "File(s)"
+msgstr "Dosya(lar)"
+
+msgid "Folder(s)"
+msgstr "Klasör(ler)"
+
+msgid "Yes to all"
+msgstr "Tümüne evet"
+
+msgid "No to all"
+msgstr "Tümüne hayır"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Öğeleri kopyala, taşı veya sil"
+
+msgid "Remove photo"
+msgstr "Fotoğrafı çıkart"
+
+msgid "Rename or delete album"
+msgstr "Albümü yeniden adlandır veya sil"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Kayıt yeri bulunamadı Lütfen kayıt yerini takın ve tekrar deneyin."
+
+msgid "Would you like to overwrite it?"
+msgstr "Üzerine yazmak ister misiniz?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Seçilen dosyaları kopyalamak istiyor musunuz?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Seçilen dosyaları taşımak istiyor musunuz?"
+
+
+
+msgid "Chapter"
+msgstr "Bölüm"
+
+msgid "Title and Edition"
+msgstr "Başlık ve Sürüm"
+
+msgid "Menu"
+msgstr "Menü"
+
+msgid "Operation not supported"
+msgstr "İşlem desteklenmiyor"
+
+msgid "File Date"
+msgstr "Dosya Tarihi"
+
+msgid "Resolution"
+msgstr "Çözünürlük"
+
+msgid "Turkish (Windows-1254)"
+msgstr "Türkçe (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "İbranice (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Gönder"
+
+msgid "Check network status"
+msgstr "Ağ durumunu kontrol et"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Anahtar tipi hatası!\n Eğer anahtar tipiniz hex ise, lütfen anahtar değerinin A~F, 0~9 olduğundan emin olun."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Anahtar uzunluğu hatası!\n Eğer anahtar tipi ASCII ise uzunluk 5, 13 veya 16 olmalıdır.\nEğer anahtar tipiniz Hex ise uzunluk 10, 26 veya 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Anahtar uzunluk hatası!\n WPAPSK uzunluğu 8~64 olmalıdır!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Anahtar tip hatası!\n Uzunluğu 64 olan WPAPSK anahtarı hex(A~F, 0~9) olmalıdır."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "IP adresi geçersiz. Lütfen IP adresinizi doğrulayın ve tekrar deneyin."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "E-posta adresi geçersiz. Lütfen e-posta adresinizi doğrulayın ve tekrar deneyin."
+
+msgid "Invalid character(s) in first name."
+msgstr "Ad içinde geçersiz karakter(ler)."
+
+msgid "Invalid character(s) in last name."
+msgstr "Soyad içinde geçersiz karakter(ler)."
+
+
+
+msgid "Hungarian"
+msgstr "Macarca"
+
+msgid "Serial number:"
+msgstr "Seri numarası:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Yeniden başlatmak için, uz<aktan kumanda üzerindeki güç düğmesine basın."
+
+msgid "Creator"
+msgstr "Oluşturan"
+
+msgid "Web browser"
+msgstr "Web tarayıcı"
+
+msgid "Add to contacts"
+msgstr "Kişilere ekle"
+
+msgid "Recently upload"
+msgstr "Son yüklenenler"
+
+msgid "Photo set"
+msgstr "Fotoğraf seti"
+
+msgid "Friends"
+msgstr "Arkadaşlar"
+
+msgid "There is no contact."
+msgstr "Kişi yok."
+
+msgid "There is no tag."
+msgstr "Etiket yok."
+
+msgid "Search Results"
+msgstr "Arama Sonuçları"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Bu istasyonu silmek istediğinize emin misiniz?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Bu istasyonu kayıtlı istasyonlara eklemek istediğinize emin misiniz?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Binlerce ücretsiz Internet radyo istasyonu dinleyin! Live365, Radio Disney, Santana, David Bynne, Pat Metheny, ve Paul Oakenfold gibi yayınlar yanında sizin gibi müzik severlerin oluşturduğu istasyonlara da sahiptir! Rock, Hip-hop, Jazz ve new age gibi popüler türler arasında kolayca gezinin. Veya daha az bilenen gospel, komedi, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic ve yüzlercesi içindeki hazineleri keşfedin."
+
+msgid "Japan"
+msgstr "Japonya"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Bu dosya şu anda kullanılamaz. Lütfen daha sonra tekrar deneyin."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Videoyu derecelendirmek istiyor musunuz? Şimdi kayıt olun!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Sık kullanılanlara eklemek istiyor musunuz? Şimdi kayıt olun!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Tam ekran izlemek için YÜRÜT/DURAKLAT düğmesine basın"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "YouTube’a bağlanamıyor. Bilinmeyen ağ hatası oluştu. Lütfen ağ ayarlarınızı kontrol edin ve tekrar deneyin."
+
+msgid "Poor"
+msgstr "Zayıf"
+
+msgid "Nothing special"
+msgstr "Çok iyi değil"
+
+msgid "Worth watching"
+msgstr "İzlemeye değer"
+
+msgid "Pretty cool"
+msgstr "Oldukça iyi"
+
+msgid "Awesome"
+msgstr "Muhteşem"
+
+msgid "Show info"
+msgstr "Gösteri Bilgisi"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "Cihazın sıcaklığı 60 derecenin üzerinde, sabit disk kapatılacak."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "Cihazın sıcaklığı 65 derecenin üzerinde, cihaz kapatılacak."
+
+msgid "Configure"
+msgstr "Yapılandır"
+
+msgid "Delete album"
+msgstr "Albümü sil"
+
+msgid "Rename album"
+msgstr "Albümü yeniden adlandır"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Çalma listesini sil"
+
+msgid "Rename playlist"
+msgstr "Çalma listesini yeniden adlandır"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Mevcut çalma listesi yok. Yeni çalma listesi oluştur?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Bu çalma listesini silmek istediğinize emin misiniz?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Bu çalma listesinden bu dosyaları silmek istediğinize emin misiniz?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Dosyaları eklemeyi durdurmak istediğinizden emin misiniz?"
+
+msgid "The selected album has been deleted."
+msgstr "Seçilen albüm silindi."
+
+msgid "The selected photo has been removed from album."
+msgstr "Seçilen fotoğraf albümden çıkartıldı."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Uzak dosya okunurken hata oluştu. Lütfen medya sunucusunu veya ağ durumunu kontrol edin."
+
+msgid "The selected music has been deleted."
+msgstr "Seçilen müzik silindi."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "xxxx müziğini albüme eklemek istiyor musunuz?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Müzik eklemeyi durdurmak istediğinize emin misiniz?"
+
+msgid "The playlist has been renamed."
+msgstr "Çalma listesi yeniden adlandırıldı."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Seçilen müzikleri çalma listesinden çıkartmak istediğinize emin misiniz?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Seçilen çalma listesini silmek istediğinizden emin misiniz?\nMüzik saklama alanından silinmeyecektir."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Bu isimde bir çalma listesi var. Lütfen başka bir isim deneyin."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Çalma listesini yeniden adlandırmak istediğinize emin misiniz?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Depolama veya medya sunucu bulunamadı. Lütfen depolamayı yerleştirin veya ağ konfigürasyonunu kontrol edin ve tekrar yenileyin."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "Bu klasörde zaten: adında bir dosya var Üzerine yazmak istiyor musunuz?"
+
+msgid "Process completed."
+msgstr "İşlem tamamlandı."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Klasör adı boşluk veya şu karakterlerden birini içeremez \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Albüm adı boşluk veya şu karakterlerden birini içeremez \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDosya adı xx karakter ile sınırlıdır."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Çalma listesi adı boşluk veya şu karakterlerden birini içeremez \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDosya adı xx karakter ile sınırlıdır."
+
+msgid "Select"
+msgstr "Öğeleri Seç"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "İŞBU ŞARTLAR VE KOŞULLARI KABUL ETMİYORSANIZ, ÜRÜN FİYATININ HEPSİNİN İADE ALMAK İÇİN ÜRÜNÜ İLK SATIN ALDIĞINIZ TARİHTEN İTİBAREN OTUZ (30) GÜN İÇERİSİNDE DERHAL ÜRÜNÜ SATIN ALDIĞINIZ YERE ORİJİNAL PAKETİNDE GETİRMELİSİNİZ."
+
+msgid "MediaflyVideo"
+msgstr "Video"
+
+msgid "Accept"
+msgstr "Kabul"
+
+msgid "Decline"
+msgstr "Düşüş"
+
+msgid "Rename or delete playlist"
+msgstr "Yeniden adlandırmak veya çalma listesini silmek"
+
+msgid "The playlist has been created."
+msgstr "Müzik yaratıldı."
+
+msgid "Select music"
+msgstr "Seçmek müzik"
+
+msgid "Select playlist"
+msgstr "Seçmek müzik"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Eğer parçasını xxx müzik eklemek ister misiniz?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Eğer albüme xxx fotoğraf eklemek ister misiniz?"
+
+msgid "Remove music from playlist"
+msgstr "müzik müzik Kaldır"
+
+msgid "Sort music"
+msgstr "Tür müzik"
+
+msgid "Move up"
+msgstr "Yukarı taşı"
+
+msgid "Move down"
+msgstr "Aşağı taşı"
+
+msgid "Are you sure to change the sort?"
+msgstr "Eğer sıralama değiştirmek istediğinizden emin misiniz?"
+
+msgid "Remove or sort playlist"
+msgstr "Kaldırmak ya da müzik sıralama"
+
+msgid "Remove music"
+msgstr "müzik Kaldır"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Eğer listesine seçilen müzik kaldırmak istediğinizden emin misiniz?"
+
+msgid "Photo album"
+msgstr "Fotoğraf albümü"
+
+msgid "The album has been created."
+msgstr "Albüm oluşturuldu."
+
+msgid "Select photo"
+msgstr "seçmek fotoğraf"
+
+msgid "Add to album"
+msgstr "albüme eklemek"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Video yüklenemiyor.  Desteklenmeyen biçim."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "Tüm eklentileri açık hale getirmek desteklenen biçimlerdeki tüm videoları izleyebilmenizi sağlayacaktır. Tüm video içeriklerinin biçimleri desteklenmemektedir."
+
+msgid "Enable for Favorites"
+msgstr "Sık kullanılanlar için etkinleştir"
+
+msgid "Enable for all websites"
+msgstr "Tüm web siteleri için etkinleştir"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Web tarayıcının performansını geliştirmek amacıyla, Flash eklentisi sadece Sık kullanılanlar listesindeki web siteleri için etkinleştirilmiştir.  Eklentiyi tüm web siteleri için etkinleştirmek amacıyla lütfen Ayarlar menüsünde Ağ seçeneğine gidin. "
+
+
+msgid "Photos"
+msgstr "Fotoğraflar"
+msgid "Ok"
+msgstr "Tamam"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Bookmarks"
+msgstr "Yer işaretleri"
+
+msgid "Add Bookmark"
+msgstr "Yer işareti ekle"
+
+msgid "Edit Bookmark"
+msgstr "Yer işaretini düzenle"
+
+msgid "Clear Bookmarks"
+msgstr "Yer işaretini sil"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Yer işaretlerini silmek istediğinize emin misiniz?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Bu yer işaretini silmek istediğinize emin misiniz?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr " [server-name] sunucusu güvenilir olmayan bir kuruma ait sertifika sundu, yine de devam etmek istiyor musunuz?"
+
+msgid "[url] is not available."
+msgstr "[url] kullanılamaz."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "Üzgünüz, ancak bir sorun var."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr " [url] adresindeki sayfa yüklenemiyor."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Şunları yapmayı deneyebilirsiniz:"
+
+msgid "Reload this web page later."
+msgstr "Bu web sayfasını daha sonra tekrar yüklemek."
+
+msgid "Return to the previous web page."
+msgstr "Önceki web sayfasına geri dönmek"
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Geçmişi temizlemek istediğinize emin misiniz?"
+
+msgid "Clear History"
+msgstr "Geçmişi Temizle"
+
+msgid "History"
+msgstr "Geçmiş"
+
+msgid "No Title"
+msgstr "Başlık Yok"
+
+msgid "The history is empty."
+msgstr "Geçmiş boş."
+
+msgid "HTTP Authentication"
+msgstr "HTTP Kimlik Doğrulaması"
+
+msgid "Authentication Required"
+msgstr "Kimlik Doğrulama Gerekli"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "[url-name] adresindeki [server-hostname] sunucusu kullanıcı adı ve şifre istiyor."
+
+msgid "User Name:"
+msgstr "Kullanıcı Adı:"
+
+msgid "Password:"
+msgstr "Şifre:"
+
+msgid "Pop-up Window"
+msgstr "Açılır Pencere"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "[domain-name]’den gelen açılır pencereyi açmak istiyor musunuz?"
+
+msgid "New Window"
+msgstr "Yeni Pencere"
+
+msgid "New URL [url] from [url]"
+msgstr " [url] adresinden yeni URL [url]"
+
+msgid "Same"
+msgstr "Aynı"
+
+msgid "Insecure to Secure"
+msgstr "Güvensizden güvenliye"
+
+msgid "Secure to Insecure"
+msgstr "Güvenliden güvensize"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Bu mesajı tekrar almak istiyor musunuz?"
+
+msgid "Security Warning"
+msgstr "Güvenlik Uyarısı"
+
+msgid "Started"
+msgstr "Başlatıldı"
+
+msgid "Loading"
+msgstr "Yüklüyor"
+
+msgid "Done"
+msgstr "Bitti"
+
+msgid "Title of the page."
+msgstr "Sayanın başlığı."
+
+msgid "Goto"
+msgstr "Git"
+
+
+
+msgid "Forward"
+msgstr "İleri"
+
+
+
+msgid "Refresh"
+msgstr "Yenile"
+
+msgid "Cursor"
+msgstr "İmleç"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Uzaktan Kumandayı Web Tarayıcı içinden Kullanma"
+
+msgid "Exit web browser"
+msgstr "Web tarayıcıdan çıkın"
+
+msgid "Move cursor in web browser"
+msgstr "İmleci web tarayıcı içinde hareket ettirin"
+
+msgid "Click to select links in web browser"
+msgstr "Web tarayıcıdaki linkleri seçmek için tıklayın"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Web tarayıcı klavyesini kullanırken Alt tuşu"
+
+msgid "Back to previous web page"
+msgstr "Önceki web sayfasına geri dön"
+
+msgid "Display URL bar and web browser options"
+msgstr "URL çubuğunu ve web tarayıcı seçeneklerini göster"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "URL veya metin girişi yapmak için Enter tuşunu kullanın"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Web sayfalarında gezinmek için Yukarı/Aşağı tuşlarını kullanın"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Web tarayıcı klavyesini kullanırken Sembol tuşu"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Web tarayıcı klavyesini kullanırken Boşluk tuşu"
+
+msgid "Show this information again?"
+msgstr "Bu bilgi tekrar gösterilsin mi?"
+
+msgid "NO"
+msgstr "HAYIR"
+
+msgid "YES"
+msgstr "EVET"
+
+msgid "Eject USB device"
+msgstr "Çıkarma USB cihazı"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Beta Web Tarayıcı ile Sık Kullanılanlar Listesindeki popüler içerikleri görüntüleyebilirsiniz. Diğer web sitelerinde gezinebilirsiniz; video içeriği sadece Sık Kullanılanlar Listesindeki web siteleri için kullanılabilir."
+
+msgid "Downloading update..."
+msgstr "Güncelleme indiriliyor..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Medya kütüphanesi Arama fonksiyonu kullanmadan önce etkinleştirmeniz gerekir."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "IOMEGA LİSANS SÖZLEŞMESİ"
+
+msgid "IF YOU DO NOT…"
+msgstr "ŞUNLARI YAPMAZSANIZ...."
+
+msgid "Digital without HDMI audio"
+msgstr "HDMI ses olmadan dijital"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "Bu DivX kiralama Y izleme hakkından X tanesini kullanmış"
+
+msgid "Continue?"
+msgstr "Devam?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Dosyaları kopyalamayı durdurmak istediğinize emin misiniz?"
+
+msgid "Mediafly dashboard"
+msgstr "Mediafly gösterge panosu"
+
+msgid "My channels"
+msgstr "Kanallarım"
+
+msgid "Popular channels"
+msgstr "Popüler kanallar"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Bu hesabı silmek istediğinize emin misiniz?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Şovu eklemek istediğinizden emin misiniz?"
+
+msgid "This episode"
+msgstr "Bu bölüm"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Bu bölüm kanalınıza eklendi. Mediafly.com adresinde ilave seçenekler mevcuttur."
+
+msgid "All Episodes in this show"
+msgstr "Bu şovdaki tüm bölümler"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Bu şov kanalınıza eklendi. Mediafly.com adresinde ilave seçenekler mevcuttur."
+
+msgid "What would you like to remove?"
+msgstr "Neyi çıkartmak istersiniz?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Bu bölüm kanalınızdan çıkartıldı. Mediafly.com adresinde ilave seçenekler mevcuttur."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Bu şov kanalınızdan çıkartıldı. Mediafly.com adresinde ilave seçenekler mevcuttur."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Bu şovu/bölümü derecelendirmek ister misiniz?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Teşekkür ederiz. Mediafly.com adresinde ilave seçenekler mevcuttur."
+
+msgid "View episodes"
+msgstr "Bölümleri görüntüle"
+
+msgid "Add content source"
+msgstr "İçerik kaynağı ekle"
+
+msgid "Add via mcode"
+msgstr "mcode üzerinden ekle"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Aşağıya İçerik Kaynağı mCode girin"
+
+msgid "an mCode is used to activate private content source"
+msgstr "özel içerik kaynağını aktifleştirmek için bir mCode kullanıldı"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "İçerik kaynağı Mediafly gösterge panonuza başarıyla eklendi."
+
+msgid "Invalid mCode, please try again."
+msgstr "Geçersiz mCode, lütfen tekrar deneyin."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Şehir ekle"
+
+msgid "City management"
+msgstr "Şehir yönetimi"
+
+msgid "Search location"
+msgstr "Konum ara"
+
+msgid "Change temperature unit"
+msgstr "Sıcaklık birimini değiştir"
+
+msgid "Please define your default city location."
+msgstr "Lütfen varsayılan şehir konumunuzu tanımlayın."
+
+msgid "Do you want to clear all city?"
+msgstr "Tüm şehirleri silmek istiyor musunuz?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Seçilen şehirleri silmek istiyor musunuz?"
+
+msgid "No result, please search again."
+msgstr "Sonuç yok, lütfen tekrar arayın."
+
+msgid "Remove movie Info"
+msgstr "Film Bilgisini Silin"
+
+msgid "Rescan Movie Info"
+msgstr "Film Bilgisini Tekrar Tara"
+
+
+
+msgid "Manual search"
+msgstr "Manuel arama"
+
+
+
+msgid "Please wait..."
+msgstr "Lütfen bekleyin..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "İçerik bilgisini silmek istediğinize emin misiniz?"
+
+msgid "Content info has been removed."
+msgstr "İçerik bilgisi silindi."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "TMDb tarafından sağlanan bilgi"
+
+msgid "No need"
+msgstr "İhtiyaç yok"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "Çevrimiçi veri tabanından içerik bilgisi bulunamadı. Lütfen aradığınız terimi değiştirin ve tekrar deneyin."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Film bilgisi kaydedilemedi. Lütfen ağ bağlantısını kontrol edin."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Film bilgisi kaydedilemedi. Saklama alanı dolu veya Salt Okunur olabilir."
+
+msgid "Add to playlist"
+msgstr "Çalma listesine ekle"
+
+msgid "Back"
+msgstr "Geri"
+
+msgid "Connect"
+msgstr "Bağlan"
+
+msgid "Create playlist"
+msgstr "Çalma listesi oluştur"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS geçersiz. Lütfen DNS’inizi doğrulayın ve tekrar deneyin."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Seçilen dosyaları silmek istiyor musunuz?"
+
+msgid "Edit playlist"
+msgstr "Çalma listesini düzenle"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Ağ Geçidi geçersiz. Lütfen Ağ Geçidinizi doğrulayın ve tekrar deneyin."
+
+msgid "Home"
+msgstr "Ana sayfa"
+
+msgid "It should not be empty!"
+msgstr "Boş olmamalıdır!"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Select destination"
+msgstr "Hedef seçin"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Alt Ağ Maskesi geçersiz. Lütfen Alt Ağ Maskenizi doğrulayın ve tekrar deneyin."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Cihaz medya sunucu ile bağlantısını kaybetti."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Seçilen müzik çalma listesinden silindi."
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "Movies"
+msgstr "Film"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Video için bilgiyi uygulamak amacıyla “Enter” üstüne basın."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Film bilgisi alma.\nLütfen bekleyin..."
+msgid "Delete all"
+msgstr "Tümünü sil"
+
+msgid "Wind velocity:"
+msgstr "rüzgar hızı"
+
+msgid "Humidity:"
+msgstr "nem"
+
+msgid "High/Low"
+msgstr "Yüksek / Düşük"
+
+msgid "Wind direction:"
+msgstr "Rüzgar yönü"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather sunucusu yanıt vermiyor. Lütfen daha sonra tekrar deneyin."
+
+msgid "Movie info auto scan"
+msgstr "Film bilgi otomatik tarama"
+
+msgid "Ignore"
+msgstr "Yoksay"
+
+msgid "Scan movie info"
+msgstr "Tarama film bilgi"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Çalışma grubu adı boşluk veya şu karakterlerden birini içeremez \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nDosya adı xx karakter ile sınırlıdır."
+

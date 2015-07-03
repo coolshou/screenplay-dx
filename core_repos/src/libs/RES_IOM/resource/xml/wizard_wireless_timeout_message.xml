@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/message_background_bg_n.png">
+  <ctrlgrp>
+    <button valkey="OK" 
+	focused_bg="image/common_button_E_btn_f.png" 
+	normal_bg="image/common_button_E_btn_n.png"
+	click_bg="image/common_button_E_btn_p.png"/>
+  </ctrlgrp>
+
+  <text text="@@message_title"   x="110" y="140" w="500" h="40" 
+	fontsize="26" align="hcenter" numlines="1" textcolor="0xF0F0F0" />
+  <text text="@@message_description" x="100" y="200" w="520" h="170" 
+	fontsize="20" align="hcenter" numlines="4" textcolor="0xF0F0F0" />
+
+  <table x="200" y="300" w="320" h="39" cols="1" colspacing="0" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" actnoseltextcolor="0x3333333"/>
+  </table> 
+</page>

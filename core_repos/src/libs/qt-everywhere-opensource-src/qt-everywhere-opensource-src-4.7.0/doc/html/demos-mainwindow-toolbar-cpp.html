@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: toolbar.cpp Example File (demos/mainwindow/toolbar.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">toolbar.cpp Example File</h1>
+<span class="small-subtitle">demos/mainwindow/toolbar.cpp</span>
+<!-- $$$demos/mainwindow/toolbar.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial Usage
+ ** Licensees holding valid Qt Commercial licenses may use this file in
+ ** accordance with the Qt Commercial License Agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Nokia.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** If you have questions regarding the use of this file, please contact
+ ** Nokia at qt-info@nokia.com.
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;toolbar.h&quot;
+
+ #include &lt;QMainWindow&gt;
+ #include &lt;QMenu&gt;
+ #include &lt;QPainter&gt;
+ #include &lt;QPainterPath&gt;
+ #include &lt;QSpinBox&gt;
+ #include &lt;QLabel&gt;
+ #include &lt;QToolTip&gt;
+
+ #include &lt;stdlib.h&gt;
+
+ static QPixmap genIcon(const QSize &amp;iconSize, const QString &amp;, const QColor &amp;color)
+ {
+     int w = iconSize.width();
+     int h = iconSize.height();
+
+     QImage image(w, h, QImage::Format_ARGB32_Premultiplied);
+     image.fill(0);
+
+     QPainter p(&amp;image);
+
+     extern void render_qt_text(QPainter *, int, int, const QColor &amp;);
+     render_qt_text(&amp;p, w, h, color);
+
+     return QPixmap::fromImage(image, Qt::DiffuseDither | Qt::DiffuseAlphaDither);
+ }
+
+ static QPixmap genIcon(const QSize &amp;iconSize, int number, const QColor &amp;color)
+ { return genIcon(iconSize, QString::number(number), color); }
+
+ ToolBar::ToolBar(const QString &amp;title, QWidget *parent)
+     : QToolBar(parent), spinbox(0), spinboxAction(0)
+ {
+     tip = 0;
+     setWindowTitle(title);
+     setObjectName(title);
+
+     setIconSize(QSize(32, 32));
+
+     QColor bg(palette().background().color());
+     menu = new QMenu(&quot;One&quot;, this);
+     menu-&gt;setIcon(genIcon(iconSize(), 1, Qt::black));
+     menu-&gt;addAction(genIcon(iconSize(), &quot;A&quot;, Qt::blue), &quot;A&quot;);
+     menu-&gt;addAction(genIcon(iconSize(), &quot;B&quot;, Qt::blue), &quot;B&quot;);
+     menu-&gt;addAction(genIcon(iconSize(), &quot;C&quot;, Qt::blue), &quot;C&quot;);
+     addAction(menu-&gt;menuAction());
+
+     QAction *two = addAction(genIcon(iconSize(), 2, Qt::white), &quot;Two&quot;);
+     QFont boldFont;
+     boldFont.setBold(true);
+     two-&gt;setFont(boldFont);
+
+     addAction(genIcon(iconSize(), 3, Qt::red), &quot;Three&quot;);
+     addAction(genIcon(iconSize(), 4, Qt::green), &quot;Four&quot;);
+     addAction(genIcon(iconSize(), 5, Qt::blue), &quot;Five&quot;);
+     addAction(genIcon(iconSize(), 6, Qt::yellow), &quot;Six&quot;);
+     orderAction = new QAction(this);
+     orderAction-&gt;setText(tr(&quot;Order Items in Tool Bar&quot;));
+     connect(orderAction, SIGNAL(triggered()), SLOT(order()));
+
+     randomizeAction = new QAction(this);
+     randomizeAction-&gt;setText(tr(&quot;Randomize Items in Tool Bar&quot;));
+     connect(randomizeAction, SIGNAL(triggered()), SLOT(randomize()));
+
+     addSpinBoxAction = new QAction(this);
+     addSpinBoxAction-&gt;setText(tr(&quot;Add Spin Box&quot;));
+     connect(addSpinBoxAction, SIGNAL(triggered()), SLOT(addSpinBox()));
+
+     removeSpinBoxAction = new QAction(this);
+     removeSpinBoxAction-&gt;setText(tr(&quot;Remove Spin Box&quot;));
+     removeSpinBoxAction-&gt;setEnabled(false);
+     connect(removeSpinBoxAction, SIGNAL(triggered()), SLOT(removeSpinBox()));
+
+     movableAction = new QAction(tr(&quot;Movable&quot;), this);
+     movableAction-&gt;setCheckable(true);
+     connect(movableAction, SIGNAL(triggered(bool)), SLOT(changeMovable(bool)));
+
+     allowedAreasActions = new QActionGroup(this);
+     allowedAreasActions-&gt;setExclusive(false);
+
+     allowLeftAction = new QAction(tr(&quot;Allow on Left&quot;), this);
+     allowLeftAction-&gt;setCheckable(true);
+     connect(allowLeftAction, SIGNAL(triggered(bool)), SLOT(allowLeft(bool)));
+
+     allowRightAction = new QAction(tr(&quot;Allow on Right&quot;), this);
+     allowRightAction-&gt;setCheckable(true);
+     connect(allowRightAction, SIGNAL(triggered(bool)), SLOT(allowRight(bool)));
+
+     allowTopAction = new QAction(tr(&quot;Allow on Top&quot;), this);
+     allowTopAction-&gt;setCheckable(true);
+     connect(allowTopAction, SIGNAL(triggered(bool)), SLOT(allowTop(bool)));
+
+     allowBottomAction = new QAction(tr(&quot;Allow on Bottom&quot;), this);
+     allowBottomAction-&gt;setCheckable(true);
+     connect(allowBottomAction, SIGNAL(triggered(bool)), SLOT(allowBottom(bool)));
+
+     allowedAreasActions-&gt;addAction(allowLeftAction);
+     allowedAreasActions-&gt;addAction(allowRightAction);
+     allowedAreasActions-&gt;addAction(allowTopAction);
+     allowedAreasActions-&gt;addAction(allowBottomAction);
+
+     areaActions = new QActionGroup(this);
+     areaActions-&gt;setExclusive(true);
+
+     leftAction = new QAction(tr(&quot;Place on Left&quot;) , this);
+     leftAction-&gt;setCheckable(true);
+     connect(leftAction, SIGNAL(triggered(bool)), SLOT(placeLeft(bool)));
+
+     rightAction = new QAction(tr(&quot;Place on Right&quot;) , this);
+     rightAction-&gt;setCheckable(true);
+     connect(rightAction, SIGNAL(triggered(bool)), SLOT(placeRight(bool)));
+
+     topAction = new QAction(tr(&quot;Place on Top&quot;) , this);
+     topAction-&gt;setCheckable(true);
+     connect(topAction, SIGNAL(triggered(bool)), SLOT(placeTop(bool)));
+
+     bottomAction = new QAction(tr(&quot;Place on Bottom&quot;) , this);
+     bottomAction-&gt;setCheckable(true);
+     connect(bottomAction, SIGNAL(triggered(bool)), SLOT(placeBottom(bool)));
+
+     areaActions-&gt;addAction(leftAction);
+     areaActions-&gt;addAction(rightAction);
+     areaActions-&gt;addAction(topAction);
+     areaActions-&gt;addAction(bottomAction);
+
+     toolBarBreakAction = new QAction(tr(&quot;Insert break&quot;), this);
+     connect(toolBarBreakAction, SIGNAL(triggered(bool)), this, SLOT(insertToolBarBreak()));
+
+     connect(movableAction, SIGNAL(triggered(bool)), areaActions, SLOT(setEnabled(bool)));
+
+     connect(movableAction, SIGNAL(triggered(bool)), allowedAreasActions, SLOT(setEnabled(bool)));
+
+     menu = new QMenu(title, this);
+     menu-&gt;addAction(toggleViewAction());
+     menu-&gt;addSeparator();
+     menu-&gt;addAction(orderAction);
+     menu-&gt;addAction(randomizeAction);
+     menu-&gt;addSeparator();
+     menu-&gt;addAction(addSpinBoxAction);
+     menu-&gt;addAction(removeSpinBoxAction);
+     menu-&gt;addSeparator();
+     menu-&gt;addAction(movableAction);
+     menu-&gt;addSeparator();
+     menu-&gt;addActions(allowedAreasActions-&gt;actions());
+     menu-&gt;addSeparator();
+     menu-&gt;addActions(areaActions-&gt;actions());
+     menu-&gt;addSeparator();
+     menu-&gt;addAction(toolBarBreakAction);
+
+     connect(menu, SIGNAL(aboutToShow()), this, SLOT(updateMenu()));
+
+     randomize();
+ }
+
+ void ToolBar::updateMenu()
+ {
+     QMainWindow *mainWindow = qobject_cast&lt;QMainWindow *&gt;(parentWidget());
+     Q_ASSERT(mainWindow != 0);
+
+     const Qt::ToolBarArea area = mainWindow-&gt;toolBarArea(this);
+     const Qt::ToolBarAreas areas = allowedAreas();
+
+     movableAction-&gt;setChecked(isMovable());
+
+     allowLeftAction-&gt;setChecked(isAreaAllowed(Qt::LeftToolBarArea));
+     allowRightAction-&gt;setChecked(isAreaAllowed(Qt::RightToolBarArea));
+     allowTopAction-&gt;setChecked(isAreaAllowed(Qt::TopToolBarArea));
+     allowBottomAction-&gt;setChecked(isAreaAllowed(Qt::BottomToolBarArea));
+
+     if (allowedAreasActions-&gt;isEnabled()) {
+         allowLeftAction-&gt;setEnabled(area != Qt::LeftToolBarArea);
+         allowRightAction-&gt;setEnabled(area != Qt::RightToolBarArea);
+         allowTopAction-&gt;setEnabled(area != Qt::TopToolBarArea);
+         allowBottomAction-&gt;setEnabled(area != Qt::BottomToolBarArea);
+     }
+
+     leftAction-&gt;setChecked(area == Qt::LeftToolBarArea);
+     rightAction-&gt;setChecked(area == Qt::RightToolBarArea);
+     topAction-&gt;setChecked(area == Qt::TopToolBarArea);
+     bottomAction-&gt;setChecked(area == Qt::BottomToolBarArea);
+
+     if (areaActions-&gt;isEnabled()) {
+         leftAction-&gt;setEnabled(areas &amp; Qt::LeftToolBarArea);
+         rightAction-&gt;setEnabled(areas &amp; Qt::RightToolBarArea);
+         topAction-&gt;setEnabled(areas &amp; Qt::TopToolBarArea);
+         bottomAction-&gt;setEnabled(areas &amp; Qt::BottomToolBarArea);
+     }
+ }
+
+ void ToolBar::order()
+ {
+     QList&lt;QAction *&gt; ordered, actions1 = actions(),
+                               actions2 = qFindChildren&lt;QAction *&gt;(this);
+     while (!actions2.isEmpty()) {
+         QAction *action = actions2.takeFirst();
+         if (!actions1.contains(action))
+             continue;
+         actions1.removeAll(action);
+         ordered.append(action);
+     }
+
+     clear();
+     addActions(ordered);
+
+     orderAction-&gt;setEnabled(false);
+ }
+
+ void ToolBar::randomize()
+ {
+     QList&lt;QAction *&gt; randomized, actions = this-&gt;actions();
+     while (!actions.isEmpty()) {
+         QAction *action = actions.takeAt(rand() % actions.size());
+         randomized.append(action);
+     }
+     clear();
+     addActions(randomized);
+
+     orderAction-&gt;setEnabled(true);
+ }
+
+ void ToolBar::addSpinBox()
+ {
+     if (!spinbox) {
+         spinbox = new QSpinBox(this);
+     }
+     if (!spinboxAction)
+         spinboxAction = addWidget(spinbox);
+     else
+         addAction(spinboxAction);
+
+     addSpinBoxAction-&gt;setEnabled(false);
+     removeSpinBoxAction-&gt;setEnabled(true);
+ }
+
+ void ToolBar::removeSpinBox()
+ {
+     if (spinboxAction)
+         removeAction(spinboxAction);
+
+     addSpinBoxAction-&gt;setEnabled(true);
+     removeSpinBoxAction-&gt;setEnabled(false);
+ }
+
+ void ToolBar::allow(Qt::ToolBarArea area, bool a)
+ {
+     Qt::ToolBarAreas areas = allowedAreas();
+     areas = a ? areas | area : areas &amp; ~area;
+     setAllowedAreas(areas);
+
+     if (areaActions-&gt;isEnabled()) {
+         leftAction-&gt;setEnabled(areas &amp; Qt::LeftToolBarArea);
+         rightAction-&gt;setEnabled(areas &amp; Qt::RightToolBarArea);
+         topAction-&gt;setEnabled(areas &amp; Qt::TopToolBarArea);
+         bottomAction-&gt;setEnabled(areas &amp; Qt::BottomToolBarArea);
+     }
+ }
+
+ void ToolBar::place(Qt::ToolBarArea area, bool p)
+ {
+     if (!p)
+         return;
+
+     QMainWindow *mainWindow = qobject_cast&lt;QMainWindow *&gt;(parentWidget());
+     Q_ASSERT(mainWindow != 0);
+
+     mainWindow-&gt;addToolBar(area, this);
+
+     if (allowedAreasActions-&gt;isEnabled()) {
+         allowLeftAction-&gt;setEnabled(area != Qt::LeftToolBarArea);
+         allowRightAction-&gt;setEnabled(area != Qt::RightToolBarArea);
+         allowTopAction-&gt;setEnabled(area != Qt::TopToolBarArea);
+         allowBottomAction-&gt;setEnabled(area != Qt::BottomToolBarArea);
+     }
+ }
+
+ void ToolBar::changeMovable(bool movable)
+ { setMovable(movable); }
+
+ void ToolBar::allowLeft(bool a)
+ { allow(Qt::LeftToolBarArea, a); }
+
+ void ToolBar::allowRight(bool a)
+ { allow(Qt::RightToolBarArea, a); }
+
+ void ToolBar::allowTop(bool a)
+ { allow(Qt::TopToolBarArea, a); }
+
+ void ToolBar::allowBottom(bool a)
+ { allow(Qt::BottomToolBarArea, a); }
+
+ void ToolBar::placeLeft(bool p)
+ { place(Qt::LeftToolBarArea, p); }
+
+ void ToolBar::placeRight(bool p)
+ { place(Qt::RightToolBarArea, p); }
+
+ void ToolBar::placeTop(bool p)
+ { place(Qt::TopToolBarArea, p); }
+
+ void ToolBar::placeBottom(bool p)
+ { place(Qt::BottomToolBarArea, p); }
+
+ void ToolBar::insertToolBarBreak()
+ {
+     QMainWindow *mainWindow = qobject_cast&lt;QMainWindow *&gt;(parentWidget());
+     Q_ASSERT(mainWindow != 0);
+
+     mainWindow-&gt;insertToolBarBreak(this);
+ }
+
+ void ToolBar::enterEvent(QEvent*)
+ {
+<span class="comment"> /*
+     These labels on top of toolbars look darn ugly
+
+     if (tip == 0) {
+         tip = new QLabel(windowTitle(), this);
+         QPalette pal = tip-&gt;palette();
+         QColor c = Qt::black;
+         c.setAlpha(100);
+         pal.setColor(QPalette::Window, c);
+         pal.setColor(QPalette::Foreground, Qt::white);
+         tip-&gt;setPalette(pal);
+         tip-&gt;setAutoFillBackground(true);
+         tip-&gt;setMargin(3);
+         tip-&gt;setText(windowTitle());
+     }
+     QPoint c = rect().center();
+     QSize hint = tip-&gt;sizeHint();
+     tip-&gt;setGeometry(c.x() - hint.width()/2, c.y() - hint.height()/2,
+                         hint.width(), hint.height());
+
+     tip-&gt;show();
+ */</span>
+ }
+
+ void ToolBar::leaveEvent(QEvent*)
+ {
+     if (tip != 0)
+         tip-&gt;hide();
+ }</pre>
+</div>
+<!-- @@@demos/mainwindow/toolbar.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

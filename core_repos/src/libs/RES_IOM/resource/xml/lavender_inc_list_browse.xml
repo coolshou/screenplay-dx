@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<wrapper>
+  <image x="58" y="177" w="25" h="25" image="@@moreprev"/>
+  <image x="83" y="160" w="434" h="268" image="image/lavender_list_line.png" />
+  <table x="93" y="170" w="434" h="252" fontsize="24" 
+         cols="1" rows="6" colspacing="0" rowspacing="0"
+	 lbimage="image/lavender_lightbar.png" 
+	 textcolor="0xF0F0F0" actnoseltextcolor="0xF0C832">
+    <text text="@@browselist_0_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" speed="@@browse_0_speed" delay="2"/>
+    
+    <text text="@@browselist_1_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" speed="@@browse_1_speed" delay="2"/>
+    
+    <text text="@@browselist_2_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" speed="@@browse_2_speed" delay="2"/>
+    
+    <text text="@@browselist_3_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" speed="@@browse_3_speed" delay="2"/>
+    
+    <text text="@@browselist_4_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" speed="@@browse_4_speed" delay="2"/>
+    
+    <text text="@@browselist_5_text" xmargin="105" ymargin="5"
+	  lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" speed="@@browse_5_speed" delay="2"/>
+  </table>
+  
+  <table x="130" y="170" w="50" h="252"
+           cols="1" rows="6" colspacing="0" rowspacing="0" >
+    <image image="@@browse_0_icon" ymargin="5" />
+    <image image="@@browse_1_icon" ymargin="5" />
+    <image image="@@browse_2_icon" ymargin="5" />
+    <image image="@@browse_3_icon" ymargin="5" />
+    <image image="@@browse_4_icon" ymargin="5" />
+    <image image="@@browse_5_icon" ymargin="5" />
+  </table>
+  
+  <table x="153" y="116" w="50" h="252"
+           cols="1" rows="6" colspacing="0" rowspacing="0" >
+    <image image="@@browse_0_preset" ymargin="5" />
+    <image image="@@browse_1_preset" ymargin="5" />
+    <image image="@@browse_2_preset" ymargin="5" />
+    <image image="@@browse_3_preset" ymargin="5" />
+    <image image="@@browse_4_preset" ymargin="5" />
+    <image image="@@browse_5_preset" ymargin="5" />
+  </table>
+  
+  <table x="140" y="120" w="100" h="252"
+           cols="1" rows="6" colspacing="0" rowspacing="0" fontsize="18" textcolor="0x333333" actnoseltextcolor="0x333333">
+    <text text="@@browse_0_childcount" ymargin="5" />
+    <text text="@@browse_1_childcount" ymargin="5" />
+    <text text="@@browse_2_childcount" ymargin="5" />
+    <text text="@@browse_3_childcount" ymargin="5" />
+    <text text="@@browse_4_childcount" ymargin="5" />
+    <text text="@@browse_5_childcount" ymargin="5" />
+  </table>
+
+  <image image="@@morenext" x="58" y="392" w="25" h="25"/>
+  <image image="@@status_icon" x="328" y="208" w="64" h="64" />
+</wrapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/blockbuster/bb_Screen_mask_70%.png" overlay="1">
+	<ctrlgrp> 
+		<button valkey="OK"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			click_effect="tp"/>
+	</ctrlgrp>
+	<image image="image/blockbuster/bb_checkout_message_bg.png" x="268" y="208" w="742" h="286"/>
+	<text text="@@message" x="312" y="236" w="657" h="114" fontsize="20" align="hcenter" numlines="4" textcolor="0xffbababa"/>
+	<wrapper x="534" w="210" h="49" align="hcenter" fontsize="20" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029">
+		<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" y="416"/>
+	</wrapper>
+</page>

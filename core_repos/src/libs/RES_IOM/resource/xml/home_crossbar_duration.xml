@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page background="./image/home_background_bg_n.jpg">
+	<ctrlgrp>
+		<eventbox_keyboard valkey="keyboard" autoenter="1"/>
+		<linebreak/>
+		<button valkey="OK" 
+      			focused_bg="image/common_button_B_btn_f.png"
+      			normal_bg="image/common_button_B_btn_n.png"
+      			click_bg="image/common_button_B_btn_p.png" />
+	</ctrlgrp>
+
+	<table x="140" y="100" w="400" h="30" cols="2" rows="1" fontsize="20" textcolor="0xffffff">
+		<text text="Hori duration(msec):"/>
+		<text text="Vert duration(msec):"/>
+	</table>
+
+	<table x="140" y="130" w="465" h="50" cols="2" rows="1" textcolor="0xffffff">
+		<image image="fillrect" w="150"/>
+		<image image="fillrect" w="150"/>
+	</table>
+
+	<table x="150" y="148" w="470" h="30" cols="2" rows="1" textcolor="0x000000">
+		<text text="@@input_01_text"/>
+		<text text="@@input_02_text"/>
+	</table>
+
+	<widget_keyboard ctrlname="keyboard" x="225" y="180" h="203" w="290" cols="10" rows="7" align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xF0C832" changed="@@keyboard_changed"/>
+
+	<imgbtn image="@@bg-OK" text="$$OK" x="223" y="398" w="275" h="36" fontsize="24" align="hcenter" textcolor="0xEDC831"  active="@@act-OK" actnoseltextcolor="0x3333333"/>
+</page>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp lbmask="l">
+    <button valkey="WIRED_REVIEW_SETTINGS_NEXT"
+      	focused_bg="image/common_button_B_btn_f.png"
+      	normal_bg="image/common_button_B_btn_n.png"
+      	click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+   
+  <text id="subheadline" text="$$Wired network: Review settings"/>
+  <image id="step" image="image/wizard_step_5_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$You have entered these manual settings:" x="175" y="178" w="660" h="25" fontsize="20"/>
+  
+  <table x="130" y="222" w="200" h="120" cols="1" rows="4" fontsize="18" textcolor="0xEDC831">
+  <text text="$$IP address"   align="right"/>
+  <text text="$$Subnet mask"  align="right"/>
+  <text text="$$Gateway"      align="right"/>
+  <text text="$$DNS"   align="right"/>
+  </table>
+  
+  <table x="350" y="222" w="20" h="120" cols="1" rows="4" fontsize="18" textcolor="0xEDC831">
+  <text text=":"   align="right"/>
+  <text text=":"  align="right"/>
+  <text text=":"      align="right"/>
+  <text text=":"   align="right"/>
+  </table>
+  
+  <table x="380" y="222" w="200" h="120" cols="1" rows="4" fontsize="18" textcolor="0xEDC831">
+  <text text="@@IP"  />
+  <text text="@@SUBNETMASK"/>
+  <text text="@@GATEWAY"  />
+  <text text="@@DNS"      />
+  </table>
+
+  <imgbtn image="@@bg-WIRED_REVIEW_SETTINGS_NEXT" x="223" y="398" w="275" h="36" text="$$Next" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-WIRED_REVIEW_SETTINGS_NEXT" actnoseltextcolor="0x3333333"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

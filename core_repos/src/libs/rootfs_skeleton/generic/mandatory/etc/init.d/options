@@ -1,0 +1,8 @@
+#TRACE="set -x"
+PORTS=3 # Set to number of wired ethernet ports
+MACHINE="SecureSOHO"
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+TZ="xxx-8"
+export PATH TZ
+#export OSDMODE=tck:16bpp_565
+

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg">
+  <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+     <button valkey="QML0"
+            focused_bg="image/slideshow_options_menu_repeat_icon_f.png"
+            normal_bg="image/slideshow_options_menu_repeat_icon_n.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Repeat"/>
+  </ctrlgrp>
+
+    <image image="image/home_music_sm_icon_n.png" x="38" y="5" w="140" h="140" scale="100" scale_type="fixratio" bg="1"/>
+    <text x="157" y="65" w="200" h="40" text="$$Music" fontsize="40" textcolor="0x00ccea" bg="1"/>
+    
+	<image x="216" y="154" w="375" h="265" image="image/music_player_frame_bg_n.png" bg="1"/>
+	<image x="220" y="161" w="250" h="250" image="@@album_icon" default_image="image/music_player_frame_albumart_icon.jpg" xmargin="0" ymargin="0" umargin="0" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+
+	<image x="624" y="170" w="32" h="32" image="image/music_player_album_icon_n.png" bg="1"/>
+	<text text="@@album" x="667" y="177" w="388" h="20" fontsize="20" textcolor="0xffffff" speed="1" delay="2" auto_translate="1" bg="1"/>
+	<image x="656" y="209" w="406" h="1" image="image/photo_thumb_line_01.png" bg="1"/>
+	
+	<image x="624" y="216" w="32" h="32" image="image/music_player_artist_icon_n.png" bg="1"/>
+	<text text="@@artist" x="667" y="223" w="388" h="20" fontsize="20" textcolor="0xffffff" speed="1" delay="2" auto_translate="1" bg="1"/>	
+	<image x="656" y="255" w="406" h="1" image="image/photo_thumb_line_01.png" bg="1"/>
+	
+	<image x="624" y="263" w="32" h="32" image="image/music_player_genre_icon_n.png" bg="1"/>
+	<text text="@@genre" x="667" y="269" w="388" h="20" fontsize="20" textcolor="0xfefefe" speed="1" delay="2" auto_translate="1" bg="1"/>
+	<image x="656" y="301" w="406" h="1" image="image/photo_thumb_line_01.png" bg="1"/>
+	
+	<image x="624" y="356" w="32" h="32" image="image/music_playing_nextsong.png" bg="1" disable="@@disable_next"/>
+	<text text="@@next" x="667" y="363" w="388" h="20" fontsize="20" textcolor="0xffffff" numlines="1" speed="1" delay="2" auto_translate="1" bg="1"/>
+
+	<image x="216" y="443" w="850" h="125" image="image/music_browse_playing_39.png" bg="1"/>
+	<text text="@@songname" x="433" y="457" w="486" h="33" fontsize="28" numlines="1" textcolor="0xffffff" speed="1" delay="2" auto_translate="1"/>	
+	
+	<image x="929" y="457" w="41" h="30" image="@@shuffle-ico"/>
+	<image x="972" y="457" w="41" h="30" image="@@repeat-ico"/>
+	
+	<image x="260" y="486" w="66" h="42" image="@@play_state"/>
+	<image x="366" y="463" w="54" h="23" image="@@speed_state"/>
+	
+	<progress_bar name="point_bar" x="418" y="499" w="520" h="21" pb_back_img="image/music_playing_playbar_bg.png" pb_front_img="image/music_playing_playbar_scale.png" pb_point_img="image/music_playing_playbar_dot.png" pb_delay="500"/>
+
+	<text x="336" y="504" w="94" h="23" fontsize="21" text="@@audio_currenttime" align="left" textcolor="0xffffff"/>
+	<text x="937" y="504" w="94" h="23" fontsize="21" text="@@audio_totaltime" align="left" textcolor="0xffffff"/>
+	
+	<include filename="inc_decoration.xml"/>
+    <include filename="inc_options_audio_run.xml"/>
+	
+	<text x="162" y="258" w="958" h="32" text="@@text-OPTION" fontsize="30" textcolor="0x00ccff" align="hcenter" disable="@@disable-text-options"/>
+
+</page>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<wrapper>
+  <text id="pagecounter" text="@@pagecounter" />
+  <image image="@@moreprev" x="620" y="214" w="38" h="27"/>
+  <image x="379" y="263" w="520" h="1" image="image/pandora_list_line_thin.png"/>
+  <wrapper x="379" w="520" h="1">
+    <image image="@@browse_0_line" ymargin="0" y="314"/>
+    <image image="@@browse_1_line" ymargin="0" y="365"/>
+    <image image="@@browse_2_line" ymargin="0" y="416"/>
+    <image image="@@browse_3_line" ymargin="0" y="467"/>
+    <image image="@@browse_4_line" ymargin="0" y="518"/>
+  </wrapper>
+  <table x="281" y="264" w="719" h="255" fontsize="20" selected_fontsize="26"
+         cols="1" rows="5" colspacing="0" rowspacing="0"
+	 lbimage="image/flickr/IService_Fickr_select_btn.png" clickimage="image/flickr/IService_Fickr_select_btn.png"  
+	 textcolor="0xe2e2e2" actnoseltextcolor="0xe2e2e2" actoverlistcolor="0xe2e2e2" 
+	 activetextcolor="0xe2e2e2" selectedtextcolor="0xe2e2e2" auto_translate="1">
+    <text text="@@browselist_0_text" xmargin="65" ymargin="5"
+	  lightbar="@@lightbar-browselist-0" active="@@act-browselist-0"
+	  selected="@@browse_0_select" speed="@@browse_0_speed" delay="2"/>
+    
+    <text text="@@browselist_1_text" xmargin="65" ymargin="5"
+	  lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" 
+	  selected="@@browse_1_select" speed="@@browse_1_speed" delay="2"/>
+    
+    <text text="@@browselist_2_text" xmargin="65" ymargin="5"
+	  lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" 
+	  selected="@@browse_2_select" speed="@@browse_2_speed" delay="2"/>
+    
+    <text text="@@browselist_3_text" xmargin="65" ymargin="5"
+	  lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" 
+	  selected="@@browse_3_select" speed="@@browse_3_speed" delay="2"/>
+    
+    <text text="@@browselist_4_text" xmargin="65" ymargin="5"
+	  lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" 
+	  selected="@@browse_4_select" speed="@@browse_4_speed" delay="2"/>
+  </table>
+  
+  <wrapper x="314" w="32" h="32" scale_type="fixratio" scale="100">
+    <image image="@@browse_0_icon" y="273"/>
+    <image image="@@browse_1_icon" y="324"/>
+    <image image="@@browse_2_icon" y="375"/>
+    <image image="@@browse_3_icon" y="426"/>
+  </wrapper>
+  
+  <image image="@@morenext" x="620" y="529" w="38" h="27"/>
+</wrapper>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+    <linebreak/>
+    <button valkey="NEXT"
+      focused_bg="image/common_button_B_btn_f.png"
+      normal_bg="image/common_button_B_btn_n.png"
+      click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+
+  <text id="subheadline" text="@@sub_headline"/>
+  <image id="step" image="image/wizard_step_4_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="image/ip_input_area.png" x="140" y="130" w="465" h="50" />
+
+  <table x="150" y="148" w="470" h="30" cols="4" rows="1" textcolor="0x000000">
+    <text text="@@input_01_text" />
+    <text text="@@input_02_text" />
+    <text text="@@input_03_text" />
+    <text text="@@input_04_text" />
+  </table>
+  <widget_keyboard ctrlname="keyboard" x="136" y="180" h="203" w="448" cols="16" rows="7"
+		   align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xffffff"
+		   changed="@@keyboard_changed"/>
+
+  <imgbtn image="@@bg-NEXT" text="$$Next" x="223" y="398" w="275" h="36" fontsize="24" align="hcenter" textcolor="0xEDC831" active="@@act-NEXT" actnoseltextcolor="0x3333333"/>
+  <include filename="./inc_setup_headline_property.xml" />
+
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+
+</page>

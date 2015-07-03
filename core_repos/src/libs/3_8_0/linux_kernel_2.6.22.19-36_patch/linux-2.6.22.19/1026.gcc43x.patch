@@ -1,0 +1,34 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/kernel/asm-offsets.c linux-2.6.22.19/arch/mips/kernel/asm-offsets.c
+--- linux-2.6.22.19.ref/arch/mips/kernel/asm-offsets.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/kernel/asm-offsets.c	2008-10-15 15:06:38.000000000 -0700
+@@ -22,7 +22,7 @@
+ #define offset(string, ptr, member) \
+ 	__asm__("\n@@@" string "%0" : : "i" (_offset(ptr, member)))
+ #define constant(string, member) \
+-	__asm__("\n@@@" string "%X0" : : "ri" (member))
++	__asm__("\n@@@" string "%0" : : "ri" (member))
+ #define size(string, size) \
+ 	__asm__("\n@@@" string "%0" : : "i" (sizeof(size)))
+ #define linefeed text("")
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1026.gcc43x.patch linux-2.6.22.19/README.1026.gcc43x.patch
+--- linux-2.6.22.19.ref/README.1026.gcc43x.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1026.gcc43x.patch	2008-10-15 15:16:56.000000000 -0700
+@@ -0,0 +1,18 @@
++Feature:
++--------
++Support gcc 4.3.x compilation.
++
++Prerequisite patch numbers:
++---------------------------
++none
++
++Primary author:
++---------------
++Sebastian Manciulea/YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++all
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

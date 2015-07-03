@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page background="image/villa_bg.png" numitems="10">
+	<ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1" turbo_trigger="10" turbo_multi="10" />
+		<linebreak/>
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+	</ctrlgrp>
+
+	<include filename="./inc_optionmenu_widgets.xml"/>
+	
+	<text text="@@metadata_loading" x="450" y="450" h="40" align="left" fontsize="30" textcolor="0xffffff" />
+  	<image image="@@metadata_thumbnail" x="100" y="100" w="200" h="200" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@metadata_album_name" x="300" y="100" h="40" align="left" fontsize="36" textcolor="0xffffff" />
+	<text text="@@metadata_artist" x="300" y="140" h="40" align="left" fontsize="36" textcolor="0xffffff" />
+	<text text="@@metadata_genre" x="300" y="180" h="40" align="left" fontsize="36" textcolor="0xffffff" />
+	<text text="@@metadata_year" x="300" y="220" w="1000" h="80" align="left" fontsize="36" textcolor="0xffffff" numlines="2" />
+	<text text="@@metadata_cast" x="300" y="260" w="1000" h="80" align="left" fontsize="36" textcolor="0xffffff" numlines="2" />
+	<text text="@@metadata_overview" x="100" y="300" w="1000" h="160" align="left" fontsize="36" textcolor="0xffffff" numlines="4" />
+	<text text="@@metadata_track01" x="100" y="500" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track02" x="100" y="530" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track03" x="100" y="560" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track04" x="100" y="590" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track05" x="100" y="620" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track06" x="700" y="500" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track07" x="700" y="530" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track08" x="700" y="560" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track09" x="700" y="590" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track10" x="700" y="620" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track01_duration" x="580" y="500" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track02_duration" x="580" y="530" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track03_duration" x="580" y="560" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track04_duration" x="580" y="590" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track05_duration" x="580" y="620" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track06_duration" x="1200" y="500" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track07_duration" x="1200" y="530" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track08_duration" x="1200" y="560" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track09_duration" x="1200" y="590" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<text text="@@metadata_track10_duration" x="1200" y="620" h="30" align="left" fontsize="28" textcolor="0xffffff" />
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

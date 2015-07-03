@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeintro.qdoc -->
+  <title>Qt 4.7: Introduction to the QML language</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Introduction to the QML language</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#basic-qml-syntax">Basic QML Syntax</a></li>
+<li class="level1"><a href="#expressions">Expressions</a></li>
+<li class="level1"><a href="#qml-comments">QML Comments</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level2"><a href="#property-naming">Property naming</a></li>
+<li class="level2"><a href="#property-types">Property types</a></li>
+<li class="level3"><a href="#the-property">The <tt>id</tt> property</a></li>
+<li class="level2"><a href="#list-properties">List properties</a></li>
+<li class="level2"><a href="#default-properties">Default properties</a></li>
+<li class="level2"><a href="#grouped-properties">Grouped Properties</a></li>
+<li class="level2"><a href="#attached-properties">Attached Properties</a></li>
+<li class="level2"><a href="#signal-handlers">Signal Handlers</a></li>
+</ul>
+</div>
+<h1 class="title">Introduction to the QML language</h1>
+<span class="subtitle"></span>
+<!-- $$$qdeclarativeintroduction.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>QML is a declarative language designed to describe the user interface of a program: both what it looks like, and how it behaves. In QML, a user interface is specified as a tree of objects with properties.</p>
+<p>This introduction is meant for those with little or no programming experience. <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> is used as a scripting language in QML, so you may want to learn a bit more about it (<a href="http://www.davidflanagan.com/javascript5/">JavaScript: The Definitive Guide</a>) before diving deeper into QML. It's also helpful to have a basic understanding of other web technologies like HTML and CSS, but it's not required.</p>
+<a name="basic-qml-syntax"></a>
+<h2>Basic QML Syntax</h2>
+<p>QML looks like this:</p>
+<pre class="highlightedCode brush: cpp"> import Qt 4.7
+
+ Rectangle {
+     width: 200
+     height: 200
+     color: &quot;blue&quot;
+
+     Image {
+         source: &quot;pics/logo.png&quot;
+         anchors.centerIn: parent
+     }
+ }</pre>
+<p>Objects are specified by their type, followed by a pair of braces. Object types always begin with a capital letter. In the above example, there are two objects, a <a href="qml-rectangle.html">Rectangle</a>, and an <a href="qml-image.html">Image</a>. Between the braces, we can specify information about the object, such as its properties.</p>
+<p>Properties are specified as <tt>property: value</tt>. In the above example, we can see the Image has a property named <tt>source</tt>, which has been assigned the value <tt>&quot;pics/logo.png&quot;</tt>. The property and its value are separated by a colon.</p>
+<p>Properties can be specified one-per-line:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 100
+     height: 100
+ }</pre>
+<p>or you can put multiple properties on a single line:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle { width: 100; height: 100 }</pre>
+<p>When multiple property/value pairs are specified on a single line, they must be separated by a semicolon.</p>
+<p>The <tt>import</tt> statement imports the <tt>Qt</tt> <a href="qdeclarativemodules.html#qml-modules">module</a>, which contains all of the standard <a href="qdeclarativeelements.html">QML Elements</a>. Without this import statement, the <a href="qml-rectangle.html">Rectangle</a> and <a href="qml-image.html">Image</a> elements would not be available.</p>
+<a name="expressions"></a>
+<h2>Expressions</h2>
+<p>In addition to assigning values to properties, you can also assign expressions written in <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>.</p>
+<pre class="highlightedCode brush: cpp"> Rotation {
+     angle: 360 * 3
+ }</pre>
+<p>These expressions can include references to other objects and properties, in which case a <i>binding</i> is established: when the value of the expression changes, the property the expression has been assigned to is automatically updated to that value.</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     Text {
+         id: text1
+         text: &quot;Hello World&quot;
+     }
+     Text {
+         id: text2
+         text: text1.text
+     }
+ }</pre>
+<p>In the example above, the <tt>text2</tt> object will display the same text as <tt>text1</tt>. If <tt>text1</tt> is changed, <tt>text2</tt> is automatically changed to the same value.</p>
+<p>Note that to refer to other objects, we use their <i>id</i> values. (See below for more information on the <i>id</i> property.)</p>
+<a name="qml-comments"></a>
+<h2>QML Comments</h2>
+<p>Commenting in QML is similar to <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>.</p>
+<ul>
+<li>Single line comments start with // and finish at the end of the line.</li>
+<li>Multiline comments start with /* and finish with */</li>
+</ul>
+<pre class="highlightedCode brush: cpp"> import Qt 4.7</pre>
+<p>Comments are ignored by the engine. They are useful for explaining what you are doing; for referring back to at a later date, or for others reading your QML files.</p>
+<p>Comments can also be used to prevent the execution of code, which is sometimes useful for tracking down problems.</p>
+<pre class="highlightedCode brush: cpp"> Text {
+     text: &quot;Hello world!&quot;
+     <span class="comment">//opacity: 0.5</span>
+ }</pre>
+<p>In the above example, the Text object will have normal opacity, since the line opacity: 0.5 has been turned into a comment.</p>
+<a name="properties"></a>
+<h2>Properties</h2>
+<a name="intro-properties"></a><a name="property-naming"></a>
+<h3>Property naming</h3>
+<p>Properties begin with a lowercase letter (with the exception of <a href="#attached-properties">Attached Properties</a>).</p>
+<a name="property-types"></a>
+<h3>Property types</h3>
+<p>QML supports properties of many types (see <a href="qdeclarativebasictypes.html">QML Basic Types</a>). The basic types include int, real, bool, string, color, and lists.</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     x: 10.5             <span class="comment">// a 'real' property</span>
+     ...
+     state: &quot;details&quot;    <span class="comment">// a 'string' property</span>
+     focus: true         <span class="comment">// a 'bool' property</span>
+ }</pre>
+<p>QML properties are what is known as <i>typesafe</i>. That is, they only allow you to assign a value that matches the property type. For example, the <tt>x</tt> property of item is a real, and if you try to assign a string to it you will get an error.</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     x: &quot;hello&quot;  // illegal!
+ }</pre>
+<a name="the-property"></a>
+<h4>The <tt>id</tt> property</h4>
+<p>Each object can be given a special unique property called an <i>id</i>. No other object within the same <a href="qdeclarativedocuments.html">QML document</a> can have the same <tt>id</tt> value. Assigning an id enables the object to be referred to by other objects and scripts.</p>
+<p>The first Rectangle element below has an <i>id</i>, &quot;myRect&quot;. The second Rectange element defines its own width by referring to <tt>myRect.width</tt>, which means it will have the same <tt>width</tt> value as the first Rectangle element.</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     Rectangle {
+         id: myRect
+         width: 100
+         height: 100
+     }
+     Rectangle {
+         width: myRect.width
+         height: 200
+     }
+ }</pre>
+<p>Note that an <i>id</i> must begin with a lower-case letter or an underscore, and cannot contain characters other than letters, numbers and underscores.</p>
+<a name="list-properties"></a>
+<h3>List properties</h3>
+<p>List properties look like this:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     children: [
+         Image {},
+         Text {}
+     ]
+ }</pre>
+<p>The list is enclosed in square brackets, with a comma separating the list elements. In cases where you are only assigning a single item to a list, you can omit the square brackets:</p>
+<pre class="highlightedCode brush: cpp"> Image {
+     children: Rectangle {}
+ }</pre>
+<a name="default-properties"></a>
+<h3>Default properties</h3>
+<p>Each object type can specify one of its list or object properties as its default property. If a property has been declared as the default property, the property tag can be omitted.</p>
+<p>For example this code:</p>
+<pre class="highlightedCode brush: cpp"> State {
+     changes: [
+         PropertyChanges {},
+         PropertyChanges {}
+     ]
+ }</pre>
+<p>can be simplified to:</p>
+<pre class="highlightedCode brush: cpp"> State {
+     PropertyChanges {}
+     PropertyChanges {}
+ }</pre>
+<p>because <tt>changes</tt> is the default property of the <tt>State</tt> type.</p>
+<a name="grouped-properties"></a>
+<h3>Grouped Properties</h3>
+<a name="dot-properties"></a><p>In some cases properties form a logical group and use a 'dot' or grouped notation to show this.</p>
+<p>Grouped properties can be written like this:</p>
+<pre class="highlightedCode brush: cpp"> Text {
+     font.pixelSize: 12
+     font.bold: true
+ }</pre>
+<p>or like this:</p>
+<pre class="highlightedCode brush: cpp"> Text {
+     font { pixelSize: 12; bold: true }
+ }</pre>
+<p>In the element documentation grouped properties are shown using the 'dot' notation.</p>
+<a name="attached-properties"></a>
+<h3>Attached Properties</h3>
+<a name="attached-properties"></a><p>Some objects attach properties to another object. Attached Properties are of the form <i>Type.property</i> where <i>Type</i> is the type of the element that attaches <i>property</i>.</p>
+<p>For example:</p>
+<pre class="highlightedCode brush: cpp"> Component {
+     id: myDelegate
+     Text {
+         text: &quot;Hello&quot;
+         color: ListView.isCurrentItem ? &quot;red&quot; : &quot;blue&quot;
+     }
+ }
+ ListView {
+     delegate: myDelegate
+ }</pre>
+<p>The <a href="qml-listview.html">ListView</a> element attaches the <i>ListView.isCurrentItem</i> property to each delegate it creates.</p>
+<p>Another example of attached properties is the <a href="qml-keys.html">Keys</a> element which attaches properties for handling key presses to any visual Item, for example:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     focus: true
+     Keys.onSelectPressed: console.log(&quot;Selected&quot;)
+ }</pre>
+<a name="signal-handlers"></a>
+<h3>Signal Handlers</h3>
+<p>Signal handlers allow actions to be taken in response to an event. For instance, the <a href="qml-mousearea.html">MouseArea</a> element has signal handlers to handle mouse press, release and click:</p>
+<pre class="highlightedCode brush: cpp"> MouseArea {
+     onPressed: console.log(&quot;mouse button pressed&quot;)
+ }</pre>
+<p>All signal handlers begin with <i>&quot;on&quot;</i>.</p>
+<p>Some signal handlers include an optional parameter, for example the <a href="qml-mousearea.html">MouseArea</a> onPressed signal handler has a <i>mouse</i> parameter:</p>
+<pre class="highlightedCode brush: cpp"> MouseArea {
+     acceptedButtons: Qt.LeftButton | Qt.RightButton
+     onPressed: if (mouse.button == Qt.RightButton) console.log(&quot;Right mouse button pressed&quot;)
+ }</pre>
+</div>
+<!-- @@@qdeclarativeintroduction.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

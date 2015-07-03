@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Ken Zhao <ken_zhao@alphanetworks.com> -->
+<page background="image/blank.jpg">
+  <text text="@@title" fontsize="26" x="200" y="65" h="40" w="400" />
+  <listbox valkey="reslist" move="row" cols="1" rows="6" lbmask="l" />
+  <table x="82" y="135" w="560" h="220"
+         cols="1" rows="6" colspacing="0" rowspacing="0"
+         lbimage="image/lightbar_music.gif" fontsize="18" textcolor="0x333333" actnoseltextcolor="0x333333">
+    <text text="@@reslist-0" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-0" active="@@act-reslist-0"/>
+    
+    <text text="@@reslist-1" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-1" active="@@act-reslist-1"/>
+    
+    <text text="@@reslist-2" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-2" active="@@act-reslist-2"/>
+    
+    <text text="@@reslist-3" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-3" active="@@act-reslist-3"/>
+    
+    <text text="@@reslist-4" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-4" active="@@act-reslist-4"/>
+    
+    <text text="@@reslist-5" fontsize="18" xmargin="40" ymargin="5"
+          lightbar="@@lightbar-reslist-5" active="@@act-reslist-5"/>
+  </table>
+  
+  <image image="fillrect" x="110" y="250" w="500" h="240" textcolor="0xe5e5e5"/>
+  <wrapper fontsize="18" textcolor="0x333333" align="left">
+    <text text="@@url" fontsize="18" x="130" y="260" h="80" w="460" numlines="4" />
+    <text text="@@protocolinfo" fontsize="18" x="130" y="340" h="60" w="460" numlines="3" />
+    <text text="@@resolution" fontsize="18" x="130" y="410" h="20" w="460" />
+  </wrapper>
+  <!-- PIP window -->
+  <include filename="./inc_pip.xml"/>
+</page>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page background="image/Villa_bg.png">
+  <ctrlgrp>
+     <button valkey="CANCEL"
+	focused_bg="image/youtube/common_btn_f.png"
+	normal_bg="image/youtube/common_btn_n.png"/>
+     <button valkey="OTHER"
+	focused_bg="image/youtube/common_btn_f.png"
+	normal_bg="image/youtube/common_btn_n.png"/>
+     <button valkey="OK"
+	focused_bg="image/youtube/common_btn_f.png"
+	normal_bg="image/youtube/common_btn_n.png"/>
+  </ctrlgrp>
+
+
+<image image="@@bg-CANCEL" active="@@act-CANCEL" x="133" y="390" w="343" h="78"/>
+<image image="@@bg-OTHER" active="@@act-OTHER" x="483" y="390" w="343" h="78"/>
+<image image="@@bg-OK" active="@@act-OK" x="833" y="390" w="343" h="78"/>
+
+<text text="@@text-CANCEL" x="163" y="390" w="283" h="78"  fontsize="20" align="hcenter" textcolor="0xffffff" speed="1" delay="2"/>
+<text text="@@text-OTHER" x="513" y="390" w="283" h="78" fontsize="20" align="hcenter" textcolor="0xffffff" speed="1" delay="2"/>
+<text text="@@text-OK" x="863" y="390" w="283" h="78" fontsize="20" align="hcenter" textcolor="0xffffff" speed="1" delay="2"/>
+
+  <include filename="./inc_messagebox.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

@@ -1,0 +1,109 @@
+--- tinyxml_2_5_3/Makefile.orig	2007-05-06 15:41:23.000000000 -0700
++++ tinyxml_2_5_3/Makefile	2008-12-04 18:32:11.000000000 -0800
+@@ -8,24 +8,26 @@
+ #****************************************************************************
+ 
+ # DEBUG can be set to YES to include debugging info, or NO otherwise
+-DEBUG          := YES
++DEBUG          := NO
+ 
+ # PROFILE can be set to YES to include profiling info, or NO otherwise
+ PROFILE        := NO
+ 
+ # TINYXML_USE_STL can be used to turn on STL support. NO, then STL
+ # will not be used. YES will include the STL files.
+-TINYXML_USE_STL := YES
++TINYXML_USE_STL := NO
+ 
+ #****************************************************************************
+ 
+-CC     := gcc
+-CXX    := g++
+-LD     := g++
+-AR     := ar rc
+-RANLIB := ranlib
++CROSS_COMPILER := mipsel-linux-
+ 
+-DEBUG_CFLAGS     := -Wall -Wno-format -g -DDEBUG
++CC     := ${CROSS_COMPILER}gcc
++CXX    := ${CROSS_COMPILER}g++
++LD     := ${CROSS_COMPILER}g++
++AR     := ${CROSS_COMPILER}ar rc
++RANLIB := ${CROSS_COMPILER}ranlib
++
++DEBUG_CFLAGS     := -Wall -Wno-format -g -DDEBUG -mips32r2 -Wa,-mips32r2
+ RELEASE_CFLAGS   := -Wall -Wno-unknown-pragmas -Wno-format -O3
+ 
+ LIBS		 :=
+@@ -82,44 +84,66 @@
+ #****************************************************************************
+ 
+ OUTPUT := xmltest
++XMLLIB := libtinyxml.a
++XMLLIB_SH := libtinyxml.so
+ 
+-all: ${OUTPUT}
++all: $(XMLLIB) $(XMLLIB_SH)
+ 
+ 
+ #****************************************************************************
+ # Source files
+ #****************************************************************************
+ 
+-SRCS := tinyxml.cpp tinyxmlparser.cpp xmltest.cpp tinyxmlerror.cpp tinystr.cpp
++# SRCS := tinyxml.cpp tinyxmlparser.cpp xmltest.cpp tinyxmlerror.cpp tinystr.cpp
++SRCS := tinyxml.cpp tinyxmlparser.cpp tinyxmlerror.cpp tinystr.cpp
+ 
+ # Add on the sources for libraries
+ SRCS := ${SRCS}
+ 
+ OBJS := $(addsuffix .o,$(basename ${SRCS}))
++OBJS_SH := $(addsuffix .pic.o,$(basename ${SRCS}))
+ 
+ #****************************************************************************
+ # Output
+ #****************************************************************************
+ 
+-${OUTPUT}: ${OBJS}
+-	${LD} -o $@ ${LDFLAGS} ${OBJS} ${LIBS} ${EXTRA_LIBS}
++${OUTPUT}: ${OBJS} xmltest.o
++	${LD} -o $@ ${LDFLAGS} xmltest.o ${OBJS} ${LIBS} ${EXTRA_LIBS}
++
++${XMLLIB_SH}: ${OBJS_SH}
++	${LD} -shared -o $@ ${OBJS_SH}
++
++${XMLLIB}: ${OBJS}
++	${AR} $@ ${OBJS}
++	$(RANLIB) $@
+ 
+ #****************************************************************************
+ # common rules
+ #****************************************************************************
+ 
+ # Rules for compiling source files to object files
++# NOTE: Rules order is important!
++%.pic.o : %.cpp
++	${CXX} -c -fPIC ${CXXFLAGS} ${INCS} $< -o $@
++
++%.pic.o : %.c
++	${CC} -c -fPIC ${CFLAGS} ${INCS} $< -o $@
++
+ %.o : %.cpp
+ 	${CXX} -c ${CXXFLAGS} ${INCS} $< -o $@
+ 
+ %.o : %.c
+ 	${CC} -c ${CFLAGS} ${INCS} $< -o $@
+ 
++install:
++	-cp -f *.h ${prefix}/include
++	-cp -f ${XMLLIB} ${XMLLIB_SH} ${prefix}/lib
++
+ dist:
+ 	bash makedistlinux
+ 
+ clean:
+-	-rm -f core ${OBJS} ${OUTPUT}
++	-rm -f core ${OBJS} ${OBJS_SH} ${OUTPUT} $(XMLLIB) $(XMLLIB_SH) xmltest.o
+ 
+ depend:
+ 	#makedepend ${INCS} ${SRCS}

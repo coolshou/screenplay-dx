@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/flickr/IService_Flickr_bg.jpg" type="basic">
+	<ctrlgrp lbmask="l" more_select="right">
+		<button valkey="USERNAME"
+			focused_bg="image/browser_list_btn.png"/>
+		<linebreak/>
+		<button valkey="OK"
+			focused_bg="image/Villa_button_blue_f_02.png"
+			normal_bg="image/Villa_button_blue_n_02.png"/>
+	</ctrlgrp>
+
+	<text text="$$Sign in" x="97" y="115" w="600" h="52" fontsize="42" textcolor="0xffb300"/>
+      	<image x="293" y="228" w="695" h="1" image="image/browser_list_line.png"/>
+	<imgbtn image="@@bg-USERNAME" text="$$Username" textcolor="0xe2e2e2" x="281" y="229" w="719" h="48" fontsize="26" align="hcenter"/>
+      	<image x="293" y="278" w="695" h="1" image="image/browser_list_line.png"/>
+
+	<image image="@@bg-OK" x="464" y="346" w="343" h="78"/>
+	<text text="$$Sign In" x="464" y="346" w="343" h="78" textcolor="0xffffff" fontsize="18" align="hcenter"/>
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+ 	<ctrlgrp>
+                <include filename="./inc_optionmenu_ctrlgrp.xml"/>
+        </ctrlgrp>
+       
+	 <include filename="./inc_optionmenu_widgets_flickr.xml"/>
+
+	<image image="image/flickr/Flickr_slideshow_player_frame_bg.png" x="0" y="534" w="1280" h="165" disable="@@photo_info_disable" bg="1"/>
+	
+	<progress_bar name="slideshow_timebar" x="171" y="583" w="545" h="35" pb_back_img="image/flickr/Flickr_slideshow_player_time_played_line_bg.png" pb_front_img="image/flickr/Flickr_slideshow_player_time_played_line_n.png" pb_point_img="image/flickr/Flickr_slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@photo_info_disable"/>
+
+	<image image="@@slideshow_state" x="126" y="572" w="44" h="50" disable="@@photo_info_disable"/>
+
+	<text text="@@info_filename" x="718" y="585" w="256" h="26" fontsize="24" textcolor="0xffffff" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+
+	<!--<text text="@@artist" x="647" y="620" w="180" h="16" fontsize="14" textcolor="0xffffff" speed="1" delay=/"2" disable="@@photo_info_disable" align="left" auto_translate="1"/>-->
+
+	<image image="@@info_trackicon" x="174" y="618" w="35" h="35" disable="@@photo_info_disable"/>
+	<text text="@@info_trackname" x="222" y="624" w="294" h="26" fontsize="24" textcolor="0xff75caf5" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+
+	<text text="@@info_photo_detail" x="718" y="613" w="265" h="20" fontsize="18" textcolor="0xffffffff" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+	<image image="image/flickr/Flickr_slideshow_player_compart_line.png" x="997" y="572" w="2" h="86" disable="@@photo_info_disable"/>
+	<text text="@@info_cur_pos" x="1018" y="580" w="102" h="32" fontsize="30" textcolor="0xffffff" disable="@@photo_info_disable" align="left"/>
+	<text text="@@info_total" x="1120" y="592" w="96" h="20" fontsize="18" textcolor="0xffffff" disable="@@photo_info_disable" align="left"/>
+
+	
+	<image image="@@repeat-ico" x="1060" y="618" w="48" h="43" disable="@@photo_info_disable"/>
+	<image image="@@shuffle-ico" x="1010" y="618" w="48" h="43" disable="@@photo_info_disable"/>
+	
+	<!--	<text text="@@mod_txt" x="162" y="186" w="958" h="32" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+	-->
+	<image image="@@mod_img" x="1063" y="71" w="107" h="107"/> 
+	<text x="353" y="142" w="610" h="28" text="@@text-OPTION" fontsize="24" textcolor="0xff19ff" align="hcenter" disable="@@disable-text-options"/>
+
+	<include filename="./inc_decoration_online.xml"/>
+</page>

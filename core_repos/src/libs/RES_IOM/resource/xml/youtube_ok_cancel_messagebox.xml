@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/youtube/youtube_bg.jpg">
+  <ctrlgrp>
+     <button valkey="CANCEL"
+	focused_bg="image/youtube/settings_system_msg_reset_btn_f.png"
+	normal_bg="image/youtube/settings_system_msg_reset_btn_n.png"/>
+     <button valkey="OK"
+	focused_bg="image/youtube/settings_system_msg_reset_btn_f.png"
+	normal_bg="image/youtube/settings_system_msg_reset_btn_n.png"/>
+  </ctrlgrp>
+
+  <imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" actnoseltextcolor="0xffffff" x="309" y="453" w="314" h="56" align="hcenter" fontsize="20"/>
+  <imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" actnoseltextcolor="0xffffff" x="650" y="453" w="314" h="56" align="hcenter" fontsize="20"/>
+  
+  <text text="@@message" x="203" y="251" w="877" h="163" 
+	fontsize="26" align="hcenter" numlines="5" textcolor="0xffffff"/>
+  
+	<image image="image/youtube/youtube_logo.png" x="1047" y="563" w="150" h="75"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

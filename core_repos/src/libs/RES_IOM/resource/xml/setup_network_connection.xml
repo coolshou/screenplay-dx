@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+  <include filename="./inc_setup_page_title.xml"/>
+
+  <text text="$$Please waiting..." x="203" y="251" w="877" h="163" 
+		fontsize="30" align="hcenter" numlines="5" textcolor="0xffffff" auto_translate="1"/>
+  <image image="@@connection_img" x="562" y="344" w="158" h="32"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

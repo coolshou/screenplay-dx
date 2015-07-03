@@ -1,0 +1,269 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da" lang="da">
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+<script type="text/javascript">
+
+var page_title = '';		/* Global variable to store the title of the page being loaded. */
+var progress_count = 0;		/* Used to change images when animating the progress mark */
+var progress_t = 0;			/* The timer object used when animating the progress mark */
+
+/*set its bounds*/
+var statusbarH = 60 * Espial.getZoomFactor()[1];
+Espial.setContentBounds(0, 0, Espial.safeBounds[2], (Espial.safeBounds[3] - statusbarH));
+Espial.setStatusbarBounds(0, (Espial.safeBounds[3] - statusbarH), Espial.safeBounds[2], statusbarH);
+
+/* These methods are called from the EvoBrowser, during the loading of a page. */
+
+/* This method is called when the loading of a page is started. */
+function loadStarted(url)
+{
+	/* reset the red dot */
+	document.getElementById('statusIcon').width = "16";
+	document.getElementById('statusIcon').height = "16";
+	document.getElementById('statusIcon').src = "../Images/red_ball_16x16.png";
+
+ 	/* Updating content on the status bar. */
+ 	document.getElementById('statusText').innerHTML = "Startet (" + url + ")";
+	document.getElementById('progressText').innerHTML = "0%";
+	/* Start the progress mark.
+	Note: Commented out for now.
+	startProgressMark();
+	 */
+}
+
+/* This method is called after the title of the requested page is received. */
+function titleReady(title)
+{
+	/* reset the red dot */
+	document.getElementById('statusIcon').width = "16";
+	document.getElementById('statusIcon').height = "16";
+	document.getElementById('statusIcon').src = "../Images/red_ball_16x16.png";
+
+	document.getElementById('statusText').innerHTML = "Henter (" + title + ")";
+	page_title = title;
+	/* Note: Progress mark commented out for now.	
+	startProgressMark();
+	*/
+}
+
+/* This method is called when the loading of a page is finished. */
+function loadFinished(howlong)
+{
+ 	/* Updating content of the status bar.*/
+ 	document.getElementById('statusText').innerHTML = page_title;
+	document.getElementById('progressText').innerHTML = "Udført (" + howlong + " ms)";
+	/* Stop the progress mark.
+	Note: Commented out for now.	
+	stopProgressMark();
+	*/
+}
+
+/* This method is called during the loading of a page, as the loading progresses. */
+function progressTracking(percentage)
+{	
+	if (percentage >= 100) {
+	 	/* content is updated in 'loadFinished', so we don't do anything here now */
+	}
+	else {
+	 	/* Update the percentage of the loaded content. */
+		document.getElementById('progressText').innerHTML = percentage + "%";		
+	}
+}
+
+/* Functions used for the progress animation */
+function startProgressMark(){
+ 	/* Show progress mark image, and create the timer object that will change the images from time to time */
+ 	if (!progress_t)	/* Do this if progress mark is not started yet */
+ 	{
+		document.getElementById('progressMark').style.visibility="visible";
+		progress_count = 0;
+		progress_t = setInterval("updateProgressMark()", 250);
+	}
+}
+/* This method is called by the progress_t object after every 250 ms */
+function updateProgressMark()
+{
+ 	/* Shows next progress mark image */
+	progress_count++;
+	if (progress_count > 8)			/* There are 8 images used for the progress animation. */
+		progress_count = 1;
+	document.getElementById('progressMark').src = "../Images/white-progress-"+progress_count+".png";
+}
+function stopProgressMark() {
+ 	/* Hides the progress mark image and stops the loop */
+ 	if (progress_t) 
+ 	{
+		document.getElementById('progressMark').style.visibility="hidden";
+		clearInterval(progress_t);
+		progress_t = 0;
+	}
+}
+
+/* This method is called when a protocol change has occured. */
+function protocolChange(protocol)
+{
+	if(protocol == "https")
+	{
+    	document.getElementById('lock').style.visibility="visible";
+	}
+	else
+	{
+    	document.getElementById('lock').style.visibility="hidden";
+	}
+}
+
+function iconAvailable(iconURL)
+{
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET", iconURL);
+	xmlhttp.onreadystatechange=function() {
+		if(xmlhttp.readyState == 4)
+		{
+			if(xmlhttp.status == 200)
+			{
+				document.getElementById('statusIcon').width = "16";
+				document.getElementById('statusIcon').height = "16";
+/*
+				document.getElementById('statusIcon').style.left = "10px";
+				document.getElementById('statusIcon').style.top = "12px"; */
+				document.getElementById('statusIcon').src = iconURL;
+			}
+			else
+			{
+				document.getElementById('statusIcon').width = "16";
+				document.getElementById('statusIcon').height = "16";
+/*
+				document.getElementById('statusIcon').style.left = "10px";
+				document.getElementById('statusIcon').style.top = "15px"; */
+				document.getElementById('statusIcon').src = "../Images/red_ball_16x16.png";
+			}
+		}
+	}
+	xmlhttp.send(null);
+}
+
+/* Mapping script method to the browser's callback methods. */
+Espial.onStartLoad = loadStarted;
+Espial.onTitleReady = titleReady;
+Espial.onFinishLoad = loadFinished;
+Espial.onProgressChange = progressTracking;
+Espial.onProtocolChange = protocolChange;
+Espial.onIconAvailable = iconAvailable;
+
+</script>
+
+<style type="text/css">
+
+	/* Setting common style for the page body. */
+	body {
+		background-color:black;
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		height: 100%;
+		font-family: arial, sans-serif;	
+		overflow:hidden;
+		color: white;
+	}
+	
+	/* This div will contain all the elements of the status bar. */
+	div#statusBar {
+		background-image:url('../Images/statusbar-blackgradient-1pixelswide.png');	/* Set background image for the statusbar. */
+		background-repeat: repeat-x;
+		margin: 5px;		/* Space around the statusbar */
+		padding: 8px;		/* Space between the statusbar and it's inner content. */
+		height: 31px;
+		position: relative;/* Every element of the statusbar will be positioned relative to this div */
+		/* border: 2px solid #fff; */
+	}
+
+	img#statusIcon {
+		position: absolute;
+		left: 10px;
+		top: 12px
+	}
+	div#statusText {
+		margin-left: 22px;			/* leave space for the status icon on the left */
+		margin-top: 0px;			/* set this value, to vertically align the text to the satus icon (red ball) */
+		overflow: hidden;			/* stops overflowing the text, when the title is too long */
+		font-size: 1em;
+		white-space:nowrap;			/* don't break title into multiple lines */
+		margin-right: 270px;		/* leave space for the progress-text, progress mark and logo on the right */
+	}
+	div#progressText{
+	 	position: absolute;
+		font-size: 0.8em;
+		text-align: right;	
+		right: 150px;				/* The distance of the progress text (loading percentage), relative to the rightside of the statusbar */
+		top: 12px;					/* The y coordinate of the progress text (loading percentage) */
+		width: 120px;
+		white-space: nowrap;		/* don't break text into lines */
+		overflow: hidden;			/* hide text end if too long */
+	}
+	
+	img#progressMark{
+		position: absolute;
+		right: 180px;			/* The distance of the progress mark, relative to the rightside of the statusbar */
+		top: 8px;				/* The y coordinate of the progress mark */
+		text-align:center;
+		width: 26px;			/* The width of the progress mark image */
+		visibility: hidden;		/* Visibility is set to 'visible' when loading a page */
+	}
+
+	img#lock{
+        position: absolute;
+        right: 120px;     /* The distance of the lock image, relative to the rightside of the statusbar */
+        top: 8px;       /* The y coordinate of the lock image */
+        width:26px;    /* The size of the lock image */
+        height:26px;
+		visibility: hidden;
+    }
+	
+	img#logo{
+		position: absolute;
+		right: 8px;		/* The distance of the espial logo image, relative to the rightside of the statusbar */
+		top: 8px;		/* The y coordinate of the espial logo image */
+		width:102px;	/* The size of the espial logo image */
+		height:26px;
+	}
+		
+</style>
+
+</head>
+
+<body >
+
+<div id="statusBar" HIGHLIGHT="false" >
+
+	<!-- Red ball image on the left of the status bar -->
+	<img id="statusIcon" src="../Images/red_ball_16x16.png" />
+	
+	<!-- Area that will contain the title of the page. This will be changed from javascript. -->
+	<!-- Area that will contain the loading percentage. This will be changed from javascript. -->
+	
+	<div id="statusText">
+		Titel på siden.
+	</div>
+
+	<div id="progressText">
+		Udført (0 ms)
+	</div>
+		
+	<!-- The loading mark, this is shown/hidden using javascript.
+	Note: Commented out for now.
+	<img id="progressMark" src="../Images/white-progress-1.png" />
+	 -->
+	 
+	<img id="lock" src="../Images/lock.png" alt="Secure"/>
+	<img id="logo" src="../Images/espial-logo.png" alt="Espial"/>
+
+</div>
+
+</body>
+</html>

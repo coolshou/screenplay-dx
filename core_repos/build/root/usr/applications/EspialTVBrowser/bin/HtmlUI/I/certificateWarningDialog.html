@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+<script type="text/javascript">
+
+/* Method called to close the dialog */
+function closeDialog(okCancel){
+	Espial.closeDialog(okCancel);
+}
+
+</script>
+
+
+<!-- linking common dialog style file -->
+<link type="text/css" href="dialog.css" rel="stylesheet">
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+<body highlight="false">
+
+<div id="dialog">
+	<!-- Using images to create the round corners of the dialog page -->
+	<img id="dialogLeftTopBg" src="../Images/dialog-corner-lefttop.png" />
+	<img id="dialogRightTopBg" src="../Images/dialog-corner-righttop.png" />
+	<img id="dialogLeftBottomBg" src="../Images/dialog-corner-leftbottom.png" />
+	<img id="dialogRightBottomBg" src="../Images/dialog-corner-rightbottom.png" />
+	<!-- The message of the dialog -->	
+	<div id="dialogMsg">
+		<img id="dialogMsgLeftTopBg" src="../Images/dialog-msg-lefttop.png" />
+		<img id="dialogMsgRightTopBg" src="../Images/dialog-msg-righttop.png" />
+		<img id="dialogMsgLeftBottomBg" src="../Images/dialog-msg-leftbottom.png" />
+		<img id="dialogMsgRightBottomBg" src="../Images/dialog-msg-rightbottom.png" />
+		<div id="dialogTitle"> Avviso di protezione</div>
+		<div id="dialogText">			
+			<img id="dialogIcon" src="../Images/dialog-icon.png">
+			Il server <script type="text/javascript">document.write(Espial.dialogMsg);</script> presenta un certificato rilasciato da un'entità non attendibile, continuare?
+		</div>
+	</div>
+	
+	<!-- Button -->
+	<div id="dialogButtons">
+		<input id="buttonOk" type="button" value="Procedere" onclick="closeDialog(true);" />
+		<input id="buttonCancel" type="button" value="Stop" onclick="closeDialog(false);" />
+	</div>
+
+</div>
+
+</body>
+</html>

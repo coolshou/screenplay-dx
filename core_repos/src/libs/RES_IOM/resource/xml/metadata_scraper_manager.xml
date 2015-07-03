@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<page background="./image/RV-BG.jpg" type="basic">
+	<ctrlgrp>
+		<button valkey="ADD"
+					lightbar_bg="image/add_new_scraper_btn_f.png"
+					focused_bg="image/add_new_scraper_btn_f.png"
+					normal_bg="image/add_new_scraper_btn_n.png"/>
+		<linebreak/>
+		<listbox valkey="scraper_list" autoenter="1" autoswitch="1"  move="row" cols="1" rows="4" lbmask="udlr"/>
+		<button valkey="SET"    lightbar_bg="image/default_icon_f.png"
+					focused_bg="image/default_icon_f.png"
+					normal_bg="image/default_icon_n.png"/>
+		<button valkey="DEL"    lightbar_bg="image/mobile_access_delete_icon_f.png"
+					focused_bg="image/mobile_access_delete_icon_f.png"
+					normal_bg="image/mobile_access_delete_icon_n.png"/>
+	</ctrlgrp>
+	
+	<!--title and hint-->
+	<include filename="./inc_setup_headline.xml"/>
+
+	<!--Add Mobile Device Divided Column-->
+	<image x="280" y="224" w="720" h="66" image="@@bg-ADD" active="@@act-ADD"/>
+	<text x="360" y="241" w="570" h="32" text="$$Add New Meta-Source" align="left" fontsize="30" textcolor="0xC1C1C1" active="@@act-ADD" actnoseltextcolor="0xFFFFFF"/>
+
+	<!--frame       setup_mobile_device_selection_n.png-->
+	<wrapper x="280" w="720" h="66">
+		<image y="304" image="@@scraper_frame_0" active="@@act-scraper_frame-0"/>
+		<image y="384" image="@@scraper_frame_1" active="@@act-scraper_frame-1"/>
+		<image y="464" image="@@scraper_frame_2" active="@@act-scraper_frame-2"/>
+		<image y="544" image="@@scraper_frame_3" active="@@act-scraper_frame-3"/>
+	</wrapper>
+
+	<!--table of focus frame and description-->
+	<table x="280" y="304" w="720" h="306" fontsize="30" selected_fontsize="30" 
+		cols="1" rows="4" colspacing="0" rowspacing="12" 
+		lbimage="image/setup_mobile_device_selection_f.png" clickimage="image/setup_mobile_device_selection_f.png" align="top" delay="2"
+		textcolor="0xc1c1c1" actnoseltextcolor="0xffffff" actoverlistcolor="0xc1c1c1" activetextcolor="0xffffff" selectedtextcolor="0xffffff"
+		lightbar_hide_if_unfocused="1">
+		<text text="@@scraper_0_text" lightbar="@@lightbar-scraper_list-0" active="@@act-scraper_list-0" selected="@@scraper_0_select" lmargin="80" rmargin="30" ymargin="17" speed="@@browse_speed_0"/>
+		<text text="@@scraper_1_text" lightbar="@@lightbar-scraper_list-1" active="@@act-scraper_list-1" selected="@@scraper_1_select" lmargin="80" rmargin="30" ymargin="17" speed="@@browse_speed_1"/>
+		<text text="@@scraper_2_text" lightbar="@@lightbar-scraper_list-2" active="@@act-scraper_list-2" selected="@@scraper_2_select" lmargin="80" rmargin="30" ymargin="17" speed="@@browse_speed_2"/>
+		<text text="@@scraper_3_text" lightbar="@@lightbar-scraper_list-3" active="@@act-scraper_list-3" selected="@@scraper_3_select" lmargin="80" rmargin="30" ymargin="17" speed="@@browse_speed_3"/>
+	</table>
+
+	<!--delete account button without info 		mobile_access_delete_icon_f.png/mobile_access_delete_icon_n.png-->
+	<image x="0" y="0" w="66" h="66" image="@@bg-DEL" active="@@act-DEL" actnoseltextcolor="0xffffff" lightbar="@@lightbar-DEL" lbimage="@@lightbar-DEL" align="hcenter" disable="1" attr_num="4" attr_cur="@@DEL_active">
+		<attr x_offset="@@DEL_0_x" y_offset="304" disable="0" />
+		<attr x_offset="@@DEL_1_x" y_offset="384" disable="0" />
+		<attr x_offset="@@DEL_2_x" y_offset="464" disable="0" />
+		<attr x_offset="@@DEL_3_x" y_offset="544" disable="0" />
+	</image>
+
+	<image x="0" y="0" w="66" h="66" image="@@bg-SET" active="@@act-SET" actnoseltextcolor="0xffffff" lightbar="@@lightbar-SET" lbimage="@@lightbar-SET" align="hcenter" disable="1" attr_num="4" attr_cur="@@SET_active">
+		<attr x_offset="1009" y_offset="304" disable="0" />
+		<attr x_offset="1009" y_offset="384" disable="0" />
+		<attr x_offset="1009" y_offset="464" disable="0" />
+		<attr x_offset="1009" y_offset="544" disable="0" />
+	</image>
+
+	<image x="0" y="0" w="32" h="20" image="@@bg-DEFAULT" active="@@act-DEFAULT" actnoseltextcolor="0xffffff" lightbar="@@lightbar-DEFAULT" lbimage="@@lightbar-DEFAULT" align="hcenter" disable="1" attr_num="4" attr_cur="@@DEFAULT_active">
+		<attr x_offset="948" y_offset="322" disable="0" />
+		<attr x_offset="948" y_offset="402" disable="0" />
+		<attr x_offset="948" y_offset="482" disable="0" />
+		<attr x_offset="948" y_offset="562" disable="0" />
+	</image>
+
+	<image image="@@check_icon_0" x="948" y="322" w="32" h="30"/>
+	<image image="@@check_icon_1" x="948" y="402" w="32" h="30"/>
+	<image image="@@check_icon_2" x="948" y="482" w="32" h="30"/>
+	<image image="@@check_icon_3" x="948" y="562" w="32" h="30"/>
+
+	<wrapper x="290" w="64" h="50">
+		<image y="312" image="@@thumbnail-0" scale="100" scale_type="fixratio"/>
+		<image y="392" image="@@thumbnail-1" scale="100" scale_type="fixratio"/>
+		<image y="472" image="@@thumbnail-2" scale="100" scale_type="fixratio"/>
+		<image y="552" image="@@thumbnail-3" scale="100" scale_type="fixratio"/>
+	</wrapper>
+
+	<image image="@@moreprev" x="622" y="190" w="37" h="24"/>
+	<image image="@@morenext" x="622" y="620" w="37" h="24"/>
+</page>

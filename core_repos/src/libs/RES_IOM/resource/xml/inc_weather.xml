@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image x="893" y="39" w="48" h="48" image="@@info_temp_bg_icon" bg="1"/>
+	<image x="893" y="42" w="48" h="40" image="@@info_temp_icon" scale="100" bg="1"/>
+
+	<image image="@@info_temp_text_bg_icon" x="942" y="39" w="112" h="48" bg="1"/>
+	<text text="@@info_temp" x="934" y="45" w="126" h="36" fontsize="32" textcolor="0xffffff" align="hcenter"/>
+</wrapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<page overlay="1">
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+
+<ctrlgrp> 
+	<button valkey="PIP"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_pip_on.png"
+		normal_bg="image/option_pip_on.png"/>
+	<button valkey="MD"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_motion_on.png"
+		normal_bg="image/option_motion_on.png"/>
+	<button valkey="ZOOM"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_fullScr_on.png"
+		normal_bg="image/option_fullScr_on.png"/>
+<!--	<button valkey="UP"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/live_cam_pt_up.png"
+		normal_bg="image/live_cam_pt_up.png"/>
+	<button valkey="DOWN"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/live_cam_pt_down.png"
+		normal_bg="image/live_cam_pt_down.png"/>
+	<button valkey="LEFT"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/live_cam_pt_left.png"
+		normal_bg="image/live_cam_pt_left.png"
+		disabled_bg="image/slideshow_options_menu_repeat_icon_d.png"/>
+	<button valkey="RIGHT"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/live_cam_pt_right.png"
+		normal_bg="image/live_cam_pt_right.png"/>-->
+</ctrlgrp>
+
+<wrapper>
+	<image image="image/option_menuX3.png" x="498" y="0" w="277" h="142" bg="1" disable="@@disable-options_bg"/>
+	<table x="506" y="38" h="74" w="261" cols="3" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-PIP"/>
+		<image image="@@bg-MD"/>
+		<image image="@@bg-ZOOM"/>
+<!--		<image image="@@bg-UP"/>
+		<image image="@@bg-DOWN"/>
+		<image image="@@bg-LEFT"/>
+		<image image="@@bg-RIGHT"/>-->
+	</table>
+	<table x="506" y="38" h="74" w="261" cols="3" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@lightbar-PIP" bg="1"/>
+		<image image="@@lightbar-MD" bg="1"/>
+		<image image="@@lightbar-ZOOM" bg="1"/>
+<!--		<image image="@@lightbar-UP" bg="1"/>
+		<image image="@@lightbar-DOWN" bg="1"/>
+		<image image="@@lightbar-LEFT" bg="1"/>
+		<image image="@@lightbar-RIGHT" bg="1"/>-->
+	</table>
+
+</wrapper>
+</page>

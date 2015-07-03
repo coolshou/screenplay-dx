@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" wait_seconds="3">
+  <ctrlgrp>
+     <button valkey="FINISH"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  
+  <text text="@@Finish_msg" x="160" y="260" w="960" h="100" fontsize="28" textcolor="0xffffff" numlines="5" align="hcenter"/>
+  <imgbtn image="@@bg-FINISH" text="@@text-FINISH" active="@@act-FINISH" x="484" y="464" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+  <!-- fixed -->
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <include filename="./inc_decoration.xml"/>
+</page>

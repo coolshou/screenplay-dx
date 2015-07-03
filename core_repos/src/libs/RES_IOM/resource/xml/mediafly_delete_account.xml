@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page background="image/mediafly/mediafly_bg.jpg">
+
+	<include filename="./inc_setup_headline.xml"/>
+	<listbox valkey="browselist" autoenter="1" autoswitch="0"  move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1"/>
+
+
+	<text text="@@title" x="127" y="115" w="733" h="44" align="left" fontsize="42" textcolor="0x4b4b4b" />
+
+  <table x="128" y="228" w="883" h="343" rows="7" rowspacing="0" 
+	  lbimage="image/mediafly/browser_list_btn.png" clickimage="image/mediafly/browser_list_btn.png">
+    <image lightbar="@@lightbar-browselist-0" active="@@act-browselist-0"/>
+    <image lightbar="@@lightbar-browselist-1" active="@@act-browselist-1"/>
+    <image lightbar="@@lightbar-browselist-2" active="@@act-browselist-2"/>
+    <image lightbar="@@lightbar-browselist-3" active="@@act-browselist-3"/>
+    <image lightbar="@@lightbar-browselist-4" active="@@act-browselist-4"/>
+    <image lightbar="@@lightbar-browselist-5" active="@@act-browselist-5"/>
+    <image lightbar="@@lightbar-browselist-6" active="@@act-browselist-6"/>
+  </table>
+
+  <table x="210" y="240" w="883" h="343"
+    	cols="1" rows="7" colspacing="0" rowspacing="0"  
+		textcolor="0x4b4b4b" 
+		actnoseltextcolor="0x005811" 
+		fontsize="20" selected_fontsize="26"
+		speed="1" delay="2" align="top">
+    <text text="@@account_0_text" active="@@act-browselist-0"/>
+    <text text="@@account_1_text" active="@@act-browselist-1"/>
+    <text text="@@account_2_text" active="@@act-browselist-2"/>
+    <text text="@@account_3_text" active="@@act-browselist-3"/>
+    <text text="@@account_4_text" active="@@act-browselist-4"/>
+    <text text="@@account_5_text" active="@@act-browselist-5"/>
+    <text text="@@account_6_text" active="@@act-browselist-6"/>
+  </table>
+
+  <image image="@@ss-prev" x="223" y="191" w="38" h="27"/>
+  <image image="@@ss-more" x="223" y="578" w="38" h="27"/>
+
+	<include filename="./inc_mediafly_logo.xml"/>
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

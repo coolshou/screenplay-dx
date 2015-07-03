@@ -1,0 +1,27 @@
+#These script is be written to make process .po more easily
+#Be carful and read the script before using it.
+#And backup the original .po before run any script
+#Compare the result with original to make sure the result modified by script is correct.
+
+#You must have the 'msgfmt' to convert .po to .mo
+#it is be contained in gettext
+
+
+# you can just run script without parameter to show how to use the script
+# (
+#   ex:./removedup.sh   
+#   will show you the help that expain how to use this script
+#  )
+
+#
+#All the script ONLY Works In Current Directory. so you must put the .po file(s) in the same direcotry.
+#
+
+listmiss.sh    List the .po filename that NOT contain parameter string
+
+removedup.sh   Batch Remove duplicate entry (msgid) in every .po in current directory
+              
+removemsg.sh   Remove msgid and msgstr with the msgid string you specify in parameter in *.po in current directory
+
+
+chgmsgid.sh    Change msgid from source string to target string in the .po file (Only process .po that you specify in parameter)

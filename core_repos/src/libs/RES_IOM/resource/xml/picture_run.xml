@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+    <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+            normal_bg="image/slideshow_options_menu_pan_icon_n.png"
+            focused_bg="image/slideshow_options_menu_pan_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Pan"/>
+    <button valkey="QML1"
+            normal_bg="image/slideshow_options_menu_90clockwise_icon_n.png"
+            focused_bg="image/slideshow_options_menu_90clockwise_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Rotate right"/>
+    <button valkey="QML2"
+            normal_bg="image/slideshow_options_menu_90counter_cw_icon_n.png"
+            focused_bg="image/slideshow_options_menu_90counter_cw_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Rotate left"/>
+    <button valkey="QML3"
+            normal_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+            focused_bg="image/slideshow_options_menu_zoomin_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Zoom in"/>
+	<button valkey="QML4"
+			normal_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+			focused_bg="image/slideshow_options_menu_zoomout_icon_f.png"
+			group_valkey="OPTION"
+            group_focused_text="$$Zoom out"/>
+    <button valkey="QML5"
+            normal_bg="image/slideshow_options_menu_repeat_icon_n.png"
+            focused_bg="image/slideshow_options_menu_repeat_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Repeat"/>
+    <button valkey="QML6"
+            normal_bg="image/options_menu_info_icon_n.png"
+            focused_bg="image/options_menu_info_icon_f.png"
+            group_valkey="OPTION"
+            group_focused_text="$$Info bar"/>
+    </ctrlgrp>
+
+	<image image="image/photo_playing_infobar_bg.png" x="257" y="570" w="766" h="118" disable="@@photo_info_disable" bg="1"/>
+	
+	<image image="@@slideshow_state" x="285" y="605" w="46" h="40" scale="100" scale-type="fixratio" disable="@@photo_info_disable"/>
+	<text text="@@info_filename" x="346" y="590" w="360" h="32" fontsize="28" textcolor="0x000000" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+
+	<progress_bar name="slideshow_timebar" x="336" y="622" w="476" h="18" pb_back_img="image/photo_playing_playbar_bg.png" pb_front_img="image/photo_playing_scale.png" pb_point_img="image/photo_playing_playbar_dot.png" pb_delay="1000" disable="@@photo_info_disable"/>
+
+	<image image="@@info_trackicon" x="346" y="642" w="25" h="25" disable="@@photo_info_disable"/>
+	<text text="@@info_trackname" x="376" y="642" w="310" h="26" fontsize="20" textcolor="0x414141" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+	
+	<image image="@@shuffle-ico" x="712" y="587" w="48" h="36" disable="@@photo_info_disable"/>
+	<image image="@@repeat-ico" x="756" y="587" w="48" h="36" disable="@@photo_info_disable"/>
+	
+	<image image="image/slideshow_player_compart_line.png" x="818" y="589" w="2" h="77" disable="@@photo_info_disable"/>
+
+	<text text="@@info_cur_pos" x="778" y="590" w="143" h="33" fontsize="30" textcolor="0x3576a3" disable="@@photo_info_disable" align="right"/>
+	<text text="@@info_total_count" x="922" y="595" w="72" h="30" fontsize="18" textcolor="0x000000" disable="@@photo_info_disable" align="right"/>
+	<text text="@@info_photo_date" x="672" y="644" w="130" h="20" fontsize="18" textcolor="0x414141" disable="@@photo_info_disable" align="right"/>
+	<text text="@@info_photo_resolution" x="838" y="626" w="155" h="20" fontsize="18" textcolor="0x414141" disable="@@photo_info_disable" align="right"/>
+	<text text="@@info_photo_filesize" x="838" y="648" w="155" h="20" fontsize="18" textcolor="0x414141" disable="@@photo_info_disable" align="right"/>
+
+	<include filename="decoration.xml"/>
+	<include filename="inc_options_picture_run.xml"/>
+
+	<text x="162" y="258" w="958" h="36" text="@@text-OPTION" fontsize="30" textcolor="0x00ccff" align="hcenter" disable="@@disable-text-options"/>
+	<text text="@@mod_txt" x="162" y="294" w="958" h="32" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+	<image image="@@mod_img" x="1146" y="54" w="80" h="80"/> 
+
+</page>

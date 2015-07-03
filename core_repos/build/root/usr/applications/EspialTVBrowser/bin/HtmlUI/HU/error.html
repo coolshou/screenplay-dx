@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu" lang="hu">
+
+<head>
+
+<title>Hiba történt.</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = Espial.errURL + "  nem érhető el.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Sajnáljuk, de valószínűleg probléma lépett fel.</h2>
+<br>
+Az <b><script>document.writeln(Espial.errURL)</script></b> címen található weblap nem tölthető be.
+<br>
+<br>
+<b>Javasoljuk, hogy próbálja meg az alábbiakat:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Töltse be később ezt a weblapot.</a></li>
+	<li><a onclick="Espial.back();">Térjen vissza az előző weblaphoz.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

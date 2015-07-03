@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<wrapper>
+  <text text="@@pagecounter" x="659" y="532" w="100" h="18" textcolor="0xe2e2e2" fontsize="16"/>
+  <image image="@@moreprev" x="896" y="256" w="38" h="27"/>
+  <wrapper x="663" w="695" h="1">
+    <image image="@@browse_0_line" ymargin="0" y="348"/>
+    <image image="@@browse_1_line" ymargin="0" y="399"/>
+    <image image="@@browse_2_line" ymargin="0" y="450"/>
+    <image image="@@browse_3_line" ymargin="0" y="501"/>
+  </wrapper>
+  <table x="655" y="300" w="529" h="204" fontsize="20" selected_fontsize="26"
+         cols="1" rows="4" colspacing="0" rowspacing="0"
+         lbimage="image/flickr/flickr_list_select_bar.png" clickimage="image/flickr/flickr_list_select_bar.png"  
+	 textcolor="0xe2e2e2" actnoseltextcolor="0xe2e2e2" actoverlistcolor="0xe2e2e2" 
+	 activetextcolor="0xe2e2e2" selectedtextcolor="0xe2e2e2" auto_translate="1">
+    <text text="@@browselist_0_text" xmargin="75" ymargin="5"
+	  lightbar="@@lightbar-browselist-0" active="@@act-browselist-0"
+	  selected="@@browse_0_select" speed="@@browse_0_speed" delay="2"/>
+    
+    <text text="@@browselist_1_text" xmargin="75" ymargin="5"
+	  lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" 
+	  selected="@@browse_1_select" speed="@@browse_1_speed" delay="2"/>
+    
+    <text text="@@browselist_2_text" xmargin="75" ymargin="5"
+	  lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" 
+	  selected="@@browse_2_select" speed="@@browse_2_speed" delay="2"/>
+    
+    <text text="@@browselist_3_text" xmargin="75" ymargin="5"
+	  lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" 
+	  selected="@@browse_3_select" speed="@@browse_3_speed" delay="2"/>
+    
+  </table>
+  
+<!--  <table x="682" y="307" w="32" h="128"
+           cols="1" rows="4" colspacing="0" rowspacing="0" scale_type="fixratio" scale="100">-->
+  <wrapper x="682" w="32" h="32" scale_type="fixratio" scale="100">
+    <image image="@@browse_0_icon" y="307"/>
+    <image image="@@browse_1_icon" y="358"/>
+    <image image="@@browse_2_icon" y="409"/>
+    <image image="@@browse_3_icon" y="460"/>
+  </wrapper>
+  <!--</table>-->
+  
+  <image image="@@morenext" x="896" y="511" w="38" h="27"/>
+  <include filename="./inc_decoration_online.xml"/>
+</wrapper>

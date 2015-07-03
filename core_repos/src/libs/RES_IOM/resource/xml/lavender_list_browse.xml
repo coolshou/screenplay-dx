@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/lavender_music_browse.jpg" type="basic" numitems="6" >
+  <text id="headline" text="@@head_text" />
+  <ctrlgrp>
+    <listbox valkey="browselist" move="page" cols="1" rows="6" lbmask="lr" loop_scroll="1" autoenter="1"/>
+    <linebreak/>
+    <listbox valkey="tablist" cols="6" rows="1" hormove="1" lbmask="lr" loop_scroll="1"/>
+  </ctrlgrp>
+  <table x="85" y="108" w="557" h="35" cols="6" rows="2" 
+	 fontsize="18" align="hcenter" actoverlistcolor="0xF0C832">
+    <text text="@@tablist_0_text" active="@@act-tablist-0"/>
+    <text text="@@tablist_1_text" active="@@act-tablist-1"/>
+    <text text="@@tablist_2_text" active="@@act-tablist-2"/>
+    <text text="@@tablist_3_text" active="@@act-tablist-3"/>
+    <text text="@@tablist_4_text" active="@@act-tablist-4"/>
+    <text text="@@tablist_5_text" active="@@act-tablist-5"/>
+    <image image="@@tablist_0_img" />
+    <image image="@@tablist_1_img" />
+    <image image="@@tablist_2_img" />
+    <image image="@@tablist_3_img" />
+    <image image="@@tablist_4_img" />
+    <image image="@@tablist_5_img" />
+  </table>
+  <image x="82" y="133" w="557" h="2" image="image/lavender_line.png" />
+  <include filename="./lavender_inc_list_browse.xml"/>
+  <!-- fixed -->
+  <include filename="./info.xml"/>
+  <include filename="./inc_headline_property.xml"/>
+  <include filename="./decoration.xml"/>
+  </page>

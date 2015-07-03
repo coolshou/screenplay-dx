@@ -1,0 +1,12 @@
+
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@disable-optionmenu">
+	<mlmenuview ctrlname="mlmenu-optionmenu" changed="@@mlmenu-optionmenu-changed" style="optionmenu"     
+		x="252" y="0" w="775" h="172" display_item_cnt="7" 
+		focus_icon="/osd/image/optionmenu/options_menu_select_bar.png" 
+		prev_icon="/osd/image/optionmenu/options_menu_arrow_left_n.png"
+		next_icon="/osd/image/optionmenu/options_menu_arrow_right_n.png"/> 
+	<image image="/osd/image/optionmenu/options_menu_bg.png" x="252" y="0" w="775" h="172" bg="1"/>
+</wrapper>
+</wrapper>

@@ -1,0 +1,14 @@
+menu "IOS APP features"
+	config SUPPORT_VIRTUAL_REMOTE
+		bool "Virtual Remote functions support"
+		depends on WEB_SERVER_APACHE
+		default n
+		help
+			Enable this option, system support Virtual Remote functions.
+	config SUPPORT_PHP_UPLOAD
+		bool "PHP upload support"
+		depends on WEB_SERVER_PHP
+		default n
+		help
+			Enable this option, system support PHP upload.
+endmenu

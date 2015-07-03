@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/message_background_bg_n.png" w="409" h="223">
+  <ctrlgrp>
+    <button valkey="OK" 
+	focused_bg="image/common_button_E_btn_f.png" 
+	normal_bg="image/common_button_E_btn_n.png"
+	click_bg="image/common_button_E_btn_p.png"/>
+    <button valkey="CANCEL" 
+	focused_bg="image/common_button_E_btn_f.png" 
+	normal_bg="image/common_button_E_btn_n.png"
+	click_bg="image/common_button_E_btn_p.png"/>
+  </ctrlgrp>
+  <text text="$$New Firmware Found!" x="25" y="20" w="340" h="24"
+        textcolor="0xffffff" fontsize="24" align="hcenter"/>
+  <text text="$$For release notes and to download the latest Media Server software, please check:" x="30" y="50" w="340" h="60"  numlines="3"
+        textcolor="0xffffff" fontsize="18" align="left"/>
+  <text text="$$Would you like to upgrade?" x="25" y="140" w="340" h="20" numlines="1"
+        textcolor="0xffffff" fontsize="18" align="left"/>
+  <table x="92" y="164" w="260" h="39" cols="2" colspacing="20" align="hcenter"  fontsize="18">
+    <imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" actnoseltextcolor="0x3333333"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" actnoseltextcolor="0x3333333"/>
+  </table>
+</page>

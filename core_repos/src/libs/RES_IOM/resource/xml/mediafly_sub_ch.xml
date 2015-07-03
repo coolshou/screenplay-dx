@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<page background="image/Villa_bg.png">
+	<ctrlgrp>
+	    	<listbox valkey="browselist" autoenter="1" move="page" cols="1" rows="6" lbmask="lr" loop_scroll="1" disable_light_bar_click="1"/>
+			<linebreak/>
+		<ctrlgrp valkey="options" lbmask="LR">
+    			<button valkey="QML0"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+	            		focused_bg="image/villa_youtube_options_menu_popular_icon.png"
+		    	        normal_bg="image/villa_youtube_options_menu_popular_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Browse content source" />
+		    	<button valkey="QML1"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+    	        		focused_bg="image/villa_options_menu_recent_icon.png"
+				normal_bg="image/villa_options_menu_recent_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Add to my channels"/>
+			<button valkey="QML2"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_youtube_options_menu_favorite_icon.png"
+				normal_bg="image/villa_youtube_options_menu_favorite_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Add to Favorited"/>
+			<button valkey="QML3"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_options_menu_most_popular_icon.png"
+				normal_bg="image/villa_options_menu_most_popular_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Switch to Show/Episodes"/>
+			<button valkey="QML4"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_options_menu_most_viewed_icon.png"
+				normal_bg="image/villa_options_menu_most_viewed_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Rate"/>
+			<button valkey="QML5"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_options_menu_top_rate_icon.png"
+				normal_bg="image/villa_options_menu_top_rate_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Show info"/>
+			<button valkey="QML6"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_options_menu_search_icon.png"
+				normal_bg="image/villa_options_menu_search_icon.png"
+				group_valkey="options"
+				group_focused_text="$$Search"/>
+			<button valkey="QML7"
+				lightbar_bg="image/villa_options_menu_select_bar.png"
+				focused_bg="image/villa_options_menu_user_icon.png"
+				normal_bg="image/villa_options_menu_user_icon.png"
+				group_valkey="options"
+				group_focused_text="$$My Account"/>
+		</ctrlgrp>
+	</ctrlgrp>
+
+
+	<table x="558" y="203" w="555" h="390" cols="1" rows="6">
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+		<image image="image/youtube/youtube_home_Thumbnails_Select_frame_n.png" w="555" h="65"/>
+	</table>
+
+  
+	<table x="558" y="203" w="555" h="390" fontsize="14" selected_fontsize="14"
+         cols="1" rows="6" colspacing="0" rowspacing="0"
+		 lbimage="image/youtube/youtube_home_Thumbnails_Select_frame_f.png" clickimage=""  
+		 textcolor="0xb8b8b8" actnoseltextcolor="0xb8b8b8" actoverlistcolor="0xb8b8b8" 
+		 activetextcolor="0xb8b8b8" selectedtextcolor="0xb8b8b8" align="top">
+    	<text text="" lmargin="236" ymargin="68"
+		  lightbar="@@lightbar-browselist-0" active="@@act-browselist-0"
+		  selected="@@browse_0_select" disable="@@disable-browselist"/>
+	    <text text="" lmargin="236" ymargin="68"
+		  lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" 
+		  selected="@@browse_1_select" disable="@@disable-browselist"/>
+    	<text text="" lmargin="236" ymargin="68" 
+		  lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" 
+		  selected="@@browse_2_select" disable="@@disable-browselist"/>
+    	<text text="" lmargin="236" ymargin="68" 
+		  lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" 
+		  selected="@@browse_3_select" disable="@@disable-browselist"/>
+    	<text text="" lmargin="236" ymargin="68" 
+		  lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" 
+		  selected="@@browse_4_select" disable="@@disable-browselist"/>
+    	<text text="" lmargin="236" ymargin="68" 
+		  lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" 
+		  selected="@@browse_5_select" disable="@@disable-browselist"/>
+	</table>
+ 
+	<wrapper x="655" w="440" h="22" fontsize="20" textcolor="0xffffff"> 
+		<text text="@@browselist_0_text" y="217" speed="@@browse_0_speed" delay="2"/>	
+		<text text="@@browselist_1_text" y="282" speed="@@browse_1_speed" delay="2"/>	
+		<text text="@@browselist_2_text" y="347" speed="@@browse_2_speed" delay="2"/>	
+		<text text="@@browselist_3_text" y="412" speed="@@browse_3_speed" delay="2"/>	
+		<text text="@@browselist_4_text" y="477" speed="@@browse_4_speed" delay="2"/>	
+		<text text="@@browselist_5_text" y="542" speed="@@browse_5_speed" delay="2"/>	
+	</wrapper>
+
+	<wrapper x="655" w="440" h="16" align="top" fontsize="14" textcolor="0xb8b8b8">
+		<text text="@@browse_0_duration" y="244" />
+		<text text="@@browse_1_duration" y="309" />
+		<text text="@@browse_2_duration" y="374" />
+		<text text="@@browse_3_duration" y="439" />
+		<text text="@@browse_4_duration" y="504" />
+		<text text="@@browse_5_duration" y="569" />
+	</wrapper>
+
+	<wrapper x="565" w="79" h="51" align="hcenter" scale="100">
+	    <image image="@@browse_0_icon" ymargin="0" y="210"/>
+    	<image image="@@browse_1_icon" ymargin="0" y="275"/>
+	    <image image="@@browse_2_icon" ymargin="0" y="340"/>
+    	<image image="@@browse_3_icon" ymargin="0" y="405"/>
+	    <image image="@@browse_4_icon" ymargin="0" y="470"/>
+    	<image image="@@browse_5_icon" ymargin="0" y="535"/>
+  	</wrapper>
+
+	<wrapper x="655" w="100" h="16" align="hcenter" scale="100">
+	    <image image="@@browse_0_stars" ymargin="0" y="244"/>
+    	<image image="@@browse_1_stars" ymargin="0" y="309"/>
+	    <image image="@@browse_2_stars" ymargin="0" y="374"/>
+    	<image image="@@browse_3_stars" ymargin="0" y="439"/>
+	    <image image="@@browse_4_stars" ymargin="0" y="504"/>
+    	<image image="@@browse_5_stars" ymargin="0" y="569"/>
+  	</wrapper>
+
+	<text text="@@option_title" x="693" y="622" w="400" h="44" fontsize="42" textcolor="0x07b5ff" align="right" speed="1" delay="2"/>
+	<image image="@@moreprev" x="1126" y="201" w="40" h="29"/>
+	<image image="@@morenext" x="1126" y="568" w="40" h="29" />
+
+<!-- Date buttons -->
+	<image image="@@date_bg" x="783" y="160" w="328" h="32"/>
+	
+	<image image="@@date_lb0" active="@@date_act0" x="786" y="162" w="106" h="27"/>
+	<image image="@@date_lb1" active="@@date_act1" x="894" y="162" w="106" h="27"/>
+	<image image="@@date_lb2" active="@@date_act2" x="1002" y="162" w="106" h="27"/>
+
+	<text text="@@both_text" x="790" y="169" w="97" h="16"  fontsize="14" align="hcenter" textcolor="0xffffff"
+			speed="1" delay="2"/>
+	<text text="@@audio_text" x="898" y="169" w="97" h="16" fontsize="14" align="hcenter" textcolor="0xffffff"
+			speed="1" delay="2"/>
+	<text text="@@video_text" x="1006" y="169" w="97" h="16" fontsize="14" align="hcenter" textcolor="0xffffff"
+			speed="1" delay="2"/>
+
+<!-- Informations -->
+	<image image="./image/youtube/villa_youtube_home_frame.png" x="181" y="169" w="315" h="211"/>
+	<image image="@@focused_icon" x="191" y="180" w="293" h="189" align="hcenter" scale="100"/>
+
+	<text text="@@focused_title" x="174" y="384" w="329" h="22" fontsize="20" textcolor="0x07b5ff" align="left"/>
+	<image image="@@focused_stars" x="174" y="410" w="100" h="19"/>
+	<image image="./image/youtube/WD_Villa_YouTube_Home_line.png" x="174" y="434" w="329" h="1"/>
+	<text text="@@focused_desc" x="174" y="440" w="329" h="55" numlines="3" 
+				 fontsize="12" textcolor="0xb8b8b8" align="left"/>
+	<image image="./image/youtube/WD_Villa_YouTube_Home_line.png" x="174" y="500" w="329" h="1"/>
+	<table x="174" y="506" w="97" h="90" cols="1" rows="5" align="right"
+			fontsize="12" textcolor="0xb8b8b8">
+		<text text="@@focused_author_name"/>
+		<text text="@@focused_date_name"/>
+		<text text="@@focused_category_name"/>
+		<text text="@@focused_tags_name"/>
+		<text text="@@focused_views_name"/>
+	</table>
+	<table x="278" y="506" w="225" h="90" cols="1" rows="5" align="left"
+			fontsize="12" textcolor="0xb8b8b8">
+		<text text="@@focused_author"/>
+		<text text="@@focused_date"/>
+		<text text="@@focused_category"/>
+		<text text="@@focused_tags"/>
+		<text text="@@focused_views"/>
+	</table>
+	<image image="./image/youtube/WD_Villa_YouTube_Home_line.png" x="174" y="601" w="329" h="1"/>
+
+
+<!-- QML setting -->
+	<image image="image/villa_options_menu_bg_08.png" x="244" y="0" w="791" h="173" disable="@@disable-options_bg"/>
+	<table x="268" y="0" h="151" w="744" cols="8" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0" text="@@text-QML0" lightbar="@@lightbar-QML0" 
+				active="@@act-QML0" lbimage="@@lightbar-QML0" align="hcenter"/>
+		<image image="@@bg-QML1" text="@@text-QML1" lightbar="@@lightbar-QML1"
+				active="@@act-QML1" lbimage="@@lightbar-QML1" align="hcenter"/>
+		<image image="@@bg-QML2" text="@@text-QML2" lightbar="@@lightbar-QML2" 
+				active="@@act-QML2" lbimage="@@lightbar-QML2" align="hcenter"/>
+		<image image="@@bg-QML3" text="@@text-QML3" lightbar="@@lightbar-QML3" 
+				active="@@act-QML3" lbimage="@@lightbar-QML3" align="hcenter"/>
+		<image image="@@bg-QML4" text="@@text-QML4" lightbar="@@lightbar-QML4" 
+				active="@@act-QML4" lbimage="@@lightbar-QML4" align="hcenter"/>
+		<image image="@@bg-QML5" text="@@text-QML5" lightbar="@@lightbar-QML5" 
+				active="@@act-QML5" lbimage="@@lightbar-QML5" align="hcenter"/>
+		<image image="@@bg-QML6" text="@@text-QML6" lightbar="@@lightbar-QML6" 
+				active="@@act-QML6" lbimage="@@lightbar-QML6" align="hcenter"/>
+		<image image="@@bg-QML7" text="@@text-QML7" lightbar="@@lightbar-QML7" 
+				active="@@act-QML7" lbimage="@@lightbar-QML7" align="hcenter"/>
+	</table>
+	<wrapper x="372" y="165" h="28" w="514" align="hcenter" disable="@@disable-options_bg">
+		<text text="@@text-options" fontsize="26" textcolor="0x07b5ff" align="hcenter"/>
+	</wrapper>
+
+	<include filename="./inc_youtube_logo.xml"/>
+	<include filename="./inc_loading.xml"/> 
+	<include filename="./inc_decoration_online.xml"/>
+</page>

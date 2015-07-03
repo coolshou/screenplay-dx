@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- webbrowser.qdoc -->
+  <title>Qt 4.7: Web Browser Example (ActiveQt)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-activeqt.html">ActiveQt Examples</a></li>              <li>Web Browser Example (ActiveQt)</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">Web Browser Example (ActiveQt)</h1>
+<span class="subtitle"></span>
+<!-- $$$activeqt/webbrowser-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="activeqt-webbrowser-mainwindow-ui.html">activeqt/webbrowser/mainwindow.ui</a></li>
+<li><a href="activeqt-webbrowser-mainwindow-windowsmobile-ui.html">activeqt/webbrowser/mainwindow_windowsmobile.ui</a></li>
+<li><a href="activeqt-webbrowser-webaxwidget-h.html">activeqt/webbrowser/webaxwidget.h</a></li>
+<li><a href="activeqt-webbrowser-main-cpp.html">activeqt/webbrowser/main.cpp</a></li>
+<li><a href="activeqt-webbrowser-webbrowser-pro.html">activeqt/webbrowser/webbrowser.pro</a></li>
+</ul>
+<p>The Web Browser example uses the Microsoft Web Browser ActiveX control to implement a fully functional Web Browser application. The user interface has been developed using the Qt Designer integration of the <a href="qaxwidget.html">QAxWidget</a> class.</p>
+<p>The code demonstrates how the Qt application can communicate with the embedded ActiveX controls using signals, slots and the dynamicCall() function.</p>
+<pre class="highlightedCode brush: cpp"> class MainWindow : public QMainWindow, public Ui::MainWindow
+ {
+     Q_OBJECT
+ public:
+     MainWindow();
+
+ public slots:
+     void on_WebBrowser_TitleChange(const QString &amp;title);
+     void on_WebBrowser_ProgressChange(int a, int b);
+     void on_WebBrowser_CommandStateChange(int cmd, bool on);
+     void on_WebBrowser_BeforeNavigate();
+     void on_WebBrowser_NavigateComplete(QString);
+
+     void on_actionGo_triggered();
+     void on_actionNewWindow_triggered();
+     void on_actionAbout_triggered();
+     void on_actionAboutQt_triggered();
+     void on_actionFileClose_triggered();
+
+ private:
+     QProgressBar *pb;
+ };</pre>
+<p>The <tt>MainWindow</tt> class declares a <tt>QMainWindow</tt> based user interface, using the <tt>Ui::MainWindow</tt> class generated by Qt Designer. A number of slots are implemented to handle events from the various user interface elements, including the <tt>WebBrowser</tt> object, which is a <a href="qaxwidget.html">QAxWidget</a> hosting the Microsoft Web Browser control.</p>
+<pre class="highlightedCode brush: cpp"> MainWindow::MainWindow()
+ {
+     setupUi(this);
+
+     connect(addressEdit, SIGNAL(returnPressed()), actionGo, SLOT(trigger()));
+     connect(actionBack, SIGNAL(triggered()), WebBrowser, SLOT(GoBack()));
+     connect(actionForward, SIGNAL(triggered()), WebBrowser, SLOT(GoForward()));
+     connect(actionStop, SIGNAL(triggered()), WebBrowser, SLOT(Stop()));
+     connect(actionRefresh, SIGNAL(triggered()), WebBrowser, SLOT(Refresh()));
+     connect(actionHome, SIGNAL(triggered()), WebBrowser, SLOT(GoHome()));
+     connect(actionSearch, SIGNAL(triggered()), WebBrowser, SLOT(GoSearch()));
+
+     pb = new QProgressBar(statusBar());
+     pb-&gt;setTextVisible(false);
+     pb-&gt;hide();
+     statusBar()-&gt;addPermanentWidget(pb);
+
+     WebBrowser-&gt;dynamicCall(&quot;GoHome()&quot;);
+ }</pre>
+<p>The constructor initializes the user interface, installs a progress bar on the status bar, and uses <a href="qaxbase.html#dynamicCall">QAxBase::dynamicCall</a>() to invoke the <tt>GoHome()</tt> method of Internet Explorer to navigate to the user's home page.</p>
+<pre class="highlightedCode brush: cpp"> void MainWindow::on_WebBrowser_TitleChange(const QString &amp;title)
+ {
+     setWindowTitle(&quot;Qt WebBrowser - &quot; + title);
+ }
+
+ void MainWindow::on_WebBrowser_ProgressChange(int a, int b)
+ {
+     if (a &lt;= 0 || b &lt;= 0) {
+         pb-&gt;hide();
+         return;
+     }
+     pb-&gt;show();
+     pb-&gt;setRange(0, b);
+     pb-&gt;setValue(a);
+ }
+
+ void MainWindow::on_WebBrowser_CommandStateChange(int cmd, bool on)
+ {
+     switch (cmd) {
+     case 1:
+         actionForward-&gt;setEnabled(on);
+         break;
+     case 2:
+         actionBack-&gt;setEnabled(on);
+         break;
+     }
+ }
+
+ void MainWindow::on_WebBrowser_BeforeNavigate()
+ {
+     actionStop-&gt;setEnabled(true);
+ }
+
+ void MainWindow::on_WebBrowser_NavigateComplete(QString)
+ {
+     actionStop-&gt;setEnabled(false);
+ }</pre>
+<p>Different slots handle the signals emitted by the WebBrowser object.</p>
+<p>Connections that don't require any coding, i.e&#x2e; connecting the <tt>back</tt> action to the <tt>GoBack()</tt> slot, have already been made in Qt Designer.</p>
+<pre class="highlightedCode brush: cpp"> void MainWindow::on_actionGo_triggered()
+ {
+     WebBrowser-&gt;dynamicCall(&quot;Navigate(const QString&amp;)&quot;, addressEdit-&gt;text());
+ }
+
+ void MainWindow::on_actionNewWindow_triggered()
+ {
+     MainWindow *window = new MainWindow;
+     window-&gt;show();
+     if (addressEdit-&gt;text().isEmpty())
+         return;
+     window-&gt;addressEdit-&gt;setText(addressEdit-&gt;text());
+     window-&gt;actionStop-&gt;setEnabled(true);
+     window-&gt;on_actionGo_triggered();
+ }
+
+ void MainWindow::on_actionAbout_triggered()
+ {
+     QMessageBox::about(this, tr(&quot;About WebBrowser&quot;),
+                 tr(&quot;This Example has been created using the ActiveQt integration into Qt Designer.\n&quot;
+                    &quot;It demonstrates the use of QAxWidget to embed the Internet Explorer ActiveX\n&quot;
+                    &quot;control into a Qt application.&quot;));
+ }
+
+ void MainWindow::on_actionAboutQt_triggered()
+ {
+     QMessageBox::aboutQt(this, tr(&quot;About Qt&quot;));
+ }
+
+ void MainWindow::on_actionFileClose_triggered()
+ {
+     close();
+ }
+
+ #include &quot;main.moc&quot;
+
+ int main(int argc, char ** argv)
+ {
+     QApplication a(argc, argv);
+     MainWindow w;
+ #if defined(Q_OS_WINCE)
+     w.showMaximized();
+ #else
+     w.show();
+ #endif
+     return a.exec();
+ }</pre>
+<p>The rest of the implementation is not related to <a href="activeqt.html#activeqt">ActiveQt</a> - the actions are handled by different slots, and the entry point function starts the application using standard Qt APIs.</p>
+<p>To build the example you must first build the <a href="qaxcontainer.html">QAxContainer</a> library. Then run your make tool in <tt>examples/activeqt/webbrowser</tt> and run the resulting <tt>webbrowser.exe</tt>.</p>
+</div>
+<!-- @@@activeqt/webbrowser -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/welcome_background_bg.jpg">
+  <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_repeat_icon_n.png"
+            normal_bg="image/slideshow_options_menu_repeat_icon_n.png"/>
+	<button valkey="QML1"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_pip_on.png"
+		normal_bg="image/option_pip_on.png"
+		disabled_bg="image/option_pip_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="PIP"/>
+	<button valkey="QML2"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_motion_on.png"
+		normal_bg="image/option_motion_on.png"
+		disabled_bg="image/option_motion_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="Motion Detect"/>
+	<button valkey="QML3"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_fullScr_on.png"
+		normal_bg="image/option_fullScr_on.png"
+		disabled_bg="image/option_fullScr_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="ZOOM"/>
+  </ctrlgrp>
+
+	<image x="0" y="175" w="1280" h="239" image="image/music_player_function_frame_bg.png" bg="1"/> 
+	<text x="240" y="88" w="200" h="40" text="$$Music" fontsize="40" textcolor="0xffb300"/>
+
+	<image x="220" y="141" w="456" h="303" image="image/music_player_frame_bg_n.png" bg="1"/>
+	<image x="319" y="174" w="238" h="238" image="@@album_icon" default_image="image/music_player_frame_albumart_icon.png" xmargin="0" ymargin="0" umargin="0" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+
+	<image x="312" y="165" w="256" h="256" image="image/music_player_frame_blister.png" bg="1"/>
+
+	<progress_bar name="point_bar" x="625" y="285" w="288" h="28" pb_back_img="image/music_player_line_bg.png" pb_front_img="image/music_player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500"/>
+
+	<text x="760" y="325" w="96" h="22" fontsize="20" text="@@audio_currenttime" align="left" textcolor="0xffffff"/>
+	<text x="858" y="328" w="94" h="18" fontsize="16" text="@@audio_totaltime" align="left" textcolor="0x999999"/>
+
+	<image x="366" y="430" w="695" h="1" image="image/photo_thumb_line_01.png" bg="1"/>
+	<text text="@@songname" x="366" y="441" w="555" h="30" fontsize="26" numlines="1" textcolor="0xffb300" speed="1" delay="2" align="hcenter" auto_translate="1"/>
+
+	<image x="366" y="477" w="695" h="1" image="image/photo_thumb_line_01.png" bg="1"/>
+	<image x="388" y="484" w="24" h="24" image="image/music_player_album_icon_n.png" bg="1"/>
+	<text text="@@album" x="426" y="488" w="481" h="22" fontsize="20" align="left" auto_translate="1"/>
+
+	<image x="366" y="517" w="555" h="1" image="image/music_player_line.png" bg="1"/>
+	<image x="388" y="524" w="24" h="24" image="image/music_player_artist_icon_n.png" bg="1"/>
+	<text text="@@artist" x="426" y="527" w="230" h="22" fontsize="20" align="left" auto_translate="1"/>
+
+	<image x="366" y="557" w="555" h="1" image="image/music_player_line.png" bg="1"/>
+	<image x="388" y="564" w="24" h="24" image="image/music_player_genre_icon_n.png" bg="1"/>
+	<text text="@@genre" x="426" y="567" w="230" h="22" fontsize="20" align="left" auto_translate="1"/>
+
+	<text text="$$Next Song:" x="602" y="591" w="315" h="24" fontsize="20" bg="1" textcolor="0xe6e6e6" align="right"/>
+	<text text="@@next" x="602" y="616" w="315" h="22" fontsize="18" numlines="1" textcolor="0xa4a4a4" align="right" speed="1" delay="2" auto_translate="1"/>
+
+	<!-- fixed -->
+	<image x="625" y="314" w="48" h="36" image="@@repeat-ico"/>
+	<image x="676" y="314" w="48" h="36" image="@@shuffle-ico"/>
+	<image x="730" y="235" w="44" h="50" image="@@play_state"/>
+	<image x="910" y="285" w="39" h="21" image="@@speed_state"/>
+
+	<include filename="decoration.xml"/>
+	<include filename="inc_options_list_x4.xml"/>
+	<include filename="ipcam_pip_win.xml"/>
+</page>

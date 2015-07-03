@@ -1,0 +1,32 @@
+#!/bin/sh
+echo "Getting an IP..."
+#udhcpc -n -q -i eth0
+touch /tmp/hosts
+
+echo "127.0.0.1	localhost.localdomain	localhost" > /etc/hosts
+echo `ifconfig eth0 | grep "inet addr:" | sed "s/  */ /g" | cut -d " " -f 3 | cut -d ":" -f 2` "an-ces-demo" >> /etc/hosts
+
+touch /tmp/resolv.conf
+
+utelnetd &
+
+### very important: increase socket receive buffer max size !!!
+### in order for this to work, the kernel needs to be configured
+### with /proc support and sysctl support.
+echo "Setting /proc/sys/net/core/rmem_max to:"
+echo "0x400000" > /proc/sys/net/core/rmem_max
+cat /proc/sys/net/core/rmem_max
+echo "Setting /proc/sys/net/core/wmem_max to:"
+echo "0x40000" > /proc/sys/net/core/wmem_max
+cat /proc/sys/net/core/wmem_max
+
+# Disabling SACK: alleged incompatibility with Windows Vista
+#echo "Disabling TCP SACK (possible incompatibility with Windows Vista)."
+#echo "0" > /proc/sys/net/ipv4/tcp_sack
+cat /proc/sys/net/ipv4/tcp_sack
+if grep -e "nfsroot" "/proc/cmdline" ;
+then 
+	echo 'the root file system is nfsroot, so do not execute network_daemon';
+else 
+	/usr/bin/network_daemon&
+fi

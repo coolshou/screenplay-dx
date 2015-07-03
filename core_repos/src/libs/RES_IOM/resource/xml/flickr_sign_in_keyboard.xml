@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/flickr/IService_Flickr_bg.jpg">
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+  </ctrlgrp>
+
+  <text id="subheadline" text="$$Search" x="97" y="115" w="600" h="52" fontsize="42" textcolor="0xffffff"/>
+
+
+<wrapper>
+  <widget_keyboard ctrlname="keyboard" x="312" y="226" h="247" w="658" cols="14" rows="5"
+		   align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xffffff"
+		   changed="@@keyboard_changed" extra_height="10" extra_index="0"/>
+</wrapper>
+
+  <image image="image/flickr/input_box_f.png" x="312" y="230" w="516" h="46" />
+  <texttail text="@@input_01_text" x="329" y="238" w="479" h="28"  textcolor="0xffffff" fontsize="26" ignore_translate="1"/>
+	<text text="$$Press [Option] key for multi-lingual input" x="201" y="599" w="880" h="22" align="hcenter" fontsize="18" textcolor="0x245fa6" disable="@@disable-OPTION"/>
+
+<!--  <include filename="./inc_setup_headline_property.xml" /> -->
+	<include filename="./inc_decoration_online.xml"/>
+
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+
+</page>

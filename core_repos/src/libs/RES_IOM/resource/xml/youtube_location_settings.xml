@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<page background="./image/youtube/youtube_bg.jpg">
+	<listbox valkey="youtube_location_settings" autoenter="1" autoswitch="0" move="page" cols="1" rows="9" loop_scroll="1"/>
+
+	<text text="$$Current location" x="188" y="156" w="610" h="44" fontsize="42" textcolor="0xffffff"/>
+
+	<wrapper x="293" w="695">
+		<image y="280" h="1" image="@@location_settings_0_line"/>
+		<image y="323" h="1" image="@@location_settings_1_line"/>
+		<image y="366" h="1" image="@@location_settings_2_line"/>
+		<image y="409" h="1" image="@@location_settings_3_line"/>
+		<image y="452" h="1" image="@@location_settings_4_line"/>
+		<image y="495" h="1" image="@@location_settings_5_line"/>
+		<image y="538" h="1" image="@@location_settings_6_line"/>
+		<image y="581" h="1" image="@@location_settings_7_line"/>
+		<image y="624" h="1" image="@@location_settings_8_line"/>
+	</wrapper>
+
+	<table x="281" y="238" w="719" h="387" fontsize="20" selected_fontsize="26" cols="1" rows="9" colspacing="0" rowspacing="0" 
+		lbimage="image/youtube/browser_list_btn.png" clickimage="image/youtube/browser_list_btn.png" align="hcenter" 
+		textcolor="0xffffff" actnoseltextcolor="0xffffff" actoverlistcolor="0xffffff" activetextcolor="0xffffff" selectedtextcolor="0xffffff">
+		<text text="@@location_settings_0_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-0" active="@@act-youtube_location_settings-0" selected="@@youtube_location_settings_0_select"/>
+		<text text="@@location_settings_1_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-1" active="@@act-youtube_location_settings-1" selected="@@youtube_location_settings_1_select"/>
+		<text text="@@location_settings_2_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-2" active="@@act-youtube_location_settings-2" selected="@@youtube_location_settings_2_select"/>
+		<text text="@@location_settings_3_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-3" active="@@act-youtube_location_settings-3" selected="@@youtube_location_settings_3_select"/>
+		<text text="@@location_settings_4_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-4" active="@@act-youtube_location_settings-4" selected="@@youtube_location_settings_4_select"/>
+		<text text="@@location_settings_5_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-5" active="@@act-youtube_location_settings-5" selected="@@youtube_location_settings_5_select"/>
+		<text text="@@location_settings_6_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-6" active="@@act-youtube_location_settings-6" selected="@@youtube_location_settings_6_select"/>
+		<text text="@@location_settings_7_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-7" active="@@act-youtube_location_settings-7" selected="@@youtube_location_settings_7_select"/>
+		<text text="@@location_settings_8_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_location_settings-8" active="@@act-youtube_location_settings-8" selected="@@youtube_location_settings_8_select"/>
+	</table>
+
+
+	<image image="image/youtube/youtube_logo.png" x="1047" y="563" w="150" h="75"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,3492 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/fckernel.c linux-2.6.22.19/arch/mips/tangox/fctrl/fckernel.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/fckernel.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/fckernel.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,687 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++#include <linux/init.h>
++#include <linux/module.h>
++#include <linux/types.h>
++#include <linux/delay.h>
++#include <linux/etherdevice.h>
++#include <linux/interrupt.h>
++#include <linux/proc_fs.h>
++#include <linux/ctype.h>
++#include <asm/tlbflush.h>
++
++#include "lib/fc/fcconfig.h"
++#include "lib/freqctrl.h"
++
++#include <linux/interrupt.h>
++#include <asm/tango2/rmem86xxid.h>
++#include <asm/tango2/rmdefs.h>
++#include <asm/tango2/emhwlib_dram.h>
++#include <asm/tango2/tango2_gbus.h>
++#include <asm/tango2/tango2.h>
++#include <asm/tango2/tango2api.h>
++#include <asm/tango2/memcfg.h>
++
++/* The names used in proc_fs */
++#define PROC_ROOT               "tangoxfreq"
++#define PROC_PROFILE            "profile"
++#define PROC_MUX                "mux"
++#define PROC_PLL3               "pll3"
++#define PROC_PLL2               "pll2"
++#define PROC_PLL1               "pll1"
++#define PROC_PLL0               "pll0"
++#define PROC_FREQ               "freq"
++
++#ifdef WITH_INPUT_POLLING
++#define PROC_STANDBY            "standby"
++#ifdef WITH_IR
++#define PROC_IR                 "ir_table"
++#endif
++#ifdef WITH_FIP
++#define PROC_FIP                "fip_table"
++#endif
++#endif
++
++/* Get XENV parameters related to frequency profile */
++extern void tangox_get_ps_config(unsigned long *pll3, unsigned long *pll2, unsigned long *pll1, 
++		unsigned long *pll0, unsigned long *mux, unsigned long *d0cfg, unsigned long *d0delay, 
++		unsigned long *d1cfg, unsigned long *d1delay);
++
++#ifdef WITH_INPUT_POLLING
++extern void tangox_get_standby_config(unsigned long *pll3, unsigned long *pll2, unsigned long *pll1, 
++		unsigned long *pll0, unsigned long *mux, unsigned long *d0cfg, unsigned long *d0delay, 
++		unsigned long *d1cfg, unsigned long *d1delay, unsigned long *gpio_dir, unsigned long *gpio_data);
++#endif
++
++extern int tangox_ir_enabled(void);
++extern int tangox_fip_enabled(void);
++extern int tangox_ethernet_enabled(void);
++extern unsigned long tangox_get_cpuclock(void);
++extern unsigned long tangox_get_sysclock(void);
++extern unsigned long tangox_get_dspclock(void);
++extern unsigned long tangox_get_pllclock(int idx);
++extern void tangox_do_timer(unsigned long ticks);
++
++union tangox_cycle_cnt_union {
++	u64 cycle64;
++	unsigned long cycle32[2];
++};
++extern union tangox_cycle_cnt_union tangox_cycle_cnt;
++
++static struct freq_profile freq_table[] = {
++	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "ORIGINAL", 0 }, /* for saving the status when it's been loaded */
++	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "PS XENV", 0 }, /* for getting the ps status when it's been loaded from XENV */
++	{ 0x0110009e, 0, 0, 0, 0x301, 0xf21111ba, 0x88888, 0xf21111ba, 0x88888, 0, "SYS/CPU/DSP 80/80/80", 0, 0 },  /* SYS/CPU/DSP: 80/80/80MHz, 2/2.5 */
++	{ 0x011000c6, 0, 0, 0, 0x701, 0xf21111ba, 0x97777, 0xf21111ba, 0x97777, 0, "SYS/CPU/DSP 100/150/150", 0, 0 },  /* SYS/CPU/DSP: 150/100/150MHz, 2/2.5 */
++	{ 0x01100108, 0, 0, 0, 0x701, 0xf21111ba, 0x97777, 0xf21111ba, 0x97777, 0, "SYS/CPU/DSP 133/200/200", 0, 0 },  /* SYS/CPU/DSP: 200/133/200MHz, 2/2.5 */
++	{ 0x0110014a, 0, 0, 0, 0x701, 0xf34111ba, 0xa7777, 0xf34111ba, 0xa7777, 0, "SYS/CPU/DSP 166/250/250", 0, 0 },  /* SYS/CPU/DSP: 250/166/250MHz, 3/4 */
++	{ 0x01010041, 0, 0, 0, 0x701, 0xf34111ba, 0xa4444, 0xf34111ba, 0xa4444, 0, "SYS/CPU/DSP 200/300/300", 0, 0 },  /* SYS/CPU/DSP: 300/200/300MHz, 3/4 */
++};
++
++#ifdef WITH_INPUT_POLLING
++static struct freq_profile standby_mode =
++//      { 0x01010010, 0x202, 0x202, 0x202, 0x301, 0xf21111ba, 0x88888, 0xf21111ba, 0x88888, 1, "54/54/54", 0, 0 };  /* CPU/SYS/DSP: 54/54/54MHz, 2/2.5 PLL3 162MHz */
++//	{ 0x0119006a, 0x202, 0x202, 0x202, 0x1, 0xf21111ba, 0x88888, 0xf21111ba, 0x88888, 1, "54/54/54", 0, 0 };  /* CPU/SYS/DSP: 54/54/54MHz, 2/2.5 PLL3 108MHz */
++	{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, "STANDBY XENV", 0, 0 };  /* get the settings from XENV */
++#endif
++
++static int profile_idx = 0;
++static struct proc_dir_entry *root = NULL, *prof_ent = NULL, *mux_ent = NULL, *pll3_ent = NULL;
++static struct proc_dir_entry *pll1_ent = NULL, *pll2_ent = NULL, *pll0_ent = NULL, *freq_ent = NULL;
++
++#ifdef WITH_INPUT_POLLING
++static struct proc_dir_entry *standby_ent;
++#ifdef WITH_IR
++static struct proc_dir_entry *ir_ent = NULL;
++#endif
++#ifdef WITH_FIP
++static struct proc_dir_entry *fip_ent = NULL;
++#endif
++static unsigned long ir_keys[INPUT_TABLE_SIZE/sizeof(unsigned long)];
++static unsigned long fip_keys[INPUT_TABLE_SIZE/sizeof(unsigned long)];
++static int ir_key_cnt, fip_key_cnt;
++#endif
++
++static const unsigned char ratios_table[12][3] = {
++	{ 2, 2, 2 },
++	{ 4, 2, 4 },
++	{ 3, 2, 3 },
++	{ 3, 3, 3 },
++	{ 3, 3, 3 },
++	{ 3, 2, 3 },
++	{ 3, 3, 2 },
++	{ 3, 2, 2 },
++	{ 4, 4, 4 },
++	{ 4, 2, 4 },
++	{ 4, 4, 2 },
++	{ 4, 2, 2 }
++};
++
++static void recalc_frequency(void)
++{
++	extern void tangox_bmide_calc_speed(void);
++	extern void tangox_pbide_calc_speed(void);
++
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX
++	tangox_bmide_calc_speed();
++#endif
++#ifdef CONFIG_BLK_DEV_PBIDE_TANGOX
++	tangox_pbide_calc_speed();
++#endif
++
++	/* TODO: may need to re-adjust the CDs */
++}
++
++static int change_profile(const char *str)
++{
++	int prof = simple_strtol(str, NULL, 10);
++	int ret = 0;
++
++	if ((prof < 0) || (prof >= (sizeof(freq_table)/sizeof(struct freq_profile)))) 
++		return -EINVAL;
++
++	for (; prof < sizeof(freq_table)/sizeof(struct freq_profile); prof++) {
++		/* Look for defined profile */
++		if (freq_table[prof].pll3 != 0)
++			break;
++	}
++
++	/* No valid profile found, use original one */
++	if (prof >= (sizeof(freq_table)/sizeof(struct freq_profile)))
++		prof = 0; 
++
++	if (profile_idx == prof)
++		return 0;
++
++	profile_idx = prof;
++
++#ifdef WITH_INPUT_POLLING
++	ret = set_freq_profile(&freq_table[prof], NULL, NULL, NULL, NULL, 0, 
++				&tangox_cycle_cnt.cycle32[0], &tangox_cycle_cnt.cycle32[1]);
++#else
++	ret = set_freq_profile(&freq_table[prof]);
++#endif
++
++	recalc_frequency();
++
++	return ret;
++}
++
++static int change_mux(const char *mux_str)
++{
++	struct freq_profile freq_prof;
++	int mux = simple_strtol(mux_str, NULL, 10);
++	int ret = 0;
++
++	if ((mux < 0) || (mux > 11))
++		return -EINVAL;
++
++	freq_prof.mux = (gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux) & 0xfffff0ff) | (mux << 8);
++	freq_prof.d0cfg = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_cfg);
++	freq_prof.d0delays = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl);
++	freq_prof.d1cfg = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_cfg);
++	freq_prof.d1delays = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl);
++	freq_prof.pll3 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen3_pll);
++	freq_prof.pll2 = freq_prof.pll1 = freq_prof.pll0 = 0;
++	freq_prof.standby = 0;
++
++	if (freq_prof.mux != gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux))
++		profile_idx = -1;
++
++#ifdef WITH_INPUT_POLLING
++	ret = set_freq_profile(&freq_prof, NULL, NULL, NULL, NULL, 0, 
++				&tangox_cycle_cnt.cycle32[0], &tangox_cycle_cnt.cycle32[1]);
++#else
++	ret = set_freq_profile(&freq_prof);
++#endif
++
++	recalc_frequency();
++
++	return ret;
++}
++
++static int pllx_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	char buf[64];
++	unsigned long freq;
++	struct freq_profile freq_prof;
++	int idx = (int)data;
++
++	if (count > ARRAY_SIZE(buf) - 1)
++		count = ARRAY_SIZE(buf) - 1;
++	if (copy_from_user(buf, buffer, count))
++		return -EFAULT;
++
++	buf[count] = '\0';
++	freq = simple_strtol(buf, NULL, 10);
++
++	freq_prof.mux = gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux);
++	freq_prof.d0cfg = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_cfg);
++	freq_prof.d0delays = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl);
++	freq_prof.d1cfg = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_cfg);
++	freq_prof.d1delays = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl);
++	freq_prof.standby = 0;
++	freq_prof.pll3 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen3_pll);
++	freq_prof.pll2 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll);
++	freq_prof.pll1 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll);
++	freq_prof.pll0 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll);
++
++	if (idx == 3) {
++		freq_prof.pll3 = frequency_to_pll(freq, 1);
++	} else if (idx == 2) {
++		freq_prof.pll2 = frequency_to_pll(freq, 1);
++	} else if (idx == 1) {
++		freq_prof.pll1 = frequency_to_pll(freq, 1);
++	} else if (idx == 0) {
++		freq_prof.pll0 = frequency_to_pll(freq, 1);
++	}
++
++	profile_idx = -1;
++#ifdef WITH_INPUT_POLLING
++	set_freq_profile(&freq_prof, NULL, NULL, NULL, NULL, 0, 
++				&tangox_cycle_cnt.cycle32[0], &tangox_cycle_cnt.cycle32[1]);
++#else
++	set_freq_profile(&freq_prof);
++#endif
++
++	recalc_frequency();
++
++	return count;
++}
++
++static int pllx_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int ret = 0;
++	int idx = (int)data;
++
++	ret = sprintf(page + off, "PLL%d: %ldHz\n", idx, tangox_get_pllclock(idx));
++	*eof = 1;
++	return ret;
++}
++
++static int freq_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int ret = 0;
++	int i;
++	for (i = 0; i < 4; i++) {
++		ret += sprintf(page + off + ret, "PLL%d: %ldHz\n", i, tangox_get_pllclock(i));
++	}
++	ret += sprintf(page + off + ret, "SYS: %ldHz\n", tangox_get_sysclock());
++	ret += sprintf(page + off + ret, "CPU: %ldHz\n", tangox_get_cpuclock());
++	ret += sprintf(page + off + ret, "DSP: %ldHz\n", tangox_get_dspclock());
++	*eof = 1;
++	return ret;
++}
++
++static int profile_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	char buf[16];
++
++	if (count > ARRAY_SIZE(buf) - 1)
++		count = ARRAY_SIZE(buf) - 1;
++	if (copy_from_user(buf, buffer, count))
++		return -EFAULT;
++
++	buf[count] = '\0';
++
++	change_profile(buf);
++
++	return count;
++}
++
++static int profile_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int ret = 0;
++	int i;
++
++	for (i = 0; i < (sizeof(freq_table)/sizeof(struct freq_profile)); i++) {
++		if (freq_table[i].pll3 == 0)
++			continue;
++		ret += sprintf(page + off + ret, "%c %d: %s\n", (profile_idx == i) ? '*' : ' ', 
++				i, freq_table[i].desc);
++	}
++	*eof = 1;
++	return ret;
++}
++
++static int mux_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	char buf[16];
++
++	if (count > ARRAY_SIZE(buf) - 1)
++		count = ARRAY_SIZE(buf) - 1;
++	if (copy_from_user(buf, buffer, count))
++		return -EFAULT;
++
++	buf[count] = '\0';
++
++	change_mux(buf);
++
++	return count;
++}
++
++static int mux_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int ret = 0, i;
++	unsigned long mux = (gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux) >> 8) & 0xf;
++	unsigned long premux = gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_premux);
++	
++	ret = sprintf(page + off, "PLL%ld: %ldHz\n", premux & 3, tangox_get_pllclock(premux & 3));
++	for (i = 0; i < 12; i++) {
++		ret += sprintf(page + off + ret, "%c %d (SYS/CPU/DSP: %d/%d/%d)\n",
++				(i == mux) ? '*' : ' ', i,
++				ratios_table[i][0], ratios_table[i][1], ratios_table[i][2]);
++	}
++	*eof = 1;
++	return ret;
++}
++
++#ifdef WITH_INPUT_POLLING
++static int standby_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	char buf[16];
++	unsigned long elapse, ret_key;
++	unsigned long *ir_table, *fip_table;
++	int eth_enable, ir_enable, fip_enable, input_ctrl = 0;
++
++	if (count > ARRAY_SIZE(buf) - 1)
++		count = ARRAY_SIZE(buf) - 1;
++	if (copy_from_user(buf, buffer, count))
++		return -EFAULT;
++
++	if (standby_mode.pll3 == 0) { /* not yet setting up */
++		printk("standby mode parameters not set up yet.\n");
++		return -EINVAL;
++	}
++
++	buf[count] = '\0';
++
++#ifdef WITH_IR
++	ir_table = (ir_key_cnt ? ir_keys : NULL);
++	ir_enable = (tangox_ir_enabled() ? ((ir_table != NULL) ? 1 : 0) : 0);
++#else
++	ir_table = NULL;
++	ir_enabled = 0;
++#endif
++#ifdef WITH_FIP
++	fip_table = (fip_key_cnt ? fip_keys : NULL);
++	fip_enable = (tangox_fip_enabled() ? ((fip_table != NULL) ? 1 : 0) : 0);
++#else
++	fip_table = NULL;
++	fip_enable = 0;
++#endif
++#ifdef WITH_ETH
++	eth_enable = (tangox_ethernet_enabled() ? 1 : 0);
++#else
++	eth_enable = 0;
++#endif
++	
++	input_ctrl |= (ir_enable ? 1 : 0);
++	input_ctrl |= (fip_enable ? 2 : 0);
++	input_ctrl |= (eth_enable ? 4 : 0);
++
++	if (strncmp("standby", buf, strlen("standby")) == 0) {
++		if ((ir_enable == 0) && (fip_enable == 0) && (eth_enable == 0)) {
++			printk("No wake up device specified.\n");
++			goto out;
++		}
++
++		printk("Entering standby mode ...\n");
++		set_freq_profile(&standby_mode, &elapse, &ret_key, ir_table, fip_table, input_ctrl, 
++				&tangox_cycle_cnt.cycle32[0], &tangox_cycle_cnt.cycle32[1]);
++//		jiffies_64 += ((elapse * HZ) / 1000); /* elaspe in msec so we adjust it accordingly */ 
++		tangox_do_timer((elapse * HZ) / 1000);
++		printk("Returned key 0x%08lx, time elapse %ld jiffies (%ld.%ld sec).\n", ret_key, (elapse * HZ) / 1000, elapse / 1000, elapse % 1000);
++	//	recalc_frequency();
++	}
++
++out:
++	return count;
++}
++
++#if defined(WITH_IR) || defined(WITH_FIP)
++static const char *hex2string(unsigned long *hex, const char *src_ptr)
++{
++	unsigned long res = 0;
++	const char *src = src_ptr;
++
++	for (; isxdigit(*src); src++) {
++		if (isdigit(*src))
++			res = res * 16 + ((*src) - '0');
++		else
++			res = res * 16 + (__toupper(*src) - 'A' + 10);
++	}
++	*hex = res;
++	return(src);
++}
++
++static const char *dec2string(unsigned long *dec, const char *src_ptr)
++{
++	unsigned long res = 0;
++	const char *src = src_ptr;
++
++	for (; isdigit(*src); src++) {
++		res = res * 10 + ((*src) - '0');
++	}
++	*dec = res;
++	return(src);
++}
++#endif
++
++#ifdef WITH_IR
++static int ir_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	int i;
++	unsigned long cnt;
++	const char *ptr = buffer, *end = buffer + count;
++
++	memset(ir_keys, 0, INPUT_TABLE_SIZE);
++	ir_key_cnt = 0;
++
++	/* Parse the values */
++	for (cnt = i = 0; (i < INPUT_TABLE_SIZE/sizeof(unsigned long)) && (cnt < count); i++) {
++		for (; (!isdigit(*ptr)) && (ptr < end); ptr++);  /* skip leading unwanted stuff */
++		if (ptr >= end)
++			break; /* no more */
++		else if ((*ptr == '0') && (__toupper(*(ptr + 1)) == 'X')) 
++			ptr = hex2string(&ir_keys[i], ptr + 2);
++		else
++			ptr = dec2string(&ir_keys[i], ptr);
++	}
++	ir_key_cnt = i;
++	return(count);
++}
++
++static int ir_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int i, ret = 0;
++	for (i = 0; i < INPUT_TABLE_SIZE/sizeof(unsigned long); i++) {
++		if (ir_keys[i]) 
++			ret += sprintf(page + off + ret, "0x%lx ", ir_keys[i]);
++	}
++	if (ret)
++		ret += sprintf(page + off + ret, "\n");
++	else	
++		ret += sprintf(page + off + ret, "No IR key defined.\n");
++	*eof = 1;
++	return(ret);
++}
++#endif
++#ifdef WITH_FIP
++static int fip_info_write_proc(struct file *file, const char __user *buffer, unsigned long count, void *data)
++{
++	int i;
++	unsigned long cnt;
++	const char *ptr = buffer, *end = buffer + count;
++
++	memset(fip_keys, 0, INPUT_TABLE_SIZE);
++	fip_key_cnt = 0;
++
++	/* Parse the values */
++	for (cnt = i = 0; (i < INPUT_TABLE_SIZE/sizeof(unsigned long)) && (cnt < count); i++) {
++		for (; (!isdigit(*ptr)) && (ptr < end); ptr++);  /* skip leading unwanted stuff */
++		if (ptr >= end)
++			break; /* no more */
++		else if ((*ptr == '0') && (__toupper(*(ptr + 1)) == 'X')) 
++			ptr = hex2string(&fip_keys[i], ptr + 2);
++		else
++			ptr = dec2string(&fip_keys[i], ptr);
++	}
++	fip_key_cnt = i;
++	return(count);
++}
++
++static int fip_info_read_proc(char *page, char **start, off_t off, int count, int *eof, void *data)
++{
++	int i, ret = 0;
++	for (i = 0; i < INPUT_TABLE_SIZE/sizeof(unsigned long); i++) {
++		if (fip_keys[i]) 
++			ret += sprintf(page + off + ret, "0x%lx ", fip_keys[i]);
++	}
++	if (ret)
++		ret += sprintf(page + off + ret, "\n");
++	else	
++		ret += sprintf(page + off + ret, "No FIP key defined.\n");
++	*eof = 1;
++	return(ret);
++}
++#endif
++#endif
++
++static int tangox_freq_ctrl_init(void) 
++{
++	int i;
++
++#ifdef WITH_INPUT_POLLING
++	memset(ir_keys, 0, INPUT_TABLE_SIZE);
++	memset(fip_keys, 0, INPUT_TABLE_SIZE);
++	ir_key_cnt = fip_key_cnt = 0;
++#endif
++
++	freq_table[0].pll3 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen3_pll);
++	freq_table[0].pll2 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll);
++	freq_table[0].pll1 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll);
++	freq_table[0].pll0 = gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll);
++	freq_table[0].mux = gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux);
++	freq_table[0].d0cfg = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_cfg);
++	freq_table[0].d0delays = gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl);
++	freq_table[0].d1cfg = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_cfg);
++	freq_table[0].d1delays = gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl);
++	freq_table[0].gpio_dir = freq_table[0].gpio_data = 0;
++
++	tangox_get_ps_config(&freq_table[1].pll3, &freq_table[1].pll2, &freq_table[1].pll1, 
++			&freq_table[1].pll0, &freq_table[1].mux, &freq_table[1].d0cfg, 
++			&freq_table[1].d0delays, &freq_table[1].d1cfg, &freq_table[1].d1delays);
++	freq_table[1].gpio_dir = freq_table[1].gpio_data = 0;
++
++#ifdef WITH_INPUT_POLLING
++	tangox_get_standby_config(&standby_mode.pll3, &standby_mode.pll2, &standby_mode.pll1, 
++			&standby_mode.pll0, &standby_mode.mux, &standby_mode.d0cfg, 
++			&standby_mode.d0delays, &standby_mode.d1cfg, &standby_mode.d1delays, 
++			&standby_mode.gpio_dir, &standby_mode.gpio_data);
++#endif
++
++	for (i = 2; i < (sizeof(freq_table)/sizeof(struct freq_profile)); i++) {
++		freq_table[i].d0cfg = (freq_table[i].d0cfg & 0x0fffffff) | (freq_table[0].d0cfg & 0xf0000000);
++		freq_table[i].d1cfg = (freq_table[i].d1cfg & 0x0fffffff) | (freq_table[0].d1cfg & 0xf0000000);
++	}
++
++	if ((root = proc_mkdir(PROC_ROOT, NULL)) == NULL)
++		return -EINVAL;
++
++	if ((prof_ent = create_proc_entry(PROC_PROFILE, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		prof_ent->read_proc = profile_info_read_proc;
++		prof_ent->write_proc = profile_info_write_proc;
++	}
++
++	if ((mux_ent = create_proc_entry(PROC_MUX, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		mux_ent->read_proc = mux_info_read_proc;
++		mux_ent->write_proc = mux_info_write_proc;
++	}
++
++	if ((freq_ent = create_proc_entry(PROC_FREQ, S_IRUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		freq_ent->read_proc = freq_info_read_proc;
++	}
++
++	if ((pll3_ent = create_proc_entry(PROC_PLL3, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		pll3_ent->read_proc = pllx_info_read_proc;
++		pll3_ent->write_proc = pllx_info_write_proc;
++		pll3_ent->data = (void *)3;
++	}
++
++	if ((pll2_ent = create_proc_entry(PROC_PLL2, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		pll2_ent->read_proc = pllx_info_read_proc;
++		pll2_ent->write_proc = pllx_info_write_proc;
++		pll2_ent->data = (void *)2;
++	}
++
++	if ((pll1_ent = create_proc_entry(PROC_PLL1, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		pll1_ent->read_proc = pllx_info_read_proc;
++		pll1_ent->write_proc = pllx_info_write_proc;
++		pll1_ent->data = (void *)1;
++	}
++
++	if ((pll0_ent = create_proc_entry(PROC_PLL0, S_IRUGO | S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else {
++		pll0_ent->read_proc = pllx_info_read_proc;
++		pll0_ent->write_proc = pllx_info_write_proc;
++		pll0_ent->data = (void *)0;
++	}
++
++#ifdef WITH_INPUT_POLLING
++	if ((standby_ent = create_proc_entry(PROC_STANDBY, S_IWUGO, root)) == NULL) 
++		return -EINVAL;
++	else 
++		standby_ent->write_proc = standby_info_write_proc;
++#ifdef WITH_IR
++	if (tangox_ir_enabled()) {
++		if ((ir_ent = create_proc_entry(PROC_IR, S_IRUGO | S_IWUGO, root)) == NULL) 
++			return -EINVAL;
++		else {	
++			ir_ent->write_proc = ir_info_write_proc;
++			ir_ent->read_proc = ir_info_read_proc;
++		}
++	}
++#endif
++#ifdef WITH_FIP
++	if (tangox_fip_enabled()) {
++		if ((fip_ent = create_proc_entry(PROC_FIP, S_IRUGO | S_IWUGO, root)) == NULL) 
++			return -EINVAL;
++		else {
++			fip_ent->write_proc = fip_info_write_proc;
++			fip_ent->read_proc = fip_info_read_proc;
++		}
++	}
++#endif
++#endif
++
++	printk("Tango2 frequency scaling module installed");
++#ifdef WITH_INPUT_POLLING
++	printk(", (standby mode supported)");
++#endif
++	printk(".\n");
++	return 0;
++}
++
++static void tangox_freq_ctrl_exit(void) /* Removes module from kernel */
++{
++	if (root) {
++		if (prof_ent)
++			remove_proc_entry(PROC_PROFILE, root);
++		if (mux_ent)
++			remove_proc_entry(PROC_MUX, root);
++		if (pll3_ent)
++			remove_proc_entry(PROC_PLL3, root);
++		if (pll2_ent)
++			remove_proc_entry(PROC_PLL2, root);
++		if (pll1_ent)
++			remove_proc_entry(PROC_PLL1, root);
++		if (pll0_ent)
++			remove_proc_entry(PROC_PLL0, root);
++		if (freq_ent)
++			remove_proc_entry(PROC_FREQ, root);
++#ifdef WITH_INPUT_POLLING
++		if (standby_ent)
++			remove_proc_entry(PROC_STANDBY, root);
++#ifdef WITH_IR
++		if (ir_ent)
++			remove_proc_entry(PROC_IR, root);
++#endif
++#ifdef WITH_FIP
++		if (fip_ent)
++			remove_proc_entry(PROC_FIP, root);
++#endif
++#endif
++		remove_proc_entry(PROC_ROOT, NULL);
++	}
++	printk("tangox: frequency scaling module unloaded.\n");
++}
++
++module_init(tangox_freq_ctrl_init);
++module_exit(tangox_freq_ctrl_exit);
++
++MODULE_DESCRIPTION("SMP863x frequency scaling driver");
++MODULE_AUTHOR("Craig Qu/YH Lin");
++MODULE_LICENSE("GPL");
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/eth.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/eth.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/eth.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/eth.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,46 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/*
++ *
++ */
++
++#include "platform.h"
++
++#define WOL_CTRL   0x602c
++
++static unsigned long wol_ctrl = 0;
++
++int eth_open(void)
++{
++	DBG_PRINT("Listening for WOL packet.\n");
++
++	wol_ctrl = tangox_gbus_read_reg32(REG_BASE_host_interface + WOL_CTRL);
++
++	tangox_gbus_write_reg32(REG_BASE_host_interface + WOL_CTRL, 6);
++	tangox_iob();
++
++	return 0;
++}
++
++int eth_close(void)
++{
++	tangox_gbus_write_reg32(REG_BASE_host_interface + WOL_CTRL, 0x60);
++	tangox_iob();
++
++	tangox_gbus_write_reg32(REG_BASE_host_interface + WOL_CTRL, wol_ctrl);
++	tangox_iob();
++
++	DBG_PRINT("Stop listening to WOL packet.\n");
++
++	tangox_usdelay(1000);
++
++	return 0;
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/binout.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/binout.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/binout.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/binout.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,42 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/* Utility program to turn a binary file into a C header file */
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#include <fcntl.h>
++
++static const char *vname = "binout"; /* Default variable name */
++
++int main(int argc, char *argv[])
++{
++	int cnt = 0, fno = 0;
++	unsigned char c;
++
++	if ((fno = open(argv[1], O_RDONLY)) < 0)
++		return(-1);
++	else if ((argc == 3) && (argv[2] != NULL))
++		vname = argv[2];
++
++	printf("static const char %s[] = {\n", vname);
++	
++	while(read(fno, &c, sizeof(unsigned char)) == sizeof(unsigned char)) {
++		if ((cnt > 0) && ((cnt % 16) == 0))
++			printf("\n");
++		printf("0x%02x,", c);
++		cnt++;
++	}
++	printf("};\n");
++
++	close(fno);
++	return(0);
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/eth.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/eth.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/eth.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/eth.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,43 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++
++#define KSEG1ADDR(x)            (0xa0000000|(x))
++
++#define fast_iob()			\
++	{				\
++		int i = 0; __iob(i);	\
++	}
++
++void __iob(int dummy);
++
++#define WOL_CTRL   0x602c
++
++extern void uart_putc(const char c);
++extern void uart_puts(const char *s);
++
++unsigned long eth_poll_key(void)
++{
++	unsigned long wol_stat = *((volatile unsigned long *)KSEG1ADDR(REG_BASE_host_interface + WOL_CTRL));
++	if ((wol_stat & 0x60) != 0) {
++		/* clear the status */
++		*((volatile unsigned long *)KSEG1ADDR(REG_BASE_host_interface + WOL_CTRL)) = 0x60;
++		fast_iob();
++#ifdef FC_DEBUG
++		uart_puts("Got WOL packet\n");
++#endif
++		return(1);
++	} else
++		return(0);
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fc.ld.script linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fc.ld.script
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fc.ld.script	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fc.ld.script	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,60 @@
++OUTPUT_ARCH(mips)
++ENTRY(__frequency_set)
++SECTIONS
++{
++  /* Read-only sections, merged into text segment: */
++  .text      :
++  {
++    _ftext = . ;
++    fc.o (.text)		/* entry point		    */
++    *(.text)
++    _ecode = ABSOLUTE(.) ;	/* End of code 			    */
++    *(.rodata)
++    *(.rodata.*)
++    *(.rodata1)
++  } =0
++  _etext = .;
++
++  . = ALIGN(256);
++  _sdata = .;
++
++  .data :
++  AT( _sdata )
++  {
++    _fdata = .;	/* Start of initialised data	    */
++    *(.data)
++   
++    . = ALIGN(8);
++
++/*    _gp = . + 0x7ff0;*/ /* Base of small data		    */
++
++    *(.lit8) 
++    *(.lit4) 
++    *(.sdata) 
++
++    . = ALIGN(8);
++
++    _edata  = .;	/* End of initialised data	    */
++  }
++
++  _fbss = .;
++  .sbss : 
++  { 
++    *(.sbss) 
++    *(.scommon)
++  }
++  .bss :
++  {
++    *(.bss)
++    *(COMMON)
++  }
++
++  . = ALIGN(8);
++  _end = .;
++
++  /* Sections to be discarded */
++  /DISCARD/ :
++  {
++    	*(.reginfo)
++  }
++}
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fc.S linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fc.S
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fc.S	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fc.S	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,370 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/* 
++ * Assembly routine to implement the change of frequency
++ */
++
++#include <asm/asm.h>
++#include <asm/regdef.h>
++#include <asm/mipsregs.h>
++
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++#include <asm/tango2/emhwlib_lram_others.h>
++
++#define STACK_SIZE		0x400
++
++#ifndef INPUT_TABLE_SIZE
++#define INPUT_TABLE_SIZE    32
++#endif
++
++#ifdef WITH_IR
++#define IR_FLAG  1
++#else
++#define IR_FLAG  0
++#endif
++
++#ifdef WITH_FIP
++#define FIP_FLAG  2
++#else
++#define FIP_FLAG  0
++#endif
++
++#ifdef WITH_ETH
++#define ETH_FLAG  4
++#else
++#define ETH_FLAG  0
++#endif
++
++#define KSEG1_ADDR 0xa0000000
++
++#define DELAY(reg1,reg2,value) 		\
++		li reg1,value;		\
++		addiu reg2,zero,0;	\
++	100: 	bne reg1,reg2,100b;	\
++		addiu reg2,reg2,1;
++
++#if defined(FC_DEBUG) && 0
++#define DEBUG(value)			\
++		addiu sp,sp,-16; 	\
++		sw a0,0(sp);		\
++		li a0,value;		\
++		jal uart_putc;		\
++		nop;			\
++		jal uart_putc;		\
++		li a0,13;		\
++		jal uart_putc;		\
++		li a0,10;		\
++		lw a0,0(sp);		\
++		addiu sp,sp,16;	
++#else
++#define DEBUG(value)		
++#endif
++
++NESTED(__frequency_set, STACK_SIZE, ra)
++
++	.align	5
++handler_header:
++entry_point:
++	.word	_start
++params_start:
++	.word	param_area
++ir_table:
++	.word	ir_keys
++fip_table:
++	.word	fip_keys
++return_key:
++	.word	0
++time_elapse:
++	.word	0
++input_ctrl:
++	.word	(IR_FLAG | FIP_FLAG | ETH_FLAG)
++cnt_low:
++	.word	0
++cnt_high:
++	.word	0
++
++	.align	5
++param_area:
++setting_pll3:
++	.word   0	/* pll3 */
++setting_pll2:
++	.word   0	/* pll2 */
++setting_pll1:
++	.word   0	/* pll1 */
++setting_pll0:
++	.word   0	/* pll0 */
++setting_mux:
++	.word   0	/* mux */
++setting_d0cfg:
++	.word   0	/* d0cfg */
++setting_d0delay:
++	.word   0	/* d0delay */
++setting_d1cfg:
++	.word   0	/* d1cfg */
++setting_d1delay:
++	.word   0	/* d1delay */
++setting_standby:
++	.word	0	/* standby mode */
++setting_desc:
++	.word	0	/* desc */
++setting_gpio_dir:
++	.word	0	/* gpio dir */
++setting_gpio_data:
++	.word	0	/* gpio data */
++
++	.align	5
++old_pll3:
++	.word	0	/* for saving old pll3 */
++old_mux:
++	.word	0	/* for saving old mux */
++old_sp:
++	.word	0	/* for sp */
++
++	.align	5
++fip_keys:
++	.fill	INPUT_TABLE_SIZE
++ir_keys:
++	.fill	INPUT_TABLE_SIZE
++
++	/* all cache should be flushed (i.e. written back), interrupt should be disabled at this point */
++
++	.set noreorder
++	.set mips32r2
++
++	.align	5
++_start:
++	/* Setup the stack in local RAM */
++	addiu	sp,sp,-64
++	sw	ra,0(sp)
++	sw	sp,4(sp)
++	sw	t0,8(sp)
++	sw	t1,12(sp)
++	sw	t2,16(sp)
++	sw	t3,20(sp)
++	sw	t4,24(sp)
++	sw	t5,28(sp)
++	sw	t6,32(sp)
++	sw	t7,36(sp)
++
++	la	t0,old_sp
++	sw	sp,0(t0)
++	li	sp,KSEG1_ADDR+REG_BASE_cpu_block+LR_STACKTOP-16
++
++	DEBUG('0')
++
++	/* Set DRAM0/1 to auto-refresh mode */
++	li	t6,KSEG1_ADDR+REG_BASE_dram_controller_0+G2L_RESET_CONTROL
++	li	t7,KSEG1_ADDR+REG_BASE_dram_controller_1+G2L_RESET_CONTROL
++	addiu	t3,zero,1
++	sw	t3,0(t6)
++	sw	t3,0(t7)
++	sync
++
++	li	t4,KSEG1_ADDR+REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl
++	li	t5,KSEG1_ADDR+REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl
++	lui	t3,0x8000
++1:
++	lw	t0,0(t4)  /* Wait for the MSB of both delay0_ctrl to be set */
++	lw	t1,0(t5)
++	and	t0,t0,t3
++	and	t0,t0,t1
++	beq	t0,zero,1b
++	nop
++
++	/* Set CPU/SYS/DSP to new divider value, assume PLL is attached here */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_sysclk_mux
++	la	t1,setting_mux
++	la	t3,old_mux
++	lw	t2,0(t0)
++	sw	t2,0(t3)
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t1,t2,255)
++
++	/* Detach PLL from MUX, assumed it's been attached before */
++	la	t1,setting_mux
++	lw	t2,0(t1)
++	addiu	t2,t2,-1
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t0,t1,255)
++	
++	/* Set PLL3 to new frequency */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_clkgen3_pll
++	la	t1,setting_pll3
++	la	t3,old_pll3
++	lw	t2,0(t0)
++	sw	t2,0(t3)
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t0,t1,0x28000)
++
++	/* Re-attach PLL to MUX */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_sysclk_mux
++	la	t1,setting_mux
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t0,t1,1024)
++
++#ifdef WITH_INPUT_POLLING
++
++	/* Check do we need to enter standby mode? */
++	la	t0,setting_standby
++	lw	t1,0(t0)
++	beq	t1,zero,3f
++	nop
++
++	DEBUG('1')
++
++2:	/* Yes, we do */
++	addiu	v0,zero,0
++	la	a0,ir_keys
++	la	a1,fip_keys
++	la	a2,handler_header
++	jal	polling_input
++	nop
++
++	la	t0,return_key
++	sw	v0,0(t0)
++
++	DEBUG('2')
++
++	DELAY	(t1,t2,255)
++
++	/* Set CPU/SYS/DSP to old divider value, PLL is attached */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_sysclk_mux
++	la	t1,old_mux
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t1,t2,255)
++
++	/* Detach PLL from MUX, assumed it's been attached before */
++	la	t1,old_mux
++	lw	t2,0(t1)
++	addiu	t2,t2,-1
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t0,t1,255)
++
++	/* Set PLL3 back to old frequency */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_clkgen3_pll
++	la	t1,old_pll3
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t1,t2,0x28000)
++
++	/* Re-attach PLL from MUX */
++	li	t0,KSEG1_ADDR+REG_BASE_system_block+SYS_sysclk_mux
++	la	t1,old_mux
++	lw	t2,0(t1)
++	sw	t2,0(t0)
++	sync
++
++	DELAY	(t0,t1,255)
++
++	DEBUG('3')
++
++	b	4f
++	nop
++
++3:
++
++#endif
++	la	t0,return_key
++	la	t1,time_elapse
++	sw	zero,0(t0)
++	sw	zero,0(t1)
++
++	/* Re-program DRAM0/1 configuration */
++	li	t0,KSEG1_ADDR+REG_BASE_dram_controller_0+DRAM_dunit_cfg
++	li	t1,KSEG1_ADDR+REG_BASE_dram_controller_1+DRAM_dunit_cfg
++
++	la	t2,setting_d0cfg
++	lw	t3,0(t2)
++	sw	t3,0(t0)
++	la	t2,setting_d1cfg
++	lw	t3,0(t2)
++	sw	t3,0(t1)
++
++	addiu	t4,t0,(DRAM_dunit_delay0_ctrl-DRAM_dunit_cfg)
++	addiu	t5,t1,(DRAM_dunit_delay0_ctrl-DRAM_dunit_cfg)
++
++	la	t2,setting_d0delay
++	lw	t3,0(t2)
++	sw	t3,0(t4)
++	la	t2,setting_d1delay
++	lw	t3,0(t2)
++	sw	t3,0(t5)
++	sync
++
++	DELAY	(t6,t7,255)
++
++4:
++	/* bring DRAM0/1 out of auto-refresh mode */
++	li	t6,KSEG1_ADDR+REG_BASE_dram_controller_0+G2L_RESET_CONTROL
++	li	t7,KSEG1_ADDR+REG_BASE_dram_controller_1+G2L_RESET_CONTROL
++	sw	zero,0(t6)
++	sw	zero,0(t7)
++	sync
++
++	DEBUG('4')
++
++	DELAY	(t6,t7,4096)
++
++	/* Restore stack */
++	la	t1,old_sp
++	lw	sp,0(t1)
++
++	lw	ra,0(sp)
++	lw	t0,8(sp)
++	lw	t1,12(sp)
++	lw	t2,16(sp)
++	lw	t3,20(sp)
++	lw	t4,24(sp)
++	lw	t5,28(sp)
++	lw	t6,32(sp)
++	lw	t7,36(sp)
++
++	addiu	sp,sp,64
++
++	jr	ra
++	addiu	v0,zero,0
++
++	.set reorder
++
++END(__frequency_set)
++
++LEAF(__sync)
++	sync
++	jr	ra
++	nop
++END(__sync)
++
++LEAF(__iob)
++	.set noreorder
++	sync
++	li	t0,KSEG1_ADDR+REG_BASE_cpu_block+LR_STACKTOP
++	jr	ra
++	lw	zero,0(t0)
++END(__iob)
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fip.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fip.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/fip.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/fip.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,107 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++
++#define KSEG1ADDR(x)            (0xa0000000|(x))
++
++void __sync(void);
++
++extern void uart_putc(const char c);
++extern void uart_puts(const char *s);
++extern void udelay(unsigned int usec);
++
++/* EM86XX */
++#define	FIP_BASE				(REG_BASE_system_block+0x500)
++#define	FIP_COMMAND				0x40
++#define	FIP_DISPLAY_DATA			0x44
++#define	FIP_LED_DATA				0x48
++#define	FIP_KEY_DATA1				0x4c
++#define	FIP_KEY_DATA2				0x50
++#define	FIP_SWITCH_DATA				0x54
++#define FIP_CONFIG				0x58
++#define FIP_INT					0x5c
++
++#define FIP_BUSY				0x200
++
++/* FIP commands							*/
++#define	FIP_CMD_DATA_SET_RW_MODE_WRITE_DISPLAY		0x40
++#define	FIP_CMD_DATA_SET_RW_MODE_WRITE_LED_PORT		0x41
++#define	FIP_CMD_DATA_SET_RW_MODE_READ_KEYS		0x42
++#define	FIP_CMD_DATA_SET_RW_MODE_READ_SWITCHES		0x43
++#define	FIP_CMD_DATA_SET_ADR_MODE_INCREMENT_ADR		0x40
++#define	FIP_CMD_DATA_SET_ADR_MODE_FIXED_ADR		0x44
++#define	FIP_CMD_DATA_SET_OP_MODE_NORMAL_OPERATION	0x40
++#define	FIP_CMD_DATA_SET_OP_MODE_TEST_MODE		0x48
++#define	FIP_CMD_ADR_SETTING				0xC0
++
++static void fip_write_reg(unsigned int offset, unsigned int val);
++static unsigned int fip_read_reg(unsigned int offset);
++
++static unsigned int fip_read_reg(unsigned int offset)
++{
++	unsigned int val = *((volatile unsigned int *)KSEG1ADDR(FIP_BASE + offset));
++	return(val);
++}
++
++static void fip_write_reg(unsigned int offset, unsigned int val)
++{
++	*((volatile unsigned int *)KSEG1ADDR(FIP_BASE + offset)) = val;
++	__sync();
++}
++
++static int is_fip_busy(void)
++{
++	udelay(10);
++	return((fip_read_reg(FIP_CONFIG) & FIP_BUSY) != 0);
++}
++
++static void fip_wait_ready(void)
++{
++	while (is_fip_busy());
++}
++
++unsigned long fip_poll_key(unsigned long *table, unsigned long size)
++{
++	unsigned long key = 0L;
++
++	fip_wait_ready();
++	fip_write_reg(FIP_COMMAND, FIP_CMD_DATA_SET_RW_MODE_READ_KEYS);
++	fip_wait_ready();
++	key = fip_read_reg(FIP_KEY_DATA1); 
++
++	if ((key == 0) || (table == 0) || (*table == 0)) {
++#ifdef FC_DEBUG
++		if (table == 0)
++			uart_puts("FIP NULL table\n");
++		if (*table == 0)
++			uart_puts("FIP NULL content\n");
++		if (key != 0)
++			uart_puts("Got any FIP key\n");
++#endif
++		return(key);
++	} else {
++		unsigned int i;
++		for (i = 0; i < size; i++, table++) {
++			if (*table == 0)
++				break;
++			else if (key == *table) {
++#ifdef FC_DEBUG
++				uart_puts("Got defined FIP key\n");
++#endif
++				return(key);
++			}
++		}
++		return(0);
++	}
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/ir.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/ir.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/ir.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/ir.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,144 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++
++/* For Tango2, it's always there */
++#define WITH_RC5_CONTROL
++#define WITH_RC6_CONTROL
++
++#define SYS_gpio_base           SYS_gpio_dir
++#define KSEG1ADDR(x)            (0xa0000000|(x))
++
++/* NEC Control */
++#define IR_NEC_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0x18)
++#define IR_NEC_CAPTURE_DATA    	(REG_BASE_system_block + SYS_gpio_base + 0x1c)
++#define IR_NEC_CTRL_REGISTER 	((volatile unsigned long *)KSEG1ADDR(IR_NEC_CTRL))
++#define IR_NEC_DATA_REGISTER 	((volatile unsigned long *)KSEG1ADDR(IR_NEC_CAPTURE_DATA))
++
++#ifdef WITH_RC5_CONTROL
++/* RC5 Control */
++#define IR_RC5_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0x20)
++#define IR_RC5_DECODE_CLK_DIV  	(REG_BASE_system_block + SYS_gpio_base + 0x24)
++#define IR_RC5_DECODER_DATA    	(REG_BASE_system_block + SYS_gpio_base + 0x28)
++#define IR_RC5_INT_STATUS    	(REG_BASE_system_block + SYS_gpio_base + 0x2c)
++#define IR_RC5_CTRL_REGISTER 	((volatile unsigned long *)KSEG1ADDR(IR_RC5_CTRL))
++#define IR_RC5_CLK_DIV_REGISTER	((volatile unsigned long *)KSEG1ADDR(IR_RC5_DECODE_CLK_DIV))
++#define IR_RC5_DATA_REGISTER 	((volatile unsigned long *)KSEG1ADDR(IR_RC5_DECODER_DATA))
++#define IR_RC5_INT_STAT_REGISTER ((volatile unsigned long *)KSEG1ADDR(IR_RC5_INT_STATUS))
++#endif /* WITH_RC5_CONTROL */
++
++#ifdef WITH_RC6_CONTROL
++/* RC6 Control */
++#define RC6_DWORDS		5	/* 5 dwords = 20 bytes */
++#define IR_RC6_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0xe0)
++#define IR_RC6_T_CTRL           (REG_BASE_system_block + SYS_gpio_base + 0xe4)
++#define IR_RC6_DATA_OUT0        (REG_BASE_system_block + SYS_gpio_base + 0xe8)
++#define IR_RC6_DATA_OUT1        (REG_BASE_system_block + SYS_gpio_base + 0xec)
++#define IR_RC6_DATA_OUT2        (REG_BASE_system_block + SYS_gpio_base + 0xf0)
++#define IR_RC6_DATA_OUT3        (REG_BASE_system_block + SYS_gpio_base + 0xf4)
++#define IR_RC6_DATA_OUT4        (REG_BASE_system_block + SYS_gpio_base + 0xf8)
++#define IR_RC6_CTRL_REGISTER    ((volatile unsigned long *)KSEG1ADDR(IR_RC6_CTRL))
++#define IR_RC6_T_CTRL_REGISTER  ((volatile unsigned long *)KSEG1ADDR(IR_RC6_T_CTRL))
++#define IR_RC6_DATA0_REGISTER   ((volatile unsigned long *)KSEG1ADDR(IR_RC6_DATA_OUT0))
++#endif
++
++void __sync(void);
++
++extern void uart_putc(const char c);
++extern void uart_puts(const char *s);
++extern void udelay(unsigned usec);
++
++/* Produce data */
++unsigned long ir_poll_key(unsigned long *table, unsigned long size)
++{
++	unsigned long status;
++	unsigned long data = 0;
++
++#ifdef WITH_RC6_CONTROL 
++	status = *IR_RC6_CTRL_REGISTER;
++
++	if ((status & 0xc0000000) != 0) {
++		*IR_RC6_CTRL_REGISTER = status;
++#ifdef FC_DEBUG
++		if ((status & 0x40000000) != 0) {
++			uart_puts("RC6 error\n");
++		} 
++#endif
++		if (((status & 0x80000000) != 0) && ((status & 0x40000000) == 0)) {
++			data = *IR_RC6_DATA0_REGISTER | 0x80000000;
++#ifdef WITH_RC5_CONTROL
++			status = *IR_RC5_INT_STAT_REGISTER;
++			if (status & 0x3)
++				*IR_RC5_INT_STAT_REGISTER = status;
++#endif
++			goto got_data;
++		}
++	}
++#endif
++
++#ifdef WITH_RC5_CONTROL
++	status = *IR_RC5_INT_STAT_REGISTER;
++	*IR_RC5_INT_STAT_REGISTER = status;
++	__sync();
++
++	if ((status & 2) != 0) {
++		data = *IR_NEC_DATA_REGISTER;	/* Read from NEC decoder */
++#ifdef FC_DEBUG
++		if (data == 0)
++			uart_puts("NEC error\n");
++#endif
++		if (data != 0)
++			goto got_data;
++	} 
++	if ((status & 1) != 0) {
++		data = *IR_RC5_DATA_REGISTER;
++		if ((data & 0x80000000) != 0) {   /* Invalid RC5 decoder data */
++#ifdef FC_DEBUG
++			uart_puts("RC5 error\n");
++#endif
++			data = 0;
++		}
++		goto got_data;
++	} 
++#else
++	data = *IR_NEC_DATA_REGISTER;
++	__sync();
++	goto got_data;
++#endif
++
++	return(0);
++
++got_data:
++
++	if ((data == 0) || (table == 0) || (*table == 0)) {
++#ifdef FC_DEBUG
++		if (data != 0) 
++			uart_puts("Got IR key\n");
++#endif
++		return(data);
++	} else {
++		unsigned int i;
++		for (i = 0; i < size; i++, table++) {
++			if (*table == 0)
++				break;
++			else if (data == *table) {
++#ifdef FC_DEBUG
++				uart_puts("Got IR key\n");
++#endif
++				return(data);
++			}
++		}
++		return(0);
++	}
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/Makefile linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/Makefile
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/Makefile	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/Makefile	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,159 @@
++
++HOSTCC = gcc
++HOSTCFLAGS = -O2
++
++CROSS = mipsel-linux-
++CC = $(CROSS)gcc
++LD = $(CROSS)ld
++OBJCOPY = $(CROSS)objcopy
++
++CFLAGS = -Wall -Werror -Wstrict-prototypes -Wsign-compare -O2 -G 0 -mno-abicalls -fno-pic -fno-builtin -mabi=32
++
++# Object files to be used
++FS_OBJS = fc.o
++
++# To include IR polling, optional
++ifeq ($(WITH_IR),y)
++CFLAGS += -DWITH_IR
++WITH_INPUT_POLLING = y
++endif
++
++# To include FIP polling, optional
++ifeq ($(WITH_FIP),y)
++CFLAGS += -DWITH_FIP
++WITH_INPUT_POLLING = y
++endif
++
++# To include ETH polling, optional
++ifeq ($(WITH_ETH),y)
++CFLAGS += -DWITH_ETH
++WITH_INPUT_POLLING = y
++endif
++
++# To poll from given input, result of previous settings
++ifeq ($(WITH_INPUT_POLLING),y)
++CFLAGS += -DWITH_INPUT_POLLING -DINPUT_TABLE_SIZE=$(INPUT_TABLE_SIZE) -DUPDATE_XTAL
++FS_OBJS += poll.o util.o
++endif
++
++ifeq ($(WITH_IR),y)
++FS_OBJS += ir.o
++endif
++
++ifeq ($(WITH_FIP),y)
++FS_OBJS += fip.o
++endif
++
++ifeq ($(WITH_ETH),y)
++FS_OBJS += eth.o
++endif
++
++# To poll from given input, result of previous settings
++# Debug enabled? or not?
++ifeq ($(FCTRL_DEBUG),y)
++CFLAGS += -DFC_DEBUG
++endif
++
++CFLAGS += -DEM86XX_CHIP=EM86XX_CHIPID_TANGO2 -DEM86XX_REVISION=6 -DCONFIG_TANGO2
++CFLAGS += -DCONFIG_PAGE_SIZE_4KB
++
++MIPS32_CFLAGS = $(CFLAGS) -march=mips32r2 -Wa,-32 -Wa,-march=mips32r2 -Wa,-mips32r2 -Wa,--trap
++MIPS16_CFLAGS = $(CFLAGS) -mips16
++
++all: fcbin.h fcconfig.h
++
++binout: binout.c
++	@ $(HOSTCC) $(HOSTCFLAGS) -o $@ $<
++
++fc_bin.tmp: fc.bin binout
++	@ ./binout fc.bin > $@
++
++fcbin.h: fc_bin.tmp
++	@echo
++	@echo "**********************************************************"
++	@echo "The following attributes have been defined for this build:"
++	@echo "  Include path:" $(TOP_DIR)/include
++	@echo "#ifndef __FSBIN_H__" > $@
++	@echo "#define __FSBIN_H__" >> $@
++	@echo "  LOCALMEM_BASE is defined as" $(LOCALMEM_BASE)
++ifeq ($(WITH_IR),y)
++	@echo "  WITH_IR is set"
++else
++	@echo "  WITH_IR is not set"
++endif
++ifeq ($(WITH_FIP),y)
++	@echo "  WITH_FIP is set"
++else
++	@echo "  WITH_FIP is not set"
++endif
++ifeq ($(WITH_ETH),y)
++	@echo "  WITH_ETH is set"
++else
++	@echo "  WITH_ETH is not set"
++endif
++ifeq ($(WITH_INPUT_POLLING),y)
++	@echo "  INPUT_POLLING is enabled"
++	@echo "  INPUT_TABLE_SIZE is" $(INPUT_TABLE_SIZE)
++else
++	@echo "  INPUT_POLLING is disabled"
++endif
++	@cat $< >> $@
++	@echo "#endif" >> $@
++	@echo "**********************************************************"
++	@echo
++
++fcconfig.h: Makefile
++	@echo "#ifndef __FSCONFIG_H__" > $@
++	@echo "#define __FSCONFIG_H__" >> $@
++	@echo "#define LOCALMEM_BASE $(LOCALMEM_BASE)" >> $@
++ifeq ($(WITH_IR),y)
++	@echo "#define WITH_IR" >> $@
++else
++	@echo "#undef WITH_IR" >> $@
++endif
++ifeq ($(WITH_FIP),y)
++	@echo "#define WITH_FIP" >> $@
++else
++	@echo "#undef WITH_FIP" >> $@
++endif
++ifeq ($(WITH_ETH),y)
++	@echo "#define WITH_ETH" >> $@
++else
++	@echo "#undef WITH_ETH" >> $@
++endif
++ifeq ($(WITH_INPUT_POLLING),y)
++	@echo "#define WITH_INPUT_POLLING" >> $@
++	@echo "#define INPUT_TABLE_SIZE" $(INPUT_TABLE_SIZE) >> $@
++else
++	@echo "#undef WITH_INPUT_POLLING" >> $@
++	@echo "#undef INPUT_TABLE_SIZE" >> $@
++endif
++	@echo "#endif" >> $@
++
++fc.elf: fc.ld.script $(FS_OBJS)
++	$(LD) -static -T fc.ld.script -Ttext $(LOCALMEM_BASE) -o $@ $(FS_OBJS) 
++
++fc.bin: fc.elf 
++	$(OBJCOPY) -O binary $< $@
++
++fc.o: fc.S Makefile 
++	$(CC) $(MIPS32_CFLAGS) -c -I$(TOP_DIR)/include -D__ASSEMBLY__ -o $@ $<
++
++ir.o: ir.c
++	$(CC) $(MIPS16_CFLAGS) -I$(TOP_DIR)/include -c -o $@ $<
++
++fip.o: fip.c
++	$(CC) $(MIPS16_CFLAGS) -I$(TOP_DIR)/include -c -o $@ $<
++
++eth.o: eth.c
++	$(CC) $(MIPS16_CFLAGS) -I$(TOP_DIR)/include -c -o $@ $<
++
++util.o: util.c
++	$(CC) $(MIPS16_CFLAGS) -I$(TOP_DIR)/include -c -o $@ $<
++
++poll.o: poll.c
++	$(CC) $(MIPS16_CFLAGS) -I$(TOP_DIR)/include -c -o $@ $<
++
++clean:
++	rm -f binout fc_bin.tmp fcbin.h fc.elf fc.bin fc.o fcconfig.h *.o
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/poll.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/poll.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/poll.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/poll.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,110 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++
++#include <asm/mach-tango2/param.h>
++#include <asm/tango2/tango2.h>
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++
++#ifndef KSEG1ADDR
++#define KSEG1ADDR(x)    (0xa0000000|(x))
++#endif
++
++#ifdef WITH_IR
++unsigned long ir_poll_key(unsigned long *table, unsigned long size);
++#endif
++
++#ifdef WITH_FIP
++unsigned long fip_poll_key(unsigned long *table, unsigned long size);
++#endif
++
++#ifdef WITH_ETH
++unsigned long eth_poll_key(void);
++#endif
++
++#ifdef FC_DEBUG
++void uart_puts(const char *s);
++#endif
++
++/* Mirror the one in upper directory */
++struct freq_handler_header
++{
++	void *func_ptr;      /* Entry point of handler */
++	void *param_area;       /* parameter area */
++	unsigned long *ir_table;         /* Key filters for IR (standby) */
++	unsigned long *fip_table;        /* Key filters for FIP (standby) */
++	unsigned long ret_key;  /* Returned key */
++	unsigned long elapse;   /* Time elapse in standby */
++	unsigned long input_ctrl; /* Which input is enabled */
++	unsigned long cnt_low;	/* xtal_cnt: low 32 */
++	unsigned long cnt_high;	/* xtal_cnt: high 32 */
++};
++
++/* Prototyping */
++void udelay(unsigned int usec);
++unsigned long __getxtal(void);
++void __sync(void);
++
++#define fast_iob()			\
++	{				\
++		int i = 0; __iob(i);	\
++	}
++
++unsigned long polling_input(unsigned long *ir_table, unsigned long *fip_table, struct freq_handler_header *hdr)
++{
++	const unsigned long input_ctrl = hdr->input_ctrl;
++	unsigned long key = 0;
++	unsigned long *elapse_ptr = &hdr->elapse;
++	unsigned long cnt = hdr->cnt_low;
++
++#ifdef UPDATE_XTAL
++	unsigned long elapse = 0, diff_xtal = 0;
++#endif
++
++	do {
++#ifdef WITH_IR
++		if ((input_ctrl & 1) != 0) {
++			if ((key = ir_poll_key(ir_table, INPUT_TABLE_SIZE / 4)) != 0)
++				goto done;
++		}
++#endif
++#ifdef WITH_FIP
++		if ((input_ctrl & 2) != 0) {
++			if ((key = fip_poll_key(fip_table, INPUT_TABLE_SIZE / 4)) != 0)
++				goto done;
++		}
++#endif
++#ifdef WITH_ETH
++		if ((input_ctrl & 4) != 0) {
++			if ((key = eth_poll_key()) != 0)
++				goto done;
++		}
++#endif
++		udelay(1000);
++
++done:
++		hdr->cnt_low = __getxtal();
++		if (cnt > hdr->cnt_low)
++			hdr->cnt_high++;
++#ifdef UPDATE_XTAL
++		diff_xtal += ((cnt > hdr->cnt_low) ? 
++				((0xffffffff - cnt) + hdr->cnt_low + 1) : (hdr->cnt_low - cnt));
++		elapse += (diff_xtal / (TANGOX_BASE_FREQUENCY / 1000));
++		diff_xtal %= (TANGOX_BASE_FREQUENCY / 1000);
++#endif
++		cnt = hdr->cnt_low;
++	} while (key == 0);
++
++	*elapse_ptr = elapse;
++	__sync();
++	return key;
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/util.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/util.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fc/util.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fc/util.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,80 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++
++#include <asm/mach-tango2/param.h>
++#include <asm/tango2/tango2.h>
++#include <asm/tango2/emhwlib_registers_tango2.h>
++#include <asm/tango2/emhwlib_dram_tango2.h>
++
++#ifndef KSEG1ADDR
++#define KSEG1ADDR(x)    (0xa0000000|(x))
++#endif
++
++#define fast_iob()			\
++	{				\
++		int i = 0; __iob(i);	\
++	}
++
++void __sync(void);
++void __iob(int i);
++
++unsigned long __getxtal(void)
++{
++	unsigned long res = *((volatile unsigned long *)KSEG1ADDR(REG_BASE_system_block + SYS_xtal_in_cnt));
++	__sync();
++	return res;
++}
++
++void udelay(unsigned int usec)
++{
++	/* SYS_xtal_in_cnt is a counter running off 27MHz, so 1 usec
++           is roughly equivalent to 27 increase of count */
++	unsigned long start = __getxtal();
++	unsigned long end = start + (usec * (TANGOX_BASE_FREQUENCY / 1000000));
++
++	if (end > start)
++		while ((__getxtal() < end) && (__getxtal() >= start));
++	else
++		/* Handle overflow condition */
++		while ((__getxtal() < end) || (__getxtal() >= start));
++}
++
++#ifdef FC_DEBUG
++
++static const unsigned long cpu_uart_base = REG_BASE_cpu_block + CPU_UART0_base;
++
++void uart_putc(const char c)
++{
++	if (c != '\n') {
++		while (((*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_LSR))& 0x20) == 0);
++		*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_THR) = (unsigned long)c;
++		fast_iob();
++		udelay(10);
++	} else {
++		while (((*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_LSR))& 0x20) == 0);
++		*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_THR) = 0x0d;
++		fast_iob();
++		udelay(10);
++		while (((*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_LSR))& 0x20) == 0);
++		*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_THR) = 0x0a;
++		fast_iob();
++		udelay(10);
++	}
++	while (((*(volatile unsigned long *)KSEG1ADDR(cpu_uart_base+CPU_UART_LSR))& 0x20) == 0);
++}
++
++void uart_puts(const char *s)
++{
++	for (; s && (*s != '\0'); s++)
++		uart_putc(*s);
++}
++#endif
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fip.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fip.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/fip.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/fip.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,456 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/*
++ *
++ */
++
++#include "platform.h"
++
++/* EM86XX */
++#define	FIP_BASE				(REG_BASE_system_block+0x500)
++#define	FIP_COMMAND				0x40
++#define	FIP_DISPLAY_DATA			0x44
++#define	FIP_LED_DATA				0x48
++#define	FIP_KEY_DATA1				0x4c
++#define	FIP_KEY_DATA2				0x50
++#define	FIP_SWITCH_DATA				0x54
++#define FIP_CONFIG				0x58
++#define FIP_INT					0x5c
++
++#define FIP_DIVIDER				27	/* default value */
++#define FIP_BUSY				0x200
++#define FIP_ENABLE				(0x400 | 0x100) /* tri-state mode */
++
++/* FIP commands							*/
++#define	FIP_CMD_DISP_MODE_08DIGITS_20SEGMENTS		0x00
++#define	FIP_CMD_DISP_MODE_09DIGITS_19SEGMENTS		0x08
++#define	FIP_CMD_DISP_MODE_10DIGITS_18SEGMENTS		0x09
++#define	FIP_CMD_DISP_MODE_11DIGITS_17SEGMENTS		0x0a
++#define	FIP_CMD_DISP_MODE_12DIGITS_16SEGMENTS		0x0b
++#define	FIP_CMD_DISP_MODE_13DIGITS_15SEGMENTS		0x0c
++#define	FIP_CMD_DISP_MODE_14DIGITS_14SEGMENTS		0x0d
++#define	FIP_CMD_DISP_MODE_15DIGITS_13SEGMENTS		0x0e
++#define	FIP_CMD_DISP_MODE_16DIGITS_12SEGMENTS		0x0f
++#define	FIP_CMD_DATA_SET_RW_MODE_WRITE_DISPLAY		0x40
++#define	FIP_CMD_DATA_SET_RW_MODE_WRITE_LED_PORT		0x41
++#define	FIP_CMD_DATA_SET_RW_MODE_READ_KEYS		0x42
++#define	FIP_CMD_DATA_SET_RW_MODE_READ_SWITCHES		0x43
++#define	FIP_CMD_DATA_SET_ADR_MODE_INCREMENT_ADR		0x40
++#define	FIP_CMD_DATA_SET_ADR_MODE_FIXED_ADR		0x44
++#define	FIP_CMD_DATA_SET_OP_MODE_NORMAL_OPERATION	0x40
++#define	FIP_CMD_DATA_SET_OP_MODE_TEST_MODE		0x48
++#define	FIP_CMD_ADR_SETTING				0xC0
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_1_16		0x80
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_2_16		0x81
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_4_16		0x82
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_10_16		0x83
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_11_16		0x84
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_12_16		0x85
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_13_16		0x86
++#define	FIP_CMD_DISP_CTRL_PULSE_WIDTH_14_16		0x87
++#define	FIP_CMD_DISP_CTRL_TURN_DISPLAY_OFF_MASK		0x87
++#define	FIP_CMD_DISP_CTRL_TURN_DISPLAY_ON		0x88
++
++#define FIP_DISPLAY_MODE	0xa
++#define MAX_FIP_RAM		23
++#define NUM_SYMBOLS		23
++#define NUM_CHARACTERS		72
++#define NUM_DIGITS		7
++
++#define L_OFF			-1	//means light is or should be off
++#define FIP_NO_CLEAR		0x0004
++
++/* Valid symbols */
++#define DVD_FIP_ON			0
++#define PLAY_FIP_ON			1
++#define DTS_FIP_ON			2
++#define MP3_FIP_ON			3
++#define DOLBYDIGITAL_FIP_ON		4
++#define MPEG4_FIP_ON			5
++#define PAUSE_FIP_ON			6
++#define DVI_FIP_ON              	7
++#define TWIRL_1_FIP_ON			8
++#define TWIRL_2_FIP_ON			9
++#define TWIRL_3_FIP_ON			10
++#define TWIRL_4_FIP_ON			11
++#define TWIRL_5_FIP_ON			12
++#define TWIRL_6_FIP_ON			13
++#define ALL_FIP_ON			14
++#define REPEAT_FIP_ON			15
++#define COLON_MIN_SEC_FIP_ON		16
++#define R1080_FIP_ON			17
++#define R720_FIP_ON			18
++#define COLON_HOUR_MIN_FIP_ON		19
++#define R480_FIP_ON			20
++#define PAL_FIP_ON			21
++#define NTSC_FIP_ON			22
++
++/* Alignment */
++#define FIP_LEFT		0x0000	/* flags for fip_write_text() */
++#define FIP_CENTER		0x0001
++#define FIP_RIGHT		0x0002
++
++/*
++  14 SEGMENT LCD (EXTENDED CHARACTERS MAP)
++
++     a 
++   -----
++f |\j| /| b 
++  |i\|/k|
++  g-- --h
++e |n/|\l| c
++  |/m| \|
++   -----
++     d   
++*/
++#define DIGIT_L(b7,b6,c,l,m,n,e,d)	((b7 << 7) | (b6 << 6) | (c << 5) | (l << 4) | (m << 3) | (n << 2) | (e << 1) | d)
++#define DIGIT_H(g,h,i,j,k,a,b,f)	((g << 7) | (h << 6) | (i << 5) | (j << 4) | (k << 3) | (a << 2) | (b << 1) | f)
++
++/* sequence must match fipcharacters */
++static const char fipcharactersmap[NUM_CHARACTERS+1] = " +-/0123456789<>ABCDEFGHIJKLMNOPQRSTUVWXYZ\\-abcdefghijklmnopqrstuvwxyz|_";
++
++/* we use the inverted mask for clearing a digit without clearing other things */
++static const char fipcharactermask[2] = {
++	DIGIT_L(1,1,0,0,0,0,0,0), 
++	DIGIT_H(0,0,0,0,0,0,0,0)
++};
++
++/* the format is lower byte, higher byte */
++static const char fipcharacters[NUM_CHARACTERS][2] = {
++	{DIGIT_L(0,0,0,0,0,0,0,0), DIGIT_H(0,0,0,0,0,0,0,0)},	//
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(1,1,0,1,0,0,0,0)},	// +
++	{DIGIT_L(0,0,0,0,0,0,0,0), DIGIT_H(1,1,0,0,0,0,0,0)},	// -
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,0,1,0,0,0)},	// /
++
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(0,0,0,0,0,1,1,1)},	// 0
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,1,0,0,0,0)},	// 1
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,1,0)},	// 2
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,1,0)},	// 3
++	{DIGIT_L(0,0,1,0,0,0,0,0), DIGIT_H(1,1,0,0,0,0,1,1)},	// 4
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// 5
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// 6
++	{DIGIT_L(0,0,1,0,0,0,0,0), DIGIT_H(0,0,0,0,0,1,1,0)},	// 7
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,1,1)},	// 8
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,1,1)},	// 9
++
++	{DIGIT_L(0,0,0,1,0,0,0,0), DIGIT_H(0,0,0,0,1,0,0,0)},	// <
++	{DIGIT_L(0,0,0,0,0,1,0,0), DIGIT_H(0,0,0,1,0,0,0,0)},	// >
++
++	{DIGIT_L(0,0,1,0,0,0,1,0), DIGIT_H(1,1,0,0,0,1,1,1)},	// A
++	{DIGIT_L(0,0,1,0,1,0,0,1), DIGIT_H(0,1,0,1,0,1,1,0)},	// B
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(0,0,0,0,0,1,0,1)},	// C
++	{DIGIT_L(0,0,1,0,1,0,0,1), DIGIT_H(0,0,0,1,0,1,1,0)},	// D
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// E
++	{DIGIT_L(0,0,0,0,0,0,1,0), DIGIT_H(1,1,0,0,0,1,0,1)},	// F
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// G
++	{DIGIT_L(0,0,1,0,0,0,1,0), DIGIT_H(1,1,0,0,0,0,1,1)},	// H
++	{DIGIT_L(0,0,0,0,1,0,0,1), DIGIT_H(0,0,0,1,0,1,0,0)},	// I
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(0,0,0,0,0,0,1,0)},	// J
++	{DIGIT_L(0,0,0,1,0,0,1,0), DIGIT_H(1,0,0,0,1,0,0,1)},	// K
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(0,0,0,0,0,0,0,1)},	// L
++	{DIGIT_L(0,0,1,0,0,0,1,0), DIGIT_H(0,0,1,0,1,0,1,1)},	// M
++	{DIGIT_L(0,0,1,1,0,0,1,0), DIGIT_H(0,0,1,0,0,0,1,1)},	// N
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(0,0,0,0,0,1,1,1)},	// O
++	{DIGIT_L(0,0,0,0,0,0,1,0), DIGIT_H(1,1,0,0,0,1,1,1)},	// P
++	{DIGIT_L(0,0,1,1,0,0,1,1), DIGIT_H(0,0,0,0,0,1,1,1)},	// Q
++	{DIGIT_L(0,0,0,1,0,0,1,0), DIGIT_H(1,1,0,0,0,1,1,1)},	// R
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// S
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,1,0,1,0,0)},	// T
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(0,0,0,0,0,0,1,1)},	// U
++	{DIGIT_L(0,0,1,1,0,0,0,0), DIGIT_H(0,0,1,0,0,0,1,0)},	// V
++	{DIGIT_L(0,0,1,1,0,1,1,0), DIGIT_H(0,0,0,0,0,0,1,1)},	// W
++	{DIGIT_L(0,0,0,1,0,1,0,0), DIGIT_H(0,0,1,0,1,0,0,0)},	// X
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,1,0,1,0,0,0)},	// Y
++	{DIGIT_L(0,0,0,0,0,1,0,1), DIGIT_H(0,0,0,0,1,1,0,0)},	// Z
++
++	{DIGIT_L(0,0,0,1,0,0,0,0), DIGIT_H(0,0,1,0,0,0,0,0)},	// Slash
++	{DIGIT_L(0,0,0,0,0,0,0,0), DIGIT_H(1,1,0,0,0,0,0,0)},	// -
++
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,0,0,0)},	// a
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,0,0,1)},	// b
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(1,1,0,0,0,0,0,0)},	// c
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,0,1,0)},	// d
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(1,1,0,0,0,1,1,1)},	// e
++	{DIGIT_L(0,0,0,0,0,0,1,0), DIGIT_H(1,0,0,0,0,1,0,1)},	// f
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,1,1)},	// g
++	{DIGIT_L(0,0,1,0,0,0,1,0), DIGIT_H(1,1,0,0,0,0,0,1)},	// h
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,0,0,0,0,0)},	// i
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(0,0,0,0,0,0,0,0)},	// j
++	{DIGIT_L(0,0,0,1,1,0,0,0), DIGIT_H(0,1,0,1,0,0,0,0)},	// k
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(0,0,0,0,0,0,0,1)},	// l
++	{DIGIT_L(0,0,1,0,1,0,1,0), DIGIT_H(1,1,0,0,0,0,0,0)},	// m
++	{DIGIT_L(0,0,1,0,0,0,1,0), DIGIT_H(1,1,0,0,0,0,0,0)},	// n
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(1,1,0,0,0,0,0,0)},	// o
++	{DIGIT_L(0,0,0,0,0,0,1,0), DIGIT_H(1,1,0,0,0,1,1,1)},	// p
++	{DIGIT_L(0,0,1,0,0,0,0,0), DIGIT_H(1,1,0,0,0,1,1,1)},	// q
++	{DIGIT_L(0,0,0,0,0,0,1,0), DIGIT_H(1,0,0,0,0,0,0,0)},	// r
++	{DIGIT_L(0,0,1,0,0,0,0,1), DIGIT_H(1,1,0,0,0,1,0,1)},	// s
++	{DIGIT_L(0,0,0,0,0,0,1,1), DIGIT_H(1,0,0,0,0,0,0,1)},	// t
++	{DIGIT_L(0,0,1,0,0,0,1,1), DIGIT_H(0,0,0,0,0,0,0,0)},	// u
++	{DIGIT_L(0,0,1,1,0,0,0,0), DIGIT_H(0,0,0,0,0,0,0,0)},	// v
++	{DIGIT_L(0,0,1,1,0,1,1,0), DIGIT_H(0,0,0,0,0,0,0,0)},	// w
++	{DIGIT_L(0,0,0,1,1,0,0,0), DIGIT_H(1,1,0,0,0,0,0,0)},	// x
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,1,1,0,0,0)},	// y
++	{DIGIT_L(0,0,0,0,1,0,0,1), DIGIT_H(1,1,0,0,0,0,0,0)},	// z
++
++	{DIGIT_L(0,0,0,0,1,0,0,0), DIGIT_H(0,0,0,1,0,0,0,0)},	// |
++	{DIGIT_L(0,0,0,0,0,0,0,1), DIGIT_H(0,0,0,0,0,0,0,0)}	// _
++};
++
++/* this array is used to display individual symbols
++   the format is [byte position][bit to turn on] - both zero based */
++static const char fipsymbols[NUM_SYMBOLS][2] = {
++	{0, 0}, 	/* DVD */
++	{0, 1}, 	/* PLAY */
++	{0, 2}, 	/* DTS */
++	{0, 3}, 	/* MP3 */
++	{0, 4}, 	/* DOLBY DIGITAL */
++	{0, 5}, 	/* MPEG4 */
++	{0, 6},		/* PAUSE */
++	{0, 7}, 	/* DVI */
++	{1, 0}, 	/* TWIRL1 */
++	{1, 1}, 	/* TWIRL2 */
++	{1, 2}, 	/* TWIRL3 */
++	{1, 3}, 	/* TWIRL4 */
++	{1, 4}, 	/* TWIRL5 */
++	{1, 5}, 	/* TWIRL6 */
++	{1, 6}, 	/* ALL */
++	{1, 7}, 	/* REPEAT */
++	{9, 6},		/* COLON_MIN_SEC */
++	{9, 7}, 	/* R1080 */
++	{12, 7}, 	/* R720 */
++	{15, 6}, 	/* COLON_HOUR_MIN */
++	{15, 7}, 	/* R480 */
++	{18, 7}, 	/* PAL */
++	{21, 7},	/* NTSC */
++};
++
++/* Default brightness level */
++#define BRIGHTNESS		0x7
++
++static char fipram[MAX_FIP_RAM] = {0};
++static int brightness = BRIGHTNESS;
++
++static void fip_write_reg(unsigned int offset, unsigned int val);
++static unsigned int fip_read_reg(unsigned int offset);
++
++static unsigned long fip_config = 0;
++
++#define ABS(x)  (((x) >= 0) ? (x) : -(x))
++#define DIVIDE_FACTOR       2
++
++static unsigned int fip_read_reg(unsigned int offset)
++{
++	unsigned int val = tangox_gbus_read_reg32(FIP_BASE + offset);
++	return val;
++}
++
++static void fip_write_reg(unsigned int offset, unsigned int val)
++{
++	tangox_gbus_write_reg32(FIP_BASE + offset, val);
++	tangox_sync();
++}
++
++static int is_fip_busy(void)
++{
++	tangox_usdelay(10);
++	return (fip_read_reg(FIP_CONFIG) & FIP_BUSY) != 0;
++}
++
++static void fip_wait_ready(void)
++{
++	while (is_fip_busy());
++}
++
++static void fip_user_display(int adr, int data)
++{
++	fip_wait_ready();
++	fip_write_reg(FIP_DISPLAY_DATA, data);
++	fip_write_reg(FIP_COMMAND, FIP_CMD_ADR_SETTING | (adr));
++}
++
++static int fip_display_character(const int position, const char character) 
++{
++	int i, byte1, byte2;
++	unsigned char current_contents0, current_contents1;
++	
++	if ((position < 1) || (position > NUM_DIGITS)) 
++		return 0;
++
++	for (i = 0; i < NUM_CHARACTERS; i++) {
++		if (character == fipcharactersmap[i]) {
++			byte1 = 24 - (3 * position);
++			byte2 = 25 - (3 * position);
++
++			current_contents0 = fipram[byte1];
++			current_contents1 = fipram[byte2];
++
++			/* clear */	
++			fipram[byte1] &= fipcharactermask[0];
++			fipram[byte2] &= fipcharactermask[1];
++			
++			/* set new bits */
++			fipram[byte1] |= fipcharacters[i][0];
++			fipram[byte2] |= fipcharacters[i][1];
++
++			/* display if necessary */
++			if (current_contents0 != fipram[byte1])
++				fip_user_display(byte1, fipram[byte1]);
++			if (current_contents1 != fipram[byte2])
++				fip_user_display(byte2, fipram[byte2]);
++			return 1;
++		}
++	}
++	return 0;
++}
++
++static void fip_clear(void)
++{
++	register int i;
++
++	for (i = 0; i < MAX_FIP_RAM; i++) {
++		fipram[i] = 0;
++		fip_user_display(i, fipram[i]);
++	}
++}
++
++static void fip_display_raw(const int byte, const int bit, const int on) 
++{
++	unsigned char current_contents;
++	current_contents = fipram[byte];
++	if (on != 0)
++		fipram[byte] |= (1 << bit);
++	else
++		fipram[byte] &= ~(1 << bit);
++
++	/* display only if necessary */
++	if (current_contents != fipram[byte])
++		fip_user_display(byte, fipram[byte]);
++}
++
++static void fip_display_symbol(const int symbol, const int on) 
++{
++	if ((symbol < 0) || (symbol >= NUM_SYMBOLS)) 
++		return;
++	fip_display_raw(fipsymbols[symbol][0], fipsymbols[symbol][1], on);
++}
++
++static void fip_write_text(const int position, const char *text, const int flags) 
++{
++	int x, i, j;
++	int textLen = strlen(text);
++
++	if (flags & FIP_CENTER)
++		x = (position > 0) ? position - textLen / 2 : (NUM_DIGITS - textLen) / 2 + 1;
++	else if (flags & FIP_RIGHT)
++		x = (position > 0) ? position - textLen : NUM_DIGITS - textLen + 1;
++	else 
++		x = (position > 0) ? position : 1;
++	if (x < 1) x = 1;
++
++	if ((flags & FIP_NO_CLEAR) == 0) {
++		/* clear colons */
++		fip_display_symbol(COLON_HOUR_MIN_FIP_ON, 0);
++		fip_display_symbol(COLON_MIN_SEC_FIP_ON, 0);
++	}
++
++	/* show/write text */
++	j = 0;
++	for (i = 1; i <= NUM_DIGITS; i++) {
++		if ((i < x) || (i >= (x+textLen)))
++			fip_display_character(i, ' ');
++		else if (!fip_display_character(i, text[j++])) {
++			break;
++		}
++	}
++}
++
++static unsigned long fip_poll_key(unsigned long *table, unsigned long size)
++{
++	unsigned long key = 0L;
++
++	fip_wait_ready();
++	fip_write_reg(FIP_COMMAND, FIP_CMD_DATA_SET_RW_MODE_READ_KEYS);
++	fip_wait_ready();
++	key = fip_read_reg(FIP_KEY_DATA1); 
++
++	if ((key == 0) || (table == 0) || (*table == 0)) {
++#ifdef FC_DEBUG
++		if (table == 0)
++			DBG_PRINT("FIP NULL table\n");
++		if (*table == 0)
++			DBG_PRINT("FIP NULL content\n");
++		if (key != 0)
++			DBG_PRINT("Got any FIP key\n");
++#endif
++		return key;
++	} else {
++		unsigned int i;
++		for (i = 0; i < size; i++, table++) {
++			if (*table == 0)
++				break;
++			else if (key == *table) {
++
++				DBG_PRINT("Got defined FIP key\n");
++				return key;
++			}
++		}
++		return 0;
++	}
++}
++
++int fip_open(void)
++{
++	unsigned long key = 0L;
++
++	DBG_PRINT("Polling for FIP key.\n");
++
++	fip_config = fip_read_reg(FIP_CONFIG);
++
++	if ((fip_config & FIP_ENABLE) == 0) {
++		fip_write_reg(FIP_CONFIG, (FIP_DIVIDER | FIP_ENABLE));
++		fip_wait_ready();
++
++		/* Clear exisiting IRQ, if any */
++		fip_write_reg(FIP_INT, 0x3);
++		fip_wait_ready();
++
++		/* select display mode */
++		fip_write_reg(FIP_COMMAND, FIP_DISPLAY_MODE);
++		fip_wait_ready();
++
++		/* select brightness of display and turn it on */
++		fip_write_reg(FIP_COMMAND, FIP_CMD_DISP_CTRL_TURN_DISPLAY_ON | brightness);
++		fip_wait_ready();
++
++		/* select write to display and fixed addressing */
++		fip_write_reg(FIP_COMMAND, FIP_CMD_DATA_SET_ADR_MODE_FIXED_ADR);
++		fip_wait_ready();
++
++		fip_clear();
++		fip_write_text(0, "STANDBY", FIP_CENTER);
++
++		/* Flush buffer */
++		while ((key = fip_poll_key(0, 0)) != 0);
++	}
++
++	return 0;
++}
++
++int fip_close(void)
++{
++	DBG_PRINT("Stop polling for FIP key.\n");
++
++	fip_write_reg(FIP_CONFIG, fip_config);
++	tangox_usdelay(1000);
++
++	return 0;
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/freqctrl.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/freqctrl.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/freqctrl.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/freqctrl.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,493 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/*
++ *
++ */
++
++#include "platform.h"
++#include "freqctrl.h"
++
++#include "fc/fcconfig.h"
++#include "fc/fcbin.h"
++
++#ifndef LOCALMEM_BASE
++#error Anchor of handler need to be set
++#endif
++
++#define USE_AUDIOMEM_SIZE	(8*1024)
++
++static unsigned long localmem[8192/4]; /* Up to 8KB */
++static unsigned long audiomem[USE_AUDIOMEM_SIZE/4]; /* Up to 8KB */
++
++struct engine_status
++{
++	unsigned long hb_addr;
++	unsigned long suspend_addr;
++	unsigned long hb;
++	int active;
++	int g2l_status;
++	unsigned long g2lc_addr;
++	const char *desc;
++};
++
++static struct engine_status engines[] = {
++	{ REG_BASE_cpu_block + LR_HB_MPEG0, REG_BASE_cpu_block + LR_SUSPEND_ACK_MPEG0, 0, 0, 0, REG_BASE_mpeg_engine_0 + G2L_RESET_CONTROL, "MPEG0" },
++	{ REG_BASE_cpu_block + LR_HB_MPEG1, REG_BASE_cpu_block + LR_SUSPEND_ACK_MPEG1, 0, 0, 0, REG_BASE_mpeg_engine_1 + G2L_RESET_CONTROL, "MPEG1" },
++	{ REG_BASE_cpu_block + LR_HB_AUDIO0, REG_BASE_cpu_block + LR_SUSPEND_ACK_AUDIO0, 0, 0, 0, REG_BASE_audio_engine_0 + G2L_RESET_CONTROL, "AUDIO0" },
++	{ REG_BASE_cpu_block + LR_HB_AUDIO1, REG_BASE_cpu_block + LR_SUSPEND_ACK_AUDIO1, 0, 0, 0, REG_BASE_audio_engine_1 + G2L_RESET_CONTROL, "AUDIO1" },
++	{ REG_BASE_cpu_block + LR_HB_DEMUX, REG_BASE_cpu_block + LR_SUSPEND_ACK_DEMUX, 0, 0, 0, REG_BASE_demux_engine + G2L_RESET_CONTROL, "DEMUX" },
++	{ REG_BASE_cpu_block + LR_HB_IH, REG_BASE_cpu_block + LR_SUSPEND_ACK_IH, 0, 0, 0, 0, "IH" },
++};
++
++#define SUSPEND_FLAG     1
++#define RESUME_FLAG      0
++#define MAX_DELTA        2700000 /* 100ms */
++#define HB_MONITOR_TIME  100000  /* 100ms */
++
++#ifdef WITH_INPUT_POLLING
++int ir_open(void);
++int fip_open(void);
++int eth_open(void);
++int ir_close(void);
++int fip_close(void);
++int eth_close(void);
++#endif
++
++static unsigned long xtal_delta(unsigned long start, unsigned long end)
++{
++	return (end > start) ? (end - start) : (0xffffffff - start + end + 1);
++}
++
++/* Suspend all engines */
++static void suspend_engines(void)
++{
++	const int num_engines = sizeof(engines) / sizeof(struct engine_status);
++	unsigned long start, end, delta;
++	int i;
++
++	/* First determine which engine is running */
++	for (i = 0; i < num_engines; i++) {
++		engines[i].hb = tangox_gbus_read_reg32(engines[i].hb_addr);
++		if (engines[i].g2lc_addr != 0) /* update block status */
++			engines[i].g2l_status = tangox_gbus_read_reg32(engines[i].g2lc_addr);
++	}
++
++	tangox_udelay(HB_MONITOR_TIME); /* Wait for heartbeat update */
++
++	/* Mark the active flag associate to each engine */
++	for (i = 0; i < num_engines; i++) 
++		engines[i].active = ((engines[i].hb != tangox_gbus_read_reg32(engines[i].hb_addr)) ? 1 : 0);
++
++	/* Start suspend */
++	tangox_gbus_write_reg32(REG_BASE_cpu_block + LR_DRAM_DMA_SUSPEND, SUSPEND_FLAG);
++	tangox_sync();
++
++	/* Check all engines to be suspended */
++	for (i = 0; i < num_engines; i++) {
++		if (engines[i].active) {
++			DBG_PRINT("Waiting for %s to be suspended.\n", engines[i].desc);
++			for (delta = 0, start = tangox_gbus_read_reg32(REG_BASE_system_block + SYS_xtal_in_cnt); 
++					tangox_gbus_read_reg32(engines[i].suspend_addr) != SUSPEND_FLAG; ) {
++				end = tangox_gbus_read_reg32(REG_BASE_system_block + SYS_xtal_in_cnt); 
++				delta = xtal_delta(start, end);
++				if (delta > MAX_DELTA)
++					break;
++			}
++			if (delta <= MAX_DELTA)
++				DBG_PRINT("%s is suspended.\n", engines[i].desc);
++			else
++				DBG_PRINT("Wait for %s timeout.\n", engines[i].desc);
++		} else {
++			DBG_PRINT("%s is not active.\n", engines[i].desc);
++		}
++		if ((engines[i].g2lc_addr != 0) && (engines[i].g2l_status == 0)) { /* currently running */
++			tangox_gbus_write_reg32(engines[i].g2lc_addr, 1); /* pause the block */
++			tangox_sync();
++		}
++	}
++}
++
++/* Resume all engines */
++static void resume_engines(void)
++{
++	const int num_engines = sizeof(engines) / sizeof(struct engine_status);
++	int i;
++	unsigned long start, end, delta;
++
++	for (i = num_engines - 1; i >= 0; i--) {
++		if ((engines[i].g2lc_addr != 0) && (engines[i].g2l_status == 0)) { /* used to be running */
++			tangox_gbus_write_reg32(engines[i].g2lc_addr, 0); /* undo pause */
++			tangox_sync();
++		}
++	}
++
++	/* Start resume */
++	tangox_gbus_write_reg32(REG_BASE_cpu_block + LR_DRAM_DMA_SUSPEND, RESUME_FLAG);
++	tangox_sync();
++
++	/* Check all engines to be suspended, in reversed order */
++	for (i = num_engines - 1; i >= 0; i--) {
++		if (engines[i].active) {
++			DBG_PRINT("Waiting for %s to be resumed.\n", engines[i].desc);
++			for (delta = 0, start = tangox_gbus_read_reg32(REG_BASE_system_block + SYS_xtal_in_cnt); 
++					tangox_gbus_read_reg32(engines[i].suspend_addr) == SUSPEND_FLAG; ) {
++				end = tangox_gbus_read_reg32(REG_BASE_system_block + SYS_xtal_in_cnt); 
++				delta = xtal_delta(start, end);
++				if (delta > MAX_DELTA)
++					break;
++			}
++			if (delta <= MAX_DELTA)
++				DBG_PRINT("%s is resumed.\n", engines[i].desc);
++			else
++				DBG_PRINT("Wait for %s timeout.\n", engines[i].desc);
++		}
++	}
++}
++
++/* Set to a given frequency profile */
++#ifdef WITH_INPUT_POLLING
++int set_freq_profile(const struct freq_profile *pptr, unsigned long *elapse, unsigned long *ret_key, 
++	unsigned long *ir_keys, unsigned long *fip_keys, int input_ctrl, 
++	unsigned long *cnt_low, unsigned long *cnt_high)
++#else
++int set_freq_profile(const struct freq_profile *pptr)
++#endif
++{
++	unsigned long ehci_cmd, ohci_ctl;
++	unsigned long flags, ret, old_pll2, old_pll1, old_pll0, audio0_stat, gpio_dir = 0, gpio_data = 0;
++	int standby = 0;
++	struct freq_handler_header *fs_hdr = (struct freq_handler_header *)(LOCALMEM_BASE + 0x10);
++
++#ifdef WITH_INPUT_POLLING
++	if (elapse)
++		*elapse = 0;
++	if (ret_key)
++		*ret_key = 0;
++#endif
++
++	if (pptr->pll3 == 0)
++		return -EINVAL;
++	standby = pptr->standby;
++
++	DBG_PRINT("TangoX Frequency Control\n");
++
++	/* Suspend all engines first */
++	suspend_engines();
++
++	DBG_PRINT("Installing handler to 0x%08x, size 0x%x.\n", LOCALMEM_BASE, sizeof(binout));
++
++	/* Save localmem content */
++	memcpy(localmem, (void *)KSEG1ADDR(REG_BASE_cpu_block), LR_STACKTOP);
++	memset((void *)KSEG1ADDR(REG_BASE_cpu_block), 0, LR_STACKTOP);
++
++	audio0_stat = tangox_gbus_read_reg32(REG_BASE_audio_engine_0 + G2L_RESET_CONTROL);
++	tangox_gbus_write_reg32(REG_BASE_audio_engine_0 + G2L_RESET_CONTROL, 1); 
++	tangox_sync();
++
++	memcpy(audiomem, (void *)KSEG1ADDR(LOCALMEM_BASE & PAGE_MASK), USE_AUDIOMEM_SIZE);
++	memcpy((void *)(LOCALMEM_BASE), &binout[0], sizeof(binout));
++
++	DBG_PRINT("Stopping PCI bus artitration...\n");
++	tangox_gbus_write_reg32(REG_BASE_host_interface + PCI_host_reg4, 1);
++	tangox_sync();
++
++	DBG_PRINT("Stoping TangoX ethernet...\n");
++	if (!standby) 
++		eth_open();
++
++	DBG_PRINT("Stopping TangoX EHCI\n");
++        ehci_cmd = tangox_gbus_read_reg32(EHCI_CMD);
++        ehci_cmd &= ~CMD_RUN;
++        tangox_gbus_write_reg32(EHCI_CMD, ehci_cmd);
++
++	DBG_PRINT("Stopping TangoX OHCI\n");
++	ohci_ctl = tangox_gbus_read_reg32(OHCI_CONTROL);
++	tangox_gbus_write_reg32(OHCI_CONTROL, ohci_ctl | HCCONTROL_HCFS);
++	tangox_gbus_write_reg32(OHCI_INT_DISABLE, OHCI_INTR_MIE);
++	tangox_usdelay(16*125); /*need to wait 16*125us*/
++
++	if (pptr->gpio_dir != 0) {
++		unsigned long dir, data;
++
++		/* Save GPIO dir/data, to be restored later */
++		gpio_dir = ((tangox_gbus_read_reg32(REG_BASE_host_interface + ETH_gpio_dir2) & 0xffff) << 16) |
++			(tangox_gbus_read_reg32(REG_BASE_system_block + SYS_gpio_dir) & 0xffff);
++		gpio_data = (((tangox_gbus_read_reg32(REG_BASE_host_interface + ETH_gpio_data2) & 0xffff) << 16) |
++			(tangox_gbus_read_reg32(REG_BASE_system_block + SYS_gpio_data) & 0xffff)) & gpio_dir;
++
++		if (pptr->gpio_dir & 0xffff) {
++			dir = pptr->gpio_dir & 0xffff;
++			data = (pptr->gpio_data & 0xffff) & dir;
++			tangox_gbus_write_reg32(REG_BASE_system_block + SYS_gpio_data, (dir << 16) | data);
++			tangox_gbus_write_reg32(REG_BASE_system_block + SYS_gpio_dir, (dir << 16) | dir);
++		}
++		if (pptr->gpio_dir & 0xffff0000) {
++			dir = (pptr->gpio_dir >> 16) & 0xffff;
++			data = ((pptr->gpio_data >> 16) & 0xffff) & dir;
++			tangox_gbus_write_reg32(REG_BASE_host_interface + ETH_gpio_data2, (dir << 16) | data);
++			tangox_gbus_write_reg32(REG_BASE_host_interface + ETH_gpio_dir2, (dir << 16) | dir);
++		}
++	}
++
++	DBG_PRINT("Original config:\n");
++	DBG_PRINT(" PLL3: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen3_pll)); 
++	DBG_PRINT(" PLL2: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll)); 
++	DBG_PRINT(" PLL1: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll)); 
++	DBG_PRINT(" PLL0: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll)); 
++	DBG_PRINT(" MUX:  0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux)); 
++	DBG_PRINT(" D0_CFG: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_cfg));
++	DBG_PRINT(" D0_DELAY: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl));
++	DBG_PRINT(" D1_CFG: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_cfg));
++	DBG_PRINT(" D1_DELAY: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl));
++
++	DBG_PRINT("Target config (0 = no change):\n");
++	DBG_PRINT(" PLL3: 0x%08lx\n", pptr->pll3);
++	DBG_PRINT(" PLL2: 0x%08lx\n", pptr->pll2);
++	DBG_PRINT(" PLL1: 0x%08lx\n", pptr->pll1);
++	DBG_PRINT(" PLL0: 0x%08lx\n", pptr->pll0);
++	DBG_PRINT(" MUX:  0x%08lx\n", pptr->mux);
++	DBG_PRINT(" D0_CFG: 0x%08lx\n", pptr->d0cfg);
++	DBG_PRINT(" D0_DELAY: 0x%08lx\n", pptr->d0delays);
++	DBG_PRINT(" D1_CFG: 0x%08lx\n", pptr->d1cfg);
++	DBG_PRINT(" D1_DELAY: 0x%08lx\n", pptr->d1delays);
++
++	old_pll2 = tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll);
++	if (pptr->pll2) {
++		/* Change PLL2 if needed */
++		DBG_PRINT("Change PLL2 from 0x%08lx to 0x%08lx\n", old_pll2, pptr->pll2);
++		tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen2_pll, pptr->pll2);
++	}
++	old_pll1 = tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll);
++	if (pptr->pll1) {
++		/* Change PLL1 if needed */
++		DBG_PRINT("Change PLL1 from 0x%08lx to 0x%08lx\n", old_pll1, pptr->pll1);
++		tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen1_pll, pptr->pll1);
++	}
++	old_pll0 = tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll);
++	if (pptr->pll0) {
++		/* Change PLL0 if needed */
++		DBG_PRINT("Change PLL0 from 0x%08lx to 0x%08lx\n", old_pll0, pptr->pll0);
++		tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen0_pll, pptr->pll0);
++	}
++	tangox_usdelay(10);
++
++	DBG_PRINT("Saving to data 0x%08x\n", (unsigned int)fs_hdr->param_area);
++	memcpy((void *)fs_hdr->param_area, pptr, sizeof(*pptr));
++
++#ifdef WITH_INPUT_POLLING
++	DBG_PRINT("IR table at 0x%08lx, FIP table at 0x%08lx\n", (unsigned long)fs_hdr->ir_table, (unsigned long)fs_hdr->fip_table);
++
++	/* Clear the input table first */
++	memset(fs_hdr->ir_table, 0, INPUT_TABLE_SIZE);
++	memset(fs_hdr->fip_table, 0, INPUT_TABLE_SIZE);
++
++	if (tangox_ir_enabled() && (ir_keys != NULL)) {
++		memcpy(fs_hdr->ir_table, ir_keys, INPUT_TABLE_SIZE);
++		DBG_PRINT("Setting up IR table\n");
++	}
++	if (tangox_fip_enabled() && (fip_keys != NULL)) {
++		memcpy(fs_hdr->fip_table, fip_keys, INPUT_TABLE_SIZE);
++		DBG_PRINT("Setting up FIP table\n");
++	}
++
++	/* From XENV or other means, determine which input is available */
++	fs_hdr->input_ctrl = input_ctrl;
++
++	DBG_PRINT("Polling ctrl: %ld\n", fs_hdr->input_ctrl);
++#endif
++
++	DBG_PRINT("Disable interrupts, doing frequency adjustment\n");
++
++	tangox_save_flags(flags);
++
++#ifdef WITH_INPUT_POLLING
++	if (standby) {
++		DBG_PRINT("Ready to enter stand-by mode at 0x%08x to [%s]\n", (unsigned int)fs_hdr->func_ptr, pptr->desc);
++		fs_hdr->cnt_low = *cnt_low;
++		fs_hdr->cnt_high = *cnt_high;
++	} else {
++		DBG_PRINT("Calling handler at 0x%08x to [%s]\n", (unsigned int)fs_hdr->func_ptr, pptr->desc);
++	}
++#else
++	DBG_PRINT("Calling handler at 0x%08x to [%s]\n", (unsigned int)fs_hdr->func_ptr, pptr->desc);
++#endif
++
++#ifdef WITH_INPUT_POLLING
++	if (standby) {
++		if (input_ctrl & 1)
++			ir_open();
++		if (input_ctrl & 2)
++			fip_open();
++		if (input_ctrl & 4)
++			eth_open();
++	}
++#endif
++
++	tangox_flush_cache_all();
++
++	ret = (*(fs_hdr->func_ptr))();
++
++#ifdef WITH_INPUT_POLLING
++	if (elapse)
++		*elapse = fs_hdr->elapse;
++	if (ret_key)
++		*ret_key = fs_hdr->ret_key;
++
++	if (standby) {
++		if (input_ctrl & 4)
++			eth_close();
++		if (input_ctrl & 2)
++			fip_close();
++		if (input_ctrl & 1)
++			ir_close();
++	}
++#endif
++
++#ifdef WITH_INPUT_POLLING
++	if (standby) {
++		DBG_PRINT("\nReturning from standby mode.\n");
++		if ((pptr->pll2) && (old_pll2 != tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll))) {
++			DBG_PRINT("Restoring PLL2: 0x%08lx\n", old_pll2);
++			tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen2_pll, old_pll2);
++		}
++		if ((pptr->pll1) && (old_pll1 != tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll))) {
++			DBG_PRINT("Restoring PLL1: 0x%08lx\n", old_pll1);
++			tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen1_pll, old_pll1);
++		}
++		if ((pptr->pll0) && (old_pll0 != tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll))) {
++			DBG_PRINT("Restoring PLL0: 0x%08lx\n", old_pll0);
++			tangox_gbus_write_reg32(REG_BASE_system_block+SYS_clkgen0_pll, old_pll0);
++		}
++		tangox_usdelay(10);
++	} else {
++		DBG_PRINT("\nReturning from handler.\n");
++	}
++#else
++	DBG_PRINT("\nReturning from handler.\n");
++#endif
++
++	if (pptr->gpio_dir != 0) {
++		unsigned long dir, data;
++
++		/* Restoring GPIO */
++		if (gpio_dir & 0xffff) {
++			dir = gpio_dir & 0xffff;
++			data = (gpio_data & 0xffff) & dir;
++			tangox_gbus_write_reg32(REG_BASE_system_block + SYS_gpio_data, (dir << 16) | data);
++			tangox_gbus_write_reg32(REG_BASE_system_block + SYS_gpio_dir, 0xffff0000 | dir);
++		}
++		if (gpio_dir & 0xffff0000) {
++			dir = (gpio_dir >> 16) & 0xffff;
++			data = ((gpio_data >> 16) & 0xffff) & dir;
++			tangox_gbus_write_reg32(REG_BASE_host_interface + ETH_gpio_data2, (dir << 16) | data);
++			tangox_gbus_write_reg32(REG_BASE_host_interface + ETH_gpio_dir2, 0xffff0000 | dir);
++		}
++	}
++
++	DBG_PRINT("Re-enable TangoX OHCI\n");
++	tangox_gbus_write_reg32(OHCI_CONTROL, ohci_ctl);
++	tangox_gbus_write_reg32(OHCI_INT_ENABLE, OHCI_INTR_MIE);
++
++	DBG_PRINT("Re-enable TangoX EHCI\n");
++        ehci_cmd |= CMD_RUN;
++        tangox_gbus_write_reg32(EHCI_CMD, ehci_cmd);
++
++	DBG_PRINT("Re-enable TangoX ethernet\n");
++	if (!standby)
++		eth_close();
++
++	DBG_PRINT("Re-starting PCI bus artitration...\n");
++	tangox_gbus_write_reg32(REG_BASE_host_interface + PCI_host_reg4, 0);
++
++#ifdef WITH_INPUT_POLLING
++	/* Re-calibrate system timing */
++	if (standby) 
++		tangox_reset_timer(tangox_get_cpuclock(), tangox_get_sysclock());
++#endif
++
++	DBG_PRINT("NEW config:\n");
++	DBG_PRINT(" PLL3: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen3_pll)); 
++	DBG_PRINT(" PLL2: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen2_pll)); 
++	DBG_PRINT(" PLL1: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen1_pll)); 
++	DBG_PRINT(" PLL0: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_clkgen0_pll)); 
++	DBG_PRINT(" MUX:  0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_system_block+SYS_sysclk_mux)); 
++	DBG_PRINT(" D0_CFG: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_cfg));
++	DBG_PRINT(" D0_DELAY: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_0+DRAM_dunit_delay0_ctrl));
++	DBG_PRINT(" D1_CFG: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_cfg));
++	DBG_PRINT(" D1_DELAY: 0x%08lx\n", tangox_gbus_read_reg32(REG_BASE_dram_controller_1+DRAM_dunit_delay0_ctrl));
++
++	DBG_PRINT("NEW CPU frequency: %ldHz\n", tangox_get_cpuclock());
++	DBG_PRINT("NEW SYS frequency: %ldHz\n", tangox_get_sysclock());
++	DBG_PRINT("NEW DSP frequency: %ldHz\n", tangox_get_dspclock());
++
++#ifdef WITH_INPUT_POLLING
++	if (standby) {
++		*cnt_low = fs_hdr->cnt_low;
++		*cnt_high = fs_hdr->cnt_high;
++	}
++#endif
++
++	tangox_restore_flags(flags);
++
++	/* restore localmem content */
++	memcpy((void *)KSEG1ADDR(REG_BASE_cpu_block), localmem, LR_STACKTOP);
++
++	/* restore audio mem */
++	memcpy((void *)KSEG1ADDR(LOCALMEM_BASE & PAGE_MASK), audiomem, USE_AUDIOMEM_SIZE);
++
++	tangox_gbus_write_reg32(REG_BASE_audio_engine_0 + G2L_RESET_CONTROL, audio0_stat); 
++	tangox_sync();
++
++	/* Resume the engines */
++	resume_engines();
++
++	return 0;
++}
++
++/* Calculate the sys_clkgen_pll value for certain frequency */
++/* freq = desired frequency, ratio = 1 (for PLL), 2-4 (for CPU/SYS/DSP) */
++unsigned long frequency_to_pll(unsigned int freq, unsigned int ratio) 
++{
++	unsigned int m, n;
++	unsigned long pll = 0;
++  
++	if ((freq < 255) && (ratio != 4)) {
++		// Frequency given in MHz. Use Intermediate Freq of 0.5MHz
++		// !! Impossible if ratio=4.
++		m = 54 / ratio; 
++		n = freq * 2; 
++		pll = 0x1000000 + ((m - 2) << 16) + (n - 2);
++	} else {
++		unsigned int best_n, best_m, best_f, tmp;
++		if (freq < 255) 
++			freq *= 1000000;
++		// Frequency in Hz. Find closest match (Try for all M's)
++		best_f = 1000000000;
++		best_m = 0;
++		best_n = 0;
++		for (m = 65; m > 2; m--) {
++			n =((freq / 1000) * m * ratio + 13500) / 27000;
++			if ((n <= 513) && (n >= 2)) {
++				tmp = (TANGOX_BASE_FREQUENCY / (m*ratio)) * n;
++				if (tmp < freq) 
++					tmp = 2 * freq - tmp;
++				if (tmp <= best_f) {
++					best_f = tmp; 
++					best_m = m; 
++					best_n = n;
++				}
++			}
++		}
++		if (best_m != 0)
++			pll = 0x1000000 + ((best_m - 2) << 16) + (best_n - 2);
++	}
++	return(pll);
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/freqctrl.h linux-2.6.22.19/arch/mips/tangox/fctrl/lib/freqctrl.h
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/freqctrl.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/freqctrl.h	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,149 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#ifndef __FREQCTRL_H__
++#define __FREQCTRL_H__
++
++#ifndef __FSCONFIG_H__
++#include "fc/fcconfig.h"
++#endif
++
++/* USB related registers */
++#define EHCI_CMD           (REG_BASE_host_interface+0x1410)
++#define OHCI_INTR_MIE      (1<<31)
++#define OHCI_INT_ENABLE    (REG_BASE_host_interface+0x1510)
++#define OHCI_INT_DISABLE   (REG_BASE_host_interface+0x1514)
++#define OHCI_CONTROL       (REG_BASE_host_interface+0x1504)
++#define HCCONTROL_HCFS     (3<<6)
++#define HCCONTROL_USB_OPER (2<<6)
++#define CMD_RUN            (1<<0)
++
++/*
++ * Mac/DMA registers offset, refer to documentation
++ */
++#define ENET_HOST_BASE		REG_BASE_host_interface
++
++/* mac registers */
++#define ENET_MAC_BASE		(ENET_HOST_BASE + 0x6000)
++#define ENET_MAC_MACCR		(ENET_MAC_BASE + 0x0)
++#define MACCR_F			(1 << 20)
++#define MACCR_PM		(1 << 19)
++#define MACCR_PR		(1 << 18)
++#define MACCR_HP		(1 << 13)
++#define MACCR_ASTP		(1 << 8)
++#define MACCR_TE		(1 << 3)
++#define MACCR_RE		(1 << 2)
++#define ENET_MAC_MACAHR		(ENET_MAC_BASE + 0x4)
++#define ENET_MAC_MACALR		(ENET_MAC_BASE + 0x8)
++#define ENET_MAC_MAHR		(ENET_MAC_BASE + 0xc)
++#define ENET_MAC_MALR		(ENET_MAC_BASE + 0x10)
++#define ENET_MAC_MIIAR		(ENET_MAC_BASE + 0x14)
++#define MIIAR_ADDR(x)		((x) << 11)
++#define MIIAR_REG(x)		((x) << 6)
++#define MIIAR_WRITE		(1 << 1)
++#define MIIAR_BUSY		(1 << 0)
++#define ENET_MAC_MIIDR		(ENET_MAC_BASE + 0x18)
++#define ENET_MAC_FCR		(ENET_MAC_BASE + 0x1c)
++#define FCR_ENABLE		(1 << 1)
++
++/* dma registers */
++#define ENET_DMA_BASE		(ENET_HOST_BASE + 0x7000)
++#define ENET_DMA_BMR		(ENET_DMA_BASE + 0x00)
++#define BMR_PBL(x)		((x & 0x3f) << 8)
++#define BMR_SWR			(1 << 0)
++#define ENET_DMA_TPDR		(ENET_DMA_BASE + 0x04)
++#define ENET_DMA_RPDR		(ENET_DMA_BASE + 0x08)
++#define ENET_DMA_RBAR		(ENET_DMA_BASE + 0x0c)
++#define ENET_DMA_TBAR		(ENET_DMA_BASE + 0x10)
++#define ENET_DMA_SR		(ENET_DMA_BASE + 0x14)
++#define SR_EB(x)		(((x) >> 23) & 0x3)
++#define SR_TS(x)		(((x) >> 20) & 0x7)
++#define SR_RS(x)		(((x) >> 17) & 0x7)
++#define SR_NIS			(1 << 16)
++#define SR_AIS			(1 << 15)
++#define SR_ERI			(1 << 14)
++#define SR_FBE			(1 << 13)
++#define SR_ETI			(1 << 12)
++#define SR_RWT			(1 << 11)
++#define SR_RPS			(1 << 8)
++#define SR_RU			(1 << 7)
++#define SR_R			(1 << 6)
++#define SR_UNF			(1 << 5)
++#define SR_TU			(1 << 4)
++#define SR_TPS			(1 << 1)
++#define SR_T			(1 << 0)
++#define ENET_DMA_CR		(ENET_DMA_BASE + 0x18)
++#define CR_SF			(1 << 21)
++#define CR_ST			(1 << 13)
++#define CR_SR			(1 << 1)
++#define ENET_DMA_IER		(ENET_DMA_BASE + 0x1c)
++#define IER_NIS			(1 << 16)
++#define IER_AIS			(1 << 15)
++#define IER_ERE			(1 << 14)
++#define IER_FBE			(1 << 13)
++#define IER_ETE			(1 << 10)
++#define IER_RWT			(1 << 9)
++#define IER_RS			(1 << 8)
++#define IER_RU			(1 << 7)
++#define IER_R			(1 << 6)
++#define IER_UE			(1 << 5)
++#define IER_TBU			(1 << 2)
++#define IER_TS			(1 << 1)
++#define IER_T			(1 << 0)
++#define ENET_DMA_CHRBA		(ENET_DMA_BASE + 0x54)
++
++typedef unsigned long (*FUNC_PTR)(void);
++
++/* Profile for frequency to be switched to */
++struct freq_profile
++{
++	unsigned long pll3;      /* setting for PLL3 */
++	unsigned long pll2;      /* setting for PLL2 */
++	unsigned long pll1;      /* setting for PLL1 */
++	unsigned long pll0;      /* setting for PLL0 */
++	unsigned long mux;       /* sysclk_mux */
++	unsigned long d0cfg;     /* DRAM0 parameters */
++	unsigned long d0delays;
++	unsigned long d1cfg;     /* DRAM1 parameters */
++	unsigned long d1delays;
++	unsigned long standby;   /* standby invocation? */
++	const char *desc;        /* description */
++	unsigned long gpio_dir;  /* GPIO dir (standby) */
++	unsigned long gpio_data; /* GPIO data (standby) */
++};
++
++/* For communicating with handler */
++struct freq_handler_header
++{
++	FUNC_PTR func_ptr;      /* Entry point of handler */
++	struct freq_profile *param_area;       /* parameter area */
++#ifdef WITH_INPUT_POLLING
++	unsigned long *ir_table;         /* Key filters for IR (standby) */
++	unsigned long *fip_table;        /* Key filters for FIP (standby) */
++	unsigned long ret_key;  /* Returned key */
++	unsigned long elapse;   /* Time elapse in standby */
++	unsigned long input_ctrl; /* Which input is enabled */
++	unsigned long cnt_low;	/* xtal_cnt: low 32 */
++	unsigned long cnt_high;	/* xtal_cnt: high 32 */
++#endif
++};
++
++/* Prototyping */
++#ifdef WITH_INPUT_POLLING
++int set_freq_profile(const struct freq_profile *pptr, unsigned long *elapse, unsigned long *ret_key, 
++	unsigned long *ir_keys, unsigned long *fip_keys, int input_ctrl,
++	unsigned long *cnt_low, unsigned long *cnt_high);
++#else
++int set_freq_profile(const struct freq_profile *pptr);
++#endif
++
++unsigned long frequency_to_pll(unsigned int freq, unsigned int ratio);
++
++#endif /* __FREQCTRL_H__ */
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/ir.c linux-2.6.22.19/arch/mips/tangox/fctrl/lib/ir.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/ir.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/ir.c	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,150 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++/*
++ *
++ */
++
++#include "platform.h"
++
++/* For Tango2, it's always there */
++#define WITH_RC5_CONTROL
++#define WITH_RC6_CONTROL
++
++#define SYS_gpio_base           SYS_gpio_dir
++
++/* NEC Control */
++#define IR_NEC_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0x18)
++#define IR_NEC_CAPTURE_DATA    	(REG_BASE_system_block + SYS_gpio_base + 0x1c)
++
++#ifdef WITH_RC5_CONTROL
++/* RC5 Control */
++#define IR_RC5_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0x20)
++#define IR_RC5_DECODE_CLK_DIV  	(REG_BASE_system_block + SYS_gpio_base + 0x24)
++#define IR_RC5_DECODER_DATA    	(REG_BASE_system_block + SYS_gpio_base + 0x28)
++#endif /* WITH_RC5_CONTROL */
++
++#ifdef WITH_RC6_CONTROL
++/* RC6 Control */
++#define RC6_DWORDS		5	/* 5 dwords = 20 bytes */
++#define IR_RC6_CTRL             (REG_BASE_system_block + SYS_gpio_base + 0xe0)
++#define IR_RC6_T_CTRL           (REG_BASE_system_block + SYS_gpio_base + 0xe4)
++#define IR_RC6_DATA_OUT0        (REG_BASE_system_block + SYS_gpio_base + 0xe8)
++#define IR_RC6_DATA_OUT1        (REG_BASE_system_block + SYS_gpio_base + 0xec)
++#define IR_RC6_DATA_OUT2        (REG_BASE_system_block + SYS_gpio_base + 0xf0)
++#define IR_RC6_DATA_OUT3        (REG_BASE_system_block + SYS_gpio_base + 0xf4)
++#define IR_RC6_DATA_OUT4        (REG_BASE_system_block + SYS_gpio_base + 0xf8)
++#endif
++
++static unsigned long ir_nec_ctrl = 0;
++
++#ifdef WITH_RC5_CONTROL
++static const int rc5_clk_div = 48006;	/* 48006 = 1.778ms, 36018 = 1.334ms, 59994 = 2.222ms */
++static unsigned long ir_rc5_ctrl = 0, old_rc5_clk = 0;
++#endif /* WITH_RC5_CONTROL */
++#ifdef WITH_RC6_CONTROL
++static unsigned long ir_rc6_ctrl = 0, ir_rc6_t_ctrl = 0;
++#endif /* WITH_RC6_CONTROL */
++
++/* Open the device */
++int ir_open(void)
++{
++	DBG_PRINT("Polling for IR key.\n");
++
++	ir_nec_ctrl = tangox_gbus_read_reg32(IR_NEC_CTRL);
++	tangox_gbus_write_reg32(IR_NEC_CTRL, 0);
++
++#ifdef WITH_RC5_CONTROL
++	ir_rc5_ctrl = tangox_gbus_read_reg32(IR_RC5_CTRL);
++	tangox_gbus_write_reg32(IR_RC5_CTRL, 0);
++#endif
++#ifdef WITH_RC6_CONTROL
++	ir_rc6_ctrl = tangox_gbus_read_reg32(IR_RC6_CTRL);
++	tangox_gbus_write_reg32(IR_RC6_CTRL, 0xc0000000);
++#endif
++	tangox_sync();
++
++	/* Enable the NEC device (CTRL register) */
++	/*	31:30 - reserved */
++	/*	29:24 	IR_CAPTURE_NBITS [5:0] -> set to 0x1f */
++	/*	23:22 - reserved */
++	/*	21:16 	GPIO_INFREARED_SEL [5:0] -> set to 0x0c */
++	/*	15:14 - reserved */
++	/*	13:0	IR_PREDIV_DEVIDER [13:0] -> set to 0x3b10 */
++	tangox_gbus_write_reg32(REG_BASE_system_block + SYS_gpio_dir,
++		tangox_gbus_read_reg32(REG_BASE_system_block + SYS_gpio_dir) | (1 << (16 + 12)));
++	tangox_gbus_write_reg32(IR_NEC_CTRL, 0x1f0c3b10);
++
++#ifdef WITH_RC5_CONTROL
++	/* Enable the RC5 device (CTRL register) */
++	/*	31:10 - reserved */
++	/*	9	IR_RC5_INT_ENABLE -> set */
++	/*	8	IR_NEC_INT_DISABLE */
++	/*	7	IR_DEBOUNCE_SEL1 -> set */
++	/*	6	IR_DEBOUNCE_SEL0 -> set */
++	/*	5	IR_DEBOUNCE_ENABLE -> set */
++	/*	4	IR_NEC_DISABLE */
++	/*	3	IR_RSYNC_1/4 -> set */
++	/*	2	IR_RSYNC_1/8 */
++	/*	1	IR_SIGNAL_INVERT */
++	/*	0	IR_DECODE_ENABLE -> set */
++	old_rc5_clk = tangox_gbus_read_reg32(IR_RC5_DECODE_CLK_DIV);
++	tangox_gbus_write_reg32(IR_RC5_DECODE_CLK_DIV, rc5_clk_div);
++	tangox_gbus_write_reg32(IR_RC5_CTRL, 0x000002e9);
++#endif /* WITH_RC5_CONTROL */
++
++#ifdef WITH_RC6_CONTROL
++	/* Enable the RC6 device (CTRL register) */
++	/*	7	IR_RC6_DATA_IN_INT_ENABLE -> set */
++	/*	6	IR_RC6_ERROR_INT_ENABLE -> set */
++	/*	5:2	reserved */
++	/*	1	IR_SIGNAL_INVERT */
++	/*	0	IR_RC6_DECODE_ENABLE -> set */
++	tangox_gbus_write_reg32(IR_RC6_CTRL, 0x000000c1);
++
++	/* Tolerance and Duration */
++	/*	31:18	Tolerance (typ. 0xbb8) */
++	/*	17:0	Duration (typ. 0x2ee0) */
++	ir_rc6_t_ctrl = tangox_gbus_read_reg32(IR_RC6_T_CTRL);
++	tangox_gbus_write_reg32(IR_RC6_T_CTRL, (0xbb8 << 18) | 0x2ee0);
++#endif
++
++	tangox_sync();
++
++	return 0;
++}
++
++int ir_close(void)
++{
++	DBG_PRINT("Stop polling for IR key.\n");
++	tangox_gbus_write_reg32(IR_NEC_CTRL, 0);
++#ifdef WITH_RC5_CONTROL
++	tangox_gbus_write_reg32(IR_RC5_CTRL, 0);
++#endif
++#ifdef WITH_RC6_CONTROL
++	tangox_gbus_write_reg32(IR_RC6_CTRL, 0xc0000000);
++#endif
++	tangox_sync();
++
++	tangox_gbus_write_reg32(IR_NEC_CTRL, ir_nec_ctrl);
++#ifdef WITH_RC5_CONTROL
++	tangox_gbus_write_reg32(IR_RC5_DECODE_CLK_DIV, old_rc5_clk);
++	tangox_gbus_write_reg32(IR_RC5_CTRL, ir_rc5_ctrl);
++#endif
++#ifdef WITH_RC6_CONTROL
++	tangox_gbus_write_reg32(IR_RC6_CTRL, ir_rc6_ctrl);
++	tangox_gbus_write_reg32(IR_RC6_T_CTRL, ir_rc6_t_ctrl);
++#endif /* WITH_RC6_CONTROL */
++
++	tangox_sync();
++	tangox_usdelay(1000);
++
++	return 0;
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/Makefile.lib linux-2.6.22.19/arch/mips/tangox/fctrl/lib/Makefile.lib
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/Makefile.lib	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/Makefile.lib	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,74 @@
++
++#
++# Use this Makefile only when in standalone fashion
++#
++
++ifeq ($(TOP_DIR),)
++$(error Kernel top level directory need to be specified!)
++endif
++
++include $(TOP_DIR)/.config
++
++CROSS = mipsel-linux-
++CC = $(CROSS)gcc
++LD = $(CROSS)ld
++AR = $(CROSS)ar
++OBJCOPY = $(CROSS)objcopy
++
++FCDIR = fc
++CFLAGS = -Wall -Werror -Wstrict-prototypes -Wsign-compare -O2 -G 0 -mno-abicalls -fno-pic 
++CFLAGS += -fno-builtin -mabi=32 -march=mips32r2 -Wa,-32 -Wa,-march=mips32r2 -Wa,-mips32r2 -Wa,--trap
++CFLAGS += -I$(TOP_DIR)/include -I$(TOP_DIR)/include/asm-mips/mach-tango2 -I$(TOP_DIR)/include/asm-mips/mach-generic
++CFLAGS += -DEM86XX_CHIP=EM86XX_CHIPID_TANGO2 -DEM86XX_REVISION=6 -DCONFIG_TANGO2
++CFLAGS += -I$(FCDIR)
++
++# DMEM_BASE_audio_engine_0
++LOCALMEM_BASE	:= 0xa0190010
++WITH_IR		:= n
++WITH_FIP	:= n
++WITH_ETH	:= n
++INPUT_TABLE_SIZE:= 64
++FCTRL_DEBUG	:= n
++
++ifeq ($(FCTRL_DEBUG),y)
++CFLAGS += -DFC_DEBUG
++endif
++
++FCLIB_OBJS = freqctrl.o
++
++ifeq ($(WITH_ETH),y)
++FCLIB_OBJS += eth.o
++endif
++
++ifeq ($(WITH_IR),y)
++FCLIB_OBJS += ir.o
++endif
++
++ifeq ($(WITH_FIP),y)
++FCLIB_OBJS += fip.o
++endif
++
++all: freqctrl.a 
++
++freqctrl.a: $(FCLIB_OBJS)
++	$(AR) rcs $@ $(FCLIB_OBJS)
++
++$(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h: Makefile
++	$(MAKE) -C $(FCDIR) TOP_DIR=$(TOP_DIR) LOCALMEM_BASE=$(LOCALMEM_BASE) WITH_IR=$(WITH_IR) WITH_FIP=$(WITH_FIP) WITH_ETH=$(WITH_ETH) INPUT_TABLE_SIZE=$(INPUT_TABLE_SIZE) FCTRL_DEBUG=$(FCTRL_DEBUG) 
++
++freqctrl.o: freqctrl.c freqctrl.h $(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h Makefile platform.h $(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h
++	$(CC) $(CFLAGS) -D__KERNEL__ -c -o $@ freqctrl.c
++
++eth.o: eth.c Makefile platform.h $(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h
++	$(CC) $(CFLAGS) -D__KERNEL__ -c -o $@ eth.c
++
++ir.o: ir.c Makefile platform.h $(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h
++	$(CC) $(CFLAGS) -D__KERNEL__ -c -o $@ ir.c
++
++fip.o: fip.c Makefile platform.h $(FCDIR)/fcconfig.h $(FCDIR)/fcbin.h
++	$(CC) $(CFLAGS) -D__KERNEL__ -c -o $@ fip.c
++
++cleanall clean:
++	$(MAKE) -C $(FCDIR) clean
++	rm -f freqctrl.a $(FCLIB_OBJS)
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/platform.h linux-2.6.22.19/arch/mips/tangox/fctrl/lib/platform.h
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/lib/platform.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/lib/platform.h	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,91 @@
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#ifndef __LINUX_PLATFORM_H__
++#define __LINUX_PLATFORM_H__
++
++#include <linux/config.h>
++#include <linux/init.h>
++#include <linux/types.h>
++#include <linux/delay.h>
++#include <asm/tlbflush.h>
++#include <asm/system.h>
++
++#include <asm/tango2/rmem86xxid.h>
++#include <asm/tango2/rmdefs.h>
++#include <asm/tango2/emhwlib_dram.h>
++#include <asm/tango2/tango2_gbus.h>
++#include <asm/tango2/tango2.h>
++#include <asm/tango2/tango2api.h>
++#include <asm/tango2/memcfg.h>
++#include <asm/tango2/emhwlib_registers_tango2.h>
++
++/* Flush all cache */
++extern void tangox_flush_cache_all(void);
++
++/* Reset OS timer */
++extern void reset_timer(unsigned long cpu_freq, unsigned long sys_freq);
++
++/* Get CPU frequency */
++extern unsigned long tangox_get_cpuclock(void);
++
++/* Get SYS frequency */
++extern unsigned long tangox_get_sysclock(void);
++
++/* Get DSP frequency */
++extern unsigned long tangox_get_dspclock(void);
++
++/* Devices */
++extern int tangox_ir_enabled(void);
++extern int tangox_fip_enabled(void);
++extern int tangox_ethernet_enabled(void);
++
++static inline void tangox_gbus_write_reg32(unsigned long addr, unsigned long val)
++{
++	gbus_write_reg32(addr, val);
++}
++
++static inline unsigned long tangox_gbus_read_reg32(unsigned long addr)
++{
++	return gbus_read_reg32(addr);
++}
++
++/* Sleep for given micro-seconds */
++static inline void tangox_usdelay(unsigned long usec)
++{
++	udelay(usec);
++}
++
++/* Re-calibrate OS level timer */
++static inline void tangox_reset_timer(unsigned long cpufreq, unsigned long sysfreq)
++{
++	reset_timer(cpufreq, sysfreq);
++}
++
++/* Disable interrupts and save the flags */
++#define tangox_save_flags(x)      local_irq_save(x)
++
++/* Restore the flags (re-enable interrupt) */
++#define tangox_restore_flags(x)   local_irq_restore(x)
++
++/* IO barrier */
++#define tangox_iob()		  iob()
++
++/* sync */
++#define tangox_sync()		  __sync()
++
++/* For debugging purpose */
++#ifdef FC_DEBUG
++#define DBG_PRINT           printk
++#else
++#define DBG_PRINT(x, ...)
++#endif
++
++#endif
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/fctrl/Makefile linux-2.6.22.19/arch/mips/tangox/fctrl/Makefile
+--- linux-2.6.22.19.ref/arch/mips/tangox/fctrl/Makefile	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/fctrl/Makefile	2010-04-05 11:31:27.439766933 -0700
+@@ -0,0 +1,44 @@
++
++TOP_DIR := $(TOPDIR)
++
++# More parameters to be configured
++WITH_IR		:= $(CONFIG_TANGOX_STANDBY_WAKEUP_IR)
++WITH_FIP	:= $(CONFIG_TANGOX_STANDBY_WAKEUP_FIP)
++WITH_ETH	:= $(CONFIG_TANGOX_STANDBY_WAKEUP_ETH)
++INPUT_TABLE_SIZE:= $(CONFIG_TANGOX_STANDBY_INPUT_TABLE_SIZE)
++
++# For debugging purpose
++FCTRL_DEBUG     := n
++
++# 
++#LOCALMEM_BASE	:= 0xa0060010
++# DMEM_BASE_audio_engine_0
++LOCALMEM_BASE := 0xa0190010
++
++ifeq ($(FCTRL_DEBUG),y)
++CFLAGS += -DFC_DEBUG
++endif
++
++CFLAGS += -DEM86XX_CHIP=EM86XX_CHIPID_TANGO2 -DEM86XX_REVISION=6 -DCONFIG_TANGO2 -DLOCALMEM_BASE=$(LOCALMEM_BASE)
++
++obj-$(CONFIG_TANGOX_FREQUENCY_CONTROL) := fctrl.o
++
++FC_MADE_CLEAN := $(shell $(MAKE) -C $(TOP_DIR)/arch/mips/tangox/fctrl/lib/fc clean )
++FC_MADE := $(shell $(MAKE) -C $(TOP_DIR)/arch/mips/tangox/fctrl/lib/fc WITH_IR=$(WITH_IR) WITH_FIP=$(WITH_FIP) WITH_ETH=$(WITH_ETH) INPUT_TABLE_SIZE=$(INPUT_TABLE_SIZE) FCTRL_DEBUG=$(FCTRL_DEBUG) TOP_DIR=$(TOP_DIR) LOCALMEM_BASE=$(LOCALMEM_BASE) )
++
++fctrl-objs := lib/freqctrl.o lib/ir.o lib/fip.o lib/eth.o fckernel.o
++
++.PHONY: all
++all: fctrl.ko
++
++fctrl.ko: FORCE lib/freqctrl.o lib/ir.o lib/fip.o lib/eth.o fckernel.o
++	$(MAKE) -C $(TOP_DIR) V=$(V) M="$$PWD" modules
++
++.PHONY: clean
++clean:
++	$(MAKE) -C $(TOP_DIR)/arch/mips/tangox/fctrl/lib/fc clean
++	$(MAKE) -C $(TOP_DIR) V=$(V) M="$$PWD" clean
++
++.PHONY: FORCE
++FORCE:
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/Kconfig linux-2.6.22.19/arch/mips/tangox/Kconfig
+--- linux-2.6.22.19.ref/arch/mips/tangox/Kconfig	2010-04-05 11:29:45.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/Kconfig	2010-04-05 11:31:27.449768060 -0700
+@@ -102,7 +102,6 @@
+ 	 This is the default amount of RAM available to the Linux kernel. It can be
+ 	 override with "mem=" command line option.
+ 
+-
+ config TANGOX_IGNORE_CMDLINE
+ 	bool "Ignore YAMON, XENV & memcfg command line"
+ 	depends on TANGO2_SMP863X || TANGO3_SMP86XX
+@@ -112,7 +111,6 @@
+ 	 will be ignored. You can then use CONFIG_CMDLINE to force the
+ 	 kernel command line.
+ 
+-
+ config TANGOX_PROM_CONSOLE
+ 	bool "Register an early console"
+ 	depends on TANGO2_SMP863X || TANGO3_SMP86XX
+@@ -162,6 +160,52 @@
+  	help
+  	 DSP frequency.
+  
++config TANGOX_FREQUENCY_CONTROL
++	tristate "Allow dynamic frequency control"
++	depends on TANGO2_SMP863X && !TANGOX_FIXED_FREQUENCIES
++	default y if TANGO2_SMP863X
++	help
++	 To enable frequency control (under /proc/tangoxfreq) as well as
++	 standby mode support.
++
++config TANGOX_STANDBY_SUPPORT
++	bool "Standby mode support for SMP86xx (Experimental)"
++	depends on TANGOX_FREQUENCY_CONTROL
++	default n
++	help
++	 To enable standby mode support (suspend on RAM). At least one of the input 
++	 mechanism (IR, FIP, built-in ethernet) needs to enable to wake up the 
++	 system. To trigger standby mode, "echo standby > /proc/tangoxfreq/standby".
++
++config TANGOX_STANDBY_WAKEUP_IR
++	bool "Wake up from standby mode via IR"
++	depends on TANGOX_STANDBY_SUPPORT
++	default y
++	help
++	 Support system wake up by IR.
++
++config TANGOX_STANDBY_WAKEUP_FIP
++	bool "Wake up from standby mode via FIP"
++	depends on TANGOX_STANDBY_SUPPORT
++	default y
++	help
++	 Support system wake up by FIP.
++ 
++config TANGOX_STANDBY_WAKEUP_ETH
++	bool "Wake up from standby mode via built-in ethernet"
++	depends on TANGOX_STANDBY_SUPPORT
++	default y
++	help
++	 Support system wake up by WOL (Wakeup-On-LAN) with magic packet.
++
++config TANGOX_STANDBY_INPUT_TABLE_SIZE
++	int "The size of the filter table, needs to be multiple of 4's"
++	depends on TANGOX_STANDBY_WAKEUP_IR || TANGOX_STANDBY_WAKEUP_FIP
++	default 128
++	help
++	 The filter table to be used to filter the input so only the ones are 
++	 allowed as wake up event.
++
+ config TANGOX_UART_USE_SYSCLK
+ 	bool "Use system clock for UART"
+ 	depends on TANGO2_SMP863X || TANGO3_SMP86XX
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/Makefile linux-2.6.22.19/arch/mips/tangox/Makefile
+--- linux-2.6.22.19.ref/arch/mips/tangox/Makefile	2010-04-05 11:29:45.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/Makefile	2010-04-05 11:31:27.449768060 -0700
+@@ -18,3 +18,9 @@
+ 
+ obj-y += mbus.o
+ 
++ifndef CONFIG_TANGOX_FIXED_FREQUENCIES
++obj-$(CONFIG_TANGOX_FREQUENCY_CONTROL) += fctrl/
++endif
++
++clean-files += $(shell $(MAKE) -C $(TOPDIR)/arch/mips/tangox/fctrl/lib/fc clean)
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1020.freqctrl.patch linux-2.6.22.19/README.1020.freqctrl.patch
+--- linux-2.6.22.19.ref/README.1020.freqctrl.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1020.freqctrl.patch	2010-04-05 11:32:53.655674193 -0700
+@@ -0,0 +1,26 @@
++Feature:
++--------
++Changing frequencies is allowed while syncing up the timer.
++Runtime frequency control via procfs interface.
++(Optionally) standy mode support -- experimental.
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++1002
++1005
++1011
++1012
++1013
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++all
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

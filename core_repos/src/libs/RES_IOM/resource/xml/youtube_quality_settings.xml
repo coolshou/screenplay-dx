@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page background="./image/youtube/youtube_bg.jpg">
+	<listbox valkey="youtube_quality_settings" autoenter="1" autoswitch="0" move="page" cols="1" rows="4" loop_scroll="1"/>
+
+	<text text="$$Video playback quality" x="188" y="156" w="710" h="44" fontsize="42" textcolor="0xffffff"/>
+
+	<wrapper x="293" w="695">
+		<image y="280" h="1" image="@@quality_settings_0_line"/>
+		<image y="323" h="1" image="@@quality_settings_1_line"/>
+		<image y="366" h="1" image="@@quality_settings_2_line"/>
+		<image y="409" h="1" image="@@quality_settings_3_line"/>
+	</wrapper>
+
+	<table x="281" y="238" w="719" h="172" fontsize="20" selected_fontsize="26" cols="1" rows="4" colspacing="0" rowspacing="0" 
+		lbimage="image/youtube/browser_list_btn.png" clickimage="image/youtube/browser_list_btn.png" align="hcenter" 
+		textcolor="0xffffff" actnoseltextcolor="0xffffff" actoverlistcolor="0xffffff" activetextcolor="0xffffff" selectedtextcolor="0xffffff">
+		<text text="@@quality_settings_0_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_quality_settings-0" active="@@act-youtube_quality_settings-0" selected="@@youtube_quality_settings_0_select"/>
+		<text text="@@quality_settings_1_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_quality_settings-1" active="@@act-youtube_quality_settings-1" selected="@@youtube_quality_settings_1_select"/>
+		<text text="@@quality_settings_2_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_quality_settings-2" active="@@act-youtube_quality_settings-2" selected="@@youtube_quality_settings_2_select"/>
+		<text text="@@quality_settings_3_text" xmargin="10" ymargin="11" lightbar="@@lightbar-youtube_quality_settings-3" active="@@act-youtube_quality_settings-3" selected="@@youtube_quality_settings_3_select"/>
+	</table>
+
+
+	<image image="image/youtube/youtube_logo.png" x="1047" y="563" w="150" h="75"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- page tile in Setup -->
+<wrapper>
+    <image image="@@page_title_icon" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio"/>
+    <text text="@@headline" x="157" y="62" w="1100" h="42" align="left" fontsize="40" textcolor="0xecc402"/>
+    <text text="@@title" x="157" y="109" w="1100" h="28" align="left" fontsize="24" textcolor="0xffffff"/>
+</wrapper>

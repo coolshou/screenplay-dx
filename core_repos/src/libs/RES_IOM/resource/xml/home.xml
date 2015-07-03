@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page background="./image/home_background.png">
+	<ctrlgrp>
+		<crossbar valkey="homecrossbar" autoenter="1" autoswitch="0" master_items="5" master_direction="h" master_active="3" master_lbmask="LR" slave_items="3" slave_direction="v" slave_active="1" slave_lbmask="UD" loop_scroll="1"/>
+	</ctrlgrp>
+	<image image="image/home_option_background.png" x="0" y="0" w="1280" h="198"/>
+
+	<wgt_mlist name="HORI_MLIST" x="110" y="0" w="1050" h="272" fontsize="20" duration="250" motion_type="decrease" textcolor="0xffffff" align="hcenter" direction="hori" itemcount="5" extra_index="3" extra_len="0" angle_adjustment="1" radius="100" angle_list="1,21,28,21,1"/> 
+
+	<wgt_mlist name="VERT_MLIST" x="580" y="297" w="120" h="360" fontsize="26" duration="250" motion_type="decrease" textcolor="0xffffff" align="hcenter" direction="vert" itemcount="3" extra_index="2" extra_len="0"/>
+
+	<wrapper x="715" w="550" align="left,hecnter">
+		<text text="@@MASTER_FOCUS_TEXT" y="434" h="65" fontsize="52" textcolor="@@MASTER_FOCUS_TEXTCOLOR"/>
+		<text text="@@SLAVE_FOCUS_TEXT" y="492" h="36" fontsize="28" textcolor="0xffffffff"/>
+	</wrapper>
+
+	<wrapper x="625" w="30" h="24">
+		<image image="./image/arrow_up_f.png" y="273"/>
+		<image image="./image/arrow_down_f.png" y="657"/>
+	</wrapper>
+
+	<image image="@@WARNING_BG" x="373" y="0" w="537" h="91" disable="@@nowplaying_disable"/>
+	<image image="@@now_music_ico" x="422" y="32" w="26" h="26" disable="@@nowplaying_disable"/>
+	<text text="@@now_filename" x="457" y="37" w="220" h="20" fontsize="18" textcolor="0xff00ccff" speed="1" delay="2" disable="@@nowplaying_disable" auto_translate="1"/>
+	<text text="@@now_currenttime" x="457" y="60" w="92" h="18" fontsize="18" textcolor="0xff00ccff" disable="@@nowplaying_disable"/>
+	<text text="@@now_totaltime" x="567" y="62" w="92" h="14" fontsize="14" textcolor="0xff00ccff" disable="@@nowplaying_disable"/>
+	<image image="@@now_artist_ico" x="695" y="32" w="30" h="30" disable="@@nowplaying_disable"/>
+	<text text="@@now_artist" x="725" y="37" w="175" h="20" fontsize="18" textcolor="0xff00ccff" disable="@@nowplaying_disable" speed="1" delay="2" auto_translate="1"/>
+	<include filename="./inc_decoration.xml"/>
+</page>

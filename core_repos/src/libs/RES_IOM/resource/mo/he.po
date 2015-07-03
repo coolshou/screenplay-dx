@@ -1,0 +1,4406 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Hebrew <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-Country: ISRAEL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "בחר שפה"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "ברוכים הבאים אל Iomega ScreenPlay Media Player"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "האשף ינחה אותך בחיבור ההתקן לרשת הביתית. לאחר חיבור ההתקן, תוכל להשתמש בו כדי לגשת למדיה המאוחסנת בכונני רשת אחרים ולהפעיל אותם."
+
+msgid "Select Next to continue."
+msgstr "בחר את \"הבא\" כדי להמשיך."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "כאשר Quick Start Mode מוגדר למצב ON (מופעל), צריכת ההספק תהיה גבוהה יותר אולם ההתקן יהיה זמין לרשת וזמן ההפעלה יהיה קצר יותר."
+
+msgid "Select your TV type"
+msgstr "בחר את סוג הטלוויזיה שלך"
+
+msgid "Select your connection"
+msgstr "בחר את החיבור"
+
+msgid "Skip"
+msgstr "דלג"
+
+msgid "Do you want to skip?"
+msgstr "האם ברצונך לדלג?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "IP סטטי"
+
+msgid "IP address"
+msgstr "כתובת IP"
+
+msgid "Netmask"
+msgstr "מסכת רשת"
+
+msgid "Gateway"
+msgstr "שער"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "ההתקנה הושלמה"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "אשף"
+
+msgid "You have successfully completed device configuration"
+msgstr "השלמת בהצלחה את תצורת ההתקן."
+
+msgid "Next"
+msgstr "הבא"
+
+msgid "Later"
+msgstr "מאוחר יותר"
+
+msgid "Movie"
+msgstr "סרט"
+
+msgid "Music"
+msgstr "מוסיקה"
+
+msgid "Photo"
+msgstr "תמונות"
+
+msgid "Settings"
+msgstr "הגדרות"
+
+msgid "Online media"
+msgstr "מדיה מקוונת"
+
+msgid "Folders"
+msgstr "תיקיות"
+
+msgid "Recent"
+msgstr "אחרון"
+
+msgid "Local storage"
+msgstr "אחסון מקומי"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "שרת מדיה"
+
+msgid "Shared folder"
+msgstr "תיקייה משותפת"
+
+msgid "All Movies"
+msgstr "כל הסרטים"
+
+msgid "All Music"
+msgstr "כל המוסיקה"
+
+msgid "Playlist"
+msgstr "רשימת השמעה"
+
+msgid "Artist"
+msgstr "אמן"
+
+msgid "Genre"
+msgstr "ז'אנר"
+
+msgid "Album"
+msgstr "אלבום"
+
+msgid "Now Playing"
+msgstr "מנגן כעת"
+
+msgid "All Photos"
+msgstr "כל התמונות"
+
+msgid "Date"
+msgstr "תאריך"
+
+msgid "Albums"
+msgstr "אלבומים"
+
+msgid "Preview mode"
+msgstr "מצב תצוגה מקדימה"
+
+msgid "List mode"
+msgstr "מצב רשימה"
+
+msgid "Thumbnail mode"
+msgstr "מצב תמונה ממוזערת"
+
+msgid "This folder is empty or unavailable."
+msgstr "התיקייה ריקה או אינה זמינה."
+
+msgid "Delete"
+msgstr "מחק"
+
+msgid "Create"
+msgstr "צור"
+
+msgid "Edit"
+msgstr "ערוך"
+
+msgid "Rename"
+msgstr "שנה שם"
+
+msgid "Clear"
+msgstr "נקה"
+
+msgid "Move"
+msgstr "העבר"
+
+msgid "Save"
+msgstr "שמור"
+
+msgid "Create album"
+msgstr "צור אלבום"
+
+msgid "Edit album"
+msgstr "ערוך אלבום"
+
+msgid "Add to list"
+msgstr "הוסף לרשימה"
+
+msgid "Remove from list"
+msgstr "הסר מרשימה"
+
+msgid "Move focus"
+msgstr "הזז מיקוד"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "אין אלבום קיים. ליצור אלבום חדש?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "האם אתה בטוח שברצונך למחוק את האלבום?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "האם אתה בטוח שברצונך להסיר את הקבצים מהרשימה?"
+
+msgid "This folder is empty"
+msgstr "תיקייה זו ריקה"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "שם משתמש או סיסמה שגויים"
+
+msgid "This media server cannot be accessed"
+msgstr "לא ניתן לגשת לשרת מדיה זה"
+
+msgid "No server found"
+msgstr "לא נמצא שרת"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "האם אתה בטוח שברצונך למחוק את הקובץ?"
+
+msgid "Normal"
+msgstr "רגיל"
+
+msgid "Repeat one"
+msgstr "חזור על אחד"
+
+msgid "Repeat all"
+msgstr "חזור על הכל"
+
+msgid "Repeat all and shuffle"
+msgstr "חזור על הכל וערבב"
+
+msgid "Shuffle"
+msgstr "ערבב"
+
+msgid "Pan"
+msgstr "פנורמה"
+
+msgid "Rotate right"
+msgstr "סובב ימינה"
+
+msgid "Rotate left"
+msgstr "סובב שמאלה"
+
+msgid "Zoom in"
+msgstr "התקרב"
+
+msgid "Zoom out"
+msgstr "התרחק"
+
+msgid "Repeat"
+msgstr "חזור"
+
+msgid "Info bar"
+msgstr "שורת מידע"
+
+msgid "Audio"
+msgstr "שמע"
+
+msgid "Audio channel"
+msgstr "ערוץ שמע"
+
+msgid "No audio channel"
+msgstr "אין ערוץ שמע"
+
+msgid "Subtitle"
+msgstr "כיתובית"
+
+msgid "Subtitle off"
+msgstr "כבה כיתובית"
+
+msgid "No subtitle"
+msgstr "ללא כיתובית"
+
+msgid "Unsupported subtitle"
+msgstr "כיתובית בלתי-נתמכת"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "בחר [אשר] כדי להמשיך בהשמעה או [בטל] להתחלת הוידיאו מחדש"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "אין אפשרות להפעיל את הקובץ הנבחר. עיין במדריך למשתמש, למידע על מבני הקבצים הנתמכים."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "קובץ הוידיאו אותו ניסית לנגן מכיל יציאות ערוצי שמע מרובות, דבר שאינו נתמך. אנא עבור למוצא שמע דיגיטלי וחבר את נגן המדיה HD למקלט AV התומך ב-codec השמע."
+
+msgid "No chapter"
+msgstr "אין פרק"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "אין אפשרות להפעיל את תפריט הווידיאו הזה. האם תרצה להפעיל את קובץ הווידיאו?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "האם ברצונך לחדש את ההפעלה או להתחיל מההתחלה?"
+
+msgid "Next Song:"
+msgstr "שיר הבא:"
+
+msgid "Current Song"
+msgstr "שיר נוכחי"
+
+msgid "File Type"
+msgstr "סוג קובץ"
+
+msgid "Duration:"
+msgstr "משך:"
+
+msgid "File Size"
+msgstr "גודל קובץ"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "השכרת DivX הופעלה ב-X מתוך Y צפיות. להמשיך לצפות בסרט?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "ההתקן שלך אינו מאושר להפעלת וידיאו DivX מוגן."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "השכרת DivX נוצלה Y מתוך Y פעמים. תוקף השכרת DivX פג."
+
+msgid "Unsupported DivX DRM version."
+msgstr "גרסת DivX DRM אינה נתמכת."
+
+msgid "Video resolution is not supported."
+msgstr "רזולוציית הווידיאו אינה נתמכת."
+
+msgid "Video frame rate is not supported."
+msgstr "קצב מסגרת הווידיאו אינו נתמך."
+
+msgid "Audio format is not supported."
+msgstr "מבנה השמע אינו נתמך."
+
+msgid "Audio/Video"
+msgstr "שמע/וידיאו"
+
+msgid "Playback"
+msgstr "הפעלה"
+
+msgid "System"
+msgstr "מערכת"
+
+msgid "Network"
+msgstr "רשת"
+
+msgid "Shut down"
+msgstr "כיבוי"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "קבע את תצורת ההגדרות של הפקת השמע והווידיאו של ההתקן"
+
+msgid "Configure playback settings"
+msgstr "קבע את תצורת ההתקן"
+
+msgid "Configure basic settings of system"
+msgstr "קבע את תצורת ההגדרות הבסיסיות של המערכת"
+
+msgid "Configure network settings"
+msgstr "קבע את תצורת הגדרות הרשת"
+
+msgid "Video output"
+msgstr "מוצא וידיאו"
+
+msgid "Configure video output of system"
+msgstr "קבע את תצורת הפקת הווידיאו של המערכת"
+
+msgid "Composite"
+msgstr "מרוכב"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "קבע את תצורת אות NTSC או PAL"
+
+msgid "Component"
+msgstr "Component"
+
+msgid "Configure display resolution of Component"
+msgstr "קבע את תצורת רזולוציית התצוגה של Component"
+
+msgid "Color space"
+msgstr "מרחב צבעים"
+
+msgid "Configure color space of Component"
+msgstr "קבע את תצורת מרחב הצבעים של Component"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "קבע את תצורת רזולוציית התצוגה של HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "קבע את תצורת מרחב הצבעים של HDMI"
+
+msgid "RGB High"
+msgstr "RGB גבוה"
+
+msgid "RGB Low"
+msgstr "RGB נמוך"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "רזולוציית תצוגה"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "יחס גובה-רוחב"
+
+msgid "Configure screen format of system"
+msgstr "קבע את תצורת מבנה המסך של המערכת"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "מוצא שמע"
+
+msgid "Configure audio output channel of system"
+msgstr "קבע את תצורת ערוץ הפקת השמע של ההתקן"
+
+msgid "Stereo"
+msgstr "סטריאו"
+
+msgid "Digital"
+msgstr "דיגיטלי"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "האם אתה בטוח שאתה רוצה לשנות את רזולוציית הוידיאו?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "האם אתה בטוח שאתה רוצה לשנות את תבנית מוצא הוידיאו?"
+
+msgid "Subtitle mode"
+msgstr "מצב כתוביות"
+
+msgid "Turn on/off subtitle"
+msgstr "הפעל/הפסק כתוביות"
+
+msgid "Subtitle font size"
+msgstr "גודל פונט כיתוביות"
+
+msgid "Select subtitle font size"
+msgstr "בחר גודל גופן של כתוביות"
+
+msgid "Subtitle type"
+msgstr "סוג כתוביות"
+
+msgid "Select the additional encoding"
+msgstr "בחר את הקידוד הנוסף"
+
+msgid "Western Europe (ISO)"
+msgstr "מערב אירופה (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "מרכז אירופה (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "מרכז אירופה (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "סינית מסורתית (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "סינית פשוטה (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "יפנית (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "קוריאנית (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "קירילית (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "קירילית (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "יוונית (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "יוונית (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "ערבית (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "הצגת ערוץ שמע"
+
+msgid "Set the display mode while music playing"
+msgstr "קבע את מצב התצוגה בעת השמעת מוזיקה"
+
+msgid "File name"
+msgstr "שם קובץ"
+
+msgid "Title"
+msgstr "כותרת"
+
+msgid "Photo scaling"
+msgstr "שינוי קנה-מידה תמונה"
+
+msgid "Configure the photo scaling mode"
+msgstr "קבע את תצוגת מצב שינוי גודל תמונה"
+
+msgid "Keep as original"
+msgstr "שמור כמקורי"
+
+msgid "Fit to screen"
+msgstr "התאם למסך"
+
+msgid "Display in full screen"
+msgstr "הצג במסך מלא"
+
+msgid "Transition effect"
+msgstr "אפקט מעבר"
+
+msgid "Select the transition effect"
+msgstr "בחר את אפקט המעבר"
+
+
+
+
+msgid "Fade"
+msgstr "עמעם"
+
+msgid "Wipe"
+msgstr "מחיקה"
+
+msgid "Zoom"
+msgstr "שינוי גודל תצוגה"
+
+msgid "Push"
+msgstr "דחיפה"
+
+msgid "Replace"
+msgstr "החלפה"
+
+msgid "Checker board"
+msgstr "לוח דמקה"
+
+msgid "Random"
+msgstr "אקראי"
+
+msgid "Slideshow Interval"
+msgstr "מרווח מצגת"
+
+msgid "Configure the interval of slideshow"
+msgstr "קבע את תצורת מרווח הזמן של המצגת"
+
+msgid "second"
+msgstr "שנייה"
+
+msgid "seconds"
+msgstr "שניות"
+
+msgid "3 Seconds"
+msgstr "3 שניות"
+
+msgid "5 Seconds"
+msgstr "5 שניות"
+
+msgid "10 Seconds"
+msgstr "10 שניות"
+
+msgid "20 Seconds"
+msgstr "20 שניות"
+
+msgid "30 Seconds"
+msgstr "30 שניות"
+
+msgid "minute"
+msgstr "דקה"
+
+msgid "minutes"
+msgstr "דקות"
+
+msgid "1 Minute"
+msgstr "דקה"
+
+msgid "5 Minutes"
+msgstr "5 דקות"
+
+msgid "Browser display"
+msgstr "תצוגת דפדפן"
+
+msgid "Set the display mode of media browser"
+msgstr "קבע את מצב התצוגה של דפדפן המדיה"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "קבע את תצורת הגדרות DivX DRM VOD"
+
+msgid "Register"
+msgstr "הרשמה"
+
+msgid "Deregister"
+msgstr "ביטול הרשמה"
+
+msgid "Activation"
+msgstr "הפעלה"
+
+msgid "Deactivation"
+msgstr "ביטול הפעלה"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "ההתקן שלך כבר רשום. האם אתה בטוח שברצונך לבטל את ההרשמה?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "להצגת סרטי וידיאו מוגנים של DivX, חובה לרשום את ההתקן."
+
+msgid "Registration code:"
+msgstr "קוד רישום:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "הירשם בכתובת http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "קוד ביטול הרשמה:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "בטל הרשמה בכתובת http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "להמשיך בהרשמה?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "הפעל/הפסק שרת מדיה"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "הפעל/הפסק תיקייה משותפת"
+
+msgid "Workgroup name"
+msgstr "שם קבוצת עבודה"
+
+msgid "Device name"
+msgstr "שם התקן"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "כניסה אוטומטית"
+
+msgid "Turn on/off auto-login"
+msgstr "הפעל/הפסק התחברות אוטומטית"
+
+msgid "Clear account information"
+msgstr "נקה מידע חשבון"
+
+msgid "Delete the preset password?"
+msgstr "למחוק את הסיסמה המוגדרת מראש?"
+
+msgid "Manual SSID"
+msgstr "SSID ידני"
+
+msgid "Connection setup"
+msgstr "הגדרת חיבור"
+
+msgid "Wire"
+msgstr "קווית"
+
+msgid "Wireless"
+msgstr "אלחוטית"
+
+msgid "Network setup"
+msgstr "הגדרת רשת"
+
+msgid "Wireless setup"
+msgstr "הגדרת אלחוט"
+
+msgid "Does not contain"
+msgstr "לא מכיל"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "שם המוצר לא יכול להכיל את התווים הבאים \\ / : * ? â?? ; | עם תווים ריקים. שם זה לא יכול להיות מעל 15 תווים."
+
+msgid "The device name can not contain any of following "
+msgstr "שם התקן אינו יכול להכיל אחד מהתווים הבאים "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "ותווים ריקים. אורך שם התקן לא יכול לעלות על 15 תווים."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 אינו ערך חוקי, מותרים רק מספרים בין 1 לבין 223. בדוק את כתובת ה-IP שלך והזן אותה שוב."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "מותרים רק מספרים בין 0 לבין 255. בדוק את מספר ה-IP שלך והזן אותו שוב."
+
+msgid "Cannot find access point."
+msgstr "נקודת הגישה לא נמצאה."
+
+msgid "The AP is not exist. Please check again."
+msgstr "AP אינו קיים. בדוק שוב."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "קוד הצפנה אינו תקף. נסה שוב."
+
+msgid "BitTorrent"
+msgstr "Bittorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "הפעל/הפסק BitTorrent"
+
+msgid "Connection mode"
+msgstr "מצב חיבור"
+
+msgid "Connection type"
+msgstr "סוג חיבור"
+
+msgid "WPS setup"
+msgstr "התקנת WPS"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "לחץ על הלחצן WPS ב-AP לפני הלחיצה על הלחצן Connect."
+
+msgid "Auto search"
+msgstr "חיפוש אוטומטי"
+
+msgid "Site survey"
+msgstr "סקר אתרים"
+
+msgid "Detecting Wireless Access Point"
+msgstr "מזהה נקודת גישה אלחוטית"
+
+msgid "MAC address"
+msgstr "כתובת MAC"
+
+msgid "Please waiting..."
+msgstr "נא המתן..."
+
+msgid "Connect Successfully!"
+msgstr "החיבור הצליח!"
+
+msgid "Do you want replace this profile?"
+msgstr "האם ברצונך להחליף את הפרופיל?"
+
+msgid "Network is disconnected."
+msgstr "הרשת מנותקת."
+
+msgid "Can not detect wireless module."
+msgstr "לא מצליח לזהות מודול אלחוטי."
+
+msgid "The profile space is full!"
+msgstr "מרחב הפרופיל מלא!"
+
+msgid "Access point detecting..."
+msgstr "מזהה נקודת גישה..."
+
+msgid "The network encryption key is not valid."
+msgstr "מפתח ההצפנה של הרשת אינו תקף."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID אינו יכול להיות ריק!"
+
+msgid "No security"
+msgstr "אין אבטחה"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "ההתקנה הושלמה. האם ברצונך לשמור את חיבור הרשת הזה?"
+
+msgid "The SSID is empty."
+msgstr "SSID ריק"
+
+msgid "Can not set this profile to favorite."
+msgstr "לא ניתן להגדיר פרופיל זה כמועדף."
+
+msgid "Access point can not be found"
+msgstr "נקודת הגישה לא נמצאה."
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "נקודת הגישה לא נמצאה."
+
+msgid "Please enter your encryption key"
+msgstr "הזן את מפתח ההצפנה שלך"
+
+msgid "The device could not connect to the network."
+msgstr "ההתקן לא הצליח להתחבר לרשת."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "השרת נותק. בדוק את תצורת הרשת."
+
+msgid "Wireless favorites"
+msgstr "מועדפי אלחוט"
+
+msgid "Connect now"
+msgstr "התחבר כעת"
+
+msgid "Favorite"
+msgstr "מועדף"
+
+
+msgid "Encryption key"
+msgstr "מפתח ההצפנה"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "שפה"
+
+msgid "Select a display language"
+msgstr "בחר את שפת התצוגה"
+
+msgid "English"
+msgstr "אנגלית"
+
+msgid "French"
+msgstr "צרפתית"
+
+msgid "German"
+msgstr "גרמנית"
+
+msgid "Italian"
+msgstr "איטלקית"
+
+msgid "Spanish"
+msgstr "ספרדית"
+
+msgid "Portuguese"
+msgstr "פורטוגזית"
+
+msgid "Dutch"
+msgstr "הולנדית"
+
+msgid "Greek"
+msgstr "יוונית"
+
+msgid "Polish"
+msgstr "פולנית"
+
+msgid "Russian"
+msgstr "רוסית"
+
+msgid "Swedish"
+msgstr "שבדית"
+
+msgid "Japanese"
+msgstr "יפנית"
+
+msgid "Simplified Chinese"
+msgstr "סינית פשוטה"
+
+msgid "Traditional Chinese"
+msgstr "סינית מסורתית"
+
+msgid "Korean"
+msgstr "קוריאנית"
+
+msgid "Finnish"
+msgstr "פינית"
+
+msgid "Brazilian (Portuguese)"
+msgstr "פורטוגזית (ברזיל)"
+
+msgid "Hebrew"
+msgstr "עברית"
+
+msgid "Arabic"
+msgstr "ערבית"
+
+msgid "Czech"
+msgstr "צ'כית"
+
+msgid "Turkish"
+msgstr "טורקית"
+
+msgid "Danish"
+msgstr "דנית"
+
+msgid "Norwegian"
+msgstr "נורבגית"
+
+msgid "Media library"
+msgstr "ספריית מדיה"
+
+msgid "Turn on/off media library"
+msgstr "הפעל/הפסק ספריית מדיה"
+
+msgid "Screensaver delay"
+msgstr "השהיית שומר מסך"
+
+msgid "Configure screensaver delay time"
+msgstr "קבע את תצורת השהיית שומר מסך"
+
+msgid "Never"
+msgstr "לעולם לא"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 דקות"
+
+msgid "15 Minutes"
+msgstr "15 דקות"
+
+msgid "Quick start mode"
+msgstr "מצב התחלה מהירה"
+
+msgid "System reset"
+msgstr "איפוס מערכת"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "האם אתה בטוח שאתה רוצה לשחזר את הגדרות היצרן עבור התקן זה?"
+
+msgid "About"
+msgstr "אודות"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "לפרטים נוספים אודות נגן המדיה HD שלכם, אנא עיינו במדריך למשתמש או בקרו ב"
+
+msgid "Restart"
+msgstr "אתחל"
+
+msgid "Rebooting"
+msgstr "מאתחל"
+
+msgid "Update device"
+msgstr "עדכן התקן"
+
+msgid "New firmware"
+msgstr "קושחה חדשה"
+
+msgid "New firmware found"
+msgstr "נמצאה קושחה חדשה"
+
+msgid "version"
+msgstr "גירסה"
+
+msgid "Firmware Version"
+msgstr "גירסת קושחה"
+
+msgid "Current version"
+msgstr "גירסה נוכחית"
+
+msgid "New version"
+msgstr "גירסה חדשה"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "נמצאה קושחה חדשה. האם אתה רוצה לשדרג?"
+
+msgid "Invalid firmware"
+msgstr "קושחה בלתי-חוקית"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "בדוק מהי הקושחה העדכנית ביותר ועדכן את ההתקן."
+
+msgid "Checking for recent updates"
+msgstr "בדוק קיום עדכונים חדשים"
+
+msgid "Searching for updates..."
+msgstr "מחפש עדכונים..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "ההתקן לא הצליח להוריד עדכונים - בדוק את חיבור הרשת."
+
+msgid "Your device is up to date."
+msgstr "ההתקן מעודכן."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "נגן המדיה עובר שדרוג. אל תנתק את המתח או את התקן האחסון המחובר."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "השדרוג הסתיים. נגן המדיה יתחיל מחדש עכשיו."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "כדי לשקם את נגן המדיה, הכנס כונן USB המכיל את הקושחה."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "שדרוג הקושחה נכשל. ההתקן יאותחל."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "שדרוג הקושחה נכשל. בדוק את חיבור הרשת ונסה שוב."
+
+msgid "OK"
+msgstr "אשר"
+
+
+
+
+
+
+msgid "On"
+msgstr "מופעל"
+
+msgid "Off"
+msgstr "כבוי"
+
+msgid "Auto"
+msgstr "אוטו"
+
+msgid "Manual"
+msgstr "ידני"
+
+msgid "Search"
+msgstr "חפש"
+
+
+msgid "Error"
+msgstr "שגיאה"
+
+msgid "Retry"
+msgstr "נסה שוב"
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid "Go Back"
+msgstr "חזרה"
+
+msgid "Help"
+msgstr "עזרה"
+
+msgid "Exit"
+msgstr "יציאה"
+
+msgid "Unknown"
+msgstr "לא מוכר"
+
+
+msgid "Play"
+msgstr "הפעל"
+
+msgid "Pause"
+msgstr "השהה"
+
+msgid "Stop"
+msgstr "הפסק"
+
+msgid "Eject"
+msgstr "הוצא"
+
+msgid "Empty"
+msgstr "ריק"
+
+msgid "Standby mode"
+msgstr "מצב המתנה"
+
+msgid "Loading data"
+msgstr "טוען נתונים"
+
+msgid "All"
+msgstr "הכל"
+
+msgid "Contains"
+msgstr "מכיל"
+
+msgid "Starts with"
+msgstr "מתחיל ב"
+
+msgid "Unsupported"
+msgstr "לא נתמך"
+
+msgid "Space"
+msgstr "רווח"
+
+msgid "Equal to"
+msgstr "שווה ל"
+
+msgid "Not Equal to"
+msgstr "לא שווה ל"
+
+msgid "Untitled volume"
+msgstr "כרך ללא שם"
+
+msgid "Additional encoding support"
+msgstr "תמיכה נוספת בקידוד"
+
+msgid "Subtitle default"
+msgstr "ברירת מחדל לכיתוביות"
+
+msgid "Subtitle border"
+msgstr "מסגרת לכיתוביות"
+
+msgid "Thick"
+msgstr "עבה"
+
+msgid "Thin"
+msgstr "דק"
+
+msgid "Account"
+msgstr "חשבון"
+
+msgid "anonymous"
+msgstr "אנונימי"
+
+msgid "Connecting"
+msgstr "מתחבר"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "בחר את ההתקן שאתה רוצה להוציא."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "האם אתה בטוח שאתה רוצה להסיר התקן זה?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "אזהרה: הוצא בבטחה את התקן אחסון USB לפני הוצאתו."
+
+msgid "The device is busy. Please try later."
+msgstr "ההתקן עסוק. נסה שוב מאוחר יותר."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "המתן בעת הוצאת יחידת האחסון..."
+
+msgid "No storage present"
+msgstr "לא מחובר אחסון"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "הידור ספריית מדיה זקוק ליותר מקום אחסון:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "סורק את האחסון המחובר. הסריקה הראשונה עשויבה לקחת זמן רב יותר. אנא המתן..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "לא ניתן לזהות את ההתקן המחובר ליציאת USB"
+
+msgid "Storage can not aggregate"
+msgstr "האחסון אינו יכול לבצע אגרגציה"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "ספריית מדיה אינה תומכת במערכת קבצים מסוג journaled. השמעה עדיין נתמכת."
+
+msgid "Unable to create media library on read only storage."
+msgstr "לא ניתן ליצור ספריית מדיה על-גבי אחסון לקריאה בלבד."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "לא ניתן ליצור את ספריית המדיה. בדוק את הגדרות האחסון."
+
+msgid "Unrecognized USB device"
+msgstr "התקן USV לא מוכר"
+
+msgid "Scanning the attached USB device..."
+msgstr "סורק את התקן ה-USB המחובר..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "תחת הגדרת מוצא שמע דיגטלי, נדרש מקלט AV בעל תמיכה נאותה בתבניות שמע כדי לנגן רצועת שמע עם צליל surround."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "אל תנתק את הזנת המתח או דיסק אחסון כלשהו."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "HD Media Player עובר שדרוג. אל תכבה את ההתקן, אל תסיר את הזנת המתח ואל תנתק התקני אחסון מחוברים כלשהם."
+
+msgid "Upgrade complete!"
+msgstr "השדרוג הושלם!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "העדכונים הותקנו בהצלחה. ההתקן מאותחל כעת..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "ההתקן ביציאת USB אינו מזוהה."
+
+msgid "Device is shutting down..."
+msgstr "ההתקן בתהליך כיבוי..."
+
+msgid "Local device is disconnected."
+msgstr "ההתקן המקומי מנותק."
+
+msgid "Do you really want to restart device?"
+msgstr "האם ברצונך לאתחל את ההתקן?"
+
+msgid "Action cancelled"
+msgstr "הפעולה בוטלה"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "אירעה שגיאות מערכת חמורה. ההתקן יאותחל"
+
+msgid "To restart device, press the power button of your remote."
+msgstr "כדי לאתחל את ההתקן, לחץ על לחצן ההפעלה בשלט-רחוק."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "החיפוש הסתיים. לא נמצאו תוצאות."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "לחץ על מקש [Option] לקלט רב-לשוני"
+
+msgid "BlockBuster"
+msgstr "בלוקבאסטר"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "סיור ב-Flickr"
+
+msgid "My recent"
+msgstr "האחרונים שלי"
+
+msgid "Last 7 days interesting"
+msgstr "המענייניים ביותר בשבעת הימים האחרונים"
+
+msgid "Most recent uploads"
+msgstr "ההעלאות האחרונות ביותר"
+
+msgid "Hot tags"
+msgstr "תגים חמים"
+
+msgid "Contacts"
+msgstr "אנשי קשר"
+
+msgid "Photostream"
+msgstr "Photostream"
+
+msgid "Tags"
+msgstr "תגים"
+
+msgid "Delete one"
+msgstr "מחק אחד"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "מילות מפתח"
+
+msgid "Flickr members"
+msgstr "חברי Flickr"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "האם אתה בטוח שברצונך למחוק את הפריט הזה?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "האם אתה בטוח שברצונך למחוק את כל הפריטים?"
+
+msgid "This member has been added to your contact list."
+msgstr "החבר התווסף לרשימת אנשי הקשר שלך."
+
+msgid "This member has been add to your contact list."
+msgstr "החבר התווסף לרשימת אנשי הקשר שלך."
+
+msgid "Could not find any tag list."
+msgstr "לא נמצאה רשימת תגיות כלשהי."
+
+msgid "Could not find any contact list."
+msgstr "לא נמצאה רשימת אנשי קשר כלשהי."
+
+msgid "There is no friend available."
+msgstr "אין חבר זמין."
+
+msgid "A friend cannot be found."
+msgstr "לא נמצא חבר."
+
+msgid "There is no content available."
+msgstr "אין תוכן זמין."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "החיפוש הסתיים. לא נמצאו תוצאות."
+
+msgid "Now playing:"
+msgstr "מנגן כעת"
+
+msgid "Last station:"
+msgstr "תחנה אחרונה:"
+
+msgid "My presets"
+msgstr "ההגדרות הקבועות מראש שלי"
+
+msgid "Stations"
+msgstr "תחנות"
+
+msgid "Preferences"
+msgstr "העדפות"
+
+msgid "Sign in / Sign out"
+msgstr "התחברות / התנתקות"
+
+msgid "About Live365"
+msgstr "על Live365"
+
+msgid "Remove station"
+msgstr "הסר תחנה"
+
+msgid "Add to my presets"
+msgstr "הוסף להגדרות הקבועות מראש שלי"
+
+msgid "Free stations"
+msgstr "תחנות חינם"
+
+msgid "VIP stations"
+msgstr "תחנות VIP"
+
+msgid "Recommendations"
+msgstr "המלצות"
+
+msgid "Thumbs up"
+msgstr "מומלץ"
+
+msgid "Thumbs down"
+msgstr "לא מומלץ"
+
+
+
+
+msgid "Email track"
+msgstr "שלח רצועה בדואר אלקטרוני"
+
+msgid "Audio quality"
+msgstr "איכות שמע"
+
+msgid "Sort"
+msgstr "מיון"
+
+msgid "All stations"
+msgstr "כל התחנות"
+
+msgid "Only high"
+msgstr "גבוה בלבד"
+
+msgid "Medium to high"
+msgstr "בינוני עד גבוה"
+
+msgid "Low to medium"
+msgstr "נמוך עד בינוני"
+
+msgid "Only low"
+msgstr "נמוך בלבד"
+
+msgid "Sort stations alphabetically"
+msgstr "מיין תחנות בסדר אלפביתי"
+
+msgid "Sort stations by popularity"
+msgstr "מיין תחנות לפי פופולריות"
+
+msgid "Sign in"
+msgstr "היכנס"
+
+msgid "Don't have an account?"
+msgstr "אין לך חשבון?"
+
+msgid "Invalid username and password, please try again."
+msgstr "שם משתמש וסיסמה לא תקפים - נסה שוב."
+
+msgid "Save the account information?"
+msgstr "לשמור מידע חשבון?"
+
+msgid "Save username only"
+msgstr "שמור שם משתמש בלבד"
+
+msgid "Are you sure to sign out?"
+msgstr "האם אתה בטוח שברצונך להתנתק?"
+
+msgid "The station is removed from your presets."
+msgstr "התחנה הוסרה מההגדרות הקבועות מראש."
+
+msgid "The station is added to your presets."
+msgstr "התחנה התווספה מההגדרות הקבועות מראש."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "כדי להשתמש במאפיין זה, עליך להתחבר. להתחבר כעת?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "תודע על מתן הציון לרצועה זו. אנחנו שמחים על כך שאהבת אותה."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "תודע על מתן הציון לרצועה זו. אנחנו מצטערים על כך שהיא אינה תואמת לטעמך."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "מידע הרצועה נשלח. בדוק את תיבת הדואר שלך."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "אם אין לך חשבון Live365, בקר באתר http://www.live365.com כדי לפתוח חשבון חבר או כדי להפוך ל-VIP."
+
+
+msgid "Video"
+msgstr "וידיאו"
+
+
+
+
+msgid "Preference"
+msgstr "העדפה"
+
+msgid "Most favorites"
+msgstr "המועדפים ביותר"
+
+msgid "Most viewed"
+msgstr "הנצפים ביותר"
+
+msgid "Most popular"
+msgstr "הפופולריים ביותר"
+
+msgid "Top rated"
+msgstr "בעלי הציון הגבוה ביותר"
+
+msgid "Most recent"
+msgstr "העדכניים ביותר"
+
+msgid "My videos"
+msgstr "סרטי הווידיאו שלי"
+
+msgid "Favorites"
+msgstr "מועדפים"
+
+
+
+
+msgid "Today"
+msgstr "היום"
+
+msgid "This week"
+msgstr "השבוע"
+
+msgid "This month"
+msgstr "החודש"
+
+msgid "All time"
+msgstr "בכל הזמנים"
+
+msgid "Rate video"
+msgstr "תן ציון לווידיאו"
+
+msgid "Related"
+msgstr "קשורים"
+
+msgid "Full screen"
+msgstr "מסך מלא"
+
+msgid "Info"
+msgstr "מידע"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "התנתקות"
+
+msgid "Delete account"
+msgstr "מחק חשבון"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "שם משתמש"
+
+msgid "Password"
+msgstr "סיסמה"
+
+msgid "Current location"
+msgstr "מיקום נוכחי"
+
+msgid "Worldwide"
+msgstr "ברחבי העולם"
+
+msgid "Germany"
+msgstr "גרמניה"
+
+msgid "France"
+msgstr "צרפת"
+
+msgid "Spain"
+msgstr "ספרד"
+
+msgid "Italy"
+msgstr "איטליה"
+
+msgid "Taiwan"
+msgstr "טאיוואן"
+
+msgid "South Korea"
+msgstr "קוריאה הדרומית"
+
+
+
+msgid "Russia"
+msgstr "רוסיה"
+
+msgid "Video playback quality"
+msgstr "איכות הצגת ווידיאו"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "וידיאו זה אינו זמין כעת."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "תודה על הדירוג."
+
+msgid "The video has been added to your favorites."
+msgstr "הווידיאו הוסף למועדפים שלך."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "האם אתה בטוח שברצונך למחוק את החשבון?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "האם אתה בטוח שברצונך למחוק את כל החשבונות?"
+
+msgid "Login fail."
+msgstr "ההתחברות נכשלה."
+
+
+
+
+msgid "No content available."
+msgstr "אין תוכן זמין."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "הוסף/הסר תוספי מדיה"
+
+msgid "Manage users"
+msgstr "נהל משתמשים"
+
+msgid "All (Mix)"
+msgstr "הכל (מעורב)"
+
+msgid "Business & Finance"
+msgstr "עסקים ופיננסים"
+
+msgid "Cars"
+msgstr "מכוניות"
+
+msgid "Comedy"
+msgstr "קומדיה"
+
+msgid "Cocking $ drinks"
+msgstr "בישול ומשקאות"
+
+msgid "Education"
+msgstr "חינוך"
+
+msgid "Fashion & luxury"
+msgstr "אופנה ומותרות"
+
+msgid "Health & fitness"
+msgstr "בריאות וכושר"
+
+msgid "Kids & cartoons"
+msgstr "ילדים וסרטים מצוירים"
+
+msgid "Learn a languages"
+msgstr "לימוד שפה"
+
+
+
+
+msgid "News & politics"
+msgstr "חדשות ופוליטיקה"
+
+msgid "Parenting"
+msgstr "הורות"
+
+msgid "Relationships"
+msgstr "יחסים"
+
+msgid "Science & nature"
+msgstr "מדע וטבע"
+
+msgid "Showbiz news"
+msgstr "חדשות הבידור"
+
+msgid "Society & culture"
+msgstr "חברה ותרבות"
+
+msgid "Sports"
+msgstr "ספורט"
+
+msgid "Technology"
+msgstr "טכנולוגיה"
+
+msgid "Travel"
+msgstr "נסיעות"
+
+msgid "Video games"
+msgstr "משחקי וידיאו"
+
+msgid "General"
+msgstr "כללי"
+
+msgid "Dashboard"
+msgstr "לוח בקרה"
+
+msgid "Now playing"
+msgstr "מנגן כעת"
+
+msgid "Both"
+msgstr "שניהם"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "הוסף לערוצים שלי"
+
+msgid "Remove from my channels"
+msgstr "הסר מהערוצים שלי"
+
+msgid "Rate/Favorite"
+msgstr "תן ציון/העדף"
+
+msgid "Episodes"
+msgstr "פרקים"
+
+
+
+msgid "My rating"
+msgstr "הציון שלי"
+
+msgid "My favorite"
+msgstr "המועדף שלי"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "הוסף תוסף מדיה ללוח הבקרה"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "הוסף תוספים באופן ידני (באמצעות mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "הסר תוספי מדיה מלוח הבקרה"
+
+msgid "Shows + Episodes"
+msgstr "תוכניות ופרקים"
+
+msgid "Shows"
+msgstr "תוכניות"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "קישור"
+
+msgid "Login"
+msgstr "התחברות"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "כדי להגדיר את הערוצים המותאמים אישית, עליך לקשר את הנגן לחשבון Mediafly."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "חשבונות Mediafly ניתנים בחינם ומאפשרים לך בקרה וניהול מרכזיים של תוכן מקוון חינמי האהוב עליך."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "אפשרות 1: פתח במחשב את הדפדפן שלך, נווט אל"
+
+msgid "and enter this association code:"
+msgstr "והזן את קוד השיוך הזה:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "אפשרות 2: התחבר באמצעות שם משתמש וסיסמה של Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "כל הוידיאו"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "זמן מרווח"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "מסך רחב"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 דקות"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 דקות"
+
+msgid "30 Minutes"
+msgstr "30 דקות"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "נגן מדיה Iomega HD"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr " האם אתה רוצה לשדרג?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "קובץ הוידיאו אותו ניסית לנגן מכיל יציאות ערוצי שמע מרובות, דבר שאינו נתמך. אנא עבור למוצא שמע דיגיטלי וחבר את נגן המדיה HD למקלט AV התומך ב-codec השמע."
+
+
+
+
+msgid "Audio Channel"
+msgstr "ערוץ שמע"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "שדרוג קושחה"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "רצף וידיאו"
+
+msgid "Music sequence"
+msgstr "רצף מוסיקה"
+
+msgid "Slideshow sequence"
+msgstr "רצף מצגת שקפים"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "נגב ימינה"
+
+msgid "Wipe left"
+msgstr "נגב שמאלה"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "נגן המדיה HD שלכם עובר שדרוג. אנא אל תנתקו את אספקת החשמל או את האחסון המחובר."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "שם המוצר לא יכול להכיל את התווים הבאים \\ / : * ? â?? ; | עם תווים ריקים. שם זה לא יכול להיות מעל 15 תווים. "
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "מערב אירופה"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "הגדרת בהצלחה את ההתקן לרשת הביתית שלך."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "אינטרנט"
+
+msgid "HDD"
+msgstr "דיסק קשיח"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "כיבוי"
+
+msgid "HDMI settings"
+msgstr "הגדרות HDMI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "שינוי קנה מידה כולל עיוות"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "שם המוצר אינו יכול לכלול את התווים הבאים \\ / : * ? ¡§ ; | ותווים ריקים. אורך השם לא יכול לעלות על 15 תווים."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "צבירת תוכן"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "אנשי הקשר שלי"
+
+msgid "My tags"
+msgstr "התגים שלי"
+
+msgid "Owner profile"
+msgstr "פרופיל בעלים"
+
+msgid "Play mode"
+msgstr "מצב הפעלה"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "מיון"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "ON"
+msgstr "מופעל"
+
+msgid "OFF"
+msgstr "כבוי"
+
+msgid "NEXT"
+msgstr "הבא"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Flies - correct to "Files"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "תיקייה"
+
+msgid "Album browser"
+msgstr "דפדפן אלבומים"
+
+msgid "Add photo to album"
+msgstr "הוסף תמונה לאלבום"
+
+msgid "Select | Unselect item(s)"
+msgstr "בחר פריטים | בטל בחירה"
+
+msgid "Select album"
+msgstr "בחר אלבום"
+
+msgid "Processing"
+msgstr "בעיבוד"
+
+msgid "Select all"
+msgstr "בחר הכל"
+
+msgid "Unselect all"
+msgstr "בטל בחירת הכל"
+
+msgid "Album name"
+msgstr "שם אלבום"
+
+msgid "Completed"
+msgstr "הושלם"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "האם ברצונך להוסיף xxxx תמונות לאלבום?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "האם אתה בטוח שברצונך לעצור את הוספת הקבצים?"
+
+msgid "Selected album has deleted."
+msgstr "האלבום הנבחר נמחק."
+
+msgid "Selected photo has been removed from the album."
+msgstr "התמונה הנבחרת הוסרה מהאלבום."
+
+msgid "The album has been renamed."
+msgstr "שם האלבום השתנה."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "האם אתה בטוח שברצונך להסיר את התמונות הנבחרות מהאלבום?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "האם אתה בטוח שברצונך למחוק את האלבום הנבחר?\nהתמונות לא יימחקו ממדיית האחסון."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "שם האלבום כבר נמצא בשימוש. נסה שם אחר."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "האם אתה בטוח שברצונך לשנות את שם האלבום?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "אירעה שגיאה בעת הכתיבה. בדוק את מדיית האחסון המקומית. ייתכן שהיא מלאה או נמצאת במצב קריאה-בלבד."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "אירעה שגיאה בעת קריאת קובץ המקור - בדוק את מדיית האחסון המקומית."
+
+msgid "File management"
+msgstr "ניהול קבצים"
+
+
+
+msgid "Select source"
+msgstr "בחר מקור"
+
+msgid "File(s)"
+msgstr "קובץ/קבצים"
+
+msgid "Folder(s)"
+msgstr "תיקייה/תיקיות"
+
+msgid "Yes to all"
+msgstr "כן להכל"
+
+msgid "No to all"
+msgstr "לא להכל"
+
+msgid "Copy, move or delete item(s)"
+msgstr "העתק, העבר או מחק פריטים"
+
+msgid "Remove photo"
+msgstr "הסר תמונה"
+
+msgid "Rename or delete album"
+msgstr "שנה שם או מחק אלבום"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "לא נמצאה מדיית אחסון. הכנס מדיה ורענן שוב."
+
+msgid "Would you like to overwrite it?"
+msgstr "האם ברצונך להחליף את הפריט?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "האם ברצונך להעתיק את הקבצים הנבחרים?"
+
+msgid "Do you want to move the selected files?"
+msgstr "האם ברצונך להעביר את הקבצים הנבחרים?"
+
+
+
+msgid "Chapter"
+msgstr "פרק"
+
+msgid "Title and Edition"
+msgstr "כותר ומהדורה"
+
+msgid "Menu"
+msgstr "תפריט"
+
+msgid "Operation not supported"
+msgstr "אין תמיכה בפעולה"
+
+msgid "File Date"
+msgstr "תאריך קובץ"
+
+msgid "Resolution"
+msgstr "רזולוציה"
+
+msgid "Turkish (Windows-1254)"
+msgstr "טורקית (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "עברית (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "הגש"
+
+msgid "Check network status"
+msgstr "בדוק את מצב הרשת"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "שגיאה בסוג מפתח!\n אם סוג המפתח הוא הקסדצימלי, בדוק שערכי המפתח נמצאים בתחומים A~F, 0~9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "שגיאה באורך מפתח!\n אם סוג המפתח שלך הוא ASCII, האורך צריך להיות 5, 13 או .\n16אם סוג המפתח שלך הוא הקסדצימלי, האורך צריך להיות 10, 26 או 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "שגיאה באורך מפתח!\n האורך של WPAPSK צריך להיות בתחום 8~64!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "שגיאה בסוג מפתח!\n מפתח WPAPSK באורך 64 חייב להיות הקסדצימלי (A~F, 0~9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "כתובת IP אינה תקפה. בדוק את כתובת IP שלך ונסה שוב."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "כתובת דואר אלקטרוני אינה תקפה. בדוק את כתובת הדואר האלקטרוני שלך ונסה שוב."
+
+msgid "Invalid character(s) in first name."
+msgstr "תווים לא תקפים בשם הפרטי."
+
+msgid "Invalid character(s) in last name."
+msgstr "תווים לא תקפים בשם המשפחה."
+
+
+
+msgid "Hungarian"
+msgstr "הונגרית"
+
+msgid "Serial number:"
+msgstr "מספר סידורי:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "כדי לאתחל, לחץ על לחצן ההפעלה בשלט-רחוק."
+
+msgid "Creator"
+msgstr "יוצר"
+
+msgid "Web browser"
+msgstr "דפדפן אינטרנט"
+
+msgid "Add to contacts"
+msgstr "הוסף לאנשי קשר"
+
+msgid "Recently upload"
+msgstr "הועלה לאחרונה"
+
+msgid "Photo set"
+msgstr "ערכת תמונות"
+
+msgid "Friends"
+msgstr "חברים"
+
+msgid "There is no contact."
+msgstr "אין איש קשר."
+
+msgid "There is no tag."
+msgstr "אין תגית."
+
+msgid "Search Results"
+msgstr "תוצאות חיפוש"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "האם אתה בטוח שברצונך למחוק את התחנה הזו?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "האם אתה בטוח שברצונך להוסיף את התחנה הזו לתחנות הקבועות?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "האזן לאלפי תחנות רדיו-אינטרנט ללא כל פרסומות! Live365 כולל שידורים מאת רדיו דיסני, סאנטנה, דיוויד בין, פאט מת'אני ופול אוקנפולד, כמו גם תחנות שנוצרו על-ידי חובבי מוזיקה כמוך! עבור בקלות בין ז'אנרים פופולריים כגון רוק, היפ-הופ, ג'אז וניו-אייג'. או גלה אוצרות בסגנונות פחות נפוצים, כגון גוספל, קומדיה, אנימה, הינדי, טריפ-הופ, שנות השלושים, גלאם, מוזיקה שבטית, מוזיקה קלטית ומאות סגנונות אחרים."
+
+msgid "Japan"
+msgstr "יפן"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "הקובץ אינו זמין כעת. נסה שוב במועד מאוחר יותר."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "רוצה להעניק ציון לסרטון? הירשם כעת!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "רוצה להוסיף למועדפים שלך? הירשם כעת!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "לחץ על הפעל/השהה כדי להציג במסך מלא"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "אין אפשרות להתחבר אל YouTube. אירעה שגיאת רשת לא מוכרת. בדוק את הגדרות החיבור שלך ונסה שוב."
+
+msgid "Poor"
+msgstr "גרוע"
+
+msgid "Nothing special"
+msgstr "לא משהו מיוחד"
+
+msgid "Worth watching"
+msgstr "שווה צפייה"
+
+msgid "Pretty cool"
+msgstr "די מגניב"
+
+msgid "Awesome"
+msgstr "גדול"
+
+msgid "Show info"
+msgstr "הצג מידע"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "טמפרטורת ההתקן גבוהה מ-60 מעלות - הדיסק הקשיח יכבה."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "טמפרטורת ההתקן גבוהה מ-65 מעלות - ההתקן יכבה."
+
+msgid "Configure"
+msgstr "הגדר תצורה"
+
+msgid "Delete album"
+msgstr "מחק אלבום"
+
+msgid "Rename album"
+msgstr "שנה שם אלבום"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "מחק רשימת השמעה"
+
+msgid "Rename playlist"
+msgstr "שנה שם רשימת השמעה"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "אין רשימת השמעה. ליצור רשימת השמעה חדשה?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "האם אתה בטוח שברצונך למחוק את רשימת ההשמעה הזו?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "האם אתה בטוח שברצונך לנקות את הקבצים מרשימת ההשמעה הזו?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "האם אתה בטוח שברצונך לעצור את הוספת הקבצים?"
+
+msgid "The selected album has been deleted."
+msgstr "האלבום הנבחר נמחק."
+
+msgid "The selected photo has been removed from album."
+msgstr "התמונה הנבחרת הוסרה מהאלבום."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "אירעה שגיאה בעת קריאת קובץ מרוחק. בדוק את שרת המדיה או את מצב הרשת."
+
+msgid "The selected music has been deleted."
+msgstr "המוזיקה הנבחרת נמחקה."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "האם ברצונך להוסיף xxxx קובצי מוזיקה לאלבום?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "האם אתה בטוח שברצונך לעצור את הוספת קובצי המוזיקה?"
+
+msgid "The playlist has been renamed."
+msgstr "שם רשימת ההשמעה השתנה."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "האם אתה בטוח שברצונך להסיר את קובצי המוזיקה הנבחרים מהאלבום?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "האם אתה בטוח שברצונך למחוק את רשימת ההשמעה הנבחרת?\nקובצי המוזיקה לא יימחקו ממדיית האחסון."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "שם רשימת ההשמעה כבר נמצא בשימוש. נסה שם אחר."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "האם אתה בטוח שברצונך לשנות את שם רשימת ההשמעה?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "לא נמצאה שרת מדיה ואחסון. הכנס את מדיה או בדוק את תצורת הרשת ורענן שוב."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "התיקייה מכילה כבר קובץ בשם:האם ברצונך להחליף אותו?"
+
+msgid "Process completed."
+msgstr "התהליך הושלם."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "שם התיקייה אינו יכול להכיל אחד מהתווים הבאים \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "שם האלבום אינו יכול להכיל רווח או אחד מהתווים הבאים \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nשם הקובץ מוגבל אל xx תווים."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "שם רשימת ההשמעה אינו יכול להכיל רווח או אחד מהתווים הבאים \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nשם הקובץ מוגבל אל xx תווים."
+
+msgid "Select"
+msgstr "בחר פריטים"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "אם אינך מסכים לתנאים אלה, עליך להחזיר מייד את המוצר בשלמותו, באריזתו המקורית, למקום שממנו רכשת אותו תמורת החזר כספי מלא תוך שלושים (30) יום מתאריך הרכישה."
+
+msgid "MediaflyVideo"
+msgstr "וידיאו"
+
+msgid "Accept"
+msgstr "לקבל"
+
+msgid "Decline"
+msgstr "ירידה"
+
+msgid "Rename or delete playlist"
+msgstr "שינוי שם או מחיקה של רשימת השמעה"
+
+msgid "The playlist has been created."
+msgstr "רשימת ההשמעה נוצרה."
+
+msgid "Select music"
+msgstr "בחר המוזיקה"
+
+msgid "Select playlist"
+msgstr "בחר רשימת השמעה"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "האם ברצונך להוסיף מוסיקה xxx לרשימת ההשמעה?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "האם אתם רוצים להוסיף צילום xxx לאלבום?"
+
+msgid "Remove music from playlist"
+msgstr "הסר מוסיקה לפלייליסט"
+
+msgid "Sort music"
+msgstr "לפי המוזיקה"
+
+msgid "Move up"
+msgstr "הזז למעלה"
+
+msgid "Move down"
+msgstr "הזז למטה"
+
+msgid "Are you sure to change the sort?"
+msgstr "האם אתה בטוח כדי לשנות את המיון?"
+
+msgid "Remove or sort playlist"
+msgstr "הסרה או מעין רשימת השמעה"
+
+msgid "Remove music"
+msgstr "הסר מוסיקה"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "האם אתה בטוח שאתה רוצה להסיר מוזיקה נבחרים מתוך רשימת ההשמעה?"
+
+msgid "Photo album"
+msgstr "אלבום תמונות"
+
+msgid "The album has been created."
+msgstr "האלבום נוצר."
+
+msgid "Select photo"
+msgstr "בחר צילום"
+
+msgid "Add to album"
+msgstr "להוסיף לאלבום"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "אין אפשרות לטעון את הווידיאו.  מבנה לא נתמך."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "הפעלת התוסף תאפשר לך לצפות בווידיאו שמוזרם במבנים נתמכים. אין תמיכה בכל מבני הווידיאו המוזרם."
+
+msgid "Enable for Favorites"
+msgstr "אפשר עבור מועדפים"
+
+msgid "Enable for all websites"
+msgstr "אפשר עבור כל האתרים"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "כדי לשפר את ביצועי דפדפן האינטרנט, תוסף Flash יאופשר רק עבור האתרים הרשומים במועדפים.  כדי לאפשר את התוסף עבור כל האתרים, עבור אל Network (רשת) בתפריט Settings (הגדרות). "
+
+
+msgid "Photos"
+msgstr "תמונות"
+msgid "Ok"
+msgstr "אישור"
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "Confirm"
+msgstr "אשר"
+
+msgid "Bookmarks"
+msgstr "סימניות"
+
+msgid "Add Bookmark"
+msgstr "הוסף סימנייה"
+
+msgid "Edit Bookmark"
+msgstr "ערוך סימנייה"
+
+msgid "Clear Bookmarks"
+msgstr "נקה סימניות"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "האם אתה בטוח שברצונך לנקות את הסימניות שלך?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "האם אתה בטוח שברצונך למחוק את הסימנייה הזו?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "השרת [server-name] הציג מסמך אישור שהופק על-ידי ישות שאינה אמינה; להמשיך בכל זאת?"
+
+msgid "[url] is not available."
+msgstr "כתובת [url] אינה זמינה."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "אנו מצטערים, אך נראה שקיימת בעיה."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "לא היתה אפשרות לטעון את דף האינטרנט בכתובת [url]."
+
+msgid "Here are a few things you may want to try:"
+msgstr "להלן מספר דברים שתוכל לנסות:"
+
+msgid "Reload this web page later."
+msgstr "טעון את דף האינטרנט במועד מאוחר יותר."
+
+msgid "Return to the previous web page."
+msgstr "חזור לדף האינטרנט הקודם."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "האם אתה בטוח שברצונך לנקות את ההיסטוריה שלך?"
+
+msgid "Clear History"
+msgstr "נקה היסטוריה"
+
+msgid "History"
+msgstr "היסטוריה"
+
+msgid "No Title"
+msgstr "אין כותרת"
+
+msgid "The history is empty."
+msgstr "ההיסטוריה ריקה."
+
+msgid "HTTP Authentication"
+msgstr "אימות HTTP"
+
+msgid "Authentication Required"
+msgstr "נדרש אימות"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "השרת [server-hostname] בכתובת [url-name] דורש שם משתמש וסיסמה."
+
+msgid "User Name:"
+msgstr "שם משתמש:"
+
+msgid "Password:"
+msgstr "סיסמה:"
+
+msgid "Pop-up Window"
+msgstr "חלון קופץ"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "האם ברצונך לפתח את החלון הקופץ מאת [domain-name]?"
+
+msgid "New Window"
+msgstr "חלון חדש"
+
+msgid "New URL [url] from [url]"
+msgstr "כתובת חדשה [url] מאת [url]"
+
+msgid "Same"
+msgstr "זהה"
+
+msgid "Insecure to Secure"
+msgstr "לא-מאובטח למאובטח"
+
+msgid "Secure to Insecure"
+msgstr "מאובטח ללא-מאובטח"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "האם ברצונך לקבל שוב התראה על הודעה זו?"
+
+msgid "Security Warning"
+msgstr "אזהרת אבטחה"
+
+msgid "Started"
+msgstr "הופעל"
+
+msgid "Loading"
+msgstr "טוען"
+
+msgid "Done"
+msgstr "בוצע"
+
+msgid "Title of the page."
+msgstr "כותרת דף זה."
+
+msgid "Goto"
+msgstr "עבור אל"
+
+
+
+msgid "Forward"
+msgstr "קדימה"
+
+
+
+msgid "Refresh"
+msgstr "רענן"
+
+msgid "Cursor"
+msgstr "סמן"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "שימוש בשלט הרחוק בדפדפן אינטרנט"
+
+msgid "Exit web browser"
+msgstr "יציאה מדפדפן האינטרנט"
+
+msgid "Move cursor in web browser"
+msgstr "הזזת הסמן בדפדפן האינטרנט"
+
+msgid "Click to select links in web browser"
+msgstr "לחצו בשביל לבחור קישורים בדפדפן האינטרנט"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "מקש Alt כאשר נעשה שימוש במקלדת לדפדפני אינטרנט"
+
+msgid "Back to previous web page"
+msgstr "חזרה לעמוד האינטרנט הקודם"
+
+msgid "Display URL bar and web browser options"
+msgstr "הצגה של שורת הכתובת ושל אפשרויות דפדפן האינטרנט"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "השתמשו ב-Enter כדי לאשר כתובת או מלל שהוזן"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "השתמשו בכפתורים למעלה/למטה בשביל לגלול עמודי אינטרנט"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "מקש Symbol (סמל) כאשר נעשה שימוש במקלדת לדפדפני אינטרנט"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "מקש Spacebar (רווח) כאשר נעשה שימוש במקלדת לדפדפני אינטרנט"
+
+msgid "Show this information again?"
+msgstr "להציג את המידע הזה שוב?"
+
+msgid "NO"
+msgstr "לא"
+
+msgid "YES"
+msgstr "כן"
+
+msgid "Eject USB device"
+msgstr "הוצא התקן USB"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "באמצעות גרסת הבטא של דפדפן האינטרנט תוכלו לצפות בתכנים פופולריים דרך רשימת המועדפים (Favorites List). תוכלו לנווט לאתרים אחרים; רק תוכני וידאו מאתרים שמופיעים ברשימת המועדפים יהיו זמינים."
+
+msgid "Downloading update..."
+msgstr "הורדת עדכון..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "ספריית מדיה צריך לאפשר לפני השימוש בפונקציה חיפוש."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "הסכם רישיון של IOMEGA"
+
+msgid "IF YOU DO NOT…"
+msgstr "אם לא..."
+
+msgid "Digital without HDMI audio"
+msgstr "דיגיטלי ללא שמע HDMI"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "בשכירות DivX נוצלו X מתוך Y צפיות"
+
+msgid "Continue?"
+msgstr "להמשיך?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "האם אתה בטוח שברצונך להפסיק את העתקת הקבצים?"
+
+msgid "Mediafly dashboard"
+msgstr "לוח מחוונים של Mediafly"
+
+msgid "My channels"
+msgstr "הערוצים שלי"
+
+msgid "Popular channels"
+msgstr "ערוצים פופולריים"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "האם אתה בטוח שברצונך למחוק את החשבון הזה?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "האם אתה בטוח שברצונך להוסיף את התוכנית:"
+
+msgid "This episode"
+msgstr "פרק זה"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "פרק זה התווסף לערוץ שלך. אפשרויות נוספות זמינות באתר Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "כל הפרקים של תוכנית זו"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "תוכנית זו התווספה לערוץ שלך. אפשרויות נוספות זמינות באתר Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "מה ברצונך להסיר?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "פרק זה הוסר מהערוץ שלך. אפשרויות נוספות זמינות באתר Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "תוכנית זו הוסרה מהערוץ שלך. אפשרויות נוספות זמינות באתר Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "האם ברצונך לדרג את התוכנית/פרק?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "תודה רבה. אפשרויות נוספות זמינות באתר Mediafly.com."
+
+msgid "View episodes"
+msgstr "הצג פרקים"
+
+msgid "Add content source"
+msgstr "הוסף מקור תוכן"
+
+msgid "Add via mcode"
+msgstr "הוסף באמצעות mcode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "הזן להלן mCode של מקור תוכן"
+
+msgid "an mCode is used to activate private content source"
+msgstr "mCode משמש להפעלת מקור תוכן פרטי"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "מקור התוכן התווסף בהצלחה ללוח המחוונים של Mediafly."
+
+msgid "Invalid mCode, please try again."
+msgstr "mCode אינו תקף, נסה שוב."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "הוסף עיר"
+
+msgid "City management"
+msgstr "ניהול ערים"
+
+msgid "Search location"
+msgstr "חיפוש מקום"
+
+msgid "Change temperature unit"
+msgstr "שנה יחידת טמפרטורה"
+
+msgid "Please define your default city location."
+msgstr "הגדר את מיקום עיר ברירת המחדל שלך."
+
+msgid "Do you want to clear all city?"
+msgstr "האם ברצונך להסיר את כל הערים?"
+
+msgid "Do you want to delete selected city?"
+msgstr "האם ברצונך למחוק את העיר הנבחרת?"
+
+msgid "No result, please search again."
+msgstr "אין תוצאות, חפש שוב."
+
+msgid "Remove movie Info"
+msgstr "הסר מידע סרט"
+
+msgid "Rescan Movie Info"
+msgstr "סרוק שוב מידע סרט"
+
+
+
+msgid "Manual search"
+msgstr "חיפוש ידני"
+
+
+
+msgid "Please wait..."
+msgstr "המתן..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "האם אתה בטוח שברצונך להסיר את מידע התוכן?"
+
+msgid "Content info has been removed."
+msgstr "מידע התוכן הוסר."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "המידע מסופק דרך TMDb"
+
+msgid "No need"
+msgstr "אין צורך"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "לא נמצא מידע תוכן במסד הנתונים המקוון. שנה את מילת החיפוש ונסה שוב."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "שמירת מידע סרט נכשלה. בדוק את חיבור הרשת."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "שמירת מידע סרט נכשלה. ייתכן שאמצעי האחסון מלא או נמצא במצב קריאה-בלבד."
+
+msgid "Add to playlist"
+msgstr "הוסף לרשימת השמעה"
+
+msgid "Back"
+msgstr "חזרה"
+
+msgid "Connect"
+msgstr "התחבר"
+
+msgid "Create playlist"
+msgstr "צור רשימת השמעה"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS אינו תקף. בדוק את ה-DNS שלך ונסה שוב."
+
+msgid "Do you want to delete the selected files?"
+msgstr "האם ברצונך למחוק את הקבצים הנבחרים?"
+
+msgid "Edit playlist"
+msgstr "ערוך רשימת השמעה"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "השער אינו תקף. בדוק את השער שלך ונסה שוב."
+
+msgid "Home"
+msgstr "דף הבית"
+
+msgid "It should not be empty!"
+msgstr "אינו צריך להיות ריק!"
+
+msgid "No"
+msgstr "לא"
+
+msgid "Select destination"
+msgstr "בחר יעד"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "מסיכת רשת משנה אינה תקפה. בדוק את מסיכת רשת משנה שלך ונסה שוב."
+
+msgid "The device has lost its connection with the media server."
+msgstr "ההתקן איבד את החיבור לשרת המדיה."
+
+msgid "The selected music has been removed from playlist."
+msgstr "המוזיקה הנבחרת הוסרה מרשימת ההשמעה."
+
+msgid "Yes"
+msgstr "כן"
+
+msgid "Movies"
+msgstr "סרט"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "לחץ על 'ENTER' כדי ליישם את המידע על הווידיאו."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "מקבל מידע סרט.\nהמתן..."
+msgid "Delete all"
+msgstr "מחק הכל"
+
+msgid "Wind velocity:"
+msgstr "מהירות הרוח"
+
+msgid "Humidity:"
+msgstr "לחות"
+
+msgid "High/Low"
+msgstr "גבוה / נמוך"
+
+msgid "Wind direction:"
+msgstr "כיוון הרוח"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather השרת לא מגיב. נא נסה שוב מאוחר יותר."
+
+msgid "Movie info auto scan"
+msgstr "פרטי סרט אוטומטי סריקה"
+
+msgid "Ignore"
+msgstr "להתעלם"
+
+msgid "Scan movie info"
+msgstr "סרוק פרטי סרט"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "שם הקבוצת עבודה אינו יכול להכיל רווח או אחד מהתווים הבאים \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nשם הקובץ מוגבל אל xx תווים."
+

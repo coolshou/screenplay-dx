@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page>
+  <image image="fillrect" x="0" y="0" w="1280" h="720" keycolor="1" ignore_keycolor="1" bg="1" textcolor="0x01000000"/>
+  <ctrlgrp>
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+  <include filename="./inc_optionmenu_widgets.xml"/>
+  <!-- subtitle -->
+
+  <include filename="./subtitle.xml" />
+
+  <!-- information -->
+  <image image="@@video_inforbar" x="0" y="534" w="1280" h="165" bg="1"/>
+
+  <image x="168" y="586" w="39" h="21" image="@@speed_state"/>
+  <image image="@@play_state" x="215" y="577" w="35" h="40"/>
+
+  <progress_bar name="video_time_bar" x="252" y="583" w="504" h="28" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable" pb_enable_buffer="1"/>
+
+  <text text="@@info_filename" x="254" y="623" w="474" h="26" fontsize="24" textcolor="0xffffff" speed="1" delay="2" align="left" auto_translate="1"/>
+
+  <image image="@@info_seperate_bar" x="749" y="572" w="2" h="51"/>
+  <text text="@@info_cur_time" x="771" y="583" w="144" h="32" fontsize="30" textcolor="0xffffff" align="left"/>
+  <text text="@@info_duration" x="911" y="589" w="135" h="28" fontsize="24" textcolor="0x999999" align="left"/>
+  <text text="@@media_date" x="771" y="628" w="280" h="16" fontsize="14" textcolor="0x999999" align="left" />
+
+  <!-- 
+  <image image="@@repeat-ico" x="1057" y="579" w="48" h="36"/>
+  <image image="@@shufle-ico" x="1234" y="599" w="48" h="36"/>
+  -->
+
+  <text text="@@mod_txt" x="162" y="186" w="958" h="34" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+  <text x="372" y="159" w="514" h="28" text="@@text-OPTION" fontsize="24" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+  <image image="@@mod_img" x="1063" y="71" w="107" h="107"/> 
+<include filename="./inc_loading.xml"/> 
+<include filename="./inc_decoration_online.xml"/>
+
+</page>

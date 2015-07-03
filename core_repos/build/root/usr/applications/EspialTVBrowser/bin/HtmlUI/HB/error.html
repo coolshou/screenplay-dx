@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="he" lang="he" dir='rtl'>
+
+<head>
+
+<title>.אירעה שגיאה</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = ".כתובת " + Espial.errURL + "  אינה זמינה";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>.אנו מצטערים, אך נראה שקיימת בעיה</h2>
+<br>
+ <b>.<script>document.writeln(Espial.errURL)</script></b> לא היתה אפשרות לטעון את דף האינטרנט בכתובת
+<br>
+<br>
+<b>:להלן מספר דברים שתוכל לנסות</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">.טעון את דף האינטרנט במועד מאוחר יותר</a></li>
+	<li><a onclick="Espial.back();">.חזור לדף האינטרנט הקודם</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

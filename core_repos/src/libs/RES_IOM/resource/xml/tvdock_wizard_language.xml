@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg" type="basic">
+
+  <listbox valkey="setup_entry_item_basic" autoenter="1" move="row" cols="1" rows="6" lbmask="lr" loop_scroll="1" more_select="right"/>
+  <image image="@@ss-prev" x="626" y="150" w="29" h="21"/>
+<!--
+  <table x="260" y="235" w="913" h="392" rows="7" rowspacing="0"
+	  fontsize="24" selected_fontsize="44" lbimage="image/settings_focus_btn.png" clickimage="image/settings_focus_btn.png">
+    <image lightbar="@@lightbar-setup_entry_item_basic-0" active="@@act-setup_entry_item_basic-0" y="235"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-1" active="@@act-setup_entry_item_basic-1" y="281"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-2" active="@@act-setup_entry_item_basic-2" y="326"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-3" active="@@act-setup_entry_item_basic-3" y="371"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-4" active="@@act-setup_entry_item_basic-4" y="416"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-5" active="@@act-setup_entry_item_basic-5" y="461"/>
+    <image lightbar="@@lightbar-setup_entry_item_basic-6" active="@@act-setup_entry_item_basic-6" y="506"/>
+  </table>
+-->
+  <table x="156" y="211" w="943" h="294"
+    cols="1" rows="6" colspacing="0" rowspacing="0"
+    fontsize="22" lbimage="image/settings_focus_btn.png" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" lmargin="30">
+    <text lightbar="@@lightbar-setup_entry_item_basic-0" text="@@setup_entry_item_basic_id-0" active="@@act-setup_entry_item_basic-0"/>
+    <text lightbar="@@lightbar-setup_entry_item_basic-1" text="@@setup_entry_item_basic_id-1" active="@@act-setup_entry_item_basic-1"/>
+    <text lightbar="@@lightbar-setup_entry_item_basic-2" text="@@setup_entry_item_basic_id-2" active="@@act-setup_entry_item_basic-2"/>
+    <text lightbar="@@lightbar-setup_entry_item_basic-3" text="@@setup_entry_item_basic_id-3" active="@@act-setup_entry_item_basic-3"/>
+    <text lightbar="@@lightbar-setup_entry_item_basic-4" text="@@setup_entry_item_basic_id-4" active="@@act-setup_entry_item_basic-4"/>
+    <text lightbar="@@lightbar-setup_entry_item_basic-5" text="@@setup_entry_item_basic_id-5" active="@@act-setup_entry_item_basic-5"/>
+  </table>
+
+  <image image="@@ss-more" x="626" y="551" w="29" h="21"/>
+  <image image="@@wrongkeyicon" x="1100" y="71" w="73" h="73" align="hcenter" />
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <include filename="./inc_decoration.xml"/>
+</page>

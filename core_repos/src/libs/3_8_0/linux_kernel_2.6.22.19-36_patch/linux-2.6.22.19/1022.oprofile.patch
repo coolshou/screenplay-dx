@@ -1,0 +1,99 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/oprofile/common.c linux-2.6.22.19/arch/mips/oprofile/common.c
+--- linux-2.6.22.19.ref/arch/mips/oprofile/common.c	2008-06-23 17:34:55.000000000 -0700
++++ linux-2.6.22.19/arch/mips/oprofile/common.c	2008-06-23 17:36:48.000000000 -0700
+@@ -69,6 +69,12 @@
+ 	on_each_cpu(model->cpu_stop, NULL, 0, 1);
+ }
+ 
++static void op_mips_backtrace(struct pt_regs * const regs, unsigned int depth)
++{
++	/* dummy for now */
++	return;
++}
++
+ int __init oprofile_arch_init(struct oprofile_operations *ops)
+ {
+ 	struct op_mips_model *lmodel = NULL;
+@@ -109,6 +115,7 @@
+ 	ops->start		= op_mips_start;
+ 	ops->stop		= op_mips_stop;
+ 	ops->cpu_type		= lmodel->cpu_type;
++	ops->backtrace		= op_mips_backtrace;
+ 
+ 	printk(KERN_INFO "oprofile: using %s performance monitoring.\n",
+ 	       lmodel->cpu_type);
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/oprofile/op_model_mipsxx.c linux-2.6.22.19/arch/mips/oprofile/op_model_mipsxx.c
+--- linux-2.6.22.19.ref/arch/mips/oprofile/op_model_mipsxx.c	2008-06-23 17:34:55.000000000 -0700
++++ linux-2.6.22.19/arch/mips/oprofile/op_model_mipsxx.c	2008-06-23 17:42:53.000000000 -0700
+@@ -38,6 +38,10 @@
+ #define vpe_id()	0
+ #endif
+ 
++#ifdef CONFIG_TANGO3
++#define PERFCOUNTER_IRQ		((read_c0_intctl() >> 26) & 7)
++#endif
++
+ #define __define_perf_accessors(r, n, np)				\
+ 									\
+ static inline unsigned int r_c0_ ## r ## n(void)			\
+@@ -172,7 +176,11 @@
+ 	}
+ }
+ 
++#ifdef CONFIG_TANGO3
++static irqreturn_t mipsxx_perfcount_handler(int irq, void *dev_id)
++#else
+ static int mipsxx_perfcount_handler(void)
++#endif
+ {
+ 	unsigned int counters = op_model_mipsxx_ops.num_counters;
+ 	unsigned int control;
+@@ -322,9 +330,13 @@
+ 		return -ENODEV;
+ 	}
+ 
++#ifdef CONFIG_TANGO3
++	return request_irq(PERFCOUNTER_IRQ, mipsxx_perfcount_handler, 0, "Perfcounter24", &reg);
++#else
+ 	perf_irq = mipsxx_perfcount_handler;
+ 
+ 	return 0;
++#endif
+ }
+ 
+ static void mipsxx_exit(void)
+@@ -335,7 +347,11 @@
+ #endif
+ 	reset_counters(counters);
+ 
++#ifdef CONFIG_TANGO3
++	free_irq(PERFCOUNTER_IRQ, &reg);
++#else
+ 	perf_irq = null_perf_irq;
++#endif
+ }
+ 
+ struct op_mips_model op_model_mipsxx_ops = {
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1022.oprofile.patch linux-2.6.22.19/README.1022.oprofile.patch
+--- linux-2.6.22.19.ref/README.1022.oprofile.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1022.oprofile.patch	2008-06-23 17:43:34.000000000 -0700
+@@ -0,0 +1,19 @@
++Feature:
++--------
++OProfile patch for Tango3
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++Emmanuel Michon/YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango3 ES1 or above
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

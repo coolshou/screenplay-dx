@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wrapper>
+  <table x="50" y="330" w="1180" h="360" fontsize="@@subtitle_font_size" cols="1" rows="1" auto_translate="1">
+    <text text="@@subtitle0" textbgcolor="0x000001" textcolor="0xFFFFFF" numlines="8" align="bottom,hcenter,raws_bottom"/>
+  </table>
+  <image image="@@subtitle_image" x="0" y="0" w="1280" h="720" x_offset="@@x_offset" y_offset="@@y_offset" scale_type="" scale="@@scale" align="left,top" />
+</wrapper>

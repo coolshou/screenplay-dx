@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/mediafly/mediafly_bg.jpg">
+  <ctrlgrp>
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+  <include filename="./inc_optionmenu_widgets_mediafly.xml"/>
+
+  	<text x="372" y="159" w="514" h="28" text="@@text-OPTION" fontsize="26" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+	<text x="127" y="115" w="733" h="36" text="$$Audio" fontsize="42" textcolor="0x4b4b4b"/>
+
+	<image x="199" y="190" w="354" h="256" image="image/mediafly/mediafly_show_info_frame.png" />
+	<image image="@@album_icon" x="209" y="202" w="232" h="232" align="hcenter" scale="100"/>
+	<image x="209" y="202" w="232" h="232" image="image/mediafly/mediafly_show_info_blister.png" scale="100" />
+
+	<progress_bar name="point_bar" x="190" y="643" w="712" h="15" pb_back_img="image/mediafly/music_player_line_bg.png" pb_front_img="image/mediafly/music_player_time_played_line_n_01.png" pb_point_img="image/mediafly/slideshow_player_time_played_line_mark.png" pb_delay="500"/>
+
+	<text x="202" y="617" w="83" h="20" fontsize="18" text="@@audio_currenttime" align="left" textcolor="0x343434"/>
+	<text x="778" y="617" w="83" h="20" fontsize="18" text="@@audio_totaltime" align="left" textcolor="0x343434"/>
+	<text x="502" y="664" w="362" h="20" fontsize="18" textcolor="0x343434" text="@@audio_date" align="right" />
+
+	<text text="@@songname" x="202" y="580" w="576" h="32" fontsize="30" numlines="1" textcolor="0x343434" speed="1" delay="2" align="left" auto_translate="1"/>
+
+	<text text="@@media_desc" x="610" y="244" w="542" h="195" fontsize="18" auto_translate="1" numlines="6" textcolor="0x4b4b4b" align="left, top"/>
+
+	<!-- fixed -->
+	<image x="137" y="613" w="46" h="46" image="@@play_state"/>
+	<image x="880" y="617" w="38" h="16" image="@@speed_state"/>
+	<image x="0" y="540" w="1280" h="180" image="./image/mediafly/mediafly_music_player_bg.png" bg="1"/>
+
+	<include filename="./inc_mediafly_logo.xml"/>
+	<include filename="./inc_loading.xml"/> 
+	<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<wrapper>
+
+  <text text="@@message" x="203" y="251" w="877" h="190" 
+		fontsize="30" align="hcenter" numlines="6" textcolor="0xffffff"/>
+
+<image image="@@wrongkeyicon" x="1126" y="40" w="75" h="75"/>
+
+<text text="@@service_title" x="86" y="80" w="450" h="50" fontsize="42" textcolor="0xFFFFFF" align="left" speed="0"/>
+<image image="image/accu_weather/accuweather_logo.png" x="961" y="665" w="184" h="20" scale="100" xmargin="0" ymargin="0" umargin="0" dmargin="0"/>
+
+  <image image="@@keyicon" x="1063" y="71" w="65" h="45" align="hcenter" />
+  <image image="@@keyicon_ex" x="997" y="54" w="65" h="45" align="hcenter" />
+  <image image="@@state" x="1063" y="71" w="45" h="45" align="hcenter"/>
+
+<include filename="./inc_loading.xml"/>
+<include filename="./volume_control.xml"/>
+<include filename="./tvsys.xml"/>
+
+</wrapper>

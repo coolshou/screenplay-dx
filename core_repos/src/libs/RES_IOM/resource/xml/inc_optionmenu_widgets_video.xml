@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@disable-optionmenu">
+	<image image="image/optionmenu/options_bg.png" x="0" y="0" w="1280" h="570" bg="1"/>
+	<mlmenuview ctrlname="mlmenu-optionmenu" changed="@@mlmenu-optionmenu-changed" style="infinity_optionmenu"     
+		x="0" y="120" w="1280" h="150" 
+		nodename_color="0x00CCFF" nodename_fontsize="28"  nodename_y="230"
+		focus_icon=""/>
+</wrapper>
+</wrapper>
+
+

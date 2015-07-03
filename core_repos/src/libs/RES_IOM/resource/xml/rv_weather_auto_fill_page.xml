@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/accu_weather/accuweather_bg.jpg" bg="1">
+	<!-- image image="image/video_encoding_bg.png" x="0" y="0" w="1280" h="720" bg="1"/ -->
+  <!--ctrlgrp valkey="main" lbmask="LR">
+	<eventbox_keyboard valkey="keyboard" autoenter="1" lbmask="LRlr"/>
+  	<listbox valkey="browselist" move="row" cols="1" rows="3" autoenter="1" lbmask="lr"/>
+  </ctrlgrp>
+    <widget_keyboard ctrlname="keyboard" x="97" y="223" w="742" h="273" cols="14" rows="5"
+  		     align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0x07b5ff"
+		     changed="@@keyboard_changed" extra_height="10" extra_index="0"/-->
+  <ctrlgrp valkey="main" lbmask="LR" >
+        <eventbox_keyboard valkey="keyboard" autoenter="1" lbmask="LRlr"/>
+        <listbox valkey="browselist" move="page" cols="1" rows="5" autoenter="1" lbmask="lr"  disable_light_bar_click="1"/>
+  </ctrlgrp>
+  
+    <widget_keyboard ctrlname="keyboard" x="165" y="226" w="670" h="237" cols="14" rows="5"
+                     align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xFFFFFF"
+                     changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+
+  <image image="image/input_box_n.png" x="167" y="226" w="516" h="46" bg="1"/>
+  <texttail text="@@input_01_text" x="181" y="240" w="479" h="26" fontsize="28" textcolor="0x3b3b3b" ignore_translate="1"/>
+  
+	<!-- text text="$$Press [Option] key for multi-lingual input" x="50" y="527" w="375" h="22" align="hcenter" fontsize="18" textcolor="0xFFFFFF" disable="@@disable-OPTION"/ -->
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+	
+ <!-- image image="image/keyboard_auto_complete_bg.png" x="56" y="109" w="1167" h="537" bg="1"/ -->
+  <!-- image image="image/keyboard_auto_complete_list_bg.png" x="847" y="182" w="335" h="312" bg="1"/ -->
+  <!-- image image="image/keyboard_search_box.png" x="99" y="182" w="633" h="60" bg="1"/ -->
+  <!-- texttail text="@@input_01_text" x="112" y="198" w="447" h="32" textcolor="0x000000" cursor_pos="@@input_text_cursor_pos" cursor_image="image/keyboard_cursor.png" cursor_image_x_offset="6" cursor_image_y_offset="5" ignore_translate="1"/ -->
+   <!-- text text="@@master_headline" x="102" y="138" w="400" h="42" align="left" fontsize="36" textcolor="0xffffff" speed="1" delay="2"/ -->
+
+  <!-- text text="$$Prev Page" x="102" y="252" w="350" h="22" align="left" fontsize="20" textcolor="0xe2e2e2"/ -->
+  <!-- text text="$$Next Page" x="482" y="252" w="350" h="22" align="right" fontsize="20" textcolor="0xe2e2e2"/ -->
+
+
+  <!--image image="image/keyboard_search_box.png" x="99" y="227" w="633" h="60" bg="1"/>
+  <texttail text="@@input_01_text" x="121" y="243" w="554" h="28"  textcolor="0x000000" cursor_pos="@@input_text_cursor_pos"/>
+	<text text="@@master_headline" x="97" y="132" w="600" h="44" align="left" fontsize="42" textcolor="0x07b5ff"/>
+	<image image="@@logo" x="1069" y="591" w="158" h="65"/>
+	<wrapper x="879" w="302">
+		<image y="296" h="1" image="image/pandora_new_station_line.png"/>
+		<image y="344" h="1" image="image/pandora_new_station_line.png"/>
+		<image y="392" h="1" image="image/pandora_new_station_line.png"/>
+		<image y="440" h="1" image="image/pandora_new_station_line.png"/>
+	</wrapper>
+
+	<image x="1010" y="245" w="40" h="29" image="@@listprev"/>
+	<image x="1010" y="464" w="40" h="29" image="@@listnext"/-->
+<!--table x="857" y="218" w="315" h="224" fontsize="26" selected_fontsize="26" cols="1" rows="4" colspacing="0" rowspacing="0" lbimage="@@lbimage" clickimage="image/keyboard_auto_complete_list_select_bar.png" textcolor="0xc1c1c1" actnoseltextcolor="0xc1c1c1" actoverlistcolor="0xffffff" activetextcolor="0xffffff" selectedtextcolor="0xffffff" auto_translate="1" align="left">
+                <text text="@@search_list_0_text" ymargin="12" xmargin="31" lightbar="@@lightbar-search_list-0" active="@@act-search_list" selected="@@search_list_0_select" speed="@@search_list_0_speed" delay="2" disable="@@disable-search_list"/>
+                <text text="@@search_list_1_text" ymargin="12" xmargin="31" lightbar="@@lightbar-search_list-1" active="@@act-search_list" selected="@@search_list_1_select" speed="@@search_list_1_speed" delay="2" disable="@@disable-search_list"/>
+                <text text="@@search_list_2_text" ymargin="12" xmargin="31" lightbar="@@lightbar-search_list-2" active="@@act-search_list" selected="@@search_list_2_select" speed="@@search_list_2_speed" delay="2" disable="@@disable-search_list"/>
+                <text text="@@search_list_3_text" ymargin="12" xmargin="31" lightbar="@@lightbar-search_list-3" active="@@act-search_list" selected="@@search_list_3_select" speed="@@search_list_3_speed" delay="2" disable="@@disable-search_list"/>
+        </table-->
+
+	<text text="@@aw_autofill_page_title" x="86" y="128" w="487" h="42" fontsize="28" textcolor="0xFFFFFF" align="left" />
+
+	<image x="838" y="226" w="280" h="324" image="image/accu_weather/kb/keyboard_frame.png" bg="1"/>	
+    <image x="968" y="238" w="40" h="29" image="@@listprev"/>
+    <image x="968" y="508" w="40" h="29" image="@@listnext"/>
+	
+	<table x="844" y="266" w="270" h="240" fontsize="22" selected_fontsize="22" cols="1" rows="5" colspacing="0" rowspacing="0" lbimage="image/accu_weather/kb/keyboard_select_bar.png" clickimage="" textcolor="0xc1c1c1" actnoseltextcolor="0xc1c1c1" actoverlistcolor="0xffffff" activetextcolor="0xffffff" selectedtextcolor="0xffffff" auto_translate="1" align="hcenter">
+		<text text="@@browselist_0_text" xmargin="5" lightbar="@@lightbar-browselist-0" active="@@act-browselist" selected="@@browse_0_select" speed="@@browse_0_speed" delay="1"/>
+		<text text="@@browselist_1_text" xmargin="5" lightbar="@@lightbar-browselist-1" active="@@act-browselist" selected="@@browse_1_select" speed="@@browse_1_speed" delay="1"/>
+		<text text="@@browselist_2_text" xmargin="5" lightbar="@@lightbar-browselist-2" active="@@act-browselist" selected="@@browse_2_select" speed="@@browse_2_speed" delay="1"/>
+        <text text="@@browselist_3_text" xmargin="5" lightbar="@@lightbar-browselist-3" active="@@act-browselist" selected="@@browse_3_select" speed="@@browse_3_speed" delay="1"/>
+        <text text="@@browselist_4_text" xmargin="5" lightbar="@@lightbar-browselist-4" active="@@act-browselist" selected="@@browse_4_select" speed="@@browse_4_speed" delay="1"/>
+	</table>
+	
+	<include filename="./inc_weather_decoration.xml"/>	
+    <!-- include filename="./inc_keyboard.xml"/-->
+</page>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page background="image/setup.jpg">
+  <text id="headline" text="$$Server" >
+  <listbox lbmask="l" valkey="serverlist"
+           move="row"  rows="6"/>
+
+  <image image="@@listprev" x="210" y="100" w="130" h="15"/>
+  <table x="75" y="120" w="570" h="220"
+         cols="1" rows="6" colspacing="0" rowspacing="0"
+         lbimage="image/lightbar-setup.gif" fontsize="24">
+    <text text="@@serverlist-0" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-0" active="@@act-serverlist-0"/>
+
+    <text text="@@serverlist-1" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-1" active="@@act-serverlist-1"/>
+
+    <text text="@@serverlist-2" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-2" active="@@act-serverlist-2"/>
+
+    <text text="@@serverlist-3" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-3" active="@@act-serverlist-3"/>
+
+    <text text="@@serverlist-4" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-4" active="@@act-serverlist-4"/>
+
+    <text text="@@serverlist-5" fontsize="24" xmargin="110" ymargin="5"
+          lightbar="@@lightbar-serverlist-5" active="@@act-serverlist-5"/>
+  </table>
+  <image image="@@listmore" x="210" y="375" w="130" h="15"/>
+
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>
+  <include filename="./inc_headline_property.xml"/>
+  <include filename="./decoration.xml"/>
+</page>

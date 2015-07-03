@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="@@wrongkeyicon" x="1126" y="40" w="75" h="75"/>
+	<image image="./image/browse_logo.png" x="1113" y="607" w="89" h="89"/>
+	<include filename="./volume_control.xml"/>
+	<include filename="./tvsys.xml"/>
+</wrapper>

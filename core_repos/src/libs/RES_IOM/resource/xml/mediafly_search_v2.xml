@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/mediafly/mediafly_bg.jpg">
+	<ctrlgrp lbmask="1">
+		<button valkey="STRING" focused_bg="./image/mediafly/input_box_f.png" normal_bg="./image/mediafly/input_box_n.png"/>
+		<button valkey="SEARCH" focused_bg="./image/mediafly/keyboard_function_01_btn_f.png"
+					normal_bg="./image/mediafly/keyboard_function_01_btn_n.png"
+					click_bg="./image/mediafly/keyboard_function_01_btn_p.png"/>
+		<linebreak/>
+		<button valkey="BOTH" focused_bg="./image/mediafly/mediafly_search_filter_both_f.png"
+				      normal_bg="./image/mediafly/mediafly_search_filter_both_n.png"/>
+		<button valkey="AUDIO" focused_bg="./image/mediafly/mediafly_search_filter_audio_f.png"
+				      normal_bg="./image/mediafly/mediafly_search_filter_audio_n.png"/>
+		<button valkey="VIDEO" focused_bg="./image/mediafly/mediafly_search_filter_video_f.png"
+				      normal_bg="./image/mediafly/mediafly_search_filter_video_n.png"/>
+		<linebreak/>
+		<button valkey="EPISODE_SHOW" focused_bg="./image/mediafly/mediafly_search_filter_btn_f.png"
+						normal_bg="./image/mediafly/mediafly_search_filter_btn_n.png"/>
+		<button valkey="SHOW" focused_bg="./image/mediafly/mediafly_search_filter_btn_f.png"
+						normal_bg="./image/mediafly/mediafly_search_filter_btn_n.png"/>
+		<button valkey="EPISODE" focused_bg="./image/mediafly/mediafly_search_filter_btn_f.png"
+						normal_bg="./image/mediafly/mediafly_search_filter_btn_n.png"/>
+	</ctrlgrp>
+	<image image="@@listprev" x="619" y="194" w="38" h="27"/>
+	<include filename="./info.xml"/>
+
+	<text text="$$Search" x="127" y="124" w="610" h="45" fontsize="40" textcolor="0x4b4b4b" align="left"/>	
+
+	<imgbtn x="335" y="197" w="516" h="46" image="@@bg-STRING" />
+	<text x="351" y="211" w="479" h="28" fontsize="26" text="@@search_string" textcolor="0x4b4b4b"/>
+
+	<imgbtn x="851" y="197" w="93" h="46" image="@@bg-SEARCH" />
+	<text x="851" y="197" w="93" h="46" text="$$Search" align="hcenter" fontsize="22" speed="1" delay="2"/>
+
+	<!-- media filter -->
+	<imgbtn x="338" y="252" w="199" h="163" image="@@bg-BOTH" />
+	<image x="345" y="260" w="38" h="38" image="@@select-BOTH"/>
+	<text x="345" y="374" w="184" h="25" text="$$Both" fontsize="24" textcolor="0xffffff" align="hcenter"/>
+
+	<imgbtn x="540" y="252" w="199" h="163" image="@@bg-AUDIO" />
+	<image x="546" y="260" w="38" h="38" image="@@select-AUDIO"/>
+	<text x="545" y="374" w="184" h="25" text="$$Audio" fontsize="24" textcolor="0xffffff" align="hcenter"/>
+
+	<imgbtn x="741" y="252" w="199" h="163" image="@@bg-VIDEO" />
+	<image x="747" y="260" w="38" h="38" image="@@select-VIDEO"/>
+	<text x="745" y="374" w="184" h="25" text="$$Video" fontsize="24" textcolor="0xffffff" align="hcenter"/>
+
+	<!-- show/ episode -->
+	<imgbtn x="338" y="428" w="199" h="50" image="@@bg-EPISODE_SHOW" />
+	<image x="345" y="433" w="38" h="38" image="@@select-EPISODE_SHOW"/>
+	<text x="393" y="443" w="136" h="25" text="$$All" fontsize="24" textcolor="0xffffff" align="left" speed="1" delay="2"/>
+
+	<imgbtn x="540" y="428" w="199" h="50" image="@@bg-SHOW" />
+	<image x="546" y="433" w="38" h="38" image="@@select-SHOW"/>
+	<text x="595" y="443" w="136" h="25" text="$$Shows" fontsize="24" textcolor="0xffffff" align="left" speed="1" delay="2"/>
+
+	<imgbtn x="741" y="428" w="199" h="50" image="@@bg-EPISODE" />
+	<image x="747" y="433" w="38" h="38" image="@@select-EPISODE"/>
+	<text x="796" y="443" w="136" h="25" text="$$Episodes" fontsize="24" textcolor="0xffffff" align="left" speed="1" delay="2"/>
+
+	<include filename="./inc_decoration_online.xml"/>
+</page>

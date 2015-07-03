@@ -1,0 +1,107 @@
+
+/* Bookmark general style */
+
+body {
+ 	margin: 0px; padding: 0px;	 	
+ 	width: 100%;
+ 	background: black;
+ 	position: relative;
+ 	color: white;
+ 	overflow: hidden;
+}
+
+   /* This is maind div for the entire structure. */	
+div#bookmarkArea {
+	position: relative;
+	overflow: hidden;
+	/* size set from JS */
+}
+
+	/* Style for the magnifire element (of the selected thumbnail). */
+div#magnifire {
+	background: -webkit-gradient(linear, left top, right bottom, from(rgba(80,80,80,1)), to(rgba(110,110,110,1)));
+	border: 1px solid #555555;
+	position: absolute;
+	opacity: 0.8;
+	/* size and position set from JS */
+}
+
+	/* Styles to set gradiant fade-out at sides */
+div#topSide, div#bottomSide {position: absolute; width: 100%; height: 50px; z-index: 100;}
+div#leftSide, div#rightSide {position: absolute; height: 100%; width: 50px; z-index: 100;}
+div#topSide {
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+	top: 0px;
+}
+div#bottomSide {
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,1))); 
+	bottom: 0px;
+}
+div#leftSide {
+	background: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));  
+	left: 0px;	
+}
+div#rightSide {
+	background: -webkit-gradient(linear, left top, right top, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));  
+	right: 0px;	
+}
+
+	
+/* Menuflow style */
+
+	/* Style for an item in the vertical menu. */	
+div.menuItem {
+ 	color: white;
+	position: absolute;
+	font-family: verdana, arial;
+	font-size: 30px;
+	font-weight: lighter;
+	vertical-align: middle;
+	-webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;	
+	overflow: hidden;
+	z-index: -5;
+	/* position, -webkit-transition-duration 			 set from JS */
+}
+div.menuItem img {
+}
+
+
+/* Thumbnail-flow style*/
+
+	/* Style for the area containing a row of thumbnails. */
+div.thumbFlowArea {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	-webkit-transition-property: all;
+	overflow: hidden;
+	/* height, y-position, transition-duration 			set from JS */
+}
+
+	/* Style for one thumbnail item. */
+div.thumbItem {
+	position: absolute;
+	-webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;
+	opacity: 0;
+	/* size, position, -webkit-transition-duration 		 set from JS */	
+}
+span.thumbEmpty {
+	position: absolute;
+	opacity: 0.5;
+}
+span.thumbTitle {
+	position: absolute;
+	width: 100%;	
+	text-align: right;
+	overflow: hidden;
+	-webkit-transition-property: all;
+    -webkit-transition-timing-function: ease-in-out;	
+	/*	-webkit-transition-duration: 0.3s 				set from JS */
+}		
+img.thumbImage {
+	position: absolute;	
+	width: 100%;
+	border: 1px solid #222222;	
+}

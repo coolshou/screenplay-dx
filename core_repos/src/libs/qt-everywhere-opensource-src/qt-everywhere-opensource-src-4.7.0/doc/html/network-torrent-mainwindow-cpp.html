@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: mainwindow.cpp Example File (network/torrent/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">network/torrent/mainwindow.cpp</span>
+<!-- $$$network/torrent/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &quot;addtorrentdialog.h&quot;
+ #include &quot;mainwindow.h&quot;
+ #include &quot;ratecontroller.h&quot;
+ #include &quot;torrentclient.h&quot;
+
+<span class="comment"> // TorrentView extends QTreeWidget to allow drag and drop.</span>
+ class TorrentView : public QTreeWidget
+ {
+     Q_OBJECT
+ public:
+     TorrentView(QWidget *parent = 0);
+
+ signals:
+     void fileDropped(const QString &amp;fileName);
+
+ protected:
+     void dragMoveEvent(QDragMoveEvent *event);
+     void dropEvent(QDropEvent *event);
+ };
+
+<span class="comment"> // TorrentViewDelegate is used to draw the progress bars.</span>
+ class TorrentViewDelegate : public QItemDelegate
+ {
+     Q_OBJECT
+ public:
+     inline TorrentViewDelegate(MainWindow *mainWindow) : QItemDelegate(mainWindow) {}
+
+     inline void paint(QPainter *painter, const QStyleOptionViewItem &amp;option,
+                       const QModelIndex &amp;index ) const
+     {
+         if (index.column() != 2) {
+             QItemDelegate::paint(painter, option, index);
+             return;
+         }
+
+         <span class="comment">// Set up a QStyleOptionProgressBar to precisely mimic the</span>
+         <span class="comment">// environment of a progress bar.</span>
+         QStyleOptionProgressBar progressBarOption;
+         progressBarOption.state = QStyle::State_Enabled;
+         progressBarOption.direction = QApplication::layoutDirection();
+         progressBarOption.rect = option.rect;
+         progressBarOption.fontMetrics = QApplication::fontMetrics();
+         progressBarOption.minimum = 0;
+         progressBarOption.maximum = 100;
+         progressBarOption.textAlignment = Qt::AlignCenter;
+         progressBarOption.textVisible = true;
+
+         <span class="comment">// Set the progress and text values of the style option.</span>
+         int progress = qobject_cast&lt;MainWindow *&gt;(parent())-&gt;clientForRow(index.row())-&gt;progress();
+         progressBarOption.progress = progress &lt; 0 ? 0 : progress;
+         progressBarOption.text = QString().sprintf(&quot;%d%%&quot;, progressBarOption.progress);
+
+         <span class="comment">// Draw the progress bar onto the view.</span>
+         QApplication::style()-&gt;drawControl(QStyle::CE_ProgressBar, &amp;progressBarOption, painter);
+     }
+ };
+
+ MainWindow::MainWindow(QWidget *parent)
+     : QMainWindow(parent), quitDialog(0), saveChanges(false)
+ {
+     <span class="comment">// Initialize some static strings</span>
+     QStringList headers;
+     headers &lt;&lt; tr(&quot;Torrent&quot;) &lt;&lt; tr(&quot;Peers/Seeds&quot;) &lt;&lt; tr(&quot;Progress&quot;)
+             &lt;&lt; tr(&quot;Down rate&quot;) &lt;&lt; tr(&quot;Up rate&quot;) &lt;&lt; tr(&quot;Status&quot;);
+
+     <span class="comment">// Main torrent list</span>
+     torrentView = new TorrentView(this);
+     torrentView-&gt;setItemDelegate(new TorrentViewDelegate(this));
+     torrentView-&gt;setHeaderLabels(headers);
+     torrentView-&gt;setSelectionBehavior(QAbstractItemView::SelectRows);
+     torrentView-&gt;setAlternatingRowColors(true);
+     torrentView-&gt;setRootIsDecorated(false);
+     setCentralWidget(torrentView);
+
+     <span class="comment">// Set header resize modes and initial section sizes</span>
+     QFontMetrics fm = fontMetrics();
+     QHeaderView *header = torrentView-&gt;header();
+     header-&gt;resizeSection(0, fm.width(&quot;typical-name-for-a-torrent.torrent&quot;));
+     header-&gt;resizeSection(1, fm.width(headers.at(1) + &quot;  &quot;));
+     header-&gt;resizeSection(2, fm.width(headers.at(2) + &quot;  &quot;));
+     header-&gt;resizeSection(3, qMax(fm.width(headers.at(3) + &quot;  &quot;), fm.width(&quot; 1234.0 KB/s &quot;)));
+     header-&gt;resizeSection(4, qMax(fm.width(headers.at(4) + &quot;  &quot;), fm.width(&quot; 1234.0 KB/s &quot;)));
+     header-&gt;resizeSection(5, qMax(fm.width(headers.at(5) + &quot;  &quot;), fm.width(tr(&quot;Downloading&quot;) + &quot;  &quot;)));
+
+     <span class="comment">// Create common actions</span>
+     QAction *newTorrentAction = new QAction(QIcon(&quot;:/icons/bottom.png&quot;), tr(&quot;Add &amp;new torrent&quot;), this);
+     pauseTorrentAction = new QAction(QIcon(&quot;:/icons/player_pause.png&quot;), tr(&quot;&amp;Pause torrent&quot;), this);
+     removeTorrentAction = new QAction(QIcon(&quot;:/icons/player_stop.png&quot;), tr(&quot;&amp;Remove torrent&quot;), this);
+
+     <span class="comment">// File menu</span>
+     QMenu *fileMenu = menuBar()-&gt;addMenu(tr(&quot;&amp;File&quot;));
+     fileMenu-&gt;addAction(newTorrentAction);
+     fileMenu-&gt;addAction(pauseTorrentAction);
+     fileMenu-&gt;addAction(removeTorrentAction);
+     fileMenu-&gt;addSeparator();
+     fileMenu-&gt;addAction(QIcon(&quot;:/icons/exit.png&quot;), tr(&quot;E&amp;xit&quot;), this, SLOT(close()));
+
+     <span class="comment">// Help menu</span>
+     QMenu *helpMenu = menuBar()-&gt;addMenu(tr(&quot;&amp;Help&quot;));
+     helpMenu-&gt;addAction(tr(&quot;&amp;About&quot;), this, SLOT(about()));
+     helpMenu-&gt;addAction(tr(&quot;About &amp;Qt&quot;), qApp, SLOT(aboutQt()));
+
+     <span class="comment">// Top toolbar</span>
+     QToolBar *topBar = new QToolBar(tr(&quot;Tools&quot;));
+     addToolBar(Qt::TopToolBarArea, topBar);
+     topBar-&gt;setMovable(false);
+     topBar-&gt;addAction(newTorrentAction);
+     topBar-&gt;addAction(removeTorrentAction);
+     topBar-&gt;addAction(pauseTorrentAction);
+     topBar-&gt;addSeparator();
+     downActionTool = topBar-&gt;addAction(QIcon(tr(&quot;:/icons/1downarrow.png&quot;)), tr(&quot;Move down&quot;));
+     upActionTool = topBar-&gt;addAction(QIcon(tr(&quot;:/icons/1uparrow.png&quot;)), tr(&quot;Move up&quot;));
+
+     <span class="comment">// Bottom toolbar</span>
+     QToolBar *bottomBar = new QToolBar(tr(&quot;Rate control&quot;));
+     addToolBar(Qt::BottomToolBarArea, bottomBar);
+     bottomBar-&gt;setMovable(false);
+     downloadLimitSlider = new QSlider(Qt::Horizontal);
+     downloadLimitSlider-&gt;setRange(0, 1000);
+     bottomBar-&gt;addWidget(new QLabel(tr(&quot;Max download:&quot;)));
+     bottomBar-&gt;addWidget(downloadLimitSlider);
+     bottomBar-&gt;addWidget((downloadLimitLabel = new QLabel(tr(&quot;0 KB/s&quot;))));
+     downloadLimitLabel-&gt;setFixedSize(QSize(fm.width(tr(&quot;99999 KB/s&quot;)), fm.lineSpacing()));
+     bottomBar-&gt;addSeparator();
+     uploadLimitSlider = new QSlider(Qt::Horizontal);
+     uploadLimitSlider-&gt;setRange(0, 1000);
+     bottomBar-&gt;addWidget(new QLabel(tr(&quot;Max upload:&quot;)));
+     bottomBar-&gt;addWidget(uploadLimitSlider);
+     bottomBar-&gt;addWidget((uploadLimitLabel = new QLabel(tr(&quot;0 KB/s&quot;))));
+     uploadLimitLabel-&gt;setFixedSize(QSize(fm.width(tr(&quot;99999 KB/s&quot;)), fm.lineSpacing()));
+
+     <span class="comment">// Set up connections</span>
+     connect(torrentView, SIGNAL(itemSelectionChanged()),
+             this, SLOT(setActionsEnabled()));
+     connect(torrentView, SIGNAL(fileDropped(QString)),
+             this, SLOT(acceptFileDrop(QString)));
+     connect(uploadLimitSlider, SIGNAL(valueChanged(int)),
+             this, SLOT(setUploadLimit(int)));
+     connect(downloadLimitSlider, SIGNAL(valueChanged(int)),
+             this, SLOT(setDownloadLimit(int)));
+     connect(newTorrentAction, SIGNAL(triggered()),
+             this, SLOT(addTorrent()));
+     connect(pauseTorrentAction, SIGNAL(triggered()),
+             this, SLOT(pauseTorrent()));
+     connect(removeTorrentAction, SIGNAL(triggered()),
+             this, SLOT(removeTorrent()));
+     connect(upActionTool, SIGNAL(triggered(bool)),
+             this, SLOT(moveTorrentUp()));
+     connect(downActionTool, SIGNAL(triggered(bool)),
+             this, SLOT(moveTorrentDown()));
+
+     <span class="comment">// Load settings and start</span>
+     setWindowTitle(tr(&quot;Torrent Client&quot;));
+     setActionsEnabled();
+     QMetaObject::invokeMethod(this, &quot;loadSettings&quot;, Qt::QueuedConnection);
+ }
+
+ QSize MainWindow::sizeHint() const
+ {
+     const QHeaderView *header = torrentView-&gt;header();
+
+     <span class="comment">// Add up the sizes of all header sections. The last section is</span>
+     <span class="comment">// stretched, so its size is relative to the size of the width;</span>
+     <span class="comment">// instead of counting it, we count the size of its largest value.</span>
+     int width = fontMetrics().width(tr(&quot;Downloading&quot;) + &quot;  &quot;);
+     for (int i = 0; i &lt; header-&gt;count() - 1; ++i)
+         width += header-&gt;sectionSize(i);
+
+     return QSize(width, QMainWindow::sizeHint().height())
+         .expandedTo(QApplication::globalStrut());
+ }
+
+ const TorrentClient *MainWindow::clientForRow(int row) const
+ {
+     <span class="comment">// Return the client at the given row.</span>
+     return jobs.at(row).client;
+ }
+
+ int MainWindow::rowOfClient(TorrentClient *client) const
+ {
+     <span class="comment">// Return the row that displays this client's status, or -1 if the</span>
+     <span class="comment">// client is not known.</span>
+     int row = 0;
+     foreach (Job job, jobs) {
+         if (job.client == client)
+             return row;
+         ++row;
+     }
+     return -1;
+ }
+
+ void MainWindow::loadSettings()
+ {
+     <span class="comment">// Load base settings (last working directory, upload/download limits).</span>
+     QSettings settings(&quot;Trolltech&quot;, &quot;Torrent&quot;);
+     lastDirectory = settings.value(&quot;LastDirectory&quot;).toString();
+     if (lastDirectory.isEmpty())
+         lastDirectory = QDir::currentPath();
+     int up = settings.value(&quot;UploadLimit&quot;).toInt();
+     int down = settings.value(&quot;DownloadLimit&quot;).toInt();
+     uploadLimitSlider-&gt;setValue(up ? up : 170);
+     downloadLimitSlider-&gt;setValue(down ? down : 550);
+
+     <span class="comment">// Resume all previous downloads.</span>
+     int size = settings.beginReadArray(&quot;Torrents&quot;);
+     for (int i = 0; i &lt; size; ++i) {
+         settings.setArrayIndex(i);
+         QByteArray resumeState = settings.value(&quot;resumeState&quot;).toByteArray();
+         QString fileName = settings.value(&quot;sourceFileName&quot;).toString();
+         QString dest = settings.value(&quot;destinationFolder&quot;).toString();
+
+         if (addTorrent(fileName, dest, resumeState)) {
+             TorrentClient *client = jobs.last().client;
+             client-&gt;setDownloadedBytes(settings.value(&quot;downloadedBytes&quot;).toLongLong());
+             client-&gt;setUploadedBytes(settings.value(&quot;uploadedBytes&quot;).toLongLong());
+         }
+     }
+ }
+
+ bool MainWindow::addTorrent()
+ {
+     <span class="comment">// Show the file dialog, let the user select what torrent to start downloading.</span>
+     QString fileName = QFileDialog::getOpenFileName(this, tr(&quot;Choose a torrent file&quot;),
+                                                     lastDirectory,
+                                                     tr(&quot;Torrents (*.torrent);;&quot;
+                                                        &quot; All files (*.*)&quot;));
+     if (fileName.isEmpty())
+         return false;
+     lastDirectory = QFileInfo(fileName).absolutePath();
+
+     <span class="comment">// Show the &quot;Add Torrent&quot; dialog.</span>
+     AddTorrentDialog *addTorrentDialog = new AddTorrentDialog(this);
+     addTorrentDialog-&gt;setTorrent(fileName);
+     addTorrentDialog-&gt;deleteLater();
+     if (!addTorrentDialog-&gt;exec())
+         return false;
+
+     <span class="comment">// Add the torrent to our list of downloads</span>
+     addTorrent(fileName, addTorrentDialog-&gt;destinationFolder());
+     if (!saveChanges) {
+         saveChanges = true;
+         QTimer::singleShot(1000, this, SLOT(saveSettings()));
+     }
+     return true;
+ }
+
+ void MainWindow::removeTorrent()
+ {
+     <span class="comment">// Find the row of the current item, and find the torrent client</span>
+     <span class="comment">// for that row.</span>
+     int row = torrentView-&gt;indexOfTopLevelItem(torrentView-&gt;currentItem());
+     TorrentClient *client = jobs.at(row).client;
+
+     <span class="comment">// Stop the client.</span>
+     client-&gt;disconnect();
+     connect(client, SIGNAL(stopped()), this, SLOT(torrentStopped()));
+     client-&gt;stop();
+
+     <span class="comment">// Remove the row from the view.</span>
+     delete torrentView-&gt;takeTopLevelItem(row);
+     jobs.removeAt(row);
+     setActionsEnabled();
+
+     saveChanges = true;
+     saveSettings();
+ }
+
+ void MainWindow::torrentStopped()
+ {
+     <span class="comment">// Schedule the client for deletion.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     client-&gt;deleteLater();
+
+     <span class="comment">// If the quit dialog is shown, update its progress.</span>
+     if (quitDialog) {
+         if (++jobsStopped == jobsToStop)
+             quitDialog-&gt;close();
+     }
+ }
+
+ void MainWindow::torrentError(TorrentClient::Error)
+ {
+     <span class="comment">// Delete the client.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+     QString fileName = jobs.at(row).torrentFileName;
+     jobs.removeAt(row);
+
+     <span class="comment">// Display the warning.</span>
+     QMessageBox::warning(this, tr(&quot;Error&quot;),
+                          tr(&quot;An error occurred while downloading %0: %1&quot;)
+                          .arg(fileName)
+                          .arg(client-&gt;errorString()));
+
+     delete torrentView-&gt;takeTopLevelItem(row);
+     client-&gt;deleteLater();
+ }
+
+ bool MainWindow::addTorrent(const QString &amp;fileName, const QString &amp;destinationFolder,
+                             const QByteArray &amp;resumeState)
+ {
+     <span class="comment">// Check if the torrent is already being downloaded.</span>
+     foreach (Job job, jobs) {
+         if (job.torrentFileName == fileName &amp;&amp; job.destinationDirectory == destinationFolder) {
+             QMessageBox::warning(this, tr(&quot;Already downloading&quot;),
+                                  tr(&quot;The torrent file %1 is &quot;
+                                     &quot;already being downloaded.&quot;).arg(fileName));
+             return false;
+         }
+     }
+
+     <span class="comment">// Create a new torrent client and attempt to parse the torrent data.</span>
+     TorrentClient *client = new TorrentClient(this);
+     if (!client-&gt;setTorrent(fileName)) {
+         QMessageBox::warning(this, tr(&quot;Error&quot;),
+                              tr(&quot;The torrent file %1 cannot not be opened/resumed.&quot;).arg(fileName));
+         delete client;
+         return false;
+     }
+     client-&gt;setDestinationFolder(destinationFolder);
+     client-&gt;setDumpedState(resumeState);
+
+     <span class="comment">// Setup the client connections.</span>
+     connect(client, SIGNAL(stateChanged(TorrentClient::State)), this, SLOT(updateState(TorrentClient::State)));
+     connect(client, SIGNAL(peerInfoUpdated()), this, SLOT(updatePeerInfo()));
+     connect(client, SIGNAL(progressUpdated(int)), this, SLOT(updateProgress(int)));
+     connect(client, SIGNAL(downloadRateUpdated(int)), this, SLOT(updateDownloadRate(int)));
+     connect(client, SIGNAL(uploadRateUpdated(int)), this, SLOT(updateUploadRate(int)));
+     connect(client, SIGNAL(stopped()), this, SLOT(torrentStopped()));
+     connect(client, SIGNAL(error(TorrentClient::Error)), this, SLOT(torrentError(TorrentClient::Error)));
+
+     <span class="comment">// Add the client to the list of downloading jobs.</span>
+     Job job;
+     job.client = client;
+     job.torrentFileName = fileName;
+     job.destinationDirectory = destinationFolder;
+     jobs &lt;&lt; job;
+
+     <span class="comment">// Create and add a row in the torrent view for this download.</span>
+     QTreeWidgetItem *item = new QTreeWidgetItem(torrentView);
+
+     QString baseFileName = QFileInfo(fileName).fileName();
+     if (baseFileName.toLower().endsWith(&quot;.torrent&quot;))
+         baseFileName.remove(baseFileName.size() - 8);
+
+     item-&gt;setText(0, baseFileName);
+     item-&gt;setToolTip(0, tr(&quot;Torrent: %1&lt;br&gt;Destination: %2&quot;)
+                      .arg(baseFileName).arg(destinationFolder));
+     item-&gt;setText(1, tr(&quot;0/0&quot;));
+     item-&gt;setText(2, &quot;0&quot;);
+     item-&gt;setText(3, &quot;0.0 KB/s&quot;);
+     item-&gt;setText(4, &quot;0.0 KB/s&quot;);
+     item-&gt;setText(5, tr(&quot;Idle&quot;));
+     item-&gt;setFlags(item-&gt;flags() &amp; ~Qt::ItemIsEditable);
+     item-&gt;setTextAlignment(1, Qt::AlignHCenter);
+
+     if (!saveChanges) {
+         saveChanges = true;
+         QTimer::singleShot(5000, this, SLOT(saveSettings()));
+     }
+     client-&gt;start();
+     return true;
+ }
+
+ void MainWindow::saveSettings()
+ {
+     if (!saveChanges)
+       return;
+     saveChanges = false;
+
+     <span class="comment">// Prepare and reset the settings</span>
+     QSettings settings(&quot;Trolltech&quot;, &quot;Torrent&quot;);
+     settings.clear();
+
+     settings.setValue(&quot;LastDirectory&quot;, lastDirectory);
+     settings.setValue(&quot;UploadLimit&quot;, uploadLimitSlider-&gt;value());
+     settings.setValue(&quot;DownloadLimit&quot;, downloadLimitSlider-&gt;value());
+
+     <span class="comment">// Store data on all known torrents</span>
+     settings.beginWriteArray(&quot;Torrents&quot;);
+     for (int i = 0; i &lt; jobs.size(); ++i) {
+         settings.setArrayIndex(i);
+         settings.setValue(&quot;sourceFileName&quot;, jobs.at(i).torrentFileName);
+         settings.setValue(&quot;destinationFolder&quot;, jobs.at(i).destinationDirectory);
+         settings.setValue(&quot;uploadedBytes&quot;, jobs.at(i).client-&gt;uploadedBytes());
+         settings.setValue(&quot;downloadedBytes&quot;, jobs.at(i).client-&gt;downloadedBytes());
+         settings.setValue(&quot;resumeState&quot;, jobs.at(i).client-&gt;dumpedState());
+     }
+     settings.endArray();
+     settings.sync();
+ }
+
+ void MainWindow::updateState(TorrentClient::State)
+ {
+     <span class="comment">// Update the state string whenever the client's state changes.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+     QTreeWidgetItem *item = torrentView-&gt;topLevelItem(row);
+     if (item) {
+         item-&gt;setToolTip(0, tr(&quot;Torrent: %1&lt;br&gt;Destination: %2&lt;br&gt;State: %3&quot;)
+                          .arg(jobs.at(row).torrentFileName)
+                          .arg(jobs.at(row).destinationDirectory)
+                          .arg(client-&gt;stateString()));
+
+         item-&gt;setText(5, client-&gt;stateString());
+     }
+     setActionsEnabled();
+ }
+
+ void MainWindow::updatePeerInfo()
+ {
+     <span class="comment">// Update the number of connected, visited, seed and leecher peers.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+
+     QTreeWidgetItem *item = torrentView-&gt;topLevelItem(row);
+     item-&gt;setText(1, tr(&quot;%1/%2&quot;).arg(client-&gt;connectedPeerCount())
+                   .arg(client-&gt;seedCount()));
+ }
+
+ void MainWindow::updateProgress(int percent)
+ {
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+
+     <span class="comment">// Update the progressbar.</span>
+     QTreeWidgetItem *item = torrentView-&gt;topLevelItem(row);
+     if (item)
+         item-&gt;setText(2, QString::number(percent));
+ }
+
+ void MainWindow::setActionsEnabled()
+ {
+     <span class="comment">// Find the view item and client for the current row, and update</span>
+     <span class="comment">// the states of the actions.</span>
+     QTreeWidgetItem *item = 0;
+     if (!torrentView-&gt;selectedItems().isEmpty())
+         item = torrentView-&gt;selectedItems().first();
+     TorrentClient *client = item ? jobs.at(torrentView-&gt;indexOfTopLevelItem(item)).client : 0;
+     bool pauseEnabled = client &amp;&amp; ((client-&gt;state() == TorrentClient::Paused)
+                                        ||  (client-&gt;state() &gt; TorrentClient::Preparing));
+
+     removeTorrentAction-&gt;setEnabled(item != 0);
+     pauseTorrentAction-&gt;setEnabled(item != 0 &amp;&amp; pauseEnabled);
+
+     if (client &amp;&amp; client-&gt;state() == TorrentClient::Paused) {
+         pauseTorrentAction-&gt;setIcon(QIcon(&quot;:/icons/player_play.png&quot;));
+         pauseTorrentAction-&gt;setText(tr(&quot;Resume torrent&quot;));
+     } else {
+         pauseTorrentAction-&gt;setIcon(QIcon(&quot;:/icons/player_pause.png&quot;));
+         pauseTorrentAction-&gt;setText(tr(&quot;Pause torrent&quot;));
+     }
+
+     int row = torrentView-&gt;indexOfTopLevelItem(item);
+     upActionTool-&gt;setEnabled(item &amp;&amp; row != 0);
+     downActionTool-&gt;setEnabled(item &amp;&amp; row != jobs.size() - 1);
+ }
+
+ void MainWindow::updateDownloadRate(int bytesPerSecond)
+ {
+     <span class="comment">// Update the download rate.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+     QString num;
+     num.sprintf(&quot;%.1f KB/s&quot;, bytesPerSecond / 1024.0);
+     torrentView-&gt;topLevelItem(row)-&gt;setText(3, num);
+
+     if (!saveChanges) {
+         saveChanges = true;
+         QTimer::singleShot(5000, this, SLOT(saveSettings()));
+     }
+ }
+
+ void MainWindow::updateUploadRate(int bytesPerSecond)
+ {
+     <span class="comment">// Update the upload rate.</span>
+     TorrentClient *client = qobject_cast&lt;TorrentClient *&gt;(sender());
+     int row = rowOfClient(client);
+     QString num;
+     num.sprintf(&quot;%.1f KB/s&quot;, bytesPerSecond / 1024.0);
+     torrentView-&gt;topLevelItem(row)-&gt;setText(4, num);
+
+     if (!saveChanges) {
+         saveChanges = true;
+         QTimer::singleShot(5000, this, SLOT(saveSettings()));
+     }
+ }
+
+ void MainWindow::pauseTorrent()
+ {
+     <span class="comment">// Pause or unpause the current torrent.</span>
+     int row = torrentView-&gt;indexOfTopLevelItem(torrentView-&gt;currentItem());
+     TorrentClient *client = jobs.at(row).client;
+     client-&gt;setPaused(client-&gt;state() != TorrentClient::Paused);
+     setActionsEnabled();
+ }
+
+ void MainWindow::moveTorrentUp()
+ {
+     QTreeWidgetItem *item = torrentView-&gt;currentItem();
+     int row = torrentView-&gt;indexOfTopLevelItem(item);
+     if (row == 0)
+         return;
+
+     Job tmp = jobs.at(row - 1);
+     jobs[row - 1] = jobs[row];
+     jobs[row] = tmp;
+
+     QTreeWidgetItem *itemAbove = torrentView-&gt;takeTopLevelItem(row - 1);
+     torrentView-&gt;insertTopLevelItem(row, itemAbove);
+     setActionsEnabled();
+ }
+
+ void MainWindow::moveTorrentDown()
+ {
+     QTreeWidgetItem *item = torrentView-&gt;currentItem();
+     int row = torrentView-&gt;indexOfTopLevelItem(item);
+     if (row == jobs.size() - 1)
+         return;
+
+     Job tmp = jobs.at(row + 1);
+     jobs[row + 1] = jobs[row];
+     jobs[row] = tmp;
+
+     QTreeWidgetItem *itemAbove = torrentView-&gt;takeTopLevelItem(row + 1);
+     torrentView-&gt;insertTopLevelItem(row, itemAbove);
+     setActionsEnabled();
+ }
+
+ static int rateFromValue(int value)
+ {
+     int rate = 0;
+     if (value &gt;= 0 &amp;&amp; value &lt; 250) {
+         rate = 1 + int(value * 0.124);
+     } else if (value &lt; 500) {
+         rate = 32 + int((value - 250) * 0.384);
+     } else if (value &lt; 750) {
+         rate = 128 + int((value - 500) * 1.536);
+     } else {
+         rate = 512 + int((value - 750) * 6.1445);
+     }
+     return rate;
+ }
+
+ void MainWindow::setUploadLimit(int value)
+ {
+     int rate = rateFromValue(value);
+     uploadLimitLabel-&gt;setText(tr(&quot;%1 KB/s&quot;).arg(QString().sprintf(&quot;%4d&quot;, rate)));
+     RateController::instance()-&gt;setUploadLimit(rate * 1024);
+ }
+
+ void MainWindow::setDownloadLimit(int value)
+ {
+     int rate = rateFromValue(value);
+     downloadLimitLabel-&gt;setText(tr(&quot;%1 KB/s&quot;).arg(QString().sprintf(&quot;%4d&quot;, rate)));
+     RateController::instance()-&gt;setDownloadLimit(rate * 1024);
+ }
+
+ void MainWindow::about()
+ {
+     QLabel *icon = new QLabel;
+     icon-&gt;setPixmap(QPixmap(&quot;:/icons/peertopeer.png&quot;));
+
+     QLabel *text = new QLabel;
+     text-&gt;setWordWrap(true);
+     text-&gt;setText(&quot;&lt;p&gt;The &lt;b&gt;Torrent Client&lt;/b&gt; example demonstrates how to&quot;
+                   &quot; write a complete peer-to-peer file sharing&quot;
+                   &quot; application using Qt's network and thread classes.&lt;/p&gt;&quot;
+                   &quot;&lt;p&gt;This feature complete client implementation of&quot;
+                   &quot; the BitTorrent protocol can efficiently&quot;
+                   &quot; maintain several hundred network connections&quot;
+                   &quot; simultaneously.&lt;/p&gt;&quot;);
+
+     QPushButton *quitButton = new QPushButton(&quot;OK&quot;);
+
+     QHBoxLayout *topLayout = new QHBoxLayout;
+     topLayout-&gt;setMargin(10);
+     topLayout-&gt;setSpacing(10);
+     topLayout-&gt;addWidget(icon);
+     topLayout-&gt;addWidget(text);
+
+     QHBoxLayout *bottomLayout = new QHBoxLayout;
+     bottomLayout-&gt;addStretch();
+     bottomLayout-&gt;addWidget(quitButton);
+     bottomLayout-&gt;addStretch();
+
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+     mainLayout-&gt;addLayout(topLayout);
+     mainLayout-&gt;addLayout(bottomLayout);
+
+     QDialog about(this);
+     about.setModal(true);
+     about.setWindowTitle(tr(&quot;About Torrent Client&quot;));
+     about.setLayout(mainLayout);
+
+     connect(quitButton, SIGNAL(clicked()), &amp;about, SLOT(close()));
+
+     about.exec();
+ }
+
+ void MainWindow::acceptFileDrop(const QString &amp;fileName)
+ {
+     <span class="comment">// Create and show the &quot;Add Torrent&quot; dialog.</span>
+     AddTorrentDialog *addTorrentDialog = new AddTorrentDialog;
+     lastDirectory = QFileInfo(fileName).absolutePath();
+     addTorrentDialog-&gt;setTorrent(fileName);
+     addTorrentDialog-&gt;deleteLater();
+     if (!addTorrentDialog-&gt;exec())
+         return;
+
+     <span class="comment">// Add the torrent to our list of downloads.</span>
+     addTorrent(fileName, addTorrentDialog-&gt;destinationFolder());
+     saveSettings();
+ }
+
+ void MainWindow::closeEvent(QCloseEvent *)
+ {
+     if (jobs.isEmpty())
+         return;
+
+     <span class="comment">// Save upload / download numbers.</span>
+     saveSettings();
+     saveChanges = false;
+
+     quitDialog = new QProgressDialog(tr(&quot;Disconnecting from trackers&quot;), tr(&quot;Abort&quot;), 0, jobsToStop, this);
+
+     <span class="comment">// Stop all clients, remove the rows from the view and wait for</span>
+     <span class="comment">// them to signal that they have stopped.</span>
+     jobsToStop = 0;
+     jobsStopped = 0;
+     foreach (Job job, jobs) {
+         ++jobsToStop;
+         TorrentClient *client = job.client;
+         client-&gt;disconnect();
+         connect(client, SIGNAL(stopped()), this, SLOT(torrentStopped()));
+         client-&gt;stop();
+         delete torrentView-&gt;takeTopLevelItem(0);
+     }
+
+     if (jobsToStop &gt; jobsStopped)
+         quitDialog-&gt;exec();
+     quitDialog-&gt;deleteLater();
+     quitDialog = 0;
+ }
+
+ TorrentView::TorrentView(QWidget *parent)
+     : QTreeWidget(parent)
+ {
+     setAcceptDrops(true);
+ }
+
+ void TorrentView::dragMoveEvent(QDragMoveEvent *event)
+ {
+     <span class="comment">// Accept file actions with a '.torrent' extension.</span>
+     QUrl url(event-&gt;mimeData()-&gt;text());
+     if (url.isValid() &amp;&amp; url.scheme().toLower() == &quot;file&quot;
+             &amp;&amp; url.path().toLower().endsWith(&quot;.torrent&quot;))
+         event-&gt;acceptProposedAction();
+ }
+
+ void TorrentView::dropEvent(QDropEvent *event)
+ {
+     <span class="comment">// Accept drops if the file has a '.torrent' extension and it</span>
+     <span class="comment">// exists.</span>
+     QString fileName = QUrl(event-&gt;mimeData()-&gt;text()).path();
+     if (QFile::exists(fileName) &amp;&amp; fileName.toLower().endsWith(&quot;.torrent&quot;))
+         emit fileDropped(fileName);
+ }
+
+ #include &quot;mainwindow.moc&quot;</pre>
+</div>
+<!-- @@@network/torrent/mainwindow.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+
+    <wrapper textcolor="0xffffff">
+  <text text="$$Rebooting" x="490" y="243" w="300" h="50" fontsize="24" align="hcenter"/>
+  </wrapper>
+  <image image="@@status_icon" x="562" y="344" w="158" h="32"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

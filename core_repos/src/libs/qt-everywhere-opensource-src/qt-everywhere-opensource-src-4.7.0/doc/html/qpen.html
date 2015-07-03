@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qpen.cpp -->
+  <title>Qt 4.7: QPen Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QPen</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#pen-style">Pen Style</a></li>
+<li class="level2"><a href="#cap-style">Cap Style</a></li>
+<li class="level2"><a href="#join-style">Join Style</a></li>
+</ul>
+</div>
+<h1 class="title">QPen Class Reference</h1>
+<!-- $$$QPen-brief -->
+<p>The QPen class defines how a <a href="qpainter.html">QPainter</a> should draw lines and outlines of shapes. <a href="#details">More...</a></p>
+<!-- @@@QPen -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QPen&gt;</pre><ul>
+<li><a href="qpen-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#QPen">QPen</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#QPen-2">QPen</a></b> ( Qt::PenStyle <i>style</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#QPen-3">QPen</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#QPen-4">QPen</a></b> ( const QBrush &amp; <i>brush</i>, qreal <i>width</i>, Qt::PenStyle <i>style</i> = Qt::SolidLine, Qt::PenCapStyle <i>cap</i> = Qt::SquareCap, Qt::PenJoinStyle <i>join</i> = Qt::BevelJoin )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#QPen-5">QPen</a></b> ( const QPen &amp; <i>pen</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#dtor.QPen">~QPen</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QBrush </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#brush">brush</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::PenCapStyle </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#capStyle">capStyle</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QColor </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#color">color</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#dashOffset">dashOffset</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVector&lt;qreal&gt; </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#dashPattern">dashPattern</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#isCosmetic">isCosmetic</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#isSolid">isSolid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::PenJoinStyle </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#joinStyle">joinStyle</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#miterLimit">miterLimit</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setBrush">setBrush</a></b> ( const QBrush &amp; <i>brush</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setCapStyle">setCapStyle</a></b> ( Qt::PenCapStyle <i>style</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setColor">setColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setCosmetic">setCosmetic</a></b> ( bool <i>cosmetic</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setDashOffset">setDashOffset</a></b> ( qreal <i>offset</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setDashPattern">setDashPattern</a></b> ( const QVector&lt;qreal&gt; &amp; <i>pattern</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setJoinStyle">setJoinStyle</a></b> ( Qt::PenJoinStyle <i>style</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setMiterLimit">setMiterLimit</a></b> ( qreal <i>limit</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setStyle">setStyle</a></b> ( Qt::PenStyle <i>style</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setWidth">setWidth</a></b> ( int <i>width</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#setWidthF">setWidthF</a></b> ( qreal <i>width</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::PenStyle </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#style">style</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#width">width</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#widthF">widthF</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-QVariant">operator QVariant</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-not-eq">operator!=</a></b> ( const QPen &amp; <i>pen</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPen &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-eq">operator=</a></b> ( const QPen &amp; <i>pen</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-eq-eq">operator==</a></b> ( const QPen &amp; <i>pen</i> ) const</td></tr>
+</table>
+<a name="related-non-members"></a>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-lt-lt-116">operator&lt;&lt;</a></b> ( QDataStream &amp; <i>stream</i>, const QPen &amp; <i>pen</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDataStream &amp; </td><td class="memItemRight bottomAlign"><b><a href="qpen.html#operator-gt-gt-75">operator&gt;&gt;</a></b> ( QDataStream &amp; <i>stream</i>, QPen &amp; <i>pen</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QPen-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QPen class defines how a <a href="qpainter.html">QPainter</a> should draw lines and outlines of shapes.</p>
+<p>A pen has a <a href="qpen.html#style">style</a>(), <a href="qpen.html#width">width</a>(), <a href="qpen.html#brush">brush</a>(), <a href="qpen.html#capStyle">capStyle</a>() and <a href="qpen.html#joinStyle">joinStyle</a>().</p>
+<p>The pen style defines the line type. The brush is used to fill strokes generated with the pen. Use the <a href="qbrush.html">QBrush</a> class to specify fill styles. The cap style determines the line end caps that can be drawn using <a href="qpainter.html">QPainter</a>, while the join style describes how joins between two lines are drawn. The pen width can be specified in both integer (<a href="qpen.html#width">width</a>()) and floating point (<a href="qpen.html#widthF">widthF</a>()) precision. A line width of zero indicates a cosmetic pen. This means that the pen width is always drawn one pixel wide, independent of the <a href="qpainter.html#coordinate-transformations">transformation</a> set on the painter.</p>
+<p>The various settings can easily be modified using the corresponding <a href="qpen.html#setStyle">setStyle</a>(), <a href="qpen.html#setWidth">setWidth</a>(), <a href="qpen.html#setBrush">setBrush</a>(), <a href="qpen.html#setCapStyle">setCapStyle</a>() and <a href="qpen.html#setJoinStyle">setJoinStyle</a>() functions (note that the painter's pen must be reset when altering the pen's properties).</p>
+<p>For example:</p>
+<pre class="highlightedCode brush: cpp"> QPainter painter(this);
+ QPen pen(Qt::green, 3, Qt::DashDotLine, Qt::RoundCap, Qt::RoundJoin);
+ painter.setPen(pen);</pre>
+<p>which is equivalent to</p>
+<pre class="highlightedCode brush: cpp"> QPainter painter(this);
+ QPen pen();  <span class="comment">// creates a default pen</span>
+
+ pen.setStyle(Qt::DashDotLine);
+ pen.setWidth(3);
+ pen.setBrush(Qt::green);
+ pen.setCapStyle(Qt::RoundCap);
+ pen.setJoinStyle(Qt::RoundJoin);
+
+ painter.setPen(pen);</pre>
+<p>The default pen is a solid black brush with 0 width, square cap style (<a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a>), and bevel join style (<a href="qt.html#PenJoinStyle-enum">Qt::BevelJoin</a>).</p>
+<p>In addition QPen provides the <a href="qpen.html#color">color</a>() and <a href="qpen.html#setColor">setColor</a>() convenience functions to extract and set the color of the pen's brush, respectively. Pens may also be compared and streamed.</p>
+<p>For more information about painting in general, see the <a href="paintsystem.html">Paint System</a> documentation.</p>
+<a name="pen-style"></a>
+<h3>Pen Style</h3>
+<p>Qt provides several built-in styles represented by the <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> enum:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><img src="images/qpen-solid.png" /></p></td><td ><p><img src="images/qpen-dash.png" /></p></td><td ><p><img src="images/qpen-dot.png" /></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt.html#PenStyle-enum">Qt::SolidLine</a></p></td><td ><p><a href="qt.html#PenStyle-enum">Qt::DashLine</a></p></td><td ><p><a href="qt.html#PenStyle-enum">Qt::DotLine</a></p></td></tr>
+<tr class="odd topAlign"><td ><p><img src="images/qpen-dashdot.png" /></p></td><td ><p><img src="images/qpen-dashdotdot.png" /></p></td><td ><p><img src="images/qpen-custom.png" /></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt.html#PenStyle-enum">Qt::DashDotLine</a></p></td><td ><p><a href="qt.html#PenStyle-enum">Qt::DashDotDotLine</a></p></td><td ><p><a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a></p></td></tr>
+</table>
+<p>Simply use the <a href="qpen.html#setStyle">setStyle</a>() function to convert the pen style to either of the built-in styles, except the <a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a> style which we will come back to shortly. Setting the style to <a href="qt.html#PenStyle-enum">Qt::NoPen</a> tells the painter to not draw lines or outlines. The default pen style is <a href="qt.html#PenStyle-enum">Qt::SolidLine</a>.</p>
+<p>Since Qt 4.1 it is also possible to specify a custom dash pattern using the <a href="qpen.html#setDashPattern">setDashPattern</a>() function which implicitly converts the style of the pen to <a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a>. The pattern argument, a <a href="qvector.html">QVector</a>, must be specified as an even number of <a href="qtglobal.html#qreal-typedef">qreal</a> entries where the entries 1, 3, 5..&#x2e; are the dashes and 2, 4, 6..&#x2e; are the spaces. For example, the custom pattern shown above is created using the following code:</p>
+<pre class="highlightedCode brush: cpp"> QPen pen;
+ QVector&lt;qreal&gt; dashes;
+ qreal space = 4;
+
+ dashes &lt;&lt; 1 &lt;&lt; space &lt;&lt; 3 &lt;&lt; space &lt;&lt; 9 &lt;&lt; space
+            &lt;&lt; 27 &lt;&lt; space &lt;&lt; 9 &lt;&lt; space;
+
+ pen.setDashPattern(dashes);</pre>
+<p>Note that the dash pattern is specified in units of the pens width, e.g&#x2e; a dash of length 5 in width 10 is 50 pixels long.</p>
+<p>The currently set dash pattern can be retrieved using the <a href="qpen.html#dashPattern">dashPattern</a>() function. Use the <a href="qpen.html#isSolid">isSolid</a>() function to determine whether the pen has a solid fill, or not.</p>
+<a name="cap-style"></a>
+<h3>Cap Style</h3>
+<p>The cap style defines how the end points of lines are drawn using <a href="qpainter.html">QPainter</a>. The cap style only apply to wide lines, i.e&#x2e; when the width is 1 or greater. The <a href="qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> enum provides the following styles:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><img src="images/qpen-square.png" /></p></td><td ><p><img src="images/qpen-flat.png" /></p></td><td ><p><img src="images/qpen-roundcap.png" /></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a></p></td><td ><p><a href="qt.html#PenCapStyle-enum">Qt::FlatCap</a></p></td><td ><p><a href="qt.html#PenCapStyle-enum">Qt::RoundCap</a></p></td></tr>
+</table>
+<p>The <a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a> style is a square line end that covers the end point and extends beyond it by half the line width. The <a href="qt.html#PenCapStyle-enum">Qt::FlatCap</a> style is a square line end that does not cover the end point of the line. And the <a href="qt.html#PenCapStyle-enum">Qt::RoundCap</a> style is a rounded line end covering the end point.</p>
+<p>The default is <a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a>.</p>
+<p>Whether or not end points are drawn when the pen width is 0 or 1 depends on the cap style. Using <a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a> or <a href="qt.html#PenCapStyle-enum">Qt::RoundCap</a> they are drawn, using <a href="qt.html#PenCapStyle-enum">Qt::FlatCap</a> they are not drawn.</p>
+<a name="join-style"></a>
+<h3>Join Style</h3>
+<p>The join style defines how joins between two connected lines can be drawn using <a href="qpainter.html">QPainter</a>. The join style only apply to wide lines, i.e&#x2e; when the width is 1 or greater. The <a href="qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> enum provides the following styles:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><img src="images/qpen-bevel.png" /></p></td><td ><p><img src="images/qpen-miter.png" /></p></td><td ><p><img src="images/qpen-roundjoin.png" /></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt.html#PenJoinStyle-enum">Qt::BevelJoin</a></p></td><td ><p><a href="qt.html#PenJoinStyle-enum">Qt::MiterJoin</a></p></td><td ><p><a href="qt.html#PenJoinStyle-enum">Qt::RoundJoin</a></p></td></tr>
+</table>
+<p>The <a href="qt.html#PenJoinStyle-enum">Qt::BevelJoin</a> style fills the triangular notch between the two lines. The <a href="qt.html#PenJoinStyle-enum">Qt::MiterJoin</a> style extends the lines to meet at an angle. And the <a href="qt.html#PenJoinStyle-enum">Qt::RoundJoin</a> style fills a circular arc between the two lines.</p>
+<p>The default is <a href="qt.html#PenJoinStyle-enum">Qt::BevelJoin</a>.</p>
+<p class="centerAlign"><img src="images/qpen-miterlimit.png" /></p><p>When the <a href="qt.html#PenJoinStyle-enum">Qt::MiterJoin</a> style is applied, it is possible to use the <a href="qpen.html#setMiterLimit">setMiterLimit</a>() function to specify how far the miter join can extend from the join point. The <a href="qpen.html#miterLimit">miterLimit</a>() is used to reduce artifacts between line joins where the lines are close to parallel.</p>
+<p>The <a href="qpen.html#miterLimit">miterLimit</a>() must be specified in units of the pens width, e.g&#x2e; a miter limit of 5 in width 10 is 50 pixels long. The default miter limit is 2, i.e&#x2e; twice the pen width in pixels.</p>
+<table class="generic">
+ <tr class="odd topAlign"><td ><p><img src="images/qpen-demo.png" /></p></td><td ><p><b><a href="demos-pathstroke.html">The Path Stroking Demo</a></b><p>The Path Stroking demo shows Qt's built-in dash patterns and shows how custom patterns can be used to extend the range of available patterns.</p>
+</p></td></tr>
+</table>
+</div>
+<p>See also <a href="qpainter.html">QPainter</a>, <a href="qbrush.html">QBrush</a>, <a href="demos-pathstroke.html">Path Stroking Demo</a>, and <a href="widgets-scribble.html">Scribble Example</a>.</p>
+<!-- @@@QPen -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QPen[overload1]$$$QPen -->
+<h3 class="fn"><a name="QPen"></a>QPen::QPen ()</h3>
+<p>Constructs a default black solid line pen with 0 width.</p>
+<!-- @@@QPen -->
+<!-- $$$QPen$$$QPenQt::PenStyle -->
+<h3 class="fn"><a name="QPen-2"></a>QPen::QPen ( <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> <i>style</i> )</h3>
+<p>Constructs a black pen with 0 width and the given <i>style</i>.</p>
+<p>See also <a href="qpen.html#setStyle">setStyle</a>().</p>
+<!-- @@@QPen -->
+<!-- $$$QPen$$$QPenconstQColor& -->
+<h3 class="fn"><a name="QPen-3"></a>QPen::QPen ( const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
+<p>Constructs a solid line pen with 0 width and the given <i>color</i>.</p>
+<p>See also <a href="qpen.html#setBrush">setBrush</a>() and <a href="qpen.html#setColor">setColor</a>().</p>
+<!-- @@@QPen -->
+<!-- $$$QPen$$$QPenconstQBrush&qrealQt::PenStyleQt::PenCapStyleQt::PenJoinStyle -->
+<h3 class="fn"><a name="QPen-4"></a>QPen::QPen ( const <a href="qbrush.html">QBrush</a> &amp; <i>brush</i>, <a href="qtglobal.html#qreal-typedef">qreal</a> <i>width</i>, <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> <i>style</i> = Qt::SolidLine, <a href="qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> <i>cap</i> = Qt::SquareCap, <a href="qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> <i>join</i> = Qt::BevelJoin )</h3>
+<p>Constructs a pen with the specified <i>brush</i>, <i>width</i>, pen <i>style</i>, <i>cap</i> style and <i>join</i> style.</p>
+<p>See also <a href="qpen.html#setBrush">setBrush</a>(), <a href="qpen.html#setWidth">setWidth</a>(), <a href="qpen.html#setStyle">setStyle</a>(), <a href="qpen.html#setCapStyle">setCapStyle</a>(), and <a href="qpen.html#setJoinStyle">setJoinStyle</a>().</p>
+<!-- @@@QPen -->
+<!-- $$$QPen$$$QPenconstQPen& -->
+<h3 class="fn"><a name="QPen-5"></a>QPen::QPen ( const QPen &amp; <i>pen</i> )</h3>
+<p>Constructs a pen that is a copy of the given <i>pen</i>.</p>
+<!-- @@@QPen -->
+<!-- $$$~QPen[overload1]$$$~QPen -->
+<h3 class="fn"><a name="dtor.QPen"></a>QPen::~QPen ()</h3>
+<p>Destroys the pen.</p>
+<!-- @@@~QPen -->
+<!-- $$$brush[overload1]$$$brush -->
+<h3 class="fn"><a name="brush"></a><a href="qbrush.html">QBrush</a> QPen::brush () const</h3>
+<p>Returns the brush used to fill strokes generated with this pen.</p>
+<p>See also <a href="qpen.html#setBrush">setBrush</a>().</p>
+<!-- @@@brush -->
+<!-- $$$capStyle[overload1]$$$capStyle -->
+<h3 class="fn"><a name="capStyle"></a><a href="qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> QPen::capStyle () const</h3>
+<p>Returns the pen's cap style.</p>
+<p>See also <a href="qpen.html#setCapStyle">setCapStyle</a>() and <a href="qpen.html#cap-style">Cap Style</a>.</p>
+<!-- @@@capStyle -->
+<!-- $$$color[overload1]$$$color -->
+<h3 class="fn"><a name="color"></a><a href="qcolor.html">QColor</a> QPen::color () const</h3>
+<p>Returns the color of this pen's brush.</p>
+<p>See also <a href="qpen.html#brush">brush</a>() and <a href="qpen.html#setColor">setColor</a>().</p>
+<!-- @@@color -->
+<!-- $$$dashOffset[overload1]$$$dashOffset -->
+<h3 class="fn"><a name="dashOffset"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QPen::dashOffset () const</h3>
+<p>Returns the dash offset for the pen.</p>
+<p>See also <a href="qpen.html#setDashOffset">setDashOffset</a>().</p>
+<!-- @@@dashOffset -->
+<!-- $$$dashPattern[overload1]$$$dashPattern -->
+<h3 class="fn"><a name="dashPattern"></a><a href="qvector.html">QVector</a>&lt;<a href="qtglobal.html#qreal-typedef">qreal</a>&gt; QPen::dashPattern () const</h3>
+<p>Returns the dash pattern of this pen.</p>
+<p>See also <a href="qpen.html#setDashPattern">setDashPattern</a>(), <a href="qpen.html#style">style</a>(), and <a href="qpen.html#isSolid">isSolid</a>().</p>
+<!-- @@@dashPattern -->
+<!-- $$$isCosmetic[overload1]$$$isCosmetic -->
+<h3 class="fn"><a name="isCosmetic"></a>bool QPen::isCosmetic () const</h3>
+<p>Returns true if the pen is cosmetic; otherwise returns false.</p>
+<p>Cosmetic pens are used to draw strokes that have a constant width regardless of any transformations applied to the <a href="qpainter.html">QPainter</a> they are used with. Drawing a shape with a cosmetic pen ensures that its outline will have the same thickness at different scale factors.</p>
+<p>A zero width pen is cosmetic by default; pens with a non-zero width are non-cosmetic.</p>
+<p>See also <a href="qpen.html#setCosmetic">setCosmetic</a>() and <a href="qpen.html#widthF">widthF</a>().</p>
+<!-- @@@isCosmetic -->
+<!-- $$$isSolid[overload1]$$$isSolid -->
+<h3 class="fn"><a name="isSolid"></a>bool QPen::isSolid () const</h3>
+<p>Returns true if the pen has a solid fill, otherwise false.</p>
+<p>See also <a href="qpen.html#style">style</a>() and <a href="qpen.html#dashPattern">dashPattern</a>().</p>
+<!-- @@@isSolid -->
+<!-- $$$joinStyle[overload1]$$$joinStyle -->
+<h3 class="fn"><a name="joinStyle"></a><a href="qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> QPen::joinStyle () const</h3>
+<p>Returns the pen's join style.</p>
+<p>See also <a href="qpen.html#setJoinStyle">setJoinStyle</a>() and <a href="qpen.html#join-style">Join Style</a>.</p>
+<!-- @@@joinStyle -->
+<!-- $$$miterLimit[overload1]$$$miterLimit -->
+<h3 class="fn"><a name="miterLimit"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QPen::miterLimit () const</h3>
+<p>Returns the miter limit of the pen. The miter limit is only relevant when the join style is set to <a href="qt.html#PenJoinStyle-enum">Qt::MiterJoin</a>.</p>
+<p>See also <a href="qpen.html#setMiterLimit">setMiterLimit</a>() and <a href="qpen.html#join-style">Join Style</a>.</p>
+<!-- @@@miterLimit -->
+<!-- $$$setBrush[overload1]$$$setBrushconstQBrush& -->
+<h3 class="fn"><a name="setBrush"></a>void QPen::setBrush ( const <a href="qbrush.html">QBrush</a> &amp; <i>brush</i> )</h3>
+<p>Sets the brush used to fill strokes generated with this pen to the given <i>brush</i>.</p>
+<p>See also <a href="qpen.html#brush">brush</a>() and <a href="qpen.html#setColor">setColor</a>().</p>
+<!-- @@@setBrush -->
+<!-- $$$setCapStyle[overload1]$$$setCapStyleQt::PenCapStyle -->
+<h3 class="fn"><a name="setCapStyle"></a>void QPen::setCapStyle ( <a href="qt.html#PenCapStyle-enum">Qt::PenCapStyle</a> <i>style</i> )</h3>
+<p>Sets the pen's cap style to the given <i>style</i>. The default value is <a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a>.</p>
+<p>See also <a href="qpen.html#capStyle">capStyle</a>() and <a href="qpen.html#cap-style">Cap Style</a>.</p>
+<!-- @@@setCapStyle -->
+<!-- $$$setColor[overload1]$$$setColorconstQColor& -->
+<h3 class="fn"><a name="setColor"></a>void QPen::setColor ( const <a href="qcolor.html">QColor</a> &amp; <i>color</i> )</h3>
+<p>Sets the color of this pen's brush to the given <i>color</i>.</p>
+<p>See also <a href="qpen.html#setBrush">setBrush</a>() and <a href="qpen.html#color">color</a>().</p>
+<!-- @@@setColor -->
+<!-- $$$setCosmetic[overload1]$$$setCosmeticbool -->
+<h3 class="fn"><a name="setCosmetic"></a>void QPen::setCosmetic ( bool <i>cosmetic</i> )</h3>
+<p>Sets this pen to cosmetic or non-cosmetic, depending on the value of <i>cosmetic</i>.</p>
+<p>See also <a href="qpen.html#isCosmetic">isCosmetic</a>().</p>
+<!-- @@@setCosmetic -->
+<!-- $$$setDashOffset[overload1]$$$setDashOffsetqreal -->
+<h3 class="fn"><a name="setDashOffset"></a>void QPen::setDashOffset ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>offset</i> )</h3>
+<p>Sets the dash offset (the starting point on the dash pattern) for this pen to the <i>offset</i> specified. The offset is measured in terms of the units used to specify the dash pattern.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><img src="images/qpen-dashpattern.png" /></p></td><td ><p>For example, a pattern where each stroke is four units long, followed by a gap of two units, will begin with the stroke when drawn as a line.<p>However, if the dash offset is set to 4.0, any line drawn will begin with the gap. Values of the offset up to 4.0 will cause part of the stroke to be drawn first, and values of the offset between 4.0 and 6.0 will cause the line to begin with part of the gap.</p>
+</p></td></tr>
+</table>
+<p><b>Note:</b> This implicitly converts the style of the pen to <a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a>.</p>
+<p>See also <a href="qpen.html#dashOffset">dashOffset</a>().</p>
+<!-- @@@setDashOffset -->
+<!-- $$$setDashPattern[overload1]$$$setDashPatternconstQVector<qreal>& -->
+<h3 class="fn"><a name="setDashPattern"></a>void QPen::setDashPattern ( const <a href="qvector.html">QVector</a>&lt;<a href="qtglobal.html#qreal-typedef">qreal</a>&gt; &amp; <i>pattern</i> )</h3>
+<p>Sets the dash pattern for this pen to the given <i>pattern</i>. This implicitly converts the style of the pen to <a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a>.</p>
+<p>The pattern must be specified as an even number of positive entries where the entries 1, 3, 5..&#x2e; are the dashes and 2, 4, 6..&#x2e; are the spaces. For example:</p>
+<table class="generic">
+ <tr class="odd topAlign"><td ><p><img src="images/qpen-custom.png" /></p></td><td ><p><pre class="highlightedCode brush: cpp"> QPen pen;
+ QVector&lt;qreal&gt; dashes;
+ qreal space = 4;
+ dashes &lt;&lt; 1 &lt;&lt; space &lt;&lt; 3 &lt;&lt; space &lt;&lt; 9 &lt;&lt; space
+            &lt;&lt; 27 &lt;&lt; space &lt;&lt; 9 &lt;&lt; space;
+ pen.setDashPattern(dashes);</pre>
+</p></td></tr>
+</table>
+<p>The dash pattern is specified in units of the pens width; e.g&#x2e; a dash of length 5 in width 10 is 50 pixels long. Note that a pen with zero width is equivalent to a cosmetic pen with a width of 1 pixel.</p>
+<p>Each dash is also subject to cap styles so a dash of 1 with square cap set will extend 0.5 pixels out in each direction resulting in a total width of 2.</p>
+<p>Note that the default cap style is <a href="qt.html#PenCapStyle-enum">Qt::SquareCap</a>, meaning that a square line end covers the end point and extends beyond it by half the line width.</p>
+<p>See also <a href="qpen.html#setStyle">setStyle</a>(), <a href="qpen.html#dashPattern">dashPattern</a>(), <a href="qpen.html#setCapStyle">setCapStyle</a>(), and <a href="qpen.html#setCosmetic">setCosmetic</a>().</p>
+<!-- @@@setDashPattern -->
+<!-- $$$setJoinStyle[overload1]$$$setJoinStyleQt::PenJoinStyle -->
+<h3 class="fn"><a name="setJoinStyle"></a>void QPen::setJoinStyle ( <a href="qt.html#PenJoinStyle-enum">Qt::PenJoinStyle</a> <i>style</i> )</h3>
+<p>Sets the pen's join style to the given <i>style</i>. The default value is <a href="qt.html#PenJoinStyle-enum">Qt::BevelJoin</a>.</p>
+<p>See also <a href="qpen.html#joinStyle">joinStyle</a>() and <a href="qpen.html#join-style">Join Style</a>.</p>
+<!-- @@@setJoinStyle -->
+<!-- $$$setMiterLimit[overload1]$$$setMiterLimitqreal -->
+<h3 class="fn"><a name="setMiterLimit"></a>void QPen::setMiterLimit ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>limit</i> )</h3>
+<p>Sets the miter limit of this pen to the given <i>limit</i>.</p>
+<p class="centerAlign"><img src="images/qpen-miterlimit.png" /></p><p>The miter limit describes how far a miter join can extend from the join point. This is used to reduce artifacts between line joins where the lines are close to parallel.</p>
+<p>This value does only have effect when the pen style is set to <a href="qt.html#PenJoinStyle-enum">Qt::MiterJoin</a>. The value is specified in units of the pen's width, e.g&#x2e; a miter limit of 5 in width 10 is 50 pixels long. The default miter limit is 2, i.e&#x2e; twice the pen width in pixels.</p>
+<p>See also <a href="qpen.html#miterLimit">miterLimit</a>(), <a href="qpen.html#setJoinStyle">setJoinStyle</a>(), and <a href="qpen.html#join-style">Join Style</a>.</p>
+<!-- @@@setMiterLimit -->
+<!-- $$$setStyle[overload1]$$$setStyleQt::PenStyle -->
+<h3 class="fn"><a name="setStyle"></a>void QPen::setStyle ( <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> <i>style</i> )</h3>
+<p>Sets the pen style to the given <i>style</i>.</p>
+<p>See the <a href="qt.html#PenStyle-enum">Qt::PenStyle</a> documentation for a list of the available styles. Since Qt 4.1 it is also possible to specify a custom dash pattern using the <a href="qpen.html#setDashPattern">setDashPattern</a>() function which implicitly converts the style of the pen to <a href="qt.html#PenStyle-enum">Qt::CustomDashLine</a>.</p>
+<p><b>Note:</b> This function resets the dash offset to zero.</p>
+<p>See also <a href="qpen.html#style">style</a>() and <a href="qpen.html#pen-style">Pen Style</a>.</p>
+<!-- @@@setStyle -->
+<!-- $$$setWidth[overload1]$$$setWidthint -->
+<h3 class="fn"><a name="setWidth"></a>void QPen::setWidth ( int <i>width</i> )</h3>
+<p>Sets the pen width to the given <i>width</i> in pixels with integer precision.</p>
+<p>A line width of zero indicates a cosmetic pen. This means that the pen width is always drawn one pixel wide, independent of the <a href="qpainter.html#coordinate-transformations">transformation</a> set on the painter.</p>
+<p>Setting a pen width with a negative value is not supported.</p>
+<p>See also <a href="qpen.html#setWidthF">setWidthF</a>() and <a href="qpen.html#width">width</a>().</p>
+<!-- @@@setWidth -->
+<!-- $$$setWidthF[overload1]$$$setWidthFqreal -->
+<h3 class="fn"><a name="setWidthF"></a>void QPen::setWidthF ( <a href="qtglobal.html#qreal-typedef">qreal</a> <i>width</i> )</h3>
+<p>Sets the pen width to the given <i>width</i> in pixels with floating point precision.</p>
+<p>A line width of zero indicates a cosmetic pen. This means that the pen width is always drawn one pixel wide, independent of the <a href="qpainter.html#coordinate-transformations">transformation</a> on the painter.</p>
+<p>Setting a pen width with a negative value is not supported.</p>
+<p>See also <a href="qpen.html#setWidth">setWidth</a>() and <a href="qpen.html#widthF">widthF</a>().</p>
+<!-- @@@setWidthF -->
+<!-- $$$style[overload1]$$$style -->
+<h3 class="fn"><a name="style"></a><a href="qt.html#PenStyle-enum">Qt::PenStyle</a> QPen::style () const</h3>
+<p>Returns the pen style.</p>
+<p>See also <a href="qpen.html#setStyle">setStyle</a>() and <a href="qpen.html#pen-style">Pen Style</a>.</p>
+<!-- @@@style -->
+<!-- $$$width[overload1]$$$width -->
+<h3 class="fn"><a name="width"></a>int QPen::width () const</h3>
+<p>Returns the pen width with integer precision.</p>
+<p>See also <a href="qpen.html#setWidth">setWidth</a>() and <a href="qpen.html#widthF">widthF</a>().</p>
+<!-- @@@width -->
+<!-- $$$widthF[overload1]$$$widthF -->
+<h3 class="fn"><a name="widthF"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QPen::widthF () const</h3>
+<p>Returns the pen width with floating point precision.</p>
+<p>See also <a href="qpen.html#setWidthF">setWidthF</a>() and <a href="qpen.html#width">width</a>().</p>
+<!-- @@@widthF -->
+<!-- $$$operator QVariant[overload1]$$$operator QVariant -->
+<h3 class="fn"><a name="operator-QVariant"></a>QPen::operator QVariant () const</h3>
+<p>Returns the pen as a <a href="qvariant.html">QVariant</a>.</p>
+<!-- @@@operator QVariant -->
+<!-- $$$operator!=[overload1]$$$operator!=constQPen& -->
+<h3 class="fn"><a name="operator-not-eq"></a>bool QPen::operator!= ( const QPen &amp; <i>pen</i> ) const</h3>
+<p>Returns true if the pen is different from the given <i>pen</i>; otherwise false. Two pens are different if they have different styles, widths or colors.</p>
+<p>See also <a href="qpen.html#operator-eq-eq">operator==</a>().</p>
+<!-- @@@operator!= -->
+<!-- $$$operator=[overload1]$$$operator=constQPen& -->
+<h3 class="fn"><a name="operator-eq"></a>QPen &amp; QPen::operator= ( const QPen &amp; <i>pen</i> )</h3>
+<p>Assigns the given <i>pen</i> to this pen and returns a reference to this pen.</p>
+<!-- @@@operator= -->
+<!-- $$$operator==[overload1]$$$operator==constQPen& -->
+<h3 class="fn"><a name="operator-eq-eq"></a>bool QPen::operator== ( const QPen &amp; <i>pen</i> ) const</h3>
+<p>Returns true if the pen is equal to the given <i>pen</i>; otherwise false. Two pens are equal if they have equal styles, widths and colors.</p>
+<p>See also <a href="qpen.html#operator-not-eq">operator!=</a>().</p>
+<!-- @@@operator== -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$operator<<$$$operator<<QDataStream&constQPen& -->
+<h3 class="fn"><a name="operator-lt-lt-116"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&lt;&lt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, const QPen &amp; <i>pen</i> )</h3>
+<p>Writes the given <i>pen</i> to the given <i>stream</i> and returns a reference to the <i>stream</i>.</p>
+<p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
+<!-- @@@operator<< -->
+<!-- $$$operator>>$$$operator>>QDataStream&QPen& -->
+<h3 class="fn"><a name="operator-gt-gt-75"></a><a href="qdatastream.html">QDataStream</a> &amp; operator&gt;&gt; ( <a href="qdatastream.html">QDataStream</a> &amp; <i>stream</i>, QPen &amp; <i>pen</i> )</h3>
+<p>Reads a pen from the given <i>stream</i> into the given <i>pen</i> and returns a reference to the <i>stream</i>.</p>
+<p>See also <a href="datastreamformat.html">Serializing Qt Data Types</a>.</p>
+<!-- @@@operator>> -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

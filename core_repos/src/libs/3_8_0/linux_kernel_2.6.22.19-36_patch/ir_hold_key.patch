@@ -1,0 +1,248 @@
+--- drivers/char/irkernel.c.orig	2010-08-07 23:33:37.000000000 +0800
++++ drivers/char/irkernel.c	2010-08-10 14:17:45.000000000 +0800
+@@ -30,7 +30,7 @@
+ /* For all SMP86xx, it's always there */
+ #if defined(CONFIG_TANGO2_SMP863X) || defined(CONFIG_TANGO3_SMP86XX)
+ #define WITH_RC5_CONTROL
+-#define WITH_RC6_CONTROL
++//#define WITH_RC6_CONTROL
+ #endif
+ 
+ //#define DEBUG_IR
+@@ -70,7 +70,12 @@
+ #endif
+ 
+ /* Wait period, to avoid bouncing? */
+-#define WAIT_PERIOD		100
++#define WAIT_PERIOD		300
++
++#ifdef CONFIG_IR_HOLD_KEY
++/* to identify the key is repeat or hold key. (seconds) */
++#define HOLD_KEY_PERIOD		3 * HZ
++#endif //CONFIG_IR_HOLD_KEY
+ 
+ /* Max. size of key table */
+ #define MAX_KEYS		32
+@@ -117,6 +122,9 @@
+ struct ir_private {
+ 	unsigned long *buffer;		/* Circular buffer */
+ 	unsigned long *key_table;	/* Table for repetition keys */
++#ifdef CONFIG_IR_HOLD_KEY 
++	unsigned long *hold_key_table;	/* Table for hold keys */
++#endif //CONFIG_IR_HOLD_KEY
+ 	unsigned p_idx;			/* Index of producer */
+ 	unsigned c_idx; 		/* Index of consumer */
+ 	unsigned ref_cnt;		/* Reference count */
+@@ -138,7 +146,9 @@
+ static char *ir_devname = IR_DEV_NAME;
+ static int ir_irq = LOG2_CPU_INFRARED_INT + IRQ_CONTROLLER_IRQ_BASE;
+ static struct cdev cdev;
++#if 0
+ static struct class *ir_class;
++#endif
+ 
+ static struct file_operations ir_fops = {
+ 	open: ir_open,
+@@ -149,6 +159,23 @@
+ 	owner: THIS_MODULE,
+ };
+ 
++#ifdef CONFIG_IR_HOLD_KEY
++/* Check to see if we can find the key in the hold key table */
++static unsigned long ir_get_hold_key(struct ir_private *priv, unsigned long key)
++{
++	register unsigned int i;
++	unsigned long *ptr = priv->key_table;
++	unsigned long *ptr_hold = priv->hold_key_table;
++
++	for (i = 0; i < priv->num_keys; i++, ptr++, ptr_hold++){
++		if (key == *ptr && ptr_hold){
++			return(*ptr_hold);
++		}
++	}
++	return(0);
++}
++#endif //CONFIG_IR_HOLD_KEY
++
+ /* Check to see if we can find the key in the repetition key table */
+ static int ir_findkey(struct ir_private *priv, unsigned long key)
+ {
+@@ -170,6 +197,9 @@
+ {
+ 	static unsigned long old_key = 0;
+ 	static unsigned long save_key = 0;
++#ifdef CONFIG_IR_HOLD_KEY
++	static unsigned long first_hold_key_jiffies = 0;
++#endif //CONFIG_IR_HOLD_KEY
+ 	unsigned long data = 0;
+ 	unsigned pidx;
+ 	int repeat_key = 0;
+@@ -328,9 +358,34 @@
+ #endif
+ 
+ 	pidx = priv->p_idx;	/* Save the old index before proceeding */
+-
++#ifdef CONFIG_IR_HOLD_KEY
++	if (repeat_key){
++		unsigned long hold_key = 0;
++		if (repeat_sends_zero)
++			data = 0; /* clear the data */
++		
++		hold_key = ir_get_hold_key(priv, save_key);
++		if (hold_key){
++			static unsigned long last_hold_key_jiffies = 0;
++			if (!first_hold_key_jiffies){
++				first_hold_key_jiffies = jiffies;
++				last_hold_key_jiffies = jiffies;
++			}else if (time_after(jiffies, first_hold_key_jiffies + HOLD_KEY_PERIOD)){
++				if (time_after(jiffies, last_hold_key_jiffies + (HZ/5) )){
++					last_hold_key_jiffies = jiffies;
++					data = hold_key;
++				}else{
++					data = 0;
++				}
++			}
++		}else
++			first_hold_key_jiffies = 0;
++	}else if (!repeat_key)
++		first_hold_key_jiffies = 0;
++#else //CONFIG_IR_HOLD_KEY
+ 	if (repeat_sends_zero && repeat_key)
+ 		data = 0; /* clear the data */
++#endif //CONFIG_IR_HOLD_KEY
+ 
+ 	/* Save it to buffer */
+ 	if (((priv->p_idx + 1) % buffer_size) == priv->c_idx) {
+@@ -494,6 +549,24 @@
+ 					goto efault_out;
+ 			}
+ 			break;
++#ifdef CONFIG_IR_HOLD_KEY
++		case IR_IOCSETHOLDKEYS: /* Set the hold keys */
++			if (copy_from_user(&key_no, ptr, sizeof(unsigned long))) {
++				spin_unlock_irqrestore(&priv->lock, flags);
++				return(-EFAULT);
++			} else if ((key_no <= 0) || (key_no > max_keys)) {
++				spin_unlock_irqrestore(&priv->lock, flags);
++				return(-EIO);
++			} 
++			copy_from_user(priv->hold_key_table, ptr + 1, sizeof(unsigned long) * key_no);
++			break;
++		case IR_IOCGETHOLDKEYS: /* Get the hold keys */
++			key_no = priv->num_keys;
++			copy_to_user(ptr, &key_no, sizeof(unsigned long));
++			if (key_no > 0)
++				copy_to_user(ptr + 1, priv->hold_key_table, sizeof(unsigned long) * key_no);
++			break;
++#endif //CONFIG_IR_HOLD_KEY
+ 		case IR_IOCSETWAITPERIOD:
+ 			wait_period = arg;
+ 			wait_jiffies = wp_var = ((((wait_period * HZ) / 1000) == 0) ? 1 : ((wait_period * HZ) / 1000));
+@@ -676,6 +749,13 @@
+ 		printk(KERN_ERR "%s: out of memory for key table\n", ir_devname); 
+ 		kfree(ir_priv.buffer);
+ 		return(-ENOMEM);
++#ifdef CONFIG_IR_HOLD_KEY
++	} else if ((ir_priv.hold_key_table = kmalloc(max_keys * sizeof(unsigned long), GFP_KERNEL)) == NULL) {
++		printk(KERN_ERR "%s: out of memory  for hold key table\n", ir_devname); 
++		kfree(ir_priv.buffer);
++		kfree(ir_priv.key_table);
++		return(-ENOMEM);
++#endif //CONFIG_IR_HOLD_KEY
+ 	}
+ 
+ 	/* Register device, and may be allocating major# */
+@@ -690,6 +770,9 @@
+ 		printk(KERN_ERR "%s: cannot get chrdev_region\n", ir_devname);
+ 		kfree(ir_priv.buffer);
+ 		kfree(ir_priv.key_table);
++#ifdef CONFIG_IR_HOLD_KEY
++		kfree(ir_priv.hold_key_table);
++#endif //CONFIG_IR_HOLD_KEY
+ 		return(status);
+ 	}
+ 
+@@ -703,6 +786,8 @@
+ 		kfree(ir_priv.key_table);
+ 		return(status);
+ 	}
++
++#if 0	
+ 	if ((ir_class = class_create(THIS_MODULE, "ir_device")) < 0) {
+ 		printk(KERN_ERR "%s: error creating ir_device class.\n", ir_devname);
+ 		cdev_del(&cdev);
+@@ -720,6 +805,7 @@
+ 		kfree(ir_priv.key_table);
+ 		return(-EIO);
+ 	}
++#endif
+ 
+ 	/* Make sure interrupt is disabled, will be re-enabled in device
+ 	   open stage */
+@@ -738,12 +824,17 @@
+ 			&ir_priv) != 0) {
+ 		printk(KERN_ERR "%s: cannot register IRQ (%d)\n", ir_devname,
+ 			ir_irq);
++#if 0
+ 		device_destroy(ir_class, MKDEV(major_num, 0));
+ 		class_destroy(ir_class);
++#endif		
+ 		cdev_del(&cdev);
+ 		unregister_chrdev_region(MKDEV(major_num, 0), 1);
+ 		kfree(ir_priv.buffer);
+ 		kfree(ir_priv.key_table);
++#ifdef CONFIG_IR_HOLD_KEY
++		kfree(ir_priv.hold_key_table);
++#endif //CONFIG_IR_HOLD_KEY
+ 		return(-EIO);
+ 	}
+ 
+@@ -759,8 +850,10 @@
+ 		return;
+ 
+ 	free_irq(ir_irq, &ir_priv);
++#if 0	
+ 	device_destroy(ir_class, MKDEV(major_num, 0));
+ 	class_destroy(ir_class);
++#endif	
+ 	cdev_del(&cdev);
+ 	unregister_chrdev_region(MKDEV(major_num, 0), 1);
+ 
+@@ -768,6 +861,10 @@
+ 		kfree(ir_priv.buffer);
+ 	if (ir_priv.key_table != NULL)
+ 		kfree(ir_priv.key_table);
++#ifdef CONFIG_IR_HOLD_KEY
++	if (ir_priv.hold_key_table != NULL)
++		kfree(ir_priv.hold_key_table);
++#endif //CONFIG_IR_HOLD_KEY
+ 
+ 	printk(KERN_INFO "%s: driver unloaded\n", ir_devname);
+ }
+--- ../linux_kernel_2.6.22.19-12/include/asm-mips/tango3/ir.h	2009-02-27 12:23:02.000000000 +0800
++++ include/asm-mips/tango3/ir.h	2009-02-27 20:42:35.000000000 +0800
+@@ -28,6 +28,8 @@
+ #define IR_IOCGETREPEATKEYS	_IO(IR_IOC_MAGIC, 1)
+ #define IR_IOCSETWAITPERIOD	_IO(IR_IOC_MAGIC, 2)
+ #define IR_IOCGETWAITPERIOD	_IO(IR_IOC_MAGIC, 3)
++#define IR_IOCSETHOLDKEYS       _IO(IR_IOC_MAGIC, 4)
++#define IR_IOCGETHOLDKEYS       _IO(IR_IOC_MAGIC, 5)
+ #endif /* __KERNEL__ || !BOOTLOADER */
+                                                                                 
+ #endif /* _IR_H_ */
+--- drivers/char/Kconfig	2009-02-27 12:23:03.000000000 +0800
++++ drivers/char/Kconfig1	2009-05-07 18:56:15.000000000 +0800
+@@ -465,6 +465,13 @@
+        help
+          Support Infra-Red remote controller interface for SMP86xx.
+ 
++config IR_HOLD_KEY
++       bool "SMP86xx IR remote support hold key"
++       depends on TANGOX_IR
++       default n
++       help
++         Support hold key for SMP86xx ir.
++
+ config TANGOX_FIP
+        tristate "SMP86xx Front Panel support" if TANGOX
+        default m

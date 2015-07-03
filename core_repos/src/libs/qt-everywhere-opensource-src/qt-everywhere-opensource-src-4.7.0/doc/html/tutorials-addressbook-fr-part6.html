@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- addressbook-fr.qdoc -->
+  <title>Qt 4.7: Carnet d'Adresses 6 - Sauvegarde et chargement</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-tutorials.html"></a></li>              <li>Carnet d'Adresses 6 - Sauvegarde et chargement</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#d-finition-de-la-classe-addressbook">Définition de la classe AddressBook</a></li>
+<li class="level1"><a href="#impl-mentation-de-la-classe-addressbook">Implémentation de la classe AddressBook</a></li>
+</ul>
+</div>
+<h1 class="title">Carnet d'Adresses 6 - Sauvegarde et chargement</h1>
+<span class="subtitle"></span>
+<!-- $$$tutorials/addressbook-fr/part6-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tutorials-addressbook-fr-part6-addressbook-cpp.html">tutorials/addressbook-fr/part6/addressbook.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part6-addressbook-h.html">tutorials/addressbook-fr/part6/addressbook.h</a></li>
+<li><a href="tutorials-addressbook-fr-part6-finddialog-cpp.html">tutorials/addressbook-fr/part6/finddialog.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part6-finddialog-h.html">tutorials/addressbook-fr/part6/finddialog.h</a></li>
+<li><a href="tutorials-addressbook-fr-part6-main-cpp.html">tutorials/addressbook-fr/part6/main.cpp</a></li>
+<li><a href="tutorials-addressbook-fr-part6-part6-pro.html">tutorials/addressbook-fr/part6/part6.pro</a></li>
+</ul>
+<p>Ce chapitre couvre les fonctionnalités de gestion des fichiers de Qt que l'on utilise pour écrire les procédures de sauvegarde et chargement pour l'application carnet d'adresses.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-screenshot.png" /></p><p>Bien que la navigation et la recherche de contacts soient des fonctionnalités importantes, notre carnet d'adresses ne sera pleinement utilisable qu'une fois que l'on pourra sauvegarder les contacts existants et les charger à nouveau par la suite. Qt fournit de nombreuses classes pour gérer les <a href="io.html">entrées et sorties</a>, mais nous avons choisi de nous contenter d'une combinaison de deux classes simples à utiliser ensemble: <a href="qfile.html">QFile</a> et <a href="qdatastream.html">QDataStream</a>.</p>
+<p>Un objet <a href="qfile.html">QFile</a> représente un fichier sur le disque qui peut être lu, et dans lequel on peut écrire. <a href="qfile.html">QFile</a> est une classe fille de la classe plus générique <a href="qiodevice.html">QIODevice</a>, qui peut représenter différents types de périphériques.</p>
+<p>Un objet <a href="qdatastream.html">QDataStream</a> est utilisé pour sérialiser des données binaires dans le but de les passer à un <a href="qiodevice.html">QIODevice</a> pour les récupérer dans le futur. Pour lire ou écrire dans un <a href="qiodevice.html">QIODevice</a>, il suffit d'ouvrir le flux, avec le périphérique approprié en paramètre, et d'y lire ou écrire.</p>
+<a name="d-finition-de-la-classe-addressbook"></a>
+<h2>Définition de la classe AddressBook</h2>
+<p>On déclare deux slots publics, <tt>saveToFile()</tt> et <tt>loadFromFile()</tt>, ainsi que deux objets <a href="qpushbutton.html">QPushButton</a>, <tt>loadButton</tt> et <tt>saveButton</tt>.</p>
+<pre class="highlightedCode brush: cpp">     void saveToFile();
+     void loadFromFile();
+     ...
+     QPushButton *loadButton;
+     QPushButton *saveButton;</pre>
+<a name="impl-mentation-de-la-classe-addressbook"></a>
+<h2>Implémentation de la classe AddressBook</h2>
+<p>Dans notre constructeur, on instancie <tt>loadButton</tt> et <tt>saveButton</tt>. Idéalement, l'interface serait plus conviviale avec des boutons affichant &quot;Load contacts from a file&quot; et &quot;Save contacts to a file&quot;. Mais compte tenu de la dimension des autres boutons, on initialise les labels des boutons à <b>Load..&#x2e;</b> et <b>Save..&#x2e;</b>. Heureusement, Qt offre une façon simple d'ajouter des info-bulles avec <a href="qwidget.html#toolTip-prop">setToolTip()</a>, et nous l'exploitons de la façon suivante pour nos boutons:</p>
+<pre class="highlightedCode brush: cpp">     loadButton-&gt;setToolTip(tr(&quot;Load contacts from a file&quot;));
+     ...
+     saveButton-&gt;setToolTip(tr(&quot;Save contacts to a file&quot;));</pre>
+<p>Bien qu'on ne cite pas le code correspondant ici, nous ajoutons ces deux boutons au layout de droite, <tt>button1Layout</tt>, comme pour les fonctionnalités précédentes, et nous connectons leurs signaux <a href="qabstractbutton.html#clicked">clicked()</a> à leurs slots respectifs.</p>
+<p>Pour la sauvegarde, on commence par récupérer le nom de fichier <tt>fileName</tt>, en utilisant <a href="qfiledialog.html#getSaveFileName">QFileDialog::getSaveFileName</a>(). C'est une méthode pratique fournie par <a href="qfiledialog.html">QFileDialog</a>, qui ouvre une boîte de dialogue modale et permet à l'utilisateur d'entrer un nom de fichier ou de choisir un fichier <tt>.abk</tt> existant. Les fichiers <tt>.abk</tt> correspondent à l'extension choisie pour la sauvegarde des contacts de notre carnet d'adresses.</p>
+<pre class="highlightedCode brush: cpp"> void AddressBook::saveToFile()
+ {
+     QString fileName = QFileDialog::getSaveFileName(this,
+         tr(&quot;Save Address Book&quot;), &quot;&quot;,
+         tr(&quot;Address Book (*.abk);;All Files (*)&quot;));</pre>
+<p>La boîte de dialogue affichée est visible sur la capture d'écran ci- dessous.</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-save.png" /></p><p>Si <tt>fileName</tt> n'est pas vide, on crée un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, à partir de <tt>fileName</tt>. <a href="qfile.html">QFile</a> fonctionne avec <a href="qdatastream.html">QDataStream</a> puisqu'il dérive de <a href="qiodevice.html">QIODevice</a>.</p>
+<p>Ensuite, on essaie d'ouvrir le fichier en écriture, ce qui correspond au mode <a href="qiodevice.html#OpenModeFlag-enum">WriteOnly</a>. Si cela échoue, on en informe l'utilisateur avec une <a href="qmessagebox.html">QMessageBox</a>.</p>
+<pre class="highlightedCode brush: cpp">     if (fileName.isEmpty())
+         return;
+     else {
+         QFile file(fileName);
+         if (!file.open(QIODevice::WriteOnly)) {
+             QMessageBox::information(this, tr(&quot;Unable to open file&quot;),
+                 file.errorString());
+             return;
+         }</pre>
+<p>Dans le cas contraire, on instancie un objet <a href="qdatastream.html">QDataStream</a>, <tt>out</tt>, afin d'écrire dans le fichier ouvert. <a href="qdatastream.html">QDataStream</a> nécessite que la même version de flux soit utilisée pour la lecture et l'écriture. On s'assure que c'est le cas en spécifiant explicitement d'utiliser la <a href="qdatastream.html#Version-enum">version introduite avec Qt 4.5</a> avant de sérialiser les données vers le fichier <tt>file</tt>.</p>
+<pre class="highlightedCode brush: cpp">         QDataStream out(&amp;file);
+         out.setVersion(QDataStream::Qt_4_5);
+         out &lt;&lt; contacts;
+     }
+ }</pre>
+<p>Pour le chargement, on récupère également <tt>fileName</tt> en utilisant <a href="qfiledialog.html#getOpenFileName">QFileDialog::getOpenFileName</a>(). Cette méthode est l'homologue de <a href="qfiledialog.html#getSaveFileName">QFileDialog::getSaveFileName</a>() et affiche également une boîte de dialogue modale permettant à l'utilisateur d'entrer un nom de fichier ou de selectionner un fichier <tt>.abk</tt> existant, afin de le charger dans le carnet d'adresses.</p>
+<pre class="highlightedCode brush: cpp"> void AddressBook::loadFromFile()
+ {
+     QString fileName = QFileDialog::getOpenFileName(this,
+         tr(&quot;Open Address Book&quot;), &quot;&quot;,
+         tr(&quot;Address Book (*.abk);;All Files (*)&quot;));</pre>
+<p>Sous Windows, par exemple, cette méthode affiche une boîte de dialogue native pour la sélection de fichier, comme illustré sur la capture d'écran suivante:</p>
+<p class="centerAlign"><img src="images/addressbook-tutorial-part6-load.png" /></p><p>Si <tt>fileName</tt> n'est pas vide, on utilise une fois de plus un objet <a href="qfile.html">QFile</a>, <tt>file</tt>, et on tente de l'ouvrir en lecture, avec le mode <a href="qiodevice.html#OpenModeFlag-enum">ReadOnly</a>. De même que précédemment dans notre implémentation de <tt>saveToFile()</tt>, si cette tentative s'avère infructueuse, on en informe l'utilisateur par le biais d'une <a href="qmessagebox.html">QMessageBox</a>.</p>
+<pre class="highlightedCode brush: cpp">     if (fileName.isEmpty())
+         return;
+     else {
+
+         QFile file(fileName);
+
+         if (!file.open(QIODevice::ReadOnly)) {
+             QMessageBox::information(this, tr(&quot;Unable to open file&quot;),
+                 file.errorString());
+             return;
+         }
+
+         QDataStream in(&amp;file);
+         in.setVersion(QDataStream::Qt_4_5);
+         contacts.empty();   <span class="comment">// empty existing contacts</span>
+         in &gt;&gt; contacts;</pre>
+<p>Dans le cas contraire, on instancie un objet <a href="qdatastream.html">QDataStream</a>, <tt>in</tt>, en spécifiant la version à utiliser comme précédemment, et on lit les informations sérialisées vers la structure de données <tt>contacts</tt>. Notez qu'on purge <tt>contacts</tt> avant d'y mettre les informations lues afin de simplifier le processus de lecture de fichier. Une façon plus avancée de procéder serait de lire les contacts dans un objet <a href="qmap.html">QMap</a> temporaire, et de copier uniquement les contacts n'existant pas encore dans <tt>contacts</tt>.</p>
+<pre class="highlightedCode brush: cpp">         if (contacts.isEmpty()) {
+             QMessageBox::information(this, tr(&quot;No contacts in file&quot;),
+                 tr(&quot;The file you are attempting to open contains no contacts.&quot;));
+         } else {
+             QMap&lt;QString, QString&gt;::iterator i = contacts.begin();
+             nameLine-&gt;setText(i.key());
+             addressText-&gt;setText(i.value());
+         }
+     }
+
+     updateInterface(NavigationMode);
+ }</pre>
+<p>Pour afficher les contacts lus depuis le fichier, on doit d'abord valider les données obtenues afin de s'assurer que le fichier lu contient effectivement des entrées de carnet d'adresses. Si c'est le cas, on affiche le premier contact; sinon on informe l'utilisateur du problème par une <a href="qmessagebox.html">QMessageBox</a>. Enfin, on met à jour l'interface afin d'activer et de désactiver les boutons de façon appropriée.</p>
+</div>
+<!-- @@@tutorials/addressbook-fr/part6 -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

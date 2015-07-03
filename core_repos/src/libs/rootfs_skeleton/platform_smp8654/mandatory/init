@@ -1,0 +1,179 @@
+#!/bin/sh
+
+. ./sysconfig 
+
+echo "===================ROOTFS==================================="
+cat ./sysconfig
+echo "============================================================"
+
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+/bin/mount -t proc none /proc
+echo "1 1 1 7" > /proc/sys/kernel/printk
+mount -t sysfs sysfs /sys
+mount -t usbfs usb /proc/bus/usb
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mount -t tmpfs mdev /dev
+mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+mdev -s
+mount -t tmpfs none /tmp
+/bin/hostname -F /etc/hostname
+
+mkdir -p /dev/input
+MINOR=0
+while [ $MINOR -lt 17 ]; do
+	mknod /dev/input/event$MINOR c 13 `expr $MINOR + 64`;
+	MINOR=`expr $MINOR + 1`;
+done
+
+ln -s $SYSCONF_BOOTLOADER_MTD_PARTITION /dev/mtdblock_bootloader
+ln -s $SYSCONF_KERNEL_MTD_PARTITION /dev/mtdblock_kernel
+ln -s $SYSCONF_FIRMWARE_MTD_PARTITION /dev/mtdblock_romfs
+
+cp /etc/securetty.ori /tmp
+/sbin/ldconfig -C /tmp/ld.so.cache
+if [ $1 == "upgrade" ]; then
+	/sbin/config_tool -l 
+	touch /tmp/STOP_DMARENDER
+	touch /tmp/STOP_PICRENDER
+else
+	/sbin/config_tool -l -m 10 &
+fi
+
+if [ x$1 != "xf1f1" ]; then
+	if [ x$SYSCONF_LAST_PARTITION_NODE_NAME != "x" ]; then
+		dd if=$SYSCONF_LAST_PARTITION_NODE_NAME of=/tmp/lastblock bs=1024
+		mkdir $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+		mount -t minix -o loop /tmp/lastblock $SYSCONF_STATIC_CONFIG_MOUNT_POINT
+	fi
+fi
+
+
+export EM8XXX_SERVER=":0"
+
+mknod /dev/mum0 c 126 0
+mknod /dev/em8xxx0 c 127 0
+mknod /dev/mtdblock3 b 254 6
+mknod /dev/mtdblock2 b 254 3
+mknod /dev/mtdblock0 b 254 0
+mknod /dev/sda1 b 8 1
+mknod /dev/button c 220 0
+
+#mknod /dev/loop0 b 7 0
+#mknod /dev/loop1 b 7 1
+#mknod /dev/loop2 b 7 2
+#mknod /dev/loop3 b 7 3
+fw_reload_t3.sh
+ln -s /dev/ir /dev/irda
+
+modprobe r8169
+
+MAJOR=254
+while [ -f /lib/modules/irkernel.ko ]; do
+	insmod /lib/modules/irkernel.ko major_num=$MAJOR;
+	if [ $? == 0 ]; then
+		mknod /dev/ir c $MAJOR 0
+		MAJOR2=`expr $MAJOR - 1`
+		mknod /dev/irm c $MAJOR2 0
+		break;
+	fi
+	MAJOR=`expr $MAJOR - 1`
+	if [ $MAJOR == 1 ]; then
+		break;
+	fi
+done
+
+if [ -f /lib/modules/proc_pipe.ko ]; then
+	insmod /lib/modules/proc_pipe.ko
+fi
+
+if [ -f /lib/modules/ufsd.ko ]; then
+	insmod /lib/modules/ufsd.ko
+fi
+
+if [ -f /lib/modules/tntfs.ko ]; then
+	insmod /lib/modules/tntfs.ko
+fi
+
+if [ -f /lib/modules/fctrl.ko ]; then
+	insmod /lib/modules/fctrl.ko
+fi
+
+if [ -f /ir_table ]; then
+	cat /ir_table > /proc/tangoxfreq/ir_table 
+fi
+
+if [ -f /lib/modules/i2c_hal.ko ]; then
+	insmod /lib/modules/i2c_hal.ko
+fi
+
+if [ -f /lib/modules/thermal_g751.ko ]; then
+	insmod /lib/modules/thermal_g751.ko
+fi
+
+modprobe cifs CIFSMaxBufSize=64512
+
+mkdir -p /tmp/media
+mkdir -p /tmp/media/usb
+
+ifconfig lo 127.0.0.1
+
+if [ -f /lib/modules/llad.ko ]; then
+insmod -f /lib/modules/llad.ko
+fi
+	
+if [ -f /etc/directfbrc ]; then
+cp /etc/directfbrc /tmp/directfbrc
+fi
+if [ -f /etc/sigmadfbrc ]; then
+cp /etc/sigmadfbrc /tmp/sigmadfbrc
+fi
+if [ -f /usr/sbin/directfbrc_builder ]; then
+/usr/sbin/directfbrc_builder
+fi
+
+cp /etc/passwd.conf /tmp -f
+cp /etc/shadow.conf /tmp -f
+
+if [ x$1 == "xf1f1" ]; then
+	echo "enter f1 test ..."
+	/bin/sh
+fi
+
+if [ x$1 == "xsisi" ]; then
+	echo "enter si test ..."
+	mount /dev/sda1 /tmp/media/usb
+	if [ $? != 0 ]; then
+		echo "Mounting /dev/sda1 fail, try to mount /dev/sda to /tmp/media/usb"
+		mount /dev/sda /tmp/media/usb
+		if [ $? != 0 ]; then
+			echo "Mounting /dev/sda still fail, abort!!!"
+		fi
+	fi
+	if [ ! -f /tmp/media/usb/runsit.sh ]; then
+		echo "/tmp/media/usb/runsit.sh is not exist..."
+		umount /tmp/media/usb
+		mount /dev/sdb1 /tmp/media/usb
+		if [ $? != 0 ]; then
+			echo "Mounting /dev/sdb1 fail, try to mount /dev/sdb to /tmp/media/usb"
+			mount /dev/sdb /tmp/media/usb
+			if [ $? != 0 ]; then
+				echo "Mounting /dev/sdb still fail, abort!!!"
+			fi
+		fi
+	fi
+	/tmp/media/usb/runsit.sh
+	/bin/sh
+fi
+
+#/bin/memory_cache_server &
+
+run_all $1 $2 $3&
+
+/bin/run_twonky_server &
+/bin/run_vudu &
+
+while [ 1 ]; do 
+		/bin/sh ;
+done
+

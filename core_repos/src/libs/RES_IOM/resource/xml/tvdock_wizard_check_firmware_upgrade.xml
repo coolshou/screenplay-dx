@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+	<text text="$$Searching for updates..." x="330" y="284" w="620" h="110" fontsize="26" align="hcenter" numlines="3"/>
+<!--	<image image="@@status_icon" x="528" y="435" w="158" h="32"/> -->
+	<include filename="./inc_setup_entry_basic_title.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>

@@ -1,0 +1,11 @@
+#!/bin/sh
+#mkdir -p /tmp/nfsroot
+#mount -t nfs -o nolock 172.18.83.212:/home/joshua/DMA/root /tmp/nfsroot
+
+#osdbuf_control  -c720x480 -Ftck:32bpp
+#insmod /lib/modules/em8xxxfb.ko `osdbuf_control -p`
+#/bin/dmaosd
+#run_all
+#McxShell -s 1280x720 -o HDMI_1080i59 &
+
+

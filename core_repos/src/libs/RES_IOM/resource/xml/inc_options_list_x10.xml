@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2009, Alphanetworks, inc. -->
+<!-- Author: Leo Hsu <leo_hsu@alphanetworks.com> -->
+
+<wrapper>
+	<image image="image/photo_player_options_menu_bg_x10.png" x="178" y="0" w="942" h="142" bg="1" disable="@@disable-options_bg"/>
+	<table x="192" y="38" h="74" w="905" cols="10" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0"/>
+		<image image="@@bg-QML1"/>
+		<image image="@@bg-QML2"/>
+		<image image="@@bg-QML3"/>
+		<image image="@@bg-QML4"/>
+		<image image="@@bg-QML5"/>
+		<image image="@@bg-QML6"/>
+		<image image="@@bg-QML7"/>
+		<image image="@@bg-QML8"/>
+		<image image="@@bg-QML9"/>
+	</table>
+	<table x="192" y="38" h="74" w="905" cols="10" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@lightbar-QML0" bg="1"/>
+		<image image="@@lightbar-QML1" bg="1"/>
+		<image image="@@lightbar-QML2" bg="1"/>
+		<image image="@@lightbar-QML3" bg="1"/>
+		<image image="@@lightbar-QML4" bg="1"/>
+		<image image="@@lightbar-QML5" bg="1"/>
+		<image image="@@lightbar-QML6" bg="1"/>
+		<image image="@@lightbar-QML7" bg="1"/>
+		<image image="@@lightbar-QML8" bg="1"/>
+		<image image="@@lightbar-QML9" bg="1"/>
+	</table>
+
+</wrapper>
+<text x="450" y="160" w="372" h="26" text="@@text-OPTION" fontsize="24" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+<include filename="decoration.xml"/>

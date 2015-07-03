@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+
+  <wrapper textcolor="0xffffff">
+  <text text="@@title" x="200" y="131" w="880" h="50" fontsize="40"/>
+  <text text="@@msg-value" x="200" y="254" w="880" h="90" fontsize="26" numlines="3" align="hcenter"/>
+  <progress_bar name="point_bar" x="360" y="406" w="520" h="21"  pb_back_img="image/music_playing_playbar_bg.png" pb_front_img="image/music_playing_playbar_scale.png" pb_point_img="image/slideshow_player_time_played_line_mark_disabled.png" pb_delay="500"/>
+  <text text="@@msg-value1" x="270" y="435" w="740" h="26" fontsize="24" align="hcenter"/>
+  <include filename="./inc_decoration.xml"/>
+  </wrapper>
+</page>

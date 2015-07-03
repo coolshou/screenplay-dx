@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg">
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+  </ctrlgrp>
+    <image image="@@page_logo" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio"/>
+    <text text="@@headline" x="157" y="62" w="748" h="42" align="left" fontsize="40" textcolor="0xecc402"/>
+	<text text="@@master_headline" x="157" y="109" w="748" h="28" align="left" fontsize="24" textcolor="0xffffff"/>
+	<text text="@@slave_headline" x="476" y="184" w="325" h="22" align="left" fontsize="28" textcolor="0xffffff"/>
+  <wrapper>
+    <widget_keyboard ctrlname="keyboard" x="476" y="240" w="376" h="141" cols="8" rows="3"
+			 align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xffffff"
+		     changed="@@keyboard_changed" extra_height="5" extra_index="0"/>
+  </wrapper>
+  
+  <image image="image/ip_input_box_f.png" x="474" y="240" w="331" h="48"/>
+  <texttail text="@@input_01_text" x="485" y="252" w="304" h="48" fontsize="28" textcolor="0x3b3b3b" ignore_translate="1"/>
+ <include filename="./inc_decoration.xml"/>
+
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+
+</page>

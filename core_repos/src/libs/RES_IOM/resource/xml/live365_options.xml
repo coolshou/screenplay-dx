@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="image/live365/Generic_live365_option_menu_bg.png" x="0" y="0" w="1280" h="120" bg="1" disable="@@disable-options_bg"/> 
+
+	<table x="338" y="0" h="100" w="612" cols="6" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0" x="338"/>
+		<image image="@@bg-QML1" x="439"/>
+		<image image="@@bg-QML2" x="540"/>
+		<image image="@@bg-QML3" x="641"/>
+		<image image="@@bg-QML4" x="742"/>
+		<image image="@@bg-QML5" x="843"/>
+	</table>
+	<table x="338" y="0" h="100" w="612" cols="6" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@lbimage-QML0" bg="1"/> 
+		<image image="@@lbimage-QML1" bg="1"/>
+		<image image="@@lbimage-QML2" bg="1"/>
+		<image image="@@lbimage-QML3" bg="1"/>
+		<image image="@@lbimage-QML4" bg="1"/>
+		<image image="@@lbimage-QML5" bg="1"/>
+	</table>
+</wrapper>

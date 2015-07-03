@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/bg_video.jpg" type="Video" numitems="6" >
+  <text id="headline" text="$$Video" />
+  <include filename="./inc_list_browse.xml"/>
+  <!-- PIP window -->
+  <include filename="./inc_pip.xml"/>
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>
+  <include filename="./inc_headline_property.xml"/>
+  <include filename="./decoration.xml"/>
+</page>

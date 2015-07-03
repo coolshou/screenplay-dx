@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativemodels.qdoc -->
+  <title>Qt 4.7: Data Models</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Data Models</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#qml-data-models">QML Data Models</a></li>
+<li class="level2"><a href="#listmodel">ListModel</a></li>
+<li class="level2"><a href="#xmllistmodel">XmlListModel</a></li>
+<li class="level2"><a href="#visualitemmodel">VisualItemModel</a></li>
+<li class="level1"><a href="#c-data-models">C++ Data Models</a></li>
+<li class="level2"><a href="#qstringlist">QStringList</a></li>
+<li class="level2"><a href="#qlist-qobject">QList&lt;QObject*&gt;</a></li>
+<li class="level2"><a href="#qabstractitemmodel">QAbstractItemModel</a></li>
+<li class="level2"><a href="#exposing-c-data-models-to-qml">Exposing C++ data models to QML</a></li>
+<li class="level1"><a href="#other-data-models">Other Data Models</a></li>
+<li class="level2"><a href="#an-integer">An Integer</a></li>
+<li class="level2"><a href="#an-object-instance">An Object Instance</a></li>
+<li class="level1"><a href="#accessing-views-and-models-from-delegates">Accessing Views and Models from Delegates</a></li>
+</ul>
+</div>
+<h1 class="title">Data Models</h1>
+<span class="subtitle"></span>
+<!-- $$$qdeclarativemodels.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="qmlmodels"></a><p>QML items such as <a href="qml-listview.html">ListView</a>, <a href="qml-gridview.html">GridView</a> and <a href="qml-repeater.html">Repeater</a> require Data Models that provide the data to be displayed. These items typically require a <i>delegate</i> component that creates an instance for each item in the model. Models may be static, or have items modified, inserted, removed or moved dynamically.</p>
+<p>Data is provided to the delegate via named data roles which the delegate may bind to. Here is a <a href="qml-listmodel.html">ListModel</a> with two roles, <i>type</i> and <i>age</i>, and a <a href="qml-listview.html">ListView</a> with a delegate that binds to these roles to display their values:</p>
+<pre class="highlightedCode brush: cpp"> import Qt 4.7
+
+ Item {
+     width: 200; height: 250
+
+     ListModel {
+         id: myModel
+         ListElement { type: &quot;Dog&quot;; age: 8 }
+         ListElement { type: &quot;Cat&quot;; age: 5 }
+     }
+
+     Component {
+         id: myDelegate
+         Text { text: type + &quot;, &quot; + age }
+     }
+
+     ListView {
+         anchors.fill: parent
+         model: myModel
+         delegate: myDelegate
+     }
+ }</pre>
+<p>If there is a naming clash between the model's properties and the delegate's properties, the roles can be accessed with the qualified <i>model</i> name instead. For example, if a <a href="qml-text.html">Text</a> element had <i>type</i> or <i>age</i> properties, the text in the above example would display those property values instead of the <i>type</i> and <i>age</i> values from the model item. In this case, the properties could have been referenced as <tt>model.type</tt> and <tt>model.age</tt> instead to ensure the delegate displays the property values from the model item.</p>
+<p>A special <i>index</i> role containing the index of the item in the model is also available to the delegate. Note this index is set to -1 if the item is removed from the model. If you bind to the index role, be sure that the logic accounts for the possibility of index being -1, i.e&#x2e; that the item is no longer valid. (Usually the item will shortly be destroyed, but it is possible to delay delegate destruction in some views via a <tt>delayRemove</tt> attached property.)</p>
+<p>Models that do not have named roles (such as the <a href="qstringlist.html">QStringList</a> model shown below) will have the data provided via the <i>modelData</i> role. The <i>modelData</i> role is also provided for models that have only one role. In this case the <i>modelData</i> role contains the same data as the named role.</p>
+<p>QML provides several types of data models among the built-in set of QML elements. In addition, models can be created with C++ and then made available to QML components.</p>
+<a name="qml-data-models"></a>
+<h2>QML Data Models</h2>
+<a name="listmodel"></a>
+<h3>ListModel</h3>
+<p><a href="qml-listmodel.html">ListModel</a> is a simple hierarchy of elements specified in QML. The available roles are specified by the <a href="qml-listelement.html">ListElement</a> properties.</p>
+<pre class="highlightedCode brush: cpp"> ListModel {
+     id: fruitModel
+
+     ListElement {
+         name: &quot;Apple&quot;
+         cost: 2.45
+     }
+     ListElement {
+         name: &quot;Orange&quot;
+         cost: 3.25
+     }
+     ListElement {
+         name: &quot;Banana&quot;
+         cost: 1.95
+     }
+ }</pre>
+<p>The above model has two roles, <i>name</i> and <i>cost</i>. These can be bound to by a <a href="qml-listview.html">ListView</a> delegate, for example:</p>
+<pre class="highlightedCode brush: cpp"> ListView {
+     width: 200; height: 250
+     model: fruitModel
+     delegate: Row {
+         Text { text: &quot;Fruit: &quot; + name }
+         Text { text: &quot;Cost: $&quot; + cost }
+     }
+ }</pre>
+<p><a href="qml-listmodel.html">ListModel</a> provides methods to manipulate the <a href="qml-listmodel.html">ListModel</a> directly via <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>. In this case, the first item inserted determines the roles available to any views that are using the model. For example, if an empty <a href="qml-listmodel.html">ListModel</a> is created and populated via <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, the roles provided by the first insertion are the only roles that will be shown in the view:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     ListModel { id: fruitModel }
+
+     MouseArea {
+         anchors.fill: parent
+         onClicked: fruitModel.append({&quot;cost&quot;: 5.95, &quot;name&quot;:&quot;Pizza&quot;})
+     }
+ }</pre>
+<p>When the <a href="qml-mousearea.html">MouseArea</a> is clicked, <tt>fruitModel</tt> will have two roles, <i>cost</i> and <i>name</i>. Even if subsequent roles are added, only the first two will be handled by views using the model. To reset the roles available in the model, call <a href="qml-listmodel.html#clear-method">ListModel::clear</a>().</p>
+<a name="xmllistmodel"></a>
+<h3>XmlListModel</h3>
+<p><a href="qml-xmllistmodel.html">XmlListModel</a> allows construction of a model from an XML data source. The roles are specified via the <a href="qml-xmlrole.html">XmlRole</a> element.</p>
+<p>The following model has three roles, <i>title</i>, <i>link</i> and <i>description</i>:</p>
+<pre class="highlightedCode brush: cpp"> XmlListModel {
+      id: feedModel
+      source: &quot;http://rss.news.yahoo.com/rss/oceania&quot;
+      query: &quot;/rss/channel/item&quot;
+      XmlRole { name: &quot;title&quot;; query: &quot;title/string()&quot; }
+      XmlRole { name: &quot;link&quot;; query: &quot;link/string()&quot; }
+      XmlRole { name: &quot;description&quot;; query: &quot;description/string()&quot; }
+ }</pre>
+<p>The <a href="demos-declarative-rssnews.html">RSS News demo</a> shows how <a href="qml-xmllistmodel.html">XmlListModel</a> can be used to display an RSS feed.</p>
+<a name="visualitemmodel"></a>
+<h3>VisualItemModel</h3>
+<p><a href="qml-visualitemmodel.html">VisualItemModel</a> allows QML items to be provided as a model.</p>
+<p>This model contains both the data and delegate; the child items of a <a href="qml-visualitemmodel.html">VisualItemModel</a> provide the contents of the delegate. The model does not provide any roles.</p>
+<pre class="highlightedCode brush: cpp">  VisualItemModel {
+      id: itemModel
+      Rectangle { height: 30; width: 80; color: &quot;red&quot; }
+      Rectangle { height: 30; width: 80; color: &quot;green&quot; }
+      Rectangle { height: 30; width: 80; color: &quot;blue&quot; }
+  }
+
+  ListView {
+      anchors.fill: parent
+      model: itemModel
+  }</pre>
+<p>Note that in the above example there is no delegate required. The items of the model itself provide the visual elements that will be positioned by the view.</p>
+<a name="c-data-models"></a>
+<h2>C++ Data Models</h2>
+<p>Models can be defined in C++ and then made available to QML. This is useful for exposing existing C++ data models or otherwise complex datasets to QML.</p>
+<p>A C++ model class can be defined as a <a href="qstringlist.html">QStringList</a>, a <a href="qlist.html">QList</a>&lt;<a href="qobject.html">QObject</a>*&gt; or a <a href="qabstractitemmodel.html">QAbstractItemModel</a>. The first two are useful for exposing simpler datasets, while <a href="qabstractitemmodel.html">QAbstractItemModel</a> provides a more flexible solution for more complex models.</p>
+<a name="qstringlist"></a>
+<h3>QStringList</h3>
+<p>A model may be a simple <a href="qstringlist.html">QStringList</a>, which provides the contents of the list via the <i>modelData</i> role.</p>
+<p>Here is a <a href="qml-listview.html">ListView</a> with a delegate that references its model item's value using the <tt>modelData</tt> role:</p>
+<pre class="highlightedCode brush: cpp"> ListView {
+     width: 100; height: 100
+     anchors.fill: parent
+
+     model: myModel
+     delegate: Rectangle {
+         height: 25
+         width: 100
+         Text { text: modelData }
+     }
+ }</pre>
+<p>A Qt application can load this QML document and set the value of <tt>myModel</tt> to a <a href="qstringlist.html">QStringList</a>:</p>
+<pre class="highlightedCode brush: cpp">     QStringList dataList;
+     dataList.append(&quot;Item 1&quot;);
+     dataList.append(&quot;Item 2&quot;);
+     dataList.append(&quot;Item 3&quot;);
+     dataList.append(&quot;Item 4&quot;);
+
+     QDeclarativeView view;
+     QDeclarativeContext *ctxt = view.rootContext();
+     ctxt-&gt;setContextProperty(&quot;myModel&quot;, QVariant::fromValue(dataList));</pre>
+<p>The complete example is available in Qt's <a href="declarative-modelviews-stringlistmodel.html">examples/declarative/modelviews/stringlistmodel</a> directory.</p>
+<p><b>Note:</b> There is no way for the view to know that the contents of a <a href="qstringlist.html">QStringList</a> have changed. If the <a href="qstringlist.html">QStringList</a> changes, it will be necessary to reset the model by calling <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>() again.</p>
+<a name="qlist-qobject"></a>
+<h3>QList&lt;QObject*&gt;</h3>
+<p>A list of <a href="qobject.html">QObject</a>* values can also be used as a model. A <a href="qlist.html">QList</a>&lt;<a href="qobject.html">QObject</a>*&gt; provides the properties of the objects in the list as roles.</p>
+<p>The following application creates a <tt>DataObject</tt> class that with Q_PROPERTY values that will be accessible as named roles when a <a href="qlist.html">QList</a>&lt;DataObject*&gt; is exposed to QML:</p>
+<pre class="highlightedCode brush: cpp"> class DataObject : public QObject
+ {
+     Q_OBJECT
+
+     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+     Q_PROPERTY(QString color READ color WRITE setColor NOTIFY colorChanged)
+     ...
+ };
+
+ int main(int argc, char ** argv)
+ {
+     QApplication app(argc, argv);
+
+     QList&lt;QObject*&gt; dataList;
+     dataList.append(new DataObject(&quot;Item 1&quot;, &quot;red&quot;));
+     dataList.append(new DataObject(&quot;Item 2&quot;, &quot;green&quot;));
+     dataList.append(new DataObject(&quot;Item 3&quot;, &quot;blue&quot;));
+     dataList.append(new DataObject(&quot;Item 4&quot;, &quot;yellow&quot;));
+
+     QDeclarativeView view;
+     QDeclarativeContext *ctxt = view.rootContext();
+     ctxt-&gt;setContextProperty(&quot;myModel&quot;, QVariant::fromValue(dataList));
+     ...</pre>
+<p>The <a href="qobject.html">QObject</a>* is available as the <tt>modelData</tt> property. As a convenience, the properties of the object are also made available directly in the delegate's context. Here, <tt>view.qml</tt> references the <tt>DataModel</tt> properties in the <a href="qml-listview.html">ListView</a> delegate:</p>
+<pre class="highlightedCode brush: cpp"> ListView {
+     width: 100; height: 100
+     anchors.fill: parent
+
+     model: myModel
+     delegate: Rectangle {
+         height: 25
+         width: 100
+         color: model.modelData.color
+         Text { text: name }
+     }
+ }</pre>
+<p>Note the use of the fully qualified access to the <tt>color</tt> property. The properties of the object are not replicated in the <tt>model</tt> object, since they are easily available via the <tt>modelData</tt> object.</p>
+<p>The complete example is available in Qt's <a href="declarative-modelviews-objectlistmodel.html">examples/declarative/modelviews/objectlistmodel</a> directory.</p>
+<p>Note: There is no way for the view to know that the contents of a <a href="qlist.html">QList</a> have changed. If the <a href="qlist.html">QList</a> changes, it will be necessary to reset the model by calling <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>() again.</p>
+<a name="qabstractitemmodel"></a>
+<h3>QAbstractItemModel</h3>
+<p>A model can be defined by subclassing <a href="qabstractitemmodel.html">QAbstractItemModel</a>. This is the best approach if you have a more complex model that cannot be supported by the other approaches. A <a href="qabstractitemmodel.html">QAbstractItemModel</a> can also automatically notify a QML view when the model data has changed.</p>
+<p>The roles of a <a href="qabstractitemmodel.html">QAbstractItemModel</a> subclass can be exposed to QML by calling <a href="qabstractitemmodel.html#setRoleNames">QAbstractItemModel::setRoleNames</a>(). The default role names set by Qt are:</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Qt Role</th><th >QML Role Name</th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qt.html#ItemDataRole-enum">Qt::DisplayRole</a></p></td><td ><p>display</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qt.html#ItemDataRole-enum">Qt::DecorationRole</a></p></td><td ><p>decoration</p></td></tr>
+</table>
+<p>Here is an application with a <a href="qabstractlistmodel.html">QAbstractListModel</a> subclass named <tt>AnimalModel</tt> that has <i>type</i> and <i>size</i> roles. It calls <a href="qabstractitemmodel.html#setRoleNames">QAbstractItemModel::setRoleNames</a>() to set the role names for accessing the properties via QML:</p>
+<pre class="highlightedCode brush: cpp"> class Animal
+ {
+ public:
+     Animal(const QString &amp;type, const QString &amp;size);
+     ...
+ };
+
+ class AnimalModel : public QAbstractListModel
+ {
+     Q_OBJECT
+ public:
+     enum AnimalRoles {
+         TypeRole = Qt::UserRole + 1,
+         SizeRole
+     };
+
+     AnimalModel(QObject *parent = 0);
+     ...
+ };
+
+ AnimalModel::AnimalModel(QObject *parent)
+     : QAbstractListModel(parent)
+ {
+     QHash&lt;int, QByteArray&gt; roles;
+     roles[TypeRole] = &quot;type&quot;;
+     roles[SizeRole] = &quot;size&quot;;
+     setRoleNames(roles);
+ }
+
+ int main(int argc, char ** argv)
+ {
+     QApplication app(argc, argv);
+
+     AnimalModel model;
+     model.addAnimal(Animal(&quot;Wolf&quot;, &quot;Medium&quot;));
+     model.addAnimal(Animal(&quot;Polar bear&quot;, &quot;Large&quot;));
+     model.addAnimal(Animal(&quot;Quoll&quot;, &quot;Small&quot;));
+
+     QDeclarativeView view;
+     QDeclarativeContext *ctxt = view.rootContext();
+     ctxt-&gt;setContextProperty(&quot;myModel&quot;, &amp;model);
+     ...</pre>
+<p>This model is displayed by a <a href="qml-listview.html">ListView</a> delegate that accesses the <i>type</i> and <i>size</i> roles:</p>
+<pre class="highlightedCode brush: cpp"> ListView {
+     width: 200; height: 250
+     anchors.fill: parent
+
+     model: myModel
+     delegate: Text { text: &quot;Animal: &quot; + type + &quot;, &quot; + size }
+ }</pre>
+<p>QML views are automatically updated when the model changes. Remember the model must follow the standard rules for model changes and notify the view when the model has changed by using <a href="qabstractitemmodel.html#dataChanged">QAbstractItemModel::dataChanged</a>(), <a href="qabstractitemmodel.html#beginInsertRows">QAbstractItemModel::beginInsertRows</a>(), etc. See the <a href="model-view-programming.html#model-subclassing-reference">Model subclassing reference</a> for more information.</p>
+<p>The complete example is available in Qt's <a href="declarative-modelviews-abstractitemmodel.html">examples/declarative/modelviews/abstractitemmodel</a> directory.</p>
+<p><a href="qabstractitemmodel.html">QAbstractItemModel</a> presents a hierarchy of tables, but the views currently provided by QML can only display list data. In order to display child lists of a hierarchical model the <a href="qml-visualdatamodel.html">VisualDataModel</a> element provides several properties and functions for use with models of type <a href="qabstractitemmodel.html">QAbstractItemModel</a>:</p>
+<ul>
+<li><i>hasModelChildren</i> role property to determine whether a node has child nodes.</li>
+<li><a href="qml-visualdatamodel.html#rootIndex-prop">VisualDataModel::rootIndex</a> allows the root node to be specifed</li>
+<li><a href="qml-visualdatamodel.html#modelIndex-method">VisualDataModel::modelIndex</a>() returns a <a href="qmodelindex.html">QModelIndex</a> which can be assigned to <a href="qml-visualdatamodel.html#rootIndex-prop">VisualDataModel::rootIndex</a></li>
+<li><a href="qml-visualdatamodel.html#parentModelIndex-method">VisualDataModel::parentModelIndex</a>() returns a <a href="qmodelindex.html">QModelIndex</a> which can be assigned to <a href="qml-visualdatamodel.html#rootIndex-prop">VisualDataModel::rootIndex</a></li>
+</ul>
+<a name="exposing-c-data-models-to-qml"></a>
+<h3>Exposing C++ data models to QML</h3>
+<p>The above examples use <a href="qdeclarativecontext.html#setContextProperty">QDeclarativeContext::setContextProperty</a>() to set model values directly in QML components. An alternative to this is to register the C++ model class as a QML type from a QML C++ plugin using <a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a>. This would allow the model classes to be created directly as elements within QML:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> class MyModelPlugin : public QDeclarativeExtensionPlugin
+ {
+ public:
+     void registerTypes(const char *uri)
+     {
+         qmlRegisterType&lt;MyModel&gt;(uri, 1, 0,
+                 &quot;MyModel&quot;);
+     }
+ }
+
+ Q_EXPORT_PLUGIN2(mymodelplugin, MyModelPlugin);</pre>
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> MyModel {
+     id: myModel
+     ListElement { someProperty: &quot;some value&quot; }
+ }
+
+ ListView {
+     width: 200; height: 250
+     model: myModel
+     delegate: Text { text: someProperty }
+ }</pre>
+</p></td></tr>
+</table>
+<p>See <a href="qml-extending-tutorial-index.html">Tutorial: Writing QML extensions with C++</a> for details on writing QML C++ plugins.</p>
+<a name="other-data-models"></a>
+<h2>Other Data Models</h2>
+<a name="an-integer"></a>
+<h3>An Integer</h3>
+<p>An integer can be used to specify a model that contains a certain number of elements. In this case, the model does not have any data roles.</p>
+<p>The following example creates a <a href="qml-listview.html">ListView</a> with five elements:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     width: 200; height: 250
+
+     Component {
+         id: itemDelegate
+         Text { text: &quot;I am item number: &quot; + index }
+     }
+
+     ListView {
+         anchors.fill: parent
+         model: 5
+         delegate: itemDelegate
+     }
+
+ }</pre>
+<a name="an-object-instance"></a>
+<h3>An Object Instance</h3>
+<p>An object instance can be used to specify a model with a single object element. The properties of the object are provided as roles.</p>
+<p>The example below creates a list with one item, showing the color of the <i>myText</i> text. Note the use of the fully qualified <i>model.color</i> property to avoid clashing with <i>color</i> property of the Text element in the delegate.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 200; height: 250
+
+     Text {
+         id: myText
+         text: &quot;Hello&quot;
+         color: &quot;#dd44ee&quot;
+     }
+
+     Component {
+         id: myDelegate
+         Text { text: model.color }
+     }
+
+     ListView {
+         anchors.fill: parent
+         anchors.topMargin: 30
+         model: myText
+         delegate: myDelegate
+     }
+ }</pre>
+<a name="accessing-views-and-models-from-delegates"></a>
+<h2>Accessing Views and Models from Delegates</h2>
+<p>You can access the view for which a delegate is used, and its properties, by using <a href="qml-listview.html">ListView</a>.view in a delegate on a <a href="qml-listview.html">ListView</a>, or <a href="qml-gridview.html">GridView</a>.view in a delegate on a <a href="qml-gridview.html">GridView</a>, etc. In particular, you can access the model and its properties by using <a href="qml-listview.html">ListView</a>.view.model.</p>
+<p>This is useful when you want to use the same delegate for a number of views, for example, but you want decorations or other features to be different for each view, and you would like these different settings to be properties of each of the views. Similarly, it might be of interest to access or show some properties of the model.</p>
+<p>In the following example, the delegate shows the property <i>language</i> of the model, and the color of one of the fields depends on the property <i>fruit_color</i> of the view.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+      width: 200; height: 200
+
+     ListModel {
+         id: fruitModel
+         property string language: &quot;en&quot;
+         ListElement {
+             name: &quot;Apple&quot;
+             cost: 2.45
+         }
+         ListElement {
+             name: &quot;Orange&quot;
+             cost: 3.25
+         }
+         ListElement {
+             name: &quot;Banana&quot;
+             cost: 1.95
+         }
+     }
+
+     Component {
+         id: fruitDelegate
+         Row {
+                 Text { text: &quot; Fruit: &quot; + name; color: ListView.view.fruit_color }
+                 Text { text: &quot; Cost: $&quot; + cost }
+                 Text { text: &quot; Language: &quot; + ListView.view.model.language }
+         }
+     }
+
+     ListView {
+         property color fruit_color: &quot;green&quot;
+         model: fruitModel
+         delegate: fruitDelegate
+         anchors.fill: parent
+     }
+ }</pre>
+<p>Another important case is when some action (e.g&#x2e; mouse click) in the delegate should update data in the model. In this case you can define a function in the model, e.g&#x2e;:</p>
+<pre class="highlightedCode brush: cpp">         setData(int row, const QString &amp; field_name, QVariant new_value),</pre>
+<p>...and call it from the delegate using:</p>
+<pre class="highlightedCode brush: cpp">         ListView.view.model.setData(index, field, value)</pre>
+<p>...assuming that <i>field</i> holds the name of the field which should be updated, and that <i>value</i> holds the new value.</p>
+</div>
+<!-- @@@qdeclarativemodels.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

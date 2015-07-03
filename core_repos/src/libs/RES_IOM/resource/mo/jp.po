@@ -1,0 +1,6276 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IOM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-29 19:50+0800\n"
+"PO-Revision-Date: 2010-08-06 23:09+0900\n"
+"Last-Translator: Haruhi <haruhi@trinityjp.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Welcome"
+msgstr "ようこそ"
+
+msgid "Select language."
+msgstr "言語を選択します。"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Iomega ScreenPlay メディア プレイヤーへようこそ"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "このウィザードは、このデバイスから自宅のネットワークに接続する方法を説明します。デバイスをいったん接続すれば、そのデバイスを使用して、他のネットワーク ドライブに保存されたメディアにアクセスして再生できます。"
+
+msgid "Select Next to continue."
+msgstr "[次へ] をクリックして続行します。"
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "クイック スタート モードがオンに設定されている場合、消費電力が大きくなりますが、ネットワーク上で常にデバイスを使用でき、起動時間も短縮されます。"
+
+msgid "Select your TV type"
+msgstr "TV の種類を選択"
+
+msgid "Select your connection"
+msgstr "接続を選択"
+
+msgid "Skip"
+msgstr "スキップ"
+
+msgid "Do you want to skip?"
+msgstr "スキップしますか?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "静的 IP"
+
+msgid "IP address"
+msgstr "IP アドレス"
+
+msgid "Netmask"
+msgstr "ネットマスク"
+
+msgid "Gateway"
+msgstr "ゲートウェイ"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "セットアップが完了しました"
+
+msgid "Finish"
+msgstr "完了"
+
+
+msgid "Wizard"
+msgstr "ウィザード"
+
+msgid "You have successfully completed device configuration"
+msgstr "デバイスの設定が正常に完了しました。"
+
+msgid "Next"
+msgstr "次へ"
+
+msgid "Later"
+msgstr "後で"
+
+msgid "Movie"
+msgstr "動画"
+
+msgid "Music"
+msgstr "音楽"
+
+msgid "Photo"
+msgstr "写真"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Online media"
+msgstr "オンライン メディア"
+
+msgid "Folders"
+msgstr "フォルダ"
+
+msgid "Recent"
+msgstr "最新"
+
+msgid "Local storage"
+msgstr "ローカル ストレージ"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "メディア サーバ"
+
+msgid "Shared folder"
+msgstr "共有フォルダ"
+
+msgid "All Movies"
+msgstr "すべての動画"
+
+msgid "All Music"
+msgstr "すべての音楽"
+
+msgid "Playlist"
+msgstr "再生リスト"
+
+msgid "Artist"
+msgstr "アーティスト"
+
+msgid "Genre"
+msgstr "ジャンル"
+
+msgid "Album"
+msgstr "アルバム"
+
+msgid "Now Playing"
+msgstr "再生中"
+
+msgid "All Photos"
+msgstr "すべての写真"
+
+msgid "Date"
+msgstr "日付"
+
+msgid "Albums"
+msgstr "アルバム"
+
+msgid "Preview mode"
+msgstr "プレビュー モード"
+
+msgid "List mode"
+msgstr "リスト モード"
+
+msgid "Thumbnail mode"
+msgstr "サムネイル モード"
+
+msgid "This folder is empty or unavailable."
+msgstr "このフォルダは空であるか、または使用できません。"
+
+msgid "Delete"
+msgstr "削除"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Edit"
+msgstr "編集"
+
+msgid "Rename"
+msgstr "名前の変更"
+
+msgid "Clear"
+msgstr "消去"
+
+msgid "Move"
+msgstr "移動"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Create album"
+msgstr "アルバムを作成"
+
+msgid "Edit album"
+msgstr "アルバムを編集"
+
+msgid "Add to list"
+msgstr "リストに追加"
+
+msgid "Remove from list"
+msgstr "リストから削除"
+
+msgid "Move focus"
+msgstr "フォーカスを移動"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "アルバムが存在しません。新しいアルバムを作成しますか?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "アルバムを削除してもよろしいですか?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "リストからファイルを消去してもよろしいですか?"
+
+msgid "This folder is empty"
+msgstr "このフォルダは空です"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "ユーザー名またはパスワードが間違っています"
+
+msgid "This media server cannot be accessed"
+msgstr "このメディア サーバにアクセスできません"
+
+msgid "No server found"
+msgstr "サーバが見つかりません"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "ファイルを削除してもよろしいですか?"
+
+msgid "Normal"
+msgstr "通常"
+
+msgid "Repeat one"
+msgstr "1 曲だけリピート"
+
+msgid "Repeat all"
+msgstr "全曲リピート"
+
+msgid "Repeat all and shuffle"
+msgstr "全曲リピートおよびシャッフル"
+
+msgid "Shuffle"
+msgstr "シャッフル"
+
+msgid "Pan"
+msgstr "パーン"
+
+msgid "Rotate right"
+msgstr "右に回転"
+
+msgid "Rotate left"
+msgstr "左に回転"
+
+msgid "Zoom in"
+msgstr "ズーム イン"
+
+msgid "Zoom out"
+msgstr "ズーム アウト"
+
+msgid "Repeat"
+msgstr "リピート"
+
+msgid "Info bar"
+msgstr "情報バー"
+
+msgid "Audio"
+msgstr "オーディオ"
+
+msgid "Audio channel"
+msgstr "オーディオ チャンネル"
+
+msgid "No audio channel"
+msgstr "オーディオ チャンネルなし"
+
+msgid "Subtitle"
+msgstr "サブタイトル"
+
+msgid "Subtitle off"
+msgstr "サブタイトル オフ"
+
+msgid "No subtitle"
+msgstr "サブタイトルなし"
+
+msgid "Unsupported subtitle"
+msgstr "サブタイトルがサポートされていません"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "[OK] をクリックして再生しなおすか、または [キャンセル] をクリックしてビデオを再起動してください"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "選択されたファイルを再生できません。サポートされているファイル フォーマットについては、ユーザー マニュアルを参照してください。"
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "再生しようとしたビデオ ファイルに、サポートされていない複数のオーディオ チャンネル出力が含まれています。デジタル オーディオ出力に切り替えてから、オーディオ コーデックをサポートする AV 受信機にメディア プレイヤーを接続します。"
+
+msgid "No chapter"
+msgstr "チャプターなし"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "このビデオ メニューを再生できません。ビデオ ファイルを再生しますか?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "再生しなおしますか? それとも最初から再起動しますか?"
+
+msgid "Next Song:"
+msgstr "次の曲:"
+
+msgid "Current Song"
+msgstr "現在の曲:"
+
+msgid "File Type"
+msgstr "ファイル タイプ"
+
+msgid "Duration:"
+msgstr "長さ:"
+
+msgid "File Size"
+msgstr "ファイル サイズ"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Y ビューのうち X ビューでこの DivX レンタルが使用されています。ビデオの表示を続行しますか?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "お使いのデバイスでは、この DivX 保護ビデオの再生が許可されていません。"
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Y ビューのうち Y ビューでこの DivX レンタルが使用されています。この DivX レンタルは期限切れになりました。"
+
+msgid "Unsupported DivX DRM version."
+msgstr "サポートされていない DivX の DRM バージョンです。"
+
+msgid "Video resolution is not supported."
+msgstr "ビデオの解像度がサポートされていません。"
+
+msgid "Video frame rate is not supported."
+msgstr "ビデオのフレームレートがサポートされていません。"
+
+msgid "Audio format is not supported."
+msgstr "オーディオ形式がサポートされていません。"
+
+msgid "Audio/Video"
+msgstr "オーディオ/ビデオ"
+
+msgid "Playback"
+msgstr "再生"
+
+msgid "System"
+msgstr "システム"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Shut down"
+msgstr "シャットダウン"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "デバイスのオーディオおよびビデオ出力設定の選択"
+
+msgid "Configure playback settings"
+msgstr "再生設定の選択"
+
+msgid "Configure basic settings of system"
+msgstr "システムの基本設定の選択"
+
+msgid "Configure network settings"
+msgstr "ネットワーク設定の選択"
+
+msgid "Video output"
+msgstr "ビデオ出力"
+
+msgid "Configure video output of system"
+msgstr "システムのビデオ出力の選択"
+
+msgid "Composite"
+msgstr "コンポジット"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "NTSC または PAL 信号の設定"
+
+msgid "Component"
+msgstr "コンポーネント"
+
+msgid "Configure display resolution of Component"
+msgstr "コンポーネントの画面解像度の設定"
+
+msgid "Color space"
+msgstr "カラー スペース"
+
+msgid "Configure color space of Component"
+msgstr "コンポーネントのカラー スペースの設定"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "HDMI の画面解像度の設定"
+
+msgid "Configure color space of HDMI"
+msgstr "HDMI のカラー スペースの設定"
+
+msgid "RGB High"
+msgstr "RGB High"
+
+msgid "RGB Low"
+msgstr "RGB Low"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "画面解像度"
+
+msgid "480p 60Hz"
+msgstr "480p 60Hz"
+
+msgid "576p 50Hz"
+msgstr "576p 50Hz"
+
+msgid "720p 50Hz"
+msgstr "720p 50Hz"
+
+msgid "720p 60Hz"
+msgstr "720p 60Hz"
+
+msgid "1080i 50Hz"
+msgstr "1080i 50Hz"
+
+msgid "1080i 60Hz"
+msgstr "1080i 60Hz"
+
+msgid "1080p 23.976Hz"
+msgstr "1080p 23.976Hz"
+
+msgid "1080p 24Hz"
+msgstr "1080p 24Hz"
+
+msgid "1080p 50Hz"
+msgstr "1080p 50Hz"
+
+msgid "1080p 60Hz"
+msgstr "1080p 60Hz"
+
+msgid "Aspect ratio"
+msgstr "アスペクト比"
+
+msgid "Configure screen format of system"
+msgstr "システムの画面形式の設定"
+
+msgid "4:3"
+msgstr "4:3"
+
+msgid "16:9"
+msgstr "16:9"
+
+msgid "Audio output"
+msgstr "オーディオ出力"
+
+msgid "Configure audio output channel of system"
+msgstr "システムのオーディオ出力チャンネルの設定"
+
+msgid "Stereo"
+msgstr "ステレオ"
+
+msgid "Digital"
+msgstr "デジタル"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "ビデオ解像度を変更してもよろしいですか?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "ビデオ出力形式を変更してもよろしいですか?"
+
+msgid "Subtitle mode"
+msgstr "サブタイトル モード"
+
+msgid "Turn on/off subtitle"
+msgstr "サブタイトルのオン/オフ"
+
+msgid "Subtitle font size"
+msgstr "サブタイトルのフォント サイズ"
+
+msgid "Select subtitle font size"
+msgstr "サブタイトルのフォント サイズを選択"
+
+msgid "Subtitle type"
+msgstr "サブタイトルの種類"
+
+msgid "Select the additional encoding"
+msgstr "追加エンコーディングの選択"
+
+msgid "Western Europe (ISO)"
+msgstr "西ヨーロッパ言語 (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "中央ヨーロッパ言語 (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "中央ヨーロッパ言語 (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "繁体中国語 (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "簡体中国語 (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "日本語 (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "韓国語 (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "キリル語 (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "キリル語 (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "ギリシャ語 (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "ギリシャ語 (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "アラビア語 (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "オーディオ トラック画面"
+
+msgid "Set the display mode while music playing"
+msgstr "音楽再生中の画面モードの設定"
+
+msgid "File name"
+msgstr "ファイル名"
+
+msgid "Title"
+msgstr "タイトル"
+
+msgid "Photo scaling"
+msgstr "写真の拡大縮小"
+
+msgid "Configure the photo scaling mode"
+msgstr "写真の拡大縮小モードの設定"
+
+msgid "Keep as original"
+msgstr "原寸大を維持"
+
+msgid "Fit to screen"
+msgstr "画面に合わせる"
+
+msgid "Display in full screen"
+msgstr "全画面表示"
+
+msgid "Transition effect"
+msgstr "転移効果"
+
+msgid "Select the transition effect"
+msgstr "転移効果を選択"
+
+
+
+
+msgid "Fade"
+msgstr "フェード"
+
+msgid "Wipe"
+msgstr "ワイプ"
+
+msgid "Zoom"
+msgstr "ズーム"
+
+msgid "Push"
+msgstr "プッシュ"
+
+msgid "Replace"
+msgstr "リプレイス"
+
+msgid "Checker board"
+msgstr "チェッカー ボード"
+
+msgid "Random"
+msgstr "ランダム"
+
+msgid "Slideshow Interval"
+msgstr "スライドショー間隔"
+
+msgid "Configure the interval of slideshow"
+msgstr "スライドショー間隔の設定"
+
+msgid "second"
+msgstr "秒"
+
+msgid "seconds"
+msgstr "秒"
+
+msgid "3 Seconds"
+msgstr "3 秒"
+
+msgid "5 Seconds"
+msgstr "5 秒"
+
+msgid "10 Seconds"
+msgstr "10 秒"
+
+msgid "20 Seconds"
+msgstr "20 秒"
+
+msgid "30 Seconds"
+msgstr "30 秒"
+
+msgid "minute"
+msgstr "分"
+
+msgid "minutes"
+msgstr "分"
+
+msgid "1 Minute"
+msgstr "1 分"
+
+msgid "5 Minutes"
+msgstr "5 分"
+
+msgid "Browser display"
+msgstr "ブラウザ画面"
+
+msgid "Set the display mode of media browser"
+msgstr "メディア ブラウザの画面モードの設定"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "DivX DRM VOD 設定の選択"
+
+msgid "Register"
+msgstr "登録"
+
+msgid "Deregister"
+msgstr "登録の解除"
+
+msgid "Activation"
+msgstr "アクティベーション"
+
+msgid "Deactivation"
+msgstr "ディアクティベーション"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "お使いのデバイスはすでに登録されています。登録を解除してもよろしいですか?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "DivX 保護ビデオを再生するには、デバイスを登録する必要があります。"
+
+msgid "Registration code:"
+msgstr "登録コード:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "http://vod.divx.com で登録"
+
+msgid "Deregistration code:"
+msgstr "登録解除コード:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "http://vod.divx.com で登録を解除"
+
+msgid "Continue with registration?"
+msgstr "登録を続行しますか?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "メディア サーバのオン/オフ"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "共有フォルダのオン/オフ"
+
+msgid "Workgroup name"
+msgstr "ワークグループ名"
+
+msgid "Device name"
+msgstr "デバイス名"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "自動ログイン"
+
+msgid "Turn on/off auto-login"
+msgstr "自動ログインのオン/オフ"
+
+msgid "Clear account information"
+msgstr "アカウント情報を消去"
+
+msgid "Delete the preset password?"
+msgstr "事前設定のパスワードを削除しますか?"
+
+msgid "Manual SSID"
+msgstr "手動 SSID"
+
+msgid "Connection setup"
+msgstr "接続のセットアップ"
+
+msgid "Wire"
+msgstr "有線"
+
+msgid "Wireless"
+msgstr "無線"
+
+msgid "Network setup"
+msgstr "ネットワークのセットアップ"
+
+msgid "Wireless setup"
+msgstr "無線のセットアップ"
+
+msgid "Does not contain"
+msgstr "次を含まない"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "製品名に次の文字を含めることはできません。\\ / : * ? ¡§ ; | および空白文字。この名前は最大 15 文字までです。"
+
+msgid "The device name can not contain any of following "
+msgstr "デバイス名に次の文字 "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "および空白文字を含めることはできません。デバイス名は最大 15 文字までです。"
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 を入力することはできません。入力できる数字は 1 ～ 223 です。IP アドレスを確認してから再入力してください。"
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "入力できる数字は 0 ～ 255 です。IP アドレスを確認してから再入力してください。"
+
+msgid "Cannot find access point."
+msgstr "アクセス ポイントが見つかりません。"
+
+msgid "The AP is not exist. Please check again."
+msgstr "AP が存在しません。再度確認してください。"
+
+msgid "Invalid encryption key. Please try again."
+msgstr "無効な暗号鍵です。やり直してください。"
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "BitTorrent をオン/オフにする"
+
+msgid "Connection mode"
+msgstr "接続モード"
+
+msgid "Connection type"
+msgstr "接続のタイプ"
+
+msgid "WPS setup"
+msgstr "WPS セットアップ"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "AP で [WPS] ボタンを押してから [接続] ボタンを押してください。"
+
+msgid "Auto search"
+msgstr "自動検索"
+
+msgid "Site survey"
+msgstr "実地調査"
+
+msgid "Detecting Wireless Access Point"
+msgstr "ワイヤレス アクセス ポイントを検出しています"
+
+msgid "MAC address"
+msgstr "MAC アドレス"
+
+msgid "Please waiting..."
+msgstr "しばらくお待ちください..."
+
+msgid "Connect Successfully!"
+msgstr "接続が完了しました。"
+
+msgid "Do you want replace this profile?"
+msgstr "このプロファイルを交換してもよろしいですか?"
+
+msgid "Network is disconnected."
+msgstr "ネットワークが切断されました。"
+
+msgid "Can not detect wireless module."
+msgstr "ワイヤレス モジュールを検出できません。"
+
+msgid "The profile space is full!"
+msgstr "プロファイル領域が満杯です。"
+
+msgid "Access point detecting..."
+msgstr "アクセス ポイントを検出しています..."
+
+msgid "The network encryption key is not valid."
+msgstr "ネットワークの暗号化鍵が有効ではありません。"
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID を空白のままにすることはできません。"
+
+msgid "No security"
+msgstr "セキュリティなし"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "セットアップが完了しました。このネットワーク接続を保存しますか?"
+
+msgid "The SSID is empty."
+msgstr "SSID が空白です。"
+
+msgid "Can not set this profile to favorite."
+msgstr "このプロファイルをお気に入りに設定できません。"
+
+msgid "Access point can not be found"
+msgstr "アクセス ポイントが見つかりません。"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "アクセス ポイントが見つかりません。"
+
+msgid "Please enter your encryption key"
+msgstr "暗号化鍵を入力してください。"
+
+msgid "The device could not connect to the network."
+msgstr "デバイスをネットワークに接続できませんでした。"
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "サーバが切断されました。ネットワーク設定を確認してください。"
+
+msgid "Wireless favorites"
+msgstr "ワイヤレスのお気に入り"
+
+msgid "Connect now"
+msgstr "今すぐ接続"
+
+msgid "Favorite"
+msgstr "お気に入り"
+
+
+msgid "Encryption key"
+msgstr "暗号化キー"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Select a display language"
+msgstr "画面の言語を選択"
+
+msgid "English"
+msgstr "英語"
+
+msgid "French"
+msgstr "フランス語"
+
+msgid "German"
+msgstr "ドイツ語"
+
+msgid "Italian"
+msgstr "イタリア語"
+
+msgid "Spanish"
+msgstr "スペイン語"
+
+msgid "Portuguese"
+msgstr "ポルトガル語"
+
+msgid "Dutch"
+msgstr "オランダ語"
+
+msgid "Greek"
+msgstr "ギリシャ語"
+
+msgid "Polish"
+msgstr "ポーランド語"
+
+msgid "Russian"
+msgstr "ロシア語"
+
+msgid "Swedish"
+msgstr "スウェーデン語"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "Simplified Chinese"
+msgstr "簡体中国語"
+
+msgid "Traditional Chinese"
+msgstr "繁体中国語"
+
+msgid "Korean"
+msgstr "韓国語"
+
+msgid "Finnish"
+msgstr "フィンランド語"
+
+msgid "Brazilian (Portuguese)"
+msgstr "ブラジル語 (ポルトガル)"
+
+msgid "Hebrew"
+msgstr "ヘブライ語"
+
+msgid "Arabic"
+msgstr "アラビア語"
+
+msgid "Czech"
+msgstr "チェコ語"
+
+msgid "Turkish"
+msgstr "トルコ語"
+
+msgid "Danish"
+msgstr "デンマーク語"
+
+msgid "Norwegian"
+msgstr "ノルウェー語"
+
+msgid "Media library"
+msgstr "メディア ライブラリ"
+
+msgid "Turn on/off media library"
+msgstr "メディア ライブラリをオン/オフにする"
+
+msgid "Screensaver delay"
+msgstr "スクリーンセーバー起動時間"
+
+msgid "Configure screensaver delay time"
+msgstr "スクリーンセーバー起動時間の設定"
+
+msgid "Never"
+msgstr "起動しない"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 分"
+
+msgid "15 Minutes"
+msgstr "15 分"
+
+msgid "Quick start mode"
+msgstr "クイック スタート モード"
+
+msgid "System reset"
+msgstr "システム リセット"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "デバイスを工場出荷時の設定に復旧してもよろしいですか?"
+
+msgid "About"
+msgstr "Screenplay メディア プレイヤーについて"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "HD メディア プレイヤーの詳細については、ユーザー マニュアルを参照するか、または次にアクセスしてください。"
+
+msgid "Restart"
+msgstr "再起動"
+
+msgid "Rebooting"
+msgstr "再起動しています"
+
+msgid "Update device"
+msgstr "デバイスの更新"
+
+msgid "New firmware"
+msgstr "新規ファームウェア"
+
+msgid "New firmware found"
+msgstr "新しいファームウェアが見つかりました"
+
+msgid "version"
+msgstr "バージョン"
+
+msgid "Firmware Version"
+msgstr "ファームウェアのバージョン"
+
+msgid "Current version"
+msgstr "現在のバージョン"
+
+msgid "New version"
+msgstr "新しいバージョン"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "新しいファームウェアが見つかりました。アップグレードしますか?"
+
+msgid "Invalid firmware"
+msgstr "無効なファームウェア"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "最新のファームウェアを確認してデバイスをアップグレードしてください"
+
+msgid "Checking for recent updates"
+msgstr "最近の更新を検索しています..."
+
+msgid "Searching for updates..."
+msgstr "更新を検索しています..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "デバイスで更新をダウンロードできませんでした。ネットワーク接続を確認してください。"
+
+msgid "Your device is up to date."
+msgstr "お使いのデバイスは最新です。"
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "メディア プレイヤーをアップグレード中です。電源を切ったり接続されたストレージを切断しないでください。"
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "アップグレードが完了しました。メディア プレイヤーを再起動します。"
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "ファームウェアを含む USB ドライブを挿入して、メディア プレイヤーを回復します。"
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "ファームウェアのアップグレードに失敗しました。デバイスを再起動します。"
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "ファームウェアのアップグレードに失敗しました。ネットワーク接続を確認してからやり直してください。"
+
+msgid "OK"
+msgstr "OK"
+
+
+
+
+
+
+msgid "On"
+msgstr "オン"
+
+msgid "Off"
+msgstr "オフ"
+
+msgid "Auto"
+msgstr "自動"
+
+msgid "Manual"
+msgstr "手動"
+
+msgid "Search"
+msgstr "検索"
+
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Retry"
+msgstr "再試行"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Go Back"
+msgstr "戻る"
+
+msgid "Help"
+msgstr "ヘルプ"
+
+msgid "Exit"
+msgstr "終了"
+
+msgid "Unknown"
+msgstr "不明"
+
+
+msgid "Play"
+msgstr "再生"
+
+msgid "Pause"
+msgstr "一時停止"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Eject"
+msgstr "取り出し"
+
+msgid "Empty"
+msgstr "空白"
+
+msgid "Standby mode"
+msgstr "スタンバイ モード"
+
+msgid "Loading data"
+msgstr "データをロードしています"
+
+msgid "All"
+msgstr "すべて"
+
+msgid "Contains"
+msgstr "次を含む"
+
+msgid "Starts with"
+msgstr "次で始まる"
+
+msgid "Unsupported"
+msgstr "サポートされていません"
+
+msgid "Space"
+msgstr "領域"
+
+msgid "Equal to"
+msgstr "次に等しい"
+
+msgid "Not Equal to"
+msgstr "次に等しくない"
+
+msgid "Untitled volume"
+msgstr "ボリュームのタイトルなし"
+
+msgid "Additional encoding support"
+msgstr "追加エンコーディングのサポート"
+
+msgid "Subtitle default"
+msgstr "サブタイトルのデフォルト"
+
+msgid "Subtitle border"
+msgstr "サブタイトルの枠"
+
+msgid "Thick"
+msgstr "太い"
+
+msgid "Thin"
+msgstr "細い"
+
+msgid "Account"
+msgstr "アカウント"
+
+msgid "anonymous"
+msgstr "匿名"
+
+msgid "Connecting"
+msgstr "接続中"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "取り出すデバイスを選択してください。"
+
+msgid "Are you sure you want to remove this device?"
+msgstr "このデバイスを削除してもよろしいですか?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "警告: USB ストレージ デバイスを安全に取り出してから削除してください。"
+
+msgid "The device is busy. Please try later."
+msgstr "デバイスがビジー状態です。後からやり直してください。"
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "お使いのストレージ ユニットを取りだす間、しばらくお待ちください..."
+
+msgid "No storage present"
+msgstr "ストレージが存在しません"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "メディア ライブラリをコンピレーションするには、さらにストレージ容量が必要です。"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "接続されたストレージをスキャンしています。初回のスキャンには少し時間がかかる場合があります。しばらくお待ちください..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "接続されたデバイスを USB ポートで認識できません。"
+
+msgid "Storage can not aggregate"
+msgstr "ストレージを統合できません"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "メディア ライブラリでは JFS (Journaled File System) をサポートしていません。再生は引き続きサポートされています。"
+
+msgid "Unable to create media library on read only storage."
+msgstr "メディア ライブラリを読み取り専用ストレージで作成できません。"
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "メディア ライブラリを作成できません。ストレージの設定を確認してください。"
+
+msgid "Unrecognized USB device"
+msgstr "認識されない USB デバイス"
+
+msgid "Scanning the attached USB device..."
+msgstr "接続された USB デバイスをスキャンしています..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "デジタル オーディオ出力設定下でサラウンド音のオーディオ トラックを再生するには、適切なオーディオ形式を持つ AV 受信機のサポートが必要です。"
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "AC 電源またはストレージ ディスクを削除しないでください。"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "お使いの HD メディア プレイヤーをアップグレードしています。デバイスをオフにしたり、電源を切ったり、接続されたストレージのプラグをはずさないでください。"
+
+msgid "Upgrade complete!"
+msgstr "アップグレードが完了しました。"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "更新のインストールが完了しました。デバイスを再起動しています..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "接続されたストレージを USB ポートで認識できません。"
+
+msgid "Device is shutting down..."
+msgstr "デバイスをシャットダウンしています..."
+
+msgid "Local device is disconnected."
+msgstr "ローカル デバイスが切断されています。"
+
+msgid "Do you really want to restart device?"
+msgstr "デバイスを再起動してもよろしいですか?"
+
+msgid "Action cancelled"
+msgstr "アクションがキャンセルされました"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "重大なシステム エラーが発生しました。デバイスを再起動します。"
+
+msgid "To restart device, press the power button of your remote."
+msgstr "デバイスを再起動するには、リモートの電源ボタンを押してください。"
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "検索が完了しました。結果が見つかりません。"
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "複数言語を入力するには、[オプション] キーを押します。"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Explore Flickr"
+
+msgid "My recent"
+msgstr "最新情報"
+
+msgid "Last 7 days interesting"
+msgstr "最近 1 週間の関心事"
+
+msgid "Most recent uploads"
+msgstr "最近のアップロード"
+
+msgid "Hot tags"
+msgstr "ホット タグ"
+
+msgid "Contacts"
+msgstr "連絡先"
+
+msgid "Photostream"
+msgstr "Photostream"
+
+msgid "Tags"
+msgstr "タグ"
+
+msgid "Delete one"
+msgstr "1 つ削除"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "キーワード"
+
+msgid "Flickr members"
+msgstr "Flickr メンバー"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "この項目を削除してもよろしいですか?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "すべての項目を削除してもよろしいですか?"
+
+msgid "This member has been added to your contact list."
+msgstr "このメンバーは連絡先リストに追加されています。"
+
+msgid "This member has been add to your contact list."
+msgstr "このメンバーは連絡先リストに追加されています。"
+
+msgid "Could not find any tag list."
+msgstr "タグのリストが見つかりませんでした。"
+
+msgid "Could not find any contact list."
+msgstr "連絡先リストが見つかりませんでした。"
+
+msgid "There is no friend available."
+msgstr "通信可能な友人がいません。"
+
+msgid "A friend cannot be found."
+msgstr "友人が見つかりません。"
+
+msgid "There is no content available."
+msgstr "使用できる連絡先がありません。"
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "検索が完了しました。結果が見つかりません。"
+
+msgid "Now playing:"
+msgstr "現在再生中:"
+
+msgid "Last station:"
+msgstr "最新ステーション:"
+
+msgid "My presets"
+msgstr "事前設定"
+
+msgid "Stations"
+msgstr "ステーション"
+
+msgid "Preferences"
+msgstr "環境設定"
+
+msgid "Sign in / Sign out"
+msgstr "サインイン/サインアウト"
+
+msgid "About Live365"
+msgstr "Live365 について"
+
+msgid "Remove station"
+msgstr "ステーションの削除"
+
+msgid "Add to my presets"
+msgstr "事前設定に追加"
+
+msgid "Free stations"
+msgstr "フリー ステーション"
+
+msgid "VIP stations"
+msgstr "VIP ステーション"
+
+msgid "Recommendations"
+msgstr "推奨事項"
+
+msgid "Thumbs up"
+msgstr "サム アップ"
+
+msgid "Thumbs down"
+msgstr "サム ダウン"
+
+
+
+
+msgid "Email track"
+msgstr "電子メールの追跡"
+
+msgid "Audio quality"
+msgstr "オーディオ品質"
+
+msgid "Sort"
+msgstr "並べ替え"
+
+msgid "All stations"
+msgstr "すべてのステーション"
+
+msgid "Only high"
+msgstr "高のみ"
+
+msgid "Medium to high"
+msgstr "中から高"
+
+msgid "Low to medium"
+msgstr "低から中"
+
+msgid "Only low"
+msgstr "低のみ"
+
+msgid "Sort stations alphabetically"
+msgstr "ステーションをアルファベット順に並べ替え"
+
+msgid "Sort stations by popularity"
+msgstr "人気順でステーションを並べ替え"
+
+msgid "Sign in"
+msgstr "サインイン"
+
+msgid "Don't have an account?"
+msgstr "アカウントをお持ちですか?"
+
+msgid "Invalid username and password, please try again."
+msgstr "無効なユーザー名およびパスワードです。やり直してください。"
+
+msgid "Save the account information?"
+msgstr "アカウント情報を保存しますか?"
+
+msgid "Save username only"
+msgstr "ユーザー名のみを保存"
+
+msgid "Are you sure to sign out?"
+msgstr "サインアウトしてもよろしいですか?"
+
+msgid "The station is removed from your presets."
+msgstr "ステーションが事前設定から削除されます。"
+
+msgid "The station is added to your presets."
+msgstr "ステーションが事前設定に追加されます。"
+
+msgid "You should login to use this feature. Login now?"
+msgstr "この機能を使用するにはログインする必要があります。今すぐログインしますか?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "このトラックを評価していただきありがとうございます。気に入ってもらえてうれしいです。"
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "このトラックを評価していただきありがとうございます。残念ながらお気に召さなかったようです。"
+
+msgid "Track info has been sent. Please check your email."
+msgstr "トラック情報が送信されました。電子メールを確認してください。"
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Live365 アカウントをお持ちでない場合、http://www.live365.com にアクセスしてメンバーシップから始めるか、または VIP になってください。"
+
+
+
+msgid "Video"
+msgstr "ビデオ"
+
+
+
+
+msgid "Preference"
+msgstr "環境設定"
+
+msgid "Most favorites"
+msgstr "最もお気に入り"
+
+msgid "Most viewed"
+msgstr "最多表示"
+
+msgid "Most popular"
+msgstr "一番人気"
+
+msgid "Top rated"
+msgstr "最高評価"
+
+msgid "Most recent"
+msgstr "最新"
+
+msgid "My videos"
+msgstr "マイ ビデオ"
+
+msgid "Favorites"
+msgstr "お気に入り"
+
+
+
+
+msgid "Today"
+msgstr "今日"
+
+msgid "This week"
+msgstr "今週"
+
+msgid "This month"
+msgstr "今月"
+
+msgid "All time"
+msgstr "常時"
+
+msgid "Rate video"
+msgstr "ビデオの評価"
+
+msgid "Related"
+msgstr "評価済み"
+
+msgid "Full screen"
+msgstr "全画面"
+
+msgid "Info"
+msgstr "情報"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "サインアウト"
+
+msgid "Delete account"
+msgstr "アカウントの削除"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Current location"
+msgstr "現在地"
+
+msgid "Worldwide"
+msgstr "世界"
+
+msgid "Germany"
+msgstr "ドイツ"
+
+msgid "France"
+msgstr "フランス"
+
+msgid "Spain"
+msgstr "スペイン"
+
+msgid "Italy"
+msgstr "イタリア"
+
+msgid "Taiwan"
+msgstr "台湾"
+
+msgid "South Korea"
+msgstr "韓国"
+
+
+
+msgid "Russia"
+msgstr "ロシア"
+
+msgid "Video playback quality"
+msgstr "ビデオ再生品質"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "このビデオは現在使用できません。"
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "評価していただきありがとうございます。"
+
+msgid "The video has been added to your favorites."
+msgstr "ビデオがお気に入りに追加されました。"
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "アカウントを削除してもよろしいですか?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "すべてのアカウントを削除してもよろしいですか?"
+
+msgid "Login fail."
+msgstr "ログインできませんでした。"
+
+
+
+
+msgid "No content available."
+msgstr "コンテンツを使用できません。"
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "メディア プラグインの追加/削除"
+
+msgid "Manage users"
+msgstr "ユーザーの管理"
+
+msgid "All (Mix)"
+msgstr "すべて (混合)"
+
+msgid "Business & Finance"
+msgstr "ビジネスおよび金融"
+
+msgid "Cars"
+msgstr "自動車"
+
+msgid "Comedy"
+msgstr "コメディ"
+
+msgid "Cocking $ drinks"
+msgstr "クッキングおよびドリンク"
+
+msgid "Education"
+msgstr "教育"
+
+msgid "Fashion & luxury"
+msgstr "ファッションおよびラグジュアリ"
+
+msgid "Health & fitness"
+msgstr "ヘルスおよびフィットネス"
+
+msgid "Kids & cartoons"
+msgstr "キッズおよび漫画"
+
+msgid "Learn a languages"
+msgstr "言語の学習"
+
+
+
+
+msgid "News & politics"
+msgstr "ニュースおよび政治"
+
+msgid "Parenting"
+msgstr "子育て"
+
+msgid "Relationships"
+msgstr "人間関係"
+
+msgid "Science & nature"
+msgstr "科学および自然"
+
+msgid "Showbiz news"
+msgstr "芸能ニュース"
+
+msgid "Society & culture"
+msgstr "社会および文化"
+
+msgid "Sports"
+msgstr "スポーツ"
+
+msgid "Technology"
+msgstr "技術"
+
+msgid "Travel"
+msgstr "旅行"
+
+msgid "Video games"
+msgstr "ビデオ ゲーム"
+
+msgid "General"
+msgstr "全般"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Now playing"
+msgstr "再生中"
+
+msgid "Both"
+msgstr "両方"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "マイ チャンネルに追加"
+
+msgid "Remove from my channels"
+msgstr "マイ チャンネルから削除"
+
+msgid "Rate/Favorite"
+msgstr "評価/お気に入り"
+
+msgid "Episodes"
+msgstr "エピソード"
+
+
+
+msgid "My rating"
+msgstr "マイ レーティング"
+
+msgid "My favorite"
+msgstr "マイお気に入り"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "メディア プラグインをダッシュボードに追加"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "メディア プラグインを (mCode から) 手動で追加"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "メディア プラグインをダッシュボードから削除"
+
+msgid "Shows + Episodes"
+msgstr "ショーおよびエピソード"
+
+msgid "Shows"
+msgstr "ショー"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "Login"
+msgstr "ログイン"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "お気に入りのチャンネルをセットアップするには、お使いのプレイヤーを Mediafly アカウントにリンクさせる必要があります。"
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Mediafly アカウントは完全無料で、お気に入りの無料オンライン コンテンツの制御および管理を一元化できます。"
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "オプション 1: コンピュータで Web ブラウザを開き:"
+
+msgid "and enter this association code:"
+msgstr "にアクセスして次のアソシエーション コードを入力します。"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "オプション 2: Mediafly のユーザー名およびパスワードを使用してログインします。"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "戻る"
+
+
+
+
+
+
+
+
+
+
+msgid "NEXT"
+msgstr "次へ"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "すべての動画"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Audio Channel"
+msgstr "オーディオ チャンネル"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 分"
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 分"
+
+msgid "30 Minutes"
+msgstr "30 分"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "製品名に次の文字を含めることはできません。\\ / : * ? ¡§ ; | および空白文字。この名前は最大 15 文字までです。"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "私の連絡先"
+
+msgid "My tags"
+msgstr "マイタグ"
+
+msgid "Owner profile"
+msgstr "所有者のプロファイル"
+
+msgid "Play mode"
+msgstr "再生モード"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "アップグレードしますか?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "ON"
+msgstr "オン"
+
+
+
+
+msgid "OFF"
+msgstr "オフ"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "フォルダ"
+
+msgid "Album browser"
+msgstr "アルバム ブラウザ"
+
+msgid "Add photo to album"
+msgstr "写真をアルバムに追加"
+
+msgid "Select | Unselect item(s)"
+msgstr "項目を選択 | 選択解除"
+
+msgid "Select album"
+msgstr "アルバムを選択"
+
+msgid "Processing"
+msgstr "処理中"
+
+msgid "Select all"
+msgstr "すべて選択"
+
+msgid "Unselect all"
+msgstr "すべて選択解除"
+
+msgid "Album name"
+msgstr "アルバム名"
+
+msgid "Completed"
+msgstr "完了しました"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "xxxx 写真をアルバムに追加しますか?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "ファイルの追加を停止してよろしいですか?"
+
+msgid "Selected album has deleted."
+msgstr "選択したアルバムが削除されました。"
+
+msgid "Selected photo has been removed from the album."
+msgstr "選択した写真はアルバムから削除されています。"
+
+msgid "The album has been renamed."
+msgstr "アルバムの名前が変更されました。"
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "選択した写真をアルバムから削除してよろしいですか?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "選択したアルバムを削除してよろしいですか?\n写真はストレージから削除されません。"
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "アルバムの名前が重複しています。別の名前を試してください。"
+
+msgid "Are you sure you want to rename the album?"
+msgstr "アルバムの名前を変更してもよろしいですか?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "書き込み中にエラーがありました。ローカル ストレージをチェックしてください。いっぱいになっているか、または読み取り専用の可能性があります。"
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "ソース ファイルの読み込み中にエラーがありました。ローカル ストレージをチェックしてください。"
+
+msgid "File management"
+msgstr "ファイル管理"
+
+
+
+msgid "Select source"
+msgstr "コピー元を選択"
+
+msgid "File(s)"
+msgstr "ファイル"
+
+msgid "Folder(s)"
+msgstr "フォルダ"
+
+msgid "Yes to all"
+msgstr "すべてはい"
+
+msgid "No to all"
+msgstr "すべていいえ"
+
+msgid "Copy, move or delete item(s)"
+msgstr "項目をコピー、移動、または削除"
+
+msgid "Remove photo"
+msgstr "写真を削除"
+
+msgid "Rename or delete album"
+msgstr "アルバムの名前を変更または削除"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "ストレージが見つかりませんストレージを挿入してもう一度更新してください。"
+
+msgid "Would you like to overwrite it?"
+msgstr "上書きしますか?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "選択したファイルをコピーしますか?"
+
+msgid "Do you want to move the selected files?"
+msgstr "選択したファイルを移動しますか?"
+
+
+
+msgid "Chapter"
+msgstr "章"
+
+msgid "Title and Edition"
+msgstr "タイトルとエディション"
+
+msgid "Menu"
+msgstr "メニュー"
+
+msgid "Operation not supported"
+msgstr "サポートされていない操作"
+
+msgid "File Date"
+msgstr "ファイルの日付"
+
+msgid "Resolution"
+msgstr "解像度"
+
+msgid "Turkish (Windows-1254)"
+msgstr "トルコ語 (Windows1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "ヘブライ語 (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "送信"
+
+msgid "Check network status"
+msgstr "ネットワーク ステータスをチェック"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "キー入力エラー!\nキー入力が 16 進数の場合は、キー値が A ～ F、0 ～ 9 かどうかチェックしてください。"
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "キー長エラー!\nキー タイプが ASCII の場合の長さは、5、13、または 16 です。\nキー タイプが 16 進数の場合の長さは、10、26、または 32 です。"
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "キー長エラー!\nWPAPSK の長さは 8 ～ 64 です!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "キー タイプ エラー!\n長さが 64 の WPAPSK キーは 16 進数 (A ～ F、0 ～ 9) でなければなりません。"
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "IP アドレスが無効です。IP アドレスを確認してからもう一度試してください。"
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "電子メール アドレスが無効です。電子メール アドレスを確認してからもう一度試してください。"
+
+msgid "Invalid character(s) in first name."
+msgstr "名前に無効な文字が含まれています。"
+
+msgid "Invalid character(s) in last name."
+msgstr "姓名に無効な文字が含まれています。"
+
+
+
+msgid "Hungarian"
+msgstr "ハンガリー語"
+
+msgid "Serial number:"
+msgstr "シリアル番号:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "再起動するには、リモート コントロールの電源ボタンを押します。"
+
+msgid "Creator"
+msgstr "作成者"
+
+msgid "Web browser"
+msgstr "Web ブラウザ"
+
+msgid "Add to contacts"
+msgstr "連絡先に追加"
+
+msgid "Recently upload"
+msgstr "最近アップロード"
+
+msgid "Photo set"
+msgstr "写真セット"
+
+msgid "Friends"
+msgstr "友達"
+
+msgid "There is no contact."
+msgstr "連絡先はありません。"
+
+msgid "There is no tag."
+msgstr "タグはありません。"
+
+msgid "Search Results"
+msgstr "検索結果"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "このステーションを削除してもよろしいですか?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "このステーションを事前設定に追加してもよろしいですか?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "コマーシャルのない多数のインターネット ラジオ ステーションをお楽しみいただけます。Live365 には、Radio Disney、Santana、David Bynne、Pat Metheny、および Paul Oakenfold からのブロードキャストをはじめ、みなさんのような音楽ファンの手で運営されているステーションがあります。ロック、ヒップホップ、ジャズ、ニュー エイジなどのポピュラーなジャンルを簡単にブラウジングできます。ゴスペルやコメディ、アニメ、ヒンディ、サーティーズ、グラム、部族音楽、セルティックなどの珍しいジャンルからもすばらしい音楽を探すことができます。"
+
+msgid "Japan"
+msgstr "日本"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "このファイルは現在使用できません。後でもう一度試してください。"
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "ビデオを格付けしますか?今すぐ署名してください!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "お気に入りに追加しますか?今すぐ署名してください!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "全画面表示するには [PLAY/PAUSE] を押します。"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "You Tube に接続できません。不明なネットワーク エラーが発生しました。ネットワーク設定をチェックしてからもう一度試してください。"
+
+msgid "Poor"
+msgstr "低品質"
+
+msgid "Nothing special"
+msgstr "特筆点なし"
+
+msgid "Worth watching"
+msgstr "一見の価値あり"
+
+msgid "Pretty cool"
+msgstr "非常に良い"
+
+msgid "Awesome"
+msgstr "感動的"
+
+msgid "Show info"
+msgstr "情報を表示"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "デバイスの温度が 60 度を超えています。ハード ディスクはシャットダウンされます。"
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "デバイスの温度が 65 度を超えています。デバイスはシャットダウンされます。"
+
+msgid "Configure"
+msgstr "設定"
+
+msgid "Delete album"
+msgstr "アルバムを削除"
+
+msgid "Rename album"
+msgstr "アルバム名を変更"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "プレイリストを削除"
+
+msgid "Rename playlist"
+msgstr "プレイリスト名を変更"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "プレイリストがありません。 新しいプレイリストを作成しますか?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "プレイリストを削除してもよろしいですか?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "プレイリストからファイルを消去してもよろしいですか?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "ファイルの追加を停止してよろしいですか?"
+
+msgid "The selected album has been deleted."
+msgstr "選択したアルバムが削除されました。"
+
+msgid "The selected photo has been removed from album."
+msgstr "選択した写真はアルバムから削除されています。"
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "リモート ファイルの読み込み中にエラーが発生しました。 メディア サーバーまたはネットワークの状態を確認してください。"
+
+msgid "The selected music has been deleted."
+msgstr "選択された音楽は削除されました。"
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "xxxx の音楽をアルバムに追加しますか?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "音楽の追加を中止してもよろしいですか?"
+
+msgid "The playlist has been renamed."
+msgstr "プレイリストの名前が変更されました。"
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "選択された音楽をプレイリストから削除してよろしいですか?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "選択されたプレイリストを削除してよろしいですか?\n音楽はストレージからは削除されません。"
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "プレイリストの名前が重複しています。 別の名前を試してください。"
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "プレイリストの名前を変更してもよろしいですか?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "ストレージおよびメディア サーバーが見つかりません。 ストレージを挿入して、ネットワーク構成を確認し、もう一度更新してください。"
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "このフォルダには次の名前のファイルが既に存在します:上書きしますか?"
+
+msgid "Process completed."
+msgstr "処理が完了しました。"
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "フォルダ名には、\\ / : * ? \" < > | などの記号は使用できません。"
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "アルバム名には、\\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > % などの記号は使用できません。\nファイル名の文字数制限は、xx です。"
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "プレイリスト名には、\\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > % などの記号は使用できません。\nファイル名の文字数制限は、xx です。"
+
+msgid "Select"
+msgstr "項目を選択"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "本契約に同意しない場合は、当初の購入から 30 日以内に全製品を当初パッケージのまま購入場所にすみやかに返還して、購入代金全額の払い戻しを受けてください。"
+msgid "MediaflyVideo"
+msgstr "ビデオ"
+
+msgid "Accept"
+msgstr "受け入れる"
+
+msgid "Decline"
+msgstr "低下"
+
+msgid "Rename or delete playlist"
+msgstr "名前を変更またはプレイリストを削除する"
+
+msgid "The playlist has been created."
+msgstr "プレイリストが作成されています。"
+
+msgid "Select music"
+msgstr "音楽を選択"
+
+msgid "Select playlist"
+msgstr "選択してプレイリスト"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "あなたがプレイリストにxxxは音楽を追加しますか？"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "あなたはアルバムにxxxの写真を追加しますか？"
+
+msgid "Remove music from playlist"
+msgstr "プレイリストから音楽を削除する"
+
+msgid "Sort music"
+msgstr "並べ替え音楽"
+
+msgid "Move up"
+msgstr "上に移動"
+
+msgid "Move down"
+msgstr "下に移動"
+
+msgid "Are you sure to change the sort?"
+msgstr "あなたは、並べ替えを変更してもよろしいですか？"
+
+msgid "Remove or sort playlist"
+msgstr "削除するか、プレイリストを並べ替える"
+
+msgid "Remove music"
+msgstr "音楽を削除する"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "あなたがプレイリストから選択した音楽を削除してもよろしいですか？"
+
+msgid "Photo album"
+msgstr "フォトアルバム"
+
+msgid "The album has been created."
+msgstr "アルバムが作成されています。"
+
+msgid "Select photo"
+msgstr "写真を選択"
+
+msgid "Add to album"
+msgstr "アルバムに追加"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "ビデオをロードできません。サポートされていないフォーマットです。"
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "プラグインをオンにすると、サポートされているフォーマットでストリーミングされたビデオを表示できます。ただし、ストリーム ビデオ コンテンツによってはサポートされないものもあります。"
+
+msgid "Enable for Favorites"
+msgstr "お気に入りについて有効にする"
+
+msgid "Enable for all websites"
+msgstr "すべての Web サイトについて有効にする"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Web ブラウザのパフォーマンスを向上するために、「お気に入り」に指定された Web サイトについてのみ Flash プラグインが有効になります。すべての Web サイトについてプラグインを有効にするには、[設定] メニューの [ネットワーク] を開いてください。 "
+
+
+msgid "Photos"
+msgstr "写真"
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Confirm"
+msgstr "確認"
+
+msgid "Bookmarks"
+msgstr "ブックマーク"
+
+msgid "Add Bookmark"
+msgstr "ブックマークを追加"
+
+msgid "Edit Bookmark"
+msgstr "ブックマークを編集"
+
+msgid "Clear Bookmarks"
+msgstr "ブックマークを消去"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "ブックマークを消去してもよろしいですか?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "このブックマークを削除してもよろしいですか?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "このサーバー [server-name] の証明書の発行元は信頼されていません。続行しますか?"
+
+msgid "[url] is not available."
+msgstr "[url] は使用できません。"
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "申し訳ありませんが、問題が発生しました。"
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "[url] の Web ページを読み込めませんでした。"
+
+msgid "Here are a few things you may want to try:"
+msgstr "以下の方法を試してみてください:"
+
+msgid "Reload this web page later."
+msgstr "後でこのページを再読み込みする。"
+
+msgid "Return to the previous web page."
+msgstr "前の Web ページに戻る。"
+
+msgid "Are you sure you want to clear your history?"
+msgstr "履歴を消去してもよろしいですか?"
+
+msgid "Clear History"
+msgstr "履歴を消去"
+
+msgid "History"
+msgstr "履歴"
+
+msgid "No Title"
+msgstr "無題"
+
+msgid "The history is empty."
+msgstr "履歴は空です。"
+
+msgid "HTTP Authentication"
+msgstr "HTTP 認証:"
+
+msgid "Authentication Required"
+msgstr "認証が必要"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "[url-name] のサーバー [server-hostname] にアクセスするには、ユーザー名とパスワードが必要です。"
+
+msgid "User Name:"
+msgstr "ユーザー名:"
+
+msgid "Password:"
+msgstr "パスワード:"
+
+msgid "Pop-up Window"
+msgstr "ポップアップ ウィンドウ"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "[domain-name] からポップアップ ウィンドウを開きますか?"
+
+msgid "New Window"
+msgstr "新しいウィンドウ"
+
+msgid "New URL [url] from [url]"
+msgstr "[url] からの新しい URL [url]"
+
+msgid "Same"
+msgstr "同じ"
+
+msgid "Insecure to Secure"
+msgstr "[安全ではない] から [安全]"
+
+msgid "Secure to Insecure"
+msgstr "[安全] から [安全ではない]"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "後でまたこのメッセージを表示しますか?"
+
+msgid "Security Warning"
+msgstr "セキュリティ警告"
+
+msgid "Started"
+msgstr "開始"
+
+msgid "Loading"
+msgstr "読み込み中"
+
+msgid "Done"
+msgstr "完了"
+
+msgid "Title of the page."
+msgstr "ページのタイトル"
+
+msgid "Goto"
+msgstr "Goto"
+
+
+
+msgid "Forward"
+msgstr "進む"
+
+
+
+msgid "Refresh"
+msgstr "更新"
+
+msgid "Cursor"
+msgstr "カーソル"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Web ブラウザでのリモート コントロールの使用方法"
+
+msgid "Exit web browser"
+msgstr "Web ブラウザを終了します。"
+
+msgid "Move cursor in web browser"
+msgstr "Web ブラウザでカーソルを移動します。"
+
+msgid "Click to select links in web browser"
+msgstr "Web ブラウザのリンクを選択するには、このボタンをクリックします。"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Web ブラウザのキーボードを使用する場合の Alt キーです。"
+
+msgid "Back to previous web page"
+msgstr "前の Web ページに戻ります。"
+
+msgid "Display URL bar and web browser options"
+msgstr "URL バーや Web ブラウザのオプションを表示します。"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "URL やテキスト エントリを送信するには Enter を押します。"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "上下の矢印を使って Web ページを上下にスクロールします。"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Web ブラウザのキーボードを使用する場合のシンボル キーです。"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Web ブラウザのキーボードを使用する場合のスペースバーです。"
+
+msgid "Show this information again?"
+msgstr "この情報をもう一度表示しますか?"
+
+msgid "NO"
+msgstr "いいえ"
+
+msgid "YES"
+msgstr "はい"
+
+msgid "Eject USB device"
+msgstr "イジェクトUSBデバイス"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "ベータ Web ブラウザを使用して、お気に入りリストから人気の高いコンテンツを閲覧できます。他の好きな Web サイトに移動することもできます。ただし、ビデオ コンテンツはお気に入りリストにある Web サイトからのみ閲覧できます。"
+
+msgid "Downloading update..."
+msgstr "ダウンロードの更新..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "メディアライブラリには、検索機能を使用する前に有効にする必要があります。"
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "IOMEGA 使用許諾契約書"
+
+msgid "IF YOU DO NOT…"
+msgstr "以下を行わない場合..."
+
+msgid "Digital without HDMI audio"
+msgstr "デジタル (HDMI オーディオなし)"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "DivX レンタルは X/Y 個のビューを使用しました"
+
+msgid "Continue?"
+msgstr "続けますか?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "ファイルのコピーを中止しますか?"
+
+msgid "Mediafly dashboard"
+msgstr "Mediafly ダッシュボード"
+
+msgid "My channels"
+msgstr "マイ チャネル"
+
+msgid "Popular channels"
+msgstr "人気のあるチャネル"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "このアカウントを削除しますか?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "作品を追加しますか?:"
+
+msgid "This episode"
+msgstr "このエピソード"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "このエピソードはチャネルに追加されました。Mediafly.com ではその他のオプションもお選びいただけます。"
+
+msgid "All Episodes in this show"
+msgstr "この作品のすべてのエピソード"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "この作品はチャネルに追加されました。Mediafly.com ではその他のオプションもお選びいただけます。"
+
+msgid "What would you like to remove?"
+msgstr "何を削除しますか?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "このエピソードはチャネルから削除されました。Mediafly.com ではその他のオプションもお選びいただけます。"
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "この作品はチャネルから削除されました。Mediafly.com ではその他のオプションもお選びいただけます。"
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "この作品/エピソードを評価しますか?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "ありがとうございます。Mediafly.com ではその他のオプションもお選びいただけます。"
+
+msgid "View episodes"
+msgstr "エピソードを見る"
+
+msgid "Add content source"
+msgstr "コンテンツ ソースを追加"
+
+msgid "Add via mcode"
+msgstr "mcode で追加"
+
+msgid "Enter a Content Source mCode below"
+msgstr "コンテンツ ソース mCode を入力してください"
+
+msgid "an mCode is used to activate private content source"
+msgstr "プライベート コンテンツ ソースのアクティブ化に mCode が使用されます。"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "Mediafly ダッシュボードにコンテンツ ソースが正常に追加されました。"
+
+msgid "Invalid mCode, please try again."
+msgstr "無効な mCode です。もう一度試してください。"
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "都市を追加"
+
+msgid "City management"
+msgstr "都市の管理"
+
+msgid "Search location"
+msgstr "場所の検索"
+
+msgid "Change temperature unit"
+msgstr "温度単位を変更"
+
+msgid "Please define your default city location."
+msgstr "デフォルトの都市を定義してください。"
+
+msgid "Do you want to clear all city?"
+msgstr "すべての都市をクリアしますか?"
+
+msgid "Do you want to delete selected city?"
+msgstr "選択した都市をを削除しますか?"
+
+msgid "No result, please search again."
+msgstr "見つかりません。もう一度検索してください。"
+
+msgid "Remove movie Info"
+msgstr "映画情報を削除"
+
+msgid "Rescan Movie Info"
+msgstr "映画情報を再スキャン"
+
+
+
+msgid "Manual search"
+msgstr "手動検索"
+
+
+
+msgid "Please wait..."
+msgstr "お待ちください..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "コンテンツ情報を削除しますか?"
+
+msgid "Content info has been removed."
+msgstr "コンテンツ情報が削除されました。"
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "情報提供 - TMDb"
+
+msgid "No need"
+msgstr "必要なし"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "オンライン データベースにはコンテンツ情報がありません。検索条件を変更して、もう一度試してください。"
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "映画情報を保存できません。ネットワーク接続を確認してください。 "
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "映画情報を保存できません。ストレージがいっぱいになっているか、または読み取り専用の可能性があります。"
+
+msgid "Add to playlist"
+msgstr "プレイリストに追加"
+
+msgid "Back"
+msgstr "戻る"
+
+msgid "Connect"
+msgstr "接続"
+
+msgid "Create playlist"
+msgstr "プレイリストを作成"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS が無効です。DNS を確認してからもう一度試してください。"
+
+msgid "Do you want to delete the selected files?"
+msgstr "選択したファイルを削除しますか?"
+
+msgid "Edit playlist"
+msgstr "プレイリストを編集"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "ゲートウェイが無効です。ゲートウェイを確認してからもう一度試してください。"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "It should not be empty!"
+msgstr "空白にすることはできません!"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "Select destination"
+msgstr "コピー先を選択"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "サブネット マスクが無効です。サブネット マスクを確認してからもう一度試してください。"
+
+msgid "The device has lost its connection with the media server."
+msgstr "デバイスとメディア サーバの接続が失われました。"
+
+msgid "The selected music has been removed from playlist."
+msgstr "選択された音楽はプレイリストから削除されました。"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "Movies"
+msgstr "動画"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "ビデオに情報を適用するには [ENTER] を押してください。"
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "映画情報を取得しています\nお待ちください..."
+msgid "Delete all"
+msgstr "すべて削除"
+
+msgid "Wind velocity:"
+msgstr "風の速度"
+
+msgid "Humidity:"
+msgstr "湿度"
+
+msgid "High/Low"
+msgstr "低/高"
+
+msgid "Wind direction:"
+msgstr "風の方向"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "風向サーバーが応答しません。後でもう一度やり直してください。"
+
+msgid "Movie info auto scan"
+msgstr "映画情報の自動スキャン"
+
+msgid "Ignore"
+msgstr "無視"
+
+msgid "Scan movie info"
+msgstr "スキャン映画情報"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "ワークグループ名には、 \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > % 。\nなどの記号は使用できません。ファイル名の文字数制限は、xx です。"
+

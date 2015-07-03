@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qpauseanimation.cpp -->
+  <title>Qt 4.7: QPauseAnimation Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtcore.html">QtCore</a></li>
+              <li>QPauseAnimation</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QPauseAnimation Class Reference</h1>
+<!-- $$$QPauseAnimation-brief -->
+<p>The QPauseAnimation class provides a pause for <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>. <a href="#details">More...</a></p>
+<!-- @@@QPauseAnimation -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QPauseAnimation&gt;</pre><p>Inherits <a href="qabstractanimation.html">QAbstractAnimation</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qpauseanimation-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qpauseanimation.html#duration-prop">duration</a></b> : int</li>
+</ul>
+<ul>
+<li class="fn">6 properties inherited from <a href="qabstractanimation.html#properties">QAbstractAnimation</a></li>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#QPauseAnimation">QPauseAnimation</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#QPauseAnimation-2">QPauseAnimation</a></b> ( int <i>msecs</i>, QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#dtor.QPauseAnimation">~QPauseAnimation</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#duration-prop">setDuration</a></b> ( int <i>msecs</i> )</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual int </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#duration-prop">duration</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">11 public functions inherited from <a href="qabstractanimation.html#public-functions">QAbstractAnimation</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="reimplemented-protected-functions"></a>
+<h2>Reimplemented Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#event">event</a></b> ( QEvent * <i>e</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qpauseanimation.html#updateCurrentTime">updateCurrentTime</a></b> ( int )</td></tr>
+</table>
+<ul>
+<li class="fn">4 protected functions inherited from <a href="qabstractanimation.html#protected-functions">QAbstractAnimation</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">6 public slots inherited from <a href="qabstractanimation.html#public-slots">QAbstractAnimation</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">4 signals inherited from <a href="qabstractanimation.html#signals">QAbstractAnimation</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">4 protected functions inherited from <a href="qabstractanimation.html#protected-functions">QAbstractAnimation</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QPauseAnimation-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QPauseAnimation class provides a pause for <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>.</p>
+<p>If you wish to introduce a delay between animations in a <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>, you can insert a QPauseAnimation. This class does not animate anything, but does not <a href="qabstractanimation.html#finished">finish</a> before a specified number of milliseconds have elapsed from when it was started. You specify the duration of the pause in the constructor. It can also be set directly with <a href="qpauseanimation.html#duration-prop">setDuration</a>().</p>
+<p>It is not necessary to construct a QPauseAnimation yourself. <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a> provides the convenience functions <a href="qsequentialanimationgroup.html#addPause">addPause()</a> and <a href="qsequentialanimationgroup.html#insertPause">insertPause()</a>. These functions simply take the number of milliseconds the pause should last.</p>
+</div>
+<p>See also <a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a>.</p>
+<!-- @@@QPauseAnimation -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$duration-prop$$$duration$$$setDurationint -->
+<h3 class="fn"><a name="duration-prop"></a>duration : int</h3>
+<p>This property holds the duration of the pause.</p>
+<p>The duration of the pause. The duration should not be negative. The default duration is 250 milliseconds.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> virtual int </td><td class="memItemRight bottomAlign"><b>duration</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setDuration</b> ( int <i>msecs</i> )</td></tr>
+</table>
+<!-- @@@duration -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QPauseAnimation[overload1]$$$QPauseAnimationQObject* -->
+<h3 class="fn"><a name="QPauseAnimation"></a>QPauseAnimation::QPauseAnimation ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
+<p>Constructs a <a href="qpauseanimation.html">QPauseAnimation</a>. <i>parent</i> is passed to <a href="qobject.html">QObject</a>'s constructor. The default duration is 0.</p>
+<!-- @@@QPauseAnimation -->
+<!-- $$$QPauseAnimation$$$QPauseAnimationintQObject* -->
+<h3 class="fn"><a name="QPauseAnimation-2"></a>QPauseAnimation::QPauseAnimation ( int <i>msecs</i>, <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
+<p>Constructs a <a href="qpauseanimation.html">QPauseAnimation</a>. <i>msecs</i> is the duration of the pause. <i>parent</i> is passed to <a href="qobject.html">QObject</a>'s constructor.</p>
+<!-- @@@QPauseAnimation -->
+<!-- $$$~QPauseAnimation[overload1]$$$~QPauseAnimation -->
+<h3 class="fn"><a name="dtor.QPauseAnimation"></a>QPauseAnimation::~QPauseAnimation ()</h3>
+<p>Destroys the pause animation.</p>
+<!-- @@@~QPauseAnimation -->
+<!-- $$$event[overload1]$$$eventQEvent* -->
+<h3 class="fn"><a name="event"></a>bool QPauseAnimation::event ( <a href="qevent.html">QEvent</a> * <i>e</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
+<!-- @@@event -->
+<!-- $$$updateCurrentTime[overload1]$$$updateCurrentTimeint -->
+<h3 class="fn"><a name="updateCurrentTime"></a>void QPauseAnimation::updateCurrentTime ( int )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractanimation.html#updateCurrentTime">QAbstractAnimation::updateCurrentTime</a>().</p>
+<!-- @@@updateCurrentTime -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

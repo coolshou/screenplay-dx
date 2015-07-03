@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="el" lang="el">
+
+<head>
+
+<title>Σφάλμα.</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = "To " + Espial.errURL + " δεν είναι διαθέσιμο.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Λυπούμαστε, φαίνεται ότι υπάρχει κάποιο πρόβλημα.</h2>
+<br>
+Δεν ήταν δυνατή η φόρτωση της ιστοσελίδας στο  <b><script>document.writeln(Espial.errURL)</script></b>.
+<br>
+<br>
+<b>Εδώ είναι μερικά πράγματα που μπορείτε να δοκιμάσετε:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Φορτώστε την ιστοσελίδα ξανά αργότερα.</a></li>
+	<li><a onclick="Espial.back();">Επιστρέψτε στην προηγούμενη ιστοσελίδα.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

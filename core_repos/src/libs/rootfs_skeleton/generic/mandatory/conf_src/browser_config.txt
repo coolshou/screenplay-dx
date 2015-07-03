@@ -1,0 +1,7 @@
+larch.document.default: http://172.18.82.43:5643/web/html/index.htm
+browser.display.oneshot.mode:2
+browser.javascript.extensions.enable:1
+# Image page URL
+larch.document.images.default: http://172.18.82.43:5643/web/html/images.htm
+# Image cahce patch. Cache the decoded image instead of image raw data
+access.image.cache.patch:1

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: regexpdialog.cpp Example File (tools/regexp/regexpdialog.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">regexpdialog.cpp Example File</h1>
+<span class="small-subtitle">tools/regexp/regexpdialog.cpp</span>
+<!-- $$$tools/regexp/regexpdialog.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &quot;regexpdialog.h&quot;
+
+ RegExpDialog::RegExpDialog(QWidget *parent)
+     : QDialog(parent)
+ {
+     patternComboBox = new QComboBox;
+     patternComboBox-&gt;setEditable(true);
+     patternComboBox-&gt;setSizePolicy(QSizePolicy::Expanding,
+                                    QSizePolicy::Preferred);
+
+     patternLabel = new QLabel(tr(&quot;&amp;Pattern:&quot;));
+     patternLabel-&gt;setBuddy(patternComboBox);
+
+     escapedPatternLineEdit = new QLineEdit;
+     escapedPatternLineEdit-&gt;setReadOnly(true);
+     QPalette palette = escapedPatternLineEdit-&gt;palette();
+     palette.setBrush(QPalette::Base,
+                      palette.brush(QPalette::Disabled, QPalette::Base));
+     escapedPatternLineEdit-&gt;setPalette(palette);
+
+     escapedPatternLabel = new QLabel(tr(&quot;&amp;Escaped Pattern:&quot;));
+     escapedPatternLabel-&gt;setBuddy(escapedPatternLineEdit);
+
+     syntaxComboBox = new QComboBox;
+     syntaxComboBox-&gt;addItem(tr(&quot;Regular expression v1&quot;), QRegExp::RegExp);
+     syntaxComboBox-&gt;addItem(tr(&quot;Regular expression v2&quot;), QRegExp::RegExp2);
+     syntaxComboBox-&gt;addItem(tr(&quot;Wildcard&quot;), QRegExp::Wildcard);
+     syntaxComboBox-&gt;addItem(tr(&quot;Fixed string&quot;), QRegExp::FixedString);
+     syntaxComboBox-&gt;addItem(tr(&quot;W3C Xml Schema 1.1&quot;), QRegExp::W3CXmlSchema11);
+
+     syntaxLabel = new QLabel(tr(&quot;&amp;Pattern Syntax:&quot;));
+     syntaxLabel-&gt;setBuddy(syntaxComboBox);
+
+     textComboBox = new QComboBox;
+     textComboBox-&gt;setEditable(true);
+     textComboBox-&gt;setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+     textLabel = new QLabel(tr(&quot;&amp;Text:&quot;));
+     textLabel-&gt;setBuddy(textComboBox);
+
+     caseSensitiveCheckBox = new QCheckBox(tr(&quot;Case &amp;Sensitive&quot;));
+     caseSensitiveCheckBox-&gt;setChecked(true);
+     minimalCheckBox = new QCheckBox(tr(&quot;&amp;Minimal&quot;));
+
+     indexLabel = new QLabel(tr(&quot;Index of Match:&quot;));
+     indexEdit = new QLineEdit;
+     indexEdit-&gt;setReadOnly(true);
+
+     matchedLengthLabel = new QLabel(tr(&quot;Matched Length:&quot;));
+     matchedLengthEdit = new QLineEdit;
+     matchedLengthEdit-&gt;setReadOnly(true);
+
+     for (int i = 0; i &lt; MaxCaptures; ++i) {
+         captureLabels[i] = new QLabel(tr(&quot;Capture %1:&quot;).arg(i));
+         captureEdits[i] = new QLineEdit;
+         captureEdits[i]-&gt;setReadOnly(true);
+     }
+     captureLabels[0]-&gt;setText(tr(&quot;Match:&quot;));
+
+     QHBoxLayout *checkBoxLayout = new QHBoxLayout;
+     checkBoxLayout-&gt;addWidget(caseSensitiveCheckBox);
+     checkBoxLayout-&gt;addWidget(minimalCheckBox);
+     checkBoxLayout-&gt;addStretch(1);
+
+     QGridLayout *mainLayout = new QGridLayout;
+     mainLayout-&gt;addWidget(patternLabel, 0, 0);
+     mainLayout-&gt;addWidget(patternComboBox, 0, 1);
+     mainLayout-&gt;addWidget(escapedPatternLabel, 1, 0);
+     mainLayout-&gt;addWidget(escapedPatternLineEdit, 1, 1);
+     mainLayout-&gt;addWidget(syntaxLabel, 2, 0);
+     mainLayout-&gt;addWidget(syntaxComboBox, 2, 1);
+     mainLayout-&gt;addLayout(checkBoxLayout, 3, 0, 1, 2);
+     mainLayout-&gt;addWidget(textLabel, 4, 0);
+     mainLayout-&gt;addWidget(textComboBox, 4, 1);
+     mainLayout-&gt;addWidget(indexLabel, 5, 0);
+     mainLayout-&gt;addWidget(indexEdit, 5, 1);
+     mainLayout-&gt;addWidget(matchedLengthLabel, 6, 0);
+     mainLayout-&gt;addWidget(matchedLengthEdit, 6, 1);
+
+     for (int j = 0; j &lt; MaxCaptures; ++j) {
+         mainLayout-&gt;addWidget(captureLabels[j], 7 + j, 0);
+         mainLayout-&gt;addWidget(captureEdits[j], 7 + j, 1);
+     }
+     setLayout(mainLayout);
+
+     connect(patternComboBox, SIGNAL(editTextChanged(QString)),
+             this, SLOT(refresh()));
+     connect(textComboBox, SIGNAL(editTextChanged(QString)),
+             this, SLOT(refresh()));
+     connect(caseSensitiveCheckBox, SIGNAL(toggled(bool)),
+             this, SLOT(refresh()));
+     connect(minimalCheckBox, SIGNAL(toggled(bool)), this, SLOT(refresh()));
+     connect(syntaxComboBox, SIGNAL(currentIndexChanged(int)),
+             this, SLOT(refresh()));
+
+     patternComboBox-&gt;addItem(tr(&quot;[A-Za-z_]+([A-Za-z_0-9]*)&quot;));
+     textComboBox-&gt;addItem(tr(&quot;(10 + delta4) * 32&quot;));
+
+     setWindowTitle(tr(&quot;RegExp&quot;));
+     setFixedHeight(sizeHint().height());
+     refresh();
+ }
+
+ void RegExpDialog::refresh()
+ {
+     setUpdatesEnabled(false);
+
+     QString pattern = patternComboBox-&gt;currentText();
+     QString text = textComboBox-&gt;currentText();
+
+     QString escaped = pattern;
+     escaped.replace(&quot;\\&quot;, &quot;\\\\&quot;);
+     escaped.replace(&quot;\&quot;&quot;, &quot;\\\&quot;&quot;);
+     escaped.prepend(&quot;\&quot;&quot;);
+     escaped.append(&quot;\&quot;&quot;);
+     escapedPatternLineEdit-&gt;setText(escaped);
+
+     QRegExp rx(pattern);
+     Qt::CaseSensitivity cs = Qt::CaseInsensitive;
+     if (caseSensitiveCheckBox-&gt;isChecked())
+         cs = Qt::CaseSensitive;
+     rx.setCaseSensitivity(cs);
+     rx.setMinimal(minimalCheckBox-&gt;isChecked());
+     QRegExp::PatternSyntax syntax = QRegExp::PatternSyntax(
+             syntaxComboBox-&gt;itemData(syntaxComboBox-&gt;currentIndex()).toInt());
+     rx.setPatternSyntax(syntax);
+
+     QPalette palette = patternComboBox-&gt;palette();
+     if (rx.isValid()) {
+         palette.setColor(QPalette::Text,
+                          textComboBox-&gt;palette().color(QPalette::Text));
+     } else {
+         palette.setColor(QPalette::Text, Qt::red);
+     }
+     patternComboBox-&gt;setPalette(palette);
+
+     indexEdit-&gt;setText(QString::number(rx.indexIn(text)));
+     matchedLengthEdit-&gt;setText(QString::number(rx.matchedLength()));
+     for (int i = 0; i &lt; MaxCaptures; ++i) {
+         captureLabels[i]-&gt;setEnabled(i &lt;= rx.captureCount());
+         captureEdits[i]-&gt;setEnabled(i &lt;= rx.captureCount());
+         captureEdits[i]-&gt;setText(rx.cap(i));
+     }
+
+     setUpdatesEnabled(true);
+ }</pre>
+</div>
+<!-- @@@tools/regexp/regexpdialog.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

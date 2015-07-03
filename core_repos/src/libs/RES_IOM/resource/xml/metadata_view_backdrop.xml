@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<page background="@@metadata_info_bg" overlay="@@metadata_info_bg_overlay">
+	<ctrlgrp>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="4" rows="2" lbmask="u"  loop_scroll="1" turbo_trigger="10" turbo_multi="10" hormove="1" />
+	</ctrlgrp>
+
+	<image image="@@metadata_info_image_bg" x="0" y="0" w="1280" h="720" bg="1"/>
+
+	<image image="@@movie_metadata_thumbnail_bg" x="70" y="49" w="139" h="196" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@movie_metadata_thumbnail" x="70" y="49" w="139" h="196" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@movie_title" x="216" y="55" w="994" h="48" textcolor="0xffffff" fontsize="48" align="left" speed="1" delay="2"/>
+	<image image="@@movie_option_rating" x="218" y="108" w="124" h="21" align="hcenter" />
+	<image image="@@movie_favorite" x="356" y="108" w="23" h="21" align="hcenter" />
+
+	<text text="@@movie_year" x="216" y="145" w="320" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@movie_total_time" x="216" y="182" w="320" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@movie_actor" x="216" y="219" w="650" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@movie_genre" x="545" y="145" w="320" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@movie_director" x="545" y="182" w="320" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+
+	<image image="image/video_option_divider.png" x="70" y="260" w="1140" h="1" align="hcenter" />
+  
+	<widgetghost valkey="marquee" x="57" y="277" w="1168" h="348" ctrlname="browselist" step="10">
+
+	<wrapper w="289" h="167">
+		<image image="@@backdrop_bg_0" x="57" y="277"/>
+		<image image="@@backdrop_bg_1" x="350" y="277"/>
+		<image image="@@backdrop_bg_2" x="643" y="277"/>
+		<image image="@@backdrop_bg_3" x="936" y="277"/>
+		<image image="@@backdrop_bg_4" x="57" y="458"/>
+		<image image="@@backdrop_bg_5" x="350" y="458"/>
+		<image image="@@backdrop_bg_6" x="643" y="458"/>
+		<image image="@@backdrop_bg_7" x="936" y="458"/>
+	</wrapper>
+
+	<wrapper w="289" h="167" scale_type="pan" scale="100">
+		<image image="@@backdrop_thumb_0" x="57" y="277"/>
+		<image image="@@backdrop_thumb_1" x="350" y="277"/>
+		<image image="@@backdrop_thumb_2" x="643" y="277"/>
+		<image image="@@backdrop_thumb_3" x="936" y="277"/>
+		<image image="@@backdrop_thumb_4" x="57" y="458"/>
+		<image image="@@backdrop_thumb_5" x="350" y="458"/>
+		<image image="@@backdrop_thumb_6" x="643" y="458"/>
+		<image image="@@backdrop_thumb_7" x="936" y="458"/>
+	</wrapper>
+
+	<wrapper w="289" h="167">
+		<image image="@@backdrop_focus_0" x="57" y="277"/>
+		<image image="@@backdrop_focus_1" x="350" y="277"/>
+		<image image="@@backdrop_focus_2" x="643" y="277"/>
+		<image image="@@backdrop_focus_3" x="936" y="277"/>
+		<image image="@@backdrop_focus_4" x="57" y="458"/>
+		<image image="@@backdrop_focus_5" x="350" y="458"/>
+		<image image="@@backdrop_focus_6" x="643" y="458"/>
+		<image image="@@backdrop_focus_7" x="936" y="458"/>
+	</wrapper>
+
+	</widgetghost>
+
+	<image image="@@moreprev" x="69" y="641" w="21" h="36"/>
+	<image image="@@morenext" x="1190" y="641" w="21" h="36"/>
+
+	<text text="@@pagecounter" x="340" y="646" w="600" h="26" fontsize="24" align="hcenter" textcolor="0xffffff"/>
+
+	<include filename="./inc_loading.xml"/>
+</page>
+

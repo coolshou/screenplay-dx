@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# zz_restart
+#
+# SecureSOHO soft restart script
+# (c) 2001 Redsonic, Inc
+# (v) Version 2.3
+# (r) Nov 01 2002
+#
+# 2 Jan 2002 Moved up/down RCT script to improve response time
+# 14 Jan 2002 Retrofitted script to support start/stop/restart CLI options
+
+#cfg -exec zz_restart
+cfg -exec dma_cfg 

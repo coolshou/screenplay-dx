@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir='rtl'>
+	
+	<head>
+		
+		<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+		
+		<script type="text/javascript">
+		
+		/* Method called to close the dialog */
+		function closeDialog(okCancel){
+			Espial.closeDialog(okCancel);
+		}
+		
+		function sameWindow(){
+			Espial.gotoURL(Espial.newWindowURL);
+			
+			Espial.closeDialog(false);
+		}
+		
+		</script>
+		
+		<style>
+			/* Body style for the dialog files */
+			body {
+			margin: 0px; padding: 0px;
+			font-family: arial, sans-serif;	/* setting the font style */	
+			color: white;
+			}
+			
+			/* The most outer div of the dialog, and style for images used for rounded corners */
+			div#dialog{
+			background-color: black;
+			position: relative;			/* contained tags are positioned relative to this div */
+			padding: 10px;				/* equal with the width/height of the images used for corners */	
+			}
+			
+			/* Positioning the 4 corner images in the 4 corner of the dialog div */
+			img#dialogLeftTopBg{
+			background-color: white;
+			position: absolute;
+			left: 0px; top: 0px;
+			}
+			img#dialogRightTopBg{
+			background-color: white;
+			position: absolute;
+			right: 0px; top: 0px;
+			}
+			img#dialogLeftBottomBg{
+			background-color: white;
+			position: absolute;
+			left: 0px; bottom: 0px;
+			}
+			img#dialogRightBottomBg{
+			background-color: white;
+			position: absolute;
+			right: 0px; bottom: 0px;
+			}
+			
+			/* Div containing the message of the dialog, and style for images used for rounded corners */
+			div#dialogMsg {
+			position: relative;			/* content of this div is positioned relative to this */
+			padding: 10px;
+			overflow: hidden;
+			}
+			
+			div#dialogTitle {
+			font-size: 1.3em;	
+			font-weight: bold;
+			padding-left: 20px;
+			overflow: hidden;			/* Text should not flow out from the area. */
+			}
+			div#dialogText {
+			position: relative;			/* content (dialog icon) position will be relative to this */
+			font-size: 1em;
+			padding: 10px;
+			min-height: 40px;			/* height of the icon image (as icon is always present) */
+			overflow: hidden;			/* Text should not flow out from the area, if it is too large */
+			}
+			
+			/* Div containing the buttons of the dialog */
+			div#dialogButtons {
+			text-align: center;
+			}
+			div#dialogButtons input {							/* Common style for our buttons: set size, background, color and remove default input style */
+			background-image: url('../Images/dialog-button.png');	
+			background-repeat: no-repeat;
+			background-color: transparent;
+			width: 100px;				/* width of the background image */
+			height: 34px;				/* height of the background image */
+			border: 0px;
+			color: white;
+			text-align: center;
+			
+			}
+			div#dialogButtons input:hover {					/* change background image when button is selected (=highlighting effect)*/
+			background-image: url('../Images/dialog-button-highlighted.png');
+			}
+			
+		</style>
+		
+		<style type="text/css">
+			<!-- add here any style specific to this dialog -->
+		</style>
+	</head>
+	<body highlight="false" style="background-color:black">
+		
+		<div id="dialog">
+			<!-- Using images to create the round corners of the dialog page -->
+			<img id="dialogLeftTopBg" src="../Images/dialog-corner-lefttop.png" />
+			<img id="dialogRightTopBg" src="../Images/dialog-corner-righttop.png" />
+			<img id="dialogLeftBottomBg" src="../Images/dialog-corner-leftbottom.png" />
+			<img id="dialogRightBottomBg" src="../Images/dialog-corner-rightbottom.png" />
+			<!-- The message of the dialog -->	
+			<div id="dialogMsg">
+				<div id="dialogTitle">نافذة جديدة</div>
+				
+				<div id="dialogText">	
+					عنوان <script type="text/javascript">document.write(Espial.newWindowURL);</script> من <script type="text/javascript">document.write(Espial.dialogSrcURL);</script>
+				</div>
+			</div>
+			
+			<!-- Button -->
+			<div id="dialogButtons">
+				<table width="100%">
+					<tr>
+						<td align="right">    
+							<table style="padding-right:20px;" cellspacing="0" cellpadding="0" HIGHLIGHT="false" 
+								onmouseout="deHilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+								onmouseover="hilightButton('okButtonLeft', 'okButtonSliver', 'okButtonRight');"
+								onclick="sameWindow();">
+								<tr>
+									<td id='okButtonLeft' style="width:17px;height:34px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+									<td id='okButtonSliver' style="width:90px;background-repeat:repeat-x;background-image:url('../Images/button-sliver.png');text-align:center"> <b>بالطريقة ذاتها</b> </td>
+									<td id='okButtonRight' style="width:18px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+								</tr>
+							</table>
+						</td>
+						
+						<td>
+							<table style="padding-left:20px;" cellspacing="0" cellpadding="0" HIGHLIGHT="false" 
+								onmouseout="deHilightButton('cancelButtonLeft', 'cancelButtonSliver', 'cancelButtonRight');"
+								onmouseover="hilightButton('cancelButtonLeft', 'cancelButtonSliver', 'cancelButtonRight');"
+								onclick="closeDialog(false);">
+								<tr>
+									<td id='cancelButtonLeft' style="width:17px;height:34px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+									<td id='cancelButtonSliver' style="width:40px;background-repeat:repeat-x;background-image:url('../Images/button-sliver.png');"> <b>إلغاء</b> </td>
+									<td id='cancelButtonRight' style="width:18px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</body>
+</html>

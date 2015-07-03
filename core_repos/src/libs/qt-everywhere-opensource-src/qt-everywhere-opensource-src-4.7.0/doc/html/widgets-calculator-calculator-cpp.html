@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: calculator.cpp Example File (widgets/calculator/calculator.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">calculator.cpp Example File</h1>
+<span class="small-subtitle">widgets/calculator/calculator.cpp</span>
+<!-- $$$widgets/calculator/calculator.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &lt;math.h&gt;
+
+ #include &quot;button.h&quot;
+ #include &quot;calculator.h&quot;
+
+ Calculator::Calculator(QWidget *parent)
+     : QDialog(parent)
+ {
+     sumInMemory = 0.0;
+     sumSoFar = 0.0;
+     factorSoFar = 0.0;
+     waitingForOperand = true;
+
+     display = new QLineEdit(&quot;0&quot;);
+     display-&gt;setReadOnly(true);
+     display-&gt;setAlignment(Qt::AlignRight);
+     display-&gt;setMaxLength(15);
+
+     QFont font = display-&gt;font();
+     font.setPointSize(font.pointSize() + 8);
+     display-&gt;setFont(font);
+
+     for (int i = 0; i &lt; NumDigitButtons; ++i) {
+         digitButtons[i] = createButton(QString::number(i), SLOT(digitClicked()));
+     }
+
+     Button *pointButton = createButton(tr(&quot;.&quot;), SLOT(pointClicked()));
+     Button *changeSignButton = createButton(tr(&quot;\261&quot;), SLOT(changeSignClicked()));
+
+     Button *backspaceButton = createButton(tr(&quot;Backspace&quot;), SLOT(backspaceClicked()));
+     Button *clearButton = createButton(tr(&quot;Clear&quot;), SLOT(clear()));
+     Button *clearAllButton = createButton(tr(&quot;Clear All&quot;), SLOT(clearAll()));
+
+     Button *clearMemoryButton = createButton(tr(&quot;MC&quot;), SLOT(clearMemory()));
+     Button *readMemoryButton = createButton(tr(&quot;MR&quot;), SLOT(readMemory()));
+     Button *setMemoryButton = createButton(tr(&quot;MS&quot;), SLOT(setMemory()));
+     Button *addToMemoryButton = createButton(tr(&quot;M+&quot;), SLOT(addToMemory()));
+
+     Button *divisionButton = createButton(tr(&quot;\367&quot;), SLOT(multiplicativeOperatorClicked()));
+     Button *timesButton = createButton(tr(&quot;\327&quot;), SLOT(multiplicativeOperatorClicked()));
+     Button *minusButton = createButton(tr(&quot;-&quot;), SLOT(additiveOperatorClicked()));
+     Button *plusButton = createButton(tr(&quot;+&quot;), SLOT(additiveOperatorClicked()));
+
+     Button *squareRootButton = createButton(tr(&quot;Sqrt&quot;), SLOT(unaryOperatorClicked()));
+     Button *powerButton = createButton(tr(&quot;x\262&quot;), SLOT(unaryOperatorClicked()));
+     Button *reciprocalButton = createButton(tr(&quot;1/x&quot;), SLOT(unaryOperatorClicked()));
+     Button *equalButton = createButton(tr(&quot;=&quot;), SLOT(equalClicked()));
+
+     QGridLayout *mainLayout = new QGridLayout;
+     mainLayout-&gt;setSizeConstraint(QLayout::SetFixedSize);
+
+     mainLayout-&gt;addWidget(display, 0, 0, 1, 6);
+     mainLayout-&gt;addWidget(backspaceButton, 1, 0, 1, 2);
+     mainLayout-&gt;addWidget(clearButton, 1, 2, 1, 2);
+     mainLayout-&gt;addWidget(clearAllButton, 1, 4, 1, 2);
+
+     mainLayout-&gt;addWidget(clearMemoryButton, 2, 0);
+     mainLayout-&gt;addWidget(readMemoryButton, 3, 0);
+     mainLayout-&gt;addWidget(setMemoryButton, 4, 0);
+     mainLayout-&gt;addWidget(addToMemoryButton, 5, 0);
+
+     for (int i = 1; i &lt; NumDigitButtons; ++i) {
+         int row = ((9 - i) / 3) + 2;
+         int column = ((i - 1) % 3) + 1;
+         mainLayout-&gt;addWidget(digitButtons[i], row, column);
+     }
+
+     mainLayout-&gt;addWidget(digitButtons[0], 5, 1);
+     mainLayout-&gt;addWidget(pointButton, 5, 2);
+     mainLayout-&gt;addWidget(changeSignButton, 5, 3);
+
+     mainLayout-&gt;addWidget(divisionButton, 2, 4);
+     mainLayout-&gt;addWidget(timesButton, 3, 4);
+     mainLayout-&gt;addWidget(minusButton, 4, 4);
+     mainLayout-&gt;addWidget(plusButton, 5, 4);
+
+     mainLayout-&gt;addWidget(squareRootButton, 2, 5);
+     mainLayout-&gt;addWidget(powerButton, 3, 5);
+     mainLayout-&gt;addWidget(reciprocalButton, 4, 5);
+     mainLayout-&gt;addWidget(equalButton, 5, 5);
+     setLayout(mainLayout);
+
+     setWindowTitle(tr(&quot;Calculator&quot;));
+ }
+
+ void Calculator::digitClicked()
+ {
+     Button *clickedButton = qobject_cast&lt;Button *&gt;(sender());
+     int digitValue = clickedButton-&gt;text().toInt();
+     if (display-&gt;text() == &quot;0&quot; &amp;&amp; digitValue == 0.0)
+         return;
+
+     if (waitingForOperand) {
+         display-&gt;clear();
+         waitingForOperand = false;
+     }
+     display-&gt;setText(display-&gt;text() + QString::number(digitValue));
+ }
+
+ void Calculator::unaryOperatorClicked()
+ {
+     Button *clickedButton = qobject_cast&lt;Button *&gt;(sender());
+     QString clickedOperator = clickedButton-&gt;text();
+     double operand = display-&gt;text().toDouble();
+     double result = 0.0;
+
+     if (clickedOperator == tr(&quot;Sqrt&quot;)) {
+         if (operand &lt; 0.0) {
+             abortOperation();
+             return;
+         }
+         result = sqrt(operand);
+     } else if (clickedOperator == tr(&quot;x\262&quot;)) {
+         result = pow(operand, 2.0);
+     } else if (clickedOperator == tr(&quot;1/x&quot;)) {
+         if (operand == 0.0) {
+             abortOperation();
+             return;
+         }
+         result = 1.0 / operand;
+     }
+     display-&gt;setText(QString::number(result));
+     waitingForOperand = true;
+ }
+
+ void Calculator::additiveOperatorClicked()
+ {
+     Button *clickedButton = qobject_cast&lt;Button *&gt;(sender());
+     QString clickedOperator = clickedButton-&gt;text();
+     double operand = display-&gt;text().toDouble();
+
+     if (!pendingMultiplicativeOperator.isEmpty()) {
+         if (!calculate(operand, pendingMultiplicativeOperator)) {
+             abortOperation();
+             return;
+         }
+         display-&gt;setText(QString::number(factorSoFar));
+         operand = factorSoFar;
+         factorSoFar = 0.0;
+         pendingMultiplicativeOperator.clear();
+     }
+
+     if (!pendingAdditiveOperator.isEmpty()) {
+         if (!calculate(operand, pendingAdditiveOperator)) {
+             abortOperation();
+             return;
+         }
+         display-&gt;setText(QString::number(sumSoFar));
+     } else {
+         sumSoFar = operand;
+     }
+
+     pendingAdditiveOperator = clickedOperator;
+     waitingForOperand = true;
+ }
+
+ void Calculator::multiplicativeOperatorClicked()
+ {
+     Button *clickedButton = qobject_cast&lt;Button *&gt;(sender());
+     QString clickedOperator = clickedButton-&gt;text();
+     double operand = display-&gt;text().toDouble();
+
+     if (!pendingMultiplicativeOperator.isEmpty()) {
+         if (!calculate(operand, pendingMultiplicativeOperator)) {
+             abortOperation();
+             return;
+         }
+         display-&gt;setText(QString::number(factorSoFar));
+     } else {
+         factorSoFar = operand;
+     }
+
+     pendingMultiplicativeOperator = clickedOperator;
+     waitingForOperand = true;
+ }
+
+ void Calculator::equalClicked()
+ {
+     double operand = display-&gt;text().toDouble();
+
+     if (!pendingMultiplicativeOperator.isEmpty()) {
+         if (!calculate(operand, pendingMultiplicativeOperator)) {
+             abortOperation();
+             return;
+         }
+         operand = factorSoFar;
+         factorSoFar = 0.0;
+         pendingMultiplicativeOperator.clear();
+     }
+     if (!pendingAdditiveOperator.isEmpty()) {
+         if (!calculate(operand, pendingAdditiveOperator)) {
+             abortOperation();
+             return;
+         }
+         pendingAdditiveOperator.clear();
+     } else {
+         sumSoFar = operand;
+     }
+
+     display-&gt;setText(QString::number(sumSoFar));
+     sumSoFar = 0.0;
+     waitingForOperand = true;
+ }
+
+ void Calculator::pointClicked()
+ {
+     if (waitingForOperand)
+         display-&gt;setText(&quot;0&quot;);
+     if (!display-&gt;text().contains(&quot;.&quot;))
+         display-&gt;setText(display-&gt;text() + tr(&quot;.&quot;));
+     waitingForOperand = false;
+ }
+
+ void Calculator::changeSignClicked()
+ {
+     QString text = display-&gt;text();
+     double value = text.toDouble();
+
+     if (value &gt; 0.0) {
+         text.prepend(tr(&quot;-&quot;));
+     } else if (value &lt; 0.0) {
+         text.remove(0, 1);
+     }
+     display-&gt;setText(text);
+ }
+
+ void Calculator::backspaceClicked()
+ {
+     if (waitingForOperand)
+         return;
+
+     QString text = display-&gt;text();
+     text.chop(1);
+     if (text.isEmpty()) {
+         text = &quot;0&quot;;
+         waitingForOperand = true;
+     }
+     display-&gt;setText(text);
+ }
+
+ void Calculator::clear()
+ {
+     if (waitingForOperand)
+         return;
+
+     display-&gt;setText(&quot;0&quot;);
+     waitingForOperand = true;
+ }
+
+ void Calculator::clearAll()
+ {
+     sumSoFar = 0.0;
+     factorSoFar = 0.0;
+     pendingAdditiveOperator.clear();
+     pendingMultiplicativeOperator.clear();
+     display-&gt;setText(&quot;0&quot;);
+     waitingForOperand = true;
+ }
+
+ void Calculator::clearMemory()
+ {
+     sumInMemory = 0.0;
+ }
+
+ void Calculator::readMemory()
+ {
+     display-&gt;setText(QString::number(sumInMemory));
+     waitingForOperand = true;
+ }
+
+ void Calculator::setMemory()
+ {
+     equalClicked();
+     sumInMemory = display-&gt;text().toDouble();
+ }
+
+ void Calculator::addToMemory()
+ {
+     equalClicked();
+     sumInMemory += display-&gt;text().toDouble();
+ }
+ Button *Calculator::createButton(const QString &amp;text, const char *member)
+ {
+     Button *button = new Button(text);
+     connect(button, SIGNAL(clicked()), this, member);
+     return button;
+ }
+
+ void Calculator::abortOperation()
+ {
+     clearAll();
+     display-&gt;setText(tr(&quot;####&quot;));
+ }
+
+ bool Calculator::calculate(double rightOperand, const QString &amp;pendingOperator)
+ {
+     if (pendingOperator == tr(&quot;+&quot;)) {
+         sumSoFar += rightOperand;
+     } else if (pendingOperator == tr(&quot;-&quot;)) {
+         sumSoFar -= rightOperand;
+     } else if (pendingOperator == tr(&quot;\327&quot;)) {
+         factorSoFar *= rightOperand;
+     } else if (pendingOperator == tr(&quot;\367&quot;)) {
+         if (rightOperand == 0.0)
+             return false;
+         factorSoFar /= rightOperand;
+     }
+     return true;
+ }</pre>
+</div>
+<!-- @@@widgets/calculator/calculator.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

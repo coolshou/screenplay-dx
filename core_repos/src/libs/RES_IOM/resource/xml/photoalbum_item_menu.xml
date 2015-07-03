@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/playlistmenu.gif" w="404" h="224">
+  <table x="10" y="20" w="130" h="80" fontsize="18" 
+         cols="1" rows="2" colspacing="0" rowspacing="0"
+         lbimage="image/lightbar-menu.gif">
+    <text text="$$DELETE" xmargin="5" ymargin="5"
+          lightbar="@@DELETE_active" active="@@DELETE_active"/>
+    <text text="$$RENAME" xmargin="5" ymargin="5"
+          lightbar="@@RENAME_active" active="@@RENAME_active"/>
+  </table>
+</page>

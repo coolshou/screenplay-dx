@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author:  Pavin Si <pavin_si@alphanetworks.com> -->
+<page>
+  <ctrlgrp lbmask="l">  
+    <ctrlgrp valkey="sub0" lbmask=""
+              focused_bg="image/seek_h_focus.gif"
+              normal_bg="image/seek_h_normal.gif">
+      <seektime_h valkey="SEEK_HOUR" value="seek_time_hour"  maxlen="2"
+               title="$$Please input search hours here:"/>
+    </ctrlgrp>
+    <ctrlgrp valkey="sub1" lbmask=""
+              focused_bg="image/seek_m_focus.gif"
+              normal_bg="image/seek_m_normal.gif">
+      <seektime_m valkey="SEEK_MIN" value="seek_time_min"  maxlen="2"
+               title="$$Please input search minutes here:"/>
+    </ctrlgrp>
+    <ctrlgrp valkey="sub2" lbmask=""
+              focused_bg="image/seek_s_focus.gif"
+              normal_bg="image/seek_s_normal.gif">
+      <seektime_m valkey="SEEK_SECOND" value="seek_time_second"  maxlen="2"
+               title="$$Please input search seconds here:"/>
+    </ctrlgrp>
+    <hole/>
+    <linebreak/>
+    <button valkey="OK"
+             focused_bg="image/mcx_setup_button_short_720_btn_f.png"
+             normal_bg="image/mcx_setup_button_short_720_btn_n.png"/>
+    <hole/>
+    <hole/>
+    <hole/>
+    <button valkey="CANCEL"
+             focused_bg="image/mcx_setup_button_short_720_btn_f.png"
+             normal_bg="image/mcx_setup_button_short_720_btn_n.png"/>
+  </ctrlgrp>
+  <image image="image/seek_bg.gif" x="160" y="100" w="394" h="215" />
+  <table x="212" y="188" w="77" h="30" cols="1" rows="1">
+    <image image="@@bg-sub0"/>
+  </table>
+  <table x="318" y="188" w="77" h="30" cols="1" rows="1">
+    <image image="@@bg-sub1"/>
+  </table>
+  <table x="423" y="188" w="77" h="30" cols="1" rows="1">
+    <image image="@@bg-sub2"/>
+  </table>
+  <table x="212" y="188" w="77" h="30" cols="1" rows="1"
+     	textcolor="0xAAAAAA" selectedtextcolor="0xC0C000" activetextcolor="0xFFFFFF" actnoseltextcolor="0xAAAAAA">
+    <text text="@@SEEK_HOUR" selected="@@sel-SEEK_HOUR" active="@@act-SEEK_HOUR"/>
+  </table>
+  <table x="318" y="188" w="77" h="30" cols="1" rows="1"
+     	textcolor="0xAAAAAA" selectedtextcolor="0xC0C000" activetextcolor="0xFFFFFF" actnoseltextcolor="0xAAAAAA">
+    <text text="@@SEEK_MIN" selected="@@sel-SEEK_MIN" active="@@act-SEEK_MIN"/>
+  </table>
+  <table x="423" y="188" w="77" h="30" cols="1" rows="1"
+     	textcolor="0xAAAAAA" selectedtextcolor="0xC0C000" activetextcolor="0xFFFFFF" actnoseltextcolor="0xAAAAAA">
+    <text text="@@SEEK_SECOND" selected="@@sel-SEEK_SECOND" active="@@act-SEEK_SECOND"/>
+  </table>
+  
+  <table x="220" y="268" w="300" h="44" cols="2" colspacing="50" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK" />
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+</page>

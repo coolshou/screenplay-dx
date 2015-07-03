@@ -1,0 +1,111 @@
+/*********************************************************
+
+ This is the common stlye used by the dialog GUI files
+ 
+**********************************************************/
+
+	/* Body style for the dialog files */
+	body {
+		margin: 0px; padding: 0px;
+	 	font-family: arial, sans-serif;	/* setting the font style */	
+		color: white;
+	}
+	
+	/* The most outer div of the dialog, and style for images used for rounded corners */
+	div#dialog{
+		background-color: black;
+		position: relative;			/* contained tags are positioned relative to this div */
+		padding: 10px;				/* equal with the width/height of the images used for corners */	
+	}
+	
+	/* Positioning the 4 corner images in the 4 corner of the dialog div */
+	img#dialogLeftTopBg{
+		position: absolute;
+		left: 0px; top: 0px;
+	}
+	img#dialogRightTopBg{
+		position: absolute;
+		right: 0px; top: 0px;
+	}
+	img#dialogLeftBottomBg{
+		position: absolute;
+		left: 0px; bottom: 0px;
+	}
+	img#dialogRightBottomBg{
+		position: absolute;
+		right: 0px; bottom: 0px;
+	}
+
+	/* Div containing the message of the dialog, and style for images used for rounded corners */
+	div#dialogMsg {
+		background-image: url('Images/dialog-gradient-middle-1pixelwide.png');
+		background-repeat: repeat-x;
+		background-color: #231F20;	/* end color of the background gradient, this background color is needed when the div becomes higher then the background image  */
+		min-height: 93px;			/* This is the minimum height of the message container, equal to the height of the background image - the padding.*/
+		position: relative;			/* content of this div is positioned relative to this */
+		padding: 10px;
+		overflow: hidden;
+	}
+	/* Positioning the 4 corner images in the 4 corner of the dialogMsg div */
+	img#dialogMsgLeftTopBg{
+		background-color: black;
+		position: absolute;
+		left: 0px; top: 0px;		
+	}
+	img#dialogMsgRightTopBg{
+		background-color: black;
+		position: absolute;	
+		right: 0px; top: 0px;
+	}
+	img#dialogMsgLeftBottomBg{
+		background-color: black;
+		position: absolute;
+		left: 0px; bottom: 0px;		
+	}
+	img#dialogMsgRightBottomBg{
+		background-color: black;
+		position: absolute;	
+		right: 0px; bottom: 0px;
+	}
+	
+	div#dialogTitle {
+		font-size: 1.3em;	
+		font-weight: bold;
+		padding-left: 20px;
+		overflow: hidden;			/* Text should not flow out from the area. */
+	}
+	div#dialogText {
+	 	position: relative;			/* content (dialog icon) position will be relative to this */
+		font-size: 1em;
+		padding: 10px;
+		padding-left: 70px;			/* the padding on the left of the text, to make place for the dialog icon */
+		min-height: 40px;			/* height of the icon image (as icon is always present) */
+		overflow: hidden;			/* Text should not flow out from the area, if it is too large */
+	}
+	img#dialogIcon{
+		position: absolute;
+		left: 20px; 				/* positioning the icon image */
+		top: 20px;	
+	}
+		
+	/* Div containing the buttons of the dialog */
+	div#dialogButtons {
+	 	margin-top: 40px;			/* Distance from the dialog message area */
+	 	text-align: center;
+	}
+	div#dialogButtons input {							/* Common style for our buttons: set size, background, color and remove default input style */
+		background-image: url('Images/dialog-button.png');	
+		background-repeat: no-repeat;
+		background-color: transparent;
+		width: 109px;				/* width of the background image */
+		height: 34px;				/* height of the background image */
+		border: 0px;
+		font-weight: bold;
+		font-size: 1em;
+		color: white;
+		text-align: center;
+		
+	}
+	div#dialogButtons input:hover {					/* change background image when button is selected (=highlighting effect)*/
+		background-image: url('Images/dialog-button-highlighted.png');
+	}

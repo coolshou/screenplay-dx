@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<page background="image/browser_list_background_bg_n.png" type="basic">
+  <ctrlgrp>
+    <button valkey="OK" focused_bg="image/button_blank-act.png" normal_bg="image/button_blank.png"/>
+    <button valkey="CANCEL" focused_bg="image/button_blank-act.png" normal_bg="image/button_blank.png"/>
+  </ctrlgrp>
+  <image id="headline" image="image/Setup.png" />
+  <wrapper fontsize="24" x="126" w="475" align="left" 
+         activetextcolor="0xFFFFFF" textcolor="0xFFFFFF" actnoseltextcolor="0xFFFFFF">
+    <text text="$$This feature allows you to test your Media Player's network connection." y="164" h="60" numlines="2" />
+    <text text="$$Press OK to proceed or CANCEL to exit." x="165" y="251" h="60" numlines="2"/>
+  </wrapper>
+  
+  <table x="338" y="404" w="226" h="36" cols="2" rowspacing="0" align="hcenter" fontsize="18">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="Cancel"/>
+  </table>
+  
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

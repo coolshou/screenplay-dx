@@ -1,0 +1,14 @@
+#!/bin/sh
+# let osd go
+sleep 2
+while [ ! -f "/tmp/firstrunosd" ]; do sleep 1;  done
+if [ -f /tmp/STOP_CAS ]; then
+    sleep 10000
+fi
+
+while [ 1 ]; do 
+	killall -9 scan_manager;
+	/bin/scan_manager;
+	sleep 30;
+done
+

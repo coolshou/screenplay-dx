@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page background="image/blank.jpg">
+  <ctrlgrp lbmask="l" >
+    <button valkey="COMPOSITE"/>
+    <linebreak/>
+    <button valkey="COMPONENT"/>
+    <linebreak/>
+  </ctrlgrp>
+  
+  <text text="$$: Adjust video" x="215" y="40" w="250" h="35"/>
+  
+  <table x="75" y="135" w="590" h="80"
+		cols="1" rows="2" rowspacing="0"
+		lbimage="image/lightbar-setup.gif"
+		fontsize="24" activetextcolor="0xFFFFFF">
+    
+    <text text="$$Composite (RCA and S-Video)" 
+			xmargin="80" ymargin="5"
+			lightbar="@@lightbar-COMPOSITE" 
+			active="@@act-COMPOSITE"/>
+    
+    <text text="$$Component (YPbPr)"
+			xmargin="80" ymargin="5"
+			lightbar="@@lightbar-COMPONENT"
+			active="@@act-COMPONENT"/>
+    
+  </table>
+  
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/> 
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

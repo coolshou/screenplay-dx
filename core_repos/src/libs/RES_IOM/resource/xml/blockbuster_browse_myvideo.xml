@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<page background="image/blockbuster/bb_browse_bg.jpg" ignore_desktop_settings="1">
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<listbox valkey="ourlist" 
+			hormove="1" autoenter="1" move="row" autoswitch="0" 
+			cols="4" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png"/>
+		<linebreak/>
+		<listbox valkey="browselist" 
+			hormove="1" move="page" autoenter="1" autoswitch="0" 
+			cols="5" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+		<linebreak/>
+		<listbox valkey="actionlist"
+			hormove="1" autoenter="1" move="row" autoswitch="0" 
+			cols="4" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png"/>
+	</ctrlgrp>
+
+	<table x="207" y="140" w="855" h="49" fontsize="20" cols="4" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="@@bg-ourlist-0" text="@@ourlist_0_text" 
+			active="@@act-ourlist-0" selected="@@sel-ourlist-0" click="@@click-ourlist-0" 
+			clicked="@@clicked-ourlist-0" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-1" text="@@ourlist_1_text" 
+			active="@@act-ourlist-1" selected="@@sel-ourlist-1" click="@@click-ourlist-1" 
+			clicked="@@clicked-ourlist-1" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-2" text="@@ourlist_2_text" 
+			active="@@act-ourlist-2" selected="@@sel-ourlist-2" click="@@click-ourlist-2" 
+			clicked="@@clicked-ourlist-2" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-3" text="@@ourlist_3_text" 
+			active="@@act-ourlist-3" selected="@@sel-ourlist-3" click="@@click-ourlist-3" 
+			clicked="@@clicked-ourlist-3" disable="@@disable-ourlist" speed="5" delay="2"/>
+	</table>
+
+	<image x="105" y="140" w="1070" h="49" image="@@ourlist_bar"/>
+
+	<widgetlist valkey="marquee" x="116" y="229" w="1052" h="305" ctrlname="browselist" step="5" freeze_in_waiting="1">
+		<wrapper y="480" w="178" h="50" prefetch="1" mirror="1" align="left,top">
+			<imgbtn text="" image="@@browselist_0_mirror" active="@@act-browselist-0" x="125" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_1_mirror" active="@@act-browselist-1" x="338" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_2_mirror" active="@@act-browselist-2" x="551" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_3_mirror" active="@@act-browselist-3" x="764" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_4_mirror" active="@@act-browselist-4" x="977" disable="@@disable-browselist"/>
+		</wrapper>
+
+		<image image="image/blockbuster/bb_browse_reflection_mask.png" x="125" y="478" w="1030" h="55" disable="@@disable-browselist"/> 
+
+		<!-- We will show default icon at the botton instead of use default_image because we don't want it to show default icon in the beginning -->
+		<wrapper scale="100" y="229" w="196" h="260" lbimage="@@marquee_lbimage" lmargin="9" rmargin="9" umargin="9" dmargin="9">
+			<imgbtn text="" image="@@browselist_0_default_icon" x="116" lightbar="@@lightbar-browselist-0"
+				active="@@act-browselist-0" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_1_default_icon" x="329" lightbar="@@lightbar-browselist-1"
+				active="@@act-browselist-1" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_2_default_icon" x="542" lightbar="@@lightbar-browselist-2"
+				active="@@act-browselist-2" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_3_default_icon" x="755" lightbar="@@lightbar-browselist-3"
+				active="@@act-browselist-3" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_4_default_icon" x="968" lightbar="@@lightbar-browselist-4"
+				active="@@act-browselist-4" disable="@@disable-browselist"/>
+		</wrapper>
+
+		<!--- Show "Image Not Available" -->
+		<wrapper y="340" w="161" h="50" numlines="2" fontsize="22" textcolor="0xff727272" align="hcenter">
+			<text text="@@browselist_0_default_text" active="@@act-browselist-0" x="125" disable="@@disable-browselist"/>
+			<text text="@@browselist_1_default_text" active="@@act-browselist-1" x="338" disable="@@disable-browselist"/>
+			<text text="@@browselist_2_default_text" active="@@act-browselist-2" x="551" disable="@@disable-browselist"/>
+			<text text="@@browselist_3_default_text" active="@@act-browselist-3" x="764" disable="@@disable-browselist"/>
+			<text text="@@browselist_4_default_text" active="@@act-browselist-4" x="977" disable="@@disable-browselist"/>
+		</wrapper>
+	
+		<!-- Show Album Art -->
+		<wrapper scale="100" y="238" w="178" h="242" prefetch="1">
+			<imgbtn text="" image="@@browselist_0_icon" active="@@act-browselist-0" x="125" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_1_icon" active="@@act-browselist-1" x="338" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_2_icon" active="@@act-browselist-2" x="551" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_3_icon" active="@@act-browselist-3" x="764" disable="@@disable-browselist"/>
+			<imgbtn text="" image="@@browselist_4_icon" active="@@act-browselist-4" x="977" disable="@@disable-browselist"/>
+		</wrapper>
+	</widgetlist>
+
+	<text text="@@focus_marquee_text" x="390" y="535" w="500" h="22" fontsize="20" textcolor="0xfff2f2f2" align="hcenter" speed="5" delay="2"/>
+	<text text="@@pagecounter" x="105" y="535" w="220" h="22" fontsize="20" textcolor="0xff727272" align="left"/>
+
+	<image image="@@ourlist-next" x="1182" y="153" w="41" h="39"/>
+	<image image="@@ourlist-prev" x="71" y="153" w="41" h="39"/>
+
+	<image image="@@browselist-next" x="1182" y="349" w="41" h="39"/>
+	<image image="@@browselist-prev" x="71" y="349" w="41" h="39"/> 
+
+	<text text="@@action_tip" x="433" y="641" w="416" h="22" fontsize="20" textcolor="0xfffcb040" align="hcenter" disable="@@disable-action_tip"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+	<include filename="./blockbuster_common_action_list.xml"/>
+</page>

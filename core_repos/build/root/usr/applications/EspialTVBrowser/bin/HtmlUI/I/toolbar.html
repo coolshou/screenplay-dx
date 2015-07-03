@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+<script type="text/javascript">
+
+
+// --------------------------------------------------------
+//      L O C A L I Z A T I O N  ( start )
+
+
+
+//      L O C A L I Z A T I O N  (  end  )
+// --------------------------------------------------------
+
+
+
+/*set its bounds*/
+Espial.setToolbarBounds(0, (Espial.contentBounds[3] - 180), Espial.contentBounds[2], 180);
+
+function doAddBookmark()
+{
+	Espial.openBookmarksDialog(document.getElementById('urlInput').value, Espial.pageTitle);
+	Espial.closeToolbar();
+}
+
+/* This method is called when Enter is pressed on the URL field, it tries to load the given page */
+function loadURL(){
+ 	/* Get the url, ask browser to load it, and hide the toolbar */
+	var url = document.getElementById('urlInput').value;		
+
+	/* if the url len < 0 or empty space, dont do anything */
+	if(url.length <= 0)
+	{
+		Espial.closeToolbar();
+		return false;
+	}
+
+	Espial.gotoURL(url);	
+	Espial.closeToolbar();
+	/* Abort submission, as we have done what we wanted */
+	return false;
+}
+
+function focusURLField()
+{
+    document.getElementById("urlInput").style.color = "white";
+	document.getElementById("td-url-left-side").style.backgroundImage = "url('../Images/toolbar-textfield-leftside-over.png')";
+	document.getElementById("td-url-sliver").style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide-over.png')";
+	document.getElementById("td-url-right-side").style.backgroundImage = "url('../Images/toolbar-textfield-rightside-over.png')";
+
+}
+
+function activateURLField()
+{
+	document.getElementById("urlInput").style.webkitUserSelect = "text";
+	document.getElementById("urlInput").style.color = "black";
+	document.getElementById("td-url-left-side").style.backgroundImage = "url('../Images/toolbar-textfield-leftside-activated.png')";
+	document.getElementById("td-url-sliver").style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide-activated.png')";
+	document.getElementById("td-url-right-side").style.backgroundImage = "url('../Images/toolbar-textfield-rightside-activated.png')";
+
+}
+
+function removeFocusURLField()
+{
+	document.getElementById("urlInput").style.webkitUserSelect = "none";
+    document.getElementById("urlInput").style.color = "white";
+    document.getElementById("td-url-left-side").style.backgroundImage = "url('../Images/toolbar-textfield-leftside.png')";
+    document.getElementById("td-url-sliver").style.backgroundImage = "url('../Images/toolbar-textfield-middle-1pixelswide.png')";
+    document.getElementById("td-url-right-side").style.backgroundImage = "url('../Images/toolbar-textfield-rightside.png')";
+}
+
+/* This method is called when a button is hilighted (mouse over) */
+function hilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(../Images/button-add-left-hil.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver-hil.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(../Images/button-right-hil.png)";
+  }
+}
+
+/* This method is called when a button is dehilighted (mouse out) */
+function deHilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(../Images/button-add-left.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(../Images/button-sliver.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(../Images/button-right.png)";
+  }
+}
+
+/* This method is called when the URL is hilighted (mouse over) */
+function hilightURL() {
+  document.getElementById("td-url-left-side").style.backgroundImage = "url(../Images/toolbar-textfield-leftside-over.png)";
+  document.getElementById("td-url-right-side").style.backgroundImage = "url(../Images/toolbar-textfield-rightside-over.png)";
+  document.getElementById("td-url-right-side").style.backgroundPositionX = "-8px";
+}
+
+/* This method is called when the URL is dehilighted (mouse out) */
+function dehilightURL() {
+  document.getElementById("td-url-left-side").style.backgroundImage = "url(../Images/toolbar-textfield-leftside.png)";
+  document.getElementById("td-url-right-side").style.backgroundImage = "url(../Images/toolbar-textfield-rightside.png)";
+  document.getElementById("td-url-right-side").style.backgroundPositionX = "0px";
+}
+
+/* Method called after the page is loaded, to update the content of the url field. */
+function initToolbar(){
+	document.getElementById("urlInput").value=Espial.getCurrentURL();	// set to the address of the loaded page.
+	
+	//updateNavigationDisplay();
+}
+
+/* This method returns the path of the currently loaded file. */
+function getLocationPath() {
+	return window.location.href.substring(0, window.location.href.lastIndexOf("toolbar.html"));
+}
+
+</script>
+
+<style type="text/css">
+#iconsBar IMG
+{
+	max-width:185px !important;
+	max-height:117px !important;
+	
+	min-height:117px !important;
+	min-width:185px !important;
+
+	width:185px !important;
+	height:117px !important;
+}
+	/* Setting common style for the page body. */
+	body {
+		background-color:black;
+		margin: 0px;
+		padding: 0px;
+		width: 100%; height: 100%;
+		font-family: arial, sans-serif;	/* setting the font style */
+		font-size: 1em;
+		color: white;		
+	}
+
+	form#toolBar {
+	 	margin: 5px;			/* Space around the toolbar */
+		position: relative;		/* Every element of the toolbar will be positioned relative to the form */
+	}
+
+	/* Styles for the urlBar.
+	 * It has 3 different look, for 'normal', 'over' and 'activated' (editable) states.
+	 */
+	 
+	div#urlBar {
+		position: relative;		/* Every element on the URL bar will be positioned relative to this div */
+		background-repeat: repeat-x;
+		width:90%;
+		height: 45px;
+	}
+
+	/* Differend styles based on the urlBar's className. Class name is changed dinamically through javascript. */	
+	td.urlNormal {
+		background-repeat: repeat-x;
+		background-image: url('../Images/toolbar-textfield-middle-1pixelswide.png');	/* The image used as a background for the URL field */
+	}
+	td.urlNormal:hover {
+		background-repeat: repeat-x;
+		background-image: url('../Images/toolbar-textfield-middle-1pixelswide-over.png');	/* The image used as a background for the URL field */	
+	}
+	
+  td.urlLeftSide {
+    width: 22px;
+		background-color: black;
+		background-repeat: no-repeat;
+		background-image: url('../Images/toolbar-textfield-leftside.png');		/* left corner image, in normal state */
+	}
+
+	td.urlRightSide {
+    right:0px;
+    width: 22px;
+		background-color: black;
+		background-repeat: no-repeat;
+		background-image: url('../Images/toolbar-textfield-rightside.png');		/* right corner image, in normal state */
+	}
+
+	/* Style for the url edit field */
+	input#urlInput {
+	    border-style: hidden;	/* Hide border from the URL input field, as we use a background image (see #urlBar) */
+	    border-width: 0px;
+	    position: absolute;
+	    left: 89px;				/* this equals the width of the left corner image used in #urlLeftSide */
+	    top: 8px;				/* give the y coordinate of the URL field, relative to the #urlBar */
+	 	width: 80%;				/* don't use all the space, as there are the left and right side corner ../Images */
+	 	height: 26px;
+		background: transparent;
+	 	font-family: arial, sans-serif;	/* setting the font style */
+		font-size: 1em;
+		color: white;
+	}
+
+	div#gotoButton {
+		top:5px;
+		width:80px;
+		padding-top:2px;
+		padding-left:4px;
+		background-repeat: repeat-x;
+		background-image: url('../Images/toolbar-sliver.png');
+	}
+	
+	/* Style for the toolbar buttons */	
+	div#iconsBar {
+		padding-left: 25px;
+	}	
+	div#iconsBar img#button {
+		width: 15%;			/* Button size depends on the inconsBar width, this percentage adjusts them to all fit in one row in iconsBar */
+		max-width: 185px;	/* No need for larger buttons. */
+	}
+	img#button:hover {		/* This makes sense when button ../Images are not found, and the 'alt' text of the image is displayed. */
+		color: lightblue;
+	}
+</style>
+
+</head>
+
+<body onload="initToolbar();">
+
+<!-- This form contains all the elements of the toolbar -->
+<form id="toolBar" onsubmit="return loadURL();">
+	
+	<!-- The URL field on the toolbar -->
+	<div>
+		<table style="width:100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td style="width:67px;padding-left:6px;padding-top:6px;background-repeat:repeat-x;background-image:url('../Images/toolbar-sliver.png');">
+            <table cellspacing="0" cellpadding="0" HIGHLIGHT="false" 
+                   onmouseout="deHilightButton('addBookmarkButtonLeft', null, 'addBookmarkButtonRight');"
+                   onmouseover="hilightButton('addBookmarkButtonLeft', null, 'addBookmarkButtonRight');"
+                   onclick="doAddBookmark();">
+              <tr>
+                <td id="addBookmarkButtonLeft" style="width:41px;height:36px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+                <td id="addBookmarkButtonRight" style="width:18px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+              </tr>
+            </table>
+				</td>
+				<td id="td-url-left-side" class="urlLeftSide">&nbsp;</td>
+				<td id="td-url-sliver" class="urlNormal">
+					<!-- The text field -->
+					<input id="urlInput" type="text" value="" size="40" HIGHLIGHT="false" onmouseover="focusURLField();" onmouseout="removeFocusURLField();" onfocus="activateURLField();" onblur="removeFocusURLField();" />
+				</td>
+				<td id="td-url-right-side" class="urlRightSide">&nbsp;</td>
+				<td style="width:80px;padding-top:6px;background-repeat:repeat-x;background-image:url('../Images/toolbar-sliver.png');">
+            <table cellspacing="0" cellpadding="0" HIGHLIGHT="false" 
+                   onmouseout="deHilightButton('gotoButtonLeft', 'gotoButtonSliver', 'gotoButtonRight');"
+                   onmouseover="hilightButton('gotoButtonLeft', 'gotoButtonSliver', 'gotoButtonRight');"
+                   onclick="loadURL();">
+              <tr>
+                <td id='gotoButtonLeft'   style="width:18px;height:36px;background-image:url('../Images/button-add-left.png');padding:0px;">&nbsp;</td>
+        				<td id='gotoButtonSliver' style="width:40px;background-repeat:repeat-x;background-image:url('../Images/button-sliver.png');text-align:center;"> <b>Vai a</b> </td>
+                <td id='gotoButtonRight'  style="width:18px;background-image:url('../Images/button-right.png');padding:0px;">&nbsp;</td>
+              </tr>
+            </table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<!-- The buttons on the toolbar: whith the proper method calls on onclick event. -->
+	<div id="iconsBar">
+		<!-- Back -->
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-back.png" alt="Indietro"
+			onmouseover="this.src='../Images/toolbar-icon-back-highlight.png'" onmouseout="this.src='../Images/toolbar-icon-back.png'"
+			onclick="Espial.back();Espial.closeToolbar();" />
+
+		<!-- Forward -->			
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-fwd.png" alt="Avanti"
+			onmouseover="this.src='../Images/toolbar-icon-fwd-highlight.png'" onmouseout="this.src='../Images/toolbar-icon-fwd.png'"
+			onclick="Espial.forward();Espial.closeToolbar();" />
+
+		<!-- Home -->			
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-home.png" alt="Home"
+			onmouseover="this.src='../Images/toolbar-icon-home-highlight.png'" onmouseout="this.src='../Images/toolbar-icon-home.png'"
+			onclick="Espial.gotoURL(Espial.homeURL);Espial.closeToolbar();" />
+			
+		<!-- Refresh -->			
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-reload.png" alt="Aggiorna"
+			onmouseover="this.src='../Images/toolbar-icon-reload-highlight.png'" onmouseout="this.src='../Images/toolbar-icon-reload.png'"
+			onclick="Espial.refresh();Espial.closeToolbar();" />
+			
+		<!-- Bookmarks -->
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-bookmark.png" alt="Segnalibri"
+			onmouseover="this.src='../Images/toolbar-icon-bookmark-highlight.png'" onmouseout="this.src='../Images/toolbar-icon-bookmark.png'"
+			onclick="Espial.gotoURL(getLocationPath()+'/bookmarks.html');Espial.closeToolbar();" />
+			
+		<!-- History -->
+		<img id="button" HIGHLIGHT="false" src="../Images/toolbar-icon-history.png" alt="Cursore"
+			onmouseover="this.src='../Images/toolbar-icon-history-highlight.png';" onmouseout="this.src='../Images/toolbar-icon-history.png';"
+			onclick="Espial.gotoURL(getLocationPath()+'/history.html');Espial.closeToolbar();" />
+	</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+
+	<!--text x="97" y="122" w="700" h="44" text="Why was this song selected?"  fontsize="42" textcolor="0x07b5ff"/>
+	<<image x="0" y="205" w="1280" h="239" image="image/music_player_function_frame_bg.png" bg="1"/> -->
+
+    <image x="179" y="173" w="370" h="324" image="image/pandora/PANDORA-Station-cover_play_Box.png" bg="1"/>
+    <image x="229" y="192" w="267" h="253" image="@@album_icon" default_image="image/panodra/PANDORA-Station-cover_play_poto.png" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+
+	<image x="826" y="126" w="43" h="43" image="@@prev"/>
+	<image x="826" y="570" w="43" h="43" image="@@next"/>
+
+    <image x="558" y="177" w="562" h="384" image="image/pandora/PANDORA-Station-cover_10.png" bg="1"/>
+	<text x="583" y="200" w="512" h="335" text="@@play_info" fontsize="22" textcolor="0x0" numlines="13"/>
+
+	<include filename="./inc_pandora_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

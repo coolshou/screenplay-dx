@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativetext.cpp -->
+  <title>Qt 4.7: QML Text Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="qdeclarativeelements.html">QML Elements</a></li>              <li>QML Text Element</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML Text Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Text-brief -->
+<p>The Text item allows you to add formatted text to a scene. <a href="#details">More...</a></p>
+<!-- @@@Text -->
+<p>Inherits <a href="qml-item.html">Item</a></p>
+<li><a href="qml-text-members.html">List of all members, including inherited members</a></li>
+<a name="properties"></a>
+<h2>Properties</h2>
+<tr class="odd topAlign"><ul>
+<li class="fn"><b><b><a href="qml-text.html#clip-prop">clip</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#color-prop">color</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-text.html#elide-prop">elide</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#font.bold-prop">font.bold</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#font.capitalization-prop">font.capitalization</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#font.family-prop">font.family</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-text.html#font.italic-prop">font.italic</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#font.letterSpacing-prop">font.letterSpacing</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-text.html#font.pixelSize-prop">font.pixelSize</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-text.html#font.pointSize-prop">font.pointSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-text.html#font.strikeout-prop">font.strikeout</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#font.underline-prop">font.underline</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#font.weight-prop">font.weight</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#font.wordSpacing-prop">font.wordSpacing</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-text.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#paintedHeight-prop">paintedHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-text.html#paintedWidth-prop">paintedWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-text.html#smooth-prop">smooth</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-text.html#style-prop">style</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#styleColor-prop">styleColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-text.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-text.html#textFormat-prop">textFormat</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#verticalAlignment-prop">verticalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-text.html#wrapMode-prop">wrapMode</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<tr class="even topAlign"><ul>
+<li class="fn"><b><b><a href="qml-text.html#onLinkActivated-signal">onLinkActivated</a></b></b></li>
+</ul>
+<!-- $$$Text-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>A Text item can display both plain and rich text. For example:</p>
+<pre class="highlightedCode brush: cpp"> Text { text: &quot;Hello World!&quot;; font.family: &quot;Helvetica&quot;; font.pointSize: 24; color: &quot;red&quot; }
+ Text { text: &quot;&lt;b&gt;Hello&lt;/b&gt; &lt;i&gt;World!&lt;/i&gt;&quot; }</pre>
+<p class="centerAlign"><img src="images/declarative-text.png" /></p><p>If height and width are not explicitly set, Text will attempt to determine how much room is needed and set it accordingly. Unless <a href="qml-text.html#wrapMode-prop">wrapMode</a> is set, it will always prefer width to height (all text will be placed on a single line).</p>
+<p>The <a href="qml-text.html#elide-prop">elide</a> property can alternatively be used to fit a single line of plain text to a set width.</p>
+<p>Note that the <a href="richtext-html-subset.html">Supported HTML Subset</a> is limited. Also, if the text contains HTML img tags that load remote images, the text is reloaded.</p>
+<p>Text provides read-only text. For editable text, see <a href="qml-textedit.html">TextEdit</a>.</p>
+<p>See also <a href="declarative-text-fonts.html">Fonts example</a>.</p>
+<!-- @@@Text -->
+<h2>Property Documentation</h2>
+<!-- $$$clip -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="clip-prop"></a>clip : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the text is clipped.</p>
+<p>Note that if the text does not fit in the bounding rectangle it will be abruptly chopped.</p>
+<p>If you want to display potentially long text in a limited space, you probably want to use <tt>elide</tt> instead.</p>
+</div></div><!-- @@@clip -->
+<br/>
+<!-- $$$color -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a>color : <a href="qml-color.html">color</a></td></tr></table></div><div class="qmldoc"><p>The text color.</p>
+<pre class="highlightedCode brush: cpp"> //green text using hexadecimal notation
+ Text { color: &quot;#00FF00&quot;; ... }
+
+<span class="comment"> //steelblue text using SVG color name</span>
+ Text { color: &quot;steelblue&quot;; ... }</pre>
+</div></div><!-- @@@color -->
+<br/>
+<!-- $$$elide -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="elide-prop"></a>elide : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Set this property to elide parts of the text fit to the Text item's width. The text will only elide if an explicit width has been set.</p>
+<p>This property cannot be used with wrapping enabled or with rich text.</p>
+<p>Eliding can be:</p>
+<ul>
+<li>Text.ElideNone - the default</li>
+<li>Text.ElideLeft</li>
+<li>Text.ElideMiddle</li>
+<li>Text.ElideRight</li>
+</ul>
+<p>If the text is a multi-length string, and the mode is not <tt>Text.ElideNone</tt>, the first string that fits will be used, otherwise the last will be elided.</p>
+<p>Multi-length strings are ordered from longest to shortest, separated by the Unicode &quot;String Terminator&quot; character <tt>U009C</tt> (write this in QML with <tt>&quot;\u009C&quot;</tt> or <tt>&quot;\x9C&quot;</tt>).</p>
+</div></div><!-- @@@elide -->
+<br/>
+<!-- $$$font.bold -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.bold-prop"></a>font.bold : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Sets whether the font weight is bold.</p>
+</div></div><!-- @@@font.bold -->
+<br/>
+<!-- $$$font.capitalization -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.capitalization-prop"></a>font.capitalization : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Sets the capitalization for the text.</p>
+<ul>
+<li>Font.MixedCase - This is the normal text rendering option where no capitalization change is applied.</li>
+<li>Font.AllUppercase - This alters the text to be rendered in all uppercase type.</li>
+<li>Font.AllLowercase - This alters the text to be rendered in all lowercase type.</li>
+<li>Font.SmallCaps - This alters the text to be rendered in small-caps type.</li>
+<li>Font.Capitalize - This alters the text to be rendered with the first character of each word as an uppercase character.</li>
+</ul>
+<pre class="highlightedCode brush: cpp"> Text { text: &quot;Hello&quot;; font.capitalization: Font.AllLowercase }</pre>
+</div></div><!-- @@@font.capitalization -->
+<br/>
+<!-- $$$font.family -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.family-prop"></a>font.family : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>Sets the family name of the font.</p>
+<p>The family name is case insensitive and may optionally include a foundry name, e.g&#x2e; &quot;Helvetica [Cronyx]&quot;. If the family is available from more than one foundry and the foundry isn't specified, an arbitrary foundry is chosen. If the family isn't available a family will be set using the font matching algorithm.</p>
+</div></div><!-- @@@font.family -->
+<br/>
+<!-- $$$font.italic -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.italic-prop"></a>font.italic : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Sets whether the font has an italic style.</p>
+</div></div><!-- @@@font.italic -->
+<br/>
+<!-- $$$font.letterSpacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.letterSpacing-prop"></a>font.letterSpacing : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>Sets the letter spacing for the font.</p>
+<p>Letter spacing changes the default spacing between individual letters in the font. A positive value increases the letter spacing by the corresponding pixels; a negative value decreases the spacing.</p>
+</div></div><!-- @@@font.letterSpacing -->
+<br/>
+<!-- $$$font.pixelSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.pixelSize-prop"></a>font.pixelSize : <a href="qml-int.html">int</a></td></tr></table></div><div class="qmldoc"><p>Sets the font size in pixels.</p>
+<p>Using this function makes the font device dependent. Use <tt>pointSize</tt> to set the size of the font in a device independent manner.</p>
+</div></div><!-- @@@font.pixelSize -->
+<br/>
+<!-- $$$font.pointSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.pointSize-prop"></a>font.pointSize : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>Sets the font size in points. The point size must be greater than zero.</p>
+</div></div><!-- @@@font.pointSize -->
+<br/>
+<!-- $$$font.strikeout -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.strikeout-prop"></a>font.strikeout : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Sets whether the font has a strikeout style.</p>
+</div></div><!-- @@@font.strikeout -->
+<br/>
+<!-- $$$font.underline -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.underline-prop"></a>font.underline : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Sets whether the text is underlined.</p>
+</div></div><!-- @@@font.underline -->
+<br/>
+<!-- $$$font.weight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.weight-prop"></a>font.weight : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Sets the font's weight.</p>
+<p>The weight can be one of:</p>
+<ul>
+<li>Font.Light</li>
+<li>Font.Normal - the default</li>
+<li>Font.DemiBold</li>
+<li>Font.Bold</li>
+<li>Font.Black</li>
+</ul>
+<pre class="highlightedCode brush: cpp"> Text { text: &quot;Hello&quot;; font.weight: Font.DemiBold }</pre>
+</div></div><!-- @@@font.weight -->
+<br/>
+<!-- $$$font.wordSpacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="font.wordSpacing-prop"></a>font.wordSpacing : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>Sets the word spacing for the font.</p>
+<p>Word spacing changes the default spacing between individual words. A positive value increases the word spacing by a corresponding amount of pixels, while a negative value decreases the inter-word spacing accordingly.</p>
+</div></div><!-- @@@font.wordSpacing -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a>horizontalAlignment : <a href="qml-enumeration.html">enumeration</a></td></tr><tr class="even"><td class="tblQmlPropNode"><p><a name="verticalAlignment-prop"></a>verticalAlignment : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Sets the horizontal and vertical alignment of the text within the Text items width and height. By default, the text is top-left aligned.</p>
+<p>The valid values for <tt>horizontalAlignment</tt> are <tt>Text.AlignLeft</tt>, <tt>Text.AlignRight</tt> and <tt>Text.AlignHCenter</tt>. The valid values for <tt>verticalAlignment</tt> are <tt>Text.AlignTop</tt>, <tt>Text.AlignBottom</tt> and <tt>Text.AlignVCenter</tt>.</p>
+<p>Note that for a single line of text, the size of the text is the area of the text. In this common case, all alignments are equivalent. If you want the text to be, say, centered in it parent, then you will need to either modify the Item::anchors, or set horizontalAlignment to Text.AlignHCenter and bind the width to that of the parent.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$paintedHeight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="paintedHeight-prop"></a><span class="qmlreadonly">read-only</span>paintedHeight : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>Returns the height of the text, including height past the height which is covered due to there being more text than fits in the set height.</p>
+</div></div><!-- @@@paintedHeight -->
+<br/>
+<!-- $$$paintedWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="paintedWidth-prop"></a><span class="qmlreadonly">read-only</span>paintedWidth : <a href="qml-real.html">real</a></td></tr></table></div><div class="qmldoc"><p>Returns the width of the text, including width past the width which is covered due to insufficient wrapping if WrapMode is set.</p>
+</div></div><!-- @@@paintedWidth -->
+<br/>
+<!-- $$$smooth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="smooth-prop"></a>smooth : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>This property holds whether the text is smoothly scaled or transformed.</p>
+<p>Smooth filtering gives better visual quality, but is slower. If the item is displayed at its natural size, this property has no visual or performance effect.</p>
+<p><b>Note:</b> Generally scaling artifacts are only visible if the item is stationary on the screen. A common pattern when animating an item is to disable smooth filtering at the beginning of the animation and reenable it at the conclusion.</p>
+</div></div><!-- @@@smooth -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="style-prop"></a>style : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Set an additional text style.</p>
+<p>Supported text styles are:</p>
+<ul>
+<li>Text.Normal - the default</li>
+<li>Text.Outline</li>
+<li>Text.Raised</li>
+<li>Text.Sunken</li>
+</ul>
+<pre class="highlightedCode brush: cpp"> Row {
+     Text { font.pointSize: 24; text: &quot;Normal&quot; }
+     Text { font.pointSize: 24; text: &quot;Raised&quot;; style: Text.Raised; styleColor: &quot;#AAAAAA&quot; }
+     Text { font.pointSize: 24; text: &quot;Outline&quot;;style: Text.Outline; styleColor: &quot;red&quot; }
+     Text { font.pointSize: 24; text: &quot;Sunken&quot;; style: Text.Sunken; styleColor: &quot;#AAAAAA&quot; }
+ }</pre>
+<p class="centerAlign"><img src="images/declarative-textstyle.png" /></p></div></div><!-- @@@style -->
+<br/>
+<!-- $$$styleColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="styleColor-prop"></a>styleColor : <a href="qml-text.html#color-prop">color</a></td></tr></table></div><div class="qmldoc"><p>Defines the secondary color used by text styles.</p>
+<p><tt>styleColor</tt> is used as the outline color for outlined text, and as the shadow color for raised or sunken text. If no style has been set, it is not used at all.</p>
+<pre class="highlightedCode brush: cpp"> Text { font.pointSize: 18; text: &quot;hello&quot;; style: Text.Raised; styleColor: &quot;gray&quot; }</pre>
+<p>See also <a href="qml-text.html#style-prop">style</a>.</p>
+</div></div><!-- @@@styleColor -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a>text : <a href="qml-string.html">string</a></td></tr></table></div><div class="qmldoc"><p>The text to display. Text supports both plain and rich text strings.</p>
+<p>The item will try to automatically determine whether the text should be treated as rich text. This determination is made using <a href="qt.html#mightBeRichText">Qt::mightBeRichText</a>().</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$textFormat -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="textFormat-prop"></a>textFormat : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>The way the text property should be displayed.</p>
+<p>Supported text formats are:</p>
+<ul>
+<li>Text.AutoText (default)</li>
+<li>Text.PlainText</li>
+<li>Text.RichText</li>
+<li>Text.StyledText</li>
+</ul>
+<p>If the text format is <tt>Text.AutoText</tt> the text element will automatically determine whether the text should be treated as rich text. This determination is made using <a href="qt.html#mightBeRichText">Qt::mightBeRichText</a>().</p>
+<p>Text.StyledText is an optimized format supporting some basic text styling markup, in the style of html 3.2:</p>
+<pre class="highlightedCode brush: cpp"> &lt;font size=&quot;4&quot; color=&quot;#ff0000&quot;&gt;font size and color&lt;/font&gt;
+ &lt;b&gt;bold&lt;/b&gt;
+ &lt;i&gt;italic&lt;/i&gt;
+ &lt;br&gt;
+ &amp;gt; &amp;lt; &amp;amp;</pre>
+<p><tt>Text.StyledText</tt> parser is strict, requiring tags to be correctly nested.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> Column {
+     Text {
+         font.pointSize: 24
+         text: &quot;&lt;b&gt;Hello&lt;/b&gt; &lt;i&gt;World!&lt;/i&gt;&quot;
+     }
+     Text {
+         font.pointSize: 24
+         textFormat: Text.RichText
+         text: &quot;&lt;b&gt;Hello&lt;/b&gt; &lt;i&gt;World!&lt;/i&gt;&quot;
+     }
+     Text {
+         font.pointSize: 24
+         textFormat: Text.PlainText
+         text: &quot;&lt;b&gt;Hello&lt;/b&gt; &lt;i&gt;World!&lt;/i&gt;&quot;
+     }
+ }</pre>
+</p></td><td ><p><p class="centerAlign"><img src="images/declarative-textformat.png" /></p></p></td></tr>
+</table>
+</div></div><!-- @@@textFormat -->
+<br/>
+<!-- $$$wrapMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="even"><td class="tblQmlPropNode"><p><a name="wrapMode-prop"></a>wrapMode : <a href="qml-enumeration.html">enumeration</a></td></tr></table></div><div class="qmldoc"><p>Set this property to wrap the text to the Text item's width. The text will only wrap if an explicit width has been set. wrapMode can be one of:</p>
+<ul>
+<li>Text.NoWrap (default) - no wrapping will be performed. If the text contains insufficient newlines, then <a href="qml-text.html#paintedWidth-prop">paintedWidth</a> will exceed a set width.</li>
+<li>Text.WordWrap - wrapping is done on word boundaries only. If a word is too long, <a href="qml-text.html#paintedWidth-prop">paintedWidth</a> will exceed a set width.</li>
+<li>Text.WrapAnywhere - wrapping is done at any point on a line, even if it occurs in the middle of a word.</li>
+<li>Text.Wrap - if possible, wrapping occurs at a word boundary; otherwise it will occur at the appropriate point on the line, even in the middle of a word.</li>
+</ul>
+</div></div><!-- @@@wrapMode -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$onLinkActivated -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlFuncNode"><p><a name="onLinkActivated-signal"></a>Text::onLinkActivated ( link )</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the user clicks on a link embedded in the text.</p>
+</div></div><!-- @@@onLinkActivated -->
+<br/>
+<p>
+</p>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/message_background_bg_n.png" w="404" h="224">
+  <text text="@@message" x="30" y="30" w="340" h="90" numlines="3"
+        textcolor="0xffffff" fontsize="@@font_msg" align="left"/>
+  <text text="@@progress" x="30" y="150" w="340" h="30"
+        textcolor="0xffffff" fontsize="@@font_prog" align="hcenter"/>
+</page>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page>
+  <!-- information -->
+  <image image="@@info_inforbar" x="110" y="350" w="500" h="80" />
+  <image image="@@info_inforbar" x="110" y="430" w="500" h="80" />
+  <table x="150" y="360" w="150" h="80" fontsize="18"
+         cols="1" rows="3">
+    <text text="@@text_trackinfo" />
+    <text text="@@text_resolution" />
+    <text text="@@text_bitrate" />
+  </table>
+  <table x="300" y="360" w="250" h="80" fontsize="18"
+         cols="1" rows="3">
+    <text text="@@info_trackinfo" />
+    <text text="@@info_resolution" />
+    <text text="@@info_bitrate" />
+  </table>
+  
+  <!-- fixed -->
+  <include filename="./decoration.xml"/>
+</page>

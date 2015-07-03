@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png" type="basic">
+	<ctrlgrp valkey="options" lbmask="LRud"> 
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+		<linebreak/>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="6" lbmask="lr"  loop_scroll="1" turbo_trigger="10" turbo_multi="10" />
+		<button valkey="CREATE_STATIONS"
+				focused_bg="image/pandora/Stations_Create-anew-station-f.png"
+	    	    normal_bg="image/pandora/Stations_Create-anew-station-n.png"/>
+	</ctrlgrp>
+
+	<include filename="./inc_optionmenu_widgets_pandora.xml"/>
+	
+  	<text text="@@pagecounter" x="914" y="192" w="90" h="22" align="right" fontsize="20" textcolor="0xffffff"/>
+	<imgbtn image="@@bg-CREATE_STATIONS" x="1021" y="176" w="134" h="44" align="hcenter"/>
+	
+	<image x="619" y="179" w="43" h="43" image="@@moreprev"/>
+	<image x="619" y="610" w="43" h="43" image="@@morenext"/>
+
+	<text text="@@master_headline" x="95" y="79" w="1094" h="52" fontsize="48" textcolor="0xe1e1e1"/>
+	<text text="@@slave_headline" x="96" y="136" w="657" h="31" fontsize="24" textcolor="0xe1e1e1"/>
+	
+	<wrapper x="273" w="737" h="50">
+		<image y="235" image="@@browse_0_line" bg="1"/>
+		<image y="296" image="@@browse_1_line" bg="1"/>
+		<image y="357" image="@@browse_2_line" bg="1"/>
+		<image y="418" image="@@browse_3_line" bg="1"/>
+		<image y="479" image="@@browse_4_line" bg="1"/>
+		<image y="540" image="@@browse_5_line" bg="1"/>
+	</wrapper>
+
+
+	 <wrapper x="296" w="686" h="34" align="left" auto_translate="1" fontsize="24" textcolor="0x0">
+     	<text text="@@browselist_0_text" active="@@act-browselist-0" selected="@@browse_0_select" y="242" speed="@@browse_0_speed" delay="2"/>
+        <text text="@@browselist_1_text" active="@@act-browselist-1" selected="@@browse_1_select" y="303" speed="@@browse_1_speed" delay="2"/>
+        <text text="@@browselist_2_text" active="@@act-browselist-2" selected="@@browse_2_select" y="364" speed="@@browse_2_speed" delay="2"/>
+        <text text="@@browselist_3_text" active="@@act-browselist-3" selected="@@browse_3_select" y="425" speed="@@browse_3_speed" delay="2"/>
+        <text text="@@browselist_4_text" active="@@act-browselist-4" selected="@@browse_4_select" y="486" speed="@@browse_4_speed" delay="2"/>
+        <text text="@@browselist_5_text" active="@@act-browselist-5" selected="@@browse_5_select" y="547" speed="@@browse_5_speed" delay="2"/>
+    </wrapper>
+
+  <wrapper x="203" w="56" h="56" cols="1" rows="6" colspacing="0" rowspacing="0" align="hcenter">
+	   <image image="@@browse_0_icon" y="233"/>
+	   <image image="@@browse_1_icon" y="295"/>
+	   <image image="@@browse_2_icon" y="356"/>
+	   <image image="@@browse_3_icon" y="418"/>
+	   <image image="@@browse_4_icon" y="479"/>
+	   <image image="@@browse_5_icon" y="540"/>
+  </wrapper>
+	<image image="image/pandora/Station-cover_play_option-icon.png" x="470" y="650" w="344" h="34" bg="1"/>
+	
+	<include filename="./inc_pandora_loading.xml"/>
+	<!-- fixed --> 
+	<include filename="./inc_headline_property.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

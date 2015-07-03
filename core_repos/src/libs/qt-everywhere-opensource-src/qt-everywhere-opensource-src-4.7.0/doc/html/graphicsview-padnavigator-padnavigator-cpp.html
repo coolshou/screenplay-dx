@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: padnavigator.cpp Example File (graphicsview/padnavigator/padnavigator.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">padnavigator.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/padnavigator/padnavigator.cpp</span>
+<!-- $$$graphicsview/padnavigator/padnavigator.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;flippablepad.h&quot;
+ #include &quot;padnavigator.h&quot;
+ #include &quot;splashitem.h&quot;
+
+ #include &lt;QtGui/QtGui&gt;
+ #ifndef QT_NO_OPENGL
+ #include &lt;QtOpenGL/QtOpenGL&gt;
+ #endif
+
+ PadNavigator::PadNavigator(const QSize &amp;size, QWidget *parent)
+     : QGraphicsView(parent)
+ {
+     <span class="comment">// Splash item</span>
+     SplashItem *splash = new SplashItem;
+     splash-&gt;setZValue(1);
+
+     <span class="comment">// Pad item</span>
+     FlippablePad *pad = new FlippablePad(size);
+     QGraphicsRotation *flipRotation = new QGraphicsRotation(pad);
+     QGraphicsRotation *xRotation = new QGraphicsRotation(pad);
+     QGraphicsRotation *yRotation = new QGraphicsRotation(pad);
+     flipRotation-&gt;setAxis(Qt::YAxis);
+     xRotation-&gt;setAxis(Qt::YAxis);
+     yRotation-&gt;setAxis(Qt::XAxis);
+     pad-&gt;setTransformations(QList&lt;QGraphicsTransform *&gt;()
+                             &lt;&lt; flipRotation
+                             &lt;&lt; xRotation &lt;&lt; yRotation);
+
+     <span class="comment">// Back (proxy widget) item</span>
+     QGraphicsProxyWidget *backItem = new QGraphicsProxyWidget(pad);
+     QWidget *widget = new QWidget;
+     form.setupUi(widget);
+     form.hostName-&gt;setFocus();
+     backItem-&gt;setWidget(widget);
+     backItem-&gt;setVisible(false);
+     backItem-&gt;setFocus();
+     backItem-&gt;setCacheMode(QGraphicsItem::ItemCoordinateCache);
+     const QRectF r = backItem-&gt;rect();
+     backItem-&gt;setTransform(QTransform()
+                            .rotate(180, Qt::YAxis)
+                            .translate(-r.width()/2, -r.height()/2));
+
+     <span class="comment">// Selection item</span>
+     RoundRectItem *selectionItem = new RoundRectItem(QRectF(-60, -60, 120, 120),
+                                                      Qt::gray, pad);
+     selectionItem-&gt;setZValue(0.5);
+
+     <span class="comment">// Splash animations</span>
+     QPropertyAnimation *smoothSplashMove = new QPropertyAnimation(splash, &quot;y&quot;);
+     QPropertyAnimation *smoothSplashOpacity = new QPropertyAnimation(splash, &quot;opacity&quot;);
+     smoothSplashMove-&gt;setEasingCurve(QEasingCurve::InQuad);
+     smoothSplashMove-&gt;setDuration(250);
+     smoothSplashOpacity-&gt;setDuration(250);
+
+     <span class="comment">// Selection animation</span>
+     QPropertyAnimation *smoothXSelection = new QPropertyAnimation(selectionItem, &quot;x&quot;);
+     QPropertyAnimation *smoothYSelection = new QPropertyAnimation(selectionItem, &quot;y&quot;);
+     QPropertyAnimation *smoothXRotation = new QPropertyAnimation(xRotation, &quot;angle&quot;);
+     QPropertyAnimation *smoothYRotation = new QPropertyAnimation(yRotation, &quot;angle&quot;);
+     smoothXSelection-&gt;setDuration(125);
+     smoothYSelection-&gt;setDuration(125);
+     smoothXRotation-&gt;setDuration(125);
+     smoothYRotation-&gt;setDuration(125);
+     smoothXSelection-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothYSelection-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothXRotation-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothYRotation-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+
+     <span class="comment">// Flip animation setup</span>
+     QPropertyAnimation *smoothFlipRotation = new QPropertyAnimation(flipRotation, &quot;angle&quot;);
+     QPropertyAnimation *smoothFlipScale = new QPropertyAnimation(pad, &quot;scale&quot;);
+     QPropertyAnimation *smoothFlipXRotation = new QPropertyAnimation(xRotation, &quot;angle&quot;);
+     QPropertyAnimation *smoothFlipYRotation = new QPropertyAnimation(yRotation, &quot;angle&quot;);
+     QParallelAnimationGroup *flipAnimation = new QParallelAnimationGroup(this);
+     smoothFlipScale-&gt;setDuration(500);
+     smoothFlipRotation-&gt;setDuration(500);
+     smoothFlipXRotation-&gt;setDuration(500);
+     smoothFlipYRotation-&gt;setDuration(500);
+     smoothFlipScale-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothFlipRotation-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothFlipXRotation-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothFlipYRotation-&gt;setEasingCurve(QEasingCurve::InOutQuad);
+     smoothFlipScale-&gt;setKeyValueAt(0, qVariantValue&lt;qreal&gt;(1.0));
+     smoothFlipScale-&gt;setKeyValueAt(0.5, qVariantValue&lt;qreal&gt;(0.7));
+     smoothFlipScale-&gt;setKeyValueAt(1, qVariantValue&lt;qreal&gt;(1.0));
+     flipAnimation-&gt;addAnimation(smoothFlipRotation);
+     flipAnimation-&gt;addAnimation(smoothFlipScale);
+     flipAnimation-&gt;addAnimation(smoothFlipXRotation);
+     flipAnimation-&gt;addAnimation(smoothFlipYRotation);
+
+     <span class="comment">// Flip animation delayed property assignment</span>
+     QSequentialAnimationGroup *setVariablesSequence = new QSequentialAnimationGroup;
+     QPropertyAnimation *setFillAnimation = new QPropertyAnimation(pad, &quot;fill&quot;);
+     QPropertyAnimation *setBackItemVisibleAnimation = new QPropertyAnimation(backItem, &quot;visible&quot;);
+     QPropertyAnimation *setSelectionItemVisibleAnimation = new QPropertyAnimation(selectionItem, &quot;visible&quot;);
+     setFillAnimation-&gt;setDuration(0);
+     setBackItemVisibleAnimation-&gt;setDuration(0);
+     setSelectionItemVisibleAnimation-&gt;setDuration(0);
+     setVariablesSequence-&gt;addPause(250);
+     setVariablesSequence-&gt;addAnimation(setBackItemVisibleAnimation);
+     setVariablesSequence-&gt;addAnimation(setSelectionItemVisibleAnimation);
+     setVariablesSequence-&gt;addAnimation(setFillAnimation);
+     flipAnimation-&gt;addAnimation(setVariablesSequence);
+
+     <span class="comment">// Build the state machine</span>
+     QStateMachine *stateMachine = new QStateMachine(this);
+     QState *splashState = new QState(stateMachine);
+     QState *frontState = new QState(stateMachine);
+     QHistoryState *historyState = new QHistoryState(frontState);
+     QState *backState = new QState(stateMachine);
+     frontState-&gt;assignProperty(pad, &quot;fill&quot;, false);
+     frontState-&gt;assignProperty(splash, &quot;opacity&quot;, 0.0);
+     frontState-&gt;assignProperty(backItem, &quot;visible&quot;, false);
+     frontState-&gt;assignProperty(flipRotation, &quot;angle&quot;, qVariantValue&lt;qreal&gt;(0.0));
+     frontState-&gt;assignProperty(selectionItem, &quot;visible&quot;, true);
+     backState-&gt;assignProperty(pad, &quot;fill&quot;, true);
+     backState-&gt;assignProperty(backItem, &quot;visible&quot;, true);
+     backState-&gt;assignProperty(xRotation, &quot;angle&quot;, qVariantValue&lt;qreal&gt;(0.0));
+     backState-&gt;assignProperty(yRotation, &quot;angle&quot;, qVariantValue&lt;qreal&gt;(0.0));
+     backState-&gt;assignProperty(flipRotation, &quot;angle&quot;, qVariantValue&lt;qreal&gt;(180.0));
+     backState-&gt;assignProperty(selectionItem, &quot;visible&quot;, false);
+     stateMachine-&gt;addDefaultAnimation(smoothXRotation);
+     stateMachine-&gt;addDefaultAnimation(smoothYRotation);
+     stateMachine-&gt;addDefaultAnimation(smoothXSelection);
+     stateMachine-&gt;addDefaultAnimation(smoothYSelection);
+     stateMachine-&gt;setInitialState(splashState);
+
+     <span class="comment">// Transitions</span>
+     QEventTransition *anyKeyTransition = new QEventTransition(this, QEvent::KeyPress, splashState);
+     anyKeyTransition-&gt;setTargetState(frontState);
+     anyKeyTransition-&gt;addAnimation(smoothSplashMove);
+     anyKeyTransition-&gt;addAnimation(smoothSplashOpacity);
+
+     QKeyEventTransition *enterTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                    Qt::Key_Enter, backState);
+     QKeyEventTransition *returnTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                     Qt::Key_Return, backState);
+     QKeyEventTransition *backEnterTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                        Qt::Key_Enter, frontState);
+     QKeyEventTransition *backReturnTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                         Qt::Key_Return, frontState);
+     enterTransition-&gt;setTargetState(historyState);
+     returnTransition-&gt;setTargetState(historyState);
+     backEnterTransition-&gt;setTargetState(backState);
+     backReturnTransition-&gt;setTargetState(backState);
+     enterTransition-&gt;addAnimation(flipAnimation);
+     returnTransition-&gt;addAnimation(flipAnimation);
+     backEnterTransition-&gt;addAnimation(flipAnimation);
+     backReturnTransition-&gt;addAnimation(flipAnimation);
+
+     <span class="comment">// Create substates for each icon; store in temporary grid.</span>
+     int columns = size.width();
+     int rows = size.height();
+     QVector&lt; QVector&lt; QState * &gt; &gt; stateGrid;
+     stateGrid.resize(rows);
+     for (int y = 0; y &lt; rows; ++y) {
+         stateGrid[y].resize(columns);
+         for (int x = 0; x &lt; columns; ++x)
+             stateGrid[y][x] = new QState(frontState);
+     }
+     frontState-&gt;setInitialState(stateGrid[0][0]);
+     selectionItem-&gt;setPos(pad-&gt;iconAt(0, 0)-&gt;pos());
+
+     <span class="comment">// Enable key navigation using state transitions</span>
+     for (int y = 0; y &lt; rows; ++y) {
+         for (int x = 0; x &lt; columns; ++x) {
+             QState *state = stateGrid[y][x];
+             QKeyEventTransition *rightTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                            Qt::Key_Right, state);
+             QKeyEventTransition *leftTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                           Qt::Key_Left, state);
+             QKeyEventTransition *downTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                           Qt::Key_Down, state);
+             QKeyEventTransition *upTransition = new QKeyEventTransition(this, QEvent::KeyPress,
+                                                                         Qt::Key_Up, state);
+             rightTransition-&gt;setTargetState(stateGrid[y][(x + 1) % columns]);
+             leftTransition-&gt;setTargetState(stateGrid[y][((x - 1) + columns) % columns]);
+             downTransition-&gt;setTargetState(stateGrid[(y + 1) % rows][x]);
+             upTransition-&gt;setTargetState(stateGrid[((y - 1) + rows) % rows][x]);
+             RoundRectItem *icon = pad-&gt;iconAt(x, y);
+             state-&gt;assignProperty(xRotation, &quot;angle&quot;, -icon-&gt;x() / 6.0);
+             state-&gt;assignProperty(yRotation, &quot;angle&quot;, icon-&gt;y() / 6.0);
+             state-&gt;assignProperty(selectionItem, &quot;x&quot;, icon-&gt;x());
+             state-&gt;assignProperty(selectionItem, &quot;y&quot;, icon-&gt;y());
+             frontState-&gt;assignProperty(icon, &quot;visible&quot;, true);
+             backState-&gt;assignProperty(icon, &quot;visible&quot;, false);
+
+             QPropertyAnimation *setIconVisibleAnimation = new QPropertyAnimation(icon, &quot;visible&quot;);
+             setIconVisibleAnimation-&gt;setDuration(0);
+             setVariablesSequence-&gt;addAnimation(setIconVisibleAnimation);
+         }
+     }
+
+     <span class="comment">// Scene</span>
+     QGraphicsScene *scene = new QGraphicsScene(this);
+     scene-&gt;setBackgroundBrush(QPixmap(&quot;:/images/blue_angle_swirl.jpg&quot;));
+     scene-&gt;setItemIndexMethod(QGraphicsScene::NoIndex);
+     scene-&gt;addItem(pad);
+     scene-&gt;setSceneRect(scene-&gt;itemsBoundingRect());
+     setScene(scene);
+
+     <span class="comment">// Adjust splash item to scene contents</span>
+     const QRectF sbr = splash-&gt;boundingRect();
+     splash-&gt;setPos(-sbr.width() / 2, scene-&gt;sceneRect().top() - 2);
+     frontState-&gt;assignProperty(splash, &quot;y&quot;, splash-&gt;y() - 100.0);
+     scene-&gt;addItem(splash);
+
+     <span class="comment">// View</span>
+     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+     setMinimumSize(50, 50);
+     setViewportUpdateMode(FullViewportUpdate);
+     setCacheMode(CacheBackground);
+     setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform | QPainter::TextAntialiasing);
+ #ifndef QT_NO_OPENGL
+     setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
+ #endif
+
+     stateMachine-&gt;start();
+ }
+
+ void PadNavigator::resizeEvent(QResizeEvent *event)
+ {
+     QGraphicsView::resizeEvent(event);
+     fitInView(scene()-&gt;sceneRect(), Qt::KeepAspectRatio);
+ }</pre>
+</div>
+<!-- @@@graphicsview/padnavigator/padnavigator.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

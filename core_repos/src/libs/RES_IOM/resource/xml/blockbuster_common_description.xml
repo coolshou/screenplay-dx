@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<wrapper>
+	<text text="@@videoclip-name" x="344" y="213" w="716" h="22" fontsize="20" textcolor="0xfff2f2f2" align="left" speed="5" delay="2"/>
+
+	<image image="@@videoclip-default-image" x="105" y="212" w="203" h="278"/>
+	<text text="@@videoclip-default-text" x="115" y="313" w="183" h="50" fontsize="22" textcolor="0xff727272" numlines="2" align="hcenter"/>
+
+	<image image="@@videoclip-image" x="105" y="212" w="203" h="278" prefetch="1"/>
+	<image image="@@videoclip-image" x="105" y="490" w="203" h="100" prefetch="1" mirror="1" align="top,left"/>
+	<image image="image/blockbuster/bb_checkout_reflection_mask.png" x="85" y="490" w="243" h="100"/>
+
+	<wrapper x="348" w="716" h="24" fontsize="18" textcolor="0xffbababa" numlines="1" align="left" speed="0">
+		<text text="@@short-caption-label0" y="246" disable="@@disable-short-caption-label0"/>
+		<text text="@@short-caption-label1" y="270" disable="@@disable-short-caption-label1"/>
+		<text text="@@short-caption-label2" y="294" disable="@@disable-short-caption-label2"/>
+		<text text="@@short-caption-label3" y="318" disable="@@disable-short-caption-label3"/>
+		<text text="@@short-caption-label4" y="342" disable="@@disable-short-caption-label4"/>
+		<text text="@@short-caption-label5" y="366" disable="@@disable-short-caption-label5"/>
+		<text text="@@short-caption-label6" y="390" disable="@@disable-short-caption-label6"/>
+		<text text="@@short-caption-label7" y="414" disable="@@disable-short-caption-label7"/>
+		<text text="@@short-caption-label8" y="438" disable="@@disable-short-caption-label8"/>
+		<text text="@@short-caption-label9" y="462" disable="@@disable-short-caption-label9"/>
+	</wrapper>
+
+	<wrapper x="457" w="607" h="24" fontsize="18" textcolor="0xffbababa" numlines="1" align="left" speed="0">
+		<text text="@@short-caption-text0" y="246" disable="@@disable-short-caption-text0"/>
+		<text text="@@short-caption-text1" y="270" disable="@@disable-short-caption-text1"/>
+		<text text="@@short-caption-text2" y="294" disable="@@disable-short-caption-text2"/>
+		<text text="@@short-caption-text3" y="318" disable="@@disable-short-caption-text3"/>
+		<text text="@@short-caption-text4" y="342" disable="@@disable-short-caption-text4"/>
+		<text text="@@short-caption-text5" y="366" disable="@@disable-short-caption-text5"/>
+		<text text="@@short-caption-text6" y="390" disable="@@disable-short-caption-text6"/>
+		<text text="@@short-caption-text7" y="414" disable="@@disable-short-caption-text7"/>
+		<text text="@@short-caption-text8" y="438" disable="@@disable-short-caption-text8"/>
+		<text text="@@short-caption-text9" y="462" disable="@@disable-short-caption-text9"/>
+	</wrapper>
+
+	<wrapper x="488" w="153" h="23">
+		<image image="@@short-caption-icon0" y="246" disable="@@disable-short-caption-icon0"/>
+		<image image="@@short-caption-icon1" y="270" disable="@@disable-short-caption-icon1"/>
+		<image image="@@short-caption-icon2" y="294" disable="@@disable-short-caption-icon2"/>
+		<image image="@@short-caption-icon3" y="318" disable="@@disable-short-caption-icon3"/>
+		<image image="@@short-caption-icon4" y="342" disable="@@disable-short-caption-icon4"/>
+		<image image="@@short-caption-icon5" y="366" disable="@@disable-short-caption-icon5"/>
+		<image image="@@short-caption-icon6" y="390" disable="@@disable-short-caption-icon6"/>
+		<image image="@@short-caption-icon7" y="414" disable="@@disable-short-caption-icon7"/>
+		<image image="@@short-caption-icon8" y="438" disable="@@disable-short-caption-icon8"/>
+		<image image="@@short-caption-icon9" y="462" disable="@@disable-short-caption-icon9"/>
+	</wrapper>
+</wrapper>

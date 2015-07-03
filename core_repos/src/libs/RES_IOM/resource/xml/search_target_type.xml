@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<page background="image/welcome_background_bg.jpg">	  
+  <ctrlgrp>
+    <button valkey="TARGET_TYPE_FILENAME"
+	    focused_bg="image/browser_list_btn.png" 
+	    click_bg="image/browser_list_btn.png"/>
+    <linebreak />
+    <button valkey="TARGET_TYPE_TITLE"
+	    focused_bg="image/browser_list_btn.png"
+	    click_bg="image/browser_list_btn.png"/>
+    <linebreak />
+    <button valkey="TARGET_TYPE_ARTIST"
+	    focused_bg="image/browser_list_btn.png" 
+	    click_bg="image/browser_list_btn.png"/>
+    <linebreak />
+    <button valkey="TARGET_TYPE_ALBUM"
+	    focused_bg="image/browser_list_btn.png" 
+	    click_bg="image/browser_list_btn.png"/>
+  </ctrlgrp>
+  <text id="headline" text="$$Search" fontsize="40" textcolor="0xffb300" />
+
+ 
+  <image image="@@browse_line_1" x="281" y="279" w="695" h="2"/>
+  <image image="@@browse_line_2" x="281" y="314" w="695" h="2"/>
+  <image image="@@browse_line_3" x="281" y="349" w="695" h="2"/>
+  <image image="@@browse_line_4" x="281" y="384" w="695" h="2"/>
+
+  <imgbtn x="284" y="248" w="695" h="30" image="@@bg-TARGET_TYPE_FILENAME" text="$$File name" align="hcenter" fontsize="26" active="@@act-TARGET_TYPE_FILENAME" actnoseltextcolor="0xe2e2e2" textcolor="0xe2e2e2"/>
+  <imgbtn x="284" y="283" w="695" h="30" image="@@bg-TARGET_TYPE_TITLE" text="@@target_title" align="hcenter" fontsize="26" active="@@act-TARGET_TYPE_TITLE" actnoseltextcolor="0xe2e2e2" textcolor="0xe2e2e2" disable="disable-TARGET_TYPE_TITLE"/>
+  <imgbtn x="284" y="318" w="695" h="30" image="@@bg-TARGET_TYPE_ARTIST" text="@@target_artist" align="hcenter" fontsize="26" active="@@act-TARGET_TYPE_ARTIST" actnoseltextcolor="0xe2e2e2" textcolor="0xe2e2e2" disable="disable-TARGET_TYPE_ARTIST"/>
+  <imgbtn x="284" y="353" w="695" h="30" image="@@bg-TARGET_TYPE_ALBUM" text="@@target_album" align="hcenter" fontsize="26" active="@@act-TARGET_TYPE_ALBUM" actnoseltextcolor="0xe2e2e2" textcolor="0xe2e2e2"  disable="disable-TARGET_TYPE_ALBUM"/>
+  <include filename="./inc_headline_property.xml" />
+  <include filename="./decoration.xml"/>
+</page>

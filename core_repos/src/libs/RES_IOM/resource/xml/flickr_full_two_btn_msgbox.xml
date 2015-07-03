@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page background="image/flickr/IService_Flickr_bg.jpg" type="basic">
+	<ctrlgrp>
+		<button valkey="OK"
+			focused_bg="image/flickr/IService_Flickr_btn_f.png"
+			normal_bg="image/flickr/IService_Flickr_btn_n.png"/>
+		<button valkey="CANCEL"
+			focused_bg="image/flickr/IService_Flickr_btn_f.png"
+			normal_bg="image/flickr/IService_Flickr_btn_n.png"/>
+	</ctrlgrp>
+	<text text="@@message" x="280" y="238" w="719" h="105" numlines="2" align="hcenter" textcolor="0xffffff" fontsize="26"/> 
+
+	<table x="386" y="411" w="228" h="73" cols="1" colspacing="0" fontsize="26" align="hcenter">
+    		<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" actnoseltextcolor="0xffffff" align="hcenter"/>
+	</table> 
+
+	<table x="669" y="411" w="228" h="73" cols="1" colspacing="0" fontsize="26" align="hcenter">
+		<imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" actnoseltextcolor="0xffffff" align="hcenter"/>
+	</table> 
+
+	<include filename="./inc_decoration_online.xml"/>
+</page>

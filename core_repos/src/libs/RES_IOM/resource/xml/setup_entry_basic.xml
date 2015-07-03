@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg" type="basic">
+  <include filename="./inc_setup_entry_basic_title.xml" />
+  <listbox valkey="setup_entry_basic" autoenter="1" move="row" cols="1" rows="7" lbmask="lr"  loop_scroll="1"/>
+
+  <table x="185" y="241" w="965" h="343" rows="7" rowspacing="0" lbimage="image/settings_focus_btn.png">
+    <image lightbar="@@lightbar-setup_entry_basic-0" active="@@act-setup_entry_basic-0" y="188" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-1" active="@@act-setup_entry_basic-1" y="237" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-2" active="@@act-setup_entry_basic-2" y="286" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-3" active="@@act-setup_entry_basic-3" y="335" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-4" active="@@act-setup_entry_basic-4" y="384" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-5" active="@@act-setup_entry_basic-5" y="433" bg="1"/>
+    <image lightbar="@@lightbar-setup_entry_basic-6" active="@@act-setup_entry_basic-6" y="482" bg="1"/>
+    </table>
+
+  <wrapper x="220" w="523" h="49" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30">
+    <text text="@@setup_entry_basic_id-0" active="@@act-setup_entry_basic-0" y="188" speed="@@speed-setup_entry_basic-0" delay="2"/>
+    <text text="@@setup_entry_basic_id-1" active="@@act-setup_entry_basic-1" y="237" speed="@@speed-setup_entry_basic-1" delay="2"/>
+    <text text="@@setup_entry_basic_id-2" active="@@act-setup_entry_basic-2" y="286" speed="@@speed-setup_entry_basic-2" delay="2"/>
+    <text text="@@setup_entry_basic_id-3" active="@@act-setup_entry_basic-3" y="335" speed="@@speed-setup_entry_basic-3" delay="2"/>
+    <text text="@@setup_entry_basic_id-4" active="@@act-setup_entry_basic-4" y="384" speed="@@speed-setup_entry_basic-4" delay="2"/>
+    <text text="@@setup_entry_basic_id-5" active="@@act-setup_entry_basic-5" y="433" speed="@@speed-setup_entry_basic-5" delay="2"/>
+    <text text="@@setup_entry_basic_id-6" active="@@act-setup_entry_basic-6" y="482" speed="@@speed-setup_entry_basic-6" delay="2"/>
+  </wrapper>
+
+
+  <wrapper x="808" w="245" h="49" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30">
+	  <text text="@@setup_entry_basic_value-0" active="@@act-setup_entry_basic-0" y="188" speed="@@speed-setup_entry_basic-0" delay="2"/>
+	  <text text="@@setup_entry_basic_value-1" active="@@act-setup_entry_basic-1" y="237" speed="@@speed-setup_entry_basic-1" delay="2"/>
+	  <text text="@@setup_entry_basic_value-2" active="@@act-setup_entry_basic-2" y="286" speed="@@speed-setup_entry_basic-2" delay="2"/>
+	  <text text="@@setup_entry_basic_value-3" active="@@act-setup_entry_basic-3" y="335" speed="@@speed-setup_entry_basic-3" delay="2"/>
+	  <text text="@@setup_entry_basic_value-4" active="@@act-setup_entry_basic-4" y="384" speed="@@speed-setup_entry_basic-4" delay="2"/>
+	  <text text="@@setup_entry_basic_value-5" active="@@act-setup_entry_basic-5" y="433" speed="@@speed-setup_entry_basic-5" delay="2"/>
+	  <text text="@@setup_entry_basic_value-6" active="@@act-setup_entry_basic-6" y="482" speed="@@speed-setup_entry_basic-6" delay="2"/>
+   </wrapper>
+
+  <table x="281" y="235" w="33" h="315"  cols="1" rows="7" rowspacing="0">
+   <image image="@@setup_entry_basic_icon-0" />
+   <image image="@@setup_entry_basic_icon-1" />
+   <image image="@@setup_entry_basic_icon-2" />
+   <image image="@@setup_entry_basic_icon-3" />
+   <image image="@@setup_entry_basic_icon-4" />
+   <image image="@@setup_entry_basic_icon-5" />
+   <image image="@@setup_entry_basic_icon-6" />
+  </table>
+
+  <image image="@@ss-prev" x="626" y="150" w="29" h="21"/>
+  <image image="@@ss-more" x="626" y="551" w="29" h="21"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

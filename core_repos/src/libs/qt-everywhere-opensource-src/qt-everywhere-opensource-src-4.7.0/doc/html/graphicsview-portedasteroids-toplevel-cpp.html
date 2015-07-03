@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: toplevel.cpp Example File (graphicsview/portedasteroids/toplevel.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">toplevel.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/portedasteroids/toplevel.cpp</span>
+<!-- $$$graphicsview/portedasteroids/toplevel.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+<span class="comment"> /*
+  * KAsteroids - Copyright (c) Martin R. Jones 1997
+  *
+  * Part of the KDE project
+  */</span>
+<span class="comment"> //      --- toplevel.cpp ---</span>
+ #include &lt;q3accel.h&gt;
+ #include &lt;qlabel.h&gt;
+ #include &lt;qlayout.h&gt;
+ #include &lt;qlcdnumber.h&gt;
+ #include &lt;qpushbutton.h&gt;
+
+ #include &lt;qapplication.h&gt;
+<span class="comment"> //Added by qt3to4:</span>
+ #include &lt;Q3HBoxLayout&gt;
+ #include &lt;QShowEvent&gt;
+ #include &lt;Q3Frame&gt;
+ #include &lt;QPixmap&gt;
+ #include &lt;QHideEvent&gt;
+ #include &lt;QKeyEvent&gt;
+ #include &lt;Q3VBoxLayout&gt;
+
+ #include &quot;toplevel.h&quot;
+ #include &quot;ledmeter.h&quot;
+
+ #define SB_SCORE        1
+ #define SB_LEVEL        2
+ #define SB_SHIPS        3
+
+ struct SLevel
+ {
+     int    nrocks;
+     double rockSpeed;
+ };
+
+ #define MAX_LEVELS      16
+
+ SLevel levels[MAX_LEVELS] =
+ {
+     { 1, 0.4 },
+     { 1, 0.6 },
+     { 2, 0.5 },
+     { 2, 0.7 },
+     { 2, 0.8 },
+     { 3, 0.6 },
+     { 3, 0.7 },
+     { 3, 0.8 },
+     { 4, 0.6 },
+     { 4, 0.7 },
+     { 4, 0.8 },
+     { 5, 0.7 },
+     { 5, 0.8 },
+     { 5, 0.9 },
+     { 5, 1.0 }
+ };
+
+ const char *soundEvents[] =
+ {
+     &quot;ShipDestroyed&quot;,
+     &quot;RockDestroyed&quot;,
+     0
+ };
+
+ const char *soundDefaults[] =
+ {
+     &quot;Explosion.wav&quot;,
+     &quot;ploop.wav&quot;,
+     0
+ };
+
+ KAstTopLevel::KAstTopLevel( QWidget *parent, const char *name )
+     : Q3MainWindow( parent, name, 0 )
+ {
+     QWidget *border = new QWidget( this );
+     border-&gt;setBackgroundColor( Qt::black );
+     setCentralWidget( border );
+
+     Q3VBoxLayout *borderLayout = new Q3VBoxLayout( border );
+     borderLayout-&gt;addStretch( 1 );
+
+     QWidget *mainWin = new QWidget( border );
+     mainWin-&gt;setFixedSize(640, 480);
+     borderLayout-&gt;addWidget( mainWin, 0, Qt::AlignHCenter );
+
+     borderLayout-&gt;addStretch( 1 );
+
+     view = new KAsteroidsView( mainWin );
+     view-&gt;setFocusPolicy( Qt::StrongFocus );
+     connect( view, SIGNAL(shipKilled()), SLOT(slotShipKilled()) );
+     connect( view, SIGNAL(rockHit(int)), SLOT(slotRockHit(int)) );
+     connect( view, SIGNAL(rocksRemoved()), SLOT(slotRocksRemoved()) );
+     connect( view, SIGNAL(updateVitals()), SLOT(slotUpdateVitals()) );
+
+     Q3VBoxLayout *vb = new Q3VBoxLayout( mainWin );
+     Q3HBoxLayout *hb = new Q3HBoxLayout;
+     Q3HBoxLayout *hbd = new Q3HBoxLayout;
+     vb-&gt;addLayout( hb );
+
+     QFont labelFont( &quot;helvetica&quot;, 24 );
+     QColorGroup grp( Qt::darkGreen, Qt::black, QColor( 128, 128, 128 ),
+             QColor( 64, 64, 64 ), Qt::black, Qt::darkGreen, Qt::black );
+     QPalette pal( grp, grp, grp );
+
+     mainWin-&gt;setPalette( pal );
+
+     hb-&gt;addSpacing( 10 );
+
+     QLabel *label;
+     label = new QLabel( tr(&quot;Score&quot;), mainWin );
+     label-&gt;setFont( labelFont );
+     label-&gt;setPalette( pal );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     hb-&gt;addWidget( label );
+
+     scoreLCD = new QLCDNumber( 6, mainWin );
+     scoreLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     scoreLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     scoreLCD-&gt;setFixedWidth( 150 );
+     scoreLCD-&gt;setPalette( pal );
+     hb-&gt;addWidget( scoreLCD );
+     hb-&gt;addStretch( 10 );
+
+     label = new QLabel( tr(&quot;Level&quot;), mainWin );
+     label-&gt;setFont( labelFont );
+     label-&gt;setPalette( pal );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     hb-&gt;addWidget( label );
+
+     levelLCD = new QLCDNumber( 2, mainWin );
+     levelLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     levelLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     levelLCD-&gt;setFixedWidth( 70 );
+     levelLCD-&gt;setPalette( pal );
+     hb-&gt;addWidget( levelLCD );
+     hb-&gt;addStretch( 10 );
+
+     label = new QLabel( tr(&quot;Ships&quot;), mainWin );
+     label-&gt;setFont( labelFont );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     label-&gt;setPalette( pal );
+     hb-&gt;addWidget( label );
+
+     shipsLCD = new QLCDNumber( 1, mainWin );
+     shipsLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     shipsLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     shipsLCD-&gt;setFixedWidth( 40 );
+     shipsLCD-&gt;setPalette( pal );
+     hb-&gt;addWidget( shipsLCD );
+
+     hb-&gt;addStrut( 30 );
+
+     vb-&gt;addWidget( view, 10 );
+
+<span class="comment"> // -- bottom layout:</span>
+     vb-&gt;addLayout( hbd );
+
+     QFont smallFont( &quot;helvetica&quot;, 14 );
+     hbd-&gt;addSpacing( 10 );
+
+     QString sprites_prefix = &quot;:/trolltech/examples/graphicsview/portedasteroids/sprites/&quot;;
+<span class="comment"> /*
+     label = new QLabel( tr( &quot;T&quot; ), mainWin );
+     label-&gt;setFont( smallFont );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     label-&gt;setPalette( pal );
+     hbd-&gt;addWidget( label );
+
+     teleportsLCD = new QLCDNumber( 1, mainWin );
+     teleportsLCD-&gt;setFrameStyle( QFrame::NoFrame );
+     teleportsLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     teleportsLCD-&gt;setPalette( pal );
+     teleportsLCD-&gt;setFixedHeight( 20 );
+     hbd-&gt;addWidget( teleportsLCD );
+
+     hbd-&gt;addSpacing( 10 );
+ */</span>
+     QPixmap pm( sprites_prefix + &quot;powerups/brake.png&quot; );
+     label = new QLabel( mainWin );
+     label-&gt;setPixmap( pm );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     label-&gt;setPalette( pal );
+     hbd-&gt;addWidget( label );
+
+     brakesLCD = new QLCDNumber( 1, mainWin );
+     brakesLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     brakesLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     brakesLCD-&gt;setPalette( pal );
+     brakesLCD-&gt;setFixedHeight( 20 );
+     hbd-&gt;addWidget( brakesLCD );
+
+     hbd-&gt;addSpacing( 10 );
+
+     pm.load( sprites_prefix + &quot;powerups/shield.png&quot; );
+     label = new QLabel( mainWin );
+     label-&gt;setPixmap( pm );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     label-&gt;setPalette( pal );
+     hbd-&gt;addWidget( label );
+
+     shieldLCD = new QLCDNumber( 1, mainWin );
+     shieldLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     shieldLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     shieldLCD-&gt;setPalette( pal );
+     shieldLCD-&gt;setFixedHeight( 20 );
+     hbd-&gt;addWidget( shieldLCD );
+
+     hbd-&gt;addSpacing( 10 );
+
+     pm.load( sprites_prefix + &quot;powerups/shoot.png&quot; );
+     label = new QLabel( mainWin );
+     label-&gt;setPixmap( pm );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() );
+     label-&gt;setPalette( pal );
+     hbd-&gt;addWidget( label );
+
+     shootLCD = new QLCDNumber( 1, mainWin );
+     shootLCD-&gt;setFrameStyle( Q3Frame::NoFrame );
+     shootLCD-&gt;setSegmentStyle( QLCDNumber::Flat );
+     shootLCD-&gt;setPalette( pal );
+     shootLCD-&gt;setFixedHeight( 20 );
+     hbd-&gt;addWidget( shootLCD );
+
+     hbd-&gt;addStretch( 1 );
+
+     label = new QLabel( tr( &quot;Fuel&quot; ), mainWin );
+     label-&gt;setFont( smallFont );
+     label-&gt;setFixedWidth( label-&gt;sizeHint().width() + 10 );
+     label-&gt;setPalette( pal );
+     hbd-&gt;addWidget( label );
+
+     powerMeter = new KALedMeter( mainWin );
+     powerMeter-&gt;setFrameStyle( Q3Frame::Box | Q3Frame::Plain );
+     powerMeter-&gt;setRange( MAX_POWER_LEVEL );
+     powerMeter-&gt;addColorRange( 10, Qt::darkRed );
+     powerMeter-&gt;addColorRange( 20, QColor(160, 96, 0) );
+     powerMeter-&gt;addColorRange( 70, Qt::darkGreen );
+     powerMeter-&gt;setCount( 40 );
+     powerMeter-&gt;setPalette( pal );
+     powerMeter-&gt;setFixedSize( 200, 12 );
+     hbd-&gt;addWidget( powerMeter );
+
+     shipsRemain = 3;
+     showHiscores = FALSE;
+
+     actions.insert( Qt::Key_Up, Thrust );
+     actions.insert( Qt::Key_Left, RotateLeft );
+     actions.insert( Qt::Key_Right, RotateRight );
+     actions.insert( Qt::Key_Space, Shoot );
+     actions.insert( Qt::Key_Z, Teleport );
+     actions.insert( Qt::Key_X, Brake );
+     actions.insert( Qt::Key_S, Shield );
+     actions.insert( Qt::Key_P, Pause );
+     actions.insert( Qt::Key_L, Launch );
+     actions.insert( Qt::Key_N, NewGame );
+
+     view-&gt;showText( tr( &quot;Press N to start playing&quot; ), Qt::yellow );
+ }
+
+ KAstTopLevel::~KAstTopLevel()
+ {
+ }
+
+ void KAstTopLevel::playSound( const char * )
+ {
+ }
+
+ void KAstTopLevel::keyPressEvent( QKeyEvent *event )
+ {
+     if ( event-&gt;isAutoRepeat() || !actions.contains( event-&gt;key() ) )
+     {
+         event-&gt;ignore();
+         return;
+     }
+
+     Action a = actions[ event-&gt;key() ];
+
+     switch ( a )
+     {
+         case RotateLeft:
+             view-&gt;rotateLeft( TRUE );
+             break;
+
+         case RotateRight:
+             view-&gt;rotateRight( TRUE );
+             break;
+
+         case Thrust:
+             view-&gt;thrust( TRUE );
+             break;
+
+         case Shoot:
+             view-&gt;shoot( TRUE );
+             break;
+
+         case Shield:
+             view-&gt;setShield( TRUE );
+             break;
+
+         case Teleport:
+             view-&gt;teleport( TRUE );
+             break;
+
+         case Brake:
+             view-&gt;brake( TRUE );
+             break;
+
+         default:
+             event-&gt;ignore();
+             return;
+     }
+     event-&gt;accept();
+ }
+
+ void KAstTopLevel::keyReleaseEvent( QKeyEvent *event )
+ {
+     if ( event-&gt;isAutoRepeat() || !actions.contains( event-&gt;key() ) )
+     {
+         event-&gt;ignore();
+         return;
+     }
+
+     Action a = actions[ event-&gt;key() ];
+
+     switch ( a )
+     {
+         case RotateLeft:
+             view-&gt;rotateLeft( FALSE );
+             break;
+
+         case RotateRight:
+             view-&gt;rotateRight( FALSE );
+             break;
+
+         case Thrust:
+             view-&gt;thrust( FALSE );
+             break;
+
+         case Shoot:
+             view-&gt;shoot( FALSE );
+             break;
+
+         case Brake:
+             view-&gt;brake( FALSE );
+             break;
+
+         case Shield:
+             view-&gt;setShield( FALSE );
+             break;
+
+         case Teleport:
+             view-&gt;teleport( FALSE );
+             break;
+
+         case Launch:
+             if ( waitShip )
+             {
+                 view-&gt;newShip();
+                 waitShip = FALSE;
+                 view-&gt;hideText();
+             }
+             else
+             {
+                 event-&gt;ignore();
+                 return;
+             }
+             break;
+
+         case NewGame:
+             slotNewGame();
+             break;
+<span class="comment"> /*
+         case Pause:
+             {
+                 view-&gt;pause( TRUE );
+                 QMessageBox::information( this,
+                                           tr(&quot;KAsteroids is paused&quot;),
+                                           tr(&quot;Paused&quot;) );
+                 view-&gt;pause( FALSE );
+             }
+             break;
+ */</span>
+         default:
+             event-&gt;ignore();
+             return;
+     }
+
+     event-&gt;accept();
+ }
+
+ void KAstTopLevel::showEvent( QShowEvent *e )
+ {
+     Q3MainWindow::showEvent( e );
+     view-&gt;pause( FALSE );
+     view-&gt;setFocus();
+ }
+
+ void KAstTopLevel::hideEvent( QHideEvent *e )
+ {
+     Q3MainWindow::hideEvent( e );
+     view-&gt;pause( TRUE );
+ }
+
+ void KAstTopLevel::slotNewGame()
+ {
+     score = 0;
+     shipsRemain = SB_SHIPS;
+     scoreLCD-&gt;display( 0 );
+     level = 0;
+     levelLCD-&gt;display( level+1 );
+     shipsLCD-&gt;display( shipsRemain-1 );
+     view-&gt;newGame();
+     view-&gt;setRockSpeed( levels[0].rockSpeed );
+     view-&gt;addRocks( levels[0].nrocks );
+<span class="comment"> //    view-&gt;showText( tr( &quot;Press L to launch.&quot; ), yellow );</span>
+     view-&gt;newShip();
+     waitShip = FALSE;
+     view-&gt;hideText();
+     isPaused = FALSE;
+ }
+
+ void KAstTopLevel::slotShipKilled()
+ {
+     shipsRemain--;
+     shipsLCD-&gt;display( shipsRemain-1 );
+
+     playSound( &quot;ShipDestroyed&quot; );
+
+     if ( shipsRemain )
+     {
+         waitShip = TRUE;
+         view-&gt;showText( tr( &quot;Ship Destroyed. Press L to launch.&quot;), Qt::yellow );
+     }
+     else
+     {
+         view-&gt;showText( tr(&quot;Game Over!&quot;), Qt::red );
+         view-&gt;endGame();
+         doStats();
+<span class="comment"> //        highscore-&gt;addEntry( score, level, showHiscores );</span>
+     }
+ }
+
+ void KAstTopLevel::slotRockHit( int size )
+ {
+     switch ( size )
+     {
+         case 0:
+             score += 10;
+              break;
+
+         case 1:
+             score += 20;
+             break;
+
+         default:
+             score += 40;
+       }
+
+     playSound( &quot;RockDestroyed&quot; );
+
+     scoreLCD-&gt;display( score );
+ }
+
+ void KAstTopLevel::slotRocksRemoved()
+ {
+     level++;
+
+     if ( level &gt;= MAX_LEVELS )
+         level = MAX_LEVELS - 1;
+
+     view-&gt;setRockSpeed( levels[level-1].rockSpeed );
+     view-&gt;addRocks( levels[level-1].nrocks );
+
+     levelLCD-&gt;display( level+1 );
+ }
+
+ void KAstTopLevel::doStats()
+ {
+     QString r( &quot;0.00&quot; );
+     if ( view-&gt;shots() )
+          r = QString::number( (double)view-&gt;hits() / view-&gt;shots() * 100.0,
+                              'g', 2 );
+
+<span class="comment"> /* multi-line text broken in Qt 3
+     QString s = tr( &quot;Game Over\n\nShots fired:\t%1\n  Hit:\t%2\n  Missed:\t%3\nHit ratio:\t%4 %\n\nPress N for a new game&quot; )
+       .arg(view-&gt;shots()).arg(view-&gt;hits())
+       .arg(view-&gt;shots() - view-&gt;hits())
+       .arg(r);
+ */</span>
+
+     view-&gt;showText( &quot;Game Over.   Press N for a new game.&quot;, Qt::yellow, FALSE );
+ }
+
+ void KAstTopLevel::slotUpdateVitals()
+ {
+     brakesLCD-&gt;display( view-&gt;brakeCount() );
+     shieldLCD-&gt;display( view-&gt;shieldCount() );
+     shootLCD-&gt;display( view-&gt;shootCount() );
+<span class="comment"> //    teleportsLCD-&gt;display( view-&gt;teleportCount() );</span>
+     powerMeter-&gt;setValue( view-&gt;power() );
+ }</pre>
+</div>
+<!-- @@@graphicsview/portedasteroids/toplevel.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

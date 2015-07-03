@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebelement.cpp -->
+  <title>Qt 4.7: QWebElement Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtwebkit.html">QtWebKit</a></li>
+              <li>QWebElement</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#examples">Examples</a></li>
+</ul>
+</div>
+<h1 class="title">QWebElement Class Reference</h1>
+<!-- $$$QWebElement-brief -->
+<p>The QWebElement class provides convenient access to DOM elements in a <a href="qwebframe.html">QWebFrame</a>. <a href="#details">More...</a></p>
+<!-- @@@QWebElement -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QWebElement&gt;</pre><p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qwebelement-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#StyleResolveStrategy-enum">StyleResolveStrategy</a></b> { InlineStyle, CascadedStyle, ComputedStyle }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#QWebElement">QWebElement</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#QWebElement-2">QWebElement</a></b> ( const QWebElement &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#dtor.QWebElement">~QWebElement</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#addClass">addClass</a></b> ( const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#appendInside">appendInside</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#appendInside-2">appendInside</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#appendOutside">appendOutside</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#appendOutside-2">appendOutside</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#attribute">attribute</a></b> ( const QString &amp; <i>name</i>, const QString &amp; <i>defaultValue</i> = QString() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#attributeNS">attributeNS</a></b> ( const QString &amp; <i>namespaceUri</i>, const QString &amp; <i>name</i>, const QString &amp; <i>defaultValue</i> = QString() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#attributeNames">attributeNames</a></b> ( const QString &amp; <i>namespaceUri</i> = QString() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#classes">classes</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#clone">clone</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#document">document</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#encloseContentsWith">encloseContentsWith</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#encloseContentsWith-2">encloseContentsWith</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#encloseWith">encloseWith</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#encloseWith-2">encloseWith</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#evaluateJavaScript">evaluateJavaScript</a></b> ( const QString &amp; <i>scriptSource</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElementCollection </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#findAll">findAll</a></b> ( const QString &amp; <i>selectorQuery</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#findFirst">findFirst</a></b> ( const QString &amp; <i>selectorQuery</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#firstChild">firstChild</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#geometry">geometry</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#hasAttribute">hasAttribute</a></b> ( const QString &amp; <i>name</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#hasAttributeNS">hasAttributeNS</a></b> ( const QString &amp; <i>namespaceUri</i>, const QString &amp; <i>name</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#hasAttributes">hasAttributes</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#hasClass">hasClass</a></b> ( const QString &amp; <i>name</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#hasFocus">hasFocus</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#isNull">isNull</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#lastChild">lastChild</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#localName">localName</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#namespaceUri">namespaceUri</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#nextSibling">nextSibling</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#parent">parent</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#prefix">prefix</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#prependInside">prependInside</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#prependInside-2">prependInside</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#prependOutside">prependOutside</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#prependOutside-2">prependOutside</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#previousSibling">previousSibling</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#removeAllChildren">removeAllChildren</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#removeAttribute">removeAttribute</a></b> ( const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#removeAttributeNS">removeAttributeNS</a></b> ( const QString &amp; <i>namespaceUri</i>, const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#removeClass">removeClass</a></b> ( const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#removeFromDocument">removeFromDocument</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#render">render</a></b> ( QPainter * <i>painter</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#replace">replace</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#replace-2">replace</a></b> ( const QWebElement &amp; <i>element</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setAttribute">setAttribute</a></b> ( const QString &amp; <i>name</i>, const QString &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setAttributeNS">setAttributeNS</a></b> ( const QString &amp; <i>namespaceUri</i>, const QString &amp; <i>name</i>, const QString &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setFocus">setFocus</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setInnerXml">setInnerXml</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setOuterXml">setOuterXml</a></b> ( const QString &amp; <i>markup</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setPlainText">setPlainText</a></b> ( const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#setStyleProperty">setStyleProperty</a></b> ( const QString &amp; <i>name</i>, const QString &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#styleProperty">styleProperty</a></b> ( const QString &amp; <i>name</i>, StyleResolveStrategy <i>strategy</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#tagName">tagName</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement &amp; </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#takeFromDocument">takeFromDocument</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#toInnerXml">toInnerXml</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#toOuterXml">toOuterXml</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#toPlainText">toPlainText</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#toggleClass">toggleClass</a></b> ( const QString &amp; <i>name</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebFrame * </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#webFrame">webFrame</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#operator-not-eq">operator!=</a></b> ( const QWebElement &amp; <i>o</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement &amp; </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#operator-eq">operator=</a></b> ( const QWebElement &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebelement.html#operator-eq-eq">operator==</a></b> ( const QWebElement &amp; <i>o</i> ) const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebElement-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWebElement class provides convenient access to DOM elements in a <a href="qwebframe.html">QWebFrame</a>.</p>
+<p>A QWebElement object allows easy access to the document model, represented by a tree-like structure of DOM elements. The root of the tree is called the document element and can be accessed using <a href="qwebframe.html#documentElement">QWebFrame::documentElement</a>().</p>
+<p>Specific elements can be accessed using <a href="qwebelement.html#findAll">findAll</a>() and <a href="qwebelement.html#findFirst">findFirst</a>(). These elements are identified using CSS selectors. The code snippet below demonstrates the use of <a href="qwebelement.html#findAll">findAll</a>().</p>
+<pre class="highlightedCode brush: cpp">     QWebElement document = frame-&gt;documentElement();
+     <span class="comment">/* Assume the document has the following structure:
+
+        &lt;p class=intro&gt;
+          &lt;span&gt;Intro&lt;/span&gt;
+          &lt;span&gt;Snippets&lt;/span&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+          &lt;span&gt;Content&lt;/span&gt;
+          &lt;span&gt;Here&lt;/span&gt;
+        &lt;/p&gt;
+     */</span>
+
+     QWebElementCollection allSpans = document.findAll(&quot;span&quot;);
+     QWebElementCollection introSpans = document.findAll(&quot;p.intro span&quot;);</pre>
+<p>The first list contains all <tt>span</tt> elements in the document. The second list contains <tt>span</tt> elements that are children of <tt>p</tt>, classified with <tt>intro</tt>.</p>
+<p>Using <a href="qwebelement.html#findFirst">findFirst</a>() is more efficient than calling <a href="qwebelement.html#findAll">findAll</a>(), and extracting the first element only in the list returned.</p>
+<p>Alternatively you can traverse the document manually using <a href="qwebelement.html#firstChild">firstChild</a>() and <a href="qwebelement.html#nextSibling">nextSibling</a>():</p>
+<pre class="highlightedCode brush: cpp">     frame-&gt;setHtml(&quot;&lt;html&gt;&lt;body&gt;&lt;p&gt;First Paragraph&lt;/p&gt;&lt;p&gt;Second Paragraph&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&quot;);
+     QWebElement doc = frame-&gt;documentElement();
+     QWebElement body = doc.firstChild();
+     QWebElement firstParagraph = body.firstChild();
+     QWebElement secondParagraph = firstParagraph.nextSibling();</pre>
+<p>Individual elements can be inspected or changed using methods such as <a href="qwebelement.html#attribute">attribute</a>() or <a href="qwebelement.html#setAttribute">setAttribute</a>(). For examle, to capture the user's input in a text field for later use (auto-completion), a browser could do something like this:</p>
+<pre class="highlightedCode brush: cpp">     QWebElement firstTextInput = document.findFirst(&quot;input[type=text]&quot;);
+     QString storedText = firstTextInput.attribute(&quot;value&quot;);</pre>
+<p>When the same page is later revisited, the browser can fill in the text field automatically by modifying the value attribute of the input element:</p>
+<pre class="highlightedCode brush: cpp">     QWebElement firstTextInput = document.findFirst(&quot;input[type=text]&quot;);
+     textInput.setAttribute(&quot;value&quot;, storedText);</pre>
+<p>Another use case is to emulate a click event on an element. The following code snippet demonstrates how to call the <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> DOM method click() of a submit button:</p>
+<pre class="highlightedCode brush: cpp">     QWebElement document = frame-&gt;documentElement();
+     <span class="comment">/* Assume that the document has the following structure:
+
+         &lt;form name=&quot;myform&quot; action=&quot;submit_form.asp&quot; method=&quot;get&quot;&gt;
+             &lt;input type=&quot;text&quot; name=&quot;myfield&quot;&gt;
+             &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+         &lt;/form&gt;
+
+      */</span>
+
+     QWebElement button = document.findFirst(&quot;input[type=submit]&quot;);
+     button.evaluateJavaScript(&quot;click()&quot;);</pre>
+<p>The underlying content of QWebElement is explicitly shared. Creating a copy of a QWebElement does not create a copy of the content. Instead, both instances point to the same element.</p>
+<p>The contents of child elements can be converted to plain text with <a href="qwebelement.html#toPlainText">toPlainText</a>(); to XHTML using <a href="qwebelement.html#toInnerXml">toInnerXml</a>(). To include the element's tag in the output, use <a href="qwebelement.html#toOuterXml">toOuterXml</a>().</p>
+<p>It is possible to replace the contents of child elements using <a href="qwebelement.html#setPlainText">setPlainText</a>() and <a href="qwebelement.html#setInnerXml">setInnerXml</a>(). To replace the element itself and its contents, use <a href="qwebelement.html#setOuterXml">setOuterXml</a>().</p>
+<a name="examples"></a>
+<h3>Examples</h3>
+<p>The <a href="webkit-domtraversal.html">DOM Traversal Example</a> shows one way to traverse documents in a running example.</p>
+<p>The <a href="webkit-simpleselector.html">Simple Selector Example</a> can be used to experiment with the searching features of this class and provides sample code you can start working with.</p>
+</div>
+<!-- @@@QWebElement -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$StyleResolveStrategy$$$InlineStyle$$$CascadedStyle$$$ComputedStyle -->
+<h3 class="fn"><a name="StyleResolveStrategy-enum"></a>enum QWebElement::StyleResolveStrategy</h3>
+<p>This enum describes how <a href="qwebelement.html">QWebElement</a>'s styleProperty resolves the given property name.</p>
+<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QWebElement::InlineStyle</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Return the property value as it is defined in the element, without respecting style inheritance and other CSS rules.</td></tr>
+<tr><td  class="topAlign"><tt>QWebElement::CascadedStyle</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The property's value is determined using the inheritance and importance rules defined in the document's stylesheet.</td></tr>
+<tr><td  class="topAlign"><tt>QWebElement::ComputedStyle</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">The property's value is the absolute value of the style property resolved from the environment.</td></tr>
+</table>
+<!-- @@@StyleResolveStrategy -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWebElement[overload1]$$$QWebElement -->
+<h3 class="fn"><a name="QWebElement"></a>QWebElement::QWebElement ()</h3>
+<p>Constructs a null web element.</p>
+<!-- @@@QWebElement -->
+<!-- $$$QWebElement$$$QWebElementconstQWebElement& -->
+<h3 class="fn"><a name="QWebElement-2"></a>QWebElement::QWebElement ( const QWebElement &amp; <i>other</i> )</h3>
+<p>Constructs a copy of <i>other</i>.</p>
+<!-- @@@QWebElement -->
+<!-- $$$~QWebElement[overload1]$$$~QWebElement -->
+<h3 class="fn"><a name="dtor.QWebElement"></a>QWebElement::~QWebElement ()</h3>
+<p>Destroys the element. However, the underlying DOM element is not destroyed.</p>
+<!-- @@@~QWebElement -->
+<!-- $$$addClass[overload1]$$$addClassconstQString& -->
+<h3 class="fn"><a name="addClass"></a>void QWebElement::addClass ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
+<p>Adds the specified class with the given <i>name</i> to the element.</p>
+<!-- @@@addClass -->
+<!-- $$$appendInside[overload1]$$$appendInsideconstQString& -->
+<h3 class="fn"><a name="appendInside"></a>void QWebElement::appendInside ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Appends the result of parsing <i>markup</i> as the element's last child.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#prependInside">prependInside</a>(), <a href="qwebelement.html#prependOutside">prependOutside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@appendInside -->
+<!-- $$$appendInside$$$appendInsideconstQWebElement& -->
+<h3 class="fn"><a name="appendInside-2"></a>void QWebElement::appendInside ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Appends the given <i>element</i> as the element's last child.</p>
+<p>If <i>element</i> is the child of another element, it is re-parented to this element. If <i>element</i> is a child of this element, then its position in the list of children is changed.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#prependInside">prependInside</a>(), <a href="qwebelement.html#prependOutside">prependOutside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@appendInside -->
+<!-- $$$appendOutside[overload1]$$$appendOutsideconstQString& -->
+<h3 class="fn"><a name="appendOutside"></a>void QWebElement::appendOutside ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Inserts the result of parsing <i>markup</i> after this element.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependInside">prependInside</a>(), and <a href="qwebelement.html#prependOutside">prependOutside</a>().</p>
+<!-- @@@appendOutside -->
+<!-- $$$appendOutside$$$appendOutsideconstQWebElement& -->
+<h3 class="fn"><a name="appendOutside-2"></a>void QWebElement::appendOutside ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Inserts the given <i>element</i> after this element.</p>
+<p>If <i>element</i> is the child of another element, it is re-parented to the parent of this element.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependInside">prependInside</a>(), and <a href="qwebelement.html#prependOutside">prependOutside</a>().</p>
+<!-- @@@appendOutside -->
+<!-- $$$attribute[overload1]$$$attributeconstQString&constQString& -->
+<h3 class="fn"><a name="attribute"></a><a href="qstring.html">QString</a> QWebElement::attribute ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>defaultValue</i> = QString() ) const</h3>
+<p>Returns the attribute with the given <i>name</i>. If the attribute does not exist, <i>defaultValue</i> is returned.</p>
+<p>See also <a href="qwebelement.html#setAttribute">setAttribute</a>(), <a href="qwebelement.html#setAttributeNS">setAttributeNS</a>(), and <a href="qwebelement.html#attributeNS">attributeNS</a>().</p>
+<!-- @@@attribute -->
+<!-- $$$attributeNS[overload1]$$$attributeNSconstQString&constQString&constQString& -->
+<h3 class="fn"><a name="attributeNS"></a><a href="qstring.html">QString</a> QWebElement::attributeNS ( const <a href="qstring.html">QString</a> &amp; <i>namespaceUri</i>, const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>defaultValue</i> = QString() ) const</h3>
+<p>Returns the attribute with the given <i>name</i> in <i>namespaceUri</i>. If the attribute does not exist, <i>defaultValue</i> is returned.</p>
+<p>See also <a href="qwebelement.html#setAttributeNS">setAttributeNS</a>(), <a href="qwebelement.html#setAttribute">setAttribute</a>(), and <a href="qwebelement.html#attribute">attribute</a>().</p>
+<!-- @@@attributeNS -->
+<!-- $$$attributeNames[overload1]$$$attributeNamesconstQString& -->
+<h3 class="fn"><a name="attributeNames"></a><a href="qstringlist.html">QStringList</a> QWebElement::attributeNames ( const <a href="qstring.html">QString</a> &amp; <i>namespaceUri</i> = QString() ) const</h3>
+<p>Return the list of attributes for the namespace given as <i>namespaceUri</i>.</p>
+<p>See also <a href="qwebelement.html#attribute">attribute</a>() and <a href="qwebelement.html#setAttribute">setAttribute</a>().</p>
+<!-- @@@attributeNames -->
+<!-- $$$classes[overload1]$$$classes -->
+<h3 class="fn"><a name="classes"></a><a href="qstringlist.html">QStringList</a> QWebElement::classes () const</h3>
+<p>Returns the list of classes of this element.</p>
+<!-- @@@classes -->
+<!-- $$$clone[overload1]$$$clone -->
+<h3 class="fn"><a name="clone"></a>QWebElement QWebElement::clone () const</h3>
+<p>Returns a clone of this element.</p>
+<p>The clone may be inserted at any point in the document.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependInside">prependInside</a>(), <a href="qwebelement.html#prependOutside">prependOutside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@clone -->
+<!-- $$$document[overload1]$$$document -->
+<h3 class="fn"><a name="document"></a>QWebElement QWebElement::document () const</h3>
+<p>Returns the document which this element belongs to.</p>
+<!-- @@@document -->
+<!-- $$$encloseContentsWith[overload1]$$$encloseContentsWithconstQWebElement& -->
+<h3 class="fn"><a name="encloseContentsWith"></a>void QWebElement::encloseContentsWith ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Encloses the contents of this element with <i>element</i>. This element becomes the child of the deepest descendant within <i>element</i>.</p>
+<p>### illustration</p>
+<p>See also <a href="qwebelement.html#encloseWith">encloseWith</a>().</p>
+<!-- @@@encloseContentsWith -->
+<!-- $$$encloseContentsWith$$$encloseContentsWithconstQString& -->
+<h3 class="fn"><a name="encloseContentsWith-2"></a>void QWebElement::encloseContentsWith ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Encloses the contents of this element with the result of parsing <i>markup</i>. This element becomes the child of the deepest descendant within <i>markup</i>.</p>
+<p>See also <a href="qwebelement.html#encloseWith">encloseWith</a>().</p>
+<!-- @@@encloseContentsWith -->
+<!-- $$$encloseWith[overload1]$$$encloseWithconstQString& -->
+<h3 class="fn"><a name="encloseWith"></a>void QWebElement::encloseWith ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Encloses this element with the result of parsing <i>markup</i>. This element becomes the child of the deepest descendant within <i>markup</i>.</p>
+<p>See also <a href="qwebelement.html#replace">replace</a>().</p>
+<!-- @@@encloseWith -->
+<!-- $$$encloseWith$$$encloseWithconstQWebElement& -->
+<h3 class="fn"><a name="encloseWith-2"></a>void QWebElement::encloseWith ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Encloses this element with <i>element</i>. This element becomes the child of the deepest descendant within <i>element</i>.</p>
+<p>See also <a href="qwebelement.html#replace">replace</a>().</p>
+<!-- @@@encloseWith -->
+<!-- $$$evaluateJavaScript[overload1]$$$evaluateJavaScriptconstQString& -->
+<h3 class="fn"><a name="evaluateJavaScript"></a><a href="qvariant.html">QVariant</a> QWebElement::evaluateJavaScript ( const <a href="qstring.html">QString</a> &amp; <i>scriptSource</i> )</h3>
+<p>Executes <i>scriptSource</i> with this element as <tt>this</tt> object.</p>
+<!-- @@@evaluateJavaScript -->
+<!-- $$$findAll[overload1]$$$findAllconstQString& -->
+<h3 class="fn"><a name="findAll"></a><a href="qwebelementcollection.html">QWebElementCollection</a> QWebElement::findAll ( const <a href="qstring.html">QString</a> &amp; <i>selectorQuery</i> ) const</h3>
+<p>Returns a new list of child elements matching the given CSS selector <i>selectorQuery</i>. If there are no matching elements, an empty list is returned.</p>
+<p><a href="http://www.w3.org/TR/REC-CSS2/selector.html#q1">Standard CSS2 selector</a> syntax is used for the query.</p>
+<p><b>Note:</b> This search is performed recursively.</p>
+<p>See also <a href="qwebelement.html#findFirst">findFirst</a>().</p>
+<!-- @@@findAll -->
+<!-- $$$findFirst[overload1]$$$findFirstconstQString& -->
+<h3 class="fn"><a name="findFirst"></a>QWebElement QWebElement::findFirst ( const <a href="qstring.html">QString</a> &amp; <i>selectorQuery</i> ) const</h3>
+<p>Returns the first child element that matches the given CSS selector <i>selectorQuery</i>.</p>
+<p><a href="http://www.w3.org/TR/REC-CSS2/selector.html#q1">Standard CSS2 selector</a> syntax is used for the query.</p>
+<p><b>Note:</b> This search is performed recursively.</p>
+<p>See also <a href="qwebelement.html#findAll">findAll</a>().</p>
+<!-- @@@findFirst -->
+<!-- $$$firstChild[overload1]$$$firstChild -->
+<h3 class="fn"><a name="firstChild"></a>QWebElement QWebElement::firstChild () const</h3>
+<p>Returns the element's first child.</p>
+<p>See also <a href="qwebelement.html#lastChild">lastChild</a>(), <a href="qwebelement.html#previousSibling">previousSibling</a>(), and <a href="qwebelement.html#nextSibling">nextSibling</a>().</p>
+<!-- @@@firstChild -->
+<!-- $$$geometry[overload1]$$$geometry -->
+<h3 class="fn"><a name="geometry"></a><a href="qrect.html">QRect</a> QWebElement::geometry () const</h3>
+<p>Returns the geometry of this element, relative to its containing frame.</p>
+<p>See also <a href="qwebelement.html#tagName">tagName</a>().</p>
+<!-- @@@geometry -->
+<!-- $$$hasAttribute[overload1]$$$hasAttributeconstQString& -->
+<h3 class="fn"><a name="hasAttribute"></a>bool QWebElement::hasAttribute ( const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
+<p>Returns true if this element has an attribute with the given <i>name</i>; otherwise returns false.</p>
+<p>See also <a href="qwebelement.html#attribute">attribute</a>() and <a href="qwebelement.html#setAttribute">setAttribute</a>().</p>
+<!-- @@@hasAttribute -->
+<!-- $$$hasAttributeNS[overload1]$$$hasAttributeNSconstQString&constQString& -->
+<h3 class="fn"><a name="hasAttributeNS"></a>bool QWebElement::hasAttributeNS ( const <a href="qstring.html">QString</a> &amp; <i>namespaceUri</i>, const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
+<p>Returns true if this element has an attribute with the given <i>name</i>, in <i>namespaceUri</i>; otherwise returns false.</p>
+<p>See also <a href="qwebelement.html#attributeNS">attributeNS</a>() and <a href="qwebelement.html#setAttributeNS">setAttributeNS</a>().</p>
+<!-- @@@hasAttributeNS -->
+<!-- $$$hasAttributes[overload1]$$$hasAttributes -->
+<h3 class="fn"><a name="hasAttributes"></a>bool QWebElement::hasAttributes () const</h3>
+<p>Returns true if the element has any attributes defined; otherwise returns false;</p>
+<p>See also <a href="qwebelement.html#attribute">attribute</a>() and <a href="qwebelement.html#setAttribute">setAttribute</a>().</p>
+<!-- @@@hasAttributes -->
+<!-- $$$hasClass[overload1]$$$hasClassconstQString& -->
+<h3 class="fn"><a name="hasClass"></a>bool QWebElement::hasClass ( const <a href="qstring.html">QString</a> &amp; <i>name</i> ) const</h3>
+<p>Returns true if this element has a class with the given <i>name</i>; otherwise returns false.</p>
+<!-- @@@hasClass -->
+<!-- $$$hasFocus[overload1]$$$hasFocus -->
+<h3 class="fn"><a name="hasFocus"></a>bool QWebElement::hasFocus () const</h3>
+<p>Returns true if the element has keyboard input focus; otherwise, returns false</p>
+<p>See also <a href="qwebelement.html#setFocus">setFocus</a>().</p>
+<!-- @@@hasFocus -->
+<!-- $$$isNull[overload1]$$$isNull -->
+<h3 class="fn"><a name="isNull"></a>bool QWebElement::isNull () const</h3>
+<p>Returns true if the element is a null element; otherwise returns false.</p>
+<!-- @@@isNull -->
+<!-- $$$lastChild[overload1]$$$lastChild -->
+<h3 class="fn"><a name="lastChild"></a>QWebElement QWebElement::lastChild () const</h3>
+<p>Returns the element's last child.</p>
+<p>See also <a href="qwebelement.html#firstChild">firstChild</a>(), <a href="qwebelement.html#previousSibling">previousSibling</a>(), and <a href="qwebelement.html#nextSibling">nextSibling</a>().</p>
+<!-- @@@lastChild -->
+<!-- $$$localName[overload1]$$$localName -->
+<h3 class="fn"><a name="localName"></a><a href="qstring.html">QString</a> QWebElement::localName () const</h3>
+<p>Returns the local name of the element. If the element does not use namespaces, an empty string is returned.</p>
+<!-- @@@localName -->
+<!-- $$$namespaceUri[overload1]$$$namespaceUri -->
+<h3 class="fn"><a name="namespaceUri"></a><a href="qstring.html">QString</a> QWebElement::namespaceUri () const</h3>
+<p>Returns the namespace URI of this element. If the element has no namespace URI, an empty string is returned.</p>
+<!-- @@@namespaceUri -->
+<!-- $$$nextSibling[overload1]$$$nextSibling -->
+<h3 class="fn"><a name="nextSibling"></a>QWebElement QWebElement::nextSibling () const</h3>
+<p>Returns the element's next sibling.</p>
+<p>See also <a href="qwebelement.html#firstChild">firstChild</a>(), <a href="qwebelement.html#previousSibling">previousSibling</a>(), and <a href="qwebelement.html#lastChild">lastChild</a>().</p>
+<!-- @@@nextSibling -->
+<!-- $$$parent[overload1]$$$parent -->
+<h3 class="fn"><a name="parent"></a>QWebElement QWebElement::parent () const</h3>
+<p>Returns the parent element of this elemen. If this element is the root document element, a null element is returned.</p>
+<!-- @@@parent -->
+<!-- $$$prefix[overload1]$$$prefix -->
+<h3 class="fn"><a name="prefix"></a><a href="qstring.html">QString</a> QWebElement::prefix () const</h3>
+<p>Returns the namespace prefix of the element. If the element has no namespace prefix, empty string is returned.</p>
+<!-- @@@prefix -->
+<!-- $$$prependInside[overload1]$$$prependInsideconstQString& -->
+<h3 class="fn"><a name="prependInside"></a>void QWebElement::prependInside ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Prepends the result of parsing <i>markup</i> as the element's first child.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependOutside">prependOutside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@prependInside -->
+<!-- $$$prependInside$$$prependInsideconstQWebElement& -->
+<h3 class="fn"><a name="prependInside-2"></a>void QWebElement::prependInside ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Prepends <i>element</i> as the element's first child.</p>
+<p>If <i>element</i> is the child of another element, it is re-parented to this element. If <i>element</i> is a child of this element, then its position in the list of children is changed.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependOutside">prependOutside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@prependInside -->
+<!-- $$$prependOutside[overload1]$$$prependOutsideconstQString& -->
+<h3 class="fn"><a name="prependOutside"></a>void QWebElement::prependOutside ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Inserts the result of parsing <i>markup</i> before this element.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependInside">prependInside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@prependOutside -->
+<!-- $$$prependOutside$$$prependOutsideconstQWebElement& -->
+<h3 class="fn"><a name="prependOutside-2"></a>void QWebElement::prependOutside ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Inserts the given <i>element</i> before this element.</p>
+<p>If <i>element</i> is the child of another element, it is re-parented to the parent of this element.</p>
+<p>Calling this function on a null element does nothing.</p>
+<p>See also <a href="qwebelement.html#appendInside">appendInside</a>(), <a href="qwebelement.html#prependInside">prependInside</a>(), and <a href="qwebelement.html#appendOutside">appendOutside</a>().</p>
+<!-- @@@prependOutside -->
+<!-- $$$previousSibling[overload1]$$$previousSibling -->
+<h3 class="fn"><a name="previousSibling"></a>QWebElement QWebElement::previousSibling () const</h3>
+<p>Returns the element's previous sibling.</p>
+<p>See also <a href="qwebelement.html#firstChild">firstChild</a>(), <a href="qwebelement.html#nextSibling">nextSibling</a>(), and <a href="qwebelement.html#lastChild">lastChild</a>().</p>
+<!-- @@@previousSibling -->
+<!-- $$$removeAllChildren[overload1]$$$removeAllChildren -->
+<h3 class="fn"><a name="removeAllChildren"></a>void QWebElement::removeAllChildren ()</h3>
+<p>Removes all children from this element.</p>
+<p>See also <a href="qwebelement.html#removeFromDocument">removeFromDocument</a>() and <a href="qwebelement.html#takeFromDocument">takeFromDocument</a>().</p>
+<!-- @@@removeAllChildren -->
+<!-- $$$removeAttribute[overload1]$$$removeAttributeconstQString& -->
+<h3 class="fn"><a name="removeAttribute"></a>void QWebElement::removeAttribute ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
+<p>Removes the attribute with the given <i>name</i> from this element.</p>
+<p>See also <a href="qwebelement.html#attribute">attribute</a>(), <a href="qwebelement.html#setAttribute">setAttribute</a>(), and <a href="qwebelement.html#hasAttribute">hasAttribute</a>().</p>
+<!-- @@@removeAttribute -->
+<!-- $$$removeAttributeNS[overload1]$$$removeAttributeNSconstQString&constQString& -->
+<h3 class="fn"><a name="removeAttributeNS"></a>void QWebElement::removeAttributeNS ( const <a href="qstring.html">QString</a> &amp; <i>namespaceUri</i>, const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
+<p>Removes the attribute with the given <i>name</i>, in <i>namespaceUri</i>, from this element.</p>
+<p>See also <a href="qwebelement.html#attributeNS">attributeNS</a>(), <a href="qwebelement.html#setAttributeNS">setAttributeNS</a>(), and <a href="qwebelement.html#hasAttributeNS">hasAttributeNS</a>().</p>
+<!-- @@@removeAttributeNS -->
+<!-- $$$removeClass[overload1]$$$removeClassconstQString& -->
+<h3 class="fn"><a name="removeClass"></a>void QWebElement::removeClass ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
+<p>Removes the specified class with the given <i>name</i> from the element.</p>
+<!-- @@@removeClass -->
+<!-- $$$removeFromDocument[overload1]$$$removeFromDocument -->
+<h3 class="fn"><a name="removeFromDocument"></a>void QWebElement::removeFromDocument ()</h3>
+<p>Removes this element from the document and makes it a null element.</p>
+<p>See also <a href="qwebelement.html#removeAllChildren">removeAllChildren</a>() and <a href="qwebelement.html#takeFromDocument">takeFromDocument</a>().</p>
+<!-- @@@removeFromDocument -->
+<!-- $$$render[overload1]$$$renderQPainter* -->
+<h3 class="fn"><a name="render"></a>void QWebElement::render ( <a href="qpainter.html">QPainter</a> * <i>painter</i> )</h3>
+<p>Render the element into <i>painter</i> .</p>
+<!-- @@@render -->
+<!-- $$$replace[overload1]$$$replaceconstQString& -->
+<h3 class="fn"><a name="replace"></a>void QWebElement::replace ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Replaces this element with the result of parsing <i>markup</i>.</p>
+<p>This method will not replace the &lt;html&gt;, &lt;head&gt; or &lt;body&gt; elements.</p>
+<p>See also <a href="qwebelement.html#encloseWith">encloseWith</a>().</p>
+<!-- @@@replace -->
+<!-- $$$replace$$$replaceconstQWebElement& -->
+<h3 class="fn"><a name="replace-2"></a>void QWebElement::replace ( const QWebElement &amp; <i>element</i> )</h3>
+<p>Replaces this element with <i>element</i>.</p>
+<p>This method will not replace the &lt;html&gt;, &lt;head&gt; or &lt;body&gt; elements.</p>
+<p>See also <a href="qwebelement.html#encloseWith">encloseWith</a>().</p>
+<!-- @@@replace -->
+<!-- $$$setAttribute[overload1]$$$setAttributeconstQString&constQString& -->
+<h3 class="fn"><a name="setAttribute"></a>void QWebElement::setAttribute ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>value</i> )</h3>
+<p>Adds an attribute with the given <i>name</i> and <i>value</i>. If an attribute with the same name exists, its value is replaced by <i>value</i>.</p>
+<p>See also <a href="qwebelement.html#attribute">attribute</a>(), <a href="qwebelement.html#attributeNS">attributeNS</a>(), and <a href="qwebelement.html#setAttributeNS">setAttributeNS</a>().</p>
+<!-- @@@setAttribute -->
+<!-- $$$setAttributeNS[overload1]$$$setAttributeNSconstQString&constQString&constQString& -->
+<h3 class="fn"><a name="setAttributeNS"></a>void QWebElement::setAttributeNS ( const <a href="qstring.html">QString</a> &amp; <i>namespaceUri</i>, const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>value</i> )</h3>
+<p>Adds an attribute with the given <i>name</i> in <i>namespaceUri</i> with <i>value</i>. If an attribute with the same name exists, its value is replaced by <i>value</i>.</p>
+<p>See also <a href="qwebelement.html#attributeNS">attributeNS</a>(), <a href="qwebelement.html#attribute">attribute</a>(), and <a href="qwebelement.html#setAttribute">setAttribute</a>().</p>
+<!-- @@@setAttributeNS -->
+<!-- $$$setFocus[overload1]$$$setFocus -->
+<h3 class="fn"><a name="setFocus"></a>void QWebElement::setFocus ()</h3>
+<p>Gives keyboard input focus to this element</p>
+<p>See also <a href="qwebelement.html#hasFocus">hasFocus</a>().</p>
+<!-- @@@setFocus -->
+<!-- $$$setInnerXml[overload1]$$$setInnerXmlconstQString& -->
+<h3 class="fn"><a name="setInnerXml"></a>void QWebElement::setInnerXml ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Replaces the contents of this element with <i>markup</i>. The string may contain HTML or XML tags, which is parsed and formatted before insertion into the document.</p>
+<p><b>Note:</b> This is currently implemented for (X)HTML elements only.</p>
+<p>See also <a href="qwebelement.html#toInnerXml">toInnerXml</a>(), <a href="qwebelement.html#toOuterXml">toOuterXml</a>(), and <a href="qwebelement.html#setOuterXml">setOuterXml</a>().</p>
+<!-- @@@setInnerXml -->
+<!-- $$$setOuterXml[overload1]$$$setOuterXmlconstQString& -->
+<h3 class="fn"><a name="setOuterXml"></a>void QWebElement::setOuterXml ( const <a href="qstring.html">QString</a> &amp; <i>markup</i> )</h3>
+<p>Replaces the contents of this element as well as its own tag with <i>markup</i>. The string may contain HTML or XML tags, which is parsed and formatted before insertion into the document.</p>
+<p><b>Note:</b> This is currently only implemented for (X)HTML elements.</p>
+<p>See also <a href="qwebelement.html#toOuterXml">toOuterXml</a>(), <a href="qwebelement.html#toInnerXml">toInnerXml</a>(), and <a href="qwebelement.html#setInnerXml">setInnerXml</a>().</p>
+<!-- @@@setOuterXml -->
+<!-- $$$setPlainText[overload1]$$$setPlainTextconstQString& -->
+<h3 class="fn"><a name="setPlainText"></a>void QWebElement::setPlainText ( const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>Replaces the existing content of this element with <i>text</i>.</p>
+<p>This is equivalent to setting the HTML innerText property.</p>
+<p>See also <a href="qwebelement.html#toPlainText">toPlainText</a>().</p>
+<!-- @@@setPlainText -->
+<!-- $$$setStyleProperty[overload1]$$$setStylePropertyconstQString&constQString& -->
+<h3 class="fn"><a name="setStyleProperty"></a>void QWebElement::setStyleProperty ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, const <a href="qstring.html">QString</a> &amp; <i>value</i> )</h3>
+<p>Sets the value of the inline style with the given <i>name</i> to <i>value</i>.</p>
+<p>Setting a value, does not necessarily mean that it will become the applied value, due to the fact that the style property's value might have been set earlier with a higher priority in external or embedded style declarations.</p>
+<p>In order to ensure that the value will be applied, you may have to append &quot;!important&quot; to the value.</p>
+<p>See also <a href="qwebelement.html#styleProperty">styleProperty</a>().</p>
+<!-- @@@setStyleProperty -->
+<!-- $$$styleProperty[overload1]$$$stylePropertyconstQString&StyleResolveStrategy -->
+<h3 class="fn"><a name="styleProperty"></a><a href="qstring.html">QString</a> QWebElement::styleProperty ( const <a href="qstring.html">QString</a> &amp; <i>name</i>, <a href="qwebelement.html#StyleResolveStrategy-enum">StyleResolveStrategy</a> <i>strategy</i> ) const</h3>
+<p>Returns the value of the style with the given <i>name</i> using the specified <i>strategy</i>. If a style with <i>name</i> does not exist, an empty string is returned.</p>
+<p>In CSS, the cascading part depends on which CSS rule has priority and is thus applied. Generally, the last defined rule has priority. Thus, an inline style rule has priority over an embedded block style rule, which in return has priority over an external style rule.</p>
+<p>If the &quot;!important&quot; declaration is set on one of those, the declaration receives highest priority, unless other declarations also use the &quot;!important&quot; declaration. Then, the last &quot;!important&quot; declaration takes predecence.</p>
+<p>See also <a href="qwebelement.html#setStyleProperty">setStyleProperty</a>().</p>
+<!-- @@@styleProperty -->
+<!-- $$$tagName[overload1]$$$tagName -->
+<h3 class="fn"><a name="tagName"></a><a href="qstring.html">QString</a> QWebElement::tagName () const</h3>
+<p>Returns the tag name of this element.</p>
+<p>See also <a href="qwebelement.html#geometry">geometry</a>().</p>
+<!-- @@@tagName -->
+<!-- $$$takeFromDocument[overload1]$$$takeFromDocument -->
+<h3 class="fn"><a name="takeFromDocument"></a>QWebElement &amp; QWebElement::takeFromDocument ()</h3>
+<p>Removes this element from the document and returns a reference to it.</p>
+<p>The element is still valid after removal, and can be inserted into other parts of the document.</p>
+<p>See also <a href="qwebelement.html#removeAllChildren">removeAllChildren</a>() and <a href="qwebelement.html#removeFromDocument">removeFromDocument</a>().</p>
+<!-- @@@takeFromDocument -->
+<!-- $$$toInnerXml[overload1]$$$toInnerXml -->
+<h3 class="fn"><a name="toInnerXml"></a><a href="qstring.html">QString</a> QWebElement::toInnerXml () const</h3>
+<p>Returns the XML content between the element's start and end tags.</p>
+<p><b>Note:</b> This is currently implemented for (X)HTML elements only.</p>
+<p>See also <a href="qwebelement.html#setInnerXml">setInnerXml</a>(), <a href="qwebelement.html#setOuterXml">setOuterXml</a>(), and <a href="qwebelement.html#toOuterXml">toOuterXml</a>().</p>
+<!-- @@@toInnerXml -->
+<!-- $$$toOuterXml[overload1]$$$toOuterXml -->
+<h3 class="fn"><a name="toOuterXml"></a><a href="qstring.html">QString</a> QWebElement::toOuterXml () const</h3>
+<p>Returns this element converted to XML, including the start and the end tags as well as its attributes.</p>
+<p><b>Note:</b> This is currently implemented for (X)HTML elements only.</p>
+<p>See also <a href="qwebelement.html#setOuterXml">setOuterXml</a>(), <a href="qwebelement.html#setInnerXml">setInnerXml</a>(), and <a href="qwebelement.html#toInnerXml">toInnerXml</a>().</p>
+<!-- @@@toOuterXml -->
+<!-- $$$toPlainText[overload1]$$$toPlainText -->
+<h3 class="fn"><a name="toPlainText"></a><a href="qstring.html">QString</a> QWebElement::toPlainText () const</h3>
+<p>Returns the text between the start and the end tag of this element.</p>
+<p>This is equivalent to reading the HTML innerText property.</p>
+<p>See also <a href="qwebelement.html#setPlainText">setPlainText</a>().</p>
+<!-- @@@toPlainText -->
+<!-- $$$toggleClass[overload1]$$$toggleClassconstQString& -->
+<h3 class="fn"><a name="toggleClass"></a>void QWebElement::toggleClass ( const <a href="qstring.html">QString</a> &amp; <i>name</i> )</h3>
+<p>Adds the specified class with the given <i>name</i> if it is not present. If the class is already present, it will be removed.</p>
+<!-- @@@toggleClass -->
+<!-- $$$webFrame[overload1]$$$webFrame -->
+<h3 class="fn"><a name="webFrame"></a><a href="qwebframe.html">QWebFrame</a> * QWebElement::webFrame () const</h3>
+<p>Returns the web frame which this element is a part of. If the element is a null element, null is returned.</p>
+<!-- @@@webFrame -->
+<!-- $$$operator!=[overload1]$$$operator!=constQWebElement& -->
+<h3 class="fn"><a name="operator-not-eq"></a>bool QWebElement::operator!= ( const QWebElement &amp; <i>o</i> ) const</h3>
+<p>Returns true if this element points to a different underlying DOM object than <i>o</i>; otherwise returns false.</p>
+<!-- @@@operator!= -->
+<!-- $$$operator=[overload1]$$$operator=constQWebElement& -->
+<h3 class="fn"><a name="operator-eq"></a>QWebElement &amp; QWebElement::operator= ( const QWebElement &amp; <i>other</i> )</h3>
+<p>Assigns <i>other</i> to this element and returns a reference to this element.</p>
+<!-- @@@operator= -->
+<!-- $$$operator==[overload1]$$$operator==constQWebElement& -->
+<h3 class="fn"><a name="operator-eq-eq"></a>bool QWebElement::operator== ( const QWebElement &amp; <i>o</i> ) const</h3>
+<p>Returns true if this element points to the same underlying DOM object as <i>o</i>; otherwise returns false.</p>
+<!-- @@@operator== -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

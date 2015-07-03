@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<wrapper textcolor="0xf0f0f0">
+  <image image="@@info_inforbar" x="110" y="350" w="500" h="80" />
+  <table x="140" y="360" w="450" h="80" fontsize="18"
+         cols="2" rows="4" wcol0="210" >
+    <text text="@@text_filename"  auto_translate="1"/>
+    <text text="@@info_filename"  auto_translate="1"/>
+    <text text="@@text_trackinfo" />
+    <text text="@@info_trackinfo" />
+    <text text="@@text_resolution"  auto_translate="1"/>
+    <text text="@@info_resolution"  auto_translate="1"/>
+    <text text="@@text_bitrate" />
+    <text text="@@info_bitrate" />
+  </table>
+</wrapper>

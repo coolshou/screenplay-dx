@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page background="image/welcome_background_bg.jpg">
+	<text text="Credits" x="247" y="131" w="610" h="45" align="left" fontsize="40" textcolor="0x7b5ff"/>
+	<table x="330" y="194" w="620" h="380" rows="13" align="hcenter" fontsize="22">
+		<text text="@@str_0" textcolor="@@color_0"/>
+		<text text="@@str_1" textcolor="@@color_1"/>
+		<text text="@@str_2" textcolor="@@color_2"/>
+		<text text="@@str_3" textcolor="@@color_3"/>
+		<text text="@@str_4" textcolor="@@color_4"/>
+		<text text="@@str_5" textcolor="@@color_5"/>
+		<text text="@@str_6" textcolor="@@color_6"/>
+		<text text="@@str_7" textcolor="@@color_7"/>
+		<text text="@@str_8" textcolor="@@color_8"/>
+		<text text="@@str_9" textcolor="@@color_9"/>
+		<text text="@@str_10" textcolor="@@color_10"/>
+		<text text="@@str_11" textcolor="@@color_11"/>
+		<text text="@@str_12" textcolor="@@color_12"/>
+	</table>
+</page>

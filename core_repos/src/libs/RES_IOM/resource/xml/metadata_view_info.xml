@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp>
+<!--
+		<button valkey="BACKDROP"/>
+		<linebreak/>
+        <button valkey="OK" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+-->
+		<textbox valkey="info" numlines="5" directkey_table="UD[]"/>
+	</ctrlgrp>
+
+    <include filename="./inc_browse_basic_title.xml" />
+	<image image="@@metadata_info_image_bg" x="0" y="0" w="1280" h="720" bg="1"/>
+
+
+	<image image="@@movie_metadata_thumbnail_bg" x="157" y="151" w="184" h="256" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@movie_metadata_thumbnail" x="168" y="161" w="163" h="236" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@movie_title" x="373" y="168" w="710" h="22" align="left" fontsize="18" textcolor="0xffffff" />
+	<image image="@@movie_option_rating" x="218" y="108" w="124" h="21" align="hcenter" />
+	<image image="@@movie_favorite" x="356" y="108" w="23" h="21" align="hcenter" />
+
+	<text text="@@text-BACKDROP" x="871" y="178" w="340" h="32" textcolor="0xffffff" active="@@act-BACKDROP" selected="sel-BACKROP" actnoseltextcolor="0xff8400" activetextcolor="0xff8400" fontsize="30" align="right" disable="@@disable-BACKDROP"/>
+	<!--<text text="@@text-HIDE" x="871" y="218" w="340" h="32" textcolor="0xffffff" active="@@act-HIDE" selected="sel-HIDE" actnoseltextcolor="0xff8400" activetextcolor="0xff8400" fontsize="30" align="right" disable="@@disable-HIDE"/>-->
+
+    <wrapper x="373" w="710" h="22" align="left" fontsize="18" textcolor="0xffffff">
+	<text text="@@movie_year" y="200"/>
+	<text text="@@movie_total_time" y="242"/>
+	<text text="@@movie_genre" y="279"/>
+	<text text="@@movie_director" y="316"/>
+	<text text="@@movie_actor" y="353" h="70" numlines="3"/>
+    </wrapper>
+
+<wrapper x="353" w="769" h="1" bg="1">
+    <image image="@@metadata_seperator" y="193" bg="1"/>
+    <image image="@@metadata_seperator" y="232" bg="1"/>
+    <image image="@@metadata_seperator" y="271" bg="1"/>
+    <image image="@@metadata_seperator" y="310" bg="1"/>
+    <image image="@@metadata_seperator" y="341" bg="1"/>
+</wrapper>
+
+	<image image="@@music_metadata_thumbnail_bg" x="70" y="49" w="196" h="196" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@music_metadata_thumbnail" x="70" y="49" w="196" h="196" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@music_title" x="279" y="55" w="932" h="48" textcolor="0xffffff" fontsize="48" align="left" speed="1" delay="2"/>
+	<image image="@@music_option_rating" x="282" y="108" w="124" h="21" align="hcenter" />
+	<image image="@@music_favorite" x="420" y="108" w="23" h="21" align="hcenter" />
+	<text text="@@music_artist" x="279" y="145" w="580" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@music_genre" x="279" y="182" w="580" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+	<text text="@@music_year" x="279" y="219" w="580" h="22" textcolor="0xffffff" fontsize="20" align="left"/>
+
+	<!--<image image="image/video_option_divider.png" x="70" y="260" w="1140" h="1" align="hcenter" />-->
+  
+	<text text="@@info" x="168" y="435" w="924" h="150" fontsize="18" textcolor="0xffffff" align="left" numlines="@@numlines-info" id="info" start_line="@@start_line-info" disable_tail_dots="1"/>
+
+	<!--<image image="image/video_option_divider.png" x="70" y="636" w="1140" h="1" align="hcenter" />-->
+
+    <wrapper x="1100" bg="1" w="29" h="21">
+    <image image="@@prev-info" y="430"/>
+    <image image="@@next-info" y="554"/>
+    </wrapper>
+    <!--
+	<text text="$$Press 'Enter' key to apply the information for video. " x="201" y="658" w="880" h="22" align="hcenter" fontsize="18" textcolor="0xffffff"/>
+    <text text="@@prev_page" x="70" y="656" w="400" h="22" fontsize="20" align="left" textcolor="0x565656" active="@@prev-info" actnoseltextcolor="0xffffff"/>
+	<text text="@@next_page" x="810" y="655" w="400" h="22" fontsize="20" align="right" textcolor="0x565656" active="@@next-info" actnoseltextcolor="0xffffff"/>
+    -->
+
+    <image image="image/tmdb_logo.png" x="145" y="617" w="85" h="85"/>
+	<text text="$$The movie poster and text are authorized by TMDb." x="234" y="658" w="880" h="22" fontsize="18" textcolor="0xffffff"/>
+
+	<include filename="./inc_decoration.xml"/>
+</page>
+

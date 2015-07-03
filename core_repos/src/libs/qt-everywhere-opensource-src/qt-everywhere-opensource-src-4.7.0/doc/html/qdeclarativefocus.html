@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- focus.qdoc -->
+  <title>Qt 4.7: Keyboard Focus in QML</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Keyboard Focus in QML</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#key-handling-overview">Key Handling Overview</a></li>
+<li class="level1"><a href="#querying-the-active-focus-item">Querying the Active Focus Item</a></li>
+<li class="level1"><a href="#acquiring-focus-and-focus-scopes">Acquiring Focus and Focus Scopes</a></li>
+<li class="level1"><a href="#advanced-uses-of-focus-scopes">Advanced uses of Focus Scopes</a></li>
+<li class="level1"><a href="#focus-panels">Focus Panels</a></li>
+</ul>
+</div>
+<h1 class="title">Keyboard Focus in QML</h1>
+<span class="subtitle"></span>
+<!-- $$$qdeclarativefocus.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="qmlfocus"></a><p>When a key is pressed or released, a key event is generated and delivered to the focused QML <a href="qml-item.html">Item</a>. To facilitate the construction of reusable components and to address some of the cases unique to fluid user interfaces, the QML items add a <i>scope</i> based extension to Qt's traditional keyboard focus model.</p>
+<a name="key-handling-overview"></a>
+<h2>Key Handling Overview</h2>
+<p>When the user presses or releases a key, the following occurs:</p>
+<ol type="1">
+<li>Qt receives the key action and generates a key event.</li>
+<li>If the Qt widget containing the <a href="qdeclarativeview.html">QDeclarativeView</a> has focus, the key event is delivered to it. Otherwise, regular Qt key handling continues.</li>
+<li>The key event is delivered by the scene to the QML <a href="qml-item.html">Item</a> with <i>active focus</i>. If no <a href="qml-item.html">Item</a> has <i>active focus</i>, the key event is <a href="qevent.html#ignore">ignored</a> and regular Qt key handling continues.</li>
+<li>If the QML <a href="qml-item.html">Item</a> with <i>active focus</i> accepts the key event, propagation stops. Otherwise the event is &quot;bubbled up&quot;, by recursively passing it to each <a href="qml-item.html">Item</a>'s parent until either the event is accepted, or the root <a href="qml-item.html">Item</a> is reached.<p>If the <tt>Rectangle</tt> element in the following example has active focus and the <i>A</i> key is pressed, it will bubble up to its parent. However, pressing the <i>B</i> key will bubble up to the root item and thus subsequently be <a href="qevent.html#ignore">ignored</a>.</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     Item {
+         Keys.onPressed: {
+             if (event.key == Qt.Key_A) {
+                 console.log('Key A was pressed');
+                 event.accepted = true;
+             }
+         }
+         Rectangle {}
+     }
+ }</pre>
+</li>
+<li>If the root <a href="qml-item.html">Item</a> is reached, the key event is <a href="qevent.html#ignore">ignored</a> and regular Qt key handling continues.</li>
+</ol>
+<p>See also the <a href="qml-keys.html">Keys attached property</a> and <a href="qml-keynavigation.html">KeyNavigation attached property</a>.</p>
+<a name="querying-the-active-focus-item"></a>
+<h2>Querying the Active Focus Item</h2>
+<p>Whether or not an <a href="qml-item.html">Item</a> has <i>active focus</i> can be queried through the property <tt>Item::activeFocus</tt>. For example, here we have a <a href="qml-text.html">Text</a> element whose text is determined by whether or not it has <i>active focus</i>.</p>
+<pre class="highlightedCode brush: cpp"> Text {
+     text: activeFocus ? &quot;I have active focus!&quot; : &quot;I do not have active focus&quot;
+ }</pre>
+<a name="acquiring-focus-and-focus-scopes"></a>
+<h2>Acquiring Focus and Focus Scopes</h2>
+<p>An <a href="qml-item.html">Item</a> requests focus by setting the <tt>Item::focus</tt> property to true.</p>
+<p>For very simple cases simply setting the <tt>Item::focus</tt> property is sometimes sufficient. If we run the following example with the <a href="qmlviewer.html">QML Viewer</a>, we see that the <tt>keyHandler</tt> element has <i>active focus</i> and pressing the 'A', 'B' or 'C' keys modifies the text appropriately.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp">     Rectangle {
+         color: &quot;lightsteelblue&quot;; width: 240; height: 25
+         Text { id: myText }
+         Item {
+             id: keyHandler
+             focus: true
+             Keys.onPressed: {
+                 if (event.key == Qt.Key_A)
+                     myText.text = 'Key A was pressed'
+                 else if (event.key == Qt.Key_B)
+                     myText.text = 'Key B was pressed'
+                 else if (event.key == Qt.Key_C)
+                     myText.text = 'Key C was pressed'
+             }
+         }
+     }</pre>
+</p></td><td ><p><p class="centerAlign"><img src="images/declarative-qmlfocus1.png" /></p></p></td></tr>
+</table>
+<p>However, were the above example to be used as a self-contained component, this simple use of the <tt>Item::focus</tt> property is no longer sufficient. The left hand side of the following table shows what we would like to be able to write. Here we create two instances of our previously defined component, and set the second one to have focus. The intention is that when the <i>A</i>, <i>B</i>, or <i>C</i> keys are pressed, the second of the two components receives the event and reponds accordingly.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> Rectangle {
+     color: &quot;red&quot;; width: 240; height: 55
+     MyWidget {}
+     MyWidget { y: 30; focus: true }
+ }</pre>
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> Rectangle {
+     color: &quot;red&quot;; width: 240; height: 55
+     Rectangle {
+         color: &quot;lightsteelblue&quot;; width: 240; height: 25
+         Text { id: myText }
+         Item {
+             id: keyHandler
+             focus: true
+             Keys.onPressed: {
+                 if (event.key == Qt.Key_A)
+                     myText.text = 'Key A was pressed'
+                 else if (event.key == Qt.Key_B)
+                     myText.text = 'Key B was pressed'
+                 else if (event.key == Qt.Key_C)
+                     myText.text = 'Key C was pressed'
+             }
+         }
+     }
+     Rectangle {
+         y: 30; focus: true
+         color: &quot;lightsteelblue&quot;; width: 240; height: 25
+         Text { id: myText }
+         Item {
+             id: keyHandler
+             focus: true
+             Keys.onPressed: {
+                 if (event.key == Qt.Key_A)
+                     myText.text = 'Key A was pressed'
+                 else if (event.key == Qt.Key_B)
+                     myText.text = 'Key B was pressed'
+                 else if (event.key == Qt.Key_C)
+                     myText.text = 'Key C was pressed'
+             }
+         }
+     }
+ }</pre>
+</p></td></tr>
+</table>
+<p>The right hand side of the example shows the expanded code - the equivalent QML without the use of the component <tt>MyWidget</tt>. From this, the problem is evident - there are no less than three elements that have the <tt>Item::focus</tt> property set to true. Ultimately only one element can have keyboard focus, and the system has to decide which on. In this case the first appearance of the <tt>Item::focus</tt> property being set to true on line 4 is selected, and the value of <tt>Item::focus</tt> in the other two instances is reverted back to false. This is exactly the opposite of what was wanted!</p>
+<p>This problem is fundamentally one of visibility. The <tt>MyWidget</tt> components each set their <tt>keyHandler</tt> Items as focused as that is all they can do - they don't know how they are going to be used, but they do know that when they're in use their <tt>keyHandler</tt> element is what needs focus. Likewise the code that uses the two <tt>MyWidgets</tt> sets the second <tt>MyWidget</tt> as focused. While it doesn't know exactly how the <tt>MyWidget</tt> is implemented, it knows that it wants the second one to be focused. This allows us to achieve encapsulation, allowing each widget to focus on it's appropriate behaviour itself.</p>
+<p>To solve this problem - allowing components to care about what they know about and ignore everything else - the QML items introduce a concept known as a <i>focus scope</i>. For existing Qt users, a <i>focus scope</i> is like an automatic focus proxy. A <i>focus scope</i> is created using the <a href="qml-focusscope.html">FocusScope</a> element.</p>
+<p>In the next example, a <a href="qml-focusscope.html">FocusScope</a> is added to the component, and the visual result shown.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> FocusScope {
+     width: 240; height: 25
+     Rectangle {
+         color: &quot;lightsteelblue&quot;; width: 240; height: 25
+         Text { id: myText }
+         Item {
+             id: keyHandler
+             focus: true
+             Keys.onPressed: {
+                 if (event.key == Qt.Key_A)
+                     myText.text = 'Key A was pressed'
+                 else if (event.key == Qt.Key_B)
+                     myText.text = 'Key B was pressed'
+                 else if (event.key == Qt.Key_C)
+                     myText.text = 'Key C was pressed'
+             }
+         }
+     }
+ }</pre>
+</p></td><td ><p><p class="centerAlign"><img src="images/declarative-qmlfocus2.png" /></p></p></td></tr>
+</table>
+<p>Conceptually <i>focus scopes</i> are quite simple.</p>
+<ul>
+<li>Within each <i>focus scope</i> one element may have <tt>Item::focus</tt> set to true. If more than one <a href="qml-item.html">Item</a> has the <tt>Item::focus</tt> property set, the first is selected and the others are unset, just like when there are no <i>focus scopes</i>.</li>
+<li>When a <i>focus scope</i> receives <i>active focus</i>, the contained element with <tt>Item::focus</tt> set (if any) also gets <i>active focus</i>. If this element is also a <a href="qml-focusscope.html">FocusScope</a>, the proxying behaviour continues. Both the <i>focus scope</i> and the sub-focused item will have <tt>Item::activeFocus</tt> set.</li>
+</ul>
+<p>So far the example has the second component statically selected. It is trivial now to extend this component to make it clickable, and add it to the original application. We still set a one of the widgets as focused by default, but from then on clicking the either one gives it focus.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> Rectangle {
+     color: &quot;red&quot;; width: 240; height: 55
+     MyClickableWidget {}
+     MyClickableWidget { y: 30; focus: true }
+ }</pre>
+</p></td><td ><p><pre class="highlightedCode brush: cpp"> FocusScope {
+     id: page; width: 240; height: 25
+     MyWidget { focus: true }
+     MouseArea { anchors.fill: parent; onClicked: { page.focus = true } }
+ }</pre>
+</p></td></tr>
+</table>
+<p class="centerAlign"><img src="images/declarative-qmlfocus3.png" /></p><p>When a QML item explicitly relinquishes focus (by setting its <tt>Item::focus</tt> property to false while it has <i>active focus</i>), the system does not automatically select another element to receive focus. That is, it is possible for there to be no currently <i>active focus</i>.</p>
+<p>See the <a href="declarative-keyinteraction-focus.html">Keyboard Focus example</a> for a demonstration of moving keyboard focus between multiple areas using <a href="qml-focusscope.html">FocusScope</a> elements.</p>
+<a name="advanced-uses-of-focus-scopes"></a>
+<h2>Advanced uses of Focus Scopes</h2>
+<p>Focus scopes allow focus to allocation to be easily partitioned. Several QML items use it to this effect.</p>
+<p><a href="qml-listview.html">ListView</a>, for example, is itself a focus scope. Generally this isn't noticable as <a href="qml-listview.html">ListView</a> doesn't usually have manually added visual children. By being a focus scope, <a href="qml-listview.html">ListView</a> can focus the current list item without worrying about how that will effect the rest of the application. This allows the current item delegate to react to key presses.</p>
+<p>This contrived example shows how this works. Pressing the <tt>Return</tt> key will print the name of the current list item.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p><pre class="highlightedCode brush: cpp"> Rectangle {
+      color: &quot;lightsteelblue&quot;; width: 240; height: 320
+
+      ListView {
+          anchors.fill: parent
+          focus: true
+
+          model: ListModel {
+              ListElement { name: &quot;Bob&quot; }
+              ListElement { name: &quot;John&quot; }
+              ListElement { name: &quot;Michael&quot; }
+          }
+
+          delegate: FocusScope {
+              width: childrenRect.width; height: childrenRect.height
+              TextInput {
+                  focus: true
+                  text: name
+                  Keys.onReturnPressed: console.log(name)
+              }
+          }
+      }
+  }</pre>
+</p></td><td ><p><p class="centerAlign"><img src="images/declarative-qmlfocus4.png" /></p></p></td></tr>
+</table>
+<p>While the example is simple, there's a lot going on behind the scenes. Whenever the current item changes, the <a href="qml-listview.html">ListView</a> sets the delegate's <tt>Item::focus</tt> property. As the <a href="qml-listview.html">ListView</a> is a <i>focus scope</i>, this doesn't effect the rest of the application. However, if the <a href="qml-listview.html">ListView</a> itself has <i>active focus</i> this causes the delegate itself to receive <i>active focus</i>. In this example, the root element of the delegate is also a <i>focus scope</i>, which in turn gives <i>active focus</i> to the <tt>Text</tt> element that actually performs the work of handling the <i>Return</i> key.</p>
+<p>All of the QML view classes, such as <a href="qml-pathview.html">PathView</a> and <a href="qml-gridview.html">GridView</a>, behave in a similar manner to allow key handling in their respective delegates.</p>
+<a name="focus-panels"></a>
+<h2>Focus Panels</h2>
+<p>Traditional UIs are composed of many top-level windows. Windows actually perform two tasks - they act as the visual bounds for a widget, and they segment focus. Each window has a separate focused widget, that becomes (to mix terminologies) the <i>active focus</i> widget when the window is the active window.</p>
+<p>### Focus panels do basically the same thing.</p>
+</div>
+<!-- @@@qdeclarativefocus.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

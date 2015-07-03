@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: spectrograph.cpp Example File (demos/spectrum/app/spectrograph.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">spectrograph.cpp Example File</h1>
+<span class="small-subtitle">demos/spectrum/app/spectrograph.cpp</span>
+<!-- $$$demos/spectrum/app/spectrograph.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;spectrograph.h&quot;
+ #include &lt;QPainter&gt;
+ #include &lt;QMouseEvent&gt;
+ #include &lt;QDebug&gt;
+ #include &lt;QTimerEvent&gt;
+
+ const int NullTimerId = -1;
+ const int NullIndex = -1;
+ const int BarSelectionInterval = 2000;
+
+ Spectrograph::Spectrograph(QWidget *parent)
+     :   QWidget(parent)
+     ,   m_barSelected(NullIndex)
+     ,   m_timerId(NullTimerId)
+     ,   m_lowFreq(0.0)
+     ,   m_highFreq(0.0)
+ {
+     setMinimumHeight(100);
+ }
+
+ Spectrograph::~Spectrograph()
+ {
+
+ }
+
+ void Spectrograph::setParams(int numBars, qreal lowFreq, qreal highFreq)
+ {
+     Q_ASSERT(numBars &gt; 0);
+     Q_ASSERT(highFreq &gt; lowFreq);
+     m_bars.resize(numBars);
+     m_lowFreq = lowFreq;
+     m_highFreq = highFreq;
+     updateBars();
+ }
+
+ void Spectrograph::timerEvent(QTimerEvent *event)
+ {
+     Q_ASSERT(event-&gt;timerId() == m_timerId);
+     Q_UNUSED(event) <span class="comment">// suppress warnings in release builds</span>
+     killTimer(m_timerId);
+     m_timerId = NullTimerId;
+     m_barSelected = NullIndex;
+     update();
+ }
+
+ void Spectrograph::paintEvent(QPaintEvent *event)
+ {
+     Q_UNUSED(event)
+
+     QPainter painter(this);
+     painter.fillRect(rect(), Qt::black);
+
+     const int numBars = m_bars.count();
+
+     <span class="comment">// Highlight region of selected bar</span>
+     if (m_barSelected != NullIndex &amp;&amp; numBars) {
+         QRect regionRect = rect();
+         regionRect.setLeft(m_barSelected * rect().width() / numBars);
+         regionRect.setWidth(rect().width() / numBars);
+         QColor regionColor(202, 202, 64);
+         painter.setBrush(Qt::DiagCrossPattern);
+         painter.fillRect(regionRect, regionColor);
+         painter.setBrush(Qt::NoBrush);
+     }
+
+     QColor barColor(51, 204, 102);
+     QColor clipColor(255, 255, 0);
+
+     <span class="comment">// Draw the outline</span>
+     const QColor gridColor = barColor.darker();
+     QPen gridPen(gridColor);
+     painter.setPen(gridPen);
+     painter.drawLine(rect().topLeft(), rect().topRight());
+     painter.drawLine(rect().topRight(), rect().bottomRight());
+     painter.drawLine(rect().bottomRight(), rect().bottomLeft());
+     painter.drawLine(rect().bottomLeft(), rect().topLeft());
+
+     QVector&lt;qreal&gt; dashes;
+     dashes &lt;&lt; 2 &lt;&lt; 2;
+     gridPen.setDashPattern(dashes);
+     painter.setPen(gridPen);
+
+     <span class="comment">// Draw vertical lines between bars</span>
+     if (numBars) {
+         const int numHorizontalSections = numBars;
+         QLine line(rect().topLeft(), rect().bottomLeft());
+         for (int i=1; i&lt;numHorizontalSections; ++i) {
+             line.translate(rect().width()/numHorizontalSections, 0);
+             painter.drawLine(line);
+         }
+     }
+
+     <span class="comment">// Draw horizontal lines</span>
+     const int numVerticalSections = 10;
+     QLine line(rect().topLeft(), rect().topRight());
+     for (int i=1; i&lt;numVerticalSections; ++i) {
+         line.translate(0, rect().height()/numVerticalSections);
+         painter.drawLine(line);
+     }
+
+     barColor = barColor.lighter();
+     barColor.setAlphaF(0.75);
+     clipColor.setAlphaF(0.75);
+
+     <span class="comment">// Draw the bars</span>
+     if (numBars) {
+         <span class="comment">// Calculate width of bars and gaps</span>
+         const int widgetWidth = rect().width();
+         const int barPlusGapWidth = widgetWidth / numBars;
+         const int barWidth = 0.8 * barPlusGapWidth;
+         const int gapWidth = barPlusGapWidth - barWidth;
+         const int paddingWidth = widgetWidth - numBars * (barWidth + gapWidth);
+         const int leftPaddingWidth = (paddingWidth + gapWidth) / 2;
+         const int barHeight = rect().height() - 2 * gapWidth;
+
+         for (int i=0; i&lt;numBars; ++i) {
+             const qreal value = m_bars[i].value;
+             Q_ASSERT(value &gt;= 0.0 &amp;&amp; value &lt;= 1.0);
+             QRect bar = rect();
+             bar.setLeft(rect().left() + leftPaddingWidth + (i * (gapWidth + barWidth)));
+             bar.setWidth(barWidth);
+             bar.setTop(rect().top() + gapWidth + (1.0 - value) * barHeight);
+             bar.setBottom(rect().bottom() - gapWidth);
+
+             QColor color = barColor;
+             if (m_bars[i].clipped)
+                 color = clipColor;
+
+             painter.fillRect(bar, color);
+         }
+     }
+ }
+
+ void Spectrograph::mousePressEvent(QMouseEvent *event)
+ {
+     const QPoint pos = event-&gt;pos();
+     const int index = m_bars.count() * (pos.x() - rect().left()) / rect().width();
+     selectBar(index);
+ }
+
+ void Spectrograph::reset()
+ {
+     m_spectrum.reset();
+     spectrumChanged(m_spectrum);
+ }
+
+ void Spectrograph::spectrumChanged(const FrequencySpectrum &amp;spectrum)
+ {
+     m_spectrum = spectrum;
+     updateBars();
+ }
+
+ int Spectrograph::barIndex(qreal frequency) const
+ {
+     Q_ASSERT(frequency &gt;= m_lowFreq &amp;&amp; frequency &lt; m_highFreq);
+     const qreal bandWidth = (m_highFreq - m_lowFreq) / m_bars.count();
+     const int index = (frequency - m_lowFreq) / bandWidth;
+     if(index &lt;0 || index &gt;= m_bars.count())
+         Q_ASSERT(false);
+     return index;
+ }
+
+ QPair&lt;qreal, qreal&gt; Spectrograph::barRange(int index) const
+ {
+     Q_ASSERT(index &gt;= 0 &amp;&amp; index &lt; m_bars.count());
+     const qreal bandWidth = (m_highFreq - m_lowFreq) / m_bars.count();
+     return QPair&lt;qreal, qreal&gt;(index * bandWidth, (index+1) * bandWidth);
+ }
+
+ void Spectrograph::updateBars()
+ {
+     m_bars.fill(Bar());
+     FrequencySpectrum::const_iterator i = m_spectrum.begin();
+     const FrequencySpectrum::const_iterator end = m_spectrum.end();
+     for ( ; i != end; ++i) {
+         const FrequencySpectrum::Element e = *i;
+         if (e.frequency &gt;= m_lowFreq &amp;&amp; e.frequency &lt; m_highFreq) {
+             Bar &amp;bar = m_bars[barIndex(e.frequency)];
+             bar.value = qMax(bar.value, e.amplitude);
+             bar.clipped |= e.clipped;
+         }
+     }
+     update();
+ }
+
+ void Spectrograph::selectBar(int index) {
+     const QPair&lt;qreal, qreal&gt; frequencyRange = barRange(index);
+     const QString message = QString(&quot;%1 - %2 Hz&quot;)
+                                 .arg(frequencyRange.first)
+                                 .arg(frequencyRange.second);
+     emit infoMessage(message, BarSelectionInterval);
+
+     if (NullTimerId != m_timerId)
+         killTimer(m_timerId);
+     m_timerId = startTimer(BarSelectionInterval);
+
+     m_barSelected = index;
+     update();
+ }</pre>
+</div>
+<!-- @@@demos/spectrum/app/spectrograph.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+--- mm/page_alloc.c.orig	2011-05-10 15:42:40.129154998 +0800
++++ mm/page_alloc.c	2011-05-10 15:42:57.401155000 +0800
+@@ -1364,7 +1364,7 @@
+ 
+ nopage:
+ 	if (!(gfp_mask & __GFP_NOWARN) && printk_ratelimit()) {
+-		if (++num_retries < 16) {
++		if (wait && ++num_retries < 16) {
+ 			set_current_state(TASK_INTERRUPTIBLE);
+ 			schedule_timeout(HZ);
+ 			goto rebalance;

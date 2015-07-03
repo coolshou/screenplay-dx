@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<page background="image/pandora/pandora_bg.png" type="basic">
+	<ctrlgrp valkey="options" lbmask="lr">
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+		<listbox valkey="account_list" autoenter="1" autoswitch="0" move="row" cols="1" rows="6" lbmask="ud" loop_scroll="1"/>
+		<linebreak/>
+		<button valkey="AddAccount"/>
+	</ctrlgrp>
+  	<include filename="./inc_optionmenu_widgets_pandora.xml"/>
+
+	<text text="$$Select Account" x="95" y="79" w="1094" h="52" fontsize="48" textcolor="0xe1e1e1"/>
+
+	<!-- Add Account -->
+	<image image="@@icon-AddAccount" x="200" y="584" w="55" h="46" disable="@@disable-AddAccount"/>
+	<image image="@@bg-AddAccount" x="273" y="586" w="736" h="43" disable="@@disable-AddAccount"/>
+	<text text="@@text-AddAccount" fontsize="24" x="287" y="596" w="708" h="25" align="left" disable="@@disable-AddAccount" textcolor="0x0"/>
+
+	<!-- Account List --> 
+	<wrapper x="200" w="56" h="46">
+		<image y="219" image="@@browse_0_icon" disable="@@disable-account_list"/>
+		<image y="267" image="@@browse_1_icon" disable="@@disable-account_list"/>
+		<image y="315" image="@@browse_2_icon" disable="@@disable-account_list"/>
+		<image y="363" image="@@browse_3_icon" disable="@@disable-account_list"/>
+		<image y="411" image="@@browse_4_icon" disable="@@disable-account_list"/>
+		<image y="459" image="@@browse_5_icon" disable="@@disable-account_list"/>
+	</wrapper>
+
+	<wrapper x="273" w="736" h="43">
+		<image y="221" image="@@browse_0_line" disable="@@disable-account_list"/>
+		<image y="269" image="@@browse_1_line" disable="@@disable-account_list"/>
+		<image y="317" image="@@browse_2_line" disable="@@disable-account_list"/>
+		<image y="365" image="@@browse_3_line" disable="@@disable-account_list"/>
+		<image y="413" image="@@browse_4_line" disable="@@disable-account_list"/>
+		<image y="461" image="@@browse_5_line" disable="@@disable-account_list"/>
+	</wrapper>
+
+	<wrapper x="287" w="708" h="25" fontsize="24" align="left" textcolor="0x0">
+		<text y="229" text="@@account_0_text" disable="@@disable-account_list"/>
+		<text y="278" text="@@account_1_text" disable="@@disable-account_list"/>
+		<text y="327" text="@@account_2_text" disable="@@disable-account_list"/>
+		<text y="376" text="@@account_3_text" disable="@@disable-account_list"/>
+		<text y="425" text="@@account_4_text" disable="@@disable-account_list"/>
+		<text y="474" text="@@account_5_text" disable="@@disable-account_list"/>
+	</wrapper>
+
+	<image image="@@ss-prev" x="622" y="164" w="38" h="27"/>
+	<image image="@@ss-more" x="622" y="526" w="38" h="27"/>
+
+	<text text="@@pagecounter" x="919" y="192" w="81" h="21" textcolor="0x0" fontsize="20" align="right"/>
+	<image image="image/pandora/Station-cover_play_option-icon.png" x="470" y="650" w="344" h="34" bg="1"/>
+
+	<include filename="./inc_pandora_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

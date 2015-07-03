@@ -1,0 +1,11 @@
+--- linux-2.6.22.19-em555/Makefile	2009-04-24 16:05:36.000000000 +0200
++++ linux-2.6.22.19-em556/Makefile	2009-04-24 16:36:15.000000000 +0200
+@@ -281,7 +281,7 @@
+ 
+ AS		= $(CROSS_COMPILE)as
+ LD		= $(CROSS_COMPILE)ld
+-CC		= $(CROSS_COMPILE)gcc
++CC		= ccache $(CROSS_COMPILE)gcc
+ CPP		= $(CC) -E
+ AR		= $(CROSS_COMPILE)ar
+ NM		= $(CROSS_COMPILE)nm

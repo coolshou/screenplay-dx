@@ -1,0 +1,526 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/Makefile linux-2.6.22.19/arch/mips/Makefile
+--- linux-2.6.22.19.ref/arch/mips/Makefile	2010-04-05 11:33:41.000000000 -0700
++++ linux-2.6.22.19/arch/mips/Makefile	2010-04-05 11:35:21.585374470 -0700
+@@ -697,7 +697,7 @@
+ cflags-$(CONFIG_TANGO3_865X)	+= -DEM86XX_REVISION=3
+ cflags-$(CONFIG_TANGO3_864X)	+= -DEM86XX_REVISION=3
+ #endif
+-cflags-$(CONFIG_TANGO3)		+= -DCPU_REMAP_SPACE=$(KERNEL_START_ADDRESS) 
++cflags-$(CONFIG_TANGO3)		+= -DCPU_REMAP_SPACE=$(KERNEL_START_ADDRESS)UL 
+ cflags-$(CONFIG_TANGO3_865X)	+= -mtune=24kf
+ cflags-$(CONFIG_TANGO3_864X)	+= -mtune=74kf -mdsp
+ endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/gbus.c linux-2.6.22.19/arch/mips/tangox/gbus.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/gbus.c	2010-04-05 11:33:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/gbus.c	2010-04-05 11:35:21.585374470 -0700
+@@ -44,6 +44,68 @@
+ 
+ #if defined(CONFIG_TANGO3)
+ 
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++#define BUILD_GBUS_READ_OP(size)									\
++RMuint##size gbus_read_uint##size(struct gbus *pgbus, RMuint32 byte_address) 				\
++{													\
++	RMuint32 remap;											\
++	RMuint##size tmp;										\
++	if (byte_address < CPU_remap2_address) {							\
++		tmp = *((volatile RMuint##size *)KSEG1ADDR(byte_address)); 				\
++		rmb();											\
++	} else {											\
++		unsigned long flags;									\
++		local_irq_save(flags); /* Ensure remap won't be changed */				\
++		/* Use CPU_remapx to temporarily map the address */					\
++		if (likely(byte_address != (REG_BASE_cpu_block + TMP_REMAPPED_REG))) {			\
++			remap = set_remap(TMP_REMAPPED_REG, byte_address & TMP_REMAPPED_MASK);		\
++			tmp = *((volatile RMuint##size *)KSEG1ADDR(TMP_REMAPPED_BASE + 			\
++								(byte_address & (TMP_REMAPPED_SIZE-1))));	\
++			rmb();										\
++			set_remap(TMP_REMAPPED_REG, remap & TMP_REMAPPED_MASK);				\
++		} else {										\
++			remap = set_remap(TMP_REMAPPED_REG1, byte_address & TMP_REMAPPED_MASK1);	\
++			tmp = *((volatile RMuint##size *)KSEG1ADDR(TMP_REMAPPED_BASE1 + 		\
++								(byte_address & (TMP_REMAPPED_SIZE1-1))));	\
++			rmb();										\
++			set_remap(TMP_REMAPPED_REG1, remap & TMP_REMAPPED_MASK1);			\
++		}											\
++		local_irq_restore(flags);								\
++	}												\
++	return(tmp);											\
++}
++
++#define BUILD_GBUS_WRITE_OP(size)									\
++void gbus_write_uint##size(struct gbus *pgbus, RMuint32 byte_address, RMuint##size data)		\
++{													\
++	RMuint32 remap;											\
++	mb();												\
++	if (byte_address < CPU_remap2_address) {							\
++		*((volatile RMuint##size *)KSEG1ADDR(byte_address)) = data;				\
++		iob();											\
++	} else {											\
++		unsigned long flags;									\
++		local_irq_save(flags); /* Ensure remap won't be changed */				\
++		/* Use CPU_remapx to temporarily map the address */					\
++		if (likely(byte_address != (REG_BASE_cpu_block + TMP_REMAPPED_REG))) {			\
++			remap = set_remap(TMP_REMAPPED_REG, byte_address & TMP_REMAPPED_MASK);		\
++			*((volatile RMuint##size *)KSEG1ADDR(TMP_REMAPPED_BASE + 			\
++							(byte_address & (TMP_REMAPPED_SIZE-1)))) = data;	\
++			iob();										\
++			set_remap(TMP_REMAPPED_REG, remap & TMP_REMAPPED_MASK);				\
++		} else {										\
++			remap = set_remap(TMP_REMAPPED_REG1, byte_address & TMP_REMAPPED_MASK1);	\
++			*((volatile RMuint##size *)KSEG1ADDR(TMP_REMAPPED_BASE1 + 			\
++							(byte_address & (TMP_REMAPPED_SIZE1-1)))) = data;	\
++			iob();										\
++			set_remap(TMP_REMAPPED_REG1, remap & TMP_REMAPPED_MASK1);			\
++		}											\
++		local_irq_restore(flags);								\
++	}												\
++}
++
++#else
++
+ #define BUILD_GBUS_READ_OP(size)									\
+ RMuint##size gbus_read_uint##size(struct gbus *pgbus, RMuint32 byte_address) 				\
+ {													\
+@@ -110,6 +172,7 @@
+ 		local_irq_restore(flags);								\
+ 	}												\
+ }
++#endif
+ 
+ #elif defined(CONFIG_TANGO2)
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/Kconfig linux-2.6.22.19/arch/mips/tangox/Kconfig
+--- linux-2.6.22.19.ref/arch/mips/tangox/Kconfig	2010-04-05 11:33:41.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/Kconfig	2010-04-05 11:35:21.585374470 -0700
+@@ -102,6 +102,16 @@
+ 	 This is the default amount of RAM available to the Linux kernel. It can be
+ 	 override with "mem=" command line option.
+ 
++config TANGOX_MIXED_DRAM_USAGE
++	bool "Mixed DRAM usage"
++	depends on TANGO3_SMP86XX && TANGOX_XENV_READ
++	default y
++	help
++	 This option, if enabled, will allow kernel to use both DRAM banks at the 
++         same time. In addition, kernel will try to detect the available memory that
++         it can use from DRAM0/DRAM1 and try to use the maximum of both combined to
++         satisfy specified "mem=" command line option (or SYSTEMRAM_ACTUALSIZE).
++
+ config TANGOX_IGNORE_CMDLINE
+ 	bool "Ignore YAMON, XENV & memcfg command line"
+ 	depends on TANGO2_SMP863X || TANGO3_SMP86XX
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/mbus.c linux-2.6.22.19/arch/mips/tangox/mbus.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/mbus.c	2010-04-05 11:33:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/mbus.c	2010-04-05 11:35:21.585374470 -0700
+@@ -471,7 +471,7 @@
+ 					 unsigned int count,
+ 					 unsigned int flags)
+ {
+-#if !defined(CONFIG_SD_DIRECT_DMA) 
++#if !defined(CONFIG_SD_DIRECT_DMA) && !defined(CONFIG_TANGOX_MIXED_DRAM_USAGE)
+ 	if ((addr < tangox_dma_address(CPHYSADDR(em8xxx_kmem_start))) || (addr >= (tangox_dma_address(CPHYSADDR(em8xxx_kmem_start)) + em8xxx_kmem_size)))
+ 		printk("MBUS Warning (linear): bad transfer address 0x%08x\n", addr);
+ #endif
+@@ -493,7 +493,7 @@
+ 					 unsigned int count2,
+ 					 unsigned int flags)
+ {
+-#if !defined(CONFIG_SD_DIRECT_DMA) 
++#if !defined(CONFIG_SD_DIRECT_DMA) && !defined(CONFIG_TANGOX_MIXED_DRAM_USAGE)
+ 	if ((addr < tangox_dma_address(CPHYSADDR(em8xxx_kmem_start))) || (addr >= (tangox_dma_address(CPHYSADDR(em8xxx_kmem_start)) + em8xxx_kmem_size)))
+ 		printk("MBUS Warning (double): bad transfer address 0x%08x\n", addr);
+ 	if ((addr2 < tangox_dma_address(CPHYSADDR(em8xxx_kmem_start))) || (addr2 >= (tangox_dma_address(CPHYSADDR(em8xxx_kmem_start)) + em8xxx_kmem_size)))
+@@ -517,7 +517,7 @@
+ 					    unsigned int lines,
+ 					    unsigned int flags)
+ {
+-#if !defined(CONFIG_SD_DIRECT_DMA) 
++#if !defined(CONFIG_SD_DIRECT_DMA) && !defined(CONFIG_TANGOX_MIXED_DRAM_USAGE)
+ 	if ((addr < tangox_dma_address(CPHYSADDR(em8xxx_kmem_start))) || (addr >= (tangox_dma_address(CPHYSADDR(em8xxx_kmem_start)) + em8xxx_kmem_size)))
+ 		printk("MBUS Warning (rectangle): bad transfer address 0x%08x\n", addr);
+ #endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/prom.c linux-2.6.22.19/arch/mips/tangox/prom.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/prom.c	2010-04-05 11:33:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/prom.c	2010-04-05 11:35:21.585374470 -0700
+@@ -34,8 +34,10 @@
+ unsigned long em8xxx_sys_premux;
+ unsigned long em8xxx_sys_mux;
+ #ifdef CONFIG_TANGO3
++#ifndef CONFIG_TANGOX_MIXED_DRAM_USAGE
+ unsigned long phy_remap;
+-unsigned long max_remap_size;
++#endif
++unsigned long max_remap_size = MAX_KERNEL_MEMSIZE;
+ #endif 
+ 
+ unsigned long tangox_chip_id(void);
+@@ -49,11 +51,8 @@
+  */
+ #ifdef CONFIG_TANGO2
+ unsigned long em8xxx_remap_registers[5];
+-#define MAX_KERNEL_MEMSIZE	(0x10000000)
+ #elif defined(CONFIG_TANGO3)
+-unsigned long em8xxx_remap_registers[8];
+-#define REMAP_IDX      (((CPU_REMAP_SPACE-CPU_remap2_address)/0x04000000)+2)
+-#define MAX_KERNEL_MEMSIZE	(0x18000000-(((REMAP_IDX)-2)*0x04000000))
++unsigned long em8xxx_remap_registers[9];
+ #endif 
+ 
+ /*
+@@ -190,6 +189,141 @@
+ extern const char *tangox_xenv_cmdline(void);
+ 
+ #ifdef CONFIG_TANGO3
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++#define REMAP_SIZE	0x04000000UL
++static inline void update_remap(unsigned int remap, unsigned long mapaddr)
++{
++	if (gbus_read_reg32(REG_BASE_cpu_block + CPU_remap + (remap * 4)) != mapaddr) {
++		gbus_write_reg32(REG_BASE_cpu_block + CPU_remap + (remap * 4), mapaddr);
++		iob();
++	}
++	em8xxx_remap_registers[remap] = mapaddr & 0xfc000000UL;
++}
++
++#ifdef CONFIG_TANGOX_XENV_READ
++unsigned long __init dram_remap_setup(unsigned long dsize)
++{
++	unsigned long max_d0_size = 0, max_d1_size = 0, tmp, tsize = 0, fd0 = 0;
++	unsigned long dx_sizes[2], dx_addrs[2];
++	unsigned int size = sizeof(unsigned long), i, j;
++
++	/* check the boundaries for DRAM0 and DRAM1 */
++	if ((xenv_get((void *)KSEG1ADDR(REG_BASE_cpu_block + LR_XENV2_RW), MAX_LR_XENV2_RW, XENV_LRRW_RUAMM0_GA, &tmp, &size) == 0) 
++			&& (size == sizeof(unsigned long))) 
++		fd0 = max_d0_size = tmp - MEM_BASE_dram_controller_0;
++	if ((xenv_get((void *)KSEG1ADDR(REG_BASE_cpu_block + LR_XENV2_RW), MAX_LR_XENV2_RW, XENV_LRRW_RUAMM1_GA, &tmp, &size) == 0) 
++			&& (size == sizeof(unsigned long))) 
++		max_d1_size = tmp - MEM_BASE_dram_controller_1;
++
++	/* Max. dynamic remap can do only 384MB */
++	max_d0_size = (max_d0_size > 0x18000000UL) ? 0x18000000UL : max_d0_size;
++	max_d1_size = (max_d1_size > 0x18000000UL) ? 0x18000000UL : max_d1_size;
++
++	printk("Desired kernel memory size: 0x%08lx\n", dsize);
++	printk("Max. DRAM0/1 size allowed: 0x%08lx/0x%08lx\n", max_d0_size, max_d1_size);
++
++	if (gbus_read_reg32(REG_BASE_cpu_block + CPU_remap + (REMAP_IDX * 4)) >= MEM_BASE_dram_controller_1) {
++		/* Use DRAM1 first */
++		dx_sizes[0] = max_d1_size;
++		dx_sizes[1] = max_d0_size;
++		dx_addrs[0] = MEM_BASE_dram_controller_1;
++		dx_addrs[1] = MEM_BASE_dram_controller_0;
++	} else {
++		/* Use DRAM0 first */
++		dx_sizes[0] = max_d0_size;
++		dx_sizes[1] = max_d1_size;
++		dx_addrs[0] = MEM_BASE_dram_controller_0;
++		dx_addrs[1] = MEM_BASE_dram_controller_1;
++	}
++
++	for (i = REMAP_IDX, j = 0; (dx_sizes[0] >= REMAP_SIZE) && (dsize >= REMAP_SIZE) && (i < 8); i++, j++) {
++		update_remap(i, dx_addrs[0] + (j * REMAP_SIZE));
++		dx_sizes[0] -= REMAP_SIZE;
++		dsize -= REMAP_SIZE;
++		tsize += REMAP_SIZE;
++		printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++			dx_addrs[0] + (j * REMAP_SIZE), REMAP_SIZE, i);
++	}
++	if (i < 8) {
++		if (dsize > 0) {
++			if (dsize < REMAP_SIZE) {
++				if (dx_sizes[0] >= dsize) {
++					update_remap(i, dx_addrs[0] + (j * REMAP_SIZE));
++					tsize += dsize;
++					printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++						dx_addrs[0] + (j * REMAP_SIZE), dsize, i);
++					goto done;
++				} else if (dx_sizes[0] > dx_sizes[1]) {
++					update_remap(i, dx_addrs[0] + (j * REMAP_SIZE));
++					tsize += dx_sizes[0];
++					printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++						dx_addrs[0] + (j * REMAP_SIZE), dx_sizes[0], i);
++					goto done;
++				}
++			} else {
++				if (dx_sizes[0] > dx_sizes[1]) {
++					update_remap(i, dx_addrs[0] + (j * REMAP_SIZE));
++					tsize += dx_sizes[0];
++					printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++						dx_addrs[0] + (j * REMAP_SIZE), dx_sizes[0], i);
++					goto done;
++				}
++			}
++		}
++	} else {
++		/* Check to see if the last, fixed remap works? */
++		if (dsize > 0) {
++			unsigned long msz = (fd0 > 0x0c000000UL) ? (fd0 - 0x0c000000UL) : 0UL;
++			msz = (msz > dsize) ? dsize : msz;
++			if (msz) {
++				tsize += msz;
++				printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++					MEM_BASE_dram_controller_0 + 0x0c000000UL, msz, i);
++			}
++		}
++		goto done;
++	}
++
++	for (j = 0; (dx_sizes[1] >= REMAP_SIZE) && (dsize >= REMAP_SIZE) && (i < 8); i++, j++) {
++		update_remap(i, dx_addrs[1] + (j * REMAP_SIZE));
++		dx_sizes[1] -= REMAP_SIZE;
++		dsize -= REMAP_SIZE;
++		tsize += REMAP_SIZE;
++		printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++			dx_addrs[1] + (j * REMAP_SIZE), REMAP_SIZE, i);
++	}
++	if (i < 8) {
++		if (dsize > 0) {
++			unsigned long msz = (dx_sizes[1] > dsize) ? dsize : dx_sizes[1];
++			if (msz) {
++				update_remap(i, dx_addrs[1] + (j * REMAP_SIZE));
++				tsize += msz;
++				printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++					dx_addrs[1] + (j * REMAP_SIZE), msz, i);
++			}
++			goto done;
++		}
++	} else {
++		/* Check to see if the last, fixed remap works? */
++		if (dsize > 0) {
++			unsigned long msz = (fd0 > 0x0c000000UL) ? (fd0 - 0x0c000000UL) : 0UL;
++			msz = (msz > dsize) ? dsize : msz;
++			if (msz) {
++				tsize += msz;
++				printk(" Mapped 0x%08lx(size 0x%08lx) via remap%d\n", 
++					MEM_BASE_dram_controller_0 + 0x0c000000UL, msz, i);
++			}
++		}
++		goto done;
++	}
++
++done:
++	printk("Final kernel memory size: 0x%08lx\n", tsize);
++	return(tsize);
++}
++#endif
++#endif
++
+ static inline unsigned long fixup_dram_address(unsigned long addr)
+ {
+ 	if ((addr >= 0x10000000) && (addr < 0x20000000))
+@@ -211,9 +345,10 @@
+ {
+ 	unsigned long em8xxx_kmem_end;
+ #ifdef CONFIG_TANGO3
+-#ifdef CONFIG_TANGOX_XENV_READ
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++ 	em8xxx_kmem_size = dram_remap_setup(size);
++#else
+  	unsigned long max_dx_size;
+-#endif
+ 	em8xxx_kmem_size = ((size + em8xxx_kmem_start) & 0xfff00000) - em8xxx_kmem_start;
+ #ifdef CONFIG_TANGOX_XENV_READ
+ 	{
+@@ -250,6 +385,7 @@
+ 		printk("Modified physical map 0x%08lx to 0x%08lx, max remap/kernel size: 0x%08lx/0x%08lx.\n",
+ 				phy_remap, (unsigned long)CPU_REMAP_SPACE, max_remap_size, (unsigned long)MAX_KERNEL_MEMSIZE);
+ 	}
++#endif
+ 
+ 	em8xxx_kmem_end = KSEG1ADDR(em8xxx_kmem_start + em8xxx_kmem_size) - KSEG1ADDR(CPU_REMAP_SPACE);
+ 	update_lrrw_kend(em8xxx_kmem_end);
+@@ -318,6 +454,9 @@
+ 		i++) {
+ 		em8xxx_remap_registers[i] = gbus_read_reg32(REG_BASE_cpu_block + CPU_remap + (i * 4));
+ 	}
++#ifdef CONFIG_TANGO3
++	em8xxx_remap_registers[8] = MEM_BASE_dram_controller_0 + 0x0c000000UL; /* Fixed "remap" */
++#endif
+ 
+ 	/* 
+ 	 * Set remap so that 0x1fc00000 and 0x0 back to they should be...
+@@ -327,6 +466,9 @@
+ 	iob();
+ 	
+ #ifdef CONFIG_TANGO3
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++	printk("Mixed DRAM usage enabled.\n");
++#else
+ 	phy_remap = fixup_dram_address(em8xxx_remap_registers[REMAP_IDX]);
+ 	max_remap_size = 0x04000000; /* minimum 64MB */
+ 	if (phy_remap != em8xxx_remap_registers[REMAP_IDX]) { /* fix up needed */
+@@ -346,6 +488,7 @@
+ 	printk("Physical map 0x%08lx to 0x%08lx, max remap/kernel size: 0x%08lx/0x%08lx.\n",
+ 		phy_remap, (unsigned long)CPU_REMAP_SPACE, max_remap_size, (unsigned long)MAX_KERNEL_MEMSIZE);
+ #endif
++#endif
+ 
+ #if defined(CONFIG_TANGO2_SMP863X)
+ 	printk("Configured for SMP863%c (revision %s), ",
+@@ -703,9 +846,15 @@
+ EXPORT_SYMBOL(is_tango3_es3);
+ EXPORT_SYMBOL(is_tango3_es4);
+ EXPORT_SYMBOL(is_tango3_es5);
++EXPORT_SYMBOL(em8xxx_kmem_size);
++EXPORT_SYMBOL(em8xxx_kmem_start);
+ #ifdef CONFIG_TANGO3
+-EXPORT_SYMBOL(phy_remap);
+ EXPORT_SYMBOL(max_remap_size);
++#ifndef CONFIG_TANGOX_MIXED_DRAM_USAGE
++EXPORT_SYMBOL(phy_remap);
++#else
++EXPORT_SYMBOL(em8xxx_remap_registers);
++#endif
+ #endif
+ 
+ int tangox_get_order(unsigned long size)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/setup.h linux-2.6.22.19/arch/mips/tangox/setup.h
+--- linux-2.6.22.19.ref/arch/mips/tangox/setup.h	2010-04-05 11:33:40.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/setup.h	2010-04-05 11:35:21.585374470 -0700
+@@ -52,7 +52,7 @@
+ #ifdef CONFIG_TANGO2
+ extern unsigned long em8xxx_remap_registers[5];
+ #elif defined(CONFIG_TANGO3)
+-extern unsigned long em8xxx_remap_registers[8];
++extern unsigned long em8xxx_remap_registers[9];
+ #endif
+ 
+ unsigned long tangox_get_cpuclock(void);
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/gadget/tango3_udc.h linux-2.6.22.19/drivers/usb/gadget/tango3_udc.h
+--- linux-2.6.22.19.ref/drivers/usb/gadget/tango3_udc.h	2010-04-05 11:33:41.000000000 -0700
++++ linux-2.6.22.19/drivers/usb/gadget/tango3_udc.h	2010-04-05 11:35:21.585374470 -0700
+@@ -219,15 +219,14 @@
+  */
+ static inline unsigned long PHYSADDR(void *addr) 
+ {
+-		return tangox_dma_address(CPHYSADDR((unsigned long)addr));
++	return tangox_dma_address(CPHYSADDR((unsigned long)addr));
+ }
+ 
+ static inline int tangox_valid_dma_addr(unsigned long mapaddr)
+ {
+-	extern unsigned long phy_remap, max_remap_size;
+-	if ((mapaddr >= phy_remap) && (mapaddr < (phy_remap + max_remap_size)))
+-		return 1;
+-	else
++	if (mapaddr < MEM_BASE_dram_controller_0)
+ 		return 0;
++
++	return (tangox_inv_dma_address(mapaddr) != mapaddr) ? 1 : 0;
+ }
+ #endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/asm-mips/tango3/hardware.h linux-2.6.22.19/include/asm-mips/tango3/hardware.h
+--- linux-2.6.22.19.ref/include/asm-mips/tango3/hardware.h	2010-04-05 11:33:40.000000000 -0700
++++ linux-2.6.22.19/include/asm-mips/tango3/hardware.h	2010-04-05 11:35:21.585374470 -0700
+@@ -103,33 +103,75 @@
+ static inline int printk(const char *s, ...) __attribute__ ((format (printf, 1, 2)));
+ #endif
+ 
++#ifndef REMAP_IDX
++#define REMAP_IDX      (((CPU_REMAP_SPACE-CPU_remap2_address)/0x04000000UL)+2)
++#endif
++#ifndef MAX_KERNEL_MEMSIZE
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++#define MAX_KERNEL_MEMSIZE	(0x1c000000UL-(((REMAP_IDX)-2)*0x04000000UL))
++#else
++#define MAX_KERNEL_MEMSIZE	(0x18000000UL-(((REMAP_IDX)-2)*0x04000000UL))
++#endif
++#endif
++
+ // Physical address mapping
+ static inline unsigned long tangox_dma_address(unsigned long physaddr)
+ {
+-	extern unsigned long phy_remap, max_remap_size;
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++	extern unsigned long em8xxx_remap_registers[9];
++#else
++	extern unsigned long phy_remap;
++#endif
++	extern unsigned long em8xxx_kmem_size;
+ 
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++	if ((physaddr < CPU_REMAP_SPACE) || (physaddr >= (CPU_REMAP_SPACE + em8xxx_kmem_size))) {
++//		printk("<3>" "dma_address conversion failure (0x%08lx in range 0x%08lx-0x%08lx)\n",
++//			physaddr, (unsigned long)CPU_REMAP_SPACE, (unsigned long)CPU_REMAP_SPACE + em8xxx_kmem_size);
++		return(physaddr); /* use whatever is specified */
++	} else {
++		return(em8xxx_remap_registers[((physaddr & 0x1c000000UL) >> 26) + 1] + (physaddr & 0x03ffffffUL));
++	}
++#else
+ 	/* for Tango3, another remap takes place */
+-	if ((physaddr >= CPU_REMAP_SPACE) && (physaddr < (CPU_REMAP_SPACE + max_remap_size)))
++	if ((physaddr >= CPU_REMAP_SPACE) && (physaddr < (CPU_REMAP_SPACE + em8xxx_kmem_size)))
+ 		return(phy_remap + (physaddr - CPU_REMAP_SPACE));
+ 	else {
+-		printk("<3>" "dma_address conversion failure (0x%08lx in range 0x%08lx-0x%08lx)\n",
+-			physaddr, (unsigned long)CPU_REMAP_SPACE, (unsigned long)CPU_REMAP_SPACE + max_remap_size);
++//		printk("<3>" "dma_address conversion failure (0x%08lx in range 0x%08lx-0x%08lx)\n",
++//			physaddr, (unsigned long)CPU_REMAP_SPACE, (unsigned long)CPU_REMAP_SPACE + em8xxx_kmem_size);
+ 		return(physaddr); /* use whatever is specified */
+ 	}
++#endif
+ }
+ 
+ // Inverted physical address mapping
+ static inline unsigned long tangox_inv_dma_address(unsigned long mapaddr)
+ {
+-	extern unsigned long phy_remap, max_remap_size;
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++	extern unsigned long em8xxx_remap_registers[9];
++#else
++	extern unsigned long phy_remap;
++#endif
++	extern unsigned long em8xxx_kmem_size;
+ 
+-	if ((mapaddr >= phy_remap) && (mapaddr < (phy_remap + max_remap_size)))
++#ifdef CONFIG_TANGOX_MIXED_DRAM_USAGE
++	int i;
++	unsigned long msize = 0;
++	for (i = REMAP_IDX; (msize < em8xxx_kmem_size) && (i < 9); msize += 0x04000000, i++) {
++		if ((mapaddr >= em8xxx_remap_registers[i]) && (mapaddr < (em8xxx_remap_registers[i] + 0x04000000UL))) 
++			return(((i - 2) * 0x04000000UL) + CPU_REMAP_SPACE + (mapaddr & 0x03ffffffUL));
++	}
++//	printk("<3>" "dma_address inversion failure (0x%08lx)\n", mapaddr);
++	return(mapaddr); /* use whatever is specified */
++#else
++	if ((mapaddr >= phy_remap) && (mapaddr < (phy_remap + em8xxx_kmem_size)))
+ 		return(CPU_REMAP_SPACE + (mapaddr - phy_remap));
+ 	else {
+-		printk("<3>" "dma_address inversion failure (0x%08lx in range 0x%08lx-0x%08lx)\n",
+-			mapaddr, phy_remap, phy_remap + max_remap_size);
++//		printk("<3>" "dma_address inversion failure (0x%08lx in range 0x%08lx-0x%08lx)\n",
++//			mapaddr, phy_remap, phy_remap + em8xxx_kmem_size);
+ 		return(mapaddr); /* use whatever is specified */
+ 	}
++#endif
+ }
+ #endif
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1031.mixdram.patch linux-2.6.22.19/README.1031.mixdram.patch
+--- linux-2.6.22.19.ref/README.1031.mixdram.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1031.mixdram.patch	2010-04-05 11:36:11.246597964 -0700
+@@ -0,0 +1,22 @@
++Feature:
++--------
++Allow kernel to run in mixed DRAM mode.
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++1002
++1004
++1027
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango3
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

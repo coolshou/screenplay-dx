@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#vudu
+export VUDU_APP_DATA_PATH=/tmp/vudu
+mkdir -p /tmp/db
+mkdir -p /tmp/vudu

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/msgbox.jpg">
+  <image image="@@icon" x="10" y="20" w="50" h="70"/>
+  <text text="@@message" x="70" y="40" w="320" h="50" textcolor="0xC00000"/>
+</page>

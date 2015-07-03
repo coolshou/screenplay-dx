@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/bg_setup.jpg">
+  <ctrlgrp lbmask="l">
+     <ctrlgrp valkey="sub0"
+              focused_bg="image/combo_highlight.gif"
+              normal_bg="image/combo.gif">
+        <combo valkey="CONNECTION" value="connection-value"
+               v0="$$Wired" v1="$$Wireless"
+			   arrow-image-format="image/drop_%d%d.gif"/>
+     </ctrlgrp>
+     <linebreak/>
+     <ctrlgrp valkey="sub1"
+              focused_bg="image/combo_highlight.gif"
+              normal_bg="image/combo.gif">
+        <combo valkey="CONFIGURATION" value="configuration-value"
+               v0="$$Static IP" v1="$$DHCP"
+			   arrow-image-format="image/drop_%d%d.gif"/>
+     </ctrlgrp>
+     <linebreak/>
+     <ctrlgrp valkey="sub2" lbmask=""
+              focused_bg="image/textbox_highlight.gif"
+              normal_bg="image/text_highlight.gif" disabled_bg="image/textbox_darken.gif">
+       <ipaddr valkey="IP" value="value-IP"
+               title="$$Please input IP address here:"/>
+     </ctrlgrp>
+     <linebreak/>
+     <ctrlgrp valkey="sub3" lbmask=""
+              focused_bg="image/textbox_highlight.gif"
+              normal_bg="image/text_highlight.gif" disabled_bg="image/textbox_darken.gif">
+       <ipaddr valkey="NETMASK" value="value-NETMASK"
+               title="$$Please input netmask here:"/>
+     </ctrlgrp>
+     <linebreak/>
+     <ctrlgrp valkey="sub4" lbmask=""
+              focused_bg="image/textbox_highlight.gif"
+              normal_bg="image/text_highlight.gif" disabled_bg="image/textbox_darken.gif">
+       <ipaddr valkey="GATEWAY" value="value-GATEWAY"
+               title="$$Please input gateway here:"/>
+     </ctrlgrp>
+     <linebreak/>
+     <ctrlgrp valkey="sub5" lbmask=""
+              focused_bg="image/textbox_highlight.gif"
+              normal_bg="image/text_highlight.gif" disabled_bg="image/textbox_darken.gif">
+       <ipaddr valkey="DNS" value="value-DNS"
+               title="$$Please input DNS here:"/>
+     </ctrlgrp>
+     <linebreak/>
+     <button valkey="OK"
+             focused_bg="image/mcx_setup_button_short_720_btn_f.png"
+             normal_bg="image/mcx_setup_button_short_720_btn_n.png"/>
+     <button valkey="CANCEL"
+             focused_bg="image/mcx_setup_button_short_720_btn_f.png"
+             normal_bg="image/mcx_setup_button_short_720_btn_n.png"/>
+  </ctrlgrp>
+
+  <text id="headline" text="$$Setup" />
+  <text id="subheadline" text="$$: Network" />
+  
+  <text text="$$Your current network settings:"
+        x="100" y="110" w="600" h="30" fontsize="24" textcolor="0xFFFFFF"/>
+
+  <table x="100" y="150" w="197" h="59" cols="1" rows="2" rowspacing="7"
+         fontsize="20" align="right" textcolor="0xFFFFFF">
+    <text text="$$Connection:"/>
+    <text text="$$Configuration:"/>
+  </table>
+
+  <table x="300" y="150" w="220" h="62" cols="1" rows="2" rowspacing="2">
+    <image image="@@bg-sub0" group="C0"/>
+    <image image="@@bg-sub1" group="C1"/>
+  </table>
+  <table x="300" y="150" w="254" h="62" cols="2" rows="2" rowspacing="2"
+         wcol0="224" wcol1="30"
+         textcolor="0xf0f0f0" selectedtextcolor="0xf0f0f0" activetextcolor="0f0f0f0"
+         fontsize="20">
+    <text text="@@CONNECTION" group="C0"
+          selected="@@sel-CONNECTION" active="@@act-CONNECTION"/>
+    <image image="@@arrow-CONNECTION"/>
+    <text text="@@CONFIGURATION" group="C1"
+          selected="@@sel-CONFIGURATION" active="@@act-CONFIGURATION"/>
+    <image image="@@arrow-CONFIGURATION"/>
+  </table>
+
+  <table x="100" y="215" w="197" h="126" cols="1" rows="4" rowspacing="2"
+         fontsize="20" align="right" textcolor="0xFFFFFF">
+    <text text="$$IP:"/>
+    <text text="$$Netmask:"/>
+    <text text="$$Gateway:"/>
+    <text text="$$DNS:"/>
+  </table>
+  <table x="300" y="215" w="254" h="126" cols="1" rows="4" rowspacing="2">
+    <image image="@@bg-sub2" group="C2"/>
+    <image image="@@bg-sub3" group="C3"/>
+    <image image="@@bg-sub4" group="C4"/>
+    <image image="@@bg-sub5" group="V"/>
+  </table>
+  <table x="300" y="215" w="250" h="126" cols="1" rows="4" rowspacing="2"
+         textcolor="0xF0F0F0" selectedtextcolor="0x000000" activetextcolor="0x000000" actnoseltextcolor="0x000000"
+         fontsize="20">
+    <text text="@@IP" group="C2" selected="@@sel-IP" active="@@act-IP"/>
+    <text text="@@NETMASK" group="C3" selected="@@sel-NETMASK" active="@@act-NETMASK"/>
+    <text text="@@GATEWAY" group="C4" selected="@@sel-GATEWAY" active="@@act-GATEWAY"/>
+    <text text="@@DNS" group="V" selected="@@sel-DNS" active="@@act-DNS"/>
+  </table>
+
+  <table x="320" y="353" w="200" h="24" cols="2" colspacing="0" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK" />
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

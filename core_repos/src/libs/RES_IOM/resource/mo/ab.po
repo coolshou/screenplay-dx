@@ -1,0 +1,4411 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SV-IO50712_027 ScreenPlay MX 062810\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-10 16:35+0800\n"
+"PO-Revision-Date: 2010-06-28 17:12+0200\n"
+"Last-Translator: \n"
+"Language-Team: Arabic <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Language: Arabic\n"
+"X-Poedit-Country: EGYPT\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "اختر اللغة"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "مرحبًا بك مع مشغل الوسائط Iomega ScreenPlay"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "سيقوم هذا المعالج بإرشادك عبر عملية توصيل هذا الجهاز بالشبكة المحلية الخاصة بك. ويعد توصيل الجهاز، يمكن استخدامه أيضًا للوصول إلى الوسائط المخزنة على محركات أقراص الشبكة الأخرى وتشغيلها."
+
+msgid "Select Next to continue."
+msgstr "اختر [التالي] للمتابعة."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "عند تعيين وضع 'البدء السريع' على [ON/تشغيل]، سيكون استهلاك الطاقة أعلى، ولكنه سيحافظ على إتاحة الجهاز على الشبكة وتقصير وقت البدء."
+
+msgid "Select your TV type"
+msgstr "اختر نوع التلفاز"
+
+msgid "Select your connection"
+msgstr "اختر الاتصال"
+
+msgid "Skip"
+msgstr "تخطي"
+
+msgid "Do you want to skip?"
+msgstr "هل تريد التخطي؟"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "عنوان IP ثابت"
+
+msgid "IP address"
+msgstr "عنوان IP"
+
+msgid "Netmask"
+msgstr "قناع الشبكة"
+
+msgid "Gateway"
+msgstr "العبَّارة"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "اكتمل الإعداد"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "المعالج"
+
+msgid "You have successfully completed device configuration"
+msgstr "لقد أكملت تهيئة الجهاز بنجاح."
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Later"
+msgstr "لاحقًا"
+
+msgid "Movie"
+msgstr "فيلم"
+
+msgid "Music"
+msgstr "موسيقى"
+
+msgid "Photo"
+msgstr "الصور"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Online media"
+msgstr "وسائط الإنترنت"
+
+msgid "Folders"
+msgstr "المجلدات"
+
+msgid "Recent"
+msgstr "الأخيرة"
+
+msgid "Local storage"
+msgstr "وحدة التخزين المحلية"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "خادم الوسائط"
+
+msgid "Shared folder"
+msgstr "ملف مشترك"
+
+msgid "All Movies"
+msgstr "جميع الأفلام"
+
+msgid "All Music"
+msgstr "كل الموسيقى"
+
+msgid "Playlist"
+msgstr "قائمة التشغيل"
+
+msgid "Artist"
+msgstr "الفنان"
+
+msgid "Genre"
+msgstr "النوع"
+
+msgid "Album"
+msgstr "الألبوم"
+
+msgid "Now Playing"
+msgstr "التشغيل الآن"
+
+msgid "All Photos"
+msgstr "كل الصور"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Albums"
+msgstr "الألبومات"
+
+msgid "Preview mode"
+msgstr "وضع المعاينة"
+
+msgid "List mode"
+msgstr "وضع القائمة"
+
+msgid "Thumbnail mode"
+msgstr "وضع الصورة المصغرة"
+
+msgid "This folder is empty or unavailable."
+msgstr "هذا المجلد فارغ أو غير متاح"
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Create"
+msgstr "إنشاء"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Rename"
+msgstr "إعادة تسمية"
+
+msgid "Clear"
+msgstr "مسح"
+
+msgid "Move"
+msgstr "نقل"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Create album"
+msgstr "إنشاء ألبوم"
+
+msgid "Edit album"
+msgstr "تعديل الألبوم"
+
+msgid "Add to list"
+msgstr "إضافة إلى القائمة"
+
+msgid "Remove from list"
+msgstr "إزالة من القائمة"
+
+msgid "Move focus"
+msgstr "نقل التركيز"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "لا توجد ألبومات. إنشاء ألبوم جديد؟"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "هل تريد بالتأكيد حذف الألبوم؟"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "هل تريد بالتأكيد مسح الملفات من القائمة؟"
+
+msgid "This folder is empty"
+msgstr "هذا المجلد فارغ"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "اسم مستخدم أو كلمة مرور غير صالح"
+
+msgid "This media server cannot be accessed"
+msgstr "يتعذر الوصول إلى خادم الوسائط هذا"
+
+msgid "No server found"
+msgstr "لم يتم العثور على خادم"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "هل تريد بالتأكيد حذف الملف؟"
+
+msgid "Normal"
+msgstr "عادي"
+
+msgid "Repeat one"
+msgstr "تكرار واحد"
+
+msgid "Repeat all"
+msgstr "تكرار الكل"
+
+msgid "Repeat all and shuffle"
+msgstr "تكرار الكل والتبديل"
+
+msgid "Shuffle"
+msgstr "تبديل"
+
+msgid "Pan"
+msgstr "جزء"
+
+msgid "Rotate right"
+msgstr "استدارة إلى اليمين"
+
+msgid "Rotate left"
+msgstr "استدارة إلى اليسار"
+
+msgid "Zoom in"
+msgstr "تكبير"
+
+msgid "Zoom out"
+msgstr "تصغير"
+
+msgid "Repeat"
+msgstr "تكرار"
+
+msgid "Info bar"
+msgstr "شريط المعلومات"
+
+msgid "Audio"
+msgstr "الصوت"
+
+msgid "Audio channel"
+msgstr "قناة الصوت"
+
+msgid "No audio channel"
+msgstr "لا توجد قناة صوتية"
+
+msgid "Subtitle"
+msgstr "الترجمة"
+
+msgid "Subtitle off"
+msgstr "إيقاف الترجمة"
+
+msgid "No subtitle"
+msgstr "لا توجد ترجمة"
+
+msgid "Unsupported subtitle"
+msgstr "ترجمة غير مدعومة"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "الرجاء اختيار [موافق] لاستئناف التشغيل أو [إلغاء] لإعادة تشغيل الفيديو"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "يتعذر تشغيل الملف المحدد. للحصول على معلومات حول تنسيقات الملفات المدعومة، الرجاء الرجوع إلى دليل المستخدم."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "يحتوي ملف الفيديو الذي حاولت تشغيله على إخراجات قناة صوت متعددة غير مدعومة. الرجاء التبديل إلى خرج الصوت الرقمي وتوصيل مشغل الوسائط عالية الدقة إلى جهاز استقبال AV يدعم برنامج ترميز الصوت."
+
+msgid "No chapter"
+msgstr "لا توجد فصول"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "يتعذر تشغيل قائمة الفيديو هذه. هل تريد تشغيل ملف الفيديو؟"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "هل تريد استئناف التشغيل أو إعادة التشغيل من البداية؟"
+
+msgid "Next Song:"
+msgstr "الأغنية التالية:"
+
+msgid "Current Song"
+msgstr "الأغنية الحالية"
+
+msgid "File Type"
+msgstr "نوع الملف"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "File Size"
+msgstr "حجم الملف"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "تم استخدام إيجار DivX هذا بعدد مرات X من مرات العرض التي تصل إلى Y، هل تريد متابعة عرض الفيديو؟"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "هذا الجهاز ليس مرخصًا له تشغيل فيديو DivX المحمي هذا."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "تم استخدام إيجار DivX هذا بعدد مرات X من مرات العرض التي تصل إلى Y، انتهت صلاحية فترة إيجار DivX هذا؟"
+
+msgid "Unsupported DivX DRM version."
+msgstr "إصدار DivX DRM غير مدعوم"
+
+msgid "Video resolution is not supported."
+msgstr "دقة الفيديو ليست مدعومة."
+
+msgid "Video frame rate is not supported."
+msgstr "معدل إطارات الفيديو غير مدعوم."
+
+msgid "Audio format is not supported."
+msgstr "تنسيق الصوت غير مدعوم."
+
+msgid "Audio/Video"
+msgstr "صوت/صورة"
+
+msgid "Playback"
+msgstr "تشغيل"
+
+msgid "System"
+msgstr "النظام"
+
+msgid "Network"
+msgstr "الشبكة"
+
+msgid "Shut down"
+msgstr "إغلاق"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "تهيئة إعدادات خرج الصوت والفيديو للجهاز"
+
+msgid "Configure playback settings"
+msgstr "تهيئة إعدادات التشغيل"
+
+msgid "Configure basic settings of system"
+msgstr "تهيئة إعدادات النظام الأساسية"
+
+msgid "Configure network settings"
+msgstr "تهيئة إعدادات الشبكة"
+
+msgid "Video output"
+msgstr "خرج الفيديو"
+
+msgid "Configure video output of system"
+msgstr "تهيئة خرج الفيديو للنظام"
+
+msgid "Composite"
+msgstr "مكوَّن"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "تهيئة إشارة NTSC أو PAL"
+
+msgid "Component"
+msgstr "المكون"
+
+msgid "Configure display resolution of Component"
+msgstr "تهيئة دقة عرض المكون"
+
+msgid "Color space"
+msgstr "مساحة الألوان"
+
+msgid "Configure color space of Component"
+msgstr "تهيئة مساحة الألوان للمكون"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "تهيئة دقة الشاشة لـ HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "تهيئة مساحة الألوان لـ HDMI"
+
+msgid "RGB High"
+msgstr "RGB مرتفع"
+
+msgid "RGB Low"
+msgstr "RGB منخفض"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "دقة العرض"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "نسبة العرض إلى الارتفاع"
+
+msgid "Configure screen format of system"
+msgstr "تهيئة تنسيق شاشة النظام"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "خرج الصوت"
+
+msgid "Configure audio output channel of system"
+msgstr "تهيئة قناة خرج الصوت للنظام"
+
+msgid "Stereo"
+msgstr "مجسم"
+
+msgid "Digital"
+msgstr "رقمي"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "هل تريد بالتأكيد تغيير دقة الفيديو؟"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "هل تريد بالتأكيد تغيير صيغة خرج الفيديو؟"
+
+msgid "Subtitle mode"
+msgstr "وضع الترجمة"
+
+msgid "Turn on/off subtitle"
+msgstr "تشغيل/إيقاف تشغيل الترجمة"
+
+msgid "Subtitle font size"
+msgstr "حجم خط الترجمة"
+
+msgid "Select subtitle font size"
+msgstr "اختيار حجم خط الترجمة"
+
+msgid "Subtitle type"
+msgstr "نوع الترجمة"
+
+msgid "Select the additional encoding"
+msgstr "اختيار الترميز الإضافي"
+
+msgid "Western Europe (ISO)"
+msgstr "أوروبا الغربية (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "أوروبا الوسطى (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "أوروبا الوسطى (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "الصينية التقليدية (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "الصينية المبسطة (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "اليابانية (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "الكورية (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "السيريلية (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "السيريلية (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "اليونانية (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "اليونانية (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "العربية(Windows-1256)"
+
+msgid "Audio track display"
+msgstr "عرض مسار الصوت"
+
+msgid "Set the display mode while music playing"
+msgstr "تعيين وضع الشاشة أثناء تشغيل الموسيقى"
+
+msgid "File name"
+msgstr "اسم الملف"
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Photo scaling"
+msgstr "تغيير حجم الصورة"
+
+msgid "Configure the photo scaling mode"
+msgstr "تهيئة وضع تحديد حجم الصورة"
+
+msgid "Keep as original"
+msgstr "حفظ كأصلي"
+
+msgid "Fit to screen"
+msgstr "احتواء ضمن الشاشة"
+
+msgid "Display in full screen"
+msgstr "عرض في وضع ملء الشاشة"
+
+msgid "Transition effect"
+msgstr "تأثير الانتقال"
+
+msgid "Select the transition effect"
+msgstr "اختيار تأثير الانتقال"
+
+
+
+
+msgid "Fade"
+msgstr "تلاشي"
+
+msgid "Wipe"
+msgstr "مسح"
+
+msgid "Zoom"
+msgstr "تكبير/تصغير"
+
+msgid "Push"
+msgstr "دفع"
+
+msgid "Replace"
+msgstr "استبدال"
+
+msgid "Checker board"
+msgstr "لوحة الفاحص"
+
+msgid "Random"
+msgstr "عشوائي"
+
+msgid "Slideshow Interval"
+msgstr "الفاصل الزمني لعرض الشرائح"
+
+msgid "Configure the interval of slideshow"
+msgstr "تهيئة الفاصل الزمني لعرض الشرائح"
+
+msgid "second"
+msgstr "ثانية"
+
+msgid "seconds"
+msgstr "ثواني"
+
+msgid "3 Seconds"
+msgstr "3 ثوانٍ"
+
+msgid "5 Seconds"
+msgstr "5 ثوانٍ"
+
+msgid "10 Seconds"
+msgstr "10 ثوانٍ"
+
+msgid "20 Seconds"
+msgstr "20 ثانية"
+
+msgid "30 Seconds"
+msgstr "30 ثانية"
+
+msgid "minute"
+msgstr "دقيقة"
+
+msgid "minutes"
+msgstr "دقائق"
+
+msgid "1 Minute"
+msgstr "دقيقة واحدة"
+
+msgid "5 Minutes"
+msgstr "5 دقائق"
+
+msgid "Browser display"
+msgstr "عرض المتصفح"
+
+msgid "Set the display mode of media browser"
+msgstr "تعيين وضع الشاشة لمتصفح الوسائط"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "تهيئة إعدادات DivX DRM VOD"
+
+msgid "Register"
+msgstr "تسجيل"
+
+msgid "Deregister"
+msgstr "إلغاء التسجيل"
+
+msgid "Activation"
+msgstr "تنشيط"
+
+msgid "Deactivation"
+msgstr "إلغاء التنشيط"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "الجهاز مسجل بالفعل. هل تريد بالتأكيد إلغاء التسجيل؟"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "يجب عليك تسجيل الجهاز لتشغيل مقاطع فيديو DivX المحمية."
+
+msgid "Registration code:"
+msgstr "رمز التسجيل:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "قم بالتسجيل على الموقع http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "رمز إلغاء التسجيل:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "قم بإلغاء التسجيل على الموقع http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "متابعة التسجيل؟"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "تشغيل/إيقاف تشغيل خادم الوسائط"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "تشغيل/إيقاف تشغيل المجلد المشترك"
+
+msgid "Workgroup name"
+msgstr "اسم مجموعة العمل"
+
+msgid "Device name"
+msgstr "اسم الجهاز"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "تسجيل دخول تلقائي"
+
+msgid "Turn on/off auto-login"
+msgstr "تشغيل/إيقاف تشغيل تسجيل الدخول التلقائي"
+
+msgid "Clear account information"
+msgstr "مسح معلومات الحساب"
+
+msgid "Delete the preset password?"
+msgstr "حذف كلمة المرور المعدة مسبقًا؟"
+
+msgid "Manual SSID"
+msgstr "SSID يدوي"
+
+msgid "Connection setup"
+msgstr "إعداد الاتصال"
+
+msgid "Wire"
+msgstr "سلكي"
+
+msgid "Wireless"
+msgstr "لاسلكي"
+
+msgid "Network setup"
+msgstr "إعداد الشبكة"
+
+msgid "Wireless setup"
+msgstr "إعداد لاسلكي"
+
+msgid "Does not contain"
+msgstr "لا يحتوي على"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "لا يمكن أن يحتوي اسم المنتج على أيٍ من الرموز التالية \\ / : * ? â?? ; | مع رموز فارغة. لا يمكن أن يزيد طول هذا الاسم عن 15 رمزًا."
+
+msgid "The device name can not contain any of following "
+msgstr "لا يمكن أن يحتوي اسم الجهاز على أي مما يلي "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "ورموز فارغة. لا يمكن أن يتجاوز طول اسم الجهاز 15 رمزًا."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "الرقم 0 ليس إدخالاً صالحًا، يُسمح فقط بإدخال الأرقام من 1 وحتى 223. الرجاء التحقق من عنوان بروتوكول الإنترنت الخاص بك وإدخاله مرةً أخرى."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "يُسمح فقط بإدخال الأرقام من 0 وحتى 255. الرجاء التحقق من عنوان بروتوكول الإنترنت الخاص بك وإدخاله مرةً أخرى."
+
+msgid "Cannot find access point."
+msgstr "يتعذر العثور على نقطة الوصول."
+
+msgid "The AP is not exist. Please check again."
+msgstr "نقطة الوصول (AP) ليست موجودة. الرجاء التحقق مرةً أخرى."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "مفتاح تشفير غير صالح. الرجاء المحاولة لاحقًا."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "تشغيل/إيقاف تشغيل BitTorrent"
+
+msgid "Connection mode"
+msgstr "وضع الاتصال"
+
+msgid "Connection type"
+msgstr "نوع الاتصال"
+
+msgid "WPS setup"
+msgstr "إعداد WPS"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "الرجاء الضغط على الزر \"WPS\" في AP قبل الضغط على الزر \"اتصال\"."
+
+msgid "Auto search"
+msgstr "بحث تلقائي"
+
+msgid "Site survey"
+msgstr "مسح الموقع"
+
+msgid "Detecting Wireless Access Point"
+msgstr "جاري اكتشاف نقطة وصول لاسلكية"
+
+msgid "MAC address"
+msgstr "عنوان MAC"
+
+msgid "Please waiting..."
+msgstr "الرجاء الانتظار..."
+
+msgid "Connect Successfully!"
+msgstr "تم الاتصال بنجاح!"
+
+msgid "Do you want replace this profile?"
+msgstr "هل تريد استبدال ملف التعريف هذا؟"
+
+msgid "Network is disconnected."
+msgstr "تم فصل الشبكة."
+
+msgid "Can not detect wireless module."
+msgstr "يتعذر اكتشاف الوحدة اللاسلكية."
+
+msgid "The profile space is full!"
+msgstr "مساحة ملف التعريف ممتلئة!"
+
+msgid "Access point detecting..."
+msgstr "جاري اكتشاف نقطة وصول..."
+
+msgid "The network encryption key is not valid."
+msgstr "مفتاح تشفير الشبكة غير صالح."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "لا يمكن أن يكون SSID فارغًا!"
+
+msgid "No security"
+msgstr "لا توجد حماية"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "اكتمل الإعداد. هل تريد حفظ اتصال الشبكة هذا؟"
+
+msgid "The SSID is empty."
+msgstr "SSID فارغ."
+
+msgid "Can not set this profile to favorite."
+msgstr "يتعذر تعيين ملف التعريف هذا على المفضلة."
+
+msgid "Access point can not be found"
+msgstr "لا يمكن العثور على نقطة الوصول"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "لا يمكن العثور على نقطة الوصول"
+
+msgid "Please enter your encryption key"
+msgstr "الرجاء إدخال مفتاح التشفير"
+
+msgid "The device could not connect to the network."
+msgstr "لم يتمكن الجهاز من الاتصال بالشبكة."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "تم فصل الخادم. الرجاء التحقق من تهيئة الشبكة."
+
+msgid "Wireless favorites"
+msgstr "مفضلات لاسلكية"
+
+msgid "Connect now"
+msgstr "اتصال الآن"
+
+msgid "Favorite"
+msgstr "مفضلة"
+
+
+msgid "Encryption key"
+msgstr "مفتاح التشفير"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Select a display language"
+msgstr "اختيار لغة عرض"
+
+msgid "English"
+msgstr "الإنجليزية"
+
+msgid "French"
+msgstr "الفرنسية"
+
+msgid "German"
+msgstr "الألمانية"
+
+msgid "Italian"
+msgstr "الإيطالية"
+
+msgid "Spanish"
+msgstr "الإسبانية"
+
+msgid "Portuguese"
+msgstr "البرتغالية"
+
+msgid "Dutch"
+msgstr "الألمانية"
+
+msgid "Greek"
+msgstr "اليونانية"
+
+msgid "Polish"
+msgstr "البولندية"
+
+msgid "Russian"
+msgstr "الروسية"
+
+msgid "Swedish"
+msgstr "السويدية"
+
+msgid "Japanese"
+msgstr "اليابانية"
+
+msgid "Simplified Chinese"
+msgstr "الصينية المبسطة"
+
+msgid "Traditional Chinese"
+msgstr "الصينية التقليدية"
+
+msgid "Korean"
+msgstr "الكورية"
+
+msgid "Finnish"
+msgstr "إنهاء"
+
+msgid "Brazilian (Portuguese)"
+msgstr "البرازيلية (البرتغالية)"
+
+msgid "Hebrew"
+msgstr "العبرية"
+
+msgid "Arabic"
+msgstr "العربية"
+
+msgid "Czech"
+msgstr "التشيكية"
+
+msgid "Turkish"
+msgstr "التركية"
+
+msgid "Danish"
+msgstr "الدانمركية"
+
+msgid "Norwegian"
+msgstr "النرويجية"
+
+msgid "Media library"
+msgstr "مكتبة الوسائط"
+
+msgid "Turn on/off media library"
+msgstr "تشغيل/إيقاف تشغيل مكتبة الوسائط"
+
+msgid "Screensaver delay"
+msgstr "مدة تأخير شاشة التوقف"
+
+msgid "Configure screensaver delay time"
+msgstr "تهيئة زمن تأخير الشاشة المؤقتة"
+
+msgid "Never"
+msgstr "على الإطلاق"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 دقائق"
+
+msgid "15 Minutes"
+msgstr "15 دقيقة"
+
+msgid "Quick start mode"
+msgstr "وضع البدء السريع"
+
+msgid "System reset"
+msgstr "إعادة ضبط النظام"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "هل تريد بالتأكيد استعادة ضبط المصنع لهذا الجهاز؟"
+
+msgid "About"
+msgstr "حول"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "للحصول على مزيد من المعلومات فيما يتعلق بمشغل الوسائط عالية الدقة، الرجاء الرجوع إلى دليل المستخدم أو زيارة"
+
+msgid "Restart"
+msgstr "إعادة التشغيل"
+
+msgid "Rebooting"
+msgstr "جاري إعادة التمهيد"
+
+msgid "Update device"
+msgstr "تحديث الجهاز"
+
+msgid "New firmware"
+msgstr "برامج ثابتة جديدة"
+
+msgid "New firmware found"
+msgstr "تم العثور على برامج ثابتة جديدة"
+
+msgid "version"
+msgstr "الإصدار"
+
+msgid "Firmware Version"
+msgstr "إصدار البرامج الثابتة"
+
+msgid "Current version"
+msgstr "الإصدار الحالي"
+
+msgid "New version"
+msgstr "إصدار جديد"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "تم العثور على برامج ثابتة جديدة. هل تريد الترقية؟"
+
+msgid "Invalid firmware"
+msgstr "برامج ثابتة غير صالحة"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "البحث عن أحدث البرامج الثابتة وترقية الجهاز."
+
+msgid "Checking for recent updates"
+msgstr "جاري البحث عن التحديثات الأخيرة"
+
+msgid "Searching for updates..."
+msgstr "جاري البحث عن تحديثات..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "يتعذر على الجهاز تنزيل التحديثات، الرجاء التحقق من اتصال الإنترنت."
+
+msgid "Your device is up to date."
+msgstr "جهازك محدَّث."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "جاري ترقية مشغل الوسائط الخاص بك. الرجاء عدم فصل الطاقة أو وحدة التخزين المرفقة."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "اكتملت الترقية. سيتم الآن إعادة تشغيل مشغل الوسائط."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "قم بإدراج محرك أقراص USB مزودًا بالبرامج الثابتة لاستعادة مشغل الوسائط الخاص بك."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "فشل ترقية البرامج الثابتة. ستتم إعادة تشغيل الجهاز."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "فشل ترقية البرامج الثابتة. الرجاء التحقق من اتصال الشبكة والمحاولة مرةً أخرى."
+
+msgid "OK"
+msgstr "موافق"
+
+
+
+
+
+
+msgid "On"
+msgstr "تشغيل"
+
+msgid "Off"
+msgstr "إيقاف التشغيل"
+
+msgid "Auto"
+msgstr "تلقائي"
+
+msgid "Manual"
+msgstr "يدوي"
+
+msgid "Search"
+msgstr "بحث"
+
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Retry"
+msgstr "إعادة المحاولة"
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Go Back"
+msgstr "رجوع"
+
+msgid "Help"
+msgstr "تعليمات"
+
+msgid "Exit"
+msgstr "إنهاء"
+
+msgid "Unknown"
+msgstr "غير معروف"
+
+
+msgid "Play"
+msgstr "تشغيل"
+
+msgid "Pause"
+msgstr "إيقاف مؤقت"
+
+msgid "Stop"
+msgstr "إيقاف"
+
+msgid "Eject"
+msgstr "إخراج"
+
+msgid "Empty"
+msgstr "فارغ"
+
+msgid "Standby mode"
+msgstr "وضع الاستعداد"
+
+msgid "Loading data"
+msgstr "جاري تحميل البيانات"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Contains"
+msgstr "يحتوي على"
+
+msgid "Starts with"
+msgstr "البدء بـ"
+
+msgid "Unsupported"
+msgstr "غير مدعوم"
+
+msgid "Space"
+msgstr "مساحة"
+
+msgid "Equal to"
+msgstr "مساوي لـ"
+
+msgid "Not Equal to"
+msgstr "غير مساوي لـ"
+
+msgid "Untitled volume"
+msgstr "وحدة تخزين بدون عنوان"
+
+msgid "Additional encoding support"
+msgstr "دعم ترميز إضافي"
+
+msgid "Subtitle default"
+msgstr "الإعداد الافتراضي للترجمة"
+
+msgid "Subtitle border"
+msgstr "حد الترجمة"
+
+msgid "Thick"
+msgstr "سميك"
+
+msgid "Thin"
+msgstr "رفيع"
+
+msgid "Account"
+msgstr "الحساب"
+
+msgid "anonymous"
+msgstr "مجهول"
+
+msgid "Connecting"
+msgstr "جاري الاتصال"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "الرجاء اختيار الجهاز الذي تريد إخراجه."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "هل تريد بالتأكيد إزالة هذا الجهاز؟"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "تحذير: الرجاء إخراج جهاز تخزين USB بأمان قيل إزالته."
+
+msgid "The device is busy. Please try later."
+msgstr "الجهاز مشغول. الرجاء المحاولة لاحقًا."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "الرجاء الانتظار أثناء إخراج وحدة التخزين..."
+
+msgid "No storage present"
+msgstr "لا توجد سعة تخزين"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "يتطلب إكمال مكتبة الوسائط المزيد من مساحة التخزين:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "جاري مسح سعة التخزين المرفقة. قد يستغرق المسح الذي يتم إجراؤه لأول مرة وقتًا أطول، الرجاء الانتظار..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "يتعذر التعرف على الجهاز المرفق في منفذ USB"
+
+msgid "Storage can not aggregate"
+msgstr "يتعذر تجميع سعة التخزين"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "لا تدعم مكتبة الوسائط نظام ملفات journaled. مازال التشغيل مدعومًا."
+
+msgid "Unable to create media library on read only storage."
+msgstr "يتعذر إنشاء مكتبة وسائط على سعة تخزين للقراءة فقط."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "يتعذر إنشاء مكتبة وسائط. الرجاء التحقق من إعداد سعة التخزين."
+
+msgid "Unrecognized USB device"
+msgstr "جهاز USB غير معروف"
+
+msgid "Scanning the attached USB device..."
+msgstr "جاري مسح جهاز USB المرفق..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "وفقًا لضبط خرج الصوت الرقمي، يجب توفير جهاز استقبال AV يدعم تنسيق صوت مناسب لتشغيل المسار الصوتي بصوت مجسم."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "الرجاء عدم إزالة طاقة التيار المتردد أو أي قرص تخزين."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "تتم ترقية مشغل الوسائط عالي الدقة. الرجاء عدم إغلاق الجهاز أو إزالة مصدر الطاقة أو فصل أية وحدة تخزين مرفقة."
+
+msgid "Upgrade complete!"
+msgstr "اكتملت الترقية!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "تم تثبيت التحديثات بنجاح. جاري الآن إعادة تشغيل الجهاز..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "يتعذر التعرف على الجهاز المرفق بمنفذ USB."
+
+msgid "Device is shutting down..."
+msgstr "جاري إيقاف الجهاز..."
+
+msgid "Local device is disconnected."
+msgstr "تم فصل الجهاز المحلي."
+
+msgid "Do you really want to restart device?"
+msgstr "هل تريد بالتأكيد إعادة تشغيل الجهاز؟"
+
+msgid "Action cancelled"
+msgstr "تم إلغاء الإجراء"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "حدث خطأ فادح في النظام. سيقوم الجهاز بإعادة تشغيل ¡K"
+
+msgid "To restart device, press the power button of your remote."
+msgstr "لإعادة تشغيل الجهاز، اضغط على زر التشغيل الموجود بوحدة التحكم عن بعد."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "اكتمل البحث. لم يتم العثور على أي نتائج."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "اضغط على المفتاح [Option/خيارات] للإدخال متعدد اللغات."
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Flickr الخاص بالمتصفح"
+
+msgid "My recent"
+msgstr "الأخيرة"
+
+msgid "Last 7 days interesting"
+msgstr "آخر أهم 7 أيام"
+
+msgid "Most recent uploads"
+msgstr "أحدث التحميلات"
+
+msgid "Hot tags"
+msgstr "أفضل العلامات"
+
+msgid "Contacts"
+msgstr "الأسماء"
+
+msgid "Photostream"
+msgstr "مجموعة الصور"
+
+msgid "Tags"
+msgstr "العلامات"
+
+msgid "Delete one"
+msgstr "حذف واحد"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "الكلمة الرئيسية"
+
+msgid "Flickr members"
+msgstr "أعضاء Flickr"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "هل تريد بالتأكيد حذف هذا العنصر؟"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "هل تريد بالتأكيد حذف كل العناصر؟"
+
+msgid "This member has been added to your contact list."
+msgstr "تمت إضافة هذا العضو إلى قائمة الاتصال الخاصة بك."
+
+msgid "This member has been add to your contact list."
+msgstr "تمت إضافة هذا العضو إلى قائمة الاتصال الخاصة بك."
+
+msgid "Could not find any tag list."
+msgstr "لم يتم العثور على أية قوائم علامات."
+
+msgid "Could not find any contact list."
+msgstr "لم يتم العثور على أية قوائم اتصال."
+
+msgid "There is no friend available."
+msgstr "لا يوجد صديق متاح."
+
+msgid "A friend cannot be found."
+msgstr "لم يتم العثور على صديق."
+
+msgid "There is no content available."
+msgstr "لا يوجد محتوى متاح."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "اكتمل البحث. لم يتم العثور على أي نتائج."
+
+msgid "Now playing:"
+msgstr "التشغيل الآن"
+
+msgid "Last station:"
+msgstr "آخر محطة:"
+
+msgid "My presets"
+msgstr "إعداداتي المسبقة"
+
+msgid "Stations"
+msgstr "المحطات"
+
+msgid "Preferences"
+msgstr "التفضيلات"
+
+msgid "Sign in / Sign out"
+msgstr "تسجيل الدخول / تسجيل الخروج"
+
+msgid "About Live365"
+msgstr "حول Live365"
+
+msgid "Remove station"
+msgstr "إزالة محطة"
+
+msgid "Add to my presets"
+msgstr "إضافة إلى إعداداتي المسبقة"
+
+msgid "Free stations"
+msgstr "محطات مجانية"
+
+msgid "VIP stations"
+msgstr "أهم المحطات"
+
+msgid "Recommendations"
+msgstr "التوصيات"
+
+msgid "Thumbs up"
+msgstr "إبهام لأعلى"
+
+msgid "Thumbs down"
+msgstr "إبهام لأسفل"
+
+
+
+
+msgid "Email track"
+msgstr "مسار البريد الإلكتروني"
+
+msgid "Audio quality"
+msgstr "جودة الصوت"
+
+msgid "Sort"
+msgstr "فرز"
+
+msgid "All stations"
+msgstr "كل المحطات"
+
+msgid "Only high"
+msgstr "عالٍ فقط"
+
+msgid "Medium to high"
+msgstr "متوسط إلى عالٍ"
+
+msgid "Low to medium"
+msgstr "منخفض إلى متوسط"
+
+msgid "Only low"
+msgstr "منخفض فقط"
+
+msgid "Sort stations alphabetically"
+msgstr "فرز المحطات حسب الترتيب الأبجدي"
+
+msgid "Sort stations by popularity"
+msgstr "فرز المحطات حسب الشيوع"
+
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+msgid "Don't have an account?"
+msgstr "ألا يوجد لديك حساب؟"
+
+msgid "Invalid username and password, please try again."
+msgstr "اسم مستخدم وكلمة مرور غير صالحين، الرجاء المحاولة مرةً أخرى."
+
+msgid "Save the account information?"
+msgstr "حفظ معلومات الحساب؟"
+
+msgid "Save username only"
+msgstr "حفظ اسم المستخدم فقط"
+
+msgid "Are you sure to sign out?"
+msgstr "هل تريد بالتأكيد تسجيل الخروج؟"
+
+msgid "The station is removed from your presets."
+msgstr "تمت إزالة المحطة من إعداداتك المسبقة."
+
+msgid "The station is added to your presets."
+msgstr "تمت إضافة المحطة إلى إعداداتك المسبقة."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "عليك تسجيل الدخول لاستخدام هذه الميزة. تسجيل الدخول الآن؟"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "شكرًا على تقييم هذا المسار. يسعدنا أنه نال إعجابك."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "شكرًا على تقييم هذا المسار. نأسف أنه لا يناسب ذوقك."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "تم إرسال معلومات المسار. الرجاء التحقق من بريدك الإلكتروني."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "إذا لم يكن لديك حساب Live365، فالرجاء زيارة الموقع http://www.live365.com لبدء العضوية أو لتصبح أحد الأعضاء المهمين."
+
+
+msgid "Video"
+msgstr "فيديو"
+
+
+
+
+msgid "Preference"
+msgstr "التفضيل"
+
+msgid "Most favorites"
+msgstr "الأكثر تفضيلاً"
+
+msgid "Most viewed"
+msgstr "الأكثر مشاهدة"
+
+msgid "Most popular"
+msgstr "الأكثر انتشارًا"
+
+msgid "Top rated"
+msgstr "الأعلى تصنيفًا"
+
+msgid "Most recent"
+msgstr "الأحدث"
+
+msgid "My videos"
+msgstr "مقاطع الفيديو"
+
+msgid "Favorites"
+msgstr "المفضلة"
+
+
+
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "This week"
+msgstr "هذا الأسبوع"
+
+msgid "This month"
+msgstr "هذا الشهر"
+
+msgid "All time"
+msgstr "كل الوقت"
+
+msgid "Rate video"
+msgstr "تقييم مقطع فيديو"
+
+msgid "Related"
+msgstr "ذو صلة"
+
+msgid "Full screen"
+msgstr "ملء الشاشة"
+
+msgid "Info"
+msgstr "معلومات"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "تسجيل الخروج"
+
+msgid "Delete account"
+msgstr "حذف حساب"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "اسم المستخدم"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Current location"
+msgstr "الموقع الحالي"
+
+msgid "Worldwide"
+msgstr "عالمي"
+
+msgid "Germany"
+msgstr "ألمانيا"
+
+msgid "France"
+msgstr "فرنسا"
+
+msgid "Spain"
+msgstr "أسبانيا"
+
+msgid "Italy"
+msgstr "إيطاليا"
+
+msgid "Taiwan"
+msgstr "تايوان"
+
+msgid "South Korea"
+msgstr "كوريا الجنوبية"
+
+
+
+msgid "Russia"
+msgstr "روسيا"
+
+msgid "Video playback quality"
+msgstr "جودة تشغيل الفيديو"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "هذا الفيديو غير متاح حاليًا."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "شكرًا على التقييم."
+
+msgid "The video has been added to your favorites."
+msgstr "تمت إضافة الفيديو إلى المفضلة."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "هل تريد بالتأكيد حذف الحساب؟"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "هل تريد بالتأكيد حذف جميع الحسابات؟"
+
+msgid "Login fail."
+msgstr "فشل تسجيل الدخول."
+
+
+
+
+msgid "No content available."
+msgstr "لا يوجد محتوى متوفر."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "إضافة/إزالة أدوات وسائط إضافية"
+
+msgid "Manage users"
+msgstr "إدارة المستخدمين"
+
+msgid "All (Mix)"
+msgstr "الكل (خليط)"
+
+msgid "Business & Finance"
+msgstr "أعمال وتجارة"
+
+msgid "Cars"
+msgstr "سيارات"
+
+msgid "Comedy"
+msgstr "كوميديا"
+
+msgid "Cocking $ drinks"
+msgstr "طهي ومشروبات"
+
+msgid "Education"
+msgstr "تعليم"
+
+msgid "Fashion & luxury"
+msgstr "موضة ورفاهية"
+
+msgid "Health & fitness"
+msgstr "صحة ولياقة"
+
+msgid "Kids & cartoons"
+msgstr "أطفال وأفلام كرتون"
+
+msgid "Learn a languages"
+msgstr "تعلم اللغات"
+
+
+
+
+msgid "News & politics"
+msgstr "أخبار وسياسة"
+
+msgid "Parenting"
+msgstr "تربية الأطفال"
+
+msgid "Relationships"
+msgstr "علاقات"
+
+msgid "Science & nature"
+msgstr "علوم وطبيعة"
+
+msgid "Showbiz news"
+msgstr "أخبار دور العرض"
+
+msgid "Society & culture"
+msgstr "المجتمع والثقافة"
+
+msgid "Sports"
+msgstr "رياضة"
+
+msgid "Technology"
+msgstr "تكنولوجيا"
+
+msgid "Travel"
+msgstr "سفر"
+
+msgid "Video games"
+msgstr "ألعاب فيديو"
+
+msgid "General"
+msgstr "عام"
+
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+msgid "Now playing"
+msgstr "التشغيل الآن"
+
+msgid "Both"
+msgstr "كلاهما"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "إضافة إلى قنواتي"
+
+msgid "Remove from my channels"
+msgstr "إزالة من قنواتي"
+
+msgid "Rate/Favorite"
+msgstr "تقييم/مفضلة"
+
+msgid "Episodes"
+msgstr "الحلقات"
+
+
+
+msgid "My rating"
+msgstr "تقييمي"
+
+msgid "My favorite"
+msgstr "مفضلتي"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "إضافة أدوات الوسائط الإضافية إلى لوحة المعلومات"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "إضافة أدوات الوسائط الإضافية يدويًا (عبر mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "إزالة أدوات الوسائط الإضافية من لوحة المعلومات"
+
+msgid "Shows + Episodes"
+msgstr "العروض + الحلقات"
+
+msgid "Shows"
+msgstr "العروض"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "ارتباط"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "لإعداد قنواتك المخصصة، يجب عليك ربط المشغل بحساب Mediafly."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "إن حسابات Mediafly مجانية بالكامل وتتيح لك تحكمًا وإدارة مركزيين لمحتوى الإنترنت المجاني المفضل لديك."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "الخيار 1: افتح متصفح الويب من جهاز الكمبيوتر، ثم انتقل إلى الموقع: "
+
+msgid  "and enter this association code:"
+msgstr "، وأدخل رمز الارتباط التالي:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "الخيار 2: سجِّل الدخول باستخدام اسم المستخدم وكلمة المرور الخاصين بحساب Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "كل الفيديو"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "مدة الفاصل الزمني"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "شاشة عريضة"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 دقائق"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 دقيقة"
+
+msgid "30 Minutes"
+msgstr "30 دقيقة"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "مشغل الوسائط Iomega HD"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "هل تريد الترقية؟"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "يحتوي ملف الفيديو الذي حاولت تشغيله على إخراجات قناة صوت متعددة غير مدعومة. الرجاء التبديل إلى خرج الصوت الرقمي وتوصيل مشغل الوسائط عالية الدقة إلى جهاز استقبال AV يدعم برنامج ترميز الصوت."
+
+
+
+
+msgid "Audio Channel"
+msgstr "قناة الصوت"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "ترقية البرامج الثابتة"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "تسلسل الفيديو"
+
+msgid "Music sequence"
+msgstr "تسلسل الموسيقى"
+
+msgid "Slideshow sequence"
+msgstr "تسلسل عرض الشرائح"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "مسح إلى اليمين"
+
+msgid "Wipe left"
+msgstr "مسح إلى اليسار"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "جاري ترقية مشغل الوسائط عالية الدقة. الرجاء عدم فصل الطاقة أو سعة التخزين المرفقة."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "لا يمكن أن يحتوي اسم المنتج على أيٍ من الرموز التالية \\ / : * ? â?? ; | مع رموز فارغة. لا يمكن أن يزيد طول هذا الاسم عن 15 رمزًا."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Western Europe"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "لقد قمت بنجاح بإعداد جهازك لاستخدام الشبكة المحلية."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "الإنترنت"
+
+msgid "HDD"
+msgstr "HDD"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "إغلاق"
+
+msgid "HDMI settings"
+msgstr "إعدادات HDMI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "موازنة مع التشويه"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "لا يمكن أن يحتوي اسم المنتج على أيٍ من الرموز التالية \\ / : * ? ¡§ ; | بالإضافة إلى رموز فارغة. لا يمكن أن يتجاوز طول هذا الاسم 15 رمزًا."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "تجميع المحتوى"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "أسمائي"
+
+msgid "My tags"
+msgstr "علاماتي"
+
+msgid "Owner profile"
+msgstr "ملف تعريف المالك"
+
+msgid "Play mode"
+msgstr "وضع التشغيل"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "فرز"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "ON"
+msgstr "تشغيل"
+
+msgid "OFF"
+msgstr "إيقاف التشغيل"
+
+msgid "NEXT"
+msgstr "التالي"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "المجلد"
+
+msgid "Album browser"
+msgstr "متصفح الألبوم"
+
+msgid "Add photo to album"
+msgstr "إضافة ألبوم صور"
+
+msgid "Select | Unselect item(s)"
+msgstr "تحديد | إلغاء تحديد عنصر/عناصر"
+
+msgid "Select album"
+msgstr "تحديد ألبوم"
+
+msgid "Processing"
+msgstr "جاري المعالجة"
+
+msgid "Select all"
+msgstr "تحديد الكل"
+
+msgid "Unselect all"
+msgstr "إلغاء تحديد الكل"
+
+msgid "Album name"
+msgstr "اسم الألبوم"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "هل تريد إضافة xxxx صورة/صور إلى الألبوم؟"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "هل تريد بالتأكيد إيقاف إضافة الملف/الملفات؟"
+
+msgid "Selected album has deleted."
+msgstr "تم مسح الألبوم المحدد."
+
+msgid "Selected photo has been removed from the album."
+msgstr "تم حذف الصورة المحددة من الألبوم."
+
+msgid "The album has been renamed."
+msgstr "تمت إعادة تسمية الألبوم."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "هل تريد بالتأكيد حذف الصور المحددة من الألبوم؟"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "هل تريد بالتأكيد مسح البوم المحدد؟nلن يتم مسح الصور من التخزين."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "اسم الألبوم مكرر. الرجاء تجربة اسم آخر."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "هل تريد بالتأكيد إعادة تسمية الألبوم؟"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "خطأ أثناء الكتابة. الرجاء مراجعة وحدة التخزين المحلية. فقد تكون ممتلئة أو للقراءة فقط."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "خطأ أثناء قراءة الملف المصدر، الرجاء مراجعة وحدة التخزين المحلية."
+
+msgid "File management"
+msgstr "إدارة الملفات"
+
+
+
+msgid "Select source"
+msgstr "تحديد مصدر"
+
+msgid "File(s)"
+msgstr "الملف/الملفات"
+
+msgid "Folder(s)"
+msgstr "المجلد/المجلدات"
+
+msgid "Yes to all"
+msgstr "نعم للكل"
+
+msgid "No to all"
+msgstr "ليس للكل"
+
+msgid "Copy, move or delete item(s)"
+msgstr "نسخ أو نقل أو مسح العنصر/العناصر"
+
+msgid "Remove photo"
+msgstr "حذف صورة"
+
+msgid "Rename or delete album"
+msgstr "إعادة تسمية الألبوم أو مسحه"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "لم يتم العثور على وحدة تخزين. الرجاء إدراج وحدة تخزين والتحديث مرةً أخرى."
+
+msgid "Would you like to overwrite it?"
+msgstr "هل تريد الكتابة فوقه؟"
+
+msgid "Do you want to copy the selected files?"
+msgstr "هل تريد نسخ الملفات المحددة؟"
+
+msgid "Do you want to move the selected files?"
+msgstr "هل تريد نقل الملفات المحددة؟"
+
+
+
+msgid "Chapter"
+msgstr "الفصل"
+
+msgid "Title and Edition"
+msgstr "العنوان والإصدار"
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "Operation not supported"
+msgstr "العملية غير مدعومة"
+
+msgid "File Date"
+msgstr "تاريخ الملف"
+
+msgid "Resolution"
+msgstr "الدقة"
+
+msgid "Turkish (Windows-1254)"
+msgstr "التركية (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "العبرية (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "إرسال"
+
+msgid "Check network status"
+msgstr "فحص حالة الشبكة"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "خطأ في نوع المفتاح!n إذا كان نوع المفتاح الخاص بك هو سداسي، فالرجاء التأكد أن قيمة المفتاح هي A~F, 0~9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "خطأ في طول المفتاح!n إذا كان نوع المفتاح هو ASCII، فيجب أن يكون الطول 5 أو 13 أو 16.!nإذا كان نوع المفتاح هو سداسي، فيجب أن يكون الطول هو 10 أو 26 أو 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "خطأ في طول المفتاح!n يجب أن يكون طول WPAPSK هو 8~64!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "خطأ في نوع المفتاح!n يجب أن يكون المفتاح WPAPSK ذي الطول 64 سداسيًا (A~F, 0~9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "عنوان IP غير صالح. الرجاء التحقق من عنوان IP والمحاولة مرةً أخرى."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "عنوان البريد الإلكتروني غير صالح. الرجاء التحقق من عنوان البريد الإلكتروني والمحاولة مرةً أخرى."
+
+msgid "Invalid character(s) in first name."
+msgstr "رمز غير صالح/رموز غير صالحة في الاسم الأول."
+
+msgid "Invalid character(s) in last name."
+msgstr "رمز غير صالح/رموز غير صالحة في الاسم الأخير."
+
+
+
+msgid "Hungarian"
+msgstr "المجرية"
+
+msgid "Serial number:"
+msgstr "الرقم التسلسلي:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "لإعادة التشغيل، اضغط على زر التشغيل الموجود بوحدة التحكم عن بعد."
+
+msgid "Creator"
+msgstr "المصدر"
+
+msgid "Web browser"
+msgstr "متصفح الويب"
+
+msgid "Add to contacts"
+msgstr "إضافة إلى جهات الاتصال"
+
+msgid "Recently upload"
+msgstr "المحملة مؤخرًا"
+
+msgid "Photo set"
+msgstr "مجموعة الصور"
+
+msgid "Friends"
+msgstr "الأصدقاء"
+
+msgid "There is no contact."
+msgstr "لا توجد جهة اتصال."
+
+msgid "There is no tag."
+msgstr "لا توجد علامة."
+
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "هل تريد بالتأكيد مسح هذه المحطة؟"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "هل تريد بالتأكيد إضافة هذه المحطة إلى الضبط المسبق؟"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "الاستماع إلى آلاف محطات راديو الإنترنت المجانية! تمتلك Live365 نشرات إذاعية من وRadio Disney وSantana وDavid Bynne وPat Metheny وPaul Oakenfold، بالإضافة إلى المحطات التي أنشأها محبو الموسيقى المشابهين لك! استعراض الأنواع الشائعة بسهولة، مثل الروك والهيب هوب والجاز ونيو إيدج. أو استكشاف الكنوز في بعض التصميمات الأقل انتشارًا، مثل gospel وcomedy وanime وHindi وtrip-hop و30s وglam وtribal وCeltic والمئات."
+
+msgid "Japan"
+msgstr "اليابان"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "هذا الملف غير متاح حاليًا. الرجاء المحاولة في وقت لاحق."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "هل تريد تقييم الفيديو؟ سجل الدخول الآن!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "هل تريد الإضافة إلى المفضلة؟ سجل الدخول الآن!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "اضغط على تشغيل/إيقاف مؤقت للعرض في شاشة كاملة"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "يتعذر الاتصال بموقع YouTube. حدث خطأ غير معروف في الشبكة. الرجاء التحقق من إعداد الشبكة والمحاولة مرةً أخرى."
+
+msgid "Poor"
+msgstr "رديء"
+
+msgid "Nothing special"
+msgstr "لا يوجد شيء مميز"
+
+msgid "Worth watching"
+msgstr "يستحق المشاهدة"
+
+msgid "Pretty cool"
+msgstr "جذاب"
+
+msgid "Awesome"
+msgstr "مذهل"
+
+msgid "Show info"
+msgstr "عرض المعلومات"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "درجة حرارة الجهاز أعلى من 60 درجة، سيتم إيقاف تشغيل القرص الصلب."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "درجة حرارة الجهاز أعلى من 65 درجة، سيتم إيقاف تشغيل الجهاز."
+
+msgid "Configure"
+msgstr "تهيئة"
+
+msgid "Delete album"
+msgstr "مسح الألبوم"
+
+msgid "Rename album"
+msgstr "إعادة تسمية الألبوم"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "مسح قائمة التشغيل"
+
+msgid "Rename playlist"
+msgstr "إعادة تسمية قائمة التشغيل"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "لا توجد قائمة تشغيل. هل تريد إنشاء قائمة تشغيل جديدة؟"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "هل أنت متأكد من أنك تريد مسح قائمة التشغيل؟"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "هل أنت متأكد من أنك تريد مسح الملفات من قائمة التشغيل؟"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "هل تريد بالتأكيد إيقاف إضافة الملف/الملفات؟"
+
+msgid "The selected album has been deleted."
+msgstr "تم مسح الألبوم المحدد."
+
+msgid "The selected photo has been removed from album."
+msgstr "تم حذف الصورة المحددة من الألبوم."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "حدث خطأ أثناء قراءة الملف البعيد. الرجاء التحقق من خادم الوسائط أو حالة الشبكة."
+
+msgid "The selected music has been deleted."
+msgstr "تم مسح الموسيقى المحددة."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "هل تريد إضافة موسيقى xxxx إلى الألبوم؟"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "هل أنت متأكد من أنك تريد إيقاف إضافة الموسيقى؟"
+
+msgid "The playlist has been renamed."
+msgstr "تمت إعادة تسمية قائمة التشغيل."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "هل أنت متأكد من أنك تريد حذف الموسيقى المحددة من قائمة التشغيل؟"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "هل أنت متأكد من أنك تريد مسح قائمة التشغيل المحددة؟\\nلن يتم مسح الموسيقى من وحدة التخزين."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "اسم قائمة التشغيل مكرر. الرجاء تجربة اسم آخر."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "هل أنت متأكد من أنك تريد إعادة تسمية قائمة التشغيل؟"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "لم يتم العثور على وحدة تخزين وخادم وسائط. الرجاء إدراج وحدة تخزين أو التحقق من تهيئة الشبكة والتحديث مرةً أخرى."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "يحتوي المجلد بالفعل على ملف يحمل الاسم:هل تريد استبداله؟"
+
+msgid "Process completed."
+msgstr "اكتملت العملية."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "لا يمكن أن يحتوي اسم المجلد على أيٍ مما يلي \\ / : * ? \" < > | "
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "لا يمكن أن يحتوي اسم الألبوم على مسافة أو أيٍ مما يلي \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nاسم الملف محدد على xx رمز"
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "لا يمكن أن يحتوي اسم قائمة التشغيل على مسافة أو أيٍ مما يلي \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nاسم الملف محدد على xx رمز."
+
+msgid "Select"
+msgstr "تحديد"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "ي تم تثبيت البرنامج عليه.  إذا لم توافق على هذه البنود، يجب أن تقوم على الفور بإعادة المنتج بالكامل داخل العبوة الأصلية إلى المكان الذي قمت بشرائه منه من أجل استرداد الشراء بالكامل خلال ثلاثين (30) يومًا من تاريخ الشراء الأصلي."
+
+msgid "MediaflyVideo"
+msgstr "فيديو"
+
+msgid "Accept"
+msgstr "قبول"
+
+msgid "Decline"
+msgstr "انخفاض"
+
+msgid "Rename or delete playlist"
+msgstr "إعادة تسمية أو حذف قائمة التشغيل"
+
+msgid "The playlist has been created."
+msgstr "تم إنشاء قائمة التشغيل."
+
+msgid "Select music"
+msgstr "اختيار الموسيقى"
+
+msgid "Select playlist"
+msgstr "حدد قائمة التشغيل"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "هل تريد إضافة الموسيقى الثلاثون الى قائمة الأغاني؟"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "هل تريد إضافة الصورة الثلاثون للألبوم؟"
+
+msgid "Remove music from playlist"
+msgstr "إزالة الموسيقى من قائمة التشغيل"
+
+msgid "Sort music"
+msgstr "نوع الموسيقى"
+
+msgid "Move up"
+msgstr "نقل ما يصل"
+
+msgid "Move down"
+msgstr "تحرك لأسفل"
+
+msgid "Are you sure to change the sort?"
+msgstr "هل أنت متأكد لتغيير نوع؟"
+
+msgid "Remove or sort playlist"
+msgstr "إزالة أو ترتيب قائمة التشغيل"
+
+msgid "Remove music"
+msgstr "إزالة الموسيقى"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "هل أنت متأكد أنك تريد إزالة الموسيقى المختارة من قائمة التشغيل؟"
+
+msgid "Photo album"
+msgstr "ألبوم الصور"
+
+msgid "The album has been created."
+msgstr "تم إنشاء الألبوم."
+
+msgid "Select photo"
+msgstr "حدد الصورة"
+
+msgid "Add to album"
+msgstr "أضف الى الألبوم"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "تعذر تحميل الفيديو.  فالتنسيق غير مدعوم."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "سيتيح لك تشغيل هذه الخاصية عرض الفيديو المتدفق بتنسيقات مدعومة. مع العلم أن بعض محتويات الفيديو المتدفق تكون غير مدعومة."
+
+msgid "Enable for Favorites"
+msgstr "التمكين مع 'المفضلة'"
+
+msgid "Enable for all websites"
+msgstr "التمكين مع جميع مواقع الويب"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites. To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "لتحسين أداء متصفح الويب، يتم تمكين مكون Flash الإضافي فقط مع مواقع الويب المدرجة في 'المفضلة'.  لتمكين المكون الإضافي مع جميع مواقع الويب، الرجاء الانتقال إلى 'الشبكة' في قائمة 'الإعدادات'."
+
+msgid "Photos"
+msgstr "الصور"
+msgid "Ok"
+msgstr "موافق"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Bookmarks"
+msgstr "العلامات"
+
+msgid "Add Bookmark"
+msgstr "إضافة علامة"
+
+msgid "Edit Bookmark"
+msgstr "تحرير علامة"
+
+msgid "Clear Bookmarks"
+msgstr "مسح العلامات"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "هل أنت متأكد من أنك تريد مسح العلامات؟"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "هل أنت متأكد من أنك تريد مسح هذه العلامة؟"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "لقد قدم الخادم [server-name] شهادةً صادرةً من هيئة غير موثوقة، هل تريد المتابعة على أية حال؟"
+
+msgid "[url] is not available."
+msgstr "إن [url] غير متوفر."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "نحن آسفون، لكن يبدو أن هناك مشكلة."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "تعذر تحميل صفحة الويب الموجودة على [url]."
+
+msgid "Here are a few things you may want to try:"
+msgstr "إليك بعض الأشياء التي قد ترغب في تجربتها:"
+
+msgid "Reload this web page later."
+msgstr "إعادة تحميل صفحة الويب هذه لاحقًا."
+
+msgid "Return to the previous web page."
+msgstr "العودة إلى صفحة الويب السابقة."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "هل أنت متأكد من أنك تريد مسح السجل؟"
+
+msgid "Clear History"
+msgstr "مسح السجل"
+
+msgid "History"
+msgstr "السجل"
+
+msgid "No Title"
+msgstr "لا يوجد عنوان"
+
+msgid "The history is empty."
+msgstr "السجل خالٍ."
+
+msgid "HTTP Authentication"
+msgstr "مصادقة HTTP"
+
+msgid "Authentication Required"
+msgstr "المصادقة مطلوبة"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "إن الخادم [server-hostname] الموجود على [url-name] يطلب اسم مستخدم وكلمة مرور."
+
+msgid "User Name:"
+msgstr "اسم المستخدم:"
+
+msgid "Password:"
+msgstr "كلمة المرور:"
+
+msgid "Pop-up Window"
+msgstr "نافذة منبثقة"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "هل تريد فتح نافذة منبثقة من [domain-name]؟"
+
+msgid "New Window"
+msgstr "نافذة جديدة"
+
+msgid "New URL [url] from [url]"
+msgstr "عنوان URL [url] من [url]"
+
+msgid "Same"
+msgstr "بالطريقة ذاتها"
+
+msgid "Insecure to Secure"
+msgstr "غير آمن إلى آمن"
+
+msgid "Secure to Insecure"
+msgstr "آمن إلى غير آمن"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "هل ترغب في أن يتم تنبيهك بهذه الرسالة مرة أخرى؟"
+
+msgid "Security Warning"
+msgstr "تحذير حماية"
+
+msgid "Started"
+msgstr "تم البدء"
+
+msgid "Loading"
+msgstr "جاري التحميل"
+
+msgid "Done"
+msgstr "تم"
+
+msgid "Title of the page."
+msgstr "عنوان الصفحة"
+
+msgid "Goto"
+msgstr "انتقال إلى"
+
+
+
+msgid "Forward"
+msgstr "للأمام"
+
+
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Cursor"
+msgstr "المؤشر"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "استخدام وحدة التحكم عن بعد في متصفح الويب"
+
+msgid "Exit web browser"
+msgstr "الخروج من متصفح الويب"
+
+msgid "Move cursor in web browser"
+msgstr "تحريك المؤشر في متصفح الويب"
+
+msgid "Click to select links in web browser"
+msgstr "انقر لتحديد روابط في متصفح الويب"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "مفتاح Alt عند استخدام لوحة مفاتيح متصفح الويب"
+
+msgid "Back to previous web page"
+msgstr "الرجوع إلى صفحة الويب السابقة"
+
+msgid "Display URL bar and web browser options"
+msgstr "عرض شريط URL وخيارات متصفح الويب"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "استخدم الزر Enter لإدخال عنوان URL أو إدخال نص"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "استخدم الزرين أعلى/أسفل للتنقل في صفحات الويب"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "مفتاح Symbol عند استخدام لوحة مفاتيح متصفح الويب"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Spacebar عند استخدام لوحة مفاتيح متصفح الويب"
+
+msgid "Show this information again?"
+msgstr "هل تريد عرض هذه المعلومات مرة أخرى؟"
+
+msgid "NO"
+msgstr "لا"
+
+msgid "YES"
+msgstr "نعم"
+
+msgid "Eject USB device"
+msgstr "إخراج الجهاز الناقل التسلسلي العام"
+
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "باستخدام الإصدار التجريبي من متصفح الويب، يمكنك عرض المحتوى الشائع من قائمة 'المفضلة'. كما يمكنك الانتقال إلى مواقع ويب أخرى، مع العلم أن محتوى الويب يكون متاحًا فقط من خلال مواقع الويب الموجودة في قائمة 'المفضلة'."
+
+msgid "Downloading update..."
+msgstr "تحميل التحديث..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "مكتبة الوسائط تحتاج إلى تمكين قبل استخدام وظيفة البحث."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "اتفاقية ترخيص IOMEGA"
+
+msgid "IF YOU DO NOT…"
+msgstr "إذا كنت لا..."
+
+msgid "Digital without HDMI audio"
+msgstr "رقمي بدون صوت HDMI"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "لقد تم استخدم X من بين Y عرض إيجار DivX"
+
+msgid "Continue?"
+msgstr "هل تريد المتابعة؟"
+
+msgid "Are you sure to stop copying file?"
+msgstr "هل تريد بالتأكيد إيقاف نسخ الملفات؟"
+
+msgid "Mediafly dashboard"
+msgstr "لوحة تحكم Mediafly"
+
+msgid "My channels"
+msgstr "قنواتي"
+
+msgid "Popular channels"
+msgstr "القنوات الشائعة"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "هل تريد بالتأكيد حذف هذا الحساب؟"
+
+msgid "Are you sure you want to add the show:"
+msgstr "هل تريد بالتأكيد إضافة العرض:"
+
+msgid "This episode"
+msgstr "هذا المقطع"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "لقد تمت إضافة هذا المقطع إلى القناة الخاصة بك. تتوفر خيارات إضافية على موقع Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "جميع المقاطع الموجودة في هذا العرض"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "لقد تمت إضافة هذا العرض إلى القناة الخاصة بك. تتوفر خيارات إضافية على موقع Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "ما الذي ترغب في إزالته؟"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "لقد تمت إزالة هذا المقطع من القناة الخاصة بك. تتوفر خيارات إضافية على موقع Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "لقد تمت إزالة هذا العرض من القناة الخاصة بك. تتوفر خيارات إضافية على موقع Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "هل ترغب في تقييم هذا العرض/المقطع؟"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "شكرًا لك. تتوفر خيارات إضافية على موقع Mediafly.com."
+
+msgid "View episodes"
+msgstr "عرض المقاطع"
+
+msgid "Add content source"
+msgstr "إضافة مصدر محتوى"
+
+msgid "Add via mcode"
+msgstr "إضافة بواسطة mcode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "أدخل mCode الخاص بمصدر المحتوى الوارد أدناه"
+
+msgid "an mCode is used to activate private content source"
+msgstr "يستخدم mCode لتنشيط مصدر محتوى خاص"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "لقد تمت إضافة مصدر محتوى إلى لوحة تحكم Mediafly الخاصة بك بنجاح."
+
+msgid "Invalid mCode, please try again."
+msgstr "mCode غير صالح، رجاء المحاولة مرة أخرى."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "إضافة مدينة"
+
+msgid "City management"
+msgstr "إدارة المدن"
+
+msgid "Search location"
+msgstr "البحث عن موقع"
+
+msgid "Change temperature unit"
+msgstr "تغيير وحدة درجة الحرارة"
+
+msgid "Please define your default city location."
+msgstr "رجاء تحديد موقع المدينة الافتراضي الخاص بك."
+
+msgid "Do you want to clear all city?"
+msgstr "هل تريد مسح جميع المدن؟"
+
+msgid "Do you want to delete selected city?"
+msgstr "هل تريد حذف المدينة المحددة؟"
+
+msgid "No result, please search again."
+msgstr "لا توجد نتائج، رجاء البحث مرة أخرى."
+
+msgid "Remove movie Info"
+msgstr "إزالة معلومات فيلم"
+
+msgid "Rescan Movie Info"
+msgstr "إعادة مسح معلومات فيلم"
+
+
+
+msgid "Manual search"
+msgstr "البحث اليدوي"
+
+
+
+msgid "Please wait..."
+msgstr "رجاء الانتظار..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "هل تريد بالتأكيد إزالة معلومات محتوى؟"
+
+msgid "Content info has been removed."
+msgstr "تمت إزالة معلومات محتوى."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "تم توفير المعلومات من قبل TMDb"
+
+msgid "No need"
+msgstr "غير ضروري"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "لم يتم العثور على معلومات محتوى من قاعدة البيانات المتوفرة عبر الإنترنت. رجاء تغيير مصطلح البحث والمحاولة مرة أخرى."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "تعذر حفظ معلومات فيلم. رجاء التحقق من اتصال الشبكة."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "تعذر حفظ معلومات فيلم. قد يكون التخزين ممتلئ أو للقراءة فقط."
+
+msgid "Add to playlist"
+msgstr "إضافة إلى قائمة التشغيل"
+
+msgid "Back"
+msgstr "ظهر"
+
+msgid "Connect"
+msgstr "توصيل"
+
+msgid "Create playlist"
+msgstr "إنشاء قائمة تشغيل"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS غير صالح. الرجاء التحقق من DNS والمحاولة مرةً أخرى."
+
+msgid "Do you want to delete the selected files?"
+msgstr "هل تريد مسح الملفات المحددة؟"
+
+msgid "Edit playlist"
+msgstr "تعديل قائمة التشغيل"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "العبارة غير صالحة. الرجاء التحقق من عنوان العبَّارة والمحاولة مرةً أخرى."
+
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+msgid "It should not be empty!"
+msgstr "يجب ألا يكون فارغًا!"
+
+msgid "No"
+msgstr "لا"
+
+msgid "Select destination"
+msgstr "تحديد وجهة"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "قناع الشبكة الفرعية غير صالح. الرجاء التحقق من قناع الشبكة الفرعية والمحاولة مرةً أخرى."
+
+msgid "The device has lost its connection with the media server."
+msgstr "فقد الجهاز الاتصال بخادم الوسائط."
+
+msgid "The selected music has been removed from playlist."
+msgstr "تم حذف الموسيقى المحددة من قائمة التشغيل."
+
+msgid "Yes"
+msgstr "نعم"
+
+msgid "Movies"
+msgstr "فيلم"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "اضغط على 'ENTER' لنشر المعلومات الخاصة بمقطع فيديو."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "الحصول على معلومات مقطع فيديو.\nرجاء الانتظار..."
+msgid "Delete all"
+msgstr "حذف الجميع"
+
+msgid "Wind velocity:"
+msgstr "سرعة الرياح"
+
+msgid "Humidity:"
+msgstr "رطوبة"
+
+msgid "High/Low"
+msgstr "عالية / منخفضة"
+
+msgid "Wind direction:"
+msgstr "اتجاه الرياح"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "ارصاد الملقم لا يستجيب. يرجى المحاولة مرة أخرى لاحقا."
+
+msgid "Movie info auto scan"
+msgstr "مسح الفيلم معلومات السيارات"
+
+msgid "Ignore"
+msgstr "تجاهل"
+
+msgid "Scan movie info"
+msgstr "تفحص معلومات الفيلم"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "لا يمكن أن يحتوي اسم مجموعة العمل على مسافة أو أيٍ مما يلي \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nاسم الملف محدد على xx رمز"
+

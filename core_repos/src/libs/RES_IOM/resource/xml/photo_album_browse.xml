@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/browse_bg.jpg">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="6" rows="3" lbmask="lrLR" loop_scroll="1" turbo_trigger="10" turbo_multi="10" disable="@@disable-browselist"/>
+    <linebreak/>
+    <include filename="./inc_optionmenu_ctrlgrp.xml"/>
+
+
+       <button valkey="OK"
+          focused_bg="image/common_btn_f.png"
+          normal_bg="image/common_btn_n.png" 
+          click_bg="image/common_btn_p.png"/>
+       <button valkey="CANCEL"
+          focused_bg="image/common_btn_f.png"
+          normal_bg="image/common_btn_n.png" 
+          click_bg="image/common_btn_p.png"/>
+
+       <button valkey="2CANCEL"
+          focused_bg="image/common_btn_f.png"
+          normal_bg="image/common_btn_n.png" 
+          click_bg="image/common_btn_p.png"/>
+
+       <button valkey="ALERT"
+          focused_bg="image/common_btn_f.png"
+          normal_bg="image/common_btn_n.png" 
+          click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  <include filename="./inc_optionmenu_widgets_photoalbum.xml"/>
+    <include filename="./info.xml"/>
+    <image image="@@page_title_icon" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio" bg="1"/>
+    <text text="@@headline" x="157" y="62" w="748" h="42" align="left" fontsize="40" textcolor="0x00aa10" bg="1"/>
+    <text text="@@title" x="157" y="109" w="748" h="28" align="left" fontsize="24" textcolor="0xffffff" bg="1"/>
+  <include filename="./inc_thumb_photoalbum.xml"/>
+
+<!-- inline messagebox BEGIN -->
+
+<image image="image/photoalbum/PM_05.png" disable="@@disable-MSGBOX" x="0" y="0" w="1280" h="720"/>
+<text text="@@text-MSGBOX" disable="@@disable-MSGBOX" x="307" y="258" w="667" h="66" align="hcenter" fontsize="26" textcolor="0xffffff" numlines="2"/>
+<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" disable="@@disable-MSGBOX" x="316" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+<imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" disable="@@disable-MSGBOX" x="657" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+
+<image image="image/photoalbum/PM_05.png" disable="@@disable-PROCESS" x="0" y="0" w="1280" h="720"/>
+<image image="@@img-PROCESS" disable="@@disable-PROCESS" x="394" y="211" w="511" h="171"/>
+<image image="image/filemanagement/progress_bg.png" disable="@@disable-PROCESS" x="394" y="382" w="493" h="12"/>
+<text text="@@text-PERCENT" x="607" y="415" w="64" h="22" fontsize="20" align="hcenter" textcolor="0xffffff" disable="@@disable-PROCESS"/>
+<imgbtn image="@@bg-2CANCEL" text="@@text-CANCEL" active="@@act-2CANCEL" disable="@@disable-2CANCEL" x="490" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+
+<image image="image/photoalbum/PM_05.png" disable="@@disable-ALERT" x="0" y="0" w="1280" h="720"/>
+<text text="@@text-ALERTMSG" disable="@@disable-ALERT" x="280" y="258" w="714" h="66" align="hcenter" fontsize="26" textcolor="0xffffff" numlines="2"/>
+<imgbtn image="@@bg-ALERT" text="@@text-ALERT" active="@@act-ALERT" disable="@@disable-ALERT" x="490" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+<!-- inline messagebox END -->
+
+
+<!-- Tips -->
+    <!-- We will set appropriate x_offset in run time -->
+    <wrapper  textcolor="0xffffffff" x="0" y="666" w="300" h="22" fontsize="22" speed="1" delay="2">
+    <text text="@@tips-0-txt" x_offset="@@tips-0-txt-xoffset" bg="1"/>
+    <text text="@@tips-1-txt" x_offset="@@tips-1-txt-xoffset" bg="1"/>
+    <text text="@@tips-2-txt" x_offset="@@tips-2-txt-xoffset" bg="1"/>
+    <text text="@@tips-3-txt" x_offset="@@tips-3-txt-xoffset" bg="1"/>
+    </wrapper>
+
+    <wrapper  textcolor="0xffffffff" x="0" y="658" w="46" h="33">
+    <image image="@@tips-0-ico" x_offset="@@tips-0-ico-xoffset" bg="1"/>
+    <image image="@@tips-1-ico" x_offset="@@tips-1-ico-xoffset" bg="1"/>
+    <image image="@@tips-2-ico" x_offset="@@tips-2-ico-xoffset" bg="1"/>
+    <image image="@@tips-3-ico" x_offset="@@tips-3-ico-xoffset" bg="1"/>
+    </wrapper>
+
+    <include filename="./inc_decoration.xml"/>
+
+</page>

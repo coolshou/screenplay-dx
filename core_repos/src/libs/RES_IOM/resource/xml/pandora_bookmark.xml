@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/pandora/pandora_bg.png" type="basic">
+	<ctrlgrp lbmask="l" more_select="right">
+		<button valkey="SONGNAME"
+			normal_bg="image/pandora/pandora_stations_list_n.png"	
+			focused_bg="image/pandora/pandora_stations_list_f.png"/>
+		<linebreak/>
+		<button valkey="ARTIST"
+			normal_bg="image/pandora/pandora_stations_list_n.png"
+			focused_bg="image/pandora/pandora_stations_list_f.png"/>
+		<linebreak/>
+	</ctrlgrp>
+
+	<text text="$$Bookmarking" x="95" y="79" w="1094" h="52" fontsize="48" textcolor="0xffffff"/>
+	<wrapper x="273"  w="737" h="50">
+		<imgbtn y="235" image="@@bg-SONGNAME"/>
+		<imgbtn y="296" image="@@bg-ARTIST"/>
+	</wrapper>
+
+	<wrapper x="296" w="686" h="24" textcolor="0x0" fontsize="24" align="left">
+		<text y="250" text="$$Bookmark This Song"  active="@@act-SONGNAME"/>
+		<text y="311" text="$$Bookmark This Artist" active="@@act-ARTIST"/>
+	</wrapper>
+	<include filename="./inc_pandora_loading.xml" />
+    <include filename="./inc_decoration_online.xml"/>
+</page>

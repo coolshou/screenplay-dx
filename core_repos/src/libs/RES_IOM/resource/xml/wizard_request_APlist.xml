@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp>
+    <button valkey="SEARCH_AP_MANUAL"
+      focused_bg="image/common_button_B_btn_f.png"
+      normal_bg="image/common_button_B_btn_n.png"
+      click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+
+  <text id="subheadline" text="$$Wireless network"/>
+  <image id="step" image="image/wizard_step_2_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$Searching for Wireless Networks" x="100"  y="200" w="520" h="30" fontsize="26" align="hcenter"  textcolor="0xEDC831"/>
+  
+  <motion_icon x="231" y="268" w="258" h="101" count="7" base_filename="image/wizard_wireless_progress_n" suffix_name="png"/>  
+
+  <imgbtn x="223" y="398" w="275" h="36" image="@@bg-SEARCH_AP_MANUAL" text="$$Manual Setup" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-SEARCH_AP_MANUAL" actnoseltextcolor="0x3333333"/>
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

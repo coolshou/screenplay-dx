@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<wrapper>
+  <image image="image/pop_options_bg.png" x="86" y="0" w="560" h="72" bg="1" disable="@@disable-options_bg"/>
+  <table x="271" y="20" h="46" w="178" cols="3" rowspacing="11" align="hcenter" disable="@@disable-options_av">
+    <image image="@@bg-OPTIONS_AUDIO"/>
+    <image image="@@bg-OPTIONS_PHOTO"/>
+    <image image="@@bg-OPTIONS_VIDEO"/>
+  </table>
+  <table x="271" y="20" h="46" w="178" cols="1" rowspacing="11" align="hcenter" disable="@@disable-options_mymedia">
+    <image image="@@bg-OPTIONS_MY_MEDIA"/>
+  </table>
+</wrapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg" type="basic">
+  <ctrlgrp lbmask="lrud">
+    <button valkey="CANCEL"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png"/>
+    <button valkey="NEXT"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png"/>
+ </ctrlgrp>
+
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <text text="$$Are you sure you want to restore this device to factory settings?" x="401" y="254" w="478" h="87" fontsize="26" numlines="3" align="hcenter" textcolor="0xffffff"/>
+
+  <imgbtn x="313" y="390" w="343" h="78" image="@@bg-CANCEL" text="$$Cancel" align="hcenter" fontsize="26" textcolor="0xffffff"  active="@@act-CANCEL" actnoseltextcolor="0xf0f0f0"/>
+  <imgbtn x="640" y="390" w="343" h="78" image="@@bg-NEXT" text="$$OK" align="hcenter" fontsize="26" textcolor="0xffffff"  active="@@act-NEXT" actnoseltextcolor="0xf0f0f0"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

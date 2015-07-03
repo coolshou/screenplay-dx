@@ -1,0 +1,462 @@
+--- drivers/char/irkernel.c	2010-12-13 00:07:45.000000000 -0800
++++ irkernel.c	2010-12-13 00:08:09.000000000 -0800
+@@ -27,6 +27,8 @@
+ #include <asm/tango3/ir.h>
+ #endif
+ 
++#define CONFIG_IR_MOUSE
++
+ /* For all SMP86xx, it's always there */
+ #if defined(CONFIG_TANGO2_SMP863X) || defined(CONFIG_TANGO3_SMP86XX)
+ #define WITH_RC5_CONTROL
+@@ -159,6 +161,88 @@
+ 	owner: THIS_MODULE,
+ };
+ 
++#ifdef CONFIG_IR_MOUSE
++
++#define IR_MOUSE_IOC_MAGIC           'M'
++#define IR_MOUSE_IOCSETDIRECTIONKEY _IO(IR_MOUSE_IOC_MAGIC, 0)
++#define IR_MOUSE_DEV_NAME		"irm"
++#define IR_MOUSE_DEV_MAJOR      0
++#define IR_MOUSE_MAX_BUFFSIZE   (10)
++#define IR_MOUSE_MAX_DIRECTIONS (16)
++
++#define IR_MOUSE_WAIT_PERIOD    (10)
++
++static int ir_mouse_hook_up = 0;
++static int ir_mouse_major_num = IR_MOUSE_DEV_MAJOR;
++
++/* Wait queue, may be used if block mode is on */
++static DECLARE_WAIT_QUEUE_HEAD(ir_mouse_wq);
++
++/* Private data structure */
++struct ir_mouse_delta_position {
++	int x;
++	int y;
++};
++
++struct ir_mouse_private {
++	struct ir_mouse_delta_position *buffer;		/* Circular buffer */
++	unsigned long *key_table;	/* Table for valid direction keys */
++	unsigned p_idx;			/* Index of producer */
++	unsigned c_idx; 		/* Index of consumer */
++	unsigned ref_cnt;		/* Reference count */
++	spinlock_t lock;		/* Spin lock */
++	unsigned char b_mode;		/* Blocking mode or not */
++	unsigned long last_jiffies;	/* Timestamp for last reception */
++	unsigned int num_keys;		/* Number of keys in the table */
++	struct	timer_list	send_position_timer;
++	struct	timer_list	release_timer;
++	int	key_released;
++	int key_index;
++};
++
++/* Some prototypes */
++static int ir_mouse_open(struct inode *, struct file *);
++static int ir_mouse_release(struct inode *, struct file *);
++static int ir_mouse_read(struct file *, char *, size_t, loff_t *);
++static long ir_mouse_unlocked_ioctl(struct file *, unsigned int, unsigned long);
++static unsigned int ir_mouse_poll(struct file *, struct poll_table_struct *);
++
++/* Global data */
++#if 0
++static struct class *ir_mouse_class;
++#endif
++static struct ir_mouse_private ir_mouse_priv;
++static char *ir_mouse_devname = IR_MOUSE_DEV_NAME;
++static struct cdev ir_mouse_cdev;
++static struct file_operations ir_mouse_fops = {
++	open: ir_mouse_open,
++	read: ir_mouse_read,
++	unlocked_ioctl: ir_mouse_unlocked_ioctl,
++	poll: ir_mouse_poll,
++	release: ir_mouse_release,
++	owner: THIS_MODULE,
++};
++static struct ir_mouse_delta_position ir_mouse_delta_pos[IR_MOUSE_MAX_DIRECTIONS] = {
++	{0,-1}, {1,0}, {0,1}, {-1,0},
++	{1,-1}, {1,1}, {-1,1}, {-1,-1},
++	{1,-1}, {1,-1}, {1,1}, {1,1},   
++	{-1,1}, {-1,1}, {-1,-1}, {-1,-1}   
++};
++
++static int ir_mouse_findkey(struct ir_mouse_private *priv, unsigned long key)
++{
++	register unsigned int i;
++	unsigned long *ptr = priv->key_table;
++
++	for (i = 0; i < priv->num_keys; i++, ptr++)
++		if (key == *ptr)
++			return(i);
++
++	return(-1);
++}
++
++#endif /* CONFIG_IR_MOUSE */
++
+ #ifdef CONFIG_IR_HOLD_KEY
+ /* Check to see if we can find the key in the hold key table */
+ static unsigned long ir_get_hold_key(struct ir_private *priv, unsigned long key)
+@@ -206,6 +290,9 @@
+ #ifdef WITH_RC6_CONTROL
+ 	static unsigned long save_rc6_key[RC6_DWORDS];	/* Only used for RC6 */
+ #endif
++#ifdef CONFIG_IR_MOUSE
++	int key_index = -1;
++#endif /* CONFIG_IR_MOUSE */
+ 
+ 	spin_lock(&priv->lock);
+ 
+@@ -403,7 +490,30 @@
+ 	if (priv->c_idx == pidx)
+ 		wake_up_interruptible(&ir_wq);
+ 
++#ifdef CONFIG_IR_MOUSE
++	if(ir_mouse_hook_up) {
++
++		key_index = ir_mouse_findkey(&ir_mouse_priv, data);
++
++		if(key_index >= 0)
++			ir_mouse_priv.key_released = 0;
++
++		if(!repeat_key && (key_index >= 0)) {
++			if(ir_mouse_priv.last_jiffies == 0)
++				ir_mouse_priv.last_jiffies = jiffies;
++
++			ir_mouse_priv.key_index = key_index;
++			mod_timer( &ir_mouse_priv.send_position_timer, jiffies + 1 );
++		}
++	}
++#endif /* CONFIG_IR_MOUSE */
++
+ out:
++#ifdef CONFIG_IR_MOUSE
++	if (ir_mouse_hook_up && !ir_mouse_priv.key_released)
++		mod_timer( &ir_mouse_priv.release_timer, jiffies + 20 );
++#endif /* CONFIG_IR_MOUSE */
++
+ 	spin_unlock(&priv->lock);
+ }
+ 
+@@ -713,6 +823,220 @@
+ 	return(0);
+ }
+ 
++#ifdef CONFIG_IR_MOUSE
++static int ir_mouse_open(struct inode *inode_ptr, struct file *fptr) 
++{
++	/* This device is exclusive, that is, only one process can use it */
++	if (ir_mouse_priv.ref_cnt != 0) {
++		printk(KERN_WARNING "%s: exclusive access only\n", ir_mouse_devname);
++		return(-EIO);
++	/* This device is read-only */
++	} else if ((fptr->f_flags & O_ACCMODE) != O_RDONLY) {
++		printk(KERN_WARNING "%s: read-only device\n", ir_mouse_devname);
++		return(-EIO);
++	} 
++
++	/* Set the block mode and increase reference count */
++	ir_mouse_priv.ref_cnt++;
++	ir_mouse_priv.b_mode = ((fptr->f_flags & O_NONBLOCK) ? 0 : 1);
++	ir_mouse_priv.last_jiffies = jiffies;
++
++	/* Flush the buffer */
++	ir_mouse_priv.p_idx = ir_mouse_priv.c_idx = 0;
++
++	fptr->f_op = &ir_mouse_fops;
++	fptr->private_data = (void *)&ir_mouse_priv;
++
++	return 0;
++}
++
++static int ir_mouse_release(struct inode *inode_ptr, struct file *fptr)
++{
++	/* Adjust reference count */
++	ir_mouse_priv.ref_cnt--;
++
++	return 0;
++}
++
++static int ir_mouse_consume(void *dev_id, struct ir_mouse_delta_position *buf, int count)
++{
++	struct ir_mouse_private *priv = (struct ir_mouse_private *)dev_id;
++	int cnt = 0;
++	unsigned long flags;
++
++	/* If block mode is on, check the emptiness of buffer */
++	if (priv->b_mode != 0) {
++		/* Sleep when buffer is empty */
++		wait_event_interruptible(ir_mouse_wq, priv->c_idx != priv->p_idx);
++	}
++	if (signal_pending(current) || (priv->c_idx == priv->p_idx))
++		return(cnt);
++
++	spin_lock_irqsave(&priv->lock, flags);
++
++	/* Get the data out and adjust consumer index */
++	for (cnt = 0; (priv->c_idx != priv->p_idx) && (cnt < count); cnt++) {
++		*buf = priv->buffer[priv->c_idx]; /* ? */
++		priv->c_idx = (priv->c_idx + 1) % IR_MOUSE_MAX_BUFFSIZE;
++		buf++;
++	}
++
++	spin_unlock_irqrestore(&priv->lock, flags);
++
++	return(cnt);
++}
++
++static int ir_mouse_read(struct file *fptr, char *bufptr, size_t size, loff_t *fp)
++{
++	struct ir_mouse_delta_position buf[IR_MOUSE_MAX_BUFFSIZE];
++	int count;
++
++	/* Check the alignment */
++	if (size % sizeof(struct ir_mouse_delta_position)) {
++		printk(KERN_WARNING "%s: read size not aligned to %d\n",
++			ir_mouse_devname, sizeof(struct ir_mouse_delta_position));
++		return(-EIO);
++	}
++
++	count = ir_mouse_consume(fptr->private_data, &buf[0], 
++			size / sizeof(struct ir_mouse_delta_position)) * sizeof(struct ir_mouse_delta_position);
++
++	/* Get the data to user */
++	if (count && copy_to_user(bufptr, (char *)&buf[0], count)) 
++		return(-EFAULT);
++
++	return(count);
++}
++
++static long ir_mouse_unlocked_ioctl(struct file *fptr, unsigned int cmd, unsigned long arg)
++{
++	unsigned long *ptr = (unsigned long *)arg;
++	unsigned long key_no = 0;
++	struct ir_mouse_private *priv = (struct ir_mouse_private *)fptr->private_data;
++	unsigned long flags;
++
++	if (ptr == NULL)
++		return(-EIO);
++
++	spin_lock_irqsave(&priv->lock, flags);
++
++	switch(cmd) {
++		case IR_MOUSE_IOCSETDIRECTIONKEY: /* Set the direction keys */
++			if (copy_from_user(&key_no, ptr, sizeof(unsigned long))) {
++				goto efault_out;
++			}
++			else if ((key_no <= 0) || (key_no > IR_MOUSE_MAX_DIRECTIONS)) {
++				goto einval_out;
++			}
++			else if (copy_from_user(priv->key_table, ptr + 1, sizeof(unsigned long) * key_no)) {
++				goto efault_out;
++			}
++			priv->num_keys = key_no;
++			break;
++		default:
++			goto einval_out;
++			break;
++	}
++
++	spin_unlock_irqrestore(&priv->lock, flags);
++	return(0);
++
++einval_out:
++	spin_unlock_irqrestore(&priv->lock, flags);
++	return(-EINVAL);
++
++efault_out:
++	spin_unlock_irqrestore(&priv->lock, flags);
++	return(-EFAULT);
++	return 0;
++}
++
++static unsigned int ir_mouse_poll(struct file *fptr, struct poll_table_struct *ptable)
++{
++	struct ir_mouse_private *priv = (struct ir_mouse_private *)fptr->private_data;
++	unsigned int mask = 0;
++	unsigned long flags;
++
++	poll_wait(fptr, &ir_mouse_wq, ptable);
++
++	spin_lock_irqsave(&priv->lock, flags);
++	if (priv->c_idx != priv->p_idx)
++		mask |= (POLLIN | POLLRDNORM);
++	spin_unlock_irqrestore(&priv->lock, flags);
++
++	return(mask);
++}
++
++static void ir_mouse_produce(struct ir_mouse_private *priv, unsigned int keys, unsigned int weight)
++{
++	int i;
++	struct ir_mouse_delta_position delta_position;
++
++	spin_lock(&priv->lock);
++
++	if((priv->key_index < 0) || (priv->key_index >= IR_MOUSE_MAX_DIRECTIONS))
++		goto error_out;
++
++	if(weight > 1) {
++		delta_position.x = ir_mouse_delta_pos[priv->key_index].x * weight;
++		delta_position.y = ir_mouse_delta_pos[priv->key_index].y * weight;
++	} else {
++		delta_position = ir_mouse_delta_pos[priv->key_index];
++	} 
++
++	for(i=0; i < keys; i++) { 
++		/* Save it to buffer */
++		if (((priv->p_idx + 1) % IR_MOUSE_MAX_BUFFSIZE) == priv->c_idx) {
++			/* Adjust consumer index since buffer is full */
++			/* Keep the latest one and drop the oldest one */
++			priv->c_idx = (priv->c_idx + 1) % IR_MOUSE_MAX_BUFFSIZE;
++
++			printk(KERN_WARNING "%s: buffer full\n", ir_mouse_devname);
++		}
++
++		priv->buffer[priv->p_idx] = delta_position;
++		priv->p_idx = (priv->p_idx + 1) % IR_MOUSE_MAX_BUFFSIZE;
++	}
++
++	wake_up_interruptible(&ir_mouse_wq);
++
++error_out:
++	spin_unlock(&priv->lock);
++}
++
++static	void	ir_mouse_send_position_func( unsigned long arg )
++{
++	if(!ir_mouse_priv.key_released) {
++		if (time_before(ir_mouse_priv.last_jiffies + (IR_MOUSE_WAIT_PERIOD * 32), jiffies)) {
++			ir_mouse_produce(&ir_mouse_priv, 6, 1);
++		} else if (time_before(ir_mouse_priv.last_jiffies + (IR_MOUSE_WAIT_PERIOD * 16), jiffies)) {
++			ir_mouse_produce(&ir_mouse_priv, 5, 1);
++		} else if (time_before(ir_mouse_priv.last_jiffies + (IR_MOUSE_WAIT_PERIOD * 8), jiffies)) {
++			ir_mouse_produce(&ir_mouse_priv, 4, 1);
++		} else if (time_before(ir_mouse_priv.last_jiffies + (IR_MOUSE_WAIT_PERIOD * 4), jiffies)) {
++			ir_mouse_produce(&ir_mouse_priv, 3, 1);
++		} else if (time_before(ir_mouse_priv.last_jiffies + (IR_MOUSE_WAIT_PERIOD * 2), jiffies)) {
++			ir_mouse_produce(&ir_mouse_priv, 2, 1);
++		} else {
++			ir_mouse_produce(&ir_mouse_priv, 1, 1);
++		}
++
++		mod_timer( &ir_mouse_priv.send_position_timer, jiffies + 2);
++	} else {
++		ir_mouse_priv.last_jiffies = 0;
++		printk( KERN_ERR "send position timer finish\n" );
++	}
++}
++	
++static	void	ir_mouse_key_released_func( unsigned long arg )
++{
++	spin_lock(&ir_priv.lock);
++	printk( KERN_ERR "key released\n" );
++	ir_mouse_priv.key_released = 1;
++	spin_unlock(&ir_priv.lock);
++}	
++#endif /* CONFIG_IR_MOUSE */
++
+ int __init ir_init_module(void)
+ {
+ 	int status = 0;
+@@ -837,6 +1161,73 @@
+ 		return(-EIO);
+ 	}
+ 
++#ifdef CONFIG_IR_MOUSE
++	if ((ir_mouse_priv.buffer = kmalloc(IR_MOUSE_MAX_BUFFSIZE * sizeof(struct ir_mouse_delta_position), GFP_KERNEL)) == NULL) {
++		printk(KERN_ERR "%s: out of memory for buffer\n", ir_mouse_devname); 
++		goto ir_mouse_out;
++	} else if ((ir_mouse_priv.key_table = kmalloc(IR_MOUSE_MAX_DIRECTIONS * sizeof(unsigned long), GFP_KERNEL)) == NULL) {
++		printk(KERN_ERR "%s: out of memory for key table\n", ir_mouse_devname); 
++		kfree(ir_mouse_priv.buffer);
++		goto ir_mouse_out;
++	}	
++
++	ir_mouse_priv.key_released = 1;
++	init_timer( &ir_mouse_priv.send_position_timer );
++	ir_mouse_priv.send_position_timer.function = ir_mouse_send_position_func;
++	init_timer( &ir_mouse_priv.release_timer );
++	ir_mouse_priv.release_timer.function = ir_mouse_key_released_func;
++ 
++	/* Register device, and may be allocating major# */
++	if (ir_mouse_major_num) {
++		devid = MKDEV(ir_mouse_major_num, 0);
++		status = register_chrdev_region(devid, 1, "irm");
++	} else {
++		status = alloc_chrdev_region(&devid, 0, 1, "irm");
++		ir_mouse_major_num = MAJOR(devid);
++	}
++	if (status < 0) {
++		printk(KERN_ERR "%s: cannot get chrdev_region\n", ir_mouse_devname);
++		kfree(ir_mouse_priv.buffer);
++		kfree(ir_mouse_priv.key_table);
++	} else {
++		cdev_init(&ir_mouse_cdev, &ir_mouse_fops);
++		ir_mouse_cdev.owner = THIS_MODULE;
++		ir_mouse_cdev.ops = &ir_mouse_fops;
++		if ((status = cdev_add(&ir_mouse_cdev, devid, 1)) < 0) {
++			printk(KERN_ERR "%s: cannot get major number\n", ir_mouse_devname); 
++			unregister_chrdev_region(MKDEV(ir_mouse_major_num, 0), 1);
++			kfree(ir_mouse_priv.buffer);
++			kfree(ir_mouse_priv.key_table);
++		} else {
++#if 0
++			if ((ir_mouse_class = class_create(THIS_MODULE, "ir_mouse_device")) < 0) {
++				printk(KERN_ERR "%s: error creating ir_mouse_device class.\n", ir_mouse_devname);
++				cdev_del(&ir_mouse_cdev);
++				unregister_chrdev_region(MKDEV(ir_mouse_major_num, 0), 1);
++				kfree(ir_mouse_priv.buffer);
++				kfree(ir_mouse_priv.key_table);
++			} else {
++				if (device_create(ir_mouse_class, NULL, MKDEV(ir_mouse_major_num, 0), "irm") == NULL) {
++					printk(KERN_ERR "%s: error creating ir_mouse_device.\n", ir_mouse_devname);
++					class_destroy(ir_mouse_class);
++					cdev_del(&ir_mouse_cdev);
++					unregister_chrdev_region(MKDEV(ir_mouse_major_num, 0), 1);
++					kfree(ir_mouse_priv.buffer);
++					kfree(ir_mouse_priv.key_table);
++				} else {
++					ir_mouse_hook_up = 1;
++					printk(KERN_INFO "SMP86xx %s (%d:0): driver loaded\n", ir_mouse_devname, ir_mouse_major_num);
++				}
++			}
++#else
++			ir_mouse_hook_up = 1;
++			printk(KERN_INFO "SMP86xx %s (%d:0): driver loaded\n", ir_mouse_devname, ir_mouse_major_num);
++#endif
++		}
++	}
++ir_mouse_out:
++#endif /* CONFIG_IR_MOUSE */
++
+ 	printk(KERN_INFO "SMP86xx %s (%d:0): driver loaded (wait_period = %dms, "
+ 		"buffer_size = %d)\n", ir_devname, major_num, wait_period, buffer_size);
+ 	return(0);
+@@ -848,6 +1239,25 @@
+ 	if (tangox_ir_enabled() == 0)
+ 		return;
+ 
++#ifdef CONFIG_IR_MOUSE
++	if(ir_mouse_hook_up) {
++#if 0
++		device_destroy(ir_mouse_class, MKDEV(ir_mouse_major_num, 0));
++		class_destroy(ir_mouse_class);
++#endif
++		cdev_del(&ir_mouse_cdev);
++		unregister_chrdev_region(MKDEV(ir_mouse_major_num, 0), 1);
++		if (ir_mouse_priv.buffer != NULL)
++			kfree(ir_mouse_priv.buffer);
++		if (ir_mouse_priv.key_table != NULL)
++			kfree(ir_mouse_priv.key_table);
++
++		ir_mouse_hook_up = 0;
++		
++		printk(KERN_INFO "%s: driver unloaded\n", ir_mouse_devname);
++	}
++#endif /* CONFIG_IR_MOUSE */
++
+ 	free_irq(ir_irq, &ir_priv);
+ #if 0	
+ 	device_destroy(ir_class, MKDEV(major_num, 0));

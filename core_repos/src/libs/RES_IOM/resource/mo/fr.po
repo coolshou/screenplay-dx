@@ -1,0 +1,4407 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-07-10 16:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Sélectionnez la langue"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Bienvenue dans le lecteur multimédia Iomega ScreenPlay"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Cet assistant vous guidera lors de la connexion du périphérique au réseau domestique. Une fois le périphérique connecté, vous pouvez également l'utiliser pour accéder aux fichiers multimédia stockés sur les autres disques réseau et pour les lire."
+
+msgid "Select Next to continue."
+msgstr "Cliquez sur Suivant pour continuer."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "Lorsque le mode de démarrage rapide est activé, le périphérique consomme davantage d'énergie, mais reste disponible sur le réseau et le temps de démarrage est plus court."
+
+msgid "Select your TV type"
+msgstr "Sélectionnez le type de votre téléviseur"
+
+msgid "Select your connection"
+msgstr "Sélectionnez votre connexion"
+
+msgid "Skip"
+msgstr "Ignorer"
+
+msgid "Do you want to skip?"
+msgstr "Voulez vous vraiment ignorer ?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "IP statique"
+
+msgid "IP address"
+msgstr "Adresse IP"
+
+msgid "Netmask"
+msgstr "Masque réseau"
+
+msgid "Gateway"
+msgstr "Passerelle"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "La configuration est terminée"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Assistant"
+
+msgid "You have successfully completed device configuration"
+msgstr "Vous avez terminé la configuration du périphérique."
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Later"
+msgstr "Plus tard"
+
+msgid "Movie"
+msgstr "Film"
+
+msgid "Music"
+msgstr "Musique"
+
+msgid "Photo"
+msgstr "Photos"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Online media"
+msgstr "Les médias en ligne"
+
+msgid "Folders"
+msgstr "Dossiers"
+
+msgid "Recent"
+msgstr "Récents"
+
+msgid "Local storage"
+msgstr "Stockage local"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Serveur multimédia"
+
+msgid "Shared folder"
+msgstr "Dossier partagé"
+
+msgid "All Movies"
+msgstr "Tous les films"
+
+msgid "All Music"
+msgstr "Tous les fichiers de musique"
+
+msgid "Playlist"
+msgstr "Liste de lecture"
+
+msgid "Artist"
+msgstr "Artiste"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Now Playing"
+msgstr "Lecture en cours"
+
+msgid "All Photos"
+msgstr "Toutes les photos"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Albums"
+msgstr "Albums"
+
+msgid "Preview mode"
+msgstr "Aperçu"
+
+msgid "List mode"
+msgstr "Liste"
+
+msgid "Thumbnail mode"
+msgstr "Vue miniature"
+
+msgid "This folder is empty or unavailable."
+msgstr "Ce dossier est vide ou n'est pas disponible."
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Create"
+msgstr "Créer"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Rename"
+msgstr "Renommer"
+
+msgid "Clear"
+msgstr "Effacer"
+
+msgid "Move"
+msgstr "Déplacer"
+
+msgid "Save"
+msgstr "Enregistrer"
+
+msgid "Create album"
+msgstr "Créer un album"
+
+msgid "Edit album"
+msgstr "Modifier l'album"
+
+msgid "Add to list"
+msgstr "Ajouter à la liste"
+
+msgid "Remove from list"
+msgstr "Retirer de la liste"
+
+msgid "Move focus"
+msgstr "Déplacer le curseur"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Il n'y a aucun album. Voulez-vous en créer un nouveau ?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Voulez-vous vraiment supprimer cet album ?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Voulez-vous vraiment effacer les fichiers de la liste ?"
+
+msgid "This folder is empty"
+msgstr "Ce dossier est vide"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Nom d'utilisateur ou mot de passe erroné"
+
+msgid "This media server cannot be accessed"
+msgstr "Impossible d'accéder à ce serveur multimédia"
+
+msgid "No server found"
+msgstr "Aucun serveur n'a été trouvé"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Voulez-vous vraiment supprimer ce fichier ?"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Repeat one"
+msgstr "Répéter la piste en cours"
+
+msgid "Repeat all"
+msgstr "Tout répéter"
+
+msgid "Repeat all and shuffle"
+msgstr "Tout répéter - Aléatoire"
+
+msgid "Shuffle"
+msgstr "Aléatoire"
+
+msgid "Pan"
+msgstr "Panoramique"
+
+msgid "Rotate right"
+msgstr "Faire pivoter vers la droite"
+
+msgid "Rotate left"
+msgstr "Faire pivoter vers la gauche"
+
+msgid "Zoom in"
+msgstr "Zoom avant"
+
+msgid "Zoom out"
+msgstr "Zoom arrière"
+
+msgid "Repeat"
+msgstr "Répéter"
+
+msgid "Info bar"
+msgstr "Barre d'informations"
+
+msgid "Audio"
+msgstr "Audio"
+
+msgid "Audio channel"
+msgstr "Canal audio"
+
+msgid "No audio channel"
+msgstr "Aucun canal audio"
+
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+msgid "Subtitle off"
+msgstr "Désactiver les sous-titres"
+
+msgid "No subtitle"
+msgstr "Aucun sous-titre"
+
+msgid "Unsupported subtitle"
+msgstr "Sous-titres non pris en charge"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Sélectionnez [OK] pour reprendre la lecture ou [Annuler] pour redémarrer la vidéo"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Impossible de lire le fichier sélectionné. Consultez le guide de l’utilisateur pour obtenir des informations sur les formats de fichiers pris en charge."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Le fichier vidéo que vous essayez de lire comporte plusieurs sorties de canaux audio non pris en charge. Passez à la sortie audio numérique et connectez votre lecteur multimédia HD à un récepteur AV prenant en charge le codec audio."
+
+msgid "No chapter"
+msgstr "Aucun chapitre"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Impossible de lire ce menu vidéo. Voulez-vous lire le fichier vidéo ?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Voulez-vous continuer la lecture ou recommencer depuis le début ?"
+
+msgid "Next Song:"
+msgstr "Chanson suivante :"
+
+msgid "Current Song"
+msgstr "Chanson en cours de lecture :"
+
+msgid "File Type"
+msgstr "Type de fichier :"
+
+msgid "Duration:"
+msgstr "Durée :"
+
+msgid "File Size"
+msgstr "Taille de fichier :"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "La location DivX a été utilisée X fois sur Y. Voulez-vous continuer à regarder cette vidéo ?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Votre périphérique n'a pas la permission de lire cette vidéo DivX protégée."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "La location DivX a été utilisée X fois sur Y. La location de DivX a expiré."
+
+msgid "Unsupported DivX DRM version."
+msgstr "Cette version de DivX DRM n'est pas prise en charge."
+
+msgid "Video resolution is not supported."
+msgstr "Cette résolution vidéo n'est pas prise en charge."
+
+msgid "Video frame rate is not supported."
+msgstr "Cette fréquence de trames vidéo n'est pas prise en charge."
+
+msgid "Audio format is not supported."
+msgstr "Ce format audio n'est pas pris en charge."
+
+msgid "Audio/Video"
+msgstr "Audio/Vidéo"
+
+msgid "Playback"
+msgstr "Lecture"
+
+msgid "System"
+msgstr "Système"
+
+msgid "Network"
+msgstr "Réseau"
+
+msgid "Shut down"
+msgstr "Arrêter"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Configurer les périmètres de sortie audio et vidéo du périphérique"
+
+msgid "Configure playback settings"
+msgstr "Configurer les paramètres de lecture"
+
+msgid "Configure basic settings of system"
+msgstr "Configurer les paramètres de base du système"
+
+msgid "Configure network settings"
+msgstr "Configurer les paramètres du réseau"
+
+msgid "Video output"
+msgstr "Sortie vidéo"
+
+msgid "Configure video output of system"
+msgstr "Configurer la sortie audio du système"
+
+msgid "Composite"
+msgstr "Composite"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "Configurer le signal NTSC ou PAL"
+
+msgid "Component"
+msgstr "Composant"
+
+msgid "Configure display resolution of Component"
+msgstr "Configurer la résolution de l'affichage du composant"
+
+msgid "Color space"
+msgstr "Espace de couleur"
+
+msgid "Configure color space of Component"
+msgstr "Configurer l'espace de couleur du composant"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RVB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "Configurer la résolution de l'affichage du HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "Configurer l'espace de couleur du HDMI"
+
+msgid "RGB High"
+msgstr "RVB élevé"
+
+msgid "RGB Low"
+msgstr "RVB faible"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Résolution de l'affichage"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Format de l'image"
+
+msgid "Configure screen format of system"
+msgstr "Configurer le format de l'écran du système"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Sortie audio"
+
+msgid "Configure audio output channel of system"
+msgstr "Configurer le canal de sortie audio du système"
+
+msgid "Stereo"
+msgstr "Stéréo"
+
+msgid "Digital"
+msgstr "Numérique"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Voulez-vous vraiment modifier la résolution vidéo ?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Voulez-vous vraiment modifier le format de sortie vidéo ?"
+
+msgid "Subtitle mode"
+msgstr "Mode de sous-titres"
+
+msgid "Turn on/off subtitle"
+msgstr "Activer/désactiver les sous-titres"
+
+msgid "Subtitle font size"
+msgstr "Taille des sous-titres"
+
+msgid "Select subtitle font size"
+msgstr "Sélectionner la taille des sous-titres"
+
+msgid "Subtitle type"
+msgstr "Type de sous-titres"
+
+msgid "Select the additional encoding"
+msgstr "Sélectionner l'encodage supplémentaire"
+
+msgid "Western Europe (ISO)"
+msgstr "Europe de l'Ouest (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Central Europe (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Europe centrale (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Chinois traditionnel (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Chinois simplifié (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Japonais (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Coréen (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Cyrillique (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Cyrillique (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Grec (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Grec (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Arabe (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Affichage de piste audio"
+
+msgid "Set the display mode while music playing"
+msgstr "Définir le mode d'affichage lors de la lecture de musique"
+
+msgid "File name"
+msgstr "Nom de fichier"
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Photo scaling"
+msgstr "Mise à l'échelle des photos"
+
+msgid "Configure the photo scaling mode"
+msgstr "Configurer le mode de mise à l'échelle des photos"
+
+msgid "Keep as original"
+msgstr "Conserver le format d'origine"
+
+msgid "Fit to screen"
+msgstr "Ajuster au format de l'écran"
+
+msgid "Display in full screen"
+msgstr "Affichage plein écran"
+
+msgid "Transition effect"
+msgstr "Effet de transition"
+
+msgid "Select the transition effect"
+msgstr "Sélectionner l'effet de transition"
+
+
+
+
+msgid "Fade"
+msgstr "Fondre"
+
+msgid "Wipe"
+msgstr "Volet"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Push"
+msgstr "Pousser"
+
+msgid "Replace"
+msgstr "Remplacer"
+
+msgid "Checker board"
+msgstr "Damier"
+
+msgid "Random"
+msgstr "Aléatoire"
+
+msgid "Slideshow Interval"
+msgstr "Intervalle du diaporama"
+
+msgid "Configure the interval of slideshow"
+msgstr "Configurer l'intervalle du diaporama"
+
+msgid "second"
+msgstr "seconde"
+
+msgid "seconds"
+msgstr "secondes"
+
+msgid "3 Seconds"
+msgstr "3 secondes"
+
+msgid "5 Seconds"
+msgstr "5 secondes"
+
+msgid "10 Seconds"
+msgstr "10 secondes"
+
+msgid "20 Seconds"
+msgstr "20 secondes"
+
+msgid "30 Seconds"
+msgstr "30 secondes"
+
+msgid "minute"
+msgstr "minute"
+
+msgid "minutes"
+msgstr "minutes"
+
+msgid "1 Minute"
+msgstr "1 minute"
+
+msgid "5 Minutes"
+msgstr "5 minutes"
+
+msgid "Browser display"
+msgstr "Affichage du navigateur"
+
+msgid "Set the display mode of media browser"
+msgstr "Définir le mode d'affichage du navigateur multimédia"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "Configurer les paramètres de DivX DRM VOD"
+
+msgid "Register"
+msgstr "Enregistrer"
+
+msgid "Deregister"
+msgstr "Annuler l'enregistrement"
+
+msgid "Activation"
+msgstr "Activation"
+
+msgid "Deactivation"
+msgstr "Désactivation"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Votre périphérique a été enregistré. Voulez-vous vraiment annuler l'enregistrement ?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "Vous devez enregistrer votre périphérique pour lire les vidéos DivX protégées."
+
+msgid "Registration code:"
+msgstr "Code d'enregistrement :"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Pour enregistrer le périphérique, rendez-vous sur http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Code d'annulation de l'enregistrement :"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Pour annuler l'enregistrement de votre périphérique, rendez-vous sur http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Voulez-vous continuer le processus d'enregistrement ?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Activer/désactiver le serveur multimédia"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Activer/désactiver le dossier partagé"
+
+msgid "Workgroup name"
+msgstr "Nom du groupe de travail"
+
+msgid "Device name"
+msgstr "Nom du périphérique"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Connexion automatique"
+
+msgid "Turn on/off auto-login"
+msgstr "Activer/désactiver la connexion automatique"
+
+msgid "Clear account information"
+msgstr "Effacer les informations relatives au compte"
+
+msgid "Delete the preset password?"
+msgstr "Supprimer le mot de passe prédéfini ?"
+
+msgid "Manual SSID"
+msgstr "SSID manuel"
+
+msgid "Connection setup"
+msgstr "Configuration de la connexion"
+
+msgid "Wire"
+msgstr "Câblé"
+
+msgid "Wireless"
+msgstr "Sans fil"
+
+msgid "Network setup"
+msgstr "Configuration réseau"
+
+msgid "Wireless setup"
+msgstr "Configuration sans fil"
+
+msgid "Does not contain"
+msgstr "Ne comporte pas"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Le nom de produit ne peut pas contenir les caractères \\ / : * ? â?? ; | ni les espaces. Le nom ne peut pas contenir plus de 15 caractères."
+
+msgid "The device name can not contain any of following "
+msgstr "Le nom du périphérique ne peut pas contenir les caractères suivants "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "ni des espaces. Il ne peut pas contenir plus de 15 caractères."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 n'est pas une entrée valide ; uniquement les numéros de 1 à 223 sont autorisés. Vérifiez votre adresse IP et saisissez-la à nouveau."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Uniquement les numéros de 0 à 255 sont autorisés. Vérifiez votre adresse IP et saisissez-la à nouveau."
+
+msgid "Cannot find access point."
+msgstr "Impossible de trouver le point d'accès."
+
+msgid "The AP is not exist. Please check again."
+msgstr "L'AP n'existe pas. Vérifiez de nouveau."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Clé de chiffrement non valide. Veuillez réessayer."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "Activer/désactiver le BitTorrent"
+
+msgid "Connection mode"
+msgstr "Mode de connexion"
+
+msgid "Connection type"
+msgstr "Type de connexion"
+
+msgid "WPS setup"
+msgstr "Configuration WPS"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "Appuyez sur le bouton WPS du point d'accès avant d'appuyer sur Se connecter"
+
+msgid "Auto search"
+msgstr "Recherche automatique"
+
+msgid "Site survey"
+msgstr "Parcours du site"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Détection du point d'accès sans fil"
+
+msgid "MAC address"
+msgstr "Adresse MAC"
+
+msgid "Please waiting..."
+msgstr "Veuillez patienter..."
+
+msgid "Connect Successfully!"
+msgstr "Connexion réussie !"
+
+msgid "Do you want replace this profile?"
+msgstr "Souhaitez-vous remplacer ce profil ?"
+
+msgid "Network is disconnected."
+msgstr "Le réseau est déconnecté."
+
+msgid "Can not detect wireless module."
+msgstr "Impossible de détecter le module sans fil."
+
+msgid "The profile space is full!"
+msgstr "L'espace réservé au profil est plein !"
+
+msgid "Access point detecting..."
+msgstr "Détection du point d'accès..."
+
+msgid "The network encryption key is not valid."
+msgstr "La clé de chiffrement du réseau n'est pas valide."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "Le champ SSID ne peut pas être vide !"
+
+msgid "No security"
+msgstr "Il n'y a aucune protection"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Configuration terminée. Voulez-vous sauvegarder cette connexion réseau ?"
+
+msgid "The SSID is empty."
+msgstr "Le champ SSID est vide."
+
+msgid "Can not set this profile to favorite."
+msgstr "Impossible d'ajouter ce profil aux favoris."
+
+msgid "Access point can not be found"
+msgstr "Impossible de trouver un point d'accès."
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Impossible de trouver un point d'accès"
+
+msgid "Please enter your encryption key"
+msgstr "Entrez votre clé de chiffrement"
+
+msgid "The device could not connect to the network."
+msgstr "Le périphérique n'a pas réussi à se connecter au réseau."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Serveur déconnecté. Vérifiez la configuration du réseau."
+
+msgid "Wireless favorites"
+msgstr "Accès sans fil favoris"
+
+msgid "Connect now"
+msgstr "Se connecter maintenant"
+
+msgid "Favorite"
+msgstr "Favoris"
+
+
+msgid "Encryption key"
+msgstr "Clé de chiffrement"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Langue"
+
+msgid "Select a display language"
+msgstr "Sélectionnez une langue pour l'affichage"
+
+msgid "English"
+msgstr "Anglais"
+
+msgid "French"
+msgstr "Français"
+
+msgid "German"
+msgstr "Allemand"
+
+msgid "Italian"
+msgstr "Italien"
+
+msgid "Spanish"
+msgstr "Espagnol"
+
+msgid "Portuguese"
+msgstr "Portugais"
+
+msgid "Dutch"
+msgstr "Néerlandais"
+
+msgid "Greek"
+msgstr "Grec"
+
+msgid "Polish"
+msgstr "Polonais"
+
+msgid "Russian"
+msgstr "Russe"
+
+msgid "Swedish"
+msgstr "Suédois"
+
+msgid "Japanese"
+msgstr "Japonais"
+
+msgid "Simplified Chinese"
+msgstr "Chinois simplifié"
+
+msgid "Traditional Chinese"
+msgstr "Chinois traditionnel"
+
+msgid "Korean"
+msgstr "Coréen"
+
+msgid "Finnish"
+msgstr "Finnois"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Portugais brésilien"
+
+msgid "Hebrew"
+msgstr "Hébreu"
+
+msgid "Arabic"
+msgstr "Arabe"
+
+msgid "Czech"
+msgstr "Tchèque"
+
+msgid "Turkish"
+msgstr "Turc"
+
+msgid "Danish"
+msgstr "Danois"
+
+msgid "Norwegian"
+msgstr "Norvégien"
+
+msgid "Media library"
+msgstr "Bibliothèque multimédia"
+
+msgid "Turn on/off media library"
+msgstr "Activer/désactiver la bibliothèque multimédia"
+
+msgid "Screensaver delay"
+msgstr "Délai de l'économiseur d'écran"
+
+msgid "Configure screensaver delay time"
+msgstr "Configurer le délai de l'économiseur d’écran"
+
+msgid "Never"
+msgstr "Jamais"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 minutes"
+
+msgid "15 Minutes"
+msgstr "15 minutes"
+
+msgid "Quick start mode"
+msgstr "Mode de démarrage rapide"
+
+msgid "System reset"
+msgstr "Réinitialisation du système"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Voulez-vous vraiment restaurer les paramètres d'usine du périphérique ?"
+
+msgid "About"
+msgstr "A propos de"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "Pour obtenir de plus amples informations concernant le lecteur multimédia HD, consultez le guide de l'utilisateur ou visitez"
+
+msgid "Restart"
+msgstr "Redémarrer"
+
+msgid "Rebooting"
+msgstr "Redémarrage"
+
+msgid "Update device"
+msgstr "Mettre à jour le périphérique"
+
+msgid "New firmware"
+msgstr "Nouveau micrologiciel"
+
+msgid "New firmware found"
+msgstr "Un nouveau micrologiciel a été trouvé"
+
+msgid "version"
+msgstr "version"
+
+msgid "Firmware Version"
+msgstr "Version du micrologiciel"
+
+msgid "Current version"
+msgstr "Version actuelle"
+
+msgid "New version"
+msgstr "Nouvelle version"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Un nouveau micrologiciel a été trouvé. Voulez-vous effectuer la mise à niveau ?"
+
+msgid "Invalid firmware"
+msgstr "Micrologiciel non valide"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "Vérifiez la dernière version disponible du micrologiciel et mettez à niveau le périphérique."
+
+msgid "Checking for recent updates"
+msgstr "Recherche des mises à jour récentes"
+
+msgid "Searching for updates..."
+msgstr "Recherche des mises à jour..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Le périphérique n'a pas pu télécharger les mises à jour. Veuillez vérifier la connexion réseau."
+
+msgid "Your device is up to date."
+msgstr "Votre périphérique est à jour."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "La mise à niveau de votre lecteur multimédia est en cours. Ne débranchez PAS le câble d'alimentation ou le périphérique de stockage relié."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Mise à niveau terminée. Le lecteur multimédia va redémarrer."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Insérez un disque USB contenant le micrologiciel pour récupérer votre lecteur multimédia."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Impossible de mettre à niveau le micrologiciel. Le périphérique va redémarrer."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Impossible de mettre à niveau le micrologiciel. Vérifiez la connexion réseau et réessayez."
+
+msgid "OK"
+msgstr "OK"
+
+
+
+
+
+
+msgid "On"
+msgstr "Activer"
+
+msgid "Off"
+msgstr "Désactiver"
+
+msgid "Auto"
+msgstr "Automatique"
+
+msgid "Manual"
+msgstr "Manuel"
+
+msgid "Search"
+msgstr "Rechercher"
+
+
+msgid "Error"
+msgstr "Erreur"
+
+msgid "Retry"
+msgstr "Réessayer"
+
+msgid "Copy"
+msgstr "Copier"
+
+msgid "Go Back"
+msgstr "Revenir"
+
+msgid "Help"
+msgstr "Aide"
+
+msgid "Exit"
+msgstr "Quitter"
+
+msgid "Unknown"
+msgstr "Inconnu"
+
+
+msgid "Play"
+msgstr "Lire"
+
+msgid "Pause"
+msgstr "Interrompre"
+
+msgid "Stop"
+msgstr "Arrêter"
+
+msgid "Eject"
+msgstr "Ejecter"
+
+msgid "Empty"
+msgstr "Vide"
+
+msgid "Standby mode"
+msgstr "Mode de veille"
+
+msgid "Loading data"
+msgstr "Chargement des données"
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Contains"
+msgstr "Comporte"
+
+msgid "Starts with"
+msgstr "Commence par"
+
+msgid "Unsupported"
+msgstr "Non pris en charge"
+
+msgid "Space"
+msgstr "Espace"
+
+msgid "Equal to"
+msgstr "Egal à"
+
+msgid "Not Equal to"
+msgstr "N'est pas égal à"
+
+msgid "Untitled volume"
+msgstr "Volume sans nom"
+
+msgid "Additional encoding support"
+msgstr "Prise en charge supplémentaire de l'encodage"
+
+msgid "Subtitle default"
+msgstr "Sous-titre par défaut"
+
+msgid "Subtitle border"
+msgstr "Bord du sous-titre"
+
+msgid "Thick"
+msgstr "Epais"
+
+msgid "Thin"
+msgstr "Fin"
+
+msgid "Account"
+msgstr "Compte"
+
+msgid "anonymous"
+msgstr "anonyme"
+
+msgid "Connecting"
+msgstr "Connexion"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Sélectionnez le périphérique à éjecter."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Voulez-vous vraiment retirer ce périphérique ?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Avertissement : veuillez éjecter votre périphérique de stockage USB avant de le retirer."
+
+msgid "The device is busy. Please try later."
+msgstr "Le périphérique est occupé. Veuillez réessayer ultérieurement."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Veuillez patienter lors de l'éjection de votre périphérique de stockage..."
+
+msgid "No storage present"
+msgstr "Aucun périphérique de stockage n'est connecté"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "La compilation de la bibliothèque multimédia requiert davantage d'espace de stockage :"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Analyse du périphérique de stockage connecté. La première analyse peut prendre du temps. Veuillez patienter..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "Impossible de reconnaître le périphérique relié au port USB"
+
+msgid "Storage can not aggregate"
+msgstr "Impossible d'ajouter de l'espace de stockage"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "La bibliothèque multimédia ne prend pas en charge le système de fichiers journalisé. La lecture est toutefois possible."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Impossible de créer la bibliothèque multimédia sur un périphérique de stockage en lecture seule."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Impossible de créer la bibliothèque multimédia. Vérifiez les paramètres de stockage."
+
+msgid "Unrecognized USB device"
+msgstr "Périphérique USB non reconnu"
+
+msgid "Scanning the attached USB device..."
+msgstr "Analyse du périphérique USB connecté..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "Dans le paramètre de sortie audio numérique, un récepteur AV prenant charge correctement le format audio est requis pour lire les pistes audio avec le son surround."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "Ne retirez PAS l'alimentation secteur ou un disque de stockage."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "Votre lecteur multimédia HD est en cours de mise à niveau. N'éteignez PAS le périphérique, ne retirez pas le câble d'alimentation et ne débranchez aucun périphérique relié."
+
+msgid "Upgrade complete!"
+msgstr "Mise à niveau terminée !"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "L'installation des mises à jour a réussi. Le périphérique va redémarrer..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "Impossible d'identifier le périphérique connecté au port USB."
+
+msgid "Device is shutting down..."
+msgstr "Le périphérique va s'éteindre..."
+
+msgid "Local device is disconnected."
+msgstr "Le périphérique local est déconnecté."
+
+msgid "Do you really want to restart device?"
+msgstr "Voulez-vous vraiment redémarrer le périphérique ?"
+
+msgid "Action cancelled"
+msgstr "Action annulée"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "Une erreur fatale du système s'est produite. Le périphérique va redémarrer."
+
+msgid "To restart device, press the power button of your remote."
+msgstr "Pour redémarrer le périphérique, appuyez sur le bouton d'alimentation de la télécommande."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Recherche terminée. Aucun résultat n'a été trouvé."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Appuyez sur la touche [Option] pour une entrée multilingue"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Parcourez Flickr"
+
+msgid "My recent"
+msgstr "Récents"
+
+msgid "Last 7 days interesting"
+msgstr "Activités intéressantes les 7 derniers jours"
+
+msgid "Most recent uploads"
+msgstr "Téléchargements les plus récents"
+
+msgid "Hot tags"
+msgstr "Etiquettes populaires"
+
+msgid "Contacts"
+msgstr "Contacts"
+
+msgid "Photostream"
+msgstr "Galerie de photos"
+
+msgid "Tags"
+msgstr "Etiquettes"
+
+msgid "Delete one"
+msgstr "Supprimer un élément"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Mot-clé"
+
+msgid "Flickr members"
+msgstr "Membres Flickr"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Voulez-vous vraiment supprimer cet élément ?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Voulez-vous vraiment supprimer tous les éléments ?"
+
+msgid "This member has been added to your contact list."
+msgstr "Ce membre a été ajouté à votre liste de contacts."
+
+msgid "This member has been add to your contact list."
+msgstr "This member has been added to your contact list."
+
+msgid "Could not find any tag list."
+msgstr "Impossible de trouver une liste d'étiquettes."
+
+msgid "Could not find any contact list."
+msgstr "Impossible de trouver une liste de contacts."
+
+msgid "There is no friend available."
+msgstr "Aucun ami n'est disponible."
+
+msgid "A friend cannot be found."
+msgstr "Impossible de trouver un ami."
+
+msgid "There is no content available."
+msgstr "Aucun contenu n'est disponible."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Recherche terminée. Aucun résultat n'a été trouvé."
+
+msgid "Now playing:"
+msgstr "Lecture en cours"
+
+msgid "Last station:"
+msgstr "Dernière station :"
+
+msgid "My presets"
+msgstr "Mes valeurs prédéfinies"
+
+msgid "Stations"
+msgstr "Stations"
+
+msgid "Preferences"
+msgstr "Préférences"
+
+msgid "Sign in / Sign out"
+msgstr "Se connecter / Se déconnecter"
+
+msgid "About Live365"
+msgstr "A propos de Live365"
+
+msgid "Remove station"
+msgstr "Supprimer la station"
+
+msgid "Add to my presets"
+msgstr "Ajouter à mes valeurs prédéfinies"
+
+msgid "Free stations"
+msgstr "Stations gratuites"
+
+msgid "VIP stations"
+msgstr "Stations VIP"
+
+msgid "Recommendations"
+msgstr "Recommandations"
+
+msgid "Thumbs up"
+msgstr "J'aime"
+
+msgid "Thumbs down"
+msgstr "Je n'aime pas"
+
+
+
+
+msgid "Email track"
+msgstr "Envoyer la piste par e-mail"
+
+msgid "Audio quality"
+msgstr "Qualité audio"
+
+msgid "Sort"
+msgstr "Trier"
+
+msgid "All stations"
+msgstr "Toutes les stations"
+
+msgid "Only high"
+msgstr "Haute uniquement"
+
+msgid "Medium to high"
+msgstr "Moyenne à haute"
+
+msgid "Low to medium"
+msgstr "Faible à moyenne"
+
+msgid "Only low"
+msgstr "Faible uniquement"
+
+msgid "Sort stations alphabetically"
+msgstr "Classer les stations par ordre alphabétique"
+
+msgid "Sort stations by popularity"
+msgstr "Classer les stations par popularité"
+
+msgid "Sign in"
+msgstr "Se connecter"
+
+msgid "Don't have an account?"
+msgstr "Vous n'avez pas de compte ?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Nom d'utilisateur et mot de passe non valides. Veuillez réessayer."
+
+msgid "Save the account information?"
+msgstr "Voulez-vous enregistrer les informations de compte ?"
+
+msgid "Save username only"
+msgstr "Enregistrer le nom d'utilisateur uniquement"
+
+msgid "Are you sure to sign out?"
+msgstr "Voulez-vous vraiment vous déconnecter ?"
+
+msgid "The station is removed from your presets."
+msgstr "La station a été retirée de vos valeurs prédéfinies."
+
+msgid "The station is added to your presets."
+msgstr "La station a été ajoutée à vos valeurs prédéfinies."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Vous devez vous connecter pour utiliser cette fonction. Voulez-vous vous connecter maintenant ?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Merci d'avoir évalué cette piste. Nous sommes heureux qu'elle vous plaise."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Merci d'avoir évalué cette piste. Nous sommes désolés qu'elle ne vous plaise pas."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "Les informations sur cette piste ont été envoyées. Vérifiez votre courrier électronique."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Si vous n'avez pas de compte Live365, rendez-vous sur http://www.live365.com pour en créer un ou devenir membre VIP."
+
+
+
+msgid "Video"
+msgstr "Vidéo"
+
+
+
+
+msgid "Preference"
+msgstr "Préférences"
+
+msgid "Most favorites"
+msgstr "Les plus favorites"
+
+msgid "Most viewed"
+msgstr "Les plus regardées"
+
+msgid "Most popular"
+msgstr "Les plus populaires"
+
+msgid "Top rated"
+msgstr "Les mieux notées"
+
+msgid "Most recent"
+msgstr "Les plus récentes"
+
+msgid "My videos"
+msgstr "Mes vidéos"
+
+msgid "Favorites"
+msgstr "Favoris"
+
+
+
+
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "This week"
+msgstr "Cette semaine"
+
+msgid "This month"
+msgstr "Ce mois"
+
+msgid "All time"
+msgstr "A tout moment"
+
+msgid "Rate video"
+msgstr "Noter cette vidéo"
+
+msgid "Related"
+msgstr "Similaires"
+
+msgid "Full screen"
+msgstr "Plein écran"
+
+msgid "Info"
+msgstr "Informations"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+msgid "Delete account"
+msgstr "Supprimer le compte"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Current location"
+msgstr "Emplacement actuel"
+
+msgid "Worldwide"
+msgstr "Monde"
+
+msgid "Germany"
+msgstr "Allemagne"
+
+msgid "France"
+msgstr "France"
+
+msgid "Spain"
+msgstr "Espagne"
+
+msgid "Italy"
+msgstr "Italie"
+
+msgid "Taiwan"
+msgstr "Taïwan"
+
+msgid "South Korea"
+msgstr "Corée du Sud"
+
+
+
+msgid "Russia"
+msgstr "Russie"
+
+msgid "Video playback quality"
+msgstr "Qualité de la lecture vidéo"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Cette vidéo n'est pas disponible actuellement"
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Merci de l'évaluation."
+
+msgid "The video has been added to your favorites."
+msgstr "Cette vidéo a été ajoutée à vos favoris."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Voulez-vous vraiment supprimer ce compte ?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Voulez-vous vraiment supprimer tous les comptes ?"
+
+msgid "Login fail."
+msgstr "Echec de connexion."
+
+
+
+
+msgid "No content available."
+msgstr "Aucun contenu n'est disponible."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Ajouter/Supprimer des extensions multimédia"
+
+msgid "Manage users"
+msgstr "Gérer les utilisateurs"
+
+msgid "All (Mix)"
+msgstr "Tout (mixte)"
+
+msgid "Business & Finance"
+msgstr "Affaires et finances"
+
+msgid "Cars"
+msgstr "Automobiles"
+
+msgid "Comedy"
+msgstr "Humour"
+
+msgid "Cocking $ drinks"
+msgstr "Cuisine et boissons"
+
+msgid "Education"
+msgstr "Education"
+
+msgid "Fashion & luxury"
+msgstr "Mode"
+
+msgid "Health & fitness"
+msgstr "Santé et bien-être"
+
+msgid "Kids & cartoons"
+msgstr "Dessins animés"
+
+msgid "Learn a languages"
+msgstr "Cours de langues"
+
+
+
+
+msgid "News & politics"
+msgstr "Politique et actualité"
+
+msgid "Parenting"
+msgstr "Education des enfants"
+
+msgid "Relationships"
+msgstr "Amour"
+
+msgid "Science & nature"
+msgstr "Sciences et nature"
+
+msgid "Showbiz news"
+msgstr "Actualité people"
+
+msgid "Society & culture"
+msgstr "Culture et société"
+
+msgid "Sports"
+msgstr "Sport"
+
+msgid "Technology"
+msgstr "Technologie"
+
+msgid "Travel"
+msgstr "Voyages"
+
+msgid "Video games"
+msgstr "Jeux vidéo"
+
+msgid "General"
+msgstr "Général"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Now playing"
+msgstr "Lecture en cours"
+
+msgid "Both"
+msgstr "Les deux"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Ajouter à mes chaînes"
+
+msgid "Remove from my channels"
+msgstr "Supprimer de mes chaînes"
+
+msgid "Rate/Favorite"
+msgstr "Notée/Favorite"
+
+msgid "Episodes"
+msgstr "Episodes"
+
+
+
+msgid "My rating"
+msgstr "Mes notes"
+
+msgid "My favorite"
+msgstr "Mes favoris"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Ajouter le module d'extension multimédia au tableau de bord"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Ajouter les modules d'extension manuellement (via mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Supprimer des modules d'extension multimédia du tableau de bord"
+
+msgid "Shows + Episodes"
+msgstr "Emissions + Episodes"
+
+msgid "Shows"
+msgstr "Emissions"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Lien"
+
+msgid "Login"
+msgstr "Se connecter"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "Pour configurer des chaînes personnalisées, vous devez relier votre lecteur et le compte Mediafly."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Les comptes Mediafly sont entièrement gratuits et vous permettent de contrôler et de gérer à partir d'un seul emplacement tout votre contenu Web gratuit préféré."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Option 1 : ouvrez le navigateur Web de l'ordinateur, allez à l'adresse:"
+
+msgid "and enter this association code:"
+msgstr "et entrez le code d'association suivant :"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Option 2 : connectez-vous à l'aide du nom d'utilisateur et du mot de passe Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Toutes les vidéos"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Temps d'intervalle "
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Grand écran"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 minutes"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 minutes"
+
+msgid "30 Minutes"
+msgstr "30 minutes"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Lecteur multimédia HD Iomega"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Voulez-vous effectuer la mise à niveau ?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Le fichier vidéo que vous essayez de lire comporte plusieurs sorties de canaux audio non pris en charge. Passez à la sortie audio numérique et connectez votre lecteur multimédia HD à un récepteur AV prenant en charge le codec audio."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Canal audio"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Mise à niveau du micrologiciel"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Séquence vidéo"
+
+msgid "Music sequence"
+msgstr "Séquence de musique"
+
+msgid "Slideshow sequence"
+msgstr "Séquence du diaporama"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Volet à droite"
+
+msgid "Wipe left"
+msgstr "Volet à gauche"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Votre lecteur multimédia HD a été mis à niveau. Ne débranchez PAS le câble d'alimentation ou le périphérique de stockage connecté."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Le nom de produit ne peut pas contenir les caractères  \\ / : * ? â?? ; | ni les espaces. Le nom ne peut pas contenir plus de 15 caractères."
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Europe de l'Ouest"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Vous avez configuré correctement votre périphérique sur le réseau domestique."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "HDD"
+msgstr "Disque dur"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Arrêter"
+
+msgid "HDMI settings"
+msgstr "Paramètres HDMI"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Mettre à l'échelle avec distorsion"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Le nom de produit ne peut contenir les caractères \\ / : * ? ¡§ ; | ni les espaces. Il ne peut pas comporter plus de 15 caractères."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "Ajout de contenu"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Mes contacts"
+
+msgid "My tags"
+msgstr "Mes étiquettes"
+
+msgid "Owner profile"
+msgstr "Profil du propriétaire"
+
+msgid "Play mode"
+msgstr "Mode de lecture"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Classement  en cours"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "Retour"
+
+
+
+
+
+
+msgid "ON"
+msgstr "Activé"
+
+msgid "OFF"
+msgstr "Désactivé"
+
+msgid "NEXT"
+msgstr "Suivant"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Dossier"
+
+msgid "Album browser"
+msgstr "Navigateur d’albums"
+
+msgid "Add photo to album"
+msgstr "Ajouter photo à album"
+
+msgid "Select | Unselect item(s)"
+msgstr "Sélectionner|Désélectionner"
+
+msgid "Select album"
+msgstr "Sélectionner l’album"
+
+msgid "Processing"
+msgstr "Traitement"
+
+msgid "Select all"
+msgstr "Sélectionner tout"
+
+msgid "Unselect all"
+msgstr "Désélectionner tout"
+
+msgid "Album name"
+msgstr "Nom de l’album"
+
+msgid "Completed"
+msgstr "Terminé"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Voulez-vous ajouter xxxx photo(s) à l’album ?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Êtes-vous sûr de vouloir arrêter l’ajout du/des fichier(s) ?"
+
+msgid "Selected album has deleted."
+msgstr "L’album sélectionné a été supprimé."
+
+msgid "Selected photo has been removed from the album."
+msgstr "La photo sélectionnée a été supprimée de l’album."
+
+msgid "The album has been renamed."
+msgstr "L’album a été renommé."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Êtes-vous sûr de vouloir supprimer les photos sélectionnées de l’album ?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Êtes-vous sûr de vouloir supprimer l’album sélectionné ?\nLes photos ne seront pas supprimées du stockage."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Le nom de l’album est dupliqué. Essayez un autre nom."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Êtes-vous sûr de vouloir renommer l’album ?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Erreur lors de l’écriture. Vérifiez le stockage local. Il est possible que celui-ci soit plein ou en lecture seule."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Erreur lors de la lecture du fichier source, vérifiez votre stockage local."
+
+msgid "File management"
+msgstr "Gestion des fichiers"
+
+
+
+msgid "Select source"
+msgstr "Sélectionner la source"
+
+msgid "File(s)"
+msgstr "Fichier(s)"
+
+msgid "Folder(s)"
+msgstr "Dossier(s)"
+
+msgid "Yes to all"
+msgstr "Oui pour tout"
+
+msgid "No to all"
+msgstr "Non pour tout"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Copier, déplacer ou supprimer le(s) élément(s)"
+
+msgid "Remove photo"
+msgstr "Supprimer la photo"
+
+msgid "Rename or delete album"
+msgstr "Renommer ou supprimer l’album"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Aucun stockage trouvé. Insérez du stockage et réactualisez."
+
+msgid "Would you like to overwrite it?"
+msgstr "Voulez-vous le remplacer ?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Voulez-vous copier les fichiers sélectionnés ?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Voulez-vous déplacer les fichiers sélectionnés ?"
+
+
+
+msgid "Chapter"
+msgstr "Chapitre"
+
+msgid "Title and Edition"
+msgstr "Titre et édition"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Operation not supported"
+msgstr "Opération non prise en charge"
+
+msgid "File Date"
+msgstr "Date du fichier"
+
+msgid "Resolution"
+msgstr "Résolution"
+
+msgid "Turkish (Windows-1254)"
+msgstr "Turc (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "Hébreu (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Soumettre"
+
+msgid "Check network status"
+msgstr "Vérifier l’état du réseau"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Erreur de type de clé !\n Si votre clé est de type hexadécimal, vérifiez que la valeur de la clé est A~F, 0~9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Erreur de longueur de clé !\n Si votre clé est de type ASCII, la longueur doit être 5, 13 ou 16.\nSi votre clé est de type hexadécimal, la longueur doit être 10, 26 ou 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Erreur de longueur de clé !\n La longueur de WPAPSK doit être 8~64 !"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Erreur de type de clé !\n La clé WPAPSK avec une longueur 64 doit être hexadécimale (A~F, 0~9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "Adresse IP non valide. Vérifiez votre adresse IP et réessayez."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "Adresse e-mail non valide. Vérifiez votre adresse e-mail et réessayez."
+
+msgid "Invalid character(s) in first name."
+msgstr "Caractère(s) non valide(s) dans le prénom."
+
+msgid "Invalid character(s) in last name."
+msgstr "Caractère(s) non valide(s) dans le nom."
+
+
+
+msgid "Hungarian"
+msgstr "Hongrois"
+
+msgid "Serial number:"
+msgstr "Numéro de série :"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Pour redémarrer, appuyez sur le bouton d’alimentation sur votre télécommande."
+
+msgid "Creator"
+msgstr "Créateur"
+
+msgid "Web browser"
+msgstr "Navigateur Web"
+
+msgid "Add to contacts"
+msgstr "Ajouter aux contacts"
+
+msgid "Recently upload"
+msgstr "Récemment chargé"
+
+msgid "Photo set"
+msgstr "Ensemble de photos"
+
+msgid "Friends"
+msgstr "Amis"
+
+msgid "There is no contact."
+msgstr "Aucun contact."
+
+msgid "There is no tag."
+msgstr "Aucune balise."
+
+msgid "Search Results"
+msgstr "Résultats de la recherche"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Êtes-vous sûr de vouloir supprimer cette station ?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Êtes-vous sûr de vouloir ajouter cette station aux présélections ?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Écoutez des milliers de stations de radio Internet sans publicité ! Live365 propose des émissions de Radio Disney, Santana, David Bynne, Pat Metheny et Paul Oakenfold. Ainsi que des stations créées par des amateurs de musique, tout comme vous ! Naviguez facilement entre les genres les plus populaires comme le rock, le hip-hop, le jazz et le new age. Ou découvrez de véritables trésors dans les styles moins répandus comme le gospel, la comédie, l’anime, le hindi, le trip-hop, les années 30, le glam, le tribal, le celtique et des centaines d'autres."
+
+msgid "Japan"
+msgstr "Japon"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Ce fichier est actuellement indisponible. Réessayez plus tard."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Vous voulez noter la vidéo ? Inscrivez-vous maintenant !"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Vous voulez l’ajouter à vos favoris ? Inscrivez-vous maintenant !"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Appuyez sur LECTURE/PAUSE pour afficher en plein écran"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "Connexion impossible à YouTube. Une erreur réseau inconnue est survenue. Vérifiez vos paramètres réseau et réessayez."
+
+msgid "Poor"
+msgstr "Faible"
+
+msgid "Nothing special"
+msgstr "Rien de spécial"
+
+msgid "Worth watching"
+msgstr "À regarder"
+
+msgid "Pretty cool"
+msgstr "Plutôt cool"
+
+msgid "Awesome"
+msgstr "Génial"
+
+msgid "Show info"
+msgstr "Afficher les infos"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "La température du périphérique dépasse 60 degrés, le disque dur va être mis hors tension."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "La température du périphérique dépasse 65 degrés, le périphérique va être mis hors tension."
+
+msgid "Configure"
+msgstr "Configurer"
+
+msgid "Delete album"
+msgstr "Supprimer l’album"
+
+msgid "Rename album"
+msgstr "Renommer l’album"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Supprimer la liste de lecture"
+
+msgid "Rename playlist"
+msgstr "Renommer la liste de lecture"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Aucune liste de lecture. Voulez-vous en créer une ?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Voulez-vous vraiment supprimer la liste de lecture ?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Voulez-vous vraiment effacer les fichiers de la liste de lecture ?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Êtes-vous sûr de vouloir arrêter l’ajout du/des fichier(s) ?"
+
+msgid "The selected album has been deleted."
+msgstr "L’album sélectionné a été supprimé."
+
+msgid "The selected photo has been removed from album."
+msgstr "La photo sélectionnée a été supprimée de l’album."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Erreur lors de la lecture d’un fichier distant. Vérifiez l'état du serveur multimédia ou du réseau."
+
+msgid "The selected music has been deleted."
+msgstr "Le fichier de musique sélectionné a été supprimé."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "Voulez-vous ajouter le fichier de musique xxxx à l’album ?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Etes-vous sûr de ne plus vouloir ajouter de musique ?"
+
+msgid "The playlist has been renamed."
+msgstr "La liste de lecture a été renommée."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Voulez-vous vraiment supprimer les fichiers de musique sélectionnés de la liste de lecture ?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Voulez-vous vraiment supprimer la liste de lecture sélectionnée ?\nLes fichiers de musiques ne seront pas supprimés du périphérique de stockage."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Une liste de lecture avec ce nom existe déjà. Veuillez en choisir un autre."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Voulez-vous vraiment renommer la liste de lecture ?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Aucun périphérique de stockage ou serveur multimédia n’a été trouvé. Connectez un périphérique de stockage ou vérifiez la configuration réseau puis réessayez."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "Ce dossier comporte déjà un fichier nommé :Voulez-vous le remplacer ?"
+
+msgid "Process completed."
+msgstr "Opération terminée."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Le nom de dossier ne peut pas contenir les caractères \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Le nom de l’album ne peut pas contenir d’espace ni les caractères \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nLe nom du fichier ne peut pas contenir plus de xx caractères."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Le nom de la liste de lecture ne peut pas contenir d’espace ni les caractères \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nLe nom du fichier ne peut pas contenir plus de xx caractères."
+
+msgid "Select"
+msgstr "Sélectionner"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr " SI VOUS N’EN ACCEPTEZ PAS LES TERMES, VOUS DEVEZ IMMEDIATEMENT RENVOYER LA TOTALITE DU PRODUIT DANS SON EMBALLAGE D’ORIGINE A L'ENDROIT D’ACHAT POUR OBTENIR UN REMBOURSEMENT INTEGRAL DU PRIX D’ACHAT DANS LES TRENTE (30) JOURS SUIVANT L’ACHAT ORIGINAL."
+msgid "MediaflyVideo"
+msgstr "Vidéo"
+
+msgid "Accept"
+msgstr "Accepter"
+
+msgid "Decline"
+msgstr "Baisse"
+
+msgid "Rename or delete playlist"
+msgstr "Renommez ou supprimez playlist"
+
+msgid "The playlist has been created."
+msgstr "La liste de lecture a été créé."
+
+msgid "Select music"
+msgstr "Sélectionnez la musique"
+
+msgid "Select playlist"
+msgstr "Sélectionnez playlist"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Voulez-vous ajouter de la musique à la playlist xxx?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Voulez-vous ajouter une photo à l'album xxx?"
+
+msgid "Remove music from playlist"
+msgstr "Enlever la musique de la playlist"
+
+msgid "Sort music"
+msgstr "Trier la musique"
+
+msgid "Move up"
+msgstr "Déplacer vers le haut"
+
+msgid "Move down"
+msgstr "Déplacer vers le bas"
+
+msgid "Are you sure to change the sort?"
+msgstr "Êtes-vous sûr de vouloir changer l'ordre?"
+
+msgid "Remove or sort playlist"
+msgstr "Supprimer ou trier playlist"
+
+msgid "Remove music"
+msgstr "Enlever la musique"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Êtes-vous sûr de vouloir supprimer la musique sélectionnée à partir de playlist?"
+
+msgid "Photo album"
+msgstr "Album photo"
+
+msgid "The album has been created."
+msgstr "L'album a été créé."
+
+msgid "Select photo"
+msgstr "sélectionner une photo"
+
+msgid "Add to album"
+msgstr "Ajouter à l'album"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Impossible de charger la vidéo.  Le format n’est pas pris en charge."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "En activant le module d’extension, vous pourrez regarder les vidéos dans un des formats pris en charge. Toutes les vidéos ne sont pas compatibles."
+
+msgid "Enable for Favorites"
+msgstr "Activer pour les favoris"
+
+msgid "Enable for all websites"
+msgstr "Activer pour tous les sites Web"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "Pour obtenir les performances optimales du navigateur Web, le module d’extension Flash est activé uniquement pour les sites Web qui se trouvent dans les Favoris.  Pour l’activer pour tous les sites Web, allez dans Réseau, dans le menu Paramètres. "
+
+
+msgid "Photos"
+msgstr "Photos"
+msgid "Ok"
+msgstr "OK"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Confirm"
+msgstr "Confirmer"
+
+msgid "Bookmarks"
+msgstr "Favoris"
+
+msgid "Add Bookmark"
+msgstr "Ajouter un favori"
+
+msgid "Edit Bookmark"
+msgstr "Modifier le favori"
+
+msgid "Clear Bookmarks"
+msgstr "Effacer les favoris"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Voulez-vous vraiment effacer les favoris ?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Voulez-vous vraiment supprimer ce favori ?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "Le serveur [server-name] présente un certificat délivré par une entité qui n’est pas approuvée. Voulez-vous continuer ?"
+
+msgid "[url] is not available."
+msgstr "[url] n’est pas disponible."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "Nous sommes désolés, mais un problème s’est produit."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "Impossible de charger la page Web qui se trouve à l’adresse [url]."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Vous pouvez :"
+
+msgid "Reload this web page later."
+msgstr "Actualiser cette page Web ultérieurement."
+
+msgid "Return to the previous web page."
+msgstr "Revenir à la page Web précédente."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Voulez-vous vraiment effacer l’historique ?"
+
+msgid "Clear History"
+msgstr "Effacer l’historique"
+
+msgid "History"
+msgstr "Historique"
+
+msgid "No Title"
+msgstr "Sans titre"
+
+msgid "The history is empty."
+msgstr "L’historique est vide."
+
+msgid "HTTP Authentication"
+msgstr "Authentification HTTP"
+
+msgid "Authentication Required"
+msgstr "Authentification requise"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "Le serveur [server-hostname] qui se trouve à l’adresse [url-name] requiert un nom d’utilisateur et un mot de passe."
+
+msgid "User Name:"
+msgstr "Nom d'utilisateur :"
+
+msgid "Password:"
+msgstr "Mot de passe :"
+
+msgid "Pop-up Window"
+msgstr "Fenêtre contextuelle"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "Voulez-vous ouvrir une fenêtre contextuelle de [domain-name] ?"
+
+msgid "New Window"
+msgstr "Nouvelle fenêtre"
+
+msgid "New URL [url] from [url]"
+msgstr "Nouvelle URL [url] pour [url]"
+
+msgid "Same"
+msgstr "Identique"
+
+msgid "Insecure to Secure"
+msgstr "Non-sécurisé vers sécurisé"
+
+msgid "Secure to Insecure"
+msgstr "Sécurisé vers non-sécurisé"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Voulez-vous que ce message s’affiche de nouveau ?"
+
+msgid "Security Warning"
+msgstr "Avertissement de sécurité"
+
+msgid "Started"
+msgstr "Commencé"
+
+msgid "Loading"
+msgstr "Chargement en cours"
+
+msgid "Done"
+msgstr "Terminé"
+
+msgid "Title of the page."
+msgstr "Titre de la page."
+
+msgid "Goto"
+msgstr "Aller à"
+
+
+
+msgid "Forward"
+msgstr "Suivant"
+
+
+
+msgid "Refresh"
+msgstr "Actualiser"
+
+msgid "Cursor"
+msgstr "Curseur"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Utilisation de la télécommande avec le navigateur Web"
+
+msgid "Exit web browser"
+msgstr "Ferme le navigateur Web"
+
+msgid "Move cursor in web browser"
+msgstr "Permet de déplacer le curseur dans le navigateur Web"
+
+msgid "Click to select links in web browser"
+msgstr "Permet de sélectionner les liens dans le navigateur Web"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Touche Alt à utiliser avec le clavier du navigateur Web"
+
+msgid "Back to previous web page"
+msgstr "Permet de revenir à la page Web précédente"
+
+msgid "Display URL bar and web browser options"
+msgstr "Affiche la barre d'adresse et les options du navigateur Web"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "Appuyez sur Enter pour soumettre une URL ou un texte saisi"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Appuyez sur les boutons haut/bas pour faire défiler les pages Web"
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Touche Symbole à utiliser avec le clavier du navigateur Web"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Touche d'espace à utiliser avec le clavier du navigateur Web"
+
+msgid "Show this information again?"
+msgstr "Afficher de nouveau ces informations ?"
+
+msgid "NO"
+msgstr "NON"
+
+msgid "YES"
+msgstr "OUI"
+
+msgid "Eject USB device"
+msgstr "Ejecter un périphérique USB"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Grâce au navigateur Web bêta, vous pouvez visionner du contenu populaire à partir de la liste Favoris. Vous pouvez naviguer vers d’autres sites Web ; le contenu vidéo est uniquement disponible pour les sites Web inclus dans la liste Favoris."
+
+msgid "Downloading update..."
+msgstr "Téléchargement mise à jour..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Médiathèque devez activer avant d'utiliser la fonction 'Rechercher'."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "ACCORD DE LICENCE IOMEGA"
+
+msgid "IF YOU DO NOT…"
+msgstr "SI VOUS NE..."
+
+msgid "Digital without HDMI audio"
+msgstr "Numérique sans audio HDMI"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "X sur Y visualisations ont été utilisées pour cette location DivX"
+
+msgid "Continue?"
+msgstr "Voulez-vous continuer ?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Voulez-vous vraiment interrompre la copie des fichiers ?"
+
+msgid "Mediafly dashboard"
+msgstr "Tableau de bord Mediafly"
+
+msgid "My channels"
+msgstr "Mes chaînes"
+
+msgid "Popular channels"
+msgstr "Chaînes populaires"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Voulez-vous vraiment supprimer ce compte ?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Voulez-vous vraiment ajouter l'émission :"
+
+msgid "This episode"
+msgstr "Cet épisode"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Cet épisode a été ajouté à votre chaîne. D'autres options sont disponibles sur Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "Tous les épisodes de cette émission"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Cette émission a été ajoutée à votre chaîne. D'autres options sont disponibles sur Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "Que voulez-vous supprimer ?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Cet épisode a été supprimé de votre chaîne. D'autres options sont disponibles sur Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Cette émission a été supprimée de votre chaîne. D'autres options sont disponibles sur Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Voulez-vous noter cette émission/cet épisode ?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Merci. D'autres options sont disponibles sur Mediafly.com."
+
+msgid "View episodes"
+msgstr "Afficher les épisodes"
+
+msgid "Add content source"
+msgstr "Ajouter la source de contenu"
+
+msgid "Add via mcode"
+msgstr "Ajouter via mCode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Entrer le mCode de la source de contenu ci-dessous"
+
+msgid "an mCode is used to activate private content source"
+msgstr "un mCode a été utilisé pour activer la source de contenu privée"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "La source de contenu a été ajoutée à votre tableau de bord Mediafly"
+
+msgid "Invalid mCode, please try again."
+msgstr "mCode non valide. Veuillez réessayer."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Ajouter une ville"
+
+msgid "City management"
+msgstr "Gestion des villes"
+
+msgid "Search location"
+msgstr "Rechercher une ville"
+
+msgid "Change temperature unit"
+msgstr "Modifier l'unité de la température"
+
+msgid "Please define your default city location."
+msgstr "Veuillez définir votre ville par défaut."
+
+msgid "Do you want to clear all city?"
+msgstr "Voulez-vous effacer toutes les villes ?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Voulez-vous supprimer les villes sélectionnées ?"
+
+msgid "No result, please search again."
+msgstr "Aucun résultat. Veuillez réessayer."
+
+msgid "Remove movie Info"
+msgstr "Supprimer les informations du film"
+
+msgid "Rescan Movie Info"
+msgstr "Rechercher de nouveau les informations du film"
+
+
+
+msgid "Manual search"
+msgstr "Recherche manuelle"
+
+
+
+msgid "Please wait..."
+msgstr "Un instant…"
+
+msgid "Are you sure you want to remove content info?"
+msgstr "Voulez-vous vraiment supprimer les informations sur le contenu ?"
+
+msgid "Content info has been removed."
+msgstr "Les informations sur le contenu ont été supprimées."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "Informations fournies par TMDb"
+
+msgid "No need"
+msgstr "Ce n'est pas nécessaire."
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "Aucune information sur le contenu n'a été trouvée dans la base de données en ligne. Veuillez modifier les termes de recherche et réessayez."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Impossible d'enregistrer les informations de film. Vérifiez la connexion réseau."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Impossible d'enregistrer les informations de film. Il est possible que le stockage utilisé soit plein ou en lecture seule."
+
+msgid "Add to playlist"
+msgstr "Ajouter à la liste de lecture"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Connect"
+msgstr "Connecter"
+
+msgid "Create playlist"
+msgstr "Créer une liste de lecture"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS non valide. Vérifiez votre DNS et réessayez."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Voulez-vous supprimer les fichiers sélectionnés ?"
+
+msgid "Edit playlist"
+msgstr "Modifier la liste de lecture"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Passerelle non valide. Vérifiez votre passerelle et réessayez."
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "It should not be empty!"
+msgstr "Ce champ ne doit pas être vide !"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Select destination"
+msgstr "Sélectionner la destination"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Masque de sous-réseau non valide. Vérifiez votre masque de sous-réseau et réessayez."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Le périphérique n'est plus connecté au serveur multimédia."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Le fichier de musique sélectionné a été supprimé de la liste de lecture."
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "Movies"
+msgstr "Film"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Appuyez sur 'ENTER' pour ajouter ces informations à la vidéo"
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Obtention des informations du film en cours.\nUn instant…"
+msgid "Delete all"
+msgstr "Tout supprimer"
+
+msgid "Wind velocity:"
+msgstr "La vitesse du vent"
+
+msgid "Humidity:"
+msgstr "Humidité"
+
+msgid "High/Low"
+msgstr "High / Low"
+
+msgid "Wind direction:"
+msgstr "La direction du vent"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather serveur ne répond pas. S'il vous plaît essayez de nouveau plus tard."
+
+msgid "Movie info auto scan"
+msgstr "Auto Scan film d'info"
+
+msgid "Ignore"
+msgstr "ignorer"
+
+msgid "Scan movie info"
+msgstr "Balayage movie info"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Le nom du groupe de travail ne peut pas contenir d’espace ni les caractères \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nLe nom du fichier ne peut pas contenir plus de xx caractères."
+

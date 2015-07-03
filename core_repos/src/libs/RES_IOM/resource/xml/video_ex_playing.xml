@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<page>
+  <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+        <button valkey="QML0"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+            	focused_bg="image/optionmenu/video_options_icon_audio_channel_f.png"
+		normal_bg="image/optionmenu/video_options_icon_audio_channel.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Audio channel"/>
+        <button valkey="QML1"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+            	focused_bg="image/optionmenu/video_options_icon_subtitle_f.png"
+            	normal_bg="image/optionmenu/video_options_icon_subtitle.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Subtitle"/>
+	<button valkey="QML2"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/optionmenu/video_options_icon_room_in_f.png"
+		normal_bg="image/optionmenu/video_options_icon_room_in.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Zoom in"/>
+	<button valkey="QML3"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/optionmenu/video_options_icon_room_out_f.png"
+		normal_bg="image/optionmenu/video_options_icon_room_out.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Zoom out"/>
+	<button valkey="QML4"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/optionmenu/video_options_icon_pan_f.png"
+		normal_bg="image/optionmenu/video_options_icon_pan.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Pan"/>
+	<button valkey="QML5"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/optionmenu/video_options_icon_info_f.png"
+		normal_bg="image/optionmenu/video_options_icon_info.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Info bar"/>
+	<!--
+	<button valkey="QML6"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/options_menu_gridview_icon.png"
+		normal_bg="image/options_menu_gridview_icon.png"
+		disabled_bg="image/options_menu_gridview_icon_d.png"
+		group_valkey="OPTION"
+		group_focused_text="$$Chapter"/>
+    !-->		
+  </ctrlgrp>
+  <!--
+  <include filename="./inc_optionmenu_widgets_video.xml"/>
+  -->
+  <!-- subtitle -->
+  <include filename="./subtitle.xml" />
+
+  <!-- information -->
+  <image image="@@video_inforbar" x="258" y="570" w="793" h="118" bg="1"/>
+
+  <image x="365" y="607" w="54" h="24" image="@@speed_state"/>
+  <image image="@@play_state" x="281" y="598" w="69" h="60"/>
+
+  <!--
+  <progress_bar name="video_time_bar" x="415" y="648" w="516" h="18" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable"/>
+
+  <text text="@@info_filename" x="425" y="589" w="493" h="31" fontsize="24" textcolor="0x41413f" speed="1" delay="2" align="left" auto_translate="1"/>
+
+  <image image="@@info_seperate_bar" x="749" y="572" w="2" h="51"/>
+  <text text="@@info_cur_time" x="355" y="649" w="68" h="18" fontsize="14" textcolor="0x41413f" align="left"/>
+  <text text="@@info_duration" x="926" y="649" w="80" h="18" fontsize="14" textcolor="0x41413f" align="left"/>
+  -->
+  <progress_bar name="video_time_bar" x="426" y="648" w="516" h="18" pb_back_img="image/video_playing_playbar_bg.png" pb_front_img="image/video_playing_playbar_scale.png" pb_point_img="image/video_playing_playbar_dot.png" pb_delay="500" disable="@@progress_disable"/>
+
+  <text text="@@info_filename" x="435" y="589" w="493" h="31" fontsize="24" textcolor="0x41413f" speed="1" delay="2" align="left" auto_translate="1"/>
+  <text text="@@info_video" x="435" y="629" w="300" h="18" fontsize="14" textcolor="0x7d7d7d"/>
+  <text text="@@info_audio" x="735" y="629" w="192" h="18" fontsize="14" textcolor="0x7d7d7d" align="right"/>
+
+  <text text="@@info_cur_time" x="365" y="649" w="68" h="18" fontsize="14" textcolor="0x41413f" align="left"/>
+  <text text="@@info_duration" x="939" y="649" w="82" h="18" fontsize="14" textcolor="0x7c7c7c" align="left"/>
+
+  <image image="@@repeat-ico" x="946" y="603" w="48" h="36"/>
+  <image image="@@shufle-ico" x="946" y="603" w="48" h="36"/>
+  <image image="@@real-ico" x="993" y="603" w="44" h="36"/>
+
+  <!-- 
+  <image image="@@repeat-ico" x="1057" y="579" w="48" h="36"/>
+  <image image="@@shufle-ico" x="1234" y="599" w="48" h="36"/>
+  -->
+  <include filename="decoration.xml"/>
+  <!--<include filename="./inc_options_video_run.xml"/>-->
+  <include filename="./inc_options_ex_video_run.xml"/>
+
+  <text text="@@mod_txt" x="162" y="302" w="958" h="40" fontsize="30" textcolo=r"0xffffff" align="hcenter" auto_translate="1"/>
+  <text x="162" y="258" w="958" h="40" text="@@text-OPTION" fontsize="30" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+  <image image="@@mod_img" x="1146" y="54" w="80" h="80"/> 
+
+
+</page>

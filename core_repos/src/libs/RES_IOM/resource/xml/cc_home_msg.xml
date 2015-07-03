@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/cc_home_msg.jpg" type="basic" numitems="6">
+  <!--
+  <text text="@@title" fontsize="26" x="200" y="65" h="40" w="400" />
+  -->
+  
+  <include filename="./decoration.xml"/>
+</page>

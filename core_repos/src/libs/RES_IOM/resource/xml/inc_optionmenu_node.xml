@@ -1,0 +1,777 @@
+<?xml version="1.0"?>
+<wrapper>
+	<!--  for optionmenu demo page only -->
+	<button valkey="DEMO POP" 
+		name="Pop"
+		normal_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		focused_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_my_presets_icon_d.png"/>
+	<button valkey="DEMO PAN"
+		name="Pan"
+		normal_bg="image/optionmenu/villa_options_menu_play_button_icon.png"
+		focused_bg="image/optionmenu/villa_options_menu_play_button_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_play_button_icon_d.png"/>
+	<button valkey="DEMO ZOOM"
+	        name="Zoom"	
+		normal_bg="image/optionmenu/villa_options_menu_singin_icon.png"
+		focused_bg="image/optionmenu/villa_options_menu_singin_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_singout_icon.png"/>
+	<!--  end of optionmenu demo page button -->
+
+	<button valkey="AUDIO CHANNEL"
+		name="Audio channel"
+		focused_bg="image/optionmenu/video_options_icon_audio_channel_f.png"
+		normal_bg="image/optionmenu/video_options_icon_audio_channel.png"
+		disabled_bg="image/optionmenu/video_options_icon_audio_channel.png"/>
+	<button valkey="SUBTITLE"
+		name="Subtitle"
+		focused_bg="image/optionmenu/video_options_icon_subtitle_f.png"
+		normal_bg="image/optionmenu/video_options_icon_subtitle.png"
+		disabled_bg="image/optionmenu/video_options_icon_subtitle.png"/>
+	<button valkey="ZOOM IN"
+		name="Zoom in"
+		focused_bg="image/optionmenu/video_options_icon_room_in_f.png"
+		normal_bg="image/optionmenu/video_options_icon_room_in.png"
+		disabled_bg="image/optionmenu/video_options_icon_room_in.png"/>
+	<button valkey="ZOOM OUT"
+		name="Zoom out"
+		focused_bg="image/optionmenu/video_options_icon_room_out_f.png"
+		normal_bg="image/optionmenu/video_options_icon_room_out.png"
+		disabled_bg="image/optionmenu/video_options_icon_room_out.png"/>
+	<button valkey="PAN"
+		name="Pan"
+		focused_bg="image/optionmenu/video_options_icon_pan_f.png"
+		normal_bg="image/optionmenu/video_options_icon_pan.png"
+		disabled_bg="image/optionmenu/video_options_icon_pan.png"/>
+	<button valkey="REPEAT"
+		name="Repeat"
+		focused_bg="image/optionmenu/video_options_icon_repeat_f.png"
+		normal_bg="image/optionmenu/video_options_icon_repeat.png"
+		disabled_bg="image/optionmenu/video_options_icon_repeat.png"/>
+	<button valkey="INFO BAR"
+		name="Info bar"
+		focused_bg="image/optionmenu/video_options_icon_info_f.png"
+		normal_bg="image/optionmenu/video_options_icon_info.png"
+		disabled_bg="image/optionmenu/video_options_icon_info.png"/>
+	<button valkey="CHAPTER"
+		name="Chapter"
+		focused_bg="image/optionmenu/video_options_icon_chapter_f.png"
+		normal_bg="image/optionmenu/video_options_icon_chapter.png"
+		disabled_bg="image/optionmenu/video_options_icon_chapter_d.png"/>
+	<button valkey="THUMBNAIL MODE"
+		name="Thumbnail mode"
+		focused_bg="image/optionmenu/villa_options_menu_thumbnail_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_thumbnail_icon_d.png"
+		normal_bg="image/optionmenu/villa_options_menu_thumbnail_icon_n.png"/>
+ 	<button valkey="LIST MODE"
+		name="List mode"
+		focused_bg="image/optionmenu/villa_options_menu_list_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_list_icon_d.png"
+		normal_bg="image/optionmenu/villa_options_menu_list_icon_n.png"/>
+    	<button valkey="PREVIEW MODE"
+		name="Preview mode"
+		focused_bg="image/optionmenu/villa_options_menu_preview_more_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_preview_more_icon_d.png"
+		normal_bg="image/optionmenu/villa_options_menu_preview_more_icon_n.png"/>
+	<button valkey="DELETE"
+		name="Delete"    
+		focused_bg="image/optionmenu/villa_options_menu_garage_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_garage_icon_d.png"
+		normal_bg="image/optionmenu/villa_options_menu_garage_icon.png"/>
+
+	<button valkey="FILE_TITLES"
+		name="Title and Edition"
+		focused_bg="image/optionmenu/video_options_icon_title_edition_f.png"
+		normal_bg="image/optionmenu/video_options_icon_title_edition_n.png"
+		disabled_bg="image/optionmenu/video_options_icon_title_edition_d.png"/>
+
+	<!-- File management section -->
+	<button valkey="FILEOP_DEL"
+		name="Delete" 
+		focused_bg="image/optionmenu/options_menu_delete_icon.png"
+		disabled_bg="image/optionmenu/options_menu_delete_icon.png"
+		normal_bg="image/optionmenu/options_menu_delete_icon.png"/>
+	<button valkey="FILEOP_COPY"
+		name="Copy"
+		focused_bg="image/optionmenu/options_menu_copy_icon.png"
+		disabled_bg="image/optionmenu/options_menu_copy_icon.png"
+		normal_bg="image/optionmenu/options_menu_copy_icon.png"/>
+	<button valkey="FILEOP_MOVE"
+		name="Move"    
+		focused_bg="image/optionmenu/options_menu_move_icon.png"
+		disabled_bg="image/optionmenu/options_menu_move_icon.png"
+		normal_bg="image/optionmenu/options_menu_move_icon.png"/>
+
+	<button valkey="ROTATE RIGHT"
+		name="Rotate right"
+		focused_bg="image/optionmenu/slideshow_options_menu_90clockwise_icon_n.png"
+		normal_bg="image/optionmenu/slideshow_options_menu_90clockwise_icon_n.png"
+		disabled_bg="image/optionmenu/slideshow_options_menu_90clockwise_icon_n.png"/>
+	<button valkey="ROTATE LEFT"
+		name="Rotate left"
+		focused_bg="image/optionmenu/slideshow_options_menu_90counter_cw_icon_n.png"
+		normal_bg="image/optionmenu/slideshow_options_menu_90counter_cw_icon_n.png"
+		disabled_bg="image/optionmenu/slideshow_options_menu_90counter_cw_icon_n.png"/>
+    	<button valkey="BACKGROUND"
+		name="Set this background image"
+		focused_bg="image/optionmenu/options_menu_set_the_bg_icon.png"
+		normal_bg="image/optionmenu/options_menu_set_the_bg_icon.png"
+		disabled_bg="image/optionmenu/options_menu_set_the_bg_icon.png"/>
+	
+    <!-- ALBUM START -->
+	<button valkey="ADD_PHOTO_TO_ALBUM"
+		name="Add photo to album"
+		focused_bg="image/optionmenu/options_menu_add_photo_to_album_f.png"
+		normal_bg="image/optionmenu/options_menu_add_photo_to_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_add_photo_to_album_n.png"/>
+	<button valkey="ADD_TO_ALBUM"
+		name="Add to album"
+		focused_bg="image/optionmenu/options_menu_add_to_album_f.png"
+		normal_bg="image/optionmenu/options_menu_add_to_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_add_to_album_n.png"/>
+	<button valkey="NEW_ALBUM"
+		name="Create album"
+		focused_bg="image/optionmenu/options_menu_creat_new_album_f.png"
+		normal_bg="image/optionmenu/options_menu_creat_new_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_creat_new_album_n.png"/>
+	<button valkey="DELETE_ALBUM"
+		name="Delete album"
+		focused_bg="image/optionmenu/options_menu_delete_album_f.png"
+		normal_bg="image/optionmenu/options_menu_delete_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_delete_album_n.png"/>
+	<button valkey="EDIT_ALBUM"
+		name="Edit album"
+		focused_bg="image/optionmenu/options_menu_edit_album_f.png"
+		normal_bg="image/optionmenu/options_menu_edit_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_edit_album_n.png"/>
+	<button valkey="RENAME_ALBUM"
+		name="Rename album"
+		focused_bg="image/optionmenu/options_menu_rename_album_f.png"
+		normal_bg="image/optionmenu/options_menu_rename_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_rename_album_n.png"/>
+	<button valkey="REMOVE_PHOTO"
+		name="Remove photo"
+		focused_bg="image/optionmenu/options_menu_remove_photo_f.png"
+		normal_bg="image/optionmenu/options_menu_remove_photo_n.png"
+		disabled_bg="image/optionmenu/options_menu_remove_photo_n.png"/>
+	<button valkey="ADD_TO_ALBUM"
+		name="Select album"
+		focused_bg="image/optionmenu/options_menu_add_photo_to_album_f.png"
+		normal_bg="image/optionmenu/options_menu_add_photo_to_album_n.png"
+		disabled_bg="image/optionmenu/options_menu_add_photo_to_album_n.png"/>
+	<button valkey="SELECT_ALL"
+		name="Select all"
+		focused_bg="image/optionmenu/options_menu_select_all_f.png"
+		normal_bg="image/optionmenu/options_menu_select_all_n.png"
+		disabled_bg="image/optionmenu/options_menu_select_all_n.png"/>
+	<button valkey="UNSELECT_ALL"
+		name="Unselect all"
+		focused_bg="image/optionmenu/options_menu_unselect_all_f.png"
+		normal_bg="image/optionmenu/options_menu_unselect_all_n.png"
+		disabled_bg="image/optionmenu/options_menu_unselect_all_n.png"/>
+	<button valkey="SORT_PHOTO"
+		name="Sort photo"
+		focused_bg="image/optionmenu/options_menu_sort_photo_f.png"
+		normal_bg="image/optionmenu/options_menu_sort_photo_n.png"
+		disabled_bg="image/optionmenu/options_menu_sort_photo_n.png"/>
+    <!-- ALBUM END -->
+
+	<button valkey="HOME"
+		name="Home"
+		focused_bg="image/optionmenu/villa_options_menu_home_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_home_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_home_icon.png"/>
+	<button valkey="NOW PLAYING"
+		name="Now playing"
+		focused_bg="image/optionmenu/villa_options_menu_play_button_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_play_button_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_play_button_icon_d.png"/>
+	<button valkey="MY PRESETS"
+		name="My presets"
+		focused_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_my_presets_icon_d.png"/>
+	<button valkey="STATIONS"
+		name="Stations"
+		focused_bg="image/optionmenu/villa_options_menu_station_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_station_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_station_icon.png"/>
+	<button valkey="SEARCH"
+		name="Search"
+		focused_bg="image/optionmenu/villa_options_menu_search_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_search_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_search_icon.png"/>
+	<button valkey="SIGN IN OUT"
+		name="Sign out / Sign in"
+		focused_bg="image/optionmenu/villa_options_menu_singout_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_singout_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_singout_icon.png"/>
+       
+	<!--  start of pandora option menu  -->
+	<button valkey="PANDORA DELETE ACCOUNT"
+		name="Delete account"	
+		focused_bg="image/pandora/pandora_options_user_delete.png"
+		normal_bg="image/pandora/pandora_options_user_delete_n.png"
+		disabled_bg=""/>
+	<button valkey="PANDORA NOW PLAYING"
+		name="Now playing"
+		focused_bg="image/pandora/pandora_options_now_playing_f.png"
+		normal_bg="image/pandora/pandora_options_now_playing_n.png"
+		disabled_bg=""/>
+	<button valkey="PANDORA SORT ALPHA"
+		name="Sort alphabetically"
+		focused_bg="image/pandora/pandora_options_a_to_z_f.png"
+		normal_bg="image/pandora/pandora_options_a_to_z_n.png"
+		disabled_bg=""/>
+	<button valkey="PANDORA DELETE USER"
+		name="Sign out"
+		focused_bg="image/pandora/pandora_options_sign-out_f.png"
+		normal_bg="image/pandora/pandora_options_sign-out_n.png"
+		disabled_bg=""/>
+	<button valkey="PANDORA SORT RECENT"
+		name="Sort recent"
+		focused_bg="image/pandora/pandora_options_time_f.png"
+		normal_bg="image/pandora/pandora_options_time_n.png"
+		disabled_bg=""/>
+	<!--  end of pandora option menu  -->
+
+	<!--  start of flickr option menu  -->
+	<button valkey="FLICKR DELETE ONE"
+		name="Delete one"
+		focused_bg="image/flickr/IService_Flickr_option_menu_delete_one_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_delete_one_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_delete_one_d.png"/>
+	<button valkey="FLICKR DELETE ALL"
+		name="Delete all"
+		focused_bg="image/flickr/IService_Flickr_option_menu_delete_all_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_delete_all_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_delete_all_d.png"/>
+
+	<button valkey="FLICKR PAN"
+		name="Pan"
+		focused_bg="image/flickr/IService_Flickr_option_menu_pan_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_pan_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_pan_d.png"/>
+	<button valkey="FLICKR ROTATE RIGHT"
+		name="Rotate right"
+		focused_bg="image/flickr/IService_Flickr_option_menu_rotate_right_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_rotate_right_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_rotate_right_d.png"/>
+	<button valkey="FLICKR ROTATE LEFT"
+		name="Rotate left"
+		focused_bg="image/flickr/IService_Flickr_option_menu_rotate_left_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_rotate_left_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_rotate_left_d.png"/>
+	<button valkey="FLICKR ZOOM IN"
+		name="Zoom in"
+		focused_bg="image/flickr/IService_Flickr_option_menu_zoom_in_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_zoom_in_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_zoom_in_d.png"/>
+	<button valkey="FLICKR ZOOM OUT"
+		name="Zoom out"
+		focused_bg="image/flickr/IService_Flickr_option_menu_zoom_out_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_zoom_out_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_zoom_out_d.png"/>
+	<button valkey="FLICKR INFO BAR"
+		name="Info bar"
+		focused_bg="image/flickr/IService_Flickr_option_menu_info_f.png"
+		normal_bg="image/flickr/IService_Flickr_option_menu_info_n.png"
+		disabled_bg="image/flickr/IService_Flickr_option_menu_info_d.png"/>
+
+	<button valkey="FLICKR ADD CONTACT"
+	        name="Add to contacts"
+	        focused_bg="image/flickr/IService_Flickr_option_menu_add_account_f.png"
+	        normal_bg="image/flickr/IService_Flickr_option_menu_add_account_n.png"
+	        disabled_bg="image/flickr/IService_Flickr_option_menu_add_account_n.png"/>
+	<button valkey="FLICKR PLAY MODE"
+                name="Play mode"
+                focused_bg="image/flickr/IService_Flickr_option_menu_play_mode_f.png"
+	        normal_bg="image/flickr/IService_Flickr_option_menu_play_mode_n.png"
+                disabled_bg="image/flickr/IService_Flickr_option_menu_play_mode_n.png"/>
+	<!--  end of flickr option menu  -->
+	
+	<button valkey="RATING"
+		name="Rating"
+		focused_bg="image/optionmenu/options_menu_short_by_rating_icon_n.png"
+		normal_bg="image/optionmenu/options_menu_short_by_rating_icon_n.png"
+		disabled_bg="image/optionmenu/options_menu_short_by_rating_icon_d.png"/> 
+	<button valkey="RECENT"
+		name="Recent"
+		focused_bg="image/optionmenu/options_menu_short_by_recent_icon_n.png"
+		normal_bg="image/optionmenu/options_menu_short_by_recent_icon_n.png"
+		disabled_bg="image/optionmenu/options_menu_short_by_recent_icon_d.png"/>
+	<button valkey="DOWNLOAD"
+		name="Download"
+		focused_bg="image/optionmenu/options_menu_short_by_downloaded_icon_n.png"
+		normal_bg="image/optionmenu/options_menu_short_by_downloaded_icon_n.png"
+		disabled_bg="image/optionmenu/options_menu_short_by_downloaded_icon_d.png"/> 
+	<!--  for list_login.c -->	
+	<button valkey="DELETE ACCOUNT"
+		name="Delete Account"	
+		focused_bg="image/optionmenu/villa_options_menu_delect_account_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_delect_account_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_delect_account_icon.png"/>
+	<button valkey="DELETE ALL"
+		name="Delete All"
+		focused_bg="image/optionmenu/villa_options_menu_all_delect_account_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_all_delect_account_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_all_delect_account_icon.png"/>
+	<!-- end of for list_login.c-->
+
+	<!-- Youtube -->
+	<button valkey="YOUTUBE DOWNLOAD"
+	        focused_bg="image/youtube/options_menu_download_icon_f.png"
+            	normal_bg="image/youtube/options_menu_download_icon_n.png"
+            	disabled_bg="image/youtube/options_menu_download_icon_n.png"
+		name="Download"/>
+	<button valkey="YOUTUBE RATE VIDEO"
+		focused_bg="image/youtube/options_menu_rate_video_icon_f.png"
+        	normal_bg="image/youtube/options_menu_rate_video_icon_n.png"
+        	disabled_bg="image/youtube/options_menu_rate_video_icon_n.png"
+		name="Rate video"/>
+	<button valkey="YOUTUBE FAVORITES"
+		focused_bg="image/youtube/options_menu_favorite_icon_f.png"
+		normal_bg="image/youtube/options_menu_favorite_icon_n.png"
+		disabled_bg="image/youtube/options_menu_favorite_icon_n.png"
+		name="Favorites"/>
+	<button valkey="YOUTUBE RELATED"
+		focused_bg="image/youtube/options_menu_related_icon_f.png"
+		normal_bg="image/youtube/options_menu_related_icon_n.png"
+		disabled_bg="image/youtube/options_menu_related_icon_n.png"
+		name="Related"/>
+	<button valkey="YOUTUBE FULL SCREEN"
+		focused_bg="image/youtube/options_menu_full_screen_icon_f.png"
+		normal_bg="image/youtube/options_menu_full_screen_icon_n.png"
+		disabled_bg="image/youtube/options_menu_full_screen_icon_n.png"
+		name="Full screen"/>
+	<button valkey="YOUTUBE INFO"
+		focused_bg="image/youtube/options_menu_info_icon_f.png"
+		normal_bg="image/youtube/options_menu_info_icon_n.png"
+		disabled_bg="image/youtube/options_menu_info_icon_n.png"
+		name="Info"/>
+	<button valkey="YOUTUBE TODAY"
+	        focused_bg="image/youtube/options_menu_today_icon_f.png"
+        	normal_bg="image/youtube/options_menu_today_icon_n.png"
+		disabled_bg="image/youtube/options_menu_today_icon_d.png" 
+		name="Today"/>
+	<button valkey="YOUTUBE THIS WEEK"
+	        focused_bg="image/youtube/options_menu_this_week_icon_f.png"
+        	normal_bg="image/youtube/options_menu_this_week_icon_n.png"
+		disabled_bg="image/youtube/options_menu_this_week_icon_d.png" 
+		name="This week"/>
+	<button valkey="YOUTUBE THIS MONTH"
+		focused_bg="image/youtube/options_menu_this_month_icon_f.png"
+		normal_bg="image/youtube/options_menu_this_month_icon_n.png"
+		disabled_bg="image/youtube/options_menu_this_month_icon_d.png"
+		name="This month"/>
+	<button valkey="YOUTUBE ALL TIME"
+		focused_bg="image/youtube/options_menu_all_time_icon_f.png"
+		normal_bg="image/youtube/options_menu_all_time_icon_n.png"
+		disabled_bg="image/youtube/options_menu_all_time_icon_d.png"
+		name="All time"/>
+
+	<!-- Youtube video playing page nodes -->
+	<button valkey="Rate video"
+		focused_bg="image/villa_options_menu_rate_video_icon.png"
+		normal_bg="image/villa_options_menu_rate_video_icon.png"
+		disabled_bg="image/villa_options_menu_rate_video_icon.png"
+		name="Rate video"/>
+	<button valkey="Download Video"
+		focused_bg="image/villa_options_menu_download_video_icon.png"
+		normal_bg="image/villa_options_menu_download_video_icon.png"
+		disabled_bg="image/villa_options_menu_download_video_icon.png"
+		name="Download Video"/>
+	<button valkey="Featured Videos" 
+		name="Featured Videos"
+		normal_bg="image/villa_youtube_options_menu_popular_icon.png"
+		focused_bg="image/villa_youtube_options_menu_popular_icon.png"
+		disabled_bg="image/villa_youtube_options_menu_popular_icon.png"/>
+
+	<button valkey="Recent Videos"
+		name="Recent Videos"
+		focused_bg="image/villa_options_menu_recent_icon.png"
+		normal_bg="image/villa_options_menu_recent_icon.png"
+		disabled_bg="image/villa_options_menu_recent_icon.png"/>
+	<button valkey="Top Favorited"
+		name="Top Favorited"
+		focused_bg="image/villa_youtube_options_menu_favorite_icon.png"
+		normal_bg="image/villa_youtube_options_menu_favorite_icon.png"
+		disabled_bg="image/villa_youtube_options_menu_favorite_icon.png"/>
+	<button valkey="Most Popular"
+		disabled_bg="image/villa_options_menu_most_popular_icon.png"
+		focused_bg="image/villa_options_menu_most_popular_icon.png"
+		normal_bg="image/villa_options_menu_most_popular_icon.png"
+		name="Most Popular"/>
+
+	<button valkey="Most Viewed"
+		disabled_bg="image/villa_options_menu_most_viewed_icon.png"
+		focused_bg="image/villa_options_menu_most_viewed_icon.png"
+		normal_bg="image/villa_options_menu_most_viewed_icon.png"
+		name="Most Viewed"/>
+	<button valkey="Top Rated"
+		disabled_bg="image/villa_options_menu_top_rate_icon.png"
+		focused_bg="image/villa_options_menu_top_rate_icon.png"
+		normal_bg="image/villa_options_menu_top_rate_icon.png"
+		name="Top Rated"/>
+	<button valkey="Search"
+		disabled_bg="image/villa_options_menu_search_icon.png"
+		focused_bg="image/villa_options_menu_search_icon.png"
+		normal_bg="image/villa_options_menu_search_icon.png"
+		name="Search"/>
+
+	<button valkey="My Account"
+		disabled_bg="image/villa_options_menu_user_icon.png"
+		focused_bg="image/villa_options_menu_user_icon.png"
+		normal_bg="image/villa_options_menu_user_icon.png"
+		name="My Account"/>
+	<button valkey="Logout"
+		focused_bg="image/villa_options_menu_singout_icon.png"
+		normal_bg="image/villa_options_menu_singout_icon.png"
+		disabled_bg="image/villa_options_menu_singout_icon.png"
+		name="Logout"/>
+	<!-- end of Youtube video playing -->
+
+	<!-- Youtube list login page -->
+	<button valkey="YOUTUBE DELETE ACCOUNT"
+		name="Delete account"	
+		focused_bg="image/youtube/options_menu_delete_account_icon_f.png"
+		normal_bg="image/youtube/options_menu_delete_account_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_delect_account_icon.png"/>
+	<button valkey="YOUTUBE DELETE ALL"
+		name="Delete all"
+		focused_bg="image/youtube/options_menu_delete_all_account_icon_f.png"
+		normal_bg="image/youtube/options_menu_delete_all_account_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_all_delect_account_icon.png"/>
+	<!-- end of Youtube list login page -->
+
+	<button valkey="METADATA INFO"
+		name="View movie info"
+		focused_bg="image/optionmenu/video_option_movie_info_f.png"
+		normal_bg="image/optionmenu/video_option_movie_info_n.png"
+		disabled_bg="image/optionmenu/options_menu_info_icon_n.png"/>
+
+	<button valkey="METADATA REMOVE"
+		name="Remove movie Info"
+		focused_bg="image/optionmenu/video_option_remove_info_f.png"
+		normal_bg="image/optionmenu/video_option_remove_info_n.png"
+		disabled_bg="image/optionmenu/options_menu_info_icon_n.png"/>
+
+	<button valkey="METADATA RE-RECOGNIZE"
+		name="Rescan Movie Info"
+		focused_bg="image/optionmenu/video_option_rescan_f.png"
+		normal_bg="image/optionmenu/video_option_rescan_n.png"
+		disabled_bg="image/optionmenu/options_menu_info_icon_n.png"/>
+
+	<button valkey="METADATA RECOGNIZE"
+		name="Scan movie info"
+		focused_bg="image/optionmenu/video_option_rescan_f.png"
+		normal_bg="image/optionmenu/video_option_rescan_n.png"
+		disabled_bg="image/optionmenu/options_menu_info_icon_n.png"/>
+
+	<button valkey="METADATA SAVE"
+		name="Metadata Save"
+		focused_bg="image/optionmenu/options_menu_info_icon_n.png"
+		normal_bg="image/optionmenu/options_menu_info_icon_n.png"
+		disabled_bg="image/optionmenu/options_menu_info_icon_n.png"/>
+
+	<!-- ipcam -->
+	<button valkey="IPCAM PAN"
+		focused_bg="image/villa_options_menu_pan_icon.png"
+		normal_bg="image/villa_options_menu_pan_icon.png"
+		disabled_bg="image/villa_options_menu_pan_icon.png"
+		name="Pan"/>
+	<button valkey="IPCAM ZOOM IN"
+		focused_bg="image/villa_options_menu_zoomin_icon.png"
+		normal_bg="image/villa_options_menu_zoomin_icon.png"
+		disabled_bg="image/villa_options_menu_zoomin_icon.png"
+		name="Zoom in"/>
+	<button valkey="IPCAM ZOOM OUT"
+		focused_bg="image/villa_options_menu_zoomout_icon.png"
+		normal_bg="image/villa_options_menu_zoomout_icon.png"
+		disabled_bg="image/villa_options_menu_zoomout_icon.png"
+		name="Zoom out"/>
+	<button valkey="IPCAM SET MOTION DETECT"
+		focused_bg="image/options_menu_motion_icon.png"
+		normal_bg="image/options_menu_motion_icon.png"
+		disabled_bg="image/options_menu_motion_colse_icon.png"
+		name="Set Motion Detect"/>
+	<button valkey="IPCAM RECORD"
+		focused_bg="image/options_menu_rec_icon.png"
+		normal_bg="image/options_menu_rec_icon.png"
+		disabled_bg="image/options_menu_rec_icon_d.png"
+		name="Record"/>
+	<button valkey="IPCAM MOTION DETECT"
+		focused_bg="image/options_menu_alert_icon.png"
+		normal_bg="image/options_menu_alert_icon.png"
+		disabled_bg="image/options_menu_alert_colse_icon.png"
+		name="Motion Detect"/>
+	<button valkey="IPCAM SET DEFAULT"
+		focused_bg="image/options_menu_set_default_icon.png"
+		normal_bg="image/options_menu_set_default_icon.png"
+		disabled_bg="image/options_menu_set_default_icon.png"
+		name="Set default"/>
+	<button valkey="IPCAM SNAPSHOT"
+		focused_bg="image/options_menu_snapshot_icon.png"
+		normal_bg="image/options_menu_snapshot_icon.png"
+		disabled_bg="image/options_menu_snapshot_icon.png"
+		name="Snapshot"/>
+	<button valkey="IPCAM RENAME"
+		focused_bg="image/options_menu_rename_device_icon.png"
+		normal_bg="image/options_menu_rename_device_icon.png"
+		disabled_bg="image/options_menu_rename_device_icon.png"
+		name="Rename"/>
+
+	<!-- start of Mediafly option menu -->
+	<button valkey="MEDIAFLY_OPTIONMENU_ADD_CH" 
+		name="Add to my channel"
+            	focused_bg="image/optionmenu/villa_options_menu_add_icon_f.png"
+		normal_bg="image/optionmenu/villa_options_menu_add_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_add_icon_n.png"/>
+	<button valkey="MEDIAFLY_OPTIONMENU_RM_CH"
+		name="Remove from my channel"
+            	focused_bg="image/optionmenu/villa_options_menu_garage_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_garage_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_garage_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_RATE"
+		name="Rate/Favorite"
+            	focused_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_SWITCH"
+		name="View episodes"
+            	focused_bg="image/optionmenu/villa_options_menu_episodes_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_episodes_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_episodes_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_INFO"
+		name="Show info"
+            	focused_bg="image/optionmenu/villa_options_menu_show_info_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_show_info_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_show_info_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_SIGNIN"
+		name="Manage users"
+            	focused_bg="image/optionmenu/villa_options_menu_user_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_user_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_user_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_DASHBOARD"
+		name="Dashboard"
+            	focused_bg="image/optionmenu/villa_options_menu_dashboard_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_dashboard_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_dashboard_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_RM_CONTENT"
+		name="Remove content source"
+            	focused_bg="image/optionmenu/villa_options_menu_garage_icon_f.png"
+            	normal_bg="image/optionmenu/villa_options_menu_garage_icon_n.png"
+            	disabled_bg="image/optionmenu/villa_options_menu_garage_icon_n.png" />
+	<button valkey="MEDIAFLY_OPTIONMENU_ADD_CONTENT"
+		name="Add content source"
+            	focused_bg="image/optionmenu/villa_options_menu_add_icon_f.png"
+		normal_bg="image/optionmenu/villa_options_menu_add_icon_n.png"
+		disabled_bg="image/optionmenu/villa_options_menu_add_icon_n.png"/>
+	<button valkey="MEDIAFLY_OPTIONMENU_SEARCH"
+		name="Search"
+            	focused_bg="image/mediafly/mediafly_option_menu_search_f.png"
+		normal_bg="image/mediafly/mediafly_option_menu_search_n.png"
+		disabled_bg="image/mediafly/mediafly_option_menu_search_n.png"/>
+	<!-- end of Mediafly option menu -->
+
+	<button valkey="ADD PRESET"
+		name="Add Preset"
+		focused_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		normal_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"
+		disabled_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"/>
+
+	<button valkey="ADD FAVORITE"
+		name="Add Favorite"
+		focused_bg="image/optionmenu/options_menu_add_favorite_icon.png"
+		normal_bg="image/optionmenu/options_menu_add_favorite_icon.png"
+		disabled_bg="image/optionmenu/options_menu_add_favorite_icon.png"/>
+
+	<button valkey="ADD PLAYQUEUE"
+		name="Add Playqueue"
+		focused_bg="image/optionmenu/options_menu_add_to_playlist_icon.png"
+		normal_bg="image/optionmenu/options_menu_add_to_playlist_icon.png"
+		disabled_bg="image/optionmenu/options_menu_add_to_playlist_icon.png"/>
+
+	<!-- start of Live365 option menu -->
+	<button valkey="Live365 Home"
+		name="Home"
+		focused_bg="image/live365/Generic_live365_options_menu_home_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_home_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_option_menu_home_icon_d.png"/>
+
+	<button valkey="Live365 Playing"
+		name="Now Playing"
+		focused_bg="image/live365/Generic_live365_options_menu_play_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_play_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_play_icon_d.png"/>
+
+	<button valkey="Live365 My presets"
+		name="My presets"
+		focused_bg="image/live365/Generic_live365_options_menu_my_presets_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_my_presets_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_my_presets_icon_d.png"/>
+
+	<button valkey="Live365 Stations"
+		name="Stations"
+		focused_bg="image/live365/Generic_live365_options_menu_main_station_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_main_station_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_main_station_icon_d.png"/>
+
+	<button valkey="Live365 Search"
+		name="Search"
+		focused_bg="image/live365/Generic_live365_options_menu_search_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_search_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_search_icon_d.png"/>
+
+	<button valkey="Live365 Sign"
+		name="Sign in / Sign out"
+		focused_bg="image/live365/Generic_live365_options_menu_sign_in_icon_f.png"
+		normal_bg="image/live365/Generic_live365_options_menu_sign_in_icon_n.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_sign_in_icon_d.png"/>
+
+	<button valkey="Live365 Remove"
+                name="Remove station"
+		focused_bg="image/live365/Generic_live365_list_remove_icon_f.png"
+                disabled_bg="image/live365/Generic_live365_list_remove_icon_d.png"
+                normal_bg="image/live365/Generic_live365_list_remove_icon_n.png"/> 
+
+	<button valkey="Live365 Thumbs Down"
+		name="Thumbs down"
+		normal_bg="image/live365/Generic_live365_options_menu_thumb_down_icon_n.png"
+		focused_bg="image/live365/Generic_live365_options_menu_thumb_down_icon_f.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_thumb_down_icon_d.png"/>
+
+	<button valkey="Live365 Thumbs Up"
+		name="Thumbs up"
+		normal_bg="image/live365/Generic_live365_options_menu_thumb_up_icon_n.png"
+		focused_bg="image/live365/Generic_live365_options_menu_thumb_up_icon_f.png"
+		disabled_bg="image/live365/Generic_live365_options_menu_thumb_up_icon_d.png"/>
+
+	<button valkey="Live365 Add to My preset"
+		name="Add to my presets"
+		normal_bg="image/live365/Generic_live365_add_to_my_presents_icon_n.png"
+		focused_bg="image/live365/Generic_live365_add_to_my_presents_icon_f.png"
+		disabled_bg="image/live365/Generic_live365_add_to_my_presents_icon_d.png"/>
+
+	<button valkey="Live365 Email"
+		name="Email track"
+		normal_bg="image/live365/Generic_live365_email_track_icon_n.png"
+		focused_bg="image/live365/Generic_live365_email_track_icon_f.png"
+		disabled_bg="image/live365/Generic_live365_email_track_icon_d.png"/>
+
+	<!-- end of Live365 option menu -->
+	
+	<!-- start of music playlist option menu -->
+	<button valkey="CREATE AUDIO PLAYLIST"
+		name="Create playlist"
+		normal_bg="image/playlist/file_management_creat_new_playlist_n.png"
+		disabled_bg="image/playlist/file_management_creat_new_playlist_n.png"
+		focused_bg="image/playlist/file_management_creat_new_playlist_f.png"/>
+		
+	<button valkey="ADD AUDIO TO PLAYLIST"
+		name="Add to playlist"
+		normal_bg="image/playlist/file_management_add_music_to_playlist_n.png"
+		disabled_bg="image/playlist/file_management_add_music_to_playlist_n.png"
+		focused_bg="image/playlist/file_management_add_music_to_playlist_f.png"/>
+		
+	<button valkey="EDIT AUDIO PLAYLIST"
+		name="Edit playlist"
+		normal_bg="image/playlist/file_management_edit_playlist_n.png"
+		disabled_bg="image/playlist/file_management_edit_playlist_n.png"
+		focused_bg="image/playlist/file_management_edit_playlist_f.png"/>
+	
+	<button valkey="RENAME AUDIO PLAYLIST"
+		name="Rename playlist"
+		normal_bg="image/playlist/file_management_rename_playlist_n.png"
+		disabled_bg="image/playlist/file_management_rename_playlist_n.png"
+		focused_bg="image/playlist/file_management_rename_playlist_f.png"/>
+		
+	<button valkey="DELETE AUDIO PLAYLIST"
+		name="Delete playlist"
+		normal_bg="image/playlist/file_management_delete_playlist_n.png"
+		disabled_bg="image/playlist/file_management_delete_playlist_n.png"
+		focused_bg="image/playlist/file_management_delete_playlist_f.png"/>
+		
+	<button valkey="REMOVE AUDIO FROM PLAYLIST"
+		name="Remove from list"
+		normal_bg="image/playlist/file_management_remove_music_n.png"
+		disabled_bg="image/playlist/file_management_remove_music_n.png"
+		focused_bg="image/playlist/file_management_remove_music_f.png"/>
+		
+	<button valkey="PLAYLIST SELECT ALL"
+		name="Select all"
+		normal_bg="image/playlist/file_management_select_all_n.png"
+		disabled_bg="image/playlist/file_management_select_all_n.png"
+		focused_bg="image/playlist/file_management_select_all_f.png"/>
+		
+	<button valkey="PLAYLIST UNSELECT ALL"
+		name="Unselect all"
+		normal_bg="image/playlist/file_management_unselect_all_n.png"
+		disabled_bg="image/playlist/file_management_unselect_all_n.png"
+		focused_bg="image/playlist/file_management_unselect_all_f.png"/>
+		
+	<button valkey="PLAYLIST SORT AUDIO"
+		name="Sort music"
+		normal_bg="image/playlist/file_management_sort_photo_n.png"
+		disabled_bg="image/playlist/file_management_sort_photo_n.png"
+		focused_bg="image/playlist/file_management_sort_photo_f.png"/>
+		
+	<button valkey="PLAYLIST SELECT PLAYLIST"
+		name="Select playlist"
+		normal_bg="image/playlist/file_management_select_playlist_n.png"
+		disabled_bg="image/playlist/file_management_select_playlist_n.png"
+		focused_bg="image/playlist/file_management_select_playlist_f.png"/>
+	<!-- end of music playlist option menu -->
+
+	<!-- start of file management option menu -->
+	<button valkey="FM COPY"
+		name="Copy"
+		normal_bg="image/filemanagement/copy_n.png"
+		disabled_bg="image/filemanagement/copy_n.png"
+		focused_bg="image/filemanagement/copy_f.png"/>
+	<button valkey="FM DELETE"
+		name="Delete"
+		normal_bg="image/filemanagement/delete_n.png"
+		disabled_bg="image/filemanagement/delete_n.png"
+		focused_bg="image/filemanagement/delete_f.png"/>
+	<button valkey="FM MOVE"
+		name="Move"
+		normal_bg="image/filemanagement/move_n.png"
+		disabled_bg="image/filemanagement/move_n.png"
+		focused_bg="image/filemanagement/move_f.png"/>
+	<button valkey="FM SELECT ALL"
+		name="Select all"
+		normal_bg="image/filemanagement/select_all_n.png"
+		disabled_bg="image/filemanagement/select_all_n.png"
+		focused_bg="image/filemanagement/select_all_f.png"/>
+	<button valkey="FM UNSELECT ALL"
+		name="Unselect all"
+		normal_bg="image/filemanagement/unselect_all_n.png"
+		disabled_bg="image/filemanagement/unselect_all_n.png"
+		focused_bg="image/filemanagement/unselect_all_f.png"/>
+	<!-- end of file management option menu -->
+
+	<!-- start of Accuweather option menu -->
+	<button valkey="Accu Weather Locate"
+		name="City management"
+		normal_bg="image/accu_weather/lcoation_n.png"
+		disabled_bg="image/accu_weather/lcoation_n.png"
+		focused_bg="image/accu_weather/lcoation_f.png"/>
+	<button valkey="Accu Weather Convert to C"
+		name=" "
+		normal_bg="image/accu_weather/option_c_n.png"
+		disabled_bg="image/accu_weather/option_c_n.png"
+		focused_bg="image/accu_weather/option_c_f.png"/>
+	<button valkey="Accu Weather Convert to F"
+		name=" "
+		normal_bg="image/accu_weather/option_f_n.png"
+		disabled_bg="image/accu_weather/option_f_n.png"
+		focused_bg="image/accu_weather/option_f_f.png"/>
+	<button valkey="Accu Weather Delete All City"
+		name="Delete all"
+		normal_bg="image/accu_weather/option_deleteall_n.png"
+		disabled_bg="image/accu_weather/option_deleteall_f.png"
+		focused_bg="image/accu_weather/option_deleteall_f.png"/>
+	<!-- end of Accuweather option menu -->
+
+</wrapper>

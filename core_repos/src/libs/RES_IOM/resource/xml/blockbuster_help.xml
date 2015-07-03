@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<button valkey="GoBack" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+	</ctrlgrp>
+
+	<text x="254" y="140" fontsize="22" w="814" h="24" textcolor="0xbababa" text="$$How to Activate:"/>
+	<text x="290" y="189" fontsize="20" w="800" h="22" textcolor="0xbababa" text="$$1. Go to www.blockbuster.com/iomega and follow the steps to activate your device."/>
+
+	<text x="290" y="213" fontsize="20" w="778" h="22" textcolor="0xbababa" text="$$2. Once you receive an activation code, go to Get Started and enter the code."/>
+
+	<text x="254" y="259" fontsize="22" w="814" h="24" textcolor="0xbababa" text="$$Coupons:" />
+	<text x="290" y="309" fontsize="20" w="778" h="25" textcolor="0xbababa" text="$$In order to redeem your BLOCKBUSTER On Demand coupon, simply:" />
+	<text x="290" y="334" fontsize="20" w="778" h="25" textcolor="0xbababa" text="$$1. Find the movie you want on your device."/>
+	<text x="290" y="359" fontsize="20" w="778" h="25" textcolor="0xbababa" text="$$2. Go to Blockbuster.com and enter your coupon code at checkout."/>
+	<text x="290" y="384" fontsize="20" w="778" h="25" textcolor="0xbababa" text="$$3. On your device, go to My Library and enjoy your movie!"/>
+
+	<text x="254" y="429" fontsize="20" w="814" h="22" textcolor="0xbababa" text="$$Go to www.blockbuster.com/ondemand101 to learn more and get assistance, if needed."/>
+
+	<text x="254" y="477" fontsize="20" w="814" h="22" textcolor="0xbababa" text="$$Please provide the following device information for all Customer Care contacts:" />
+	<text x="290" y="525" fontsize="20" w="346" h="25" textcolor="0xbababa" text="@@device_name_tag" align="right" />
+	<text x="644" y="525" fontsize="20" w="424" h="25" textcolor="0xbababa" text="@@device_name" />
+	<text x="290" y="550" fontsize="20" w="346" h="25" textcolor="0xbababa" text="@@device_id_tag" align="right"/>
+	<text x="644" y="550" fontsize="20" w="424" h="25" textcolor="0xbababa" text="@@device_id" />
+	<text x="290" y="575" fontsize="20" w="346" h="25" textcolor="0xbababa" text="@@version_tag" align="right"/>
+	<text x="644" y="575" fontsize="20" w="424" h="25" textcolor="0xbababa" text="@@version" />
+
+	
+	<image image="image/blockbuster/bb_return_icon.png" x="109" y="644" w="24" h="21"/>
+	<imgbtn x="535" y="617" w="210" h="49" fontsize="20" align="hcenter" text="$$Go Back" image="@@bg-GoBack" disable="@@disable-GoBack" active="@@act-GoBack" selected="@@sel-GoBack" click="@@click-GoBack" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

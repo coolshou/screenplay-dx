@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp>
+		<button valkey="OK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png" />
+	</ctrlgrp>
+
+    <include filename="./inc_setup_entry_basic_title.xml" />
+    <wrapper x="150" w="980" textcolor="0xffffff" fontsize="22" align="hcenter">
+	<text text="@@regiser_text1" h="68" numlines="2" y="220"/>
+	<text text="@@regiser_text2" h="30" y="288"/>
+	<text text="@@regiser_text3" h="30" y="318"/>
+    </wrapper>
+
+	<imgbtn x="486" y="462" w="300" h="40" image="@@bg-OK" text="$$OK" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-OK" actnoseltextcolor="0xffffff"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

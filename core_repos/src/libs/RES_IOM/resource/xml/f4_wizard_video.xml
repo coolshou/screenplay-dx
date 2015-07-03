@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+  	<image image="@@hour_oct" x="100" y="50" w="50" h="50" bg="1" disable="@@hour_oct_disable"/>
+  	<image image="@@hour_dig" x="150" y="50" w="50" h="50" bg="1" disable="@@hour_dig_disable"/>
+  	<image image="@@symbol1"  x="200" y="50" w="50" h="50" bg="1" disable="@@symbol1_disable"/>
+  	<image image="@@min_oct"  x="250" y="50" w="50" h="50" bg="1" disable="@@min_oct_disable"/>
+  	<image image="@@min_dig"  x="300" y="50" w="50" h="50" bg="1" disable="@@min_dig_disable"/>
+  	<image image="@@symbol2"  x="350" y="50" w="50" h="50" bg="1" disable="@@symbol2_disable"/>
+  	<image image="@@sec_oct"  x="400" y="50" w="50" h="50" bg="1" disable="@@sec_oct_disable"/>
+  	<image image="@@sec_dig"  x="450" y="50" w="50" h="50" bg="1" disable="@@sec_dig_disable"/>
+</page>

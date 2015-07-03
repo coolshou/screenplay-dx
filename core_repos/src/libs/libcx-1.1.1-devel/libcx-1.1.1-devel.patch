@@ -1,0 +1,11 @@
+--- list.c	2008-01-22 22:14:53.000000000 +0800
++++ list_new.c	2010-04-23 11:48:49.000000000 +0800
+@@ -229,7 +229,7 @@
+ 
+   for (ptr= two->head; ptr != NULL ;ptr= ptr->next)
+   {
+-    list_insert(into, ptr, into->queue);
++    list_insert(into, into->queue, ptr->data);
+   }
+   DBUG_RETURN(0);
+ }

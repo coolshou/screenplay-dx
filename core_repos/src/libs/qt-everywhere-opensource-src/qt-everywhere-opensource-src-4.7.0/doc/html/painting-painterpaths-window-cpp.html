@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: window.cpp Example File (painting/painterpaths/window.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">window.cpp Example File</h1>
+<span class="small-subtitle">painting/painterpaths/window.cpp</span>
+<!-- $$$painting/painterpaths/window.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &lt;math.h&gt;
+
+ #include &quot;renderarea.h&quot;
+ #include &quot;window.h&quot;
+
+ const float Pi = 3.14159f;
+
+ Window::Window()
+ {
+     QPainterPath rectPath;
+     rectPath.moveTo(20.0, 30.0);
+     rectPath.lineTo(80.0, 30.0);
+     rectPath.lineTo(80.0, 70.0);
+     rectPath.lineTo(20.0, 70.0);
+     rectPath.closeSubpath();
+
+     QPainterPath roundRectPath;
+     roundRectPath.moveTo(80.0, 35.0);
+     roundRectPath.arcTo(70.0, 30.0, 10.0, 10.0, 0.0, 90.0);
+     roundRectPath.lineTo(25.0, 30.0);
+     roundRectPath.arcTo(20.0, 30.0, 10.0, 10.0, 90.0, 90.0);
+     roundRectPath.lineTo(20.0, 65.0);
+     roundRectPath.arcTo(20.0, 60.0, 10.0, 10.0, 180.0, 90.0);
+     roundRectPath.lineTo(75.0, 70.0);
+     roundRectPath.arcTo(70.0, 60.0, 10.0, 10.0, 270.0, 90.0);
+     roundRectPath.closeSubpath();
+
+     QPainterPath ellipsePath;
+     ellipsePath.moveTo(80.0, 50.0);
+     ellipsePath.arcTo(20.0, 30.0, 60.0, 40.0, 0.0, 360.0);
+
+     QPainterPath piePath;
+     piePath.moveTo(50.0, 50.0);
+     piePath.arcTo(20.0, 30.0, 60.0, 40.0, 60.0, 240.0);
+     piePath.closeSubpath();
+
+     QPainterPath polygonPath;
+     polygonPath.moveTo(10.0, 80.0);
+     polygonPath.lineTo(20.0, 10.0);
+     polygonPath.lineTo(80.0, 30.0);
+     polygonPath.lineTo(90.0, 70.0);
+     polygonPath.closeSubpath();
+
+     QPainterPath groupPath;
+     groupPath.moveTo(60.0, 40.0);
+     groupPath.arcTo(20.0, 20.0, 40.0, 40.0, 0.0, 360.0);
+     groupPath.moveTo(40.0, 40.0);
+     groupPath.lineTo(40.0, 80.0);
+     groupPath.lineTo(80.0, 80.0);
+     groupPath.lineTo(80.0, 40.0);
+     groupPath.closeSubpath();
+
+     QPainterPath textPath;
+     QFont timesFont(&quot;Times&quot;, 50);
+     timesFont.setStyleStrategy(QFont::ForceOutline);
+     textPath.addText(10, 70, timesFont, tr(&quot;Qt&quot;));
+
+     QPainterPath bezierPath;
+     bezierPath.moveTo(20, 30);
+     bezierPath.cubicTo(80, 0, 50, 50, 80, 80);
+
+     QPainterPath starPath;
+     starPath.moveTo(90, 50);
+     for (int i = 1; i &lt; 5; ++i) {
+         starPath.lineTo(50 + 40 * cos(0.8 * i * Pi),
+                         50 + 40 * sin(0.8 * i * Pi));
+     }
+     starPath.closeSubpath();
+
+     renderAreas[0] = new RenderArea(rectPath);
+     renderAreas[1] = new RenderArea(roundRectPath);
+     renderAreas[2] = new RenderArea(ellipsePath);
+     renderAreas[3] = new RenderArea(piePath);
+     renderAreas[4] = new RenderArea(polygonPath);
+     renderAreas[5] = new RenderArea(groupPath);
+     renderAreas[6] = new RenderArea(textPath);
+     renderAreas[7] = new RenderArea(bezierPath);
+     renderAreas[8] = new RenderArea(starPath);
+     Q_ASSERT(NumRenderAreas == 9);
+
+     fillRuleComboBox = new QComboBox;
+     fillRuleComboBox-&gt;addItem(tr(&quot;Odd Even&quot;), Qt::OddEvenFill);
+     fillRuleComboBox-&gt;addItem(tr(&quot;Winding&quot;), Qt::WindingFill);
+
+     fillRuleLabel = new QLabel(tr(&quot;Fill &amp;Rule:&quot;));
+     fillRuleLabel-&gt;setBuddy(fillRuleComboBox);
+
+     fillColor1ComboBox = new QComboBox;
+     populateWithColors(fillColor1ComboBox);
+     fillColor1ComboBox-&gt;setCurrentIndex(
+             fillColor1ComboBox-&gt;findText(&quot;mediumslateblue&quot;));
+
+     fillColor2ComboBox = new QComboBox;
+     populateWithColors(fillColor2ComboBox);
+     fillColor2ComboBox-&gt;setCurrentIndex(
+             fillColor2ComboBox-&gt;findText(&quot;cornsilk&quot;));
+
+     fillGradientLabel = new QLabel(tr(&quot;&amp;Fill Gradient:&quot;));
+     fillGradientLabel-&gt;setBuddy(fillColor1ComboBox);
+
+     fillToLabel = new QLabel(tr(&quot;to&quot;));
+     fillToLabel-&gt;setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+     penWidthSpinBox = new QSpinBox;
+     penWidthSpinBox-&gt;setRange(0, 20);
+
+     penWidthLabel = new QLabel(tr(&quot;&amp;Pen Width:&quot;));
+     penWidthLabel-&gt;setBuddy(penWidthSpinBox);
+
+     penColorComboBox = new QComboBox;
+     populateWithColors(penColorComboBox);
+     penColorComboBox-&gt;setCurrentIndex(
+             penColorComboBox-&gt;findText(&quot;darkslateblue&quot;));
+
+     penColorLabel = new QLabel(tr(&quot;Pen &amp;Color:&quot;));
+     penColorLabel-&gt;setBuddy(penColorComboBox);
+
+     rotationAngleSpinBox = new QSpinBox;
+     rotationAngleSpinBox-&gt;setRange(0, 359);
+     rotationAngleSpinBox-&gt;setWrapping(true);
+     rotationAngleSpinBox-&gt;setSuffix(&quot;\xB0&quot;);
+
+     rotationAngleLabel = new QLabel(tr(&quot;&amp;Rotation Angle:&quot;));
+     rotationAngleLabel-&gt;setBuddy(rotationAngleSpinBox);
+
+     connect(fillRuleComboBox, SIGNAL(activated(int)),
+             this, SLOT(fillRuleChanged()));
+     connect(fillColor1ComboBox, SIGNAL(activated(int)),
+             this, SLOT(fillGradientChanged()));
+     connect(fillColor2ComboBox, SIGNAL(activated(int)),
+             this, SLOT(fillGradientChanged()));
+     connect(penColorComboBox, SIGNAL(activated(int)),
+             this, SLOT(penColorChanged()));
+
+     for (int i = 0; i &lt; NumRenderAreas; ++i) {
+         connect(penWidthSpinBox, SIGNAL(valueChanged(int)),
+                 renderAreas[i], SLOT(setPenWidth(int)));
+         connect(rotationAngleSpinBox, SIGNAL(valueChanged(int)),
+                 renderAreas[i], SLOT(setRotationAngle(int)));
+     }
+
+     QGridLayout *topLayout = new QGridLayout;
+     for (int i = 0; i &lt; NumRenderAreas; ++i)
+         topLayout-&gt;addWidget(renderAreas[i], i / 3, i % 3);
+
+     QGridLayout *mainLayout = new QGridLayout;
+     mainLayout-&gt;addLayout(topLayout, 0, 0, 1, 4);
+     mainLayout-&gt;addWidget(fillRuleLabel, 1, 0);
+     mainLayout-&gt;addWidget(fillRuleComboBox, 1, 1, 1, 3);
+     mainLayout-&gt;addWidget(fillGradientLabel, 2, 0);
+     mainLayout-&gt;addWidget(fillColor1ComboBox, 2, 1);
+     mainLayout-&gt;addWidget(fillToLabel, 2, 2);
+     mainLayout-&gt;addWidget(fillColor2ComboBox, 2, 3);
+     mainLayout-&gt;addWidget(penWidthLabel, 3, 0);
+     mainLayout-&gt;addWidget(penWidthSpinBox, 3, 1, 1, 3);
+     mainLayout-&gt;addWidget(penColorLabel, 4, 0);
+     mainLayout-&gt;addWidget(penColorComboBox, 4, 1, 1, 3);
+     mainLayout-&gt;addWidget(rotationAngleLabel, 5, 0);
+     mainLayout-&gt;addWidget(rotationAngleSpinBox, 5, 1, 1, 3);
+     setLayout(mainLayout);
+
+     fillRuleChanged();
+     fillGradientChanged();
+     penColorChanged();
+     penWidthSpinBox-&gt;setValue(2);
+
+     setWindowTitle(tr(&quot;Painter Paths&quot;));
+ }
+
+ void Window::fillRuleChanged()
+ {
+     Qt::FillRule rule = (Qt::FillRule)currentItemData(fillRuleComboBox).toInt();
+
+     for (int i = 0; i &lt; NumRenderAreas; ++i)
+         renderAreas[i]-&gt;setFillRule(rule);
+ }
+
+ void Window::fillGradientChanged()
+ {
+     QColor color1 = qvariant_cast&lt;QColor&gt;(currentItemData(fillColor1ComboBox));
+     QColor color2 = qvariant_cast&lt;QColor&gt;(currentItemData(fillColor2ComboBox));
+
+     for (int i = 0; i &lt; NumRenderAreas; ++i)
+         renderAreas[i]-&gt;setFillGradient(color1, color2);
+ }
+
+ void Window::penColorChanged()
+ {
+     QColor color = qvariant_cast&lt;QColor&gt;(currentItemData(penColorComboBox));
+
+     for (int i = 0; i &lt; NumRenderAreas; ++i)
+         renderAreas[i]-&gt;setPenColor(color);
+ }
+
+ void Window::populateWithColors(QComboBox *comboBox)
+ {
+     QStringList colorNames = QColor::colorNames();
+     foreach (QString name, colorNames)
+         comboBox-&gt;addItem(name, QColor(name));
+ }
+
+ QVariant Window::currentItemData(QComboBox *comboBox)
+ {
+     return comboBox-&gt;itemData(comboBox-&gt;currentIndex());
+ }</pre>
+</div>
+<!-- @@@painting/painterpaths/window.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- platform-notes-rtos.qdoc -->
+  <title>Qt 4.7: Platform Notes - VxWorks</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Platform Notes - VxWorks</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#supported-versions">Supported Versions</a></li>
+<li class="level1"><a href="#limitations">Limitations</a></li>
+<li class="level1"><a href="#build-instructions">Build Instructions</a></li>
+<li class="level1"><a href="#general-notes">General Notes</a></li>
+</ul>
+</div>
+<h1 class="title">Platform Notes - VxWorks</h1>
+<span class="subtitle"></span>
+<!-- $$$platform-notes-vxworks.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="vxworks"></a><p><b>Note:</b> <a href="#vxworks">VxWorks</a> is a community supported platform. See the <a href="supported-platforms.html">Supported Platforms</a> page for more information.</p>
+<p>This page contains information about the Qt for <a href="#vxworks">VxWorks</a> port. More information about the combinations of platforms and compilers supported by Qt can be found on the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
+<a name="supported-versions"></a>
+<h2>Supported Versions</h2>
+<p>Qt has been tested on WindRiver <a href="#vxworks">VxWorks</a> 6.7 in kernel mode using the vendor supplied GCC compiler, targetting both the x86 simulator (simpentium) and Power-PC devices (ppc). <a href="#vxworks">VxWorks</a>' RTP mode is currently not supported.</p>
+<a name="limitations"></a>
+<h2>Limitations</h2>
+<p>The <a href="#vxworks">VxWorks</a> kernel has an optional POSIX compatibility layer, but this layer does not implement all POSIX functionality needed for a complete Qt port.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Function</th><th >Notes</th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qprocess.html">QProcess</a></p></td><td ><p>Not available - <a href="#vxworks">VxWorks</a> has no concept of processes.</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qsharedmemory.html">QSharedMemory</a></p></td><td ><p>Not available - <a href="#vxworks">VxWorks</a> has only a global, flat address space.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qsystemsemaphore.html">QSystemSemaphore</a></p></td><td ><p>Not available - <a href="#vxworks">VxWorks</a> has no concept of processes.</p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qlibrary.html">QLibrary</a></p></td><td ><p><a href="qlibrary.html">QLibrary</a> is only a small stub to make it possible to build static plugins.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qcoreapplication.html">QCoreApplication</a></p></td><td ><p>Can only be instantiated once. Qt's Q(CoreE)Application is tightly coupled to one address space and process, while <a href="#vxworks">VxWorks</a> only supports one global address space and has no concept of processes.</p></td></tr>
+<tr class="even topAlign"><td ><p>Phonon</p></td><td ><p>There is no standard audio backend, which could be integrated into Phonon.</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qt3support.html">Qt3Support</a></p></td><td ><p>The <a href="qt3support.html">Qt3Support</a> library is not available on <a href="#vxworks">VxWorks</a>.</p></td></tr>
+</table>
+<a name="build-instructions"></a>
+<h2>Build Instructions</h2>
+<p>Qt for <a href="#vxworks">VxWorks</a> needs to be <a href="qt-embedded-crosscompiling.html">cross-compiled</a> on a Linux host. <tt>configure</tt> and <tt>make</tt> the build like you would with a standard <a href="qt-embedded-crosscompiling.html">embedded Linux cross build</a>. Building the <a href="#vxworks">VxWorks</a> simulator would be done like this:</p>
+<pre class="highlightedCode brush: cpp"> &lt;path/to/qt/sources&gt;/configure -xplatform unsupported/vxworks-simpentium-g++ -embedded vxworks -exceptions -no-gfx-linuxfb -no-mouse-linuxtp -no-mouse-pc -no-kbd-tty
+ make</pre>
+<ul>
+<li><tt>-xplatform unsupported/qws/vxworks-simpentium-g++</tt> - selects the x86 simulator mkspec for <a href="#vxworks">VxWorks</a></li>
+<li><tt>-embedded vxworks</tt> - builds the embedded version of Qt and sets the architecture to <a href="#vxworks">VxWorks</a></li>
+<li><tt>-exceptions</tt> - see General Notes below</li>
+<li><tt>-no-gfx-linuxfb</tt>, <tt>-no-mouse-linuxtp</tt>, <tt>-no-mouse-pc</tt> and <tt>-no-kbd-tty</tt> are Linux specific and won't work on <a href="#vxworks">VxWorks</a></li>
+</ul>
+<a name="general-notes"></a>
+<h2>General Notes</h2>
+<ul>
+<li>Configuring with <tt>-exceptions</tt> is necessary, because the <a href="#vxworks">VxWorks</a> 6.7 g++ headers require exceptions to be enabled when compiling C++ code.</li>
+<li>Configure's <tt>-xplatform</tt> can be any of <tt>unsupported/vxworks-(simpentium|ppc)-(g++|dcc)</tt>, but <tt>dcc</tt> (WindRiver DIAB compiler) has not yet tested been tested with Qt 4.6 and <a href="#vxworks">VxWorks</a> 6.7&#x2e;</li>
+<li>Building shared libraries with <tt>-shared</tt> (the default) doesn't really build shared libraries, like e.g&#x2e; on Linux, since these are not supported by <a href="#vxworks">VxWorks</a>. Instead, qmake will created partially linked objects, that can be loaded at runtime with <tt>ld</tt>.</li>
+<li>Creating static builds with <tt>-static</tt> is fully supported.</li>
+<li>&quot;Munching&quot; (generating constructors/destructors for static C++ objects) is done automatically by a special qmake extension (for both shared libraries and executables)</li>
+<li><a href="#vxworks">VxWorks</a> does not have a file system layer, but the low level storage drivers have to supply a file system like interface to the applications. Since each driver implements a different subset of the functionality supported by this interface, Qt's file system auto-tests show wildly differing results running on different &quot;file systems&quot;. The best results can be achieved when running on a (writable) NFS mount, since that provides the most Unix-ish interface. The worst results come from the FTP file system driver, which may crash when accessed by a <tt>QFileInfo</tt>.</li>
+<li>Keep in mind that <a href="#vxworks">VxWorks</a> doesn't call your <tt>main()</tt> function with the standard <tt>argc</tt>/<tt>argv</tt> parameters. So either add a special <tt>vxmain()</tt> function or use a tool like <tt>callmain</tt> to translate <a href="#vxworks">VxWorks</a>' commandline arguments to an <tt>argc</tt>/<tt>argv</tt> array.</li>
+<li>Some example will fail to build, due to some missing dependencies (e.g&#x2e; shared memory) - this will be fixed in a later release.</li>
+</ul>
+</div>
+<!-- @@@platform-notes-vxworks.html -->
+<p>
+</p>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

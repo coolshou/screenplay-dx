@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+  <ctrlgrp lbmask="l" more_select="right">
+     <button valkey="WIRE"
+	     focused_bg="./image/settings_focus_btn.png"/> 
+     <linebreak/>
+     <button valkey="WIRELESS"
+	     focused_bg="./image/settings_focus_btn.png"/> 
+  </ctrlgrp>
+
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <table x="156" y="190" w="943" h="98" cols="1" rows="2" colspacing="0" rowspacing="0"
+    fontsize="22" lbimage="image/settings_focus_btn.png" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" lmargin="30">
+    <text lightbar="@@bg-WIRE" text="$$Wire" active="@@act-WIRE"/>
+    <text lightbar="@@bg-WIRELESS" text="$$Wireless" active="@@act-WIRELESS"/>
+  </table>
+<!--
+  <imgbtn x="185" y="188" w="913" h="49" image="@@bg-WIRE" text="Wire" fontsize="22" selected_fontsize="30" active="@@act-WIRE" textcolor="0xffffff" actnoseltextcolor="0x00ccff"/>
+  <imgbtn x="185" y="237" w="913" h="49" image="@@bg-WIRELESS" text="Wireless" fontsize="22" selected_fontsize="30" active="@@act-WIRELESS" textcolor="0xffffff" actnoseltextcolor="0x00ccff"/>
+-->
+  <include filename="./inc_loading.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

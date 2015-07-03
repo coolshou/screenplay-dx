@@ -1,0 +1,375 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/Makefile linux-2.6.22.19/arch/mips/tangox/Makefile
+--- linux-2.6.22.19.ref/arch/mips/tangox/Makefile	2010-05-18 14:34:15.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/Makefile	2010-05-18 14:36:45.875793352 -0700
+@@ -18,6 +18,10 @@
+ 
+ obj-y += mbus.o
+ 
++ifdef CONFIG_TANGO3
++obj-$(CONFIG_TANGOX_XENV_READ) += zxenv.o
++endif
++
+ ifndef CONFIG_TANGOX_FIXED_FREQUENCIES
+ obj-$(CONFIG_TANGOX_FREQUENCY_CONTROL) += fctrl/
+ endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/prom.c linux-2.6.22.19/arch/mips/tangox/prom.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/prom.c	2010-05-18 14:34:15.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/prom.c	2010-05-18 14:36:15.975290305 -0700
+@@ -53,6 +53,7 @@
+ unsigned long em8xxx_remap_registers[5];
+ #elif defined(CONFIG_TANGO3)
+ unsigned long em8xxx_remap_registers[9];
++unsigned long tangox_zxenv[MAX_XENV_SIZE/sizeof(unsigned long)] = { 0 };
+ #endif 
+ 
+ /*
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/sha.c linux-2.6.22.19/arch/mips/tangox/sha.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/sha.c	2010-05-18 14:34:15.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/sha.c	2010-05-18 14:36:15.975290305 -0700
+@@ -24,7 +24,7 @@
+ #define SHA1_HMAC_BLOCK_SIZE	64
+ #define SHA_WORKSPACE_WORDS 	80
+ 
+-static void __init __sha1_init(struct sha1_ctx *sctx)
++static void __sha1_init(struct sha1_ctx *sctx)
+ {
+ 	static const struct sha1_ctx initstate = {
+ 	  0,
+@@ -34,7 +34,7 @@
+ 	*sctx = initstate;
+ }
+ 
+-static void __init __sha1_update(struct sha1_ctx *sctx, const u8 *data, unsigned int len)
++static void __sha1_update(struct sha1_ctx *sctx, const u8 *data, unsigned int len)
+ {
+ 	unsigned int partial, done;
+ 	const u8 *src;
+@@ -66,7 +66,7 @@
+ }
+ 
+ /* Add padding and return the message digest. */
+-static void __init __sha1_final(struct sha1_ctx *sctx, u8 *out)
++static void __sha1_final(struct sha1_ctx *sctx, u8 *out)
+ {
+ 	__be32 *dst = (__be32 *)out;
+ 	u32 i, index, padlen;
+@@ -93,7 +93,7 @@
+ #endif /* CONFIG_CRYPTO_SHA1 */
+ 
+ #ifdef CONFIG_CRYPTO_SHA1
+-void __init sha1_full(u8 *digest, const u8 *src, u32 len)
++void sha1_full(u8 *digest, const u8 *src, u32 len)
+ {
+ 	int i;
+ 	u8 tmp;
+@@ -151,7 +151,7 @@
+ 	W[I] = s1(W[I-2]) + W[I-7] + s0(W[I-15]) + W[I-16];
+ }
+ 
+-static void __init __sha256_transform(u32 *state, const u8 *input)
++static void __sha256_transform(u32 *state, const u8 *input)
+ {
+ 	u32 a, b, c, d, e, f, g, h, t1, t2;
+ 	u32 W[64];
+@@ -314,7 +314,7 @@
+ 	memset(W, 0, 64 * sizeof(u32));
+ }
+ 
+-static void __init __sha256_init(struct sha256_ctx *sctx)
++static void __sha256_init(struct sha256_ctx *sctx)
+ {
+ 	sctx->state[0] = H0;
+ 	sctx->state[1] = H1;
+@@ -327,7 +327,7 @@
+ 	sctx->count[0] = sctx->count[1] = 0;
+ }
+ 
+-static void __init __sha256_update(struct sha256_ctx *sctx, const u8 *data, unsigned int len)
++static void __sha256_update(struct sha256_ctx *sctx, const u8 *data, unsigned int len)
+ {
+ 	unsigned int i, index, part_len;
+ 
+@@ -358,7 +358,7 @@
+ 	memcpy(&sctx->buf[index], &data[i], len-i);
+ }
+ 
+-static void __init __sha256_final(struct sha256_ctx *sctx, u8 *out)
++static void __sha256_final(struct sha256_ctx *sctx, u8 *out)
+ {
+ 	__be32 *dst = (__be32 *)out;
+ 	__be32 bits[2];
+@@ -388,7 +388,7 @@
+ #endif
+ 
+ #ifdef CONFIG_CRYPTO_SHA256
+-void __init sha256_full(u8 *digest, const u8 *src, u32 len)
++void sha256_full(u8 *digest, const u8 *src, u32 len)
+ {
+ 	int i;
+ 	u8 tmp;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/xenv.c linux-2.6.22.19/arch/mips/tangox/xenv.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/xenv.c	2010-05-18 14:34:15.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/xenv.c	2010-05-18 14:36:15.975290305 -0700
+@@ -38,7 +38,7 @@
+ #define xos_strcmp(x,y)	   strcmp(x,y)
+ #define xos_memcpy(x,y,z)  memcpy(x,y,z)
+ 
+-void __init xenv_digest_full(u8 *digest, const u8 *src, u32 len)
++void xenv_digest_full(u8 *digest, const u8 *src, u32 len)
+ {
+ #if defined(CONFIG_TANGO2)
+ 	sha1_full(digest, src, len);
+@@ -61,7 +61,7 @@
+ /*
+  * check for valid XENV at given address
+  */
+-int __init xenv_isvalid(u32 *base, u32 maxsize)
++int xenv_isvalid(u32 *base, u32 maxsize)
+ {
+ 	u32 env_size = base[0];
+ 	u32 hash[XENV_DIGEST_SIZE/4];
+@@ -80,7 +80,7 @@
+ 	return -1;
+ }
+ 
+-int __init xenv_foreach(u32 *xenv_base, u32 size,
++int xenv_foreach(u32 *xenv_base, u32 size,
+ 			void (*cb)(char *recordname, void *data, u32 datasize))
+ {
+ 	int i;
+@@ -111,7 +111,7 @@
+ 
+ #ifdef CONFIG_TANGO3
+ /* Use this to set xenv to lrrw */
+-static int __init xenv_lookup(RMuint32 *base,RMuint32 size,RMascii *recordname)
++static int xenv_lookup(RMuint32 *base,RMuint32 size,RMascii *recordname)
+ {
+ 	RMascii *p;
+ 	int i;
+@@ -140,7 +140,7 @@
+ }
+ 
+ /* Use this to get xenv to lrrw/lrro */
+-int __init xenv_get(u32 *base, u32 size, char *recordname, void *dst, u32 *datasize)
++int xenv_get(u32 *base, u32 size, char *recordname, void *dst, u32 *datasize)
+ {
+ 	RMascii *p = (RMascii *)base;
+ 	RMuint32 data_len;
+@@ -176,7 +176,7 @@
+ 	return 0 /* RM_OK */;
+ }
+ 
+-int __init xenv_set(u32 *base, u32 size, char *recordname, void *src, u8 attr, u32 datasize)
++int xenv_set(u32 *base, u32 size, char *recordname, void *src, u8 attr, u32 datasize)
+ {
+ 	RMascii *p;
+ 	RMuint32 env_size;
+@@ -243,7 +243,7 @@
+ #endif
+ 
+ #ifdef CONFIG_TANGOX_XENV_DUMP
+-void __init xenv_dump(u32 *xenv_base, u32 size)
++void xenv_dump(u32 *xenv_base, u32 size)
+ {
+ 	int i;
+ 	u32 records = 0;
+@@ -278,3 +278,8 @@
+ 	printk("%d records, %d bytes\n\n", records, size);
+ }
+ #endif
++
++#ifdef CONFIG_TANGO3
++EXPORT_SYMBOL(xenv_get);
++#endif
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/xenv_config.c linux-2.6.22.19/arch/mips/tangox/xenv_config.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/xenv_config.c	2010-05-18 14:34:15.000000000 -0700
++++ linux-2.6.22.19/arch/mips/tangox/xenv_config.c	2010-05-18 14:36:15.975290305 -0700
+@@ -211,9 +211,8 @@
+ #endif
+ 
+ static char xenv_cmdline[CL_SIZE] = { 0 };
+-
+ #ifdef CONFIG_TANGO3
+-static unsigned long zxenv[MAX_XENV_SIZE/sizeof(unsigned long)] __initdata = { 0 };
++extern unsigned long tangox_zxenv[];
+ #endif
+ 
+ #ifdef CONFIG_TANGOX_XENV_READ
+@@ -356,7 +355,7 @@
+ 	 */
+ #ifdef CONFIG_TANGO3
+ 	unsigned int size, tmp, copy_size;
+-	unsigned char *xenv_blk = (unsigned char *)zxenv;
++	unsigned char *xenv_blk = (unsigned char *)tangox_zxenv;
+ 	xenv_gbus_addr = xenv_addr = gbus_read_reg32(REG_BASE_cpu_block + LR_ZBOOTXENV_LOCATION);
+ #else
+ 	xenv_gbus_addr = xenv_addr = gbus_read_reg32(REG_BASE_cpu_block + LR_XENV_LOCATION);
+@@ -375,7 +374,7 @@
+ 
+ #ifdef CONFIG_TANGO3
+ 	/*
+-	 * may need to make a copy of XENV (if it acrosses remap boundary)
++	 * make a copy of XENV
+ 	 */
+ 	xenv_size = *((int *)xenv_addr);
+ 	copy_size = TMP_REMAPPED_SIZE - (xenv_gbus_addr & (TMP_REMAPPED_SIZE-1));
+@@ -387,8 +386,10 @@
+ 		gbus_write_reg32(REG_BASE_cpu_block + TMP_REMAPPED_REG, (xenv_gbus_addr + TMP_REMAPPED_SIZE) & TMP_REMAPPED_MASK);
+ 		iob();
+ 		memcpy(xenv_blk + copy_size, (void *)KSEG1ADDR(TMP_REMAPPED_BASE), xenv_size - copy_size);
+-		xenv_addr = (unsigned long)xenv_blk; /* use the copy */
++	} else {
++		memcpy(xenv_blk, (void *)xenv_addr, xenv_size);
+ 	}
++	xenv_addr = (unsigned long)xenv_blk; /* use the copy */
+ #endif
+ 
+ 	/*
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/tangox/zxenv.c linux-2.6.22.19/arch/mips/tangox/zxenv.c
+--- linux-2.6.22.19.ref/arch/mips/tangox/zxenv.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/tangox/zxenv.c	2010-05-18 14:36:15.975290305 -0700
+@@ -0,0 +1,120 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2010
++ Sigma Designs, Inc. 
++ 
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/init.h>
++#include <linux/slab.h>
++#include <linux/irq.h>
++#include <linux/interrupt.h>
++#include <linux/poll.h>
++#include <asm/io.h>
++
++#if defined(CONFIG_TANGO3)
++#include <asm/tango3/tango3_gbus.h>
++#include <asm/tango3/hardware.h>
++#else
++#error "Unsupported platform"
++#endif
++
++#include "xenv.h"
++
++/* The major device number and name */
++#define ZXENV_DEV_MAJOR		0
++#define ZXENV_DEV_NAME		"zxenv"
++
++extern unsigned long tangox_zxenv[];
++
++MODULE_DESCRIPTION("TANGOX zxenv driver\n");
++MODULE_AUTHOR("TANGOX standalone team");
++MODULE_LICENSE("GPL");
++MODULE_VERSION(DRIVER_VERSION);
++
++/* Some prototypes */
++static int zxenv_open(struct inode *, struct file *);
++static int zxenv_release(struct inode *, struct file *);
++static int zxenv_read(struct file *, char *, size_t, loff_t *);
++
++static int major_num = ZXENV_DEV_MAJOR;
++module_param(major_num, int, 0);
++
++/* Global data */
++static char *zxenv_devname = ZXENV_DEV_NAME;
++
++static struct file_operations zxenv_fops = {
++	open: zxenv_open,
++	read: zxenv_read,
++	release: zxenv_release,
++	owner: THIS_MODULE,
++};
++
++extern int xenv_get(u32 *base, u32 size, char *recordname, void *dst, u32 *datasize);
++
++/* Getting xenv */
++int zxenv_get(char *recordname, void *dst, u32 *datasize)
++{
++	int xenv_size = *((int *)tangox_zxenv);
++	int res = xenv_get((u32 *)&tangox_zxenv[0], xenv_size, recordname, dst, datasize);
++
++	return (res < 0) ? -EIO : res;
++}
++
++EXPORT_SYMBOL(zxenv_get);
++
++/* Reading data */
++static int zxenv_read(struct file *fptr, char *bufptr, size_t size, loff_t *fp)
++{
++	int xenv_size = *((int *)tangox_zxenv);
++
++	if (size < xenv_size)
++		return -EIO;
++
++	/* Get the data to user */
++	if (copy_to_user(bufptr, (char *)&tangox_zxenv[0], xenv_size)) 
++		return -EFAULT;
++
++	return xenv_size;
++}
++
++/* Open the device */
++static int zxenv_open(struct inode *inode_ptr, struct file *fptr)
++{
++	return 0;
++}
++
++/* Close the device */
++static int zxenv_release(struct inode *inode_ptr, struct file *fptr) 
++{
++	return 0;
++}
++
++int __init zxenv_init_module(void)
++{
++	int status = 0;
++
++	/* Register device, and may be allocating major# */
++	status = register_chrdev(major_num, zxenv_devname, &zxenv_fops);
++	if (status < 0) {
++		printk(KERN_ERR "%s: cannot get major number\n", zxenv_devname); 
++		return status;
++	} else if (major_num == 0)
++		major_num = status;	/* Dynamic major# allocation */
++
++	printk(KERN_INFO "SMP86xx %s (%d:0): driver loaded.\n", zxenv_devname, major_num);
++	return 0;
++}
++
++void __exit zxenv_cleanup_module(void)
++{
++	unregister_chrdev(major_num, zxenv_devname);
++	printk(KERN_INFO "%s: driver unloaded\n", zxenv_devname);
++}
++
++module_init(zxenv_init_module);
++module_exit(zxenv_cleanup_module);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1041.zxenv.patch linux-2.6.22.19/README.1041.zxenv.patch
+--- linux-2.6.22.19.ref/README.1041.zxenv.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1041.zxenv.patch	2010-05-18 14:37:27.627223462 -0700
+@@ -0,0 +1,19 @@
++Feature:
++--------
++Expose in-memory zxenv to user level for read-only operations
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango3
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

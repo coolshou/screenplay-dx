@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+  <ctrlgrp lbmask="LR" >
+    <button valkey="ROTATE90"
+            focused_bg="image/photo_options_rotate+90_btn_f.png"
+            normal_bg="image/photo_options_rotate+90_btn_n.png"/>
+    <button valkey="ROTATEC90"
+            focused_bg="image/photo_options_rotate-90_btn_f.png"
+            normal_bg="image/photo_options_rotate-90_btn_n.png"/>
+    <button valkey="ROTATE180"
+            focused_bg="image/photo_options_rotate+180_btn_f.png"
+            normal_bg="image/photo_options_rotate+180_btn_n.png"/>
+    <button valkey="ZOOM"
+            focused_bg="image/photo_options_zoom_in_btn_f.png"
+            normal_bg="image/photo_options_zoom_in_btn_n.png"/>
+    <button valkey="PAN"
+            focused_bg="image/photo_options_pan_btn_f.png"
+            normal_bg="image/photo_options_pan_btn_n.png"/>
+    <button valkey="AUDIO"
+            disabled_bg="image/media_options_music_btn_g.png"
+            focused_bg="image/media_options_music_btn_f.png"
+            normal_bg="image/media_options_music_btn_n.png"/>
+    <button valkey="VIDEO"
+            disabled_bg="image/media_options_video_btn_g.png"
+            focused_bg="image/media_options_video_btn_f.png"
+            normal_bg="image/media_options_video_btn_n.png"/>
+    <button valkey="MY_MEDIA"
+            disabled_bg="image/media_options_mymedia_btn_g.png"
+            focused_bg="image/media_options_mymedia_btn_f.png"
+            normal_bg="image/media_options_mymedia_btn_n.png"/>
+  </ctrlgrp>
+  
+  <image image="image/pop_options_bg.png" x="86" y="0" w="560" h="72" bg="1" align="hcenter"/>
+  <table x="114" y="24" h="37" w="356" cols="5" align="hcenter">
+    <image image="@@bg-ROTATE90" />
+    <image image="@@bg-ROTATEC90" />
+    <image image="@@bg-ROTATE180" />
+    <image image="@@bg-ZOOM" />
+    <image image="@@bg-PAN" />
+  </table>
+
+  <table x="474" y="20" h="46" w="147" cols="2" disable="@@disable-options_av" align="hcenter">
+    <image image="@@bg-AUDIO" />
+    <image image="@@bg-VIDEO" />
+  </table>
+
+  <table x="483" y="20" h="46" w="52" cols="1"  disable="@@disable-options_mymedia" align="hcenter">
+    <image image="@@bg-MY_MEDIA" />
+  </table>
+
+</page>

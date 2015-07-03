@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/popmenu.gif" w="404" h="224">
+  <ctrlgrp>
+    <button valkey="OK" focused_bg="image/ok-act.gif" normal_bg="image/ok.gif"/>
+    <linebreak/>
+    <button valkey="OK1" focused_bg="image/ok-act.gif" normal_bg="image/ok.gif"/>
+    <linebreak/>
+    <button valkey="OK2" focused_bg="image/ok-act.gif" normal_bg="image/ok.gif"/>
+  </ctrlgrp>
+  <image x="20" y="50" w="110" h="30" image="@@bg-OK"/>
+  <image x="20" y="90" w="110" h="30" image="@@bg-OK1"/>
+  <image x="20" y="130" w="110" h="30" image="@@bg-OK2"/>
+</page>

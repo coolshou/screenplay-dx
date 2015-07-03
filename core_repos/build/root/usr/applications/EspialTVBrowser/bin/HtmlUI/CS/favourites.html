@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<!-- 
+   *
+   *	Implementation of a vertical and horizontal flowing menu-submenu structure, used for Bookmarks page.
+   *    Uses: CSS WebKit animation controlled by JavaScript
+   *
+   *	Visky Tamas, 2010 March
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+
+<title>我的最爱</title>	
+
+<link rel="stylesheet" type="text/css" href="../favourites.css" />
+<script language="javascript" src="../favourites.js"> </script> 
+
+<!-- Class usage -->
+<script language="javascript">
+	
+	/*
+	 * Code creating the bookmarks, based on the input list. Function called onload.
+	 */
+	var myBookmarks;
+	function CreateBookmarks()
+	{
+		myBookmarks = new BookmarkFlow(document.getElementById("inputList"), document.getElementById("bookmarkArea"));
+		myBookmarks.update();
+
+		// Adding key event listeners to the document
+		document.documentElement.addEventListener("keydown", keyPress, false);
+		document.documentElement.addEventListener("keypress", keyPress, false);
+	};
+	
+	/* Function handling keypresses. */	
+	function keyPress(evt) {
+		var charCode = 0;
+   		if (evt.charCode)				//some browsers support evt.charCode, some only evt.keyCode
+   	 		charCode = evt.charCode;        
+	    else 
+    	   	charCode = evt.keyCode;
+
+		if (charCode == 38)
+			myBookmarks.flow(myBookmarks.UP);
+		else if (charCode == 40)
+			myBookmarks.flow(myBookmarks.DOWN);
+		else if (charCode == 39)
+			myBookmarks.flow(myBookmarks.RIGHT);
+		else if (charCode == 37)
+			myBookmarks.flow(myBookmarks.LEFT);
+		else if (charCode == 13)
+		{
+			myBookmarks.loadSelection();
+		}
+	};
+
+</script>
+
+
+
+<!-- CSS Style this page -->
+<style type="text/css">
+
+</style>
+
+</head>
+
+
+<!-- XHTML -->
+<body HIGHLIGHT="false" onload="CreateBookmarks();">
+
+  <!-- The area that will hold the entire bookmark structure. Content is added with JS. -->
+  <div id="bookmarkArea">
+  	<div id="topSide"></div>
+  	<div id="bottomSide"></div>
+	<div id="leftSide"></div>
+	<div id="rightSide"></div>
+  </div>
+ 	
+ <!-- List containing the info to build up the bookmarks.
+      Used as input, not visible on the screen -->	
+ <ul id="inputList" style="display: none;">
+ <li>iomega.png
+		<ul>
+			<li>
+				<span>Iomega</span>
+				<span>Res/iomega_com.jpg</span>
+				<span>http://iomega.com/screenplay-dx/index-cn.html</span>
+			</li>
+		</ul>
+	</li>
+  <li>search_ch_s.png
+  	<ul>
+		<li>
+	  		<span>Baidu</span>
+			<span>Res/baidu_com.jpg</span>
+	  		<span>http://www.baidu.com</span>
+		</li>
+  		<li>
+	  		<span>Google</span>
+			<span>Res/google_com.jpg</span>
+	  		<span>http://www.google.com/</span>
+		</li>
+	</ul>
+  </li>
+ <li>video_ch_s.png
+        <ul>
+                <li>
+                        <span>Dailymotion</span>
+						<span>Res/dailymotion_com.jpg</span>
+                        <span>http://www.dailymotion.com/ca-en</span>
+                </li>
+                <li>
+                        <span>Tudou</span>
+						<span>Res/tudou_com.jpg</span>
+                        <span>http://www.tudou.com</span>
+                </li>
+                <li>
+                        <span>Youku</span>
+						<span>Res/youku_com.jpg</span>
+                        <span>http://www.youku.com</span>
+                </li>
+                <li>
+                        <span>YouTube BoxOffice</span>
+			<span>Res/youtube_bo.jpg</span>
+                        <span>http://www.youtube.com/boxoffice</span>
+                </li>  
+        </ul>
+  </li>
+ <li>sports_ch_s.png
+        <ul>
+                <li>
+                        <span>China Daily</span>
+						<span>Res/chinadaily_com_cn_sports.jpg</span>
+                        <span>http://www.chinadaily.com.cn/sports/</span>
+                </li>
+                <li>
+                        <span>FBLife</span>
+						<span>Res/bbs_fblife_com.jpg</span>
+                        <span>http://bbs.fblife.com/</span>
+                </li>
+				<li>
+						<span>China Bike </span>
+						<span>Res/chinabike_net.jpg</span>
+						<span>http://www.chinabike.net/newbbs/</span>
+				</li>
+
+        </ul>
+  </li>
+ <li>photos_ch_s.png
+        <ul>
+                <li>
+                        <span>Picasa Web</span>
+						<span>Res/picasa_com.jpg</span>
+                        <span>http://picasaweb.google.com/</span>						
+                </li>                
+        </ul>
+  </li> <!-- end of News list item -->
+  <li>news_ch_s.png
+	<!-- Thumbnails in the Pictures folder -->  	
+  	<ul>
+	
+  		<li>
+	  		<span>ChinaByte</span>
+			<span>Res/chinabyte_com.jpg</span>
+	  		<span>http://www.chinabyte.com</span>
+		</li>
+  		<li>
+	  		<span>51 CTO</span>
+			<span>Res/51cto_com.jpg</span>
+	  		<span>http://www.51cto.com</span>
+		</li>
+  	</ul> 
+  </li>  
+  <li>social_ch_s.png
+  	<ul>
+  		<li>
+  			<span>Google+</span>
+			<span>Res/google_plus.png</span>
+	  		<span>https://plus.google.com/</span>
+		</li>
+  		<li>
+	  		<span>Kaixin</span>
+			<span>Res/kaixin001_com.jpg</span>
+	  		<span>http://www.kaixin001.com</span>
+		</li>		
+  		<li>
+	  		<span>Renren</span>
+			<span>Res/renren_com.jpg</span>
+	  		<span>http://www.renren.com</span>
+		</li>  
+		<li>
+			<span>t.sina</span>
+			<span>Res/t_sina_com_cn.jpg</span>
+			<span>http://t.sina.com.cn</span>
+		</li>		
+	</ul>
+  </li>
+ </ul>
+
+
+ 
+</body>
+
+</html>
+

@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Start the network....
+#
+cd /dev
+mknod mum0 c 126 0
+mknod em8xxx0 c 127 0
+mknod ir c 254 0
+ln -s ir irda
+
+echo "Inserting the modules..."
+#/sbin/insmod /lib/modules/llad.ko
+#/sbin/insmod /lib/modules/em8xxx.ko
+#/sbin/insmod /lib/modules/em8xxxoss.ko
+insmod -f /lib/modules/llad.ko 
+export EM8XXX_SERVER=":0" 
+xrpc -z 
+xrpc /lib/firmware/xrpc_xload_audio_ucode_SMP8634_2.8.3.0_facsprod.mips.nodts.bin 
+xrpc /lib/firmware/xrpc_xload_video_ucode_SMP8634_2.8.3.0_facsprod.mips.bin 
+xrpc /lib/firmware/xrpc_xload_demux_ucode_SMP8634_2.8.3.0_facsprod.mips.bin 
+xrpc /lib/firmware/xrpc_xload_irq_handler_SMP8634_2.8.3.0_facsprod.mips.bin
+xrpc -ustart 2 4 
+xrpc -ustart 1 0 
+xrpc -ustart 1 1 
+xrpc -ustart 0 2 
+xrpc -ustart 0 3 
+insmod -f /lib/modules/em8xxx.ko 

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+
+  <text id="subheadline" text="$$Wireless network: Configure IP address"/>
+  <image id="step" image="image/wizard_step_3_indicator_n.png"/>  
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$Connecting to Wireless Network" x="110" y="180" w="520" h="30" fontsize="26" align="hcenter" textcolor="0xEDC831"/>
+  <text text="[" x="240" y="220" w="20" h="30" fontsize="26" align="hleft" textcolor="0xEDC831"/>
+  <text text="@@SSID" x="265" y="220" w="210" h="30" fontsize="20" align="hcenter" textcolor="0xEDC831"/>
+  <text text="]" x="480" y="220" w="20" h="30" fontsize="26" align="hright" textcolor="0xEDC831"/>
+
+  <motion_icon x="231" y="268" w="258" h="101" count="7" base_filename="image/wizard_wireless_progress_n" suffix_name="png"/>  
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

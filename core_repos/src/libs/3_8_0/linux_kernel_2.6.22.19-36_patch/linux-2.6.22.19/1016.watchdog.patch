@@ -1,0 +1,305 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/char/watchdog/Kconfig linux-2.6.22.19/drivers/char/watchdog/Kconfig
+--- linux-2.6.22.19.ref/drivers/char/watchdog/Kconfig	2010-04-15 17:42:56.000000000 -0700
++++ linux-2.6.22.19/drivers/char/watchdog/Kconfig	2010-04-15 17:45:05.876570738 -0700
+@@ -55,6 +55,12 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called softdog.
+ 
++config TANGO3_WATCHDOG
++	tristate "SMP86xx watchdog"
++	depends on TANGO3
++	help
++	  Hardware watch dog for Sigma Designs' SMP864x/SMP865x chips.
++
+ # ARM Architecture
+ 
+ config AT91RM9200_WATCHDOG
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/char/watchdog/Makefile linux-2.6.22.19/drivers/char/watchdog/Makefile
+--- linux-2.6.22.19.ref/drivers/char/watchdog/Makefile	2010-04-15 17:42:56.000000000 -0700
++++ linux-2.6.22.19/drivers/char/watchdog/Makefile	2010-04-15 17:45:05.876570738 -0700
+@@ -75,6 +75,7 @@
+ obj-$(CONFIG_INDYDOG) += indydog.o
+ obj-$(CONFIG_WDT_MTX1)	+= mtx-1_wdt.o
+ obj-$(CONFIG_WDT_RM9K_GPI) += rm9k_wdt.o
++obj-$(CONFIG_TANGO3_WATCHDOG) += tango3dog.o
+ 
+ # S390 Architecture
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/char/watchdog/tango3dog.c linux-2.6.22.19/drivers/char/watchdog/tango3dog.c
+--- linux-2.6.22.19.ref/drivers/char/watchdog/tango3dog.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/char/watchdog/tango3dog.c	2010-04-15 17:48:58.205758896 -0700
+@@ -0,0 +1,251 @@
++/*
++ *	Tango3Dog	0.1	A Hardware Watchdog Device for SMP864x/SMP865x
++ *
++ *	(c) Copyright 2007 Sigma Designs, Inc.
++ *
++ *	based on indydog.c by Guido Guenther <agx@sigxcpu.org>
++ *
++ *	(c) Copyright 2002 Guido Guenther <agx@sigxcpu.org>, All Rights Reserved.
++ *
++ *	This program is free software; you can redistribute it and/or
++ *	modify it under the terms of the GNU General Public License
++ *	as published by the Free Software Foundation; either version
++ *	2 of the License, or (at your option) any later version.
++ *
++ *	based on softdog.c by Alan Cox <alan@redhat.com>
++ */
++
++#include <linux/module.h>
++#include <linux/moduleparam.h>
++#include <linux/config.h>
++#include <linux/types.h>
++#include <linux/kernel.h>
++#include <linux/fs.h>
++#include <linux/mm.h>
++#include <linux/miscdevice.h>
++#include <linux/watchdog.h>
++#include <linux/notifier.h>
++#include <linux/reboot.h>
++#include <linux/init.h>
++#include <asm/uaccess.h>
++
++#include <asm/tango3/tango3.h>
++#include <asm/tango3/tango3_gbus.h>
++#include <asm/tango3/emhwlib_registers_tango3.h>
++
++#define PFX "tango3dog: "
++
++static int tango3dog_alive;
++static spinlock_t tango3dog_lock;	/* Spin lock */
++
++#define WATCHDOG_TIMEOUT 30		/* 30 sec default timeout */
++
++static int nowayout = WATCHDOG_NOWAYOUT;
++static unsigned int watchdog_timeout = WATCHDOG_TIMEOUT;
++
++module_param(nowayout, int, 0);
++MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default=CONFIG_WATCHDOG_NOWAYOUT)");
++
++module_param(watchdog_timeout, int, 0);
++MODULE_PARM_DESC(watchdog_timeout, "Watchdog timeout (in seconds)");
++
++static void tango3dog_start(void)
++{
++	/* Set WDT counter, and start counting */
++	gbus_write_reg32(REG_BASE_system_block + SYS_watchdog_counter, TANGOX_BASE_FREQUENCY * watchdog_timeout);
++}
++
++static void tango3dog_stop(void)
++{
++	/* Disabling WDT */
++	gbus_write_reg32(REG_BASE_system_block + SYS_watchdog_counter, 0);
++	printk(KERN_INFO PFX "Stopped watchdog timer.\n");
++}
++
++static void tango3dog_ping(void)
++{
++	/* reset WDT counter */
++	gbus_write_reg32(REG_BASE_system_block + SYS_watchdog_counter, TANGOX_BASE_FREQUENCY * watchdog_timeout);
++}
++
++/*
++ *	Allow only one person to hold it open
++ */
++static int tango3dog_open(struct inode *inode, struct file *file)
++{
++	spin_lock(&tango3dog_lock);
++
++	if (tango3dog_alive) {
++		spin_unlock(&tango3dog_lock);
++		return -EBUSY;
++	}
++
++	if (nowayout)
++		__module_get(THIS_MODULE);
++
++	/* Activate timer */
++	tango3dog_start();
++	tango3dog_ping();
++
++	tango3dog_alive = 1;
++	printk(KERN_INFO "Started watchdog timer.\n");
++
++	spin_unlock(&tango3dog_lock);
++
++	return nonseekable_open(inode, file);
++}
++
++static int tango3dog_release(struct inode *inode, struct file *file)
++{
++	spin_lock(&tango3dog_lock);
++	/* Shut off the timer.
++	 * Lock it in if it's a module and we defined ...NOWAYOUT */
++	if (!nowayout)
++		tango3dog_stop();		/* Turn the WDT off */
++
++	tango3dog_alive = 0;
++
++	spin_unlock(&tango3dog_lock);
++	return 0;
++}
++
++static ssize_t tango3dog_write(struct file *file, const char *data, size_t len, loff_t *ppos)
++{
++	spin_lock(&tango3dog_lock);
++	/* Refresh the timer. */
++	if (len) 
++		tango3dog_ping();
++	spin_unlock(&tango3dog_lock);
++	return len;
++}
++
++static long tango3dog_unlocked_ioctl(struct file *file,
++	unsigned int cmd, unsigned long arg)
++{
++	int options, retval = -EINVAL;
++	static struct watchdog_info ident = {
++		.options		= WDIOF_KEEPALIVEPING |
++					  WDIOF_MAGICCLOSE,
++		.firmware_version	= 0,
++		.identity		= "Hardware Watchdog for SMP86xx",
++	};
++
++	spin_lock(&tango3dog_lock);
++	switch (cmd) {
++		case WDIOC_GETSUPPORT:
++			if (copy_to_user((struct watchdog_info *)arg, &ident, sizeof(ident))) 
++				retval = -EFAULT;
++			else
++				retval = 0;
++			break;
++		case WDIOC_GETSTATUS:
++		case WDIOC_GETBOOTSTATUS:
++			retval = put_user(0, (int *)arg);
++			break;
++		case WDIOC_KEEPALIVE:
++			tango3dog_ping();
++			retval = 0;
++			break;
++		case WDIOC_GETTIMEOUT:
++			retval = put_user(watchdog_timeout, (int *)arg);
++			break;
++		case WDIOC_SETTIMEOUT:
++			retval = get_user(watchdog_timeout, (int *)arg);
++			break;
++		case WDIOC_SETOPTIONS:
++		{
++			if (get_user(options, (int *)arg)) {
++				retval = -EFAULT;
++				break;
++			}
++
++			if (options & WDIOS_DISABLECARD) {
++				tango3dog_stop();
++				retval = 0;
++			}
++
++			if (options & WDIOS_ENABLECARD) {
++				tango3dog_start();
++				retval = 0;
++			}
++
++			break;
++		}
++		default:
++			retval = -ENOIOCTLCMD;
++			break;
++	}
++	spin_unlock(&tango3dog_lock);
++
++	return retval;
++}
++
++static int tango3dog_notify_sys(struct notifier_block *this, unsigned long code, void *unused)
++{
++	if (code == SYS_DOWN || code == SYS_HALT)
++		tango3dog_stop();		/* Turn the WDT off */
++
++	return NOTIFY_DONE;
++}
++
++static struct file_operations tango3dog_fops = {
++	.owner		= THIS_MODULE,
++	.llseek		= no_llseek,
++	.write		= tango3dog_write,
++	.unlocked_ioctl	= tango3dog_unlocked_ioctl,
++	.open		= tango3dog_open,
++	.release	= tango3dog_release,
++};
++
++static struct miscdevice tango3dog_miscdev = {
++	.minor		= WATCHDOG_MINOR,
++	.name		= "watchdog",
++	.fops		= &tango3dog_fops,
++};
++
++static struct notifier_block tango3dog_notifier = {
++	.notifier_call = tango3dog_notify_sys,
++};
++
++static char banner[] __initdata = KERN_INFO PFX "Hardware Watchdog Timer for SMP864x/SMP865x 0.1 (def. timeout: %d sec)\n";
++
++static int __init watchdog_init(void)
++{
++	int ret;
++
++	ret = register_reboot_notifier(&tango3dog_notifier);
++	if (ret) {
++		printk(KERN_ERR PFX "cannot register reboot notifier (err=%d)\n", ret);
++		return ret;
++	}
++
++	ret = misc_register(&tango3dog_miscdev);
++	if (ret) {
++		printk(KERN_ERR PFX "cannot register miscdev on minor=%d (err=%d)\n", WATCHDOG_MINOR, ret);
++		unregister_reboot_notifier(&tango3dog_notifier);
++		return ret;
++	}
++
++	printk(banner, watchdog_timeout);
++
++	/* Clear counter and use XTAL_IN as source */
++	gbus_write_reg32(REG_BASE_system_block + SYS_watchdog_counter, 0);
++	gbus_write_reg8(REG_BASE_system_block + SYS_watchdog_configuration, 0x1); 
++	spin_lock_init(&tango3dog_lock);
++
++	return 0;
++}
++
++static void __exit watchdog_exit(void)
++{
++	misc_deregister(&tango3dog_miscdev);
++	unregister_reboot_notifier(&tango3dog_notifier);
++}
++
++module_init(watchdog_init);
++module_exit(watchdog_exit);
++
++MODULE_DESCRIPTION("Hardware Watchdog Device for SMP86xx");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS_MISCDEV(WATCHDOG_MINOR);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1016.watchdog.patch linux-2.6.22.19/README.1016.watchdog.patch
+--- linux-2.6.22.19.ref/README.1016.watchdog.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1016.watchdog.patch	2010-04-15 18:13:47.497251096 -0700
+@@ -0,0 +1,19 @@
++Feature:
++--------
++H/W watch dog driver for SMP864x/SMP865x chips
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango3 ES1 or above
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp lbmask="lr">
+		<button valkey="OK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png" />
+		<button valkey="CANCEL"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png" />
+	</ctrlgrp>
+
+    <include filename="./inc_setup_entry_basic_title.xml" />
+
+    <wrapper x="150" w="980" h="40" textcolor="0xffffff" fontsize="22" align="hcenter">
+	<text text="@@regiser_text1" y="251"/>
+	<text text="@@regiser_text2" y="291"/>
+	<text text="@@regiser_text3" y="331"/>
+    </wrapper>
+
+	<imgbtn x="316" y="462" w="300" h="40" image="@@bg-OK" text="$$OK" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-OK" actnoseltextcolor="0xffffff"/>
+	<imgbtn x="657" y="462" w="300" h="40" image="@@bg-CANCEL" text="$$Cancel" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-CANCEL" actnoseltextcolor="0xffffff"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<page background="./image/welcome_background_bg.jpg" large_image_cache_num="3" medium_image_cache_num="16" small_image_cache_num="13">
+	<ctrlgrp valkey="OPTION">
+		<crossbar valkey="homecrossbar" autoenter="1" autoswitch="0" master_items="5" master_direction="h" master_active="3" master_lbmask="LR" slave_items="2" slave_direction="v" slave_active="1" slave_lbmask="UD" loop_scroll="1"/>
+		<linebreak/>
+		<button valkey="QML0"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+			focused_bg="image/option_pip_on.png"
+			normal_bg="image/option_pip_on.png"
+			disabled_bg="image/options_pip_disable.png"
+			group_valkey="OPTION"
+			group_focused_text="PIP"/>
+		<button valkey="QML1"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+			focused_bg="image/option_motion_on.png"
+			normal_bg="image/option_motion_on.png"
+			disabled_bg="image/options_motion_disable.png"
+			group_valkey="OPTION"
+			group_focused_text="Motion Detect"/>
+		<button valkey="QML2"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+			focused_bg="image/option_fullScr_on.png"
+			normal_bg="image/option_fullScr_on.png"
+			disabled_bg="image/options_fullScr_disable.png"
+			group_valkey="OPTION"
+			group_focused_text="ZOOM"/>
+	</ctrlgrp>
+
+	<wgt_mlist name="HORI_MLIST" x="252" y="181" w="760" h="112" fontsize="20" duration="250" motion_type="decrease" textcolor="0xffffff" align="hcenter" direction="hori" itemcount="5" extra_index="3" extra_len="0"/>
+
+	<image image="image/home_horizontal_select_bar.png" x="576" y="335" w="117" h="112" textcolor="0xffffff"/>
+
+	<wgt_mlist name="VERT_MLIST" x="576" y="313" w="118" h="314" fontsize="26" duration="250" motion_type="decrease" textcolor="0xffffff" align="hcenter" direction="vert" itemcount="2"/>
+
+	<text text="@@VERT_TITLE_TEXT_2" x="728" y="342" w="550" h="80" align="left, top" fontsize="60" textcolor="0xffb400"/>
+	<text text="@@curitem" x="728" y="412" w="550" h="44" fontsize="30" textcolor="0xffffff" align="left, top"/>
+
+	<image image="@@VERT_FOCUS_ICON2" x="576" y="181" w="117" h="112" align="hcenter,top" />
+
+	<image image="@@HORIBAR_LEFT_ICON" x="625" y="306" w="39" h="22" bg="1"/>
+	<image image="@@HORIBAR_RIGHT_ICON" x="625" y="622" w="39" h="22" bg="1"/>
+
+	<image image="@@WARNING_BG" x="348" y="0" w="584" h="122"/>
+	<image image="@@WARNING_ICON" x="476" y="27" w="52" h="53"/>
+	<text text="@@WARNING_MSG1" x="550" y="48" w="276" h="26" fontsize="24" textcolor="0xffffff" align="left" speed="1" delay="2"/>
+
+	<image image="@@now_music_ico" x="393" y="36" w="35" h="38" disable="@@nowplaying_disable"/>
+	<text text="@@now_filename" x="438" y="34" w="240" h="20" fontsize="18" textcolor="0xffffff" speed="1" delay="2" disable="@@nowplaying_disable" auto_translate="1"/>
+	<text text="@@now_currenttime" x="438" y="58" w="86" h="20" fontsize="18" textcolor="0xffffff" disable="@@nowplaying_disable"/>
+	<text text="@@now_totaltime" x="524" y="60" w="98" h="18" fontsize="16" textcolor="0x999999" disable="@@nowplaying_disable"/>
+	<image image="@@now_artist_ico" x="690" y="36" w="24" h="24" disable="@@nowplaying_disable"/>
+	<text text="@@now_artist" x="731" y="38" w="164" h="22" fontsize="20" textcolor="0xd3d3d3" disable="@@nowplaying_disable" speed="1" delay="2" auto_translate="1"/>
+
+	<image image="@@status_icon" x="465" y="27" w="74" h="74"/>
+
+	<text text="Alphanetworks Inc.®" x="255" y="660" w="768" h="20" textcolor="0xe2e2e2" align="hcenter" fontsize="24"/>
+
+	<include filename="./inc_options_list_x3.xml"/>
+	<include filename="ipcam_pip_win.xml"/>
+</page>

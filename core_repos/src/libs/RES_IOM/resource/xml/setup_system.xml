@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp lbmask="l">
+     <string valkey="DEVICENAME" value="value-DEVICENAME" maxlen="48"
+             title="$$: Device Name"
+			 keep_string="1"
+             focused_bg="image/combo_highlight.gif"
+             normal_bg="image/combo.gif"/>
+     <linebreak />
+     <button valkey="SYSTEMRESTART"
+             focused_bg="image/button_blank_long-act.png"
+             normal_bg="image/button_blank_long.png"/>
+     <linebreak />
+     <button valkey="SYSTEMRESET"
+             focused_bg="image/button_blank_long-act.png"
+             normal_bg="image/button_blank_long.png"/>
+     <linebreak />
+     <button valkey="OK"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+     <button valkey="CANCEL"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+  </ctrlgrp>
+  
+  <!--  <text id="headline" text="$$Setup" /> -->
+  <!--  <text id="subheadline" text="$$: System" /> -->
+  
+  <text text="$$Your system settings:" x="100" y="100" w="600" h="35" textcolor="0xFFFFFF"/>
+
+  <table x="140" y="145" w="157" h="65" rows="2"
+         rowspacing="5" fontsize="20" align="right" textcolor="0xF0F0F0" >
+    <text text="$$Device Name:"/>
+    <text text="$$Default Server:"/>
+  </table>
+
+  <table x="300" y="145" w="220" h="65" rows="2" rowspacing="5">
+    <image image="@@bg-DEVICENAME"/>
+    <image image="image/textbox_darken.gif"/>
+  </table>
+  <table x="300" y="145" w="219" h="65" rows="2" rowspacing="5" actnoseltextcolor="0x000000"
+         textcolor="0xF0F0F0" selectedtextcolor="0x000000" activetextcolor="0x000000" fontsize="20" xmargin="3">
+    <text text="@@DEVICENAME" active="@@act-DEVICENAME"/>
+    <text text="@@DEFAULTSERVER"/>
+  </table>
+  <table x="300" y="221" w="200" h="100" cols="1" rows="2" rowspacing="5" align="hcenter" fontsize="18">>
+    <imgbtn image="@@bg-SYSTEMRESTART" text="$$System Restart"/>
+    <imgbtn image="@@bg-SYSTEMRESET" text="$$System Reset"/>
+  </table>
+  <table x="320" y="355" w="300" h="40" cols="2" colspacing="0" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table> 
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

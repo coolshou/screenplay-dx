@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- metaobjects.qdoc -->
+  <title>Qt 4.7: The Meta-Object System</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>The Meta-Object System</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">The Meta-Object System</h1>
+<span class="subtitle"></span>
+<!-- $$$metaobjects.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The meta-object system is based on three things:</p>
+<ol type="1">
+<li>The <a href="qobject.html">QObject</a> class provides a base class for objects that can take advantage of the meta-object system.</li>
+<li>The <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro inside the private section of the class declaration is used to enable meta-object features, such as dynamic properties, signals, and slots.</li>
+<li>The <a href="moc.html#moc">Meta-Object Compiler</a> (<tt>moc</tt>) supplies each <a href="qobject.html">QObject</a> subclass with the necessary code to implement meta-object features.</li>
+</ol>
+<p>The <tt>moc</tt> tool reads a C++ source file. If it finds one or more class declarations that contain the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro, it produces another C++ source file which contains the meta-object code for each of those classes. This generated source file is either <tt>#include</tt>'d into the class's source file or, more usually, compiled and linked with the class's implementation.</p>
+<p>In addition to providing the <a href="signalsandslots.html#signals-and-slots">signals and slots</a> mechanism for communication between objects (the main reason for introducing the system), the meta-object code provides the following additional features:</p>
+<ul>
+<li><a href="qobject.html#metaObject">QObject::metaObject</a>() returns the associated <a href="qmetaobject.html">meta-object</a> for the class.</li>
+<li><a href="qmetaobject.html#className">QMetaObject::className</a>() returns the class name as a string at run-time, without requiring native run-time type information (RTTI) support through the C++ compiler.</li>
+<li><a href="qobject.html#inherits">QObject::inherits</a>() function returns whether an object is an instance of a class that inherits a specified class within the <a href="qobject.html">QObject</a> inheritance tree.</li>
+<li><a href="qobject.html#tr">QObject::tr</a>() and <a href="qobject.html#trUtf8">QObject::trUtf8</a>() translate strings for <a href="internationalization.html">internationalization</a>.</li>
+<li><a href="qobject.html#setProperty">QObject::setProperty</a>() and <a href="qobject.html#property">QObject::property</a>() dynamically set and get properties by name.</li>
+<li><a href="qmetaobject.html#newInstance">QMetaObject::newInstance</a>() constructs a new instance of the class.</li>
+</ul>
+<a name="qobjectcast"></a><p>It is also possible to perform dynamic casts using <a href="qobject.html#qobject_cast">qobject_cast</a>() on <a href="qobject.html">QObject</a> classes. The <a href="qobject.html#qobject_cast">qobject_cast</a>() function behaves similarly to the standard C++ <tt>dynamic_cast()</tt>, with the advantages that it doesn't require RTTI support and it works across dynamic library boundaries. It attempts to cast its argument to the pointer type specified in angle-brackets, returning a non-zero pointer if the object is of the correct type (determined at run-time), or 0 if the object's type is incompatible.</p>
+<p>For example, let's assume <tt>MyWidget</tt> inherits from <a href="qwidget.html">QWidget</a> and is declared with the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro:</p>
+<pre class="highlightedCode brush: cpp">     QObject *obj = new MyWidget;</pre>
+<p>The <tt>obj</tt> variable, of type <tt>QObject *</tt>, actually refers to a <tt>MyWidget</tt> object, so we can cast it appropriately:</p>
+<pre class="highlightedCode brush: cpp">     QWidget *widget = qobject_cast&lt;QWidget *&gt;(obj);</pre>
+<p>The cast from <a href="qobject.html">QObject</a> to <a href="qwidget.html">QWidget</a> is successful, because the object is actually a <tt>MyWidget</tt>, which is a subclass of <a href="qwidget.html">QWidget</a>. Since we know that <tt>obj</tt> is a <tt>MyWidget</tt>, we can also cast it to <tt>MyWidget *</tt>:</p>
+<pre class="highlightedCode brush: cpp">     MyWidget *myWidget = qobject_cast&lt;MyWidget *&gt;(obj);</pre>
+<p>The cast to <tt>MyWidget</tt> is successful because <a href="qobject.html#qobject_cast">qobject_cast</a>() makes no distinction between built-in Qt types and custom types.</p>
+<pre class="highlightedCode brush: cpp">     QLabel *label = qobject_cast&lt;QLabel *&gt;(obj);
+     <span class="comment">// label is 0</span></pre>
+<p>The cast to <a href="qlabel.html">QLabel</a>, on the other hand, fails. The pointer is then set to 0. This makes it possible to handle objects of different types differently at run-time, based on the type:</p>
+<pre class="highlightedCode brush: cpp">     if (QLabel *label = qobject_cast&lt;QLabel *&gt;(obj)) {
+         label-&gt;setText(tr(&quot;Ping&quot;));
+     } else if (QPushButton *button = qobject_cast&lt;QPushButton *&gt;(obj)) {
+         button-&gt;setText(tr(&quot;Pong!&quot;));
+     }</pre>
+<p>While it is possible to use <a href="qobject.html">QObject</a> as a base class without the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro and without meta-object code, neither signals and slots nor the other features described here will be available if the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro is not used. From the meta-object system's point of view, a <a href="qobject.html">QObject</a> subclass without meta code is equivalent to its closest ancestor with meta-object code. This means for example, that <a href="qmetaobject.html#className">QMetaObject::className</a>() will not return the actual name of your class, but the class name of this ancestor.</p>
+<p>Therefore, we strongly recommend that all subclasses of <a href="qobject.html">QObject</a> use the <a href="qobject.html#Q_OBJECT">Q_OBJECT</a> macro regardless of whether or not they actually use signals, slots, and properties.</p>
+</div>
+<p>See also <a href="qmetaobject.html">QMetaObject</a>, <a href="properties.html#qt-s-property-system">Qt's Property System</a>, and <a href="signalsandslots.html#signals-and-slots">Signals and Slots</a>.</p>
+<!-- @@@metaobjects.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

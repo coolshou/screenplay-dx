@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/message_background_bg_n.png" w="409" h="223">
+  <ctrlgrp>
+    <button valkey="CANCEL" 
+	focused_bg="image/common_button_E_btn_f.png" 
+	normal_bg="image/common_button_E_btn_n.png"
+	click_bg="image/common_button_E_btn_p.png"/>
+  </ctrlgrp>
+  <text text="@@message" x="20" y="30" w="360" h="90" numlines="3"
+        textcolor="0x333333" fontsize="@@font_msg" align="left"/>
+  <text text="@@progress" x="30" y="110" w="340" h="30"
+        textcolor="0x333333" fontsize="@@font_prog" align="hcenter"/>
+  <imgbtn x="152" y="159" w="120" h="39" image="@@bg-CANCEL" text="$$Cancel" align="hcenter" fontsize="18" active="@@act-CANCEL" actnoseltextcolor="0x3333333"/>
+</page>

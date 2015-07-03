@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<page background="image/accu_weather/accuweather_bg.jpg"  ignore_desktop_settings="1">
+
+	<listbox valkey="browselist" autoenter="1" move="page" cols="1" rows="7" lbmask="UD" loop_scroll="1"/>
+	<!-- image image="image/accu_weather/accu_weather_box_bg.png" x="214" y="141" w="833" h="554"/ -->
+
+	<text text="@@aw_getresult_page_title" x="86" y="128" w="487" h="42" fontsize="28" textcolor="0xFFFFFF" align="left" />
+	<!-- text text="@@subtitle"  x="290" y="251" w="721" h="36" fontsize="30" textcolor="0xc1c1c1" speed="1" delay="2"/ -->
+
+	<image image="@@result_msg_bg" x="224" y="106" w="836" h="498" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@result_prompt_msg" x="271" y="203" w="733" h="120" align="left" fontsize="36" textcolor="0xc1c1c1" numlines="3"/>
+
+	<image image="@@moreprev" x="625" y="200" w="30" h="30"/>
+	<!-- image image="image/accu_weather/accu_weather_select_divide.png" x="263" y="294" w="737" h="1"/ -->
+
+	<table lbimage="image/accu_weather/accuweather_select_bar_long.png" clickimage="image/accu_weather/accuweather_select_bar_long.png">
+		<image lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" x="271" y="247" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" x="271" y="297" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" x="271" y="347" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" x="271" y="397" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" x="271" y="447" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" x="271" y="497" w="790" h="48"/>
+		<image lightbar="@@lightbar-browselist-6" active="@@act-browselist-6" x="271" y="547" w="790" h="48"/>
+	</table>
+
+	<wrapper fontsize="20" textcolor="0xc1c1c1" actnoseltextcolor="0xe2e2e2" align="hcenter" w="755" h="34">
+		<text text="@@browselist_0_text" active="@@act-browselist-0" x="259" y="254"/>
+		<text text="@@browselist_1_text" active="@@act-browselist-1" x="259" y="304"/>
+		<text text="@@browselist_2_text" active="@@act-browselist-2" x="259" y="354"/>
+		<text text="@@browselist_3_text" active="@@act-browselist-3" x="259" y="404"/>
+		<text text="@@browselist_4_text" active="@@act-browselist-4" x="259" y="454"/>
+		<text text="@@browselist_5_text" active="@@act-browselist-5" x="259" y="504"/>
+		<text text="@@browselist_6_text" active="@@act-browselist-6" x="259" y="554"/>
+	</wrapper>
+	
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="245" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="295" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="345" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="395" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="445" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="495" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="545" w="790" h="2"/>
+	<image image="image/accu_weather/kb/accuweather_text_line.png" x="271" y="595" w="790" h="2"/>
+	
+
+	<!-- text text="@@focused_error_msg" x="558" y="622" w="555" h="30" fontsize="28" textcolor="0xb8b8b8" align="right"/ -->
+
+	<image image="@@morenext" x="625" y="612" w="30" h="30"/>
+	
+	<include filename="./inc_weather_decoration.xml"/>
+</page>

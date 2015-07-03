@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<!-- 
+   *
+   *	Implementation of a vertical and horizontal flowing menu-submenu structure, used for Bookmarks page.
+   *    Uses: CSS WebKit animation controlled by JavaScript
+   *
+   *	Visky Tamas, 2010 March
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar">
+
+<head>
+
+<title>المفضلة</title>	
+
+<link rel="stylesheet" type="text/css" href="../favourites.css" />
+<script language="javascript" src="../favourites.js"> </script> 
+
+<!-- Class usage -->
+<script language="javascript">
+	
+	/*
+	 * Code creating the bookmarks, based on the input list. Function called onload.
+	 */
+	var myBookmarks;
+	function CreateBookmarks()
+	{
+		myBookmarks = new BookmarkFlow(document.getElementById("inputList"), document.getElementById("bookmarkArea"));
+		myBookmarks.update();
+
+		// Adding key event listeners to the document
+		document.documentElement.addEventListener("keydown", keyPress, false);
+		document.documentElement.addEventListener("keypress", keyPress, false);
+	};
+	
+	/* Function handling keypresses. */	
+	function keyPress(evt) {
+		var charCode = 0;
+   		if (evt.charCode)				//some browsers support evt.charCode, some only evt.keyCode
+   	 		charCode = evt.charCode;        
+	    else 
+    	   	charCode = evt.keyCode;
+
+		if (charCode == 38)
+			myBookmarks.flow(myBookmarks.UP);
+		else if (charCode == 40)
+			myBookmarks.flow(myBookmarks.DOWN);
+		else if (charCode == 39)
+			myBookmarks.flow(myBookmarks.RIGHT);
+		else if (charCode == 37)
+			myBookmarks.flow(myBookmarks.LEFT);
+		else if (charCode == 13)
+		{
+			myBookmarks.loadSelection();
+		}
+	};
+
+</script>
+
+
+
+<!-- CSS Style this page -->
+<style type="text/css">
+
+</style>
+
+</head>
+
+
+<!-- XHTML -->
+<body HIGHLIGHT="false" onload="CreateBookmarks();">
+
+  <!-- The area that will hold the entire bookmark structure. Content is added with JS. -->
+  <div id="bookmarkArea">
+  	<div id="topSide"></div>
+  	<div id="bottomSide"></div>
+	<div id="leftSide"></div>
+	<div id="rightSide"></div>
+  </div>
+ 	
+ <!-- List containing the info to build up the bookmarks.
+      Used as input, not visible on the screen -->	
+ <ul id="inputList" style="display: none;">
+  <li>iomega.png
+		<ul>
+			<li>
+				<span>Iomega</span>
+				<span>Res/iomega_com.jpg</span>
+				<span>http://iomega.com/screenplay-dx/index-uk.html</span>
+			</li>
+		</ul>
+	</li>  
+  <li>search_arabic.png
+  	<ul>
+  		<li>
+	  		<span>Google</span>
+			<span>Res/google_com.jpg</span>
+	  		<span>http://www.google.com</span>
+		</li>
+  		<li>
+	  		<span>Yahoo</span>
+			<span>Res/yahoo_com.jpg</span>
+	  		<span>http://www.yahoo.com/</span>
+		</li>		
+	</ul>
+  </li>
+ <li>video_arabic.png
+        <ul>
+                <li>
+                        <span>Google Video</span>
+                        <span>Res/video_google_com.jpg</span>
+						<span>http://video.google.com</span>
+                </li>
+                <li>
+                        <span>Daily Motion</span>
+						<span>Res/dailymotion_com.jpg</span>
+                        <span>http://www.dailymotion.com</span>
+                </li>
+                <li>
+                        <span>YouTube BoxOffice</span>
+			<span>Res/youtube_bo.jpg</span>
+                        <span>http://www.youtube.com/boxoffice</span>
+                </li>  
+        </ul>
+  </li>
+ <li>sports_arabic.png
+        <ul>
+                <li>
+                        <span>Aljazeera</span>
+						<span>Res/aljazeerasport_net.jpg</span>
+                        <span>http://www.aljazeerasport.net</span>
+                </li>
+                <li>
+                        <span>Alriyadiah</span>
+						<span>Res/alriyadiah_tv.jpg</span>
+                        <span>http://www.alriyadiah.tv</span>
+                </li>
+        </ul>
+  </li>
+ <li>photos_arabic.png
+        <ul>
+                <li>
+                        <span>Google Images</span>
+						<span>Res/google_images.jpg</span>
+                        <span>http://images.google.com/</span>
+                </li>
+                <li>
+						<span>Moveed</span>
+						<span>Res/moveed_com.jpg</span>
+                        <span>http://www.moveed.com</span>
+                </li>
+        </ul>
+  </li> 
+  <li>news_arabic.png
+	<ul>
+  		<li>
+	 		<span>Aljazeera</span>
+			<span>Res/aljazeera_net.jpg</span>
+	  		<span>http://www.aljazeera.net</span>
+		</li>	
+  		<li>
+	  		<span>Gulf news</span>
+			<span>Res/gulfnews_com.jpg</span>
+	  		<span>http://www.gulfnews.com</span>
+		</li>  	
+	
+  		<li>
+	  		<span>Al Khaleej</span>
+			<span>Res/alkhaleej_ae.jpg</span>
+	  		<span>http://www.alkhaleej.ae</span>
+		</li>
+		<li>
+			<span>Al Arabiya</span>
+			<span>Res/alarabiya_net.jpg</span>
+			<span>http://www.alarabiya.net</span>
+		</li>
+  	</ul> 
+  </li>  
+  <li>social_arabic.png
+  	<ul>
+  		<li>
+	  		<span>Facebook</span>
+			<span>Res/facebook_com.jpg</span>
+	  		<span>http://www.facebook.com/</span>
+		</li>
+  		<li>
+	  		<span>Google+</span>
+			<span>Res/google_plus.png</span>
+	  		<span>https://plus.google.com/</span>
+		</li>
+  		<li>
+	  		<span>Twitter</span>
+			<span>Res/twitter_com.jpg</span>
+	  		<span>http://www.twitter.com/</span>
+		</li>		  		
+	</ul>
+  </li>
+ </ul>
+
+
+ 
+</body>
+
+</html>
+

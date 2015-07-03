@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="image/blockbuster/bb_browse_logo.png" x="910" y="69" w="279" h="46"/>
+	<image image="@@bg-ToHome" x="105" y="73" w="43" h="40" active="@@act-ToHome"/>
+	<text text="@@page_text" x="158" y="87" w="400" h="26" textcolor="0xff6e6e6e" fontsize="24" align="left"/>
+	<image image="image/blockbuster/bb_return_icon.png" x="109" y="644" w="24" h="21"/>
+	<text text="BACK" x="142" y="644" w="300" h="22" fontsize="20" textcolor="0xffffffff"/>
+	<image image="@@notify_download_image" x="84" y="55" w="79" h="79"/>
+	<image image="@@notify_watchable_image" x="163" y="55" w="79" h="79"/>
+</wrapper>

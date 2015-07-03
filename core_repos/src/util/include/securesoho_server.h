@@ -1,0 +1,37 @@
+#ifndef __SECURESOHO_SERVER_H
+#define __SECURESOHO_SERVER_H
+
+#define SECURESOHO_ST_VENDOR_UNKNOWN   0x00000000
+#define SECURESOHO_ST_VENDOR_REDSONIC  0x00000100
+#define SECURESOHO_ST_VENDOR_RHAPSODY  0x00000200
+#define SECURESOHO_ST_VENDOR_INTEL     0x00000400
+#define SECURESOHO_ST_VENDOR_WMC       0x00000800
+#define SECURESOHO_ST_VENDOR_TWONKY    0x00001000
+#define SECURESOHO_ST_VENDOR_AMC       0x00002000
+#define SECURESOHO_ST_VENDOR_DIXIM     0x00002100
+#define SECURESOHO_ST_VENDOR_YOUTUBE   0x00002200
+#define SECURESOHO_ST_VENDOR_VTUNER    0x00002300
+#define SECURESOHO_ST_VENDOR_LIVE365   0x00002400
+#define SECURESOHO_ST_VENDOR_PANDORA   0x00002500
+#define SECURESOHO_ST_VENDOR_FLICKR    0x00002600
+#define SECURESOHO_ST_VENDOR_MEDIAFLY  0x00002700
+#define SECURESOHO_ST_VENDOR_DEEZER    0x00002800
+#define SECURESOHO_ST_VENDOR_FACEBOOK  0x00002A00
+#define SECURESOHO_ST_VENDOR_AWOX      0x00002B00
+#define SECURESOHO_ST_VENDOR_RADIOTIME 0x00002E00
+#define SECURESOHO_ST_VENDOR_BLOCKBUSTER	0x00003000
+#define SECURESOHO_ST_VENDOR_BESTBUY	0x00003100
+#define SECURESOHO_ST_VENDOR_WEATHER      0x00003400
+
+/**********
+the definition must be the same with src/osd/cp/DMA_Controller.h
+**********/
+
+
+int securesoho_get_current_server_type(int *p_type);
+int securesoho_set_current_server_type(int type);
+
+/* FIXME. Add this for check online server */  
+int securesoho_get_online_server_type(int *p_type);
+int securesoho_set_online_server_type(int type);
+#endif

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<button valkey="Back"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="TokenOp" 
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+	</ctrlgrp>
+	<text text="@@TokenOp_desc" x="322" y="172" w="606" h="100" numlines="4" fontsize="20" textcolor="0xfff2f2f2" align="hcenter"/>
+	<wrapper y="323" w="210" h="49" fontsize="20" align="hcenter" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn x="426" text="$$Cancel" image="@@bg-Back" disable="@@disable-Back" active="@@act-Back" selected="@@sel-Back" click="@@click-Back"/>
+		<imgbtn x="535" x_offset="@@TokenOp_xoffset" text="@@TokenOp_text" image="@@bg-TokenOp" disable="@@disable-TokenOp" active="@@act-TokenOp" selected="@@sel-TokenOp" click="@@click-TokenOp"/>
+	</wrapper>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

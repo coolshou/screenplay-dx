@@ -1,0 +1,27 @@
+--- jpeglib.h	2008-12-08 21:23:20.000000000 +0800
++++ jpeglib.h.patched	2008-12-08 21:23:06.000000000 +0800
+@@ -405,6 +405,13 @@
+   int script_space_size;
+ };
+ 
++/* This struct is use to allocate large memory space */
++struct c_memory
++{
++    unsigned long phy;
++    unsigned char* vir;
++    unsigned long size;
++};
+ 
+ /* Master record for a decompression instance */
+ 
+@@ -627,6 +634,10 @@
+   struct jpeg_upsampler * upsample;
+   struct jpeg_color_deconverter * cconvert;
+   struct jpeg_color_quantizer * cquantize;
++
++  struct c_memory *c_m_list/*[MAX_MALLOC]*/;
++  int c_memory_count;
++  void * c_pRUA;
+ };
+ 
+ 

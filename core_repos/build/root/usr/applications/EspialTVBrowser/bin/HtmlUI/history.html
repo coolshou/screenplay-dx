@@ -1,0 +1,193 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+ <head>
+  <title>History</title>
+  <style type="text/css">
+
+    body {
+	background-color:black;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	font-family: arial, sans-serif;	/* setting the font style */
+	font-size: 1em;
+	color: white;
+    }
+
+    a {
+      color:white;
+    }
+
+    p {
+      color:white;
+    }
+
+  </style -->
+ </head>
+
+ <body onload='doOnLoad();'> &nbsp;
+ </body>
+
+  <script type="text/javascript">
+
+// --------------------------------------------------------
+//      L O C A L I Z A T I O N  ( start )
+
+// we'll need an API call to get this ...
+var current_locale = "en"; // "fr"; // "de";
+
+var str_ClearHistoryConfirm = new Array();
+
+str_ClearHistoryConfirm["en"] = "Are you sure you want to clear your history?";
+str_ClearHistoryConfirm["fr"] = "Etes-vous sur de vouloir effacer votre historique?";
+str_ClearHistoryConfirm["de"] = "Sie sind sicher, dass Sie Ihre Geschichte klar?";
+
+var str_ClearHistory = new Array();
+
+str_ClearHistory["en"] = "Clear History";
+str_ClearHistory["fr"] = "Effacer l'historique";
+str_ClearHistory["de"] = "Klare Geschichte";
+
+var str_History = new Array();
+
+str_History["en"] = "History";
+str_History["fr"] = "Histoire";
+str_History["de"] = "Geschichte";
+
+//      L O C A L I Z A T I O N  (  end  )
+// --------------------------------------------------------
+
+
+  function doOnLoad() {
+
+    document.write("<div id='bodyDiv' style='background-color:#000000;padding:8px;margin:-8px;width:100%;min-height:100%;'>");
+    document.write("<img src='Images/History.png' style='padding-left:12px;padding-top:12px;'><a style='color:white;font-size:32pt;font-family:arial;padding-left:4px;font-weight:bold'>&nbsp;");
+    document.write(str_History[current_locale]);
+    document.write(" </a><hr />");
+
+document.write("<div id=\"dialogButtons\">");
+document.write("<table>");
+    document.write("<tr>");
+        document.write("<td>");
+            document.write("<table cellspacing=\"0\" cellpadding=\"0\" style=\"height:34px;\" HIGHLIGHT=\"false\" onmouseover=\"hilightButton('history-button-left', 'history-button-sliver','history-button-right');\" onmouseout=\"deHilightButton('history-button-left', 'history-button-sliver','history-button-right');\" onclick='clearHistory();'>");
+                document.write("<tr>");
+                    document.write("<td id=\"history-button-left\" style=\"width:41px;background-image:url('Images/button-add-left.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+                    document.write("<td id=\"history-button-sliver\" style=\"color:white;font-family:arial;font-weight:bold;text-align:center;padding-left:4px;padding-right:10px;padding-top:10px;padding-bottom:10px;white-space:nowrap;background-image:url('Images/button-sliver.png');background-repeat: repeat-x;\"'>");
+                    document.write(str_ClearHistory[current_locale]);
+                    document.write("</td>");
+                    document.write("<td id=\"history-button-right\" style=\"width:18px;background-image:url('Images/button-right.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+                document.write("</tr>");
+            document.write("</table>");
+        document.write("</td>");
+    document.write("</tr>");
+document.write("</table>");
+document.write("<div>");
+
+    document.write("<hr /><br />");
+
+    var currentHistoryItem;
+    var history = Espial.getHistoryItems();
+
+    if (history != null) {
+
+      var i = history.length - 1;
+
+      while (i >= 0) {
+      
+        currentHistoryItem = history[i];
+  
+        if (currentHistoryItem != null) {    
+
+          // skip local items ( file:// )
+          if (currentHistoryItem[1].indexOf("file://") == 0) {
+            i--;
+            continue;
+          }
+
+          document.write("<div>");
+          document.write(" &nbsp; <img src='Images/red-ball.png'> &nbsp; ");
+          document.write("<a style='color:white;font-size:16pt;font-family:arial;padding-left:4px;font-weight:bold' href='");
+          document.write(currentHistoryItem[1]);
+          document.write("'> ");
+
+          // check for null titles
+          if (currentHistoryItem[0] == null) {
+            document.write(" No Title ");
+          }
+          else {
+            document.write(currentHistoryItem[0]);
+          }
+
+          document.write(" </a><br />");
+          document.write("<a style='color:white;font-size:12pt;font-family:arial;padding-left:36px;font-weight:bold'>");
+          
+          if (currentHistoryItem[1].length > 50) {
+            document.write(currentHistoryItem[1].substring(0, 50) + "...");
+          }
+          else {
+            document.write(currentHistoryItem[1]);
+          }
+
+          document.write("</a>");
+          document.write("</div>");
+          document.write("<br />");
+        }
+
+        i--;
+      }
+    }
+    else {
+      document.write("<p> The history is empty. </p>");
+    }
+
+    document.write("</div>");
+
+  }
+
+
+function clearHistory() {
+
+  if (confirm(str_ClearHistoryConfirm[current_locale])) {
+		Espial.clearHistory();
+    Espial.refresh();
+  }
+}
+
+
+/* This method is called when a button is hilighted (mouse over) */
+function hilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(Images/button-delete-left-hil.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(Images/button-sliver-hil.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(Images/button-right-hil.png)";
+  }
+}
+
+/* This method is called when a button is dehilighted (mouse out) */
+function deHilightButton(left, sliver, right) {
+  if (left != null) {
+    document.getElementById(left).style.backgroundImage = "url(Images/button-delete-left.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(Images/button-sliver.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(Images/button-right.png)";
+  }
+}
+
+
+  </script>
+ </html>

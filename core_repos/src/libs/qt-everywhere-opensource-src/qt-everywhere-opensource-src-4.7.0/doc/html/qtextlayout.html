@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtextlayout.cpp -->
+  <title>Qt 4.7: QTextLayout Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QTextLayout</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QTextLayout Class Reference</h1>
+<!-- $$$QTextLayout-brief -->
+<p>The QTextLayout class is used to lay out and render text. <a href="#details">More...</a></p>
+<!-- @@@QTextLayout -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QTextLayout&gt;</pre><p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#reentrant">reentrant</a>.</p>
+<ul>
+<li><a href="qtextlayout-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout-formatrange.html">FormatRange</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#CursorMode-enum">CursorMode</a></b> { SkipCharacters, SkipWords }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#QTextLayout">QTextLayout</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#QTextLayout-2">QTextLayout</a></b> ( const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#QTextLayout-3">QTextLayout</a></b> ( const QString &amp; <i>text</i>, const QFont &amp; <i>font</i>, QPaintDevice * <i>paintdevice</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#dtor.QTextLayout">~QTextLayout</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;FormatRange&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#additionalFormats">additionalFormats</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#beginLayout">beginLayout</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRectF </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#boundingRect">boundingRect</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#cacheEnabled">cacheEnabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#clearAdditionalFormats">clearAdditionalFormats</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#clearLayout">clearLayout</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextLine </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#createLine">createLine</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#draw">draw</a></b> ( QPainter * <i>p</i>, const QPointF &amp; <i>pos</i>, const QVector&lt;FormatRange&gt; &amp; <i>selections</i> = QVector&lt;FormatRange&gt; (), const QRectF &amp; <i>clip</i> = QRectF() ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#drawCursor">drawCursor</a></b> ( QPainter * <i>painter</i>, const QPointF &amp; <i>position</i>, int <i>cursorPosition</i>, int <i>width</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#drawCursor-2">drawCursor</a></b> ( QPainter * <i>painter</i>, const QPointF &amp; <i>position</i>, int <i>cursorPosition</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#endLayout">endLayout</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QFont </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#font">font</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#isValidCursorPosition">isValidCursorPosition</a></b> ( int <i>pos</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextLine </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#lineAt">lineAt</a></b> ( int <i>i</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#lineCount">lineCount</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextLine </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#lineForTextPosition">lineForTextPosition</a></b> ( int <i>pos</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#maximumWidth">maximumWidth</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#minimumWidth">minimumWidth</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#nextCursorPosition">nextCursorPosition</a></b> ( int <i>oldPos</i>, CursorMode <i>mode</i> = SkipCharacters ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#position">position</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#preeditAreaPosition">preeditAreaPosition</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#preeditAreaText">preeditAreaText</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#previousCursorPosition">previousCursorPosition</a></b> ( int <i>oldPos</i>, CursorMode <i>mode</i> = SkipCharacters ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setAdditionalFormats">setAdditionalFormats</a></b> ( const QList&lt;FormatRange&gt; &amp; <i>formatList</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setCacheEnabled">setCacheEnabled</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setFont">setFont</a></b> ( const QFont &amp; <i>font</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setPosition">setPosition</a></b> ( const QPointF &amp; <i>p</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setPreeditArea">setPreeditArea</a></b> ( int <i>position</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setText">setText</a></b> ( const QString &amp; <i>string</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#setTextOption">setTextOption</a></b> ( const QTextOption &amp; <i>option</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#text">text</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTextOption </td><td class="memItemRight bottomAlign"><b><a href="qtextlayout.html#textOption">textOption</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QTextLayout-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QTextLayout class is used to lay out and render text.</p>
+<p>It offers many features expected from a modern text layout engine, including Unicode compliant rendering, line breaking and handling of cursor positioning. It can also produce and render device independent layout, something that is important for WYSIWYG applications.</p>
+<p>The class has a rather low level API and unless you intend to implement your own text rendering for some specialized widget, you probably won't need to use it directly.</p>
+<p>QTextLayout can be used with both plain and rich text.</p>
+<p>QTextLayout can be used to create a sequence of <a href="qtextline.html">QTextLine</a> instances with given widths and can position them independently on the screen. Once the layout is done, these lines can be drawn on a paint device.</p>
+<p>The text to be laid out can be provided in the constructor or set with <a href="qtextlayout.html#setText">setText</a>().</p>
+<p>The layout can be seen as a sequence of <a href="qtextline.html">QTextLine</a> objects; use <a href="qtextlayout.html#createLine">createLine</a>() to create a <a href="qtextline.html">QTextLine</a> instance, and <a href="qtextlayout.html#lineAt">lineAt</a>() or <a href="qtextlayout.html#lineForTextPosition">lineForTextPosition</a>() to retrieve created lines.</p>
+<p>Here is a code snippet that demonstrates the layout phase:</p>
+<pre class="highlightedCode brush: cpp"> int leading = fontMetrics.leading();
+ qreal height = 0;
+ textLayout.beginLayout();
+ while (1) {
+     QTextLine line = textLayout.createLine();
+     if (!line.isValid())
+         break;
+
+     line.setLineWidth(lineWidth);
+     height += leading;
+     line.setPosition(QPointF(0, height));
+     height += line.height();
+ }
+ textLayout.endLayout();</pre>
+<p>The text can then be rendered by calling the layout's <a href="qtextlayout.html#draw">draw</a>() function:</p>
+<pre class="highlightedCode brush: cpp"> QPainter painter(this);
+ textLayout.draw(&amp;painter, QPoint(0, 0));</pre>
+<p>For a given position in the text you can find a valid cursor position with <a href="qtextlayout.html#isValidCursorPosition">isValidCursorPosition</a>(), <a href="qtextlayout.html#nextCursorPosition">nextCursorPosition</a>(), and <a href="qtextlayout.html#previousCursorPosition">previousCursorPosition</a>().</p>
+<p>The QTextLayout itself can be positioned with <a href="qtextlayout.html#setPosition">setPosition</a>(); it has a <a href="qtextlayout.html#boundingRect">boundingRect</a>(), and a <a href="qtextlayout.html#minimumWidth">minimumWidth</a>() and a <a href="qtextlayout.html#maximumWidth">maximumWidth</a>().</p>
+</div>
+<p>See also <a href="qstatictext.html">QStaticText</a>.</p>
+<!-- @@@QTextLayout -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$CursorMode$$$SkipCharacters$$$SkipWords -->
+<h3 class="fn"><a name="CursorMode-enum"></a>enum QTextLayout::CursorMode</h3>
+<table class="valuelist"><tr><th class="tblConst">Constant</th><th class="tblVal">Value</th></tr>
+<tr><td  class="topAlign"><tt>QTextLayout::SkipCharacters</tt></td><td class=" topAlign"><tt>0</tt></td></tr>
+<tr><td  class="topAlign"><tt>QTextLayout::SkipWords</tt></td><td class=" topAlign"><tt>1</tt></td></tr>
+</table>
+<!-- @@@CursorMode -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QTextLayout[overload1]$$$QTextLayout -->
+<h3 class="fn"><a name="QTextLayout"></a>QTextLayout::QTextLayout ()</h3>
+<p>Constructs an empty text layout.</p>
+<p>See also <a href="qtextlayout.html#setText">setText</a>().</p>
+<!-- @@@QTextLayout -->
+<!-- $$$QTextLayout$$$QTextLayoutconstQString& -->
+<h3 class="fn"><a name="QTextLayout-2"></a>QTextLayout::QTextLayout ( const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>Constructs a text layout to lay out the given <i>text</i>.</p>
+<!-- @@@QTextLayout -->
+<!-- $$$QTextLayout$$$QTextLayoutconstQString&constQFont&QPaintDevice* -->
+<h3 class="fn"><a name="QTextLayout-3"></a>QTextLayout::QTextLayout ( const <a href="qstring.html">QString</a> &amp; <i>text</i>, const <a href="qfont.html">QFont</a> &amp; <i>font</i>, <a href="qpaintdevice.html">QPaintDevice</a> * <i>paintdevice</i> = 0 )</h3>
+<p>Constructs a text layout to lay out the given <i>text</i> with the specified <i>font</i>.</p>
+<p>All the metric and layout calculations will be done in terms of the paint device, <i>paintdevice</i>. If <i>paintdevice</i> is 0 the calculations will be done in screen metrics.</p>
+<!-- @@@QTextLayout -->
+<!-- $$$~QTextLayout[overload1]$$$~QTextLayout -->
+<h3 class="fn"><a name="dtor.QTextLayout"></a>QTextLayout::~QTextLayout ()</h3>
+<p>Destructs the layout.</p>
+<!-- @@@~QTextLayout -->
+<!-- $$$additionalFormats[overload1]$$$additionalFormats -->
+<h3 class="fn"><a name="additionalFormats"></a><a href="qlist.html">QList</a>&lt;<a href="qtextlayout-formatrange.html">FormatRange</a>&gt; QTextLayout::additionalFormats () const</h3>
+<p>Returns the list of additional formats supported by the text layout.</p>
+<p>See also <a href="qtextlayout.html#setAdditionalFormats">setAdditionalFormats</a>() and <a href="qtextlayout.html#clearAdditionalFormats">clearAdditionalFormats</a>().</p>
+<!-- @@@additionalFormats -->
+<!-- $$$beginLayout[overload1]$$$beginLayout -->
+<h3 class="fn"><a name="beginLayout"></a>void QTextLayout::beginLayout ()</h3>
+<p>Begins the layout process.</p>
+<!-- @@@beginLayout -->
+<!-- $$$boundingRect[overload1]$$$boundingRect -->
+<h3 class="fn"><a name="boundingRect"></a><a href="qrectf.html">QRectF</a> QTextLayout::boundingRect () const</h3>
+<p>The smallest rectangle that contains all the lines in the layout.</p>
+<!-- @@@boundingRect -->
+<!-- $$$cacheEnabled[overload1]$$$cacheEnabled -->
+<h3 class="fn"><a name="cacheEnabled"></a>bool QTextLayout::cacheEnabled () const</h3>
+<p>Returns true if the complete layout information is cached; otherwise returns false.</p>
+<p>See also <a href="qtextlayout.html#setCacheEnabled">setCacheEnabled</a>().</p>
+<!-- @@@cacheEnabled -->
+<!-- $$$clearAdditionalFormats[overload1]$$$clearAdditionalFormats -->
+<h3 class="fn"><a name="clearAdditionalFormats"></a>void QTextLayout::clearAdditionalFormats ()</h3>
+<p>Clears the list of additional formats supported by the text layout.</p>
+<p>See also <a href="qtextlayout.html#additionalFormats">additionalFormats</a>() and <a href="qtextlayout.html#setAdditionalFormats">setAdditionalFormats</a>().</p>
+<!-- @@@clearAdditionalFormats -->
+<!-- $$$clearLayout[overload1]$$$clearLayout -->
+<h3 class="fn"><a name="clearLayout"></a>void QTextLayout::clearLayout ()</h3>
+<p>Clears the line information in the layout. After having called this function, <a href="qtextlayout.html#lineCount">lineCount</a>() returns 0.</p>
+<p>This function was introduced in Qt 4.4.</p>
+<!-- @@@clearLayout -->
+<!-- $$$createLine[overload1]$$$createLine -->
+<h3 class="fn"><a name="createLine"></a><a href="qtextline.html">QTextLine</a> QTextLayout::createLine ()</h3>
+<p>Returns a new text line to be laid out if there is text to be inserted into the layout; otherwise returns an invalid text line.</p>
+<p>The text layout creates a new line object that starts after the last line in the layout, or at the beginning if the layout is empty. The layout maintains an internal cursor, and each line is filled with text from the cursor position onwards when the <a href="qtextline.html#setLineWidth">QTextLine::setLineWidth</a>() function is called.</p>
+<p>Once <a href="qtextline.html#setLineWidth">QTextLine::setLineWidth</a>() is called, a new line can be created and filled with text. Repeating this process will lay out the whole block of text contained in the <a href="qtextlayout.html">QTextLayout</a>. If there is no text left to be inserted into the layout, the <a href="qtextline.html">QTextLine</a> returned will not be valid (isValid() will return false).</p>
+<!-- @@@createLine -->
+<!-- $$$draw[overload1]$$$drawQPainter*constQPointF&constQVector<FormatRange>&constQRectF& -->
+<h3 class="fn"><a name="draw"></a>void QTextLayout::draw ( <a href="qpainter.html">QPainter</a> * <i>p</i>, const <a href="qpointf.html">QPointF</a> &amp; <i>pos</i>, const <a href="qvector.html">QVector</a>&lt;<a href="qtextlayout-formatrange.html">FormatRange</a>&gt; &amp; <i>selections</i> = QVector&lt;FormatRange&gt; (), const <a href="qrectf.html">QRectF</a> &amp; <i>clip</i> = QRectF() ) const</h3>
+<p>Draws the whole layout on the painter <i>p</i> at the position specified by <i>pos</i>. The rendered layout includes the given <i>selections</i> and is clipped within the rectangle specified by <i>clip</i>.</p>
+<!-- @@@draw -->
+<!-- $$$drawCursor[overload1]$$$drawCursorQPainter*constQPointF&intint -->
+<h3 class="fn"><a name="drawCursor"></a>void QTextLayout::drawCursor ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qpointf.html">QPointF</a> &amp; <i>position</i>, int <i>cursorPosition</i>, int <i>width</i> ) const</h3>
+<p>Draws a text cursor with the current pen and the specified <i>width</i> at the given <i>position</i> using the <i>painter</i> specified. The corresponding position within the text is specified by <i>cursorPosition</i>.</p>
+<!-- @@@drawCursor -->
+<!-- $$$drawCursor$$$drawCursorQPainter*constQPointF&int -->
+<h3 class="fn"><a name="drawCursor-2"></a>void QTextLayout::drawCursor ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qpointf.html">QPointF</a> &amp; <i>position</i>, int <i>cursorPosition</i> ) const</h3>
+<p>This is an overloaded function.</p>
+<p>Draws a text cursor with the current pen at the given <i>position</i> using the <i>painter</i> specified. The corresponding position within the text is specified by <i>cursorPosition</i>.</p>
+<!-- @@@drawCursor -->
+<!-- $$$endLayout[overload1]$$$endLayout -->
+<h3 class="fn"><a name="endLayout"></a>void QTextLayout::endLayout ()</h3>
+<p>Ends the layout process.</p>
+<!-- @@@endLayout -->
+<!-- $$$font[overload1]$$$font -->
+<h3 class="fn"><a name="font"></a><a href="qfont.html">QFont</a> QTextLayout::font () const</h3>
+<p>Returns the current font that is used for the layout, or a default font if none is set.</p>
+<p>See also <a href="qtextlayout.html#setFont">setFont</a>().</p>
+<!-- @@@font -->
+<!-- $$$isValidCursorPosition[overload1]$$$isValidCursorPositionint -->
+<h3 class="fn"><a name="isValidCursorPosition"></a>bool QTextLayout::isValidCursorPosition ( int <i>pos</i> ) const</h3>
+<p>Returns true if position <i>pos</i> is a valid cursor position.</p>
+<p>In a Unicode context some positions in the text are not valid cursor positions, because the position is inside a Unicode surrogate or a grapheme cluster.</p>
+<p>A grapheme cluster is a sequence of two or more Unicode characters that form one indivisible entity on the screen. For example the latin character `&Auml;' can be represented in Unicode by two characters, `A' (0x41), and the combining diaresis (0x308). A text cursor can only validly be positioned before or after these two characters, never between them since that wouldn't make sense. In indic languages every syllable forms a grapheme cluster.</p>
+<!-- @@@isValidCursorPosition -->
+<!-- $$$lineAt[overload1]$$$lineAtint -->
+<h3 class="fn"><a name="lineAt"></a><a href="qtextline.html">QTextLine</a> QTextLayout::lineAt ( int <i>i</i> ) const</h3>
+<p>Returns the <i>i</i>-th line of text in this text layout.</p>
+<p>See also <a href="qtextlayout.html#lineCount">lineCount</a>() and <a href="qtextlayout.html#lineForTextPosition">lineForTextPosition</a>().</p>
+<!-- @@@lineAt -->
+<!-- $$$lineCount[overload1]$$$lineCount -->
+<h3 class="fn"><a name="lineCount"></a>int QTextLayout::lineCount () const</h3>
+<p>Returns the number of lines in this text layout.</p>
+<p>See also <a href="qtextlayout.html#lineAt">lineAt</a>().</p>
+<!-- @@@lineCount -->
+<!-- $$$lineForTextPosition[overload1]$$$lineForTextPositionint -->
+<h3 class="fn"><a name="lineForTextPosition"></a><a href="qtextline.html">QTextLine</a> QTextLayout::lineForTextPosition ( int <i>pos</i> ) const</h3>
+<p>Returns the line that contains the cursor position specified by <i>pos</i>.</p>
+<p>See also <a href="qtextlayout.html#isValidCursorPosition">isValidCursorPosition</a>() and <a href="qtextlayout.html#lineAt">lineAt</a>().</p>
+<!-- @@@lineForTextPosition -->
+<!-- $$$maximumWidth[overload1]$$$maximumWidth -->
+<h3 class="fn"><a name="maximumWidth"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QTextLayout::maximumWidth () const</h3>
+<p>The maximum width the layout could expand to; this is essentially the width of the entire text.</p>
+<p><b>Warning:</b> This function only returns a valid value after the layout has been done.</p>
+<p>See also <a href="qtextlayout.html#minimumWidth">minimumWidth</a>().</p>
+<!-- @@@maximumWidth -->
+<!-- $$$minimumWidth[overload1]$$$minimumWidth -->
+<h3 class="fn"><a name="minimumWidth"></a><a href="qtglobal.html#qreal-typedef">qreal</a> QTextLayout::minimumWidth () const</h3>
+<p>The minimum width the layout needs. This is the width of the layout's smallest non-breakable substring.</p>
+<p><b>Warning:</b> This function only returns a valid value after the layout has been done.</p>
+<p>See also <a href="qtextlayout.html#maximumWidth">maximumWidth</a>().</p>
+<!-- @@@minimumWidth -->
+<!-- $$$nextCursorPosition[overload1]$$$nextCursorPositionintCursorMode -->
+<h3 class="fn"><a name="nextCursorPosition"></a>int QTextLayout::nextCursorPosition ( int <i>oldPos</i>, <a href="qtextlayout.html#CursorMode-enum">CursorMode</a> <i>mode</i> = SkipCharacters ) const</h3>
+<p>Returns the next valid cursor position after <i>oldPos</i> that respects the given cursor <i>mode</i>.</p>
+<p>See also <a href="qtextlayout.html#isValidCursorPosition">isValidCursorPosition</a>() and <a href="qtextlayout.html#previousCursorPosition">previousCursorPosition</a>().</p>
+<!-- @@@nextCursorPosition -->
+<!-- $$$position[overload1]$$$position -->
+<h3 class="fn"><a name="position"></a><a href="qpointf.html">QPointF</a> QTextLayout::position () const</h3>
+<p>The global position of the layout. This is independent of the bounding rectangle and of the layout process.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtextlayout.html#setPosition">setPosition</a>().</p>
+<!-- @@@position -->
+<!-- $$$preeditAreaPosition[overload1]$$$preeditAreaPosition -->
+<h3 class="fn"><a name="preeditAreaPosition"></a>int QTextLayout::preeditAreaPosition () const</h3>
+<p>Returns the position of the area in the text layout that will be processed before editing occurs.</p>
+<!-- @@@preeditAreaPosition -->
+<!-- $$$preeditAreaText[overload1]$$$preeditAreaText -->
+<h3 class="fn"><a name="preeditAreaText"></a><a href="qstring.html">QString</a> QTextLayout::preeditAreaText () const</h3>
+<p>Returns the text that is inserted in the layout before editing occurs.</p>
+<!-- @@@preeditAreaText -->
+<!-- $$$previousCursorPosition[overload1]$$$previousCursorPositionintCursorMode -->
+<h3 class="fn"><a name="previousCursorPosition"></a>int QTextLayout::previousCursorPosition ( int <i>oldPos</i>, <a href="qtextlayout.html#CursorMode-enum">CursorMode</a> <i>mode</i> = SkipCharacters ) const</h3>
+<p>Returns the first valid cursor position before <i>oldPos</i> that respects the given cursor <i>mode</i>.</p>
+<p>See also <a href="qtextlayout.html#isValidCursorPosition">isValidCursorPosition</a>() and <a href="qtextlayout.html#nextCursorPosition">nextCursorPosition</a>().</p>
+<!-- @@@previousCursorPosition -->
+<!-- $$$setAdditionalFormats[overload1]$$$setAdditionalFormatsconstQList<FormatRange>& -->
+<h3 class="fn"><a name="setAdditionalFormats"></a>void QTextLayout::setAdditionalFormats ( const <a href="qlist.html">QList</a>&lt;<a href="qtextlayout-formatrange.html">FormatRange</a>&gt; &amp; <i>formatList</i> )</h3>
+<p>Sets the additional formats supported by the text layout to <i>formatList</i>.</p>
+<p>See also <a href="qtextlayout.html#additionalFormats">additionalFormats</a>() and <a href="qtextlayout.html#clearAdditionalFormats">clearAdditionalFormats</a>().</p>
+<!-- @@@setAdditionalFormats -->
+<!-- $$$setCacheEnabled[overload1]$$$setCacheEnabledbool -->
+<h3 class="fn"><a name="setCacheEnabled"></a>void QTextLayout::setCacheEnabled ( bool <i>enable</i> )</h3>
+<p>Enables caching of the complete layout information if <i>enable</i> is true; otherwise disables layout caching. Usually <a href="qtextlayout.html">QTextLayout</a> throws most of the layouting information away after a call to <a href="qtextlayout.html#endLayout">endLayout</a>() to reduce memory consumption. If you however want to draw the laid out text directly afterwards enabling caching might speed up drawing significantly.</p>
+<p>See also <a href="qtextlayout.html#cacheEnabled">cacheEnabled</a>().</p>
+<!-- @@@setCacheEnabled -->
+<!-- $$$setFont[overload1]$$$setFontconstQFont& -->
+<h3 class="fn"><a name="setFont"></a>void QTextLayout::setFont ( const <a href="qfont.html">QFont</a> &amp; <i>font</i> )</h3>
+<p>Sets the layout's font to the given <i>font</i>. The layout is invalidated and must be laid out again.</p>
+<p>See also <a href="qtextlayout.html#font">font</a>() and <a href="qtextlayout.html#text">text</a>().</p>
+<!-- @@@setFont -->
+<!-- $$$setPosition[overload1]$$$setPositionconstQPointF& -->
+<h3 class="fn"><a name="setPosition"></a>void QTextLayout::setPosition ( const <a href="qpointf.html">QPointF</a> &amp; <i>p</i> )</h3>
+<p>Moves the text layout to point <i>p</i>.</p>
+<p>See also <a href="qtextlayout.html#position">position</a>().</p>
+<!-- @@@setPosition -->
+<!-- $$$setPreeditArea[overload1]$$$setPreeditAreaintconstQString& -->
+<h3 class="fn"><a name="setPreeditArea"></a>void QTextLayout::setPreeditArea ( int <i>position</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>Sets the <i>position</i> and <i>text</i> of the area in the layout that is processed before editing occurs.</p>
+<!-- @@@setPreeditArea -->
+<!-- $$$setText[overload1]$$$setTextconstQString& -->
+<h3 class="fn"><a name="setText"></a>void QTextLayout::setText ( const <a href="qstring.html">QString</a> &amp; <i>string</i> )</h3>
+<p>Sets the layout's text to the given <i>string</i>. The layout is invalidated and must be laid out again.</p>
+<p>Notice that when using this <a href="qtextlayout.html">QTextLayout</a> as part of a <a href="qtextdocument.html">QTextDocument</a> this method will have no effect.</p>
+<p>See also <a href="qtextlayout.html#text">text</a>().</p>
+<!-- @@@setText -->
+<!-- $$$setTextOption[overload1]$$$setTextOptionconstQTextOption& -->
+<h3 class="fn"><a name="setTextOption"></a>void QTextLayout::setTextOption ( const <a href="qtextoption.html">QTextOption</a> &amp; <i>option</i> )</h3>
+<p>Sets the text option structure that controls the layout process to the given <i>option</i>.</p>
+<p>See also <a href="qtextlayout.html#textOption">textOption</a>() and <a href="qtextoption.html">QTextOption</a>.</p>
+<!-- @@@setTextOption -->
+<!-- $$$text[overload1]$$$text -->
+<h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> QTextLayout::text () const</h3>
+<p>Returns the layout's text.</p>
+<p>See also <a href="qtextlayout.html#setText">setText</a>().</p>
+<!-- @@@text -->
+<!-- $$$textOption[overload1]$$$textOption -->
+<h3 class="fn"><a name="textOption"></a><a href="qtextoption.html">QTextOption</a> QTextLayout::textOption () const</h3>
+<p>Returns the current text option used to control the layout process.</p>
+<p>See also <a href="qtextlayout.html#setTextOption">setTextOption</a>() and <a href="qtextoption.html">QTextOption</a>.</p>
+<!-- @@@textOption -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+. /etc/init.d/options
+cp -R /conf_src /tmp/conf
+if [ -f /usr/conf/config ]; then
+	cp /usr/conf/config /tmp/conf/config > /dev/null 2>&1
+else
+	cp /conf/config_for_mass_product /tmp/conf/config > /dev/null 2>&1
+fi
+ln -s /conf/config /tmp/config.ini

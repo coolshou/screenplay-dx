@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+<ctrlgrp>
+	<button valkey="hdd0"/>
+	<button valkey="hdd1"/>
+	<button valkey="hdd2"/>
+</ctrlgrp>
+
+	<text text="$$Please select the device you would like to eject." x="240" y="146" w="800" h="40" fontsize="30" textcolor="0xffffff" align="hcenter"/>
+
+	<wrapper y="272" w="120" h="150">
+		<image image="@@BG0" x="444"/>
+		<image image="@@BG1" x="580"/>
+		<image image="@@BG2" x="716"/>
+	</wrapper>
+
+  	<image image="@@status_icon" x="562" y="404" w="158" h="32"/>
+  	<image image="@@hdd_info_bg" x="471" y="469" h="50"/>
+	<text text="@@HDD_INFO" x="240" y="478" w="800" h="28" fontsize="22" textcolor="0xffffff" align="hcenter"/>
+	
+	<include filename="./inc_decoration.xml"/>
+</page>

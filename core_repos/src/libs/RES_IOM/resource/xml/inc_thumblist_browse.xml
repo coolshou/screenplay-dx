@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<wrapper>
+	<text text="@@pagecounter" x="360" y="552" h="24" w="200" fontsize="24" align="hcenter" textcolor="0x666a69"/>
+
+    <wrapper y="220" w="136" h="195" scale="100" scale_type="fixratio">
+        <image image="@@browse_0_thumbnail"  default_image="@@browse_0_default_image"  x="104"/>
+        <image image="@@browse_1_thumbnail"  default_image="@@browse_1_default_image"  x="260"/>
+        <image image="@@browse_2_thumbnail"  default_image="@@browse_2_default_image"  x="416"/>
+        <image image="@@browse_3_thumbnail"  default_image="@@browse_3_default_image"  x="572"/>
+        <image image="@@browse_4_thumbnail"  default_image="@@browse_4_default_image"  x="728"/>
+        <image image="@@browse_5_thumbnail"  default_image="@@browse_5_default_image"  x="884"/>
+        <image image="@@browse_6_thumbnail"  default_image="@@browse_6_default_image"  x="1040"/>
+    </wrapper>
+
+    <!--Shadow-->
+    <wrapper y="419" w="136" h="33">
+        <image image="@@browse_0_thumbnail_shadow"  x="104"/>
+        <image image="@@browse_1_thumbnail_shadow"  x="260"/>
+        <image image="@@browse_2_thumbnail_shadow"  x="416"/>
+        <image image="@@browse_3_thumbnail_shadow"  x="572"/>
+        <image image="@@browse_4_thumbnail_shadow"  x="728"/>
+        <image image="@@browse_5_thumbnail_shadow"  x="884"/>
+        <image image="@@browse_6_thumbnail_shadow"  x="1040"/>
+    </wrapper>
+
+
+    <!-- Focus background-->
+    <wrapper y="177" w="190" h="281" scale="100" scale_type="fixratio" align="hcenter">
+        <image image="@@browse_0_thumbnail_focus"  default_image="@@browse_0_default_image_focus"  x="77"/>
+        <image image="@@browse_1_thumbnail_focus"  default_image="@@browse_1_default_image_focus"  x="233"/>
+        <image image="@@browse_2_thumbnail_focus"  default_image="@@browse_2_default_image_focus"  x="389"/>
+        <image image="@@browse_3_thumbnail_focus"  default_image="@@browse_3_default_image_focus"  x="545"/>
+        <image image="@@browse_4_thumbnail_focus"  default_image="@@browse_4_default_image_focus"  x="701"/>
+        <image image="@@browse_5_thumbnail_focus"  default_image="@@browse_5_default_image_focus"  x="857"/>
+        <image image="@@browse_6_thumbnail_focus"  default_image="@@browse_6_default_image_focus"  x="1013"/>
+    </wrapper>
+
+    <wrapper y="164" w="216" h="307">
+        <image image="@@thumb_active_0"  x="64"/>
+        <image image="@@thumb_active_1"  x="220"/>
+        <image image="@@thumb_active_2"  x="376"/>
+        <image image="@@thumb_active_3"  x="532"/>
+        <image image="@@thumb_active_4"  x="688"/>
+        <image image="@@thumb_active_5"  x="844"/>
+        <image image="@@thumb_active_6"  x="1000"/>
+    </wrapper>
+
+    <!-- Focus shadow-->
+    <wrapper y="471" w="216" h="32">
+        <image image="@@thumb_active_0_shadow"  x="64"/>
+        <image image="@@thumb_active_1_shadow"  x="220"/>
+        <image image="@@thumb_active_2_shadow"  x="376"/>
+        <image image="@@thumb_active_3_shadow"  x="532"/>
+        <image image="@@thumb_active_4_shadow"  x="688"/>
+        <image image="@@thumb_active_5_shadow"  x="844"/>
+        <image image="@@thumb_active_6_shadow"  x="1000"/>
+    </wrapper>
+
+
+    <image image="image/photo_thumb_line_01.png" x="326" y="551" w="555" h="5" bg="1"/>
+  <image image="image/photo_thumb_line_01.png" x="326" y="596" w="555" h="5" bg="1"/>
+  <text text="@@file_info" selected="@@file_info_selected" x="420" y="583" w="400" h="34" fontsize="26" textcolor="0x525752" selectedtextcolor="0xffb300" align="hcenter" speed="1" delay="2" auto_translate="1"/>
+<!--
+
+  <image  x="1067" y="177" w="38" h="27" image="@@moreprev"/>
+  <image  x="1067" y="490" w="38" h="27" image="@@morenext"/>
+-->
+</wrapper>

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: client.cpp Example File (network/fortuneclient/client.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">client.cpp Example File</h1>
+<span class="small-subtitle">network/fortuneclient/client.cpp</span>
+<!-- $$$network/fortuneclient/client.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+ #include &lt;QtNetwork&gt;
+
+ #include &quot;client.h&quot;
+
+ Client::Client(QWidget *parent)
+ :   QDialog(parent), networkSession(0)
+ {
+     hostLabel = new QLabel(tr(&quot;&amp;Server name:&quot;));
+     portLabel = new QLabel(tr(&quot;S&amp;erver port:&quot;));
+
+     <span class="comment">// find out which IP to connect to</span>
+     QString ipAddress;
+     QList&lt;QHostAddress&gt; ipAddressesList = QNetworkInterface::allAddresses();
+     <span class="comment">// use the first non-localhost IPv4 address</span>
+     for (int i = 0; i &lt; ipAddressesList.size(); ++i) {
+         if (ipAddressesList.at(i) != QHostAddress::LocalHost &amp;&amp;
+             ipAddressesList.at(i).toIPv4Address()) {
+             ipAddress = ipAddressesList.at(i).toString();
+             break;
+         }
+     }
+     <span class="comment">// if we did not find one, use IPv4 localhost</span>
+     if (ipAddress.isEmpty())
+         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+
+     hostLineEdit = new QLineEdit(ipAddress);
+     portLineEdit = new QLineEdit;
+     portLineEdit-&gt;setValidator(new QIntValidator(1, 65535, this));
+
+     hostLabel-&gt;setBuddy(hostLineEdit);
+     portLabel-&gt;setBuddy(portLineEdit);
+
+     statusLabel = new QLabel(tr(&quot;This examples requires that you run the &quot;
+                                 &quot;Fortune Server example as well.&quot;));
+
+     getFortuneButton = new QPushButton(tr(&quot;Get Fortune&quot;));
+     getFortuneButton-&gt;setDefault(true);
+     getFortuneButton-&gt;setEnabled(false);
+
+     quitButton = new QPushButton(tr(&quot;Quit&quot;));
+
+     buttonBox = new QDialogButtonBox;
+     buttonBox-&gt;addButton(getFortuneButton, QDialogButtonBox::ActionRole);
+     buttonBox-&gt;addButton(quitButton, QDialogButtonBox::RejectRole);
+
+     tcpSocket = new QTcpSocket(this);
+
+     connect(hostLineEdit, SIGNAL(textChanged(QString)),
+             this, SLOT(enableGetFortuneButton()));
+     connect(portLineEdit, SIGNAL(textChanged(QString)),
+             this, SLOT(enableGetFortuneButton()));
+     connect(getFortuneButton, SIGNAL(clicked()),
+             this, SLOT(requestNewFortune()));
+     connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
+     connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readFortune()));
+     connect(tcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),
+             this, SLOT(displayError(QAbstractSocket::SocketError)));
+
+     QGridLayout *mainLayout = new QGridLayout;
+     mainLayout-&gt;addWidget(hostLabel, 0, 0);
+     mainLayout-&gt;addWidget(hostLineEdit, 0, 1);
+     mainLayout-&gt;addWidget(portLabel, 1, 0);
+     mainLayout-&gt;addWidget(portLineEdit, 1, 1);
+     mainLayout-&gt;addWidget(statusLabel, 2, 0, 1, 2);
+     mainLayout-&gt;addWidget(buttonBox, 3, 0, 1, 2);
+     setLayout(mainLayout);
+
+     setWindowTitle(tr(&quot;Fortune Client&quot;));
+     portLineEdit-&gt;setFocus();
+
+     QNetworkConfigurationManager manager;
+     if (manager.capabilities() &amp; QNetworkConfigurationManager::NetworkSessionRequired) {
+         <span class="comment">// Get saved network configuration</span>
+         QSettings settings(QSettings::UserScope, QLatin1String(&quot;Trolltech&quot;));
+         settings.beginGroup(QLatin1String(&quot;QtNetwork&quot;));
+         const QString id = settings.value(QLatin1String(&quot;DefaultNetworkConfiguration&quot;)).toString();
+         settings.endGroup();
+
+         <span class="comment">// If the saved network configuration is not currently discovered use the system default</span>
+         QNetworkConfiguration config = manager.configurationFromIdentifier(id);
+         if ((config.state() &amp; QNetworkConfiguration::Discovered) !=
+             QNetworkConfiguration::Discovered) {
+             config = manager.defaultConfiguration();
+         }
+
+         networkSession = new QNetworkSession(config, this);
+         connect(networkSession, SIGNAL(opened()), this, SLOT(sessionOpened()));
+
+         getFortuneButton-&gt;setEnabled(false);
+         statusLabel-&gt;setText(tr(&quot;Opening network session.&quot;));
+         networkSession-&gt;open();
+     }
+ }
+
+ void Client::requestNewFortune()
+ {
+     getFortuneButton-&gt;setEnabled(false);
+     blockSize = 0;
+     tcpSocket-&gt;abort();
+     tcpSocket-&gt;connectToHost(hostLineEdit-&gt;text(),
+                              portLineEdit-&gt;text().toInt());
+ }
+
+ void Client::readFortune()
+ {
+     QDataStream in(tcpSocket);
+     in.setVersion(QDataStream::Qt_4_0);
+
+     if (blockSize == 0) {
+         if (tcpSocket-&gt;bytesAvailable() &lt; (int)sizeof(quint16))
+             return;
+
+         in &gt;&gt; blockSize;
+     }
+
+     if (tcpSocket-&gt;bytesAvailable() &lt; blockSize)
+         return;
+
+     QString nextFortune;
+     in &gt;&gt; nextFortune;
+
+     if (nextFortune == currentFortune) {
+         QTimer::singleShot(0, this, SLOT(requestNewFortune()));
+         return;
+     }
+
+     currentFortune = nextFortune;
+     statusLabel-&gt;setText(currentFortune);
+     getFortuneButton-&gt;setEnabled(true);
+ }
+
+ void Client::displayError(QAbstractSocket::SocketError socketError)
+ {
+     switch (socketError) {
+     case QAbstractSocket::RemoteHostClosedError:
+         break;
+     case QAbstractSocket::HostNotFoundError:
+         QMessageBox::information(this, tr(&quot;Fortune Client&quot;),
+                                  tr(&quot;The host was not found. Please check the &quot;
+                                     &quot;host name and port settings.&quot;));
+         break;
+     case QAbstractSocket::ConnectionRefusedError:
+         QMessageBox::information(this, tr(&quot;Fortune Client&quot;),
+                                  tr(&quot;The connection was refused by the peer. &quot;
+                                     &quot;Make sure the fortune server is running, &quot;
+                                     &quot;and check that the host name and port &quot;
+                                     &quot;settings are correct.&quot;));
+         break;
+     default:
+         QMessageBox::information(this, tr(&quot;Fortune Client&quot;),
+                                  tr(&quot;The following error occurred: %1.&quot;)
+                                  .arg(tcpSocket-&gt;errorString()));
+     }
+
+     getFortuneButton-&gt;setEnabled(true);
+ }
+
+ void Client::enableGetFortuneButton()
+ {
+     getFortuneButton-&gt;setEnabled((!networkSession || networkSession-&gt;isOpen()) &amp;&amp;
+                                  !hostLineEdit-&gt;text().isEmpty() &amp;&amp;
+                                  !portLineEdit-&gt;text().isEmpty());
+
+ }
+
+ void Client::sessionOpened()
+ {
+     <span class="comment">// Save the used configuration</span>
+     QNetworkConfiguration config = networkSession-&gt;configuration();
+     QString id;
+     if (config.type() == QNetworkConfiguration::UserChoice)
+         id = networkSession-&gt;sessionProperty(QLatin1String(&quot;UserChoiceConfiguration&quot;)).toString();
+     else
+         id = config.identifier();
+
+     QSettings settings(QSettings::UserScope, QLatin1String(&quot;Trolltech&quot;));
+     settings.beginGroup(QLatin1String(&quot;QtNetwork&quot;));
+     settings.setValue(QLatin1String(&quot;DefaultNetworkConfiguration&quot;), id);
+     settings.endGroup();
+
+     statusLabel-&gt;setText(tr(&quot;This examples requires that you run the &quot;
+                             &quot;Fortune Server example as well.&quot;));
+
+     enableGetFortuneButton();
+ }</pre>
+</div>
+<!-- @@@network/fortuneclient/client.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

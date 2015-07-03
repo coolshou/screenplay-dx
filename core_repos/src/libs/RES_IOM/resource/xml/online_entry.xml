@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page background="image/browser_list_background_bg_n.png" type="basic">
+  <text id="subheadline" text="@@title"/>
+
+  <listbox valkey="online_item_list" autoenter="1" move="row" cols="1" rows="6" lbmask="lr"  loop_scroll="1"/>
+
+  <table x="126" y="181" w="490" h="226" rows="6" rowspacing="2"
+         lbimage="image/common_button_A_btn_f.png" clickimage="image/common_button_A_btn_p.png">
+    <image lightbar="@@lightbar-online_item_list-0" active="@@act-online_item_list-0"/>
+    <image lightbar="@@lightbar-online_item_list-1" active="@@act-online_item_list-1"/>
+    <image lightbar="@@lightbar-online_item_list-2" active="@@act-online_item_list-2"/>
+    <image lightbar="@@lightbar-online_item_list-3" active="@@act-online_item_list-3"/>
+    <image lightbar="@@lightbar-online_item_list-4" active="@@act-online_item_list-4"/>
+    <image lightbar="@@lightbar-online_item_list-5" active="@@act-online_item_list-5"/>
+  </table>
+
+  <table x="180" y="199" w="350" h="228"
+           cols="1" rows="6" colspacing="0" rowspacing="0" >
+    <image image="@@browse_0_line" ymargin="0" bg="1"/>
+    <image image="@@browse_1_line" ymargin="0" bg="1"/>
+    <image image="@@browse_2_line" ymargin="0" bg="1"/>
+    <image image="@@browse_3_line" ymargin="0" bg="1"/>
+    <image image="@@browse_4_line" ymargin="0" bg="1"/>
+    <image image="@@browse_5_line" ymargin="0" bg="1"/>
+  </table>
+
+  <table x="115" y="189" w="490" h="210"
+    cols="1" rows="6" colspacing="0" rowspacing="18"
+    fontsize="20" textcolor="0xFFFFFF" actnoseltextcolor="0x3333333" align="hcenter">
+    <text text="@@item_name-0"  active="@@act-online_item_list-0"/>
+    <text text="@@item_name-1"  active="@@act-online_item_list-1"/>
+    <text text="@@item_name-2"  active="@@act-online_item_list-2"/>
+    <text text="@@item_name-3"  active="@@act-online_item_list-3"/>
+    <text text="@@item_name-4"  active="@@act-online_item_list-4"/>
+    <text text="@@item_name-5"  active="@@act-online_item_list-5"/>
+  </table>
+
+  <image image="@@ss-prev" x="623" y="175" w="22" h="22"/>
+  <image image="@@ss-more" x="623" y="388" w="22" h="22"/>
+  <image image="image/browser_list_frame_bg_n.png" x="118" y="173" w="485" h="239"/>
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./info.xml"/>
+</page>

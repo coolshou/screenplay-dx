@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<page background="image/live365/Media Player_live365_bg.jpg">
+	<ctrlgrp valkey="options">
+		
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="2" rows="4" loop_scroll="1" lbmask="ud" turbo_trigger="10" turbo_multi="10"
+		 	focused_bg="image/live365/Generic_live365_focus_on_bar.png" normal_bg=""/>
+	</ctrlgrp>
+
+        <include filename="./inc_optionmenu_widgets_flickr.xml"/>
+
+	<image  x="1184" y="203" w="27" h="18" image="@@moreprev"/>
+	<image  x="1184" y="547" w="27" h="18" image="@@morenext"/>
+
+	<text text="@@pagecounter" x="1050" y="138" w="132" h="18" fontsize="20" textcolor="0xff4b4b4b" align="left"/>
+
+	<text text="@@browse_title_icon" x="171" y="154" w="652" h="38" align="left" fontsize="36" textcolor="0xff343298"/> 
+	
+	<wrapper x="0" w="719" h="88">
+		<image image="@@bg-browselist-0" y="197"/>	
+		<image image="@@bg-browselist-2" y="291"/>	
+		<image image="@@bg-browselist-4" y="383"/>	
+		<image image="@@bg-browselist-6" y="476"/>	
+	</wrapper> 
+	
+	<wrapper x="562" w="719" h="88">
+		<image image="@@bg-browselist-1" y="197"/>	
+		<image image="@@bg-browselist-3" y="291"/>	
+		<image image="@@bg-browselist-5" y="383"/>	
+		<image image="@@bg-browselist-7" y="476"/>	
+	</wrapper> 
+
+	<table x="100" w="128" h="351" cols="1" rows="4">
+		<image image="@@browse_0_icon" y="205"/>
+		<image image="@@browse_2_icon" y="300"/>
+		<image image="@@browse_4_icon" y="391"/>
+		<image image="@@browse_6_icon" y="484"/>
+	</table>
+
+	<table x="658" w="128" h="351" cols="1" rows="4">
+		<image image="@@browse_1_icon" y="205"/>
+		<image image="@@browse_3_icon" y="300"/>
+		<image image="@@browse_5_icon" y="391"/>
+		<image image="@@browse_7_icon" y="484"/>
+	</table>
+	
+	<wrapper x="248" w="372" h="22" fontsize="24" textcolor="0xff4b4b4b">
+		<text text="@@browselist_0_text" y="205"/>
+		<text text="@@browselist_2_text" y="299"/>
+		<text text="@@browselist_4_text" y="391"/>
+		<text text="@@browselist_6_text" y="484"/>
+	</wrapper>
+	
+	<wrapper x="807" w="372" h="22" fontsize="24" textcolor="0xff4b4b4b">
+		<text text="@@browselist_1_text" y="205"/>
+		<text text="@@browselist_3_text" y="299"/>
+		<text text="@@browselist_5_text" y="391"/>
+		<text text="@@browselist_7_text" y="484"/>
+	</wrapper>
+
+	<wrapper x="248" w="372" h="22" fontsize="20" textcolor="0xff4b4b4b">
+		<text text="@@browse_1_genre" y="235"/>
+		<text text="@@browse_3_genre" y="329"/>
+		<text text="@@browse_5_genre" y="421"/>
+		<text text="@@browse_7_genre" y="514"/>
+	</wrapper>
+
+	<wrapper x="807" w="372" h="22" fontsize="20" textcolor="0xff4b4b4b">
+		<text text="@@browse_1_genre" y="235"/>
+		<text text="@@browse_3_genre" y="329"/>
+		<text text="@@browse_5_genre" y="421"/>
+		<text text="@@browse_7_genre" y="514"/>
+	</wrapper>
+
+	<wrapper x="248" w="372" h="22" fontsize="20" textcolor="0xff4b4b4b">
+		<text text="@@browse_0_audio" y="260"/>
+		<text text="@@browse_2_audio" y="354"/>
+		<text text="@@browse_4_audio" y="446"/>
+		<text text="@@browse_6_audio" y="539"/>
+	</wrapper>
+
+	<wrapper x="807" w="372" h="22" fontsize="20" textcolor="0xff4b4b4b">
+		<text text="@@browse_1_audio" y="260"/>
+		<text text="@@browse_3_audio" y="354"/>
+		<text text="@@browse_5_audio" y="446"/>
+		<text text="@@browse_7_audio" y="539"/>
+	</wrapper>
+
+	<wrapper x="482" w="142" h="40">
+		<image image="@@browse_0_rating" y="245"/>	
+		<image image="@@browse_2_rating" y="338"/>	
+		<image image="@@browse_4_rating" y="431"/>	
+		<image image="@@browse_6_rating" y="524"/>	
+	</wrapper> 
+	
+	<wrapper x="1042" w="142" h="40">
+		<image image="@@browse_1_rating" y="245"/>	
+		<image image="@@browse_3_rating" y="338"/>	
+		<image image="@@browse_5_rating" y="431"/>	
+		<image image="@@browse_7_rating" y="524"/>	
+	</wrapper> 
+
+	<image image="image/live365/Generic_live365_option_menu_bg.png" x="0" y="0" w="1280" h="120" bg="1" disable="@@disable-options_bg"/>
+	<image x="590" y="0" w="100" h="107" image="@@libimage-QML0" dsiable="@@disable-options_bg"/>
+	<image x="590" y="0" w="100" h="107" image="@@bg-CMD0" disable="@@disable-options_bg"/>
+
+	<include filename="./info.xml"/>
+	
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>
+

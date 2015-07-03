@@ -1,0 +1,281 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/lib/archop_cw.c linux-2.6.22.19/arch/mips/lib/archop_cw.c
+--- linux-2.6.22.19.ref/arch/mips/lib/archop_cw.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/lib/archop_cw.c	2009-11-30 16:59:53.996822178 -0800
+@@ -0,0 +1,69 @@
++#include <linux/init.h>
++#include <linux/kernel.h>
++#include <linux/sched.h>
++#include <linux/mm.h>
++#include <linux/bitops.h>
++
++#include <asm/bcache.h>
++#include <asm/bootinfo.h>
++#include <asm/cache.h>
++#include <asm/cacheops.h>
++#include <asm/cpu.h>
++#include <asm/cpu-features.h>
++#include <asm/io.h>
++#include <asm/page.h>
++#include <asm/pgtable.h>
++#include <asm/r4kcache.h>
++#include <asm/system.h>
++#include <asm/mmu_context.h>
++#include <asm/war.h>
++#include <asm/cacheflush.h> /* for run_uncached() */
++
++// those are left un-documented and have many bizarre requirements. read the ASM. loopCnt is cache lines + 2. 
++void mips_memcopy_std(int *p_src, int *p_dst, int loopCnt);
++void mips_memcopy_std_ua(int *p_uasrc, int *p_dst, int loopCnt);
++void mips_memset(int v,int *p_dst, int loopCnt);
++size_t mips_memcmp(int *p_src, int *p_dst, int loopCnt);
++size_t mips_memcmp_ua(int *p_uasrc, int *p_dst, int loopCnt);
++size_t mips_strnlen(int *p_src, int loopCnt); // return non-zero means found
++size_t mips_strnlen_c(int *p_src,int v, int loopCnt); // return non-zero means found
++void mips_hhblend(int *p_src0,int *p_src1, int *p_dst, int loopCnt);
++
++size_t __strnlen_user_nocheck_asm_alt(const char *s, size_t maxlen)
++{
++	char *src=(void *)s;
++	int n=maxlen;
++	int lines;
++
++	// word align src
++
++	while ((n>0)&&((int)src&3)) {
++		if (*src==0)
++			return maxlen-n;
++		n--;
++		src++;
++	}
++	
++	// do as many lines as possible
++
++	lines=n>>5;
++	if (lines>0) {
++		int l;
++		
++		l=lines-mips_strnlen((int *)src,lines-1);
++
++		src+=l<<5; 
++		n-=l<<5;
++	}
++	
++	// finish quietly
++
++	while (n>0) {
++		if (*src==0)
++			return maxlen-n;
++		n--;
++		src++;
++	}
++	
++	return maxlen;
++}
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/lib/archop_mips.S linux-2.6.22.19/arch/mips/lib/archop_mips.S
+--- linux-2.6.22.19.ref/arch/mips/lib/archop_mips.S	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/arch/mips/lib/archop_mips.S	2009-11-30 16:59:53.996822178 -0800
+@@ -0,0 +1,71 @@
++#include <asm/asm.h>
++#include <asm/asm-offsets.h>
++#include <asm/regdef.h>
++
++.set noat
++.set noreorder
++	
++/* size_t mips_strnlen(int *p_src, int loopCnt); */
++LEAF(mips_strnlen)
++
++	move	a2, $0
++
++	li	v0, 0x80808080 
++	li	v1, 0xfefefeff # nice trick, google on it
++	
++	pref	0, 0x0(a0)	# bring the first line of src
++	pref	0, 0x20(a0)	# bring the first line of src
++	pref	0, 0x40(a0)	# bring the first line of src
++1:
++	pref	0, 0x60(a0)	# bring the next lines of src
++
++	lw 	t0, 0x0(a0)
++	addu	t0, v1
++	and	t0, v0
++	addu	a2, t0
++
++	lw 	t1, 0x4(a0)
++	addu	t1, v1
++	and	t1, v0
++	addu	a2, t1
++
++	lw 	t2, 0x8(a0)
++	addu	t2, v1
++	and	t2, v0
++	addu	a2, t2
++
++	lw 	t3, 0xc(a0)
++	addu	t3, v1
++	and	t3, v0
++	addu	a2, t3
++
++	lw 	t0, 0x10(a0)
++	addu	t0, v1
++	and	t0, v0
++	addu	a2, t0
++
++	lw 	t1, 0x14(a0)
++	addu	t1, v1
++	and	t1, v0
++	addu	a2, t1
++
++	lw 	t2, 0x18(a0)
++	addu	t2, v1
++	and	t2, v0
++	addu	a2, t2
++
++	lw 	t3, 0x1c(a0)
++	addu	t3, v1
++	and	t3, v0
++	addu	a2, t3
++
++	bnez	a2, 2f
++	addu	a0, 0x20
++
++	bnez	a1, 1b
++	subu    a1, 1
++
++2:	
++	jr	ra
++	addu	v0, a1, 1
++END(mips_strnlen)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/lib/Makefile linux-2.6.22.19/arch/mips/lib/Makefile
+--- linux-2.6.22.19.ref/arch/mips/lib/Makefile	2009-11-30 16:58:08.000000000 -0800
++++ linux-2.6.22.19/arch/mips/lib/Makefile	2009-11-30 16:59:53.996822178 -0800
+@@ -5,6 +5,8 @@
+ lib-y	+= csum_partial.o delay.o memcpy.o memcpy-inatomic.o memset.o \
+ 	   strlen_user.o strncpy_user.o strnlen_user.o uncached.o
+ 
++obj-$(CONFIG_TANGO3) += archop_mips.o archop_cw.o
++
+ obj-y			+= iomap.o
+ obj-$(CONFIG_PCI)	+= iomap-pci.o
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/lib/memcpy.S linux-2.6.22.19/arch/mips/lib/memcpy.S
+--- linux-2.6.22.19.ref/arch/mips/lib/memcpy.S	2009-11-30 16:58:08.000000000 -0800
++++ linux-2.6.22.19/arch/mips/lib/memcpy.S	2009-11-30 16:59:53.996822178 -0800
+@@ -226,10 +226,23 @@
+ 	 SRL	t0, len, LOG_NBYTES+3    # +3 for 8 units/iter
+ 	beqz	t0, cleanup_both_aligned # len < 8*NBYTES
+ 	 and	rem, len, (8*NBYTES-1)	 # rem = len % (8*NBYTES)
+-	PREF(	0, 3*32(src) )
+-	PREF(	1, 3*32(dst) )
+-	.align	4
++
++#ifndef CONFIG_TANGO3
++	PREF(   0, 3*32(src) )
++	PREF(   1, 3*32(dst) )
++	.align  4
++#else
++	# len>=32, but is it <64?
++	SUB	t0, len, 64
++	bltz	t0, 2f
++	SUB	len, 32
++#endif
++	
+ 1:
++#ifdef CONFIG_TANGO3
++	pref	0,  0x60(src)
++	pref	30, 0x20(dst) # we assume dst is 0x20-aligned, not sure
++#endif
+ EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
+ EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
+ EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
+@@ -249,11 +262,35 @@
+ EXC(	STORE	t7, UNIT(-3)(dst),	s_exc_p3u)
+ EXC(	STORE	t0, UNIT(-2)(dst),	s_exc_p2u)
+ EXC(	STORE	t1, UNIT(-1)(dst),	s_exc_p1u)
+-	PREF(	0, 8*32(src) )
+-	PREF(	1, 8*32(dst) )
++#ifndef CONFIG_TANGO3
++	PREF(   0, 8*32(src) )
++	PREF(   1, 8*32(dst) )
++#endif
+ 	bne	len, rem, 1b
+ 	 nop
+ 
++#ifdef CONFIG_TANGO3
++2:	
++EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
++EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
++EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
++EXC(	LOAD	t3, UNIT(3)(src),	l_exc_copy)
++EXC(	LOAD	t4, UNIT(4)(src),	l_exc_copy)
++EXC(	LOAD	t7, UNIT(5)(src),	l_exc_copy)
++EXC(	STORE	t0, UNIT(0)(dst),	s_exc_p8u)
++EXC(	STORE	t1, UNIT(1)(dst),	s_exc_p7u)
++EXC(	LOAD	t0, UNIT(6)(src),	l_exc_copy)
++EXC(	LOAD	t1, UNIT(7)(src),	l_exc_copy)
++	ADD	src, src, 8*NBYTES
++	ADD	dst, dst, 8*NBYTES
++EXC(	STORE	t2, UNIT(-6)(dst),	s_exc_p6u)
++EXC(	STORE	t3, UNIT(-5)(dst),	s_exc_p5u)
++EXC(	STORE	t4, UNIT(-4)(dst),	s_exc_p4u)
++EXC(	STORE	t7, UNIT(-3)(dst),	s_exc_p3u)
++EXC(	STORE	t0, UNIT(-2)(dst),	s_exc_p2u)
++EXC(	STORE	t1, UNIT(-1)(dst),	s_exc_p1u)
++#endif
++
+ 	/*
+ 	 * len == rem == the number of bytes left to copy < 8*NBYTES
+ 	 */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/lib/memset.S linux-2.6.22.19/arch/mips/lib/memset.S
+--- linux-2.6.22.19.ref/arch/mips/lib/memset.S	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/lib/memset.S	2009-11-30 16:59:53.996822178 -0800
+@@ -91,13 +91,27 @@
+ 	beqz		t1, memset_partial	/* no block to fill */
+ 	 andi		t0, a2, 0x40-LONGSIZE
+ 
++#ifdef CONFIG_TANGO3
++	subu	t1, 0x40 # distinguish one or >=2 blocks: pref 30 is destructive
++	beqz	t1, 2f	
++#endif
+ 	PTR_ADDU	t1, a0			/* end address */
++	
+ 	.set		reorder
+ 1:	PTR_ADDIU	a0, 64
++#ifdef CONFIG_TANGO3
++	pref 30, 0(a0) # we assume a0 is 0x20-aligned
++	pref 30, 32(a0)
++#endif
+ 	f_fill64 a0, -64, a1, fwd_fixup
+ 	bne		t1, a0, 1b
+ 	.set		noreorder
+ 
++#ifdef CONFIG_TANGO3
++2:	PTR_ADDIU	a0, 64
++	f_fill64 a0, -64, a1, fwd_fixup
++#endif
++	
+ memset_partial:
+ 	PTR_LA		t1, 2f			/* where to start */
+ #if LONGSIZE == 4
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1034.pref.memset.memcpy.10799.patch linux-2.6.22.19/README.1034.pref.memset.memcpy.10799.patch
+--- linux-2.6.22.19.ref/README.1034.pref.memset.memcpy.10799.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1034.pref.memset.memcpy.10799.patch	2009-11-30 16:59:53.996822178 -0800
+@@ -0,0 +1,18 @@
++Feature:
++--------
++Optimized memory copy/set operations
++
++Prerequisite patch numbers:
++---------------------------
++none
++
++Primary author:
++---------------
++Emmanuel Michon
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango3
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

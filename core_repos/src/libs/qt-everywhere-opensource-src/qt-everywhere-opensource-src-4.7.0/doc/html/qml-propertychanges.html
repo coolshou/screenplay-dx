@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativepropertychanges.cpp -->
+  <title>Qt 4.7: QML PropertyChanges Element</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="qdeclarativeelements.html">QML Elements</a></li>              <li>QML PropertyChanges Element</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML PropertyChanges Element</h1>
+<span class="subtitle"></span>
+<!-- $$$PropertyChanges-brief -->
+<p>The PropertyChanges element describes new property bindings or values for a state. <a href="#details">More...</a></p>
+<!-- @@@PropertyChanges -->
+<li><a href="qml-propertychanges-members.html">List of all members, including inherited members</a></li>
+<a name="properties"></a>
+<h2>Properties</h2>
+<tr class="odd topAlign"><ul>
+<li class="fn"><b><b><a href="qml-propertychanges.html#explicit-prop">explicit</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-propertychanges.html#restoreEntryValues-prop">restoreEntryValues</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-propertychanges.html#target-prop">target</a></b></b> : Object</li>
+</ul>
+<!-- $$$PropertyChanges-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>PropertyChanges provides a state change that modifies the properties of an item.</p>
+<p>Here is a property change that modifies the text and color of a <a href="qml-text.html">Text</a> element when it is clicked:</p>
+<pre class="highlightedCode brush: cpp"> Text {
+     id: myText
+     width: 100; height: 100
+     text: &quot;Hello&quot;
+     color: &quot;blue&quot;
+
+     states: State {
+         name: &quot;myState&quot;
+
+         PropertyChanges {
+             target: myText
+             text: &quot;Goodbye&quot;
+             color: &quot;red&quot;
+         }
+     }
+
+     MouseArea { anchors.fill: parent; onClicked: myText.state = 'myState' }
+ }</pre>
+<p>By default, PropertyChanges will establish new bindings where appropriate. For example, the following creates a new binding for myItem's <tt>height</tt> property.</p>
+<pre class="highlightedCode brush: cpp"> PropertyChanges {
+     target: myItem
+     height: parent.height
+ }</pre>
+<p>If you don't want a binding to be established (and instead just want to assign the value of the binding at the time the state is entered), you should set the PropertyChange's <a href="qml-propertychanges.html#explicit-prop">explicit</a> property to <tt>true</tt>.</p>
+<p>State-specific script for signal handlers can also be specified:</p>
+<pre class="highlightedCode brush: cpp"> PropertyChanges {
+     target: myMouseArea
+     onClicked: doSomethingDifferent()
+ }</pre>
+<p>You can reset a property in a state change by assigning <tt>undefined</tt>. In the following example we reset <tt>theText</tt>'s width when we enter state1. This will give the text its natural width (which is the whole string on one line).</p>
+<pre class="highlightedCode brush: cpp"> import Qt 4.7
+
+ Rectangle {
+     width: 640
+     height: 480
+     Text {
+         id: theText
+         width: 50
+         wrapMode: Text.WordWrap
+         text: &quot;a text string that is longer than 50 pixels&quot;
+     }
+
+     states: State {
+         name: &quot;state1&quot;
+         PropertyChanges {
+             target: theText
+             width: undefined
+         }
+     }
+ }</pre>
+<p>Anchor margins should be changed with PropertyChanges, but other anchor changes or changes to an Item's parent should be done using the associated change elements (<a href="qml-parentchange.html">ParentChange</a> and <a href="qml-anchorchanges.html">AnchorChanges</a>, respectively).</p>
+<p>See also <a href="declarative-animation-states.html">states example</a>, <a href="qdeclarativestates.html#qmlstates">States</a>, and <a href="qtdeclarative.html">QtDeclarative</a>.</p>
+<!-- @@@PropertyChanges -->
+<h2>Property Documentation</h2>
+<!-- $$$explicit -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="explicit-prop"></a>explicit : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>If explicit is set to true, any potential bindings will be interpreted as once-off assignments that occur when the state is entered.</p>
+<p>In the following example, the addition of explicit prevents <tt>myItem.width</tt> from being bound to <tt>parent.width</tt>. Instead, it is assigned the value of <tt>parent.width</tt> at the time of the state change.</p>
+<pre class="highlightedCode brush: cpp"> PropertyChanges {
+     target: myItem
+     explicit: true
+     width: parent.width
+ }</pre>
+<p>By default, explicit is false.</p>
+</div></div><!-- @@@explicit -->
+<br/>
+<!-- $$$restoreEntryValues -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="restoreEntryValues-prop"></a>restoreEntryValues : <a href="qml-bool.html">bool</a></td></tr></table></div><div class="qmldoc"><p>Whether or not the previous values should be restored when leaving the state. By default, restoreEntryValues is true.</p>
+<p>By setting restoreEntryValues to false, you can create a temporary state that has permanent effects on property values.</p>
+</div></div><!-- @@@restoreEntryValues -->
+<br/>
+<!-- $$$target -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr class="odd"><td class="tblQmlPropNode"><p><a name="target-prop"></a>target : Object</td></tr></table></div><div class="qmldoc"><p>This property holds the object which contains the properties to be changed.</p>
+</div></div><!-- @@@target -->
+<br/>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

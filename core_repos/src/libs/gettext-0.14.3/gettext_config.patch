@@ -1,0 +1,11 @@
+--- gettext-0.14.3/gettext-tools/config.h	2009-04-07 13:40:54.000000000 +0800
++++ ../gettext-0.14.3/gettext-tools/config.h	2009-03-30 15:34:21.000000000 +0800
+@@ -652,7 +652,7 @@
+ #define fnmatch posix_fnmatch
+ 
+ /* Define to a replacement function name for getline(). */
+-#define getline gnu_getline
++//#define getline gnu_getline
+ 
+ /* Define to `__inline__' or `__inline' if that's what the C compiler
+    calls it, or to nothing if 'inline' is not supported under any name.  */

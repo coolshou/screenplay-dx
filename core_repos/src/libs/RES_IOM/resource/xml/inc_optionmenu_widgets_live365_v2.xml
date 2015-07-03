@@ -1,0 +1,11 @@
+
+<?xml version="1.0"?>
+<wrapper>
+<wrapper disable="@@disable-optionmenu">
+	<mlmenuview ctrlname="mlmenu-optionmenu" changed="@@mlmenu-optionmenu-changed" style="infinity_optionmenu"     
+		x="0" y="0" w="1280" h="161" 
+		nodename_color="0x343298" nodename_fontsize="24" nodename_y="123" nodeicon_y="0"
+		focus_icon="" hide_disabled_node="0"/>
+	<image image="image/live365/Generic_live365_option_menu_bg.png" x="0" y="0" w="1280" h="120" bg="1"/>
+</wrapper>
+</wrapper>

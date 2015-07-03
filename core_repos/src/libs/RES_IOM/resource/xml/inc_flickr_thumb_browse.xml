@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<wrapper>
+<text text="@@pagecounter" x="870" y="117" w="172" h="26" fontsize="24" align="right" textcolor="0xffffff"/>
+
+<table x="184" y="180" w="857" h="161" 
+       cols="5" rows="1" colspacing="13" align="hcenter">
+       <image image="@@thumb_active_0" />
+       <image image="@@thumb_active_1" />
+       <image image="@@thumb_active_2" />
+       <image image="@@thumb_active_3" />
+       <image image="@@thumb_active_4" />
+</table>
+<table x="184" y="353" w="857" h="161"
+       cols="5" rows="1" colspacing="13" align="hcenter">
+       <image image="@@thumb_active_5" />
+       <image image="@@thumb_active_6" />
+       <image image="@@thumb_active_7" />
+       <image image="@@thumb_active_8" />
+       <image image="@@thumb_active_9" />
+</table>
+
+<table x="192" y="187" w="842" h="146"
+       cols="5" rows="1" colspacing="28" align="hcenter" scale_type="fixratio" scale="100">
+       <image image="@@browse_0_thumbnail" default_image="@@browse_0_default_image" x="191"/>
+       <image image="@@browse_1_thumbnail" default_image="@@browse_1_default_image" x="365"/>
+       <image image="@@browse_2_thumbnail" default_image="@@browse_2_default_image" x="539"/>
+       <image image="@@browse_3_thumbnail" default_image="@@browse_3_default_image" x="713"/>
+       <image image="@@browse_4_thumbnail" default_image="@@browse_4_default_image" x="887"/>
+</table>
+<table x="192" y="360" w="842" h="146"
+         cols="5" rows="1" colspacing="28" align="hcenter" scale_type="fixratio" scale="100">
+    <image image="@@browse_5_thumbnail" default_image="@@browse_5_default_image" x="191"/>
+    <image image="@@browse_6_thumbnail" default_image="@@browse_6_default_image" x="365"/>
+    <image image="@@browse_7_thumbnail" default_image="@@browse_7_default_image" x="539"/>
+    <image image="@@browse_8_thumbnail" default_image="@@browse_8_default_image" x="713"/>
+    <image image="@@browse_9_thumbnail" default_image="@@browse_9_default_image" x="887"/>
+</table>
+<!--
+<table x="182" y="188" w="859" h="161" 
+         cols="5" rows="1" colspacing="32" align="hcenter">
+	 <image image="@@browse_0_mask" />
+	 <image image="@@browse_1_mask" />
+	 <image image="@@browse_2_mask" />
+	 <image image="@@browse_3_mask" />
+	 <image image="@@browse_4_mask" />
+</table>
+<table x="182" y="361" w="859" h="161"
+       cols="5" rows="1" colspacing="32" align="hcenter">
+       <image image="@@browse_5_mask" />
+       <image image="@@browse_6_mask" />
+       <image image="@@browse_7_mask" />
+       <image image="@@browse_8_mask" />
+       <image image="@@browse_9_mask" />
+</table>
+-->
+
+<image image="image/flickr/IService_Fickr_photo_thumb_name-area.png" x="400" y="551" w="482" h="48" bg="1"/>
+<text text="@@file_info" selected="@@file_info_selected" x="400" y="564" w="482" h="28" fontsize="26" textcolor="0x0063db" selectedtextcolor="0x0063db" align="hcenter" speed="1" delay="2" auto_translate="1"/>
+
+<image  x="1070" y="177" w="32" h="32" image="@@moreprev"/>
+<image  x="1070" y="482" w="32" h="32" image="@@morenext"/>
+</wrapper>

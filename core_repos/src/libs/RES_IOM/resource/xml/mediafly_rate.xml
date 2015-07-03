@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/mediafly/mediafly_bg.jpg">
+	<ctrlgrp>
+		<button valkey="LEVEL_0" focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<button valkey="LEVEL_1" focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<button valkey="LEVEL_2" focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<button valkey="LEVEL_3" focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<button valkey="LEVEL_4" focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<linebreak/>
+		<button valkey="FAVORITE"
+			focused_bg="image/mediafly/mediafly_rating_cursor.png"/>
+		<linebreak/>
+		<button valkey="YES"
+			focused_bg="image/mediafly/mediafly_association_code_btn_f.png"
+			normal_bg="image/mediafly/mediafly_association_code_btn_n.png"/>
+		<button valkey="NO"
+			focused_bg="image/mediafly/mediafly_association_code_btn_f.png"
+			normal_bg="image/mediafly/mediafly_association_code_btn_n.png"/>
+	</ctrlgrp>
+	<text text="$$Rate/Favorite" x="97" y="115" fontsize="42" w="600" h="44" textcolor="0x4b4b4b" />
+	<!--<image image="@@video_thumb_outline" x="366" y="197" w="106" h="106"/>-->
+
+	<image image="./image/mediafly/mediafly_episode_frame.png" x="134" y="241" w="304" h="216"/>
+	<image image="@@video_thumb_icon" x="141" y="251" w="196" h="196" align="hcenter" scale="100"/>
+	<image image="./image/mediafly/mediafly_episode_frame_blister.png" x="141" y="251" w="196" h="196" align="hcenter" scale="100"/>
+	<text text="@@video_title" x="489" y="205" w="650" h="32" fontsize="26" textcolor="0x2c6e14"/>
+	<text text="@@video_desc" x="489" y="248" w="650" h="71" fontsize="16" textcolor="0x4b4b4b" numlines="3"/>
+
+	<text text="$$My rating:" x="490" y="347" w="194" h="20" fontsize="18" textcolor="0x4b4b4b" align="left"/>
+	<image image="@@bg-LEVEL_0" active="@@act-LEVEL_0" x="510" y="377" w="68" h="68" />
+	<image image="@@bg-LEVEL_1" active="@@act-LEVEL_1" x="585" y="377" w="68" h="68" />
+	<image image="@@bg-LEVEL_2" active="@@act-LEVEL_2" x="660" y="377" w="68" h="68" />
+	<image image="@@bg-LEVEL_3" active="@@act-LEVEL_3" x="735" y="377" w="68" h="68" />
+	<image image="@@bg-LEVEL_4" active="@@act-LEVEL_4" x="810" y="377" w="68" h="68" />
+	<image image="@@level_bg_img" x="510" y="377" w="373" h="68"/>
+
+	<text text="$$My favorite:" x="490" y="463" fontsize="18" w="194" h="20" textcolor="0x4b4b4b" align="left"/>
+	<image image="@@favorite_img" x="510" y="500" w="64" h="64"/>
+	<image image="@@bg-FAVORITE" x="508" y="496" w="68" h="68" active="@@act-FAVORITE"/>
+
+	<image image="@@bg-YES" x="417" y="563" w="343" h="78"/>
+	<image image="@@bg-NO" x="815" y="563" w="343" h="78"/>
+	<text text="$$Save" x="444" y="593" w="288" h="20" fontsize="18" align="hcenter"
+	textcolor="0xffffff"  active="@@act-YES" actnoseltextcolor="0x005811"
+	actoverlistcolor="0x005811" activetextcolor="0x005811" selectedtextcolor="0x005811"/>
+
+	<text text="$$Cancel" x="841" y="593" w="288" h="20" fontsize="18" align="hcenter"
+	textcolor="0xffffff"  active="@@act-NO" actnoseltextcolor="0x005811"
+	actoverlistcolor="0x005811" activetextcolor="0x005811" selectedtextcolor="0x005811"/>
+
+	<image image="image/mediaflye_logo.png" x="1073" y="578" w="173" h="54"/>
+
+	<include filename="./inc_loading.xml"/> 
+	<include filename="./inc_decoration_online.xml"/>
+</page>

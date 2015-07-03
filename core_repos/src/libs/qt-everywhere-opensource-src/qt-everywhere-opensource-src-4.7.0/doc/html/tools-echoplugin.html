@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- echoplugin.qdoc -->
+  <title>Qt 4.7: Echo Plugin Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-tools.html"></a></li>              <li>Echo Plugin Example</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#echowindow-class-definition">EchoWindow Class Definition</a></li>
+<li class="level1"><a href="#echowindow-class-implementation">EchoWindow Class Implementation</a></li>
+<li class="level1"><a href="#echointerface-class-definition">EchoInterface Class Definition</a></li>
+<li class="level1"><a href="#echoplugin-class-definition">EchoPlugin Class Definition</a></li>
+<li class="level1"><a href="#echoplugin-class-implementation">EchoPlugin Class Implementation</a></li>
+<li class="level1"><a href="#the-function">The <tt>main()</tt> function</a></li>
+<li class="level1"><a href="#the-profiles">The Profiles</a></li>
+<li class="level1"><a href="#further-reading-and-examples">Further reading and examples</a></li>
+</ul>
+</div>
+<h1 class="title">Echo Plugin Example</h1>
+<span class="subtitle"></span>
+<!-- $$$tools/echoplugin-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tools-echoplugin-echowindow-echointerface-h.html">tools/echoplugin/echowindow/echointerface.h</a></li>
+<li><a href="tools-echoplugin-echowindow-echowindow-cpp.html">tools/echoplugin/echowindow/echowindow.cpp</a></li>
+<li><a href="tools-echoplugin-echowindow-echowindow-h.html">tools/echoplugin/echowindow/echowindow.h</a></li>
+<li><a href="tools-echoplugin-plugin-echoplugin-cpp.html">tools/echoplugin/plugin/echoplugin.cpp</a></li>
+<li><a href="tools-echoplugin-plugin-echoplugin-h.html">tools/echoplugin/plugin/echoplugin.h</a></li>
+<li><a href="tools-echoplugin-echowindow-main-cpp.html">tools/echoplugin/echowindow/main.cpp</a></li>
+<li><a href="tools-echoplugin-echoplugin-pro.html">tools/echoplugin/echoplugin.pro</a></li>
+<li><a href="tools-echoplugin-echowindow-echowindow-pro.html">tools/echoplugin/echowindow/echowindow.pro</a></li>
+<li><a href="tools-echoplugin-plugin-plugin-pro.html">tools/echoplugin/plugin/plugin.pro</a></li>
+</ul>
+<p>This example shows how to create a Qt plugin.</p>
+<p class="centerAlign"><img src="images/echopluginexample.png" /></p><p>There are two kinds of plugins in Qt: plugins that extend Qt itself and plugins that extend applications written in Qt. In this example, we show the procedure of implementing plugins that extend applications. When you create a plugin you declare an interface, which is a class with only pure virtual functions. This interface is inherited by the class that implements the plugin. The class is stored in a shared library and can therefore be loaded by applications at run-time. When loaded, the plugin is dynamically cast to the interface using Qt's <a href="metaobjects.html#meta-object-system">meta-object system</a>. The plugin <a href="plugins-howto.html">overview document</a> gives a high-level introduction to plugins.</p>
+<p>We have implemented a plugin, the <tt>EchoPlugin</tt>, which implements the <tt>EchoInterface</tt>. The interface consists of <tt>echo()</tt>, which takes a <a href="qstring.html">QString</a> as argument. The <tt>EchoPlugin</tt> returns the string unaltered (i.e&#x2e;, it works as the familiar echo command found in both Unix and Windows).</p>
+<p>We test the plugin in <tt>EchoWindow</tt>: when you push the <a href="qpushbutton.html">QPushButton</a> (as seen in the image above), the application sends the text in the <a href="qlineedit.html">QLineEdit</a> to the plugin, which echoes it back to the application. The answer from the plugin is displayed in the <a href="qlabel.html">QLabel</a>.</p>
+<a name="echowindow-class-definition"></a>
+<h2>EchoWindow Class Definition</h2>
+<p>The <tt>EchoWindow</tt> class lets us test the <tt>EchoPlugin</tt> through a GUI.</p>
+<pre class="highlightedCode brush: cpp"> class EchoWindow : public QWidget
+ {
+     Q_OBJECT
+
+ public:
+     EchoWindow();
+
+ private slots:
+     void sendEcho();
+
+ private:
+     void createGUI();
+     bool loadPlugin();
+
+     EchoInterface *echoInterface;
+     QLineEdit *lineEdit;
+     QLabel *label;
+     QPushButton *button;
+     QGridLayout *layout;
+ };</pre>
+<p>We load the plugin in <tt>loadPlugin()</tt> and cast it to <tt>EchoInterface</tt>. When the user clicks the <tt>button</tt> we take the text in <tt>lineEdit</tt> and call the interface's <tt>echo()</tt> with it.</p>
+<a name="echowindow-class-implementation"></a>
+<h2>EchoWindow Class Implementation</h2>
+<p>We start with a look at the constructor:</p>
+<pre class="highlightedCode brush: cpp"> EchoWindow::EchoWindow()
+ {
+     createGUI();
+     setLayout(layout);
+     setWindowTitle(&quot;Echo Plugin Example&quot;);
+
+     if (!loadPlugin()) {
+         QMessageBox::information(this, &quot;Error&quot;, &quot;Could not load the plugin&quot;);
+         lineEdit-&gt;setEnabled(false);
+         button-&gt;setEnabled(false);
+     }
+ }</pre>
+<p>We create the widgets and set a title for the window. We then load the plugin. <tt>loadPlugin()</tt> returns false if the plugin could not be loaded, in which case we disable the widgets. If you wish a more detailed error message, you can use <a href="qpluginloader.html#errorString">errorString()</a>; we will look more closely at <a href="qpluginloader.html">QPluginLoader</a> later.</p>
+<p>Here is the implementation of <tt>sendEcho()</tt>:</p>
+<pre class="highlightedCode brush: cpp"> void EchoWindow::sendEcho()
+ {
+     QString text = echoInterface-&gt;echo(lineEdit-&gt;text());
+     label-&gt;setText(text);
+ }</pre>
+<p>This slot is called when the user pushes <tt>button</tt> or presses enter in <tt>lineEdit</tt>. We call <tt>echo()</tt> of the echo interface. In our example this is the <tt>EchoPlugin</tt>, but it could be any plugin that inherit the <tt>EchoInterface</tt>. We take the <a href="qstring.html">QString</a> returned from <tt>echo()</tt> and display it in the <tt>label</tt>.</p>
+<p>Here is the implementation of <tt>createGUI()</tt>:</p>
+<pre class="highlightedCode brush: cpp"> void EchoWindow::createGUI()
+ {
+     lineEdit = new QLineEdit;
+     label = new QLabel;
+     label-&gt;setFrameStyle(QFrame::Box | QFrame::Plain);
+     button = new QPushButton(tr(&quot;Send Message&quot;));
+
+     connect(lineEdit, SIGNAL(editingFinished()),
+             this, SLOT(sendEcho()));
+     connect(button, SIGNAL(clicked()),
+             this, SLOT(sendEcho()));
+
+     layout = new QGridLayout;
+     layout-&gt;addWidget(new QLabel(tr(&quot;Message:&quot;)), 0, 0);
+     layout-&gt;addWidget(lineEdit, 0, 1);
+     layout-&gt;addWidget(new QLabel(tr(&quot;Answer:&quot;)), 1, 0);
+     layout-&gt;addWidget(label, 1, 1);
+     layout-&gt;addWidget(button, 2, 1, Qt::AlignRight);
+     layout-&gt;setSizeConstraint(QLayout::SetFixedSize);
+ }</pre>
+<p>We create the widgets and lay them out in a grid layout. We connect the label and line edit to our <tt>sendEcho()</tt> slot.</p>
+<p>Here is the <tt>loadPlugin()</tt> function:</p>
+<pre class="highlightedCode brush: cpp"> bool EchoWindow::loadPlugin()
+ {
+     QDir pluginsDir(qApp-&gt;applicationDirPath());
+ #if defined(Q_OS_WIN)
+     if (pluginsDir.dirName().toLower() == &quot;debug&quot; || pluginsDir.dirName().toLower() == &quot;release&quot;)
+         pluginsDir.cdUp();
+ #elif defined(Q_OS_MAC)
+     if (pluginsDir.dirName() == &quot;MacOS&quot;) {
+         pluginsDir.cdUp();
+         pluginsDir.cdUp();
+         pluginsDir.cdUp();
+     }
+ #endif
+     pluginsDir.cd(&quot;plugins&quot;);
+     foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
+         QPluginLoader pluginLoader(pluginsDir.absoluteFilePath(fileName));
+         QObject *plugin = pluginLoader.instance();
+         if (plugin) {
+             echoInterface = qobject_cast&lt;EchoInterface *&gt;(plugin);
+             if (echoInterface)
+                 return true;
+         }
+     }
+
+     return false;
+ }</pre>
+<p>Access to plugins at run-time is provided by <a href="qpluginloader.html">QPluginLoader</a>. You supply it with the filename of the shared library the plugin is stored in and call <a href="qpluginloader.html#instance">instance()</a>, which loads and returns the root component of the plugin (i.e&#x2e;, it resolves the type of the plugin and creates a <a href="qobject.html">QObject</a> instance of it). If the plugin was not successfully loaded, it will be null, so we return false. If it was loaded correctly, we can cast the plugin to our <tt>EchoInterface</tt> and return true. In the case that the plugin loaded does not implement the <tt>EchoInterface</tt>, <tt>instance()</tt> will return null, but this cannot happen in our example. Notice that the location of the plugin is not the same for all platforms.</p>
+<a name="echointerface-class-definition"></a>
+<h2>EchoInterface Class Definition</h2>
+<p>The <tt>EchoInterface</tt> defines the functions that the plugin will provide. An interface is a class that only consists of pure virtual functions. If non virtual functions were present in the class you would get misleading compile errors in the moc files.</p>
+<pre class="highlightedCode brush: cpp"> class EchoInterface
+ {
+ public:
+     virtual ~EchoInterface() {}
+     virtual QString echo(const QString &amp;message) = 0;
+ };
+
+ Q_DECLARE_INTERFACE(EchoInterface,
+                     &quot;com.trolltech.Plugin.EchoInterface/1.0&quot;);</pre>
+<p>We declare <tt>echo()</tt>. In our <tt>EchoPlugin</tt> we use this method to return, or echo, <i>message</i>.</p>
+<p>We use the Q_DECLARE_INTERFACE macro to let <a href="metaobjects.html#meta-object-system">Qt's meta object system</a> aware of the interface. We do this so that it will be possible to identify plugins that implements the interface at run-time. The second argument is a string that must identify the interface in a unique way.</p>
+<a name="echoplugin-class-definition"></a>
+<h2>EchoPlugin Class Definition</h2>
+<p>We inherit both <a href="qobject.html">QObject</a> and <tt>EchoInterface</tt> to make this class a plugin. The Q_INTERFACES macro tells Qt which interfaces the class implements. In our case we only implement the <tt>EchoInterface</tt>. If a class implements more than one interface, they are given as a comma separated list.</p>
+<pre class="highlightedCode brush: cpp"> class EchoPlugin : public QObject, EchoInterface
+ {
+     Q_OBJECT
+     Q_INTERFACES(EchoInterface)
+
+ public:
+     QString echo(const QString &amp;message);
+ };</pre>
+<a name="echoplugin-class-implementation"></a>
+<h2>EchoPlugin Class Implementation</h2>
+<p>Here is the implementation of <tt>echo()</tt>:</p>
+<pre class="highlightedCode brush: cpp"> QString EchoPlugin::echo(const QString &amp;message)
+ {
+     return message;
+ }</pre>
+<p>We simply return the functions parameter.</p>
+<pre class="highlightedCode brush: cpp"> Q_EXPORT_PLUGIN2(echoplugin, EchoPlugin);</pre>
+<p>We use the <a href="qtplugin.html#Q_EXPORT_PLUGIN2#q-export-plugin2">Q_EXPORT_PLUGIN2</a> macro to let Qt know that the <tt>EchoPlugin</tt> class is a plugin. The first parameter is the name of the plugin; it is usual to give the plugin and the library file it is stored in the same name.</p>
+<a name="the-function"></a>
+<h2>The <tt>main()</tt> function</h2>
+<pre class="highlightedCode brush: cpp"> int main(int argv, char *args[])
+ {
+     QApplication app(argv, args);
+
+     EchoWindow window;
+     window.show();
+
+     return app.exec();
+ }</pre>
+<p>We create an <tt>EchoWindow</tt> and display it as a top-level window.</p>
+<a name="the-profiles"></a>
+<h2>The Profiles</h2>
+<p>When creating plugins the profiles need to be adjusted. We show here what changes need to be done.</p>
+<p>The profile in the echoplugin directory uses the <tt>subdirs</tt> template and simply includes includes to directories in which the echo window and echo plugin lives:</p>
+<pre class="highlightedCode brush: cpp"> TEMPLATE    = subdirs
+ SUBDIRS     = echowindow \
+               plugin</pre>
+<p>The profile for the echo window does not need any plugin specific settings. We move on to the plugin profile:</p>
+<pre class="highlightedCode brush: cpp"> TEMPLATE        = lib
+ CONFIG         += plugin
+ INCLUDEPATH    += ../echowindow
+ HEADERS         = echoplugin.h
+ SOURCES         = echoplugin.cpp
+ TARGET          = $$qtLibraryTarget(echoplugin)
+ DESTDIR         = ../plugins</pre>
+<p>We need to set the TEMPLATE as we now want to make a library instead of an executable. We also need to tell qmake that we are creating a plugin. The <tt>EchoInterface</tt> that the plugin implements lives in the <tt>echowindow</tt> directory, so we need to add that directory to the include path. We set the TARGET of the project, which is the name of the library file in which the plugin will be stored; qmake appends the appropriate file extension depending on the platform. By convention the target should have the same name as the plugin (set with <a href="qtplugin.html#Q_EXPORT_PLUGIN2#q-export-plugin2">Q_EXPORT_PLUGIN2</a>)</p>
+<a name="further-reading-and-examples"></a>
+<h2>Further reading and examples</h2>
+<p>You can find an overview of the macros needed to create plugins <a href="qtplugin.html">here</a>.</p>
+<p>We give an example of a plugin that extend Qt in the <a href="tools-styleplugin.html">style plugin</a> example. The <a href="tools-plugandpaint.html">plug and paint</a> example shows how to create static plugins.</p>
+</div>
+<!-- @@@tools/echoplugin -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

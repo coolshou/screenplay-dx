@@ -1,0 +1,73 @@
+#!/bin/sh
+
+. /sysconfig
+
+echo ""
+echo "Primary built date: $SYSCONF_BUILD_DATE"
+echo ""
+
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+
+dd if=$SYSCONF_FIRMWARE_MTD_PARTITION of=/fw_sign bs=1 count=4 skip=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+FW_SIGN=`cat /fw_sign`
+echo $FW_SIGN
+if [ $FW_SIGN == "okok" ] || [ $FW_SIGN == "f1f1" ]; then
+	echo "Find firmware sign in $SYSCONF_FIRMWARE_MTD_PARTITION"
+
+
+	echo "Mounting application firmware..."
+	mount $SYSCONF_FIRMWARE_MTD_PARTITION /mnt/app_firmware/
+
+	if [ $? == "0" ]; then
+
+		echo "Application firmware mounted.."
+
+		echo "Checking md5sum for all files in application firmware.."
+	
+		(cd /mnt/app_firmware/; md5sum -c md5sum.txt > /dev/null )
+
+		if [ $? == "0" ]; then
+			echo "All files have been checked for their integrity..."
+			echo "Launch application firmware..."
+			if [ $FW_SIGN == "f1f1" ]; then
+				exec switch_root /mnt/app_firmware/ /init f1f1
+			else
+				exec switch_root /mnt/app_firmware/ /init 
+			fi
+		else
+			echo "The integrity of application firmware is not guaranteed..."
+		fi
+	else
+		echo "Unable to mount application firmware..."
+	fi
+fi
+
+if [ x$SYSCONF_DOUBLE_SPLASH_SCREEN == xy ]; then
+dd if=/dev/zero of=$SYSCONF_FIRMWARE_MTD_PARTITION bs=1 count=4 seek=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+dd if=$SYSCONF_FIRMWARE_MTD_PARTITION of=/fw_sign bs=1 count=4 skip=`expr $SYSCONF_FIRMWARE_MTD_SIZE - 4`
+fi
+echo "Launch mdev for checking firmware in USB storage..."
+
+/etc/mdev.sh &
+while [ 1 ]; do
+
+	sleep 1;
+
+	echo "Detecting USB for available firmware...";
+
+	if [ -f /firmware_ok ]; then
+
+		echo "A new firmware has been found and loaded to memory.";
+		echo "Prepare to firmware upgrade...";
+
+		break;
+
+	fi
+done;
+
+DEVICE=/dev/`cat /firmware_ok`
+
+exec switch_root /mnt/firmware/ /init upgrade $DEVICE $SYSCONF_FIRMWARE_BIN 
+	
+

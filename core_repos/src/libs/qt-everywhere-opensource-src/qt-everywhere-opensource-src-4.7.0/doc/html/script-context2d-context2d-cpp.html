@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: context2d.cpp Example File (script/context2d/context2d.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">context2d.cpp Example File</h1>
+<span class="small-subtitle">script/context2d/context2d.cpp</span>
+<!-- $$$script/context2d/context2d.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;context2d.h&quot;
+
+ #include &lt;QVariant&gt;
+
+ #include &lt;math.h&gt;
+ static const double Q_PI   = 3.14159265358979323846;   <span class="comment">// pi</span>
+
+ #define DEGREES(t) ((t) * 180.0 / Q_PI)
+
+ #define qClamp(val, min, max) qMin(qMax(val, min), max)
+ static QList&lt;qreal&gt; parseNumbersList(QString::const_iterator &amp;itr)
+ {
+     QList&lt;qreal&gt; points;
+     QString temp;
+     while ((*itr).isSpace())
+         ++itr;
+     while ((*itr).isNumber() ||
+            (*itr) == '-' || (*itr) == '+' || (*itr) == '.') {
+         temp = QString();
+
+         if ((*itr) == '-')
+             temp += *itr++;
+         else if ((*itr) == '+')
+             temp += *itr++;
+         while ((*itr).isDigit())
+             temp += *itr++;
+         if ((*itr) == '.')
+             temp += *itr++;
+         while ((*itr).isDigit())
+             temp += *itr++;
+         while ((*itr).isSpace())
+             ++itr;
+         if ((*itr) == ',')
+             ++itr;
+         points.append(temp.toDouble());
+         <span class="comment">//eat spaces</span>
+         while ((*itr).isSpace())
+             ++itr;
+     }
+
+     return points;
+ }
+
+ QColor colorFromString(const QString &amp;name)
+ {
+     QString::const_iterator itr = name.constBegin();
+     QList&lt;qreal&gt; compo;
+     if (name.startsWith(&quot;rgba(&quot;)) {
+         ++itr; ++itr; ++itr; ++itr; ++itr;
+         compo = parseNumbersList(itr);
+         if (compo.size() != 4) {
+             return QColor();
+         }
+         <span class="comment">//alpha seems to be always between 0-1</span>
+         compo[3] *= 255;
+         return QColor((int)compo[0], (int)compo[1],
+                       (int)compo[2], (int)compo[3]);
+     } else if (name.startsWith(&quot;rgb(&quot;)) {
+         ++itr; ++itr; ++itr; ++itr;
+         compo = parseNumbersList(itr);
+         if (compo.size() != 3) {
+             return QColor();
+         }
+         return QColor((int)qClamp(compo[0], qreal(0), qreal(255)),
+                       (int)qClamp(compo[1], qreal(0), qreal(255)),
+                       (int)qClamp(compo[2], qreal(0), qreal(255)));
+     } else {
+         <span class="comment">//QRgb color;</span>
+         <span class="comment">//CSSParser::parseColor(name, color);</span>
+         return QColor(name);
+     }
+ }
+
+ static QPainter::CompositionMode compositeOperatorFromString(const QString &amp;compositeOperator)
+ {
+     if ( compositeOperator == &quot;source-over&quot; ) {
+         return QPainter::CompositionMode_SourceOver;
+     } else if ( compositeOperator == &quot;source-out&quot; ) {
+         return QPainter::CompositionMode_SourceOut;
+     } else if ( compositeOperator == &quot;source-in&quot; ) {
+         return QPainter::CompositionMode_SourceIn;
+     } else if ( compositeOperator == &quot;source-atop&quot; ) {
+         return QPainter::CompositionMode_SourceAtop;
+     } else if ( compositeOperator == &quot;destination-atop&quot; ) {
+         return QPainter::CompositionMode_DestinationAtop;
+     } else if ( compositeOperator == &quot;destination-in&quot; ) {
+         return QPainter::CompositionMode_DestinationIn;
+     } else if ( compositeOperator == &quot;destination-out&quot; ) {
+         return QPainter::CompositionMode_DestinationOut;
+     } else if ( compositeOperator == &quot;destination-over&quot; ) {
+         return QPainter::CompositionMode_DestinationOver;
+     } else if ( compositeOperator == &quot;darker&quot; ) {
+         return QPainter::CompositionMode_SourceOver;
+     } else if ( compositeOperator == &quot;lighter&quot; ) {
+         return QPainter::CompositionMode_SourceOver;
+     } else if ( compositeOperator == &quot;copy&quot; ) {
+         return QPainter::CompositionMode_Source;
+     } else if ( compositeOperator == &quot;xor&quot; ) {
+         return QPainter::CompositionMode_Xor;
+     }
+
+     return QPainter::CompositionMode_SourceOver;
+ }
+
+ static QString compositeOperatorToString(QPainter::CompositionMode op)
+ {
+     switch (op) {
+     case QPainter::CompositionMode_SourceOver:
+         return &quot;source-over&quot;;
+     case QPainter::CompositionMode_DestinationOver:
+         return &quot;destination-over&quot;;
+     case QPainter::CompositionMode_Clear:
+         return &quot;clear&quot;;
+     case QPainter::CompositionMode_Source:
+         return &quot;source&quot;;
+     case QPainter::CompositionMode_Destination:
+         return &quot;destination&quot;;
+     case QPainter::CompositionMode_SourceIn:
+         return &quot;source-in&quot;;
+     case QPainter::CompositionMode_DestinationIn:
+         return &quot;destination-in&quot;;
+     case QPainter::CompositionMode_SourceOut:
+         return &quot;source-out&quot;;
+     case QPainter::CompositionMode_DestinationOut:
+         return &quot;destination-out&quot;;
+     case QPainter::CompositionMode_SourceAtop:
+         return &quot;source-atop&quot;;
+     case QPainter::CompositionMode_DestinationAtop:
+         return &quot;destination-atop&quot;;
+     case QPainter::CompositionMode_Xor:
+         return &quot;xor&quot;;
+     case QPainter::CompositionMode_Plus:
+         return &quot;plus&quot;;
+     case QPainter::CompositionMode_Multiply:
+         return &quot;multiply&quot;;
+     case QPainter::CompositionMode_Screen:
+         return &quot;screen&quot;;
+     case QPainter::CompositionMode_Overlay:
+         return &quot;overlay&quot;;
+     case QPainter::CompositionMode_Darken:
+         return &quot;darken&quot;;
+     case QPainter::CompositionMode_Lighten:
+         return &quot;lighten&quot;;
+     case QPainter::CompositionMode_ColorDodge:
+         return &quot;color-dodge&quot;;
+     case QPainter::CompositionMode_ColorBurn:
+         return &quot;color-burn&quot;;
+     case QPainter::CompositionMode_HardLight:
+         return &quot;hard-light&quot;;
+     case QPainter::CompositionMode_SoftLight:
+         return &quot;soft-light&quot;;
+     case QPainter::CompositionMode_Difference:
+         return &quot;difference&quot;;
+     case QPainter::CompositionMode_Exclusion:
+         return &quot;exclusion&quot;;
+     default:
+         break;
+     }
+     return QString();
+ }
+
+ void Context2D::save()
+ {
+     m_stateStack.push(m_state);
+ }
+
+ void Context2D::restore()
+ {
+     if (!m_stateStack.isEmpty()) {
+         m_state = m_stateStack.pop();
+         m_state.flags = AllIsFullOfDirt;
+     }
+ }
+
+ void Context2D::scale(qreal x, qreal y)
+ {
+     m_state.matrix.scale(x, y);
+     m_state.flags |= DirtyTransformationMatrix;
+ }
+
+ void Context2D::rotate(qreal angle)
+ {
+     m_state.matrix.rotate(DEGREES(angle));
+     m_state.flags |= DirtyTransformationMatrix;
+ }
+
+ void Context2D::translate(qreal x, qreal y)
+ {
+     m_state.matrix.translate(x, y);
+     m_state.flags |= DirtyTransformationMatrix;
+ }
+
+ void Context2D::transform(qreal m11, qreal m12, qreal m21, qreal m22,
+                           qreal dx, qreal dy)
+ {
+     QMatrix mat(m11, m12,
+                 m21, m22,
+                 dx, dy);
+     m_state.matrix *= mat;
+     m_state.flags |= DirtyTransformationMatrix;
+ }
+
+ void Context2D::setTransform(qreal m11, qreal m12, qreal m21, qreal m22,
+                              qreal dx, qreal dy)
+ {
+     QMatrix mat(m11, m12,
+                 m21, m22,
+                 dx, dy);
+     m_state.matrix = mat;
+     m_state.flags |= DirtyTransformationMatrix;
+ }
+
+ QString Context2D::globalCompositeOperation() const
+ {
+     return compositeOperatorToString(m_state.globalCompositeOperation);
+ }
+
+ void Context2D::setGlobalCompositeOperation(const QString &amp;op)
+ {
+     QPainter::CompositionMode mode =
+         compositeOperatorFromString(op);
+     m_state.globalCompositeOperation = mode;
+     m_state.flags |= DirtyGlobalCompositeOperation;
+ }
+
+ QVariant Context2D::strokeStyle() const
+ {
+     return m_state.strokeStyle;
+ }
+
+ void Context2D::setStrokeStyle(const QVariant &amp;style)
+ {
+     if (qVariantCanConvert&lt;CanvasGradient&gt;(style)) {
+         CanvasGradient cg = qvariant_cast&lt;CanvasGradient&gt;(style);
+         m_state.strokeStyle = cg.value;
+     } else {
+         QColor color = colorFromString(style.toString());
+         m_state.strokeStyle = color;
+     }
+     m_state.flags |= DirtyStrokeStyle;
+ }
+
+ QVariant Context2D::fillStyle() const
+ {
+     return m_state.fillStyle;
+ }
+
+ void Context2D::setFillStyle(const QVariant &amp;style)
+ {
+     if (qVariantCanConvert&lt;CanvasGradient&gt;(style)) {
+         CanvasGradient cg = qvariant_cast&lt;CanvasGradient&gt;(style);
+         m_state.fillStyle = cg.value;
+     } else {
+         QColor color = colorFromString(style.toString());
+         m_state.fillStyle = color;
+     }
+     m_state.flags |= DirtyFillStyle;
+ }
+
+ qreal Context2D::globalAlpha() const
+ {
+     return m_state.globalAlpha;
+ }
+
+ void Context2D::setGlobalAlpha(qreal alpha)
+ {
+     m_state.globalAlpha = alpha;
+     m_state.flags |= DirtyGlobalAlpha;
+ }
+
+ CanvasGradient Context2D::createLinearGradient(qreal x0, qreal y0,
+                                                qreal x1, qreal y1)
+ {
+     QLinearGradient g(x0, y0, x1, y1);
+     return CanvasGradient(g);
+ }
+
+ CanvasGradient Context2D::createRadialGradient(qreal x0, qreal y0,
+                                                qreal r0, qreal x1,
+                                                qreal y1, qreal r1)
+ {
+     QRadialGradient g(QPointF(x1, y1), r0+r1, QPointF(x0, y0));
+     return CanvasGradient(g);
+ }
+
+ qreal Context2D::lineWidth() const
+ {
+     return m_state.lineWidth;
+ }
+
+ void Context2D::setLineWidth(qreal w)
+ {
+     m_state.lineWidth = w;
+     m_state.flags |= DirtyLineWidth;
+ }
+
+ QString Context2D::lineCap() const
+ {
+     switch (m_state.lineCap) {
+     case Qt::FlatCap:
+         return &quot;butt&quot;;
+     case Qt::SquareCap:
+         return &quot;square&quot;;
+     case Qt::RoundCap:
+         return &quot;round&quot;;
+     default: ;
+     }
+     return QString();
+ }
+
+ void Context2D::setLineCap(const QString &amp;capString)
+ {
+     Qt::PenCapStyle style;
+     if (capString == &quot;round&quot;)
+         style = Qt::RoundCap;
+     else if (capString == &quot;square&quot;)
+         style = Qt::SquareCap;
+     else <span class="comment">//if (capString == &quot;butt&quot;)</span>
+         style = Qt::FlatCap;
+     m_state.lineCap = style;
+     m_state.flags |= DirtyLineCap;
+ }
+
+ QString Context2D::lineJoin() const
+ {
+     switch (m_state.lineJoin) {
+     case Qt::RoundJoin:
+         return &quot;round&quot;;
+     case Qt::BevelJoin:
+         return &quot;bevel&quot;;
+     case Qt::MiterJoin:
+         return &quot;miter&quot;;
+     default: ;
+     }
+     return QString();
+ }
+
+ void Context2D::setLineJoin(const QString &amp;joinString)
+ {
+     Qt::PenJoinStyle style;
+     if (joinString == &quot;round&quot;)
+         style = Qt::RoundJoin;
+     else if (joinString == &quot;bevel&quot;)
+         style = Qt::BevelJoin;
+     else <span class="comment">//if (joinString == &quot;miter&quot;)</span>
+         style = Qt::MiterJoin;
+     m_state.lineJoin = style;
+     m_state.flags |= DirtyLineJoin;
+ }
+
+ qreal Context2D::miterLimit() const
+ {
+     return m_state.miterLimit;
+ }
+
+ void Context2D::setMiterLimit(qreal m)
+ {
+     m_state.miterLimit = m;
+     m_state.flags |= DirtyMiterLimit;
+ }
+
+ void Context2D::setShadowOffsetX(qreal x)
+ {
+     m_state.shadowOffsetX = x;
+     m_state.flags |= DirtyShadowOffsetX;
+ }
+
+ void Context2D::setShadowOffsetY(qreal y)
+ {
+     m_state.shadowOffsetY = y;
+     m_state.flags |= DirtyShadowOffsetY;
+ }
+
+ void Context2D::setShadowBlur(qreal b)
+ {
+     m_state.shadowBlur = b;
+     m_state.flags |= DirtyShadowBlur;
+ }
+
+ void Context2D::setShadowColor(const QString &amp;str)
+ {
+     m_state.shadowColor = colorFromString(str);
+     m_state.flags |= DirtyShadowColor;
+ }
+
+ qreal Context2D::shadowOffsetX() const
+ {
+     return m_state.shadowOffsetX;
+ }
+
+ qreal Context2D::shadowOffsetY() const
+ {
+     return m_state.shadowOffsetY;
+ }
+
+ qreal Context2D::shadowBlur() const
+ {
+     return m_state.shadowBlur;
+ }
+
+ QString Context2D::shadowColor() const
+ {
+     return m_state.shadowColor.name();
+ }
+
+ void Context2D::clearRect(qreal x, qreal y, qreal w, qreal h)
+ {
+     beginPainting();
+     m_painter.save();
+     m_painter.setMatrix(m_state.matrix, false);
+     m_painter.setCompositionMode(QPainter::CompositionMode_Source);
+     m_painter.fillRect(QRectF(x, y, w, h), QColor(0, 0, 0, 0));
+     m_painter.restore();
+     scheduleChange();
+ }
+
+ void Context2D::fillRect(qreal x, qreal y, qreal w, qreal h)
+ {
+     beginPainting();
+     m_painter.save();
+     m_painter.setMatrix(m_state.matrix, false);
+     m_painter.fillRect(QRectF(x, y, w, h), m_painter.brush());
+     m_painter.restore();
+     scheduleChange();
+ }
+
+ void Context2D::strokeRect(qreal x, qreal y, qreal w, qreal h)
+ {
+     QPainterPath path;
+     path.addRect(x, y, w, h);
+     beginPainting();
+     m_painter.save();
+     m_painter.setMatrix(m_state.matrix, false);
+     m_painter.strokePath(path, m_painter.pen());
+     m_painter.restore();
+     scheduleChange();
+ }
+
+ void Context2D::beginPath()
+ {
+     m_path = QPainterPath();
+ }
+
+ void Context2D::closePath()
+ {
+     m_path.closeSubpath();
+ }
+
+ void Context2D::moveTo(qreal x, qreal y)
+ {
+     QPointF pt = m_state.matrix.map(QPointF(x, y));
+     m_path.moveTo(pt);
+ }
+
+ void Context2D::lineTo(qreal x, qreal y)
+ {
+     QPointF pt = m_state.matrix.map(QPointF(x, y));
+     m_path.lineTo(pt);
+ }
+
+ void Context2D::quadraticCurveTo(qreal cpx, qreal cpy, qreal x, qreal y)
+ {
+     QPointF cp = m_state.matrix.map(QPointF(cpx, cpy));
+     QPointF xy = m_state.matrix.map(QPointF(x, y));
+     m_path.quadTo(cp, xy);
+ }
+
+ void Context2D::bezierCurveTo(qreal cp1x, qreal cp1y,
+                               qreal cp2x, qreal cp2y, qreal x, qreal y)
+ {
+     QPointF cp1 = m_state.matrix.map(QPointF(cp1x, cp1y));
+     QPointF cp2 = m_state.matrix.map(QPointF(cp2x, cp2y));
+     QPointF end = m_state.matrix.map(QPointF(x, y));
+     m_path.cubicTo(cp1, cp2, end);
+ }
+
+ void Context2D::arcTo(qreal x1, qreal y1, qreal x2, qreal y2, qreal radius)
+ {
+     <span class="comment">//FIXME: this is surely busted</span>
+     QPointF st  = m_state.matrix.map(QPointF(x1, y1));
+     QPointF end = m_state.matrix.map(QPointF(x2, y2));
+     m_path.arcTo(st.x(), st.y(),
+                  end.x()-st.x(), end.y()-st.y(),
+                  radius, 90);
+ }
+
+ void Context2D::rect(qreal x, qreal y, qreal w, qreal h)
+ {
+     QPainterPath path; path.addRect(x, y, w, h);
+     path = m_state.matrix.map(path);
+     m_path.addPath(path);
+ }
+
+ void Context2D::arc(qreal xc, qreal yc, qreal radius,
+                     qreal sar, qreal ear,
+                     bool anticlockwise)
+ {
+     <span class="comment">//### HACK</span>
+     <span class="comment">// In Qt we don't switch the coordinate system for degrees</span>
+     <span class="comment">// and still use the 0,0 as bottom left for degrees so we need</span>
+     <span class="comment">// to switch</span>
+     sar = -sar;
+     ear = -ear;
+     anticlockwise = !anticlockwise;
+     <span class="comment">//end hack</span>
+
+     float sa = DEGREES(sar);
+     float ea = DEGREES(ear);
+
+     double span = 0;
+
+     double xs     = xc - radius;
+     double ys     = yc - radius;
+     double width  = radius*2;
+     double height = radius*2;
+
+     if (!anticlockwise &amp;&amp; (ea &lt; sa)) {
+         span += 360;
+     } else if (anticlockwise &amp;&amp; (sa &lt; ea)) {
+         span -= 360;
+     }
+
+     <span class="comment">//### this is also due to switched coordinate system</span>
+     <span class="comment">// we would end up with a 0 span instead of 360</span>
+     if (!(qFuzzyCompare(span + (ea - sa) + 1, 1) &amp;&amp;
+           qFuzzyCompare(qAbs(span), 360))) {
+         span   += ea - sa;
+     }
+
+     QPainterPath path;
+     path.moveTo(QPointF(xc + radius  * cos(sar),
+                                 yc - radius  * sin(sar)));
+
+     path.arcTo(xs, ys, width, height, sa, span);
+     path = m_state.matrix.map(path);
+     m_path.addPath(path);
+ }
+
+ void Context2D::fill()
+ {
+     beginPainting();
+     m_painter.fillPath(m_path, m_painter.brush());
+     scheduleChange();
+ }
+
+ void Context2D::stroke()
+ {
+     beginPainting();
+     m_painter.save();
+     m_painter.setMatrix(m_state.matrix, false);
+     QPainterPath tmp = m_state.matrix.inverted().map(m_path);
+     m_painter.strokePath(tmp, m_painter.pen());
+     m_painter.restore();
+     scheduleChange();
+ }
+
+ void Context2D::clip()
+ {
+     m_state.clipPath = m_path;
+     m_state.flags |= DirtyClippingRegion;
+ }
+
+ bool Context2D::isPointInPath(qreal x, qreal y) const
+ {
+     return m_path.contains(QPointF(x, y));
+ }
+
+ ImageData Context2D::getImageData(qreal sx, qreal sy, qreal sw, qreal sh)
+ {
+     Q_UNUSED(sx);
+     Q_UNUSED(sy);
+     Q_UNUSED(sw);
+     Q_UNUSED(sh);
+     return ImageData();
+ }
+
+ void Context2D::putImageData(ImageData image, qreal dx, qreal dy)
+ {
+     Q_UNUSED(image);
+     Q_UNUSED(dx);
+     Q_UNUSED(dy);
+ }
+
+ Context2D::Context2D(QObject *parent)
+     : QObject(parent), m_changeTimerId(-1)
+ {
+     reset();
+ }
+
+ const QImage &amp;Context2D::endPainting()
+ {
+     if (m_painter.isActive())
+         m_painter.end();
+     return m_image;
+ }
+
+ void Context2D::beginPainting()
+ {
+     if (!m_painter.isActive()) {
+         m_painter.begin(&amp;m_image);
+         m_painter.setRenderHint(QPainter::Antialiasing);
+         if (!m_state.clipPath.isEmpty())
+             m_painter.setClipPath(m_state.clipPath);
+         m_painter.setBrush(m_state.fillStyle);
+         m_painter.setOpacity(m_state.globalAlpha);
+         QPen pen;
+         pen.setBrush(m_state.strokeStyle);
+         if (pen.style() == Qt::NoPen)
+             pen.setStyle(Qt::SolidLine);
+         pen.setCapStyle(m_state.lineCap);
+         pen.setJoinStyle(m_state.lineJoin);
+         pen.setWidthF(m_state.lineWidth);
+         pen.setMiterLimit(m_state.miterLimit);
+         m_painter.setPen(pen);
+     } else {
+         if ((m_state.flags &amp; DirtyClippingRegion) &amp;&amp; !m_state.clipPath.isEmpty())
+             m_painter.setClipPath(m_state.clipPath);
+         if (m_state.flags &amp; DirtyFillStyle)
+             m_painter.setBrush(m_state.fillStyle);
+         if (m_state.flags &amp; DirtyGlobalAlpha)
+             m_painter.setOpacity(m_state.globalAlpha);
+         if (m_state.flags &amp; DirtyGlobalCompositeOperation)
+             m_painter.setCompositionMode(m_state.globalCompositeOperation);
+         if (m_state.flags &amp; MDirtyPen) {
+             QPen pen = m_painter.pen();
+             if (m_state.flags &amp; DirtyStrokeStyle)
+                 pen.setBrush(m_state.strokeStyle);
+             if (m_state.flags &amp; DirtyLineWidth)
+                 pen.setWidthF(m_state.lineWidth);
+             if (m_state.flags &amp; DirtyLineCap)
+                 pen.setCapStyle(m_state.lineCap);
+             if (m_state.flags &amp; DirtyLineJoin)
+                 pen.setJoinStyle(m_state.lineJoin);
+             if (m_state.flags &amp; DirtyMiterLimit)
+                 pen.setMiterLimit(m_state.miterLimit);
+             m_painter.setPen(pen);
+         }
+         m_state.flags = 0;
+     }
+ }
+
+ void Context2D::clear()
+ {
+     endPainting();
+     m_image.fill(qRgba(0,0,0,0));
+     scheduleChange();
+ }
+
+ void Context2D::reset()
+ {
+     m_stateStack.clear();
+     m_state.matrix = QMatrix();
+     m_state.clipPath = QPainterPath();
+     m_state.globalAlpha = 1.0;
+     m_state.globalCompositeOperation = QPainter::CompositionMode_SourceOver;
+     m_state.strokeStyle = Qt::black;
+     m_state.fillStyle = Qt::black;
+     m_state.lineWidth = 1;
+     m_state.lineCap = Qt::FlatCap;
+     m_state.lineJoin = Qt::MiterJoin;
+     m_state.miterLimit = 10;
+     m_state.shadowOffsetX = 0;
+     m_state.shadowOffsetY = 0;
+     m_state.shadowBlur = 0;
+     m_state.shadowColor = qRgba(0, 0, 0, 0);
+     m_state.flags = AllIsFullOfDirt;
+     clear();
+ }
+
+ void Context2D::setSize(int width, int height)
+ {
+     endPainting();
+     QImage newi(width, height, QImage::Format_ARGB32_Premultiplied);
+     newi.fill(qRgba(0,0,0,0));
+     QPainter p(&amp;newi);
+     p.drawImage(0, 0, m_image);
+     p.end();
+     m_image = newi;
+     scheduleChange();
+ }
+
+ void Context2D::setSize(const QSize &amp;size)
+ {
+     setSize(size.width(), size.height());
+ }
+
+ QSize Context2D::size() const
+ {
+     return m_image.size();
+ }
+
+ void Context2D::drawImage(DomImage *image, qreal dx, qreal dy)
+ {
+     if (!image)
+         return;
+     if (dx &lt; 0) {
+         qreal sx = qAbs(dx);
+         qreal sy = qAbs(dy);
+         qreal sw = image-&gt;width() - sx;
+         qreal sh = image-&gt;height() - sy;
+
+         drawImage(image, sx, sy, sw, sh, 0, 0, sw, sh);
+     } else {
+         beginPainting();
+         m_painter.drawImage(QPointF(dx, dy), image-&gt;image());
+         scheduleChange();
+     }
+ }
+
+ void Context2D::drawImage(DomImage *image, qreal dx, qreal dy,
+                           qreal dw, qreal dh)
+ {
+     if (!image)
+         return;
+     beginPainting();
+     m_painter.drawImage(QRectF(dx, dy, dw, dh).toRect(), image-&gt;image());
+     scheduleChange();
+ }
+
+ void Context2D::drawImage(DomImage *image, qreal sx, qreal sy,
+                           qreal sw, qreal sh, qreal dx, qreal dy,
+                           qreal dw, qreal dh)
+ {
+     if (!image)
+         return;
+     beginPainting();
+     m_painter.drawImage(QRectF(dx, dy, dw, dh), image-&gt;image(),
+                         QRectF(sx, sy, sw, sh));
+     scheduleChange();
+ }
+
+ void Context2D::scheduleChange()
+ {
+     if (m_changeTimerId == -1)
+         m_changeTimerId = startTimer(0);
+ }
+
+ void Context2D::timerEvent(QTimerEvent *e)
+ {
+     if (e-&gt;timerId() == m_changeTimerId) {
+         killTimer(m_changeTimerId);
+         m_changeTimerId = -1;
+         emit changed(endPainting());
+     } else {
+         QObject::timerEvent(e);
+     }
+ }</pre>
+</div>
+<!-- @@@script/context2d/context2d.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

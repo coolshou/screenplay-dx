@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+	<ctrlgrp>
+		<button valkey="NORMAL" focused_bg="./image/settings_focus_btn.png"/> 
+		<linebreak/>
+        <button valkey="WIDESCREEN" focused_bg="./image/settings_focus_btn.png"/> 
+		<linebreak/>
+		<button valkey="BACK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png" 
+			click_bg="image/common_btn_p.png"/>
+	</ctrlgrp>
+
+    <table x="156" y="211" w="943" h="98" cols="1" rows="2" colspacing="0" rowspacing="0"
+      fontsize="22" lbimage="image/settings_focus_btn.png" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" lmargin="30">
+      <text lightbar="@@bg-NORMAL" text="$$4:3" active="@@act-NORMAL"/>
+      <text lightbar="@@bg-WIDESCREEN" text="$$16:9" active="@@act-WIDESCREEN"/>
+    </table>
+
+<!--
+	<table x="156" y="211" w="965" h="98" cols="1" rows="2" colspacing="0" rowspacing="0" fontsize="22" lbimage="image/settings_focus_btn.png" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" lmargin="30">
+		<text lightbar="@@act-NORMAL" text="4:3" active="@@act-NORMAL"/>
+	  	<text lightbar="@@act-WIDESCREEN" text="16:9" active="@@act-WIDESCREEN"/>
+	</table>
+        -->
+<!--
+	<imgbtn x="186" y="208" w="913" h="49" image="@@bg-WIDESCREEN" text="16:9" fontsize="26" selected_fontsize="40" active="@@act-WIDESCREEN" textcolor="0xffffff" actnoseltextcolor="0x00ccff"/>
+	<imgbtn x="186" y="264" w="913" h="49" image="@@bg-NORMAL" text="4:3" fontsize="26" selected_fontsize="40" active="@@act-NORMAL" textcolor="0xffffff" actnoseltextcolor="0x00ccff"/>
+-->
+	<imgbtn image="@@bg-BACK" text="@@text-BACK" active="@@act-BACK" x="487" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+	<include filename="./inc_setup_entry_basic_title.xml" />
+
+	<include filename="./inc_decoration.xml"/>
+</page>

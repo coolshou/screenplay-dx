@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/browse_bg.jpg">
+	<ctrlgrp>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="6" rows="3" lbmask="lrLR" loop_scroll="1" turbo_trigger="5" turbo_multi="10" />
+	</ctrlgrp>
+
+	<include filename="./info.xml"/>
+	<include filename="./inc_browse_basic_title.xml" />
+	<include filename="./inc_thumb_browse.xml"/>
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>

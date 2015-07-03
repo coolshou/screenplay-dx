@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page background="image/welcome_background_bg.jpg" wait_seconds="1">
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+	<text text="$$Reloading player, please wait." x="370" y="178" w="600" h="80" fontsize="26" textcolor="0xe2e2e2" numlines="2" align="hcenter"/>
+  	<image image="@@status_icon" x="562" y="344" w="158" h="32"/>
+</page>

@@ -1,0 +1,11 @@
+#!/bin/sh
+# let osd go
+sleep 2
+while [ ! -f "/tmp/firstrunosd" ]; do sleep 1;  done
+while [ ! -f /tmp/pic_ready ]; do sleep 1; echo "run_mms: Wait PICRender"; done
+while [ ! -f /tmp/av_ready ]; do sleep 1; echo "run_mms: Wait DMARender"; done
+if [ -f /tmp/STOP_MMS ]; then
+    sleep 10000
+fi
+killall -9 mms
+exec /usr/bin/mms

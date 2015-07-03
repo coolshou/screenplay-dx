@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <image id="headline" image="image/settings_network_1title_n.png" />
+  <text id="subheadline" text="$$Wireless"/>
+
+  <motion_icon x="231" y="268" w="258" h="101" count="7" base_filename="image/wizard_wireless_progress_n" suffix_name="png"/>  
+  
+  <text text="@@STATUS_INFO" x="100" y="170" w="520" h="30" fontsize="26" align="hcenter" textcolor="0xEDC831"/>
+  <text text="@@MARK1" x="240" y="220" w="20" h="30" fontsize="26" align="hleft" textcolor="0xEDC831"/>
+  <text text="@@SSID" x="265" y="224" w="210" h="30" fontsize="20" align="hcenter" textcolor="0xEDC831"/>
+  <text text="@@MARK2" x="480" y="220" w="20" h="30" fontsize="26" align="hright" textcolor="0xEDC831"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

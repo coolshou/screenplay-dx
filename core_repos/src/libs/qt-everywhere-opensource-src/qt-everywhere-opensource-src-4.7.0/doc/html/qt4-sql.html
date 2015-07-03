@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qt4-sql.qdoc -->
+  <title>Qt 4.7: The Qt 4 Database GUI Layer</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>The Qt 4 Database GUI Layer</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+  <link rel="prev" href="qt4-accessibility.html" />
+  <link rel="next" href="qt4-network.html" />
+  <link rel="prev" href="qt4-accessibility.html" />
+  <link rel="next" href="qt4-network.html" />
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#general-overview">General Overview</a></li>
+<li class="level1"><a href="#example-code">Example Code</a></li>
+<li class="level1"><a href="#comparison-with-qt-3">Comparison with Qt 3</a></li>
+</ul>
+</div>
+<h1 class="title">The Qt 4 Database GUI Layer</h1>
+<span class="subtitle"></span>
+<!-- $$$qt4-sql.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The GUI layer of the SQL module in Qt 4 has been entirely redesigned to work with <a href="qt4-interview.html">Interview</a> (Qt's new model/view classes). It consists of three model classes (<a href="qsqlquerymodel.html">QSqlQueryModel</a>, <a href="qsqltablemodel.html">QSqlTableModel</a>, and <a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a>) that can be used with Qt's view classes, notably <a href="qtableview.html">QTableView</a>.</p>
+<a name="general-overview"></a>
+<h2>General Overview</h2>
+<p>The Qt 4 SQL classes are divided into three layers:</p>
+<ul>
+<li>The database drivers</li>
+<li>The core SQL classes</li>
+<li>The GUI classes</li>
+</ul>
+<p>The database drivers and the core SQL classes are mostly the same as in Qt 3. The database item models are new with Qt 4; they inherit from <a href="qabstractitemmodel.html">QAbstractItemModel</a> and make it easy to present data from a database in a view class such as <a href="qlistview.html">QListView</a>, <a href="qtableview.html">QTableView</a>, and <a href="qtreeview.html">QTreeView</a>.</p>
+<p>The philosophy behind the Qt 4 SQL module is that it should be possible to use database models for rendering and editing data just like any other item models. By changing the model at run-time, you can decide whether you want to store your data in an SQL database or in, say, an XML file. This generic approach has the additional benefit that you don't need to know anything about SQL to display and edit data.</p>
+<p>The Qt 4 SQL module includes three item models:</p>
+<ul>
+<li><a href="qsqlquerymodel.html">QSqlQueryModel</a> is a read-only model based on an arbitrary SQL query.</li>
+<li><a href="qsqltablemodel.html">QSqlTableModel</a> is a read-write model that works on a single table.</li>
+<li><a href="qsqlrelationaltablemodel.html">QSqlRelationalTableModel</a> is a <a href="qsqltablemodel.html">QSqlTableModel</a> subclass with foreign key support.</li>
+</ul>
+<p>Combined with Qt's view classes and Qt's default delegate class (<a href="qitemdelegate.html">QItemDelegate</a>), the models offer a very powerful mechanism for accessing databases. For finer control on the rendering of the fields, you can subclass one of the predefined models, or even <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a> or <a href="qitemdelegate.html">QItemDelegate</a> if you need finer control.</p>
+<p>You can also perform some customizations without subclassing. For example, you can sort a table using <a href="qsqltablemodel.html#sort">QSqlTableModel::sort</a>(), and you can initialize new rows by connecting to the <a href="qsqltablemodel.html#primeInsert">QSqlTableModel::primeInsert</a>() signal.</p>
+<p>One nice feature supported by the read-write models is the possibility to perform changes to the item model without affecting the database until <a href="qsqltablemodel.html#submitAll">QSqlTableModel::submitAll</a>() is called. Changes can be dropped using <a href="qsqltablemodel.html#revertAll">QSqlTableModel::revertAll</a>().</p>
+<p>The new classes perform advantageously compared to the SQL module's GUI layer in Qt 3. Speed and memory improvements in the tool classes (especially <a href="qvariant.html">QVariant</a>, <a href="qstring.html">QString</a>, and <a href="qmap.html">QMap</a>) and in the SQL drivers contribute to making Qt 4 database applications more snappy.</p>
+<p>See the <a href="qtsql.html">QtSql</a> module overview for a more complete introduction to Qt's SQL classes.</p>
+<a name="example-code"></a>
+<h2>Example Code</h2>
+<p>The simplest way to present data from a database is to simply combine a <a href="qsqlquerymodel.html">QSqlQueryModel</a> with a <a href="qtableview.html">QTableView</a>:</p>
+<pre class="highlightedCode brush: cpp"> QSqlQueryModel model;
+ model.setQuery(&quot;select * from person&quot;);
+
+ QTableView view;
+ view.setModel(&amp;model);
+ view.show();</pre>
+<p>To present the contents of a single table, we can use <a href="qsqltablemodel.html">QSqlTableModel</a> instead:</p>
+<pre class="highlightedCode brush: cpp"> QSqlTableModel model;
+ model.setTable(&quot;person&quot;);
+ model.select();
+
+ QTableView view;
+ view.setModel(&amp;model);
+ view.show();</pre>
+<p>In practice, it's common that we need to customize the rendering of a field in the database. In that case, we can create our own model based on <a href="qsqlquerymodel.html">QSqlQueryModel</a>. The next code snippet shows a custom model that prepends '#' to the value in field 0 and converts the value in field 2 to uppercase:</p>
+<pre class="highlightedCode brush: cpp"> class CustomSqlModel : public QSqlQueryModel
+ {
+     Q_OBJECT
+
+ public:
+     CustomSqlModel(QObject *parent = 0);
+
+     QVariant data(const QModelIndex &amp;item, int role) const;
+ };
+
+ QVariant CustomSqlModel::data(const QModelIndex &amp;index, int role) const
+ {
+     QVariant value = QSqlQueryModel::data(index, role);
+     if (value.isValid() &amp;&amp; role == Qt::DisplayRole) {
+         if (index.column() == 0)
+             return value.toString().prepend(&quot;#&quot;);
+         else if (index.column() == 2)
+             return value.toString().toUpper();
+     }
+     if (role == Qt::TextColorRole &amp;&amp; index.column() == 1)
+         return qVariantFromValue(QColor(Qt::blue));
+     return value;
+ }</pre>
+<p>It is also possible to subclass <a href="qsqlquerymodel.html">QSqlQueryModel</a> to add support for editing. This is done by reimplementing <a href="qabstractitemmodel.html#flags">QAbstractItemModel::flags</a>() to specify which database fields are editable and <a href="qabstractitemmodel.html#setData">QAbstractItemModel::setData</a>() to modify the database. Here's an example of a setData() reimplementation that changes the first or last name of a person:</p>
+<pre class="highlightedCode brush: cpp"> bool EditableSqlModel::setData(const QModelIndex &amp;index, const QVariant &amp;value, int <span class="comment">/* role */</span>)
+ {
+     if (index.column() &lt; 1 || index.column() &gt; 2)
+         return false;
+
+     QModelIndex primaryKeyIndex = QSqlQueryModel::index(index.row(), 0);
+     int id = data(primaryKeyIndex).toInt();
+
+     clear();
+
+     bool ok;
+     if (index.column() == 1) {
+         ok = setFirstName(id, value.toString());
+     } else {
+         ok = setLastName(id, value.toString());
+     }
+     refresh();
+     return ok;
+ }</pre>
+<p>It relies on helper functions called <tt>setFirstName()</tt> and <tt>setLastName()</tt>, which execute an <tt>update</tt>. Here's <tt>setFirstName()</tt>:</p>
+<pre class="highlightedCode brush: cpp"> bool EditableSqlModel::setFirstName(int personId, const QString &amp;firstName)
+ {
+     QSqlQuery query;
+     query.prepare(&quot;update person set firstname = ? where id = ?&quot;);
+     query.addBindValue(firstName);
+     query.addBindValue(personId);
+     return query.exec();
+ }</pre>
+<p>See Qt's <tt>examples/sql</tt> directory for more examples.</p>
+<a name="comparison-with-qt-3"></a>
+<h2>Comparison with Qt 3</h2>
+<p>The core SQL database classes haven't changed so much since Qt 3. Here's a list of the main changes:</p>
+<ul>
+<li><a href="qsqldatabase.html">QSqlDatabase</a> is now value-based instead of pointer-based.</li>
+<li><a href="porting4.html#qsqlfieldinfo">QSqlFieldInfo</a> and <a href="porting4.html#qsqlrecordinfo">QSqlRecordInfo</a> has been merged into <a href="qsqlfield.html">QSqlField</a> and <a href="qsqlrecord.html">QSqlRecord</a>.</li>
+<li>The SQL query generation has been moved into the drivers. This makes it possible to use non-standard SQL extensions. It also opens the door to non-SQL databases.</li>
+</ul>
+<p>The GUI-related database classes have been entirely redesigned. The <a href="porting4.html#qsqlcursor">QSqlCursor</a> abstraction has been replaced with <a href="qsqlquerymodel.html">QSqlQueryModel</a> and <a href="qsqltablemodel.html">QSqlTableModel</a>; <a href="porting4.html#qsqleditorfactory">QSqlEditorFactory</a> is replaced by <a href="qabstractitemdelegate.html">QAbstractItemDelegate</a>; <a href="porting4.html#qdatatable">QDataTable</a> is replaced by <a href="qtableview.html">QTableView</a>. The old classes are part of the <a href="qt3support.html">Qt3Support</a> library to aid porting to Qt 4.</p>
+</div>
+<!-- @@@qt4-sql.html -->
+<p>
+[Previous: <a href="qt4-accessibility.html">Cross-Platform Accessibility Support in Qt 4</a>]
+[Next: <a href="qt4-network.html">The Network Module in Qt 4</a>]
+</p>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

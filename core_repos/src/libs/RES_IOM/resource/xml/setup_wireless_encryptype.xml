@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg">
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <text text="@@pages_info" x="998" y="172" w="200" h="20" fontsize="18" textcolor="0xffffff"/>
+
+  <listbox valkey="encrypt_list" autoenter="1" move="row" cols="1" rows="8" lbmask="l" loop_scroll="1"/>
+
+  <image image="@@ss-prev" x="621" y="147" w="39" h="39"/>
+
+  <wrapper x="185" w="913" h="49" lbimage="./image/settings_focus_btn.png">
+    <image lightbar="@@lightbar-encrypt_list-0" y="238" active="@@act-encrypt_list-0"/>
+    <image lightbar="@@lightbar-encrypt_list-1" y="282" active="@@act-encrypt_list-1"/>
+    <image lightbar="@@lightbar-encrypt_list-2" y="326" active="@@act-encrypt_list-2"/>
+    <image lightbar="@@lightbar-encrypt_list-3" y="370" active="@@act-encrypt_list-3"/>
+    <image lightbar="@@lightbar-encrypt_list-4" y="412" active="@@act-encrypt_list-4"/>
+    <image lightbar="@@lightbar-encrypt_list-5" y="456" active="@@act-encrypt_list-5"/>
+    <image lightbar="@@lightbar-encrypt_list-6" y="500" active="@@act-encrypt_list-6"/>
+    <image lightbar="@@lightbar-encrypt_list-7" y="544" active="@@act-encrypt_list-7"/>
+  </wrapper>
+  <!--
+  <wrapper x="281" w="719" h="2">
+    <image image="@@browse_0_line" y="282" ymargin="0" bg="1"/>
+    <image image="@@browse_1_line" y="326" ymargin="0" bg="1"/>
+    <image image="@@browse_2_line" y="370" ymargin="0" bg="1"/>
+    <image image="@@browse_3_line" y="412" ymargin="0" bg="1"/>
+    <image image="@@browse_4_line" y="456" ymargin="0" bg="1"/>
+    <image image="@@browse_5_line" y="500" ymargin="0" bg="1"/>
+    <image image="@@browse_6_line" y="544" ymargin="0" bg="1"/>
+    <image image="@@browse_7_line" y="588" ymargin="0" bg="1"/>
+  </wrapper>
+  -->
+
+  <wrapper x="220" w="913" h="49" textcolor="0xFFFFFF" actnoseltextcolor="0x00ccff" fontsize="26" selected_fontsize="30" align="left">
+	  <text text="@@ss-encrypt-0" y="238" active="@@act-encrypt_list-0"/>
+	  <text text="@@ss-encrypt-1" y="282" active="@@act-encrypt_list-1"/>
+	  <text text="@@ss-encrypt-2" y="326" active="@@act-encrypt_list-2"/>
+	  <text text="@@ss-encrypt-3" y="370" active="@@act-encrypt_list-3"/>
+	  <text text="@@ss-encrypt-4" y="412" active="@@act-encrypt_list-4"/>
+	  <text text="@@ss-encrypt-5" y="456" active="@@act-encrypt_list-5"/>
+	  <text text="@@ss-encrypt-6" y="500" active="@@act-encrypt_list-6"/>
+	  <text text="@@ss-encrypt-7" y="544" active="@@act-encrypt_list-7"/>
+  </wrapper>
+
+  <image image="@@ss-more" x="623" y="562" w="39" h="22"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

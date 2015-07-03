@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+<!--
+  <ctrlgrp lbmask="l" more_select="right">
+     <button valkey="WIRELESS_WPS_START_PBC"
+	     focused_bg="./image/browser_list_btn.png"/> 
+     <linebreak/>
+  </ctrlgrp>
+
+    <include filename="./inc_setup_entry_basic_title.xml"/>
+  <include filename="./inc_loading.xml"/>
+-->
+  <ctrlgrp lbmask="l">
+	  <button valkey="WIRELESS_WPS_START_PBC"
+		  focused_bg="./image/common_btn_f.png"
+		  normal_bg="./image/common_btn_n.png"
+		  click_bg="./image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <text text="$$Please press 'WPS' button in the AP before press 'Connect' button." x="255" y="290" w="768" h="60" textcolor="0xffffff" numlines="2" align="hcenter" fontsize="26"/>
+  <imgbtn x="469" y="488" w="343" h="49" image="@@bg-WIRELESS_WPS_START_PBC" text="$$Connect" align="hcenter" fontsize="20" active="@@act-WIRELESS_WPS_START_PBC" textcolor="0xe2e2e2" actnoseltextcolor="0xe2e2e2"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

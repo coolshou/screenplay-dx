@@ -1,0 +1,49 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+
+<head>
+
+<title>Error occurred.</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = "Adresa " + Espial.errURL + " není dostupná.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Omlouváme se, ale vyskytl se problém.</h2>
+<br>
+Webovou stránku na adrese <b><script>document.writeln(Espial.errURL)</script></b> nelze načíst.
+<br>
+<br>
+<b>Můžete si vyzkoušet některé z následujících možností:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Otevřete tuto webovou stránku později.</a></li>
+	<li><a onclick="Espial.back();">Vraťte se na předchozí webovou stránku.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

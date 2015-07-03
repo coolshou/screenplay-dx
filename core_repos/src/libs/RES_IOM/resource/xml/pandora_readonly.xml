@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+    <ctrlgrp>
+        <button valkey="OK"
+					focused_bg="image/pandora/pandora_common_buttons_f.png"
+                    normal_bg="image/pandora/pandora_common_buttons_n.png"/>
+    </ctrlgrp>
+	<text text="@@title" x="262" y="192" w="752" h="45" fontsize="40" align="hcenter" textcolor="0xffffff"/>
+	
+	<imgbtn image="@@bg-OK" text="@@text-OK" x="462" y="562" w="358" h="46" active="@@act-OK" fontsize="24" textcolor="0x0" align="hcenter"/>
+	
+	<text text="@@message" x="262" y="264" w="752" h="233" fontsize="28" align="hcenter" numlines="6" textcolor="0x000000"/>
+
+</page>
+

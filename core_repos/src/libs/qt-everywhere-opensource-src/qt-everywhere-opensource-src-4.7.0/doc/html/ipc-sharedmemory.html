@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- sharedmemory.qdoc -->
+  <title>Qt 4.7: Shared Memory Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-ipc.html">IPC Examples</a></li>              <li>Shared Memory Example</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">Shared Memory Example</h1>
+<span class="subtitle"></span>
+<!-- $$$ipc/sharedmemory-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="ipc-sharedmemory-dialog-cpp.html">ipc/sharedmemory/dialog.cpp</a></li>
+<li><a href="ipc-sharedmemory-dialog-h.html">ipc/sharedmemory/dialog.h</a></li>
+<li><a href="ipc-sharedmemory-dialog-ui.html">ipc/sharedmemory/dialog.ui</a></li>
+<li><a href="ipc-sharedmemory-main-cpp.html">ipc/sharedmemory/main.cpp</a></li>
+<li><a href="ipc-sharedmemory-sharedmemory-pro.html">ipc/sharedmemory/sharedmemory.pro</a></li>
+</ul>
+<p>The Shared Memory example shows how to use the <a href="qsharedmemory.html">QSharedMemory</a> class to implement inter-process communication using shared memory. To build the example, run make. To run the example, start two instances of the executable. The main() function creates an <a href="qapplication.html">application</a> and an instance of our example's Dialog class. The dialog is displayed and then control is passed to the application in the standard way.</p>
+<pre class="highlightedCode brush: cpp"> int main(int argc, char *argv[])
+ {
+     QApplication application(argc, argv);
+     Dialog dialog;
+     dialog.show();
+     return application.exec();
+ }</pre>
+<p>Two instances of class Dialog appear.</p>
+<p class="centerAlign"><img src="images/sharedmemory-example_1.png" alt="Screenshot of the Shared Memory example" /></p><p>Class Dialog inherits <a href="qdialog.html">QDialog</a>. It encapsulates the user interface and an instance of <a href="qsharedmemory.html">QSharedMemory</a>. It also has two public slots, loadFromFile() and loadFromMemory() that correspond to the two buttons on the dialog.</p>
+<pre class="highlightedCode brush: cpp"> class Dialog : public QDialog
+ {
+     Q_OBJECT
+
+   public:
+     Dialog(QWidget *parent = 0);
+
+   public slots:
+     void loadFromFile();
+     void loadFromMemory();
+
+  private:
+     void detach();
+
+   private:
+     Ui::Dialog ui;
+     QSharedMemory sharedMemory;
+ };</pre>
+<p>The constructor builds the user interface widgets and connects the clicked() signal of each button to the corresponding slot function.</p>
+<pre class="highlightedCode brush: cpp"> Dialog::Dialog(QWidget *parent)
+   : QDialog(parent), sharedMemory(&quot;QSharedMemoryExample&quot;)
+ {
+     ui.setupUi(this);
+     connect(ui.loadFromFileButton, SIGNAL(clicked()), SLOT(loadFromFile()));
+     connect(ui.loadFromSharedMemoryButton,
+             SIGNAL(clicked()),
+             SLOT(loadFromMemory()));
+     setWindowTitle(tr(&quot;SharedMemory Example&quot;));
+ }</pre>
+<p>Note that &quot;QSharedMemoryExample&quot; is passed to the <a href="qsharedmemory.html">QSharedMemory()</a> constructor to be used as the key. This will be used by the system as the identifier of the underlying shared memory segment.</p>
+<p>Click the <tt>Load Image From File..&#x2e;</tt> button on one of the dialogs. The loadFromFile() slot is invoked. First, it tests whether a shared memory segment is already attached to the process. If so, that segment is detached from the process, so we can be assured of starting off the example correctly.</p>
+<pre class="highlightedCode brush: cpp"> void Dialog::loadFromFile()
+ {
+     if (sharedMemory.isAttached())
+         detach();
+
+     ui.label-&gt;setText(tr(&quot;Select an image file&quot;));
+     QString fileName = QFileDialog::getOpenFileName(0, QString(), QString(),
+                                         tr(&quot;Images (*.png *.xpm *.jpg)&quot;));
+     QImage image;
+     if (!image.load(fileName)) {
+         ui.label-&gt;setText(tr(&quot;Selected file is not an image, please select another.&quot;));
+         return;
+     }
+     ui.label-&gt;setPixmap(QPixmap::fromImage(image));</pre>
+<p>The user is then asked to select an image file using <a href="qfiledialog.html#getOpenFileName">QFileDialog::getOpenFileName</a>(). The selected file is loaded into a <a href="qimage.html">QImage</a>. Using a <a href="qimage.html">QImage</a> lets us ensure that the selected file is a valid image, and it also allows us to immediately display the image in the dialog using setPixmap().</p>
+<p>Next the image is streamed into a <a href="qbuffer.html">QBuffer</a> using a <a href="qdatastream.html">QDataStream</a>. This gives us the size, which we then use to <a href="qsharedmemory.html#create">create()</a> our shared memory segment. Creating a shared memory segment automatically <a href="qsharedmemory.html#attach">attaches</a> the segment to the process. Using a <a href="qbuffer.html">QBuffer</a> here lets us get a pointer to the image data, which we then use to do a memcopy() from the <a href="qbuffer.html">QBuffer</a> into the shared memory segment.</p>
+<pre class="highlightedCode brush: cpp">     <span class="comment">// load into shared memory</span>
+     QBuffer buffer;
+     buffer.open(QBuffer::ReadWrite);
+     QDataStream out(&amp;buffer);
+     out &lt;&lt; image;
+     int size = buffer.size();
+
+     if (!sharedMemory.create(size)) {
+         ui.label-&gt;setText(tr(&quot;Unable to create shared memory segment.&quot;));
+         return;
+     }
+     sharedMemory.lock();
+     char *to = (char*)sharedMemory.data();
+     const char *from = buffer.data().data();
+     memcpy(to, from, qMin(sharedMemory.size(), size));
+     sharedMemory.unlock();
+ }</pre>
+<p>Note that we <a href="qsharedmemory.html#lock">lock()</a> the shared memory segment before we copy into it, and we <a href="qsharedmemory.html#unlock">unlock()</a> it again immediately after the copy. This ensures we have exclusive access to the shared memory segment to do our memcopy(). If some other process has the segment lock, then our process will block until the lock becomes available.</p>
+<p>Note also that the function does not <a href="qsharedmemory.html#detach">detach()</a> from the shared memory segment after the memcopy() and unlock(). Recall that when the last process detaches from a shared memory segment, the segment is released by the operating system. Since this process only one that is attached to the shared memory segment at the moment, if loadFromFile() detached from the shared memory segment, the segment would be destroyed before we get to the next step.</p>
+<p>When the function returns, if the file you selected was qt.png, your first dialog looks like this.</p>
+<p class="centerAlign"><img src="images/sharedmemory-example_2.png" alt="Screenshot of the Shared Memory example" /></p><p>In the second dialog, click the <tt>Display Image From Shared Memory</tt> button. The loadFromMemory() slot is invoked. It first <a href="qsharedmemory.html#attach">attaches</a> the process to the same shared memory segment created by the first process. Then it <a href="qsharedmemory.html#lock">locks</a> the segment for exclusive access and links a <a href="qbuffer.html">QBuffer</a> to the image data in the shared memory segment. It then streams the data into a <a href="qimage.html">QImage</a> and <a href="qsharedmemory.html#unlock">unlocks</a> the segment.</p>
+<pre class="highlightedCode brush: cpp"> void Dialog::loadFromMemory()
+ {
+     if (!sharedMemory.attach()) {
+         ui.label-&gt;setText(tr(&quot;Unable to attach to shared memory segment.\n&quot; \
+                              &quot;Load an image first.&quot;));
+         return;
+     }
+
+     QBuffer buffer;
+     QDataStream in(&amp;buffer);
+     QImage image;
+
+     sharedMemory.lock();
+     buffer.setData((char*)sharedMemory.constData(), sharedMemory.size());
+     buffer.open(QBuffer::ReadOnly);
+     in &gt;&gt; image;
+     sharedMemory.unlock();
+
+     sharedMemory.detach();
+     ui.label-&gt;setPixmap(QPixmap::fromImage(image));
+ }</pre>
+<p>In this case, the function does <a href="qsharedmemory.html#detach">detach()</a> from the segment, because now we are effectively finished using it. Finally, the <a href="qimage.html">QImage</a> is displayed. At this point, both dialogs should be showing the same image. When you close the first dialog, the Dialog destructor calls the <a href="qsharedmemory.html">QSharedMemory</a> destructor, which detaches from the shared memory segment. Since this is the last process to be detached from the segment, the operating system will now release the shared memory.</p>
+</div>
+<!-- @@@ipc/sharedmemory -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

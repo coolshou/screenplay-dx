@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+	<ctrlgrp>
+     		<button valkey="CANCEL"
+					focused_bg="image/pandora/pandora_common_buttons_f.png"
+					normal_bg="image/pandora/pandora_common_buttons_n.png"/>
+			<button valkey="OK"
+					focused_bg="image/pandora/pandora_common_buttons_f.png"
+					normal_bg="image/pandora/pandora_common_buttons_n.png"/>
+	</ctrlgrp>
+	
+	<text text="@@master_headline" x="95" y="79" w="1094" h="52" fontsize="48" textcolor="0xe1e1e1"/>
+    <text text="@@slave_headline" x="96" y="136" w="657" h="31" fontsize="24" textcolor="0xe1e1e1"/>
+
+    <imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" x="250" y="562" w="358" h="46" active="@@act-CANCEL" fontsize="24" textcolor="0x0" align="hcenter"/>
+	<imgbtn image="@@bg-OK" text="@@text-OK" x="667" y="562" w="358" h="46" active="@@act-OK" fontsize="24" textcolor="0x0"  align="hcenter"/>
+
+	<text text="@@message" x="262" y="264" w="752" h="233" fontsize="28" align="hcenter" numlines="5" textcolor="0x0"/>  
+
+</page>

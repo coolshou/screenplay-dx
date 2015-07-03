@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page x="0" y="0" w="1280" h="300" overlay="1">
+	<ctrlgrp>
+		<listbox valkey="EUKEY" autoenter="1" move="page" cols="2" rows="4" lbmask="LR"  loop_scroll="1"/>
+	</ctrlgrp>
+
+	<include filename="./inc_espial_mapping_keyboard_eu.xml"/>
+	<table x="212" y="50" w="94" h="188" fontsize="24" align="hcenter"
+			cols="2" rows="4" colspacing="0" rowspacing="0" textcolor="0xcccccc" activetextcolor="0xffffff">
+			<imgbtn text="@@xx-text-EUKEY-00" image="@@xx-bg-EUKEY-00" lbimage="@@xx-lbimage-EUKEY-00" lightbar="@@lightbar-EUKEY-0" active="@@act-EUKEY-0" selected="@@sel-EUKEY-0"/>
+			<imgbtn text="@@xx-text-EUKEY-01" image="@@xx-bg-EUKEY-01" lbimage="@@xx-lbimage-EUKEY-01" lightbar="@@lightbar-EUKEY-1" active="@@act-EUKEY-1" selected="@@sel-EUKEY-1"/>
+			<imgbtn text="@@xx-text-EUKEY-02" image="@@xx-bg-EUKEY-02" lbimage="@@xx-lbimage-EUKEY-02" lightbar="@@lightbar-EUKEY-2" active="@@act-EUKEY-2" selected="@@sel-EUKEY-2"/>
+			<imgbtn text="@@xx-text-EUKEY-03" image="@@xx-bg-EUKEY-03" lbimage="@@xx-lbimage-EUKEY-03" lightbar="@@lightbar-EUKEY-3" active="@@act-EUKEY-3" selected="@@sel-EUKEY-3"/>
+			<imgbtn text="@@xx-text-EUKEY-04" image="@@xx-bg-EUKEY-04" lbimage="@@xx-lbimage-EUKEY-04" lightbar="@@lightbar-EUKEY-4" active="@@act-EUKEY-4" selected="@@sel-EUKEY-4"/>
+			<imgbtn text="@@xx-text-EUKEY-05" image="@@xx-bg-EUKEY-05" lbimage="@@xx-lbimage-EUKEY-05" lightbar="@@lightbar-EUKEY-5" active="@@act-EUKEY-5" selected="@@sel-EUKEY-5"/>
+			<imgbtn text="@@xx-text-EUKEY-06" image="@@xx-bg-EUKEY-06" lbimage="@@xx-lbimage-EUKEY-06" lightbar="@@lightbar-EUKEY-6" active="@@act-EUKEY-6" selected="@@sel-EUKEY-6"/>
+			<imgbtn text="@@xx-text-EUKEY-07" image="@@xx-bg-EUKEY-07" lbimage="@@xx-lbimage-EUKEY-07" lightbar="@@lightbar-EUKEY-7" active="@@act-EUKEY-7" selected="@@sel-EUKEY-7"/>
+	</table>
+</page>

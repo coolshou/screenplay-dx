@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page  type="basic" overlay="1" >
+  <ctrlgrp valkey="OPTION" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+    	lightbar_bg="image/flickr/flickr_options_menu_select_bar.png"
+	focused_bg="image/flickr/flickr_options_menu_delete_my_tags_icon.png"
+	normal_bg="image/flickr/flickr_options_menu_delete_my_tags_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Delete one"/>
+<!--
+    <button valkey="QML1"
+    	lightbar_bg="image/flickr_options_menu_select_bar.png"
+	focused_bg="image/flickr_options_menu_all_delete_my_tags_icon.png"
+	normal_bg="image/flickr_options_menu_all_delete_my_tags_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Delete all"/>
+-->
+  </ctrlgrp>
+
+  <image image="image/flickr_options_menu_bg_02.png" x="523" y="0" w="233" h="173"/>
+  <table x="547" y="0" w="186" h="173" cols="2" align="hcenter" disable="@@disable-OPTION">
+	  <image image="@@bg-QML0" text="@@text-QML0" lightbar="@@lightbar-QML0" 
+		  active="@@act-QML0" lbimage="@@lightbar-QML0" align="hcenter"/>
+	  <image image="@@bg-QML1" text="@@text-QML1" lightbar="@@lightbar-QML1"
+		  active="@@act-QML1" lbimage="@@lightbar-QML1" align="hcenter"/>
+   </table>
+   <wrapper x="372" y="173" w="514" h="28" align="hcenter" disable="@@disable-OPTION">
+	   <text text="@@text-OPTION" fontsize="18" textcolor="0xffb300" align="hcenter"/>
+   </wrapper>
+  <include filename="./inc_decoration_online.xml"/>
+</page>
+

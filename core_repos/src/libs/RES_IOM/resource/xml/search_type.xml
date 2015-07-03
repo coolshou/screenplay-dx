@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page background="image/welcome_background_bg.jpg">	  
+  <ctrlgrp>
+    <button valkey="SEARCH_TYPE_CONTAINS"
+		focused_bg="image/browser_list_btn.png" 
+		click_bg="image/browser_list_btn.png"/>
+    <linebreak />
+    <button valkey="SEARCH_TYPE_STARTS_WITH"
+		focused_bg="image/browser_list_btn.png" 
+		click_bg="image/browser_list_btn.png"/>
+  </ctrlgrp>
+  <text id="headline" text="$$Search" fontsize="40" textcolor="0xffb300" />
+
+  <image image="image/browser_list_line.png" ymargin="0" x="281" w="695" h="2" y="279"/>
+  <image image="image/browser_list_line.png" ymargin="0" x="281" w="695" h="2" y="314"/>
+
+  <imgbtn x="284" y="248" w="695" h="30" image="@@bg-SEARCH_TYPE_CONTAINS" text="$$Contains" align="hcenter" fontsize="24" active="@@act-SEARCH_TYPE_CONTAINS" actnoseltextcolor="0xe2e2e2"/>
+  <imgbtn x="284" y="283" w="695" h="30" image="@@bg-SEARCH_TYPE_STARTS_WITH" text="@@LATER" align="hcenter" fontsize="24" active="@@act-SEARCH_TYPE_STARTS_WITH" actnoseltextcolor="0xe2e2e2" disable="disable-SEARCH_TYPE_STARTS_WITH"/>
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./decoration.xml"/>
+</page>

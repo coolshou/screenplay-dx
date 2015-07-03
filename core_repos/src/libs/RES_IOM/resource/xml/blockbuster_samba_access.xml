@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<button valkey="Schedule"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="Notification"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="FileLocation"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="image/blockbuster/bb_bt_n.png" text=""/>
+		<imgbtn image="@@bg-Schedule" text="$$Download schedule" 
+			active="@@act-Schedule" selected="@@sel-Schedule" click="@@click-Schedule" 
+			clicked="@@clicked-Schedule"/>
+		<imgbtn image="@@bg-Notification" text="$$Notification" 
+			active="@@act-Notification" selected="@@sel-Notification" click="@@click-Notification" 
+			clicked="@@clicked-Notification"/>
+		<imgbtn image="@@bg-FileLocation" text="$$Select file location" 
+			active="@@act-FileLocation" selected="@@sel-FileLocation" click="@@click-FileLocation" 
+			clicked="@@clicked-FileLocation"/>
+		<imgbtn image="image/blockbuster/bb_bt_n.png" text=""/>
+	</table>
+	<text text="$$Connecting..." x="107" y="248" w="1066" h="22" fontsize="20" textcolor="0xfff2f2f2" align="hcenter"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

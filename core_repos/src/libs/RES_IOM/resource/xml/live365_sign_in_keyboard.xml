@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/live365/Media Player_live365_bg.jpg">
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+  </ctrlgrp>
+
+  <text text="@@master_headline" x="169" y="125" w="748" h="38" fontsize="36" textcolor="0x343298"/>
+  <text text="@@slave_headline" x="169" y="164" w="748" h="20" fontsize="30" textcolor="0x4343a7"/>
+
+
+<wrapper>
+  <widget_keyboard ctrlname="keyboard" x="312" y="226" h="247" w="658" cols="14" rows="5"
+		   align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xFFFFFF"
+		   changed="@@keyboard_changed" extra_height="10" extra_index="0"/>
+</wrapper>
+
+  <image image="image/live365/input_box_f.png" x="312" y="230" w="516" h="46" />
+  <texttail text="@@input_01_text" x="329" y="238" w="479" h="28"  textcolor="0x4b4b4b" fontsize="26" ignore_translate="1"/>
+
+	<text text="$$Press [Option] key for multi-lingual input" x="201" y="657" w="880" h="20" align="hcenter" fontsize="18" textcolor="0xffffff" disable="@@disable-OPTION"/>
+
+  <include filename="./inc_live365_icon.xml"/>
+<!--  <include filename="./inc_setup_headline_property.xml" /> -->
+</page>

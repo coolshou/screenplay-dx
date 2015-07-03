@@ -1,0 +1,10 @@
+--- drivers/char/Makefile.org	2009-04-22 11:41:22.000000000 +0800
++++ drivers/char/Makefile	2009-04-22 11:41:12.000000000 +0800
+@@ -97,6 +97,7 @@
+ obj-$(CONFIG_GPIO_TB0219)	+= tb0219.o
+ obj-$(CONFIG_TELCLOCK)		+= tlclk.o
+ obj-$(CONFIG_TANGOX_IR)		+= irkernel.o
++obj-y				+= iom554_proc.o
+ obj-$(CONFIG_TANGOX_FIP) 	+= fipkernel.o
+ obj-$(CONFIG_TANGOX_SCARD) 	+= sckernel.o
+ obj-$(CONFIG_TANGOX_UIR) 	+= uirkernel.o

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page>
+  <ctrlgrp>
+     <button valkey="NO"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+     <button valkey="YES"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+  <image image="@@remoteguide_bg" x="0" y="0" w="1280" h="720"/>
+  <text text="$$Using the Remote Control in Web Browser" x="0" y="66" w="1280" h="74" fontsize="32" textcolor="0xffffff" align="hcenter" auto_translate="0"/>
+
+  <text text="$$Exit web browser" x="100" y="136" w="440" h="30" fontsize="18" textcolor="0xffffff" align="right" auto_translate="0" numlines="2"/>
+  <text text="$$Back to previous web page" x="780" y="136" w="560" h="30" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="2"/>
+  <text text="$$Move cursor in web browser" x="46"  y="224" w="290" h="64" fontsize="18" textcolor="0xffffff" align="right" auto_translate="0" numlines="3"/>
+  <text text="$$Display URL bar and web browser options" x="914" y="200" w="320" h="64" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="3"/>
+  <text text="$$Click to select links in web browser" x="46"  y="318" w="290" h="70" fontsize="18" textcolor="0xffffff" align="right" auto_translate="0" numlines="4"/>
+  <text text="$$Use Enter to submit a URL or text entry" x="914" y="266" w="320" h="64" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="3"/>
+  <text text="$$Use Up/Down buttons to scroll web pages" x="914" y="330" w="320" h="64" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="3"/>
+  <text text="$$Alt key when using the web browser keyboard" x="46"  y="424" w="290" h="70" fontsize="18" textcolor="0xffffff" align="right" auto_translate="0" numlines="4"/>
+  <text text="$$Symbol key when using the web browser keyboard" x="914" y="424" w="320" h="64" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="3"/>
+  <text text="$$Spacebar when using the web browser keyboard" x="914" y="502" w="262" h="70" fontsize="18" textcolor="0xffffff" align="left" auto_translate="0" numlines="4"/>
+  <text text="$$Show this information again?" x="368" y="552" w="545" h="58" fontsize="24" textcolor="0xffffff" align="hcenter" auto_translate="0"/>
+  
+  <imgbtn image="@@bg-NO" text="$$NO" active="@@act-NO" x="317" y="626" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+  <imgbtn image="@@bg-YES" text="$$YES" active="@@act-YES" x="657" y="626" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+
+  <!--<include filename="./inc_decoration.xml"/>-->
+</page>

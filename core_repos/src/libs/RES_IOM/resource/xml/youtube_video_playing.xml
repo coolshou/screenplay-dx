@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LR">
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+	</ctrlgrp>
+  	<include filename="./inc_optionmenu_widgets_youtube.xml"/>
+
+  <!-- information -->
+  <image image="@@video_inforbar" x="0" y="555" w="1280" h="124" bg="1"/>
+
+<!--  <image x="79" y="606" w="42" h="21" image="@@speed_state"/>-->
+  <image image="@@play_state" x="106" y="596" w="35" h="40"/>
+
+  <progress_bar name="video_time_bar" x="140" y="603" w="506" h="28" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable" pb_enable_buffer="1"/>
+
+  <text text="@@info_title" x="646" y="607" w="300" h="24" fontsize="22" textcolor="0xffffff" speed="1" delay="2" align="left"/>
+
+  <image x="1063" y="71" w="107" h="107" image="@@mod_img" />
+  <image image="@@info_seperate_bar" x="958" y="589" w="2" h="54"/>
+  <text text="@@info_cur_time" x="968" y="606" w="126" h="30" fontsize="28" textcolor="0xffffff" align="left"/>
+  <text text="@@info_duration" x="1094" y="612" w="106" h="22" fontsize="20" textcolor="0xffffff" align="left"/>
+
+
+	<include filename="./inc_loading.xml"/>
+
+	<include filename="./inc_decoration_online.xml"/>
+</page>

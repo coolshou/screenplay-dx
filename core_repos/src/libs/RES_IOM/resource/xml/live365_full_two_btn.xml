@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/live365/Media Player_live365_bg.jpg">
+	<ctrlgrp>
+ 		<button valkey="OK"
+			focused_bg="image/live365/Generic_live365_btn_f.png"
+			normal_bg="image/live365/Generic_live365_btn_n.png"/>
+   		<button valkey="CANCEL"
+			focused_bg="image/live365/Generic_live365_btn_f.png"
+			normal_bg="image/live365/Generic_live365_btn_n.png"/>
+  	</ctrlgrp>
+
+		<imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" actnoseltextcolor="0xffffff" x="305" y="382" w="331" h="65" align="hcenter" fontsize="22"/>
+		<imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" actnoseltextcolor="0xffffff" x="647" y="382" w="331" h="65" align="hcenter" fontsize="22"/>
+  
+	<include filename="./inc_live365_messagebox.xml" />
+	<include filename="./inc_live365_icon.xml"/>
+</page>

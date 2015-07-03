@@ -1,0 +1,4928 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/hcd.h linux-2.6.22.19/drivers/usb/core/hcd.h
+--- linux-2.6.22.19.ref/drivers/usb/core/hcd.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/hcd.h	2010-07-26 09:25:17.635818895 -0700
+@@ -92,6 +92,8 @@
+ 	unsigned		poll_rh:1;	/* poll for rh status? */
+ 	unsigned		poll_pending:1;	/* status has changed? */
+ 	unsigned		wireless:1;	/* Wireless USB HCD */
++        unsigned                EHSET_in_progress:1;
++
+ 
+ 	int			irq;		/* irq allocated */
+ 	void __iomem		*regs;		/* device memory/io */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/hub.c linux-2.6.22.19/drivers/usb/core/hub.c
+--- linux-2.6.22.19.ref/drivers/usb/core/hub.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/hub.c	2010-07-26 09:25:17.635818895 -0700
+@@ -72,6 +72,28 @@
+ 	struct delayed_work	leds;
+ };
+ 
++#ifdef CONFIG_USB_EHSET
++/* Semaphore used for Hi-Speed Host Electrical tests */
++static DECLARE_MUTEX(ehset_sem);
++static struct workqueue_struct *EHSET_workqueue = NULL;
++static int ehset_mode = 0;
++/* 
++ * 1: EHSET_TEST_SE0_NAK;
++ * 2: EHSET_TEST_J;
++ * 3: EHSET_TEST_K;
++ * 4: EHSET_TEST_PACKET;
++ * 5: EHSET_TEST_FORCE_ENABLE; Reserved
++ * 6: EHSET_HS_HOST_PORT_SUSPEND_RESUME;
++ * 7: EHSET_SINGLE_STEP_GET_DEV_DESC;
++ * 8: EHSET_SINGLE_STEP_SET_FEATURE;
++ */
++module_param (ehset_mode, int, S_IRUGO);
++MODULE_PARM_DESC (ehset_mode, "EHSET test mode");
++#endif /* CONFIG_USB_EHSET */
++
++static int hub_suspend(struct usb_interface *, pm_message_t);
++static int hub_resume(struct usb_interface *);
++
+ 
+ /* Protect struct usb_device->state and ->children members
+  * Note: Both are also protected by ->dev.sem, except that ->state can
+@@ -1273,6 +1295,107 @@
+ #endif
+ 
+ 
++#ifdef CONFIG_USB_EHSET
++/*TODO: */
++struct usb_device       *ehset_udev;
++static void EHSET_tests(struct work_struct *work)
++{
++	struct usb_device       *udev=0; 
++	struct usb_hcd          *hcd=0;
++	int                     status, len;
++	u8                      port = 0;
++	char 		       c;
++
++	udev = ehset_udev;//(struct usb_device *)&work->data;
++	hcd  = container_of(udev->bus, struct usb_hcd, self);
++
++	/* Get one based port number, supposed it is one digit */
++	len = strlen(udev->dev.bus_id);
++	c = udev->dev.bus_id[len-1];
++	port = c-'0'; 
++
++	dev_info(&udev->dev, "running EHSET Test 0x%x\n",
++                udev->descriptor.idProduct);
++
++
++	switch (udev->descriptor.idProduct) {
++	case EHSET_TEST_SE0_NAK:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        (USB_PORT_TEST_SE0_NAK<<8)|port,
++	                        NULL, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        /* This test runs until the host is powered off */
++	        break;
++	case EHSET_TEST_J:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        (USB_PORT_TEST_J<<8)|port,
++	                        NULL, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        /* This test runs until the host is powered off */
++	        break;
++	case EHSET_TEST_K:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        (USB_PORT_TEST_K<<8)|port,
++	                        NULL, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        /* This test runs until the host is powered off */
++	        break;
++	case EHSET_TEST_PACKET:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        (USB_PORT_TEST_PACKET<<8)|port,
++	                        NULL, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        down(&ehset_sem);
++	        hcd->EHSET_in_progress = 0;
++	        up(&ehset_sem);
++	        break;
++	/* Note the FORCE ENABLE test is no longer used in the EHSET spec. */
++	case EHSET_TEST_FORCE_ENABLE:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        (USB_PORT_TEST_FORCE_ENABLE<<8)|port,
++	                        NULL, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        down(&ehset_sem);
++	        hcd->EHSET_in_progress = 0;
++	        up(&ehset_sem);
++	        break;
++	case EHSET_HS_HOST_PORT_SUSPEND_RESUME:
++	case EHSET_SINGLE_STEP_GET_DEV_DESC:
++	case EHSET_SINGLE_STEP_SET_FEATURE:
++	        status = hcd->driver->hub_control(hcd, SetPortFeature,
++	                        USB_PORT_FEAT_TEST,
++	                        ((udev->descriptor.idProduct&0xFF)<<8)|
++	                        port, (char *)udev, 0);
++	        if (status)
++	                dev_err(&udev->dev, "SetPortFeature Failed\n");
++	        down(&ehset_sem);
++	        hcd->EHSET_in_progress = 0;
++	        up(&ehset_sem);
++	        break;
++	default:
++	        dev_err(&udev->dev, "EHSET: Unsupported test mode %x\n",
++	                        udev->descriptor.idProduct);
++	        down(&ehset_sem);
++	        hcd->EHSET_in_progress = 0;
++	        up(&ehset_sem);
++	}
++}
++#endif /* CONFIG_USB_EHSET */
++
++
++
++
++
+ #ifdef	CONFIG_USB_OTG
+ #include "otg_whitelist.h"
+ static int __usb_port_suspend(struct usb_device *, int port1);
+@@ -1409,6 +1532,58 @@
+ 			usb_autosuspend_device(udev->parent);
+ 		goto fail;
+ 	}
++#ifdef CONFIG_USB_EHSET
++    usb_unlock_device(udev);
++	
++	dev_info(&udev->dev, "Found EHSET Test Device VID=0x%x PID=0x%x\n",
++			udev->descriptor.idVendor, udev->descriptor.idProduct);
++
++	if(udev->descriptor.idVendor == 0x1A0A)
++		; /* found a fixture */
++	else {
++		/* found a device, fake it by overwriting the PID*/
++		udev->descriptor.idProduct = 0x100 + ehset_mode;
++	}
++
++	if ( udev->speed == USB_SPEED_HIGH &&
++		udev->parent == udev->bus->root_hub &&
++		((udev->descriptor.idVendor == CONFIG_USB_EHSET_VID ) ||
++		(udev->descriptor.idVendor == 0x1A0A ))) {
++		static struct work_struct       EHSET_work;
++		//struct usb_hcd                  *hcd = udev->bus->hcpriv;
++		struct usb_hcd                  *hcd = container_of(udev->bus, struct usb_hcd, self);
++
++		dev_info(&udev->dev, "EHSET Test on Device VID=0x%x TEST_MODE=0x%x\n",
++			udev->descriptor.idVendor, udev->descriptor.idProduct);
++
++		if (!EHSET_workqueue) {
++			EHSET_workqueue = create_singlethread_workqueue("USB EHSET");
++
++			if (!EHSET_workqueue) 
++				dev_err(&udev->dev, "EHSET: Failed to create a workqueue\n");
++		}
++
++		if (EHSET_workqueue) {
++			if (down_trylock(&ehset_sem) == 0) {
++				if (!hcd->EHSET_in_progress) {
++					hcd->EHSET_in_progress = 1;
++                    up(&ehset_sem);
++                    INIT_WORK(&EHSET_work, EHSET_tests);
++					atomic_long_set(&EHSET_work.data, (u32)udev);
++					/* TODO:*/
++					ehset_udev = udev;
++					queue_work(EHSET_workqueue, &EHSET_work);
++				} else {
++					up(&ehset_sem);
++					dev_err(&udev->dev, "EHSET: test already in progress\n");
++                }
++			} else 
++				dev_err(&udev->dev, "EHSET: Failed to get lock\n");
++		}
++	} else
++		dev_info(&udev->dev, "EHSET Test Device (VID=%x) not match\n",
++							udev->descriptor.idVendor);
++#endif /* CONFIG_USB_EHSET */
+ 
+ exit:
+ 	return err;
+@@ -2897,6 +3072,14 @@
+ 	 * individual hub resources. -greg
+ 	 */
+ 	usb_deregister(&hub_driver);
++
++#ifdef CONFIG_USB_EHSET
++       if (EHSET_workqueue)
++               destroy_workqueue(EHSET_workqueue);
++#endif /* CONFIG_USB_EHSET */
++
++
++
+ } /* usb_hub_cleanup() */
+ 
+ static int config_descriptors_changed(struct usb_device *udev)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/hub.h linux-2.6.22.19/drivers/usb/core/hub.h
+--- linux-2.6.22.19.ref/drivers/usb/core/hub.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/hub.h	2010-07-26 09:25:17.635818895 -0700
+@@ -55,6 +55,36 @@
+ #define USB_PORT_FEAT_TEST              21
+ #define USB_PORT_FEAT_INDICATOR         22
+ 
++
++/*
++ * Hub Port Test Mode Selector Codes
++ * See USB 2.0 spec Table 11-24
++ */
++
++#define USB_PORT_TEST_J                        0x01
++#define USB_PORT_TEST_K                        0x02
++#define USB_PORT_TEST_SE0_NAK          0x03
++#define USB_PORT_TEST_PACKET           0x04
++#define USB_PORT_TEST_FORCE_ENABLE     0x05
++
++
++/*
++ * Product IDs used to trigger USB Hi-Speed Host Electrical Tests
++ * on the root hub. See USB 2.0 spec 7.1.20 and the
++ * Embedded High-speed Host Electrical Test Procedure.
++ */
++#define EHSET_TEST_SE0_NAK                     0x0101
++#define EHSET_TEST_J                           0x0102
++#define EHSET_TEST_K                           0x0103
++#define EHSET_TEST_PACKET                      0x0104
++/* Note that the FORCE ENABLE test is no longer used in the EHSET
++pec. */
++#define EHSET_TEST_FORCE_ENABLE                0x0105
++#define EHSET_HS_HOST_PORT_SUSPEND_RESUME      0x0106
++#define EHSET_SINGLE_STEP_GET_DEV_DESC         0x0107
++#define EHSET_SINGLE_STEP_SET_FEATURE          0x0108
++
++
+ /* 
+  * Hub Status and Hub Change results
+  * See USB 2.0 spec Table 11-19 and Table 11-20
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/Kconfig linux-2.6.22.19/drivers/usb/core/Kconfig
+--- linux-2.6.22.19.ref/drivers/usb/core/Kconfig	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/Kconfig	2010-07-26 09:25:17.647693138 -0700
+@@ -92,6 +92,31 @@
+ 	select USB_SUSPEND
+ 	default n
+ 
++config USB_EHSET
++       bool "SMP86xx Embedded High-speed Host Electrical Test Support (EXPERIMENTAL)"
++       depends on USB
++       default n
++       help
++         This option is only used if you are developing firmware for
++         an embedded device with a Hi-speed USB Host or OTG port.
++
++         If you say Y here, software support for the Embedded
++         High-speed Host Electrical Tests will be added to the USB
++         Host stack. This is one of the tests performed during
++         High-speed USB Host certification testing.
++
++         Please note that the USB Host Controller Driver must also
++         support this option. For an example of how to add support
++         for this to a USB Host Controller Driver see the EHCI driver.
++
++         If you are at all unsure then say N here.
++
++config USB_EHSET_VID
++       hex "Test Device's Vendor ID"
++       default 0x1A0A
++       depends on USB_EHSET
++       help
++         The device vendor ID for a High-speed Host Electrical Test.
+ 
+ config USB_OTG_WHITELIST
+ 	bool "Rely on OTG Targeted Peripherals List"
+@@ -117,3 +142,4 @@
+ 	  external hubs.  OTG hosts are allowed to reduce hardware
+ 	  and software costs by not supporting external hubs.
+ 
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/Makefile linux-2.6.22.19/drivers/usb/core/Makefile
+--- linux-2.6.22.19.ref/drivers/usb/core/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/Makefile	2010-07-26 09:25:17.647693138 -0700
+@@ -14,6 +14,10 @@
+ 	usbcore-objs	+= inode.o devices.o
+ endif
+ 
++ifeq ($(CONFIG_TANGOX),y)
++        usbcore-objs    += tangox-usb.o
++endif
++
+ obj-$(CONFIG_USB)	+= usbcore.o
+ 
+ ifeq ($(CONFIG_USB_DEBUG),y)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/tangox-usb.c linux-2.6.22.19/drivers/usb/core/tangox-usb.c
+--- linux-2.6.22.19.ref/drivers/usb/core/tangox-usb.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/tangox-usb.c	2010-07-26 09:25:29.425817706 -0700
+@@ -0,0 +1,185 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2008
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#include <linux/config.h>
++#include <linux/types.h>
++#include <linux/kernel.h>
++#include <linux/string.h>
++#include <linux/init.h>
++#include <linux/spinlock.h>
++#include <linux/usb.h>
++
++#include "tangox-usb.h"
++
++#undef DEBUG
++
++#ifdef DEBUG
++#define DBG(x...) printk(x)
++#else
++#define DBG(x...)
++#endif
++
++unsigned long tangox_otg_bits = 0;
++EXPORT_SYMBOL(tangox_otg_bits);
++
++static atomic_t usb_ref_cnt = ATOMIC_INIT(0);
++
++void tangox_usb_init(void)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++	int  i;
++	unsigned long temp;
++#ifdef CONFIG_TANGOX_XENV_READ
++	if (!tangox_usb_enabled())
++		return;
++#endif
++	if (atomic_add_return(1, &usb_ref_cnt) != 1) {
++		/* someone is either in the middle of init or have done init */
++        	while ((gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0) & (1<<19)) == 0)
++			schedule_timeout(HZ / 10);
++		printk("TangoX USB was initialized.\n");
++		return;
++	}
++		
++	/* Unreset USB block if needed */
++	if ((chip_id != 0x8652) && (chip_id != 0x8646)) {
++		/* reset phy software reset */
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);				
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp & ~(1<<0));
++
++		/* delay at least 1 ms*/
++		mdelay(2);
++
++		/* reset host software reset bit, seems didnot documented*/
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);				
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp & ~(1<<1));
++
++		/* put phy in power normal mode */
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0xc);				
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0xc, temp & ~(1<<6));
++	}
++
++	/*check see if it's inited*/
++        temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++	if (temp & (1<<19)) {
++		printk("TangoX USB was initialized.\n");
++		return;
++	}
++	else
++		printk("TangoX USB initializing...\n");
++
++	/*
++	1. Program the clean divider and clock multiplexer to provide 
++	   a 48 MHz reference to the USB block.
++	   This is done in bootloader.
++	*/
++
++	if ((chip_id == 0x8652) || (chip_id == 0x8646)) {
++		/*0. set bit 1 of USB control register 0x21700*/ 
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++	        gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp | 0x2);
++       		wait_ms(5);
++		 
++		/* 1. Program the clean divider and clock multiplexors to provide 48MHz clock reference*/
++		/* this is to be done in zboot */
++
++		/* 2. Enable the USB PHY */
++       		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp & 0xffffff7e);
++		wait_ms(20);
++
++		/* 3. Enable the USB Host EHCI/OHCI */
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp & 0xfffffffd);
++		wait_ms(20);
++
++		/* 4. set it to host mode*/
++		temp = gbus_read_reg32(TANGOX_EHCI_BASE_ADDR + TANGOX_EHCI_REG_OFFSET +0xA8);
++		temp |= 3 ;
++		gbus_write_reg32(TANGOX_EHCI_BASE_ADDR + TANGOX_EHCI_REG_OFFSET +0xA8, temp);
++		wait_ms(20);
++	} else {
++#if 0		/* If you want to use external crystal at 24MHZ*/
++		printk("TangoX USB using 24MHz external crystal.\n");
++		gbus_write_reg32(REG_BASE_system_block + SYS_hostclk_mux, 0x300);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, 0x70);
++		wait_ms(5);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0xc, 0xf9931);
++		wait_ms(30);
++#endif
++		/*2. PHY software reset*/
++		DBG("Performing PHY Reseting...\n");
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp | 0x01);
++		udelay (30);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp);
++		wait_ms(5);
++
++		/*3. Reset Bit 1 of USB register 0x21700 to enable the USB Host controller.
++			This is done in bootloader */
++
++		/*4. OHCI Software reset*/
++		DBG("Performing USB OHCI Reseting...\n");
++		temp = gbus_read_reg32(TANGOX_OHCI_BASE_ADDR + 0x08);
++		gbus_write_reg32(TANGOX_OHCI_BASE_ADDR + 0x08,  temp | 0x01);
++		wait_ms(5);
++
++		/*5. OHCI DPLL Software reset, it says the bit is for simulation*/
++		DBG("Performing USB OHCI DPLL Reseting...\n");
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp | (1<<19));
++		wait_ms(5);
++	
++		/*6. EHCI Host Software Reset*/
++		DBG("Performing USB EHCI Reseting...\n");
++		temp = gbus_read_reg32(TANGOX_EHCI_BASE_ADDR + 0x10);
++		gbus_write_reg32(TANGOX_EHCI_BASE_ADDR + 0x10,  temp | 0x02);
++		wait_ms(5);
++
++		for(i = 0; i < 4; i++){
++			temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + i*4);
++			DBG("TangoX USB register %d = 0x%x\n", i, temp);
++		}
++	}
++
++        return;
++}
++
++EXPORT_SYMBOL(tangox_usb_init);
++
++void tangox_usb_deinit(void)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++	if (atomic_sub_return(1, &usb_ref_cnt) == 0) {
++		/* Reset USB block if needed */
++		if ((chip_id != 0x8652) && (chip_id != 0x8646)) {
++			unsigned long temp;
++			/* put phy in power saving mode */
++			temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0xc);				
++			gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0xc, temp | (1<<6));
++
++			/* set host software reset bit 1, seems didnot documented*/
++			temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);				
++			gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp | (1<<1));
++
++			/* delay at least 1 ms*/
++			mdelay(2);
++
++			/* set phy software reset bit */
++			temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0);				
++			gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x0, temp | (1<<0));
++		}
++	} 
++}
++EXPORT_SYMBOL(tangox_usb_deinit);
++
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/core/tangox-usb.h linux-2.6.22.19/drivers/usb/core/tangox-usb.h
+--- linux-2.6.22.19.ref/drivers/usb/core/tangox-usb.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/core/tangox-usb.h	2010-07-26 09:25:17.647693138 -0700
+@@ -0,0 +1,84 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2008
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#ifndef __TANGOX_USB_H
++#define __TANGOX_USB_H
++ 
++#include <asm/addrspace.h>
++
++#ifdef CONFIG_TANGO2
++#include <asm/tango2/hardware.h>
++#include <asm/tango2/tango2_gbus.h>
++#elif defined(CONFIG_TANGO3)
++#include <asm/tango3/hardware.h>
++#include <asm/tango3/tango3_gbus.h>
++#endif
++
++#define NON_CACHED(x)                   KSEG1ADDR((u32)(x))
++#define CACHED(x)                       KSEG0ADDR((u32)(x))
++
++#define TANGOX_EHCI_BASE_ADDR           /*NON_CACHED*/(REG_BASE_host_interface + 0x1400)
++#define TANGOX_OHCI_BASE_ADDR           /*NON_CACHED*/(REG_BASE_host_interface + 0x1500)
++#define TANGOX_USB_CTL_STATUS_REG_BASE  /*NON_CACHED*/(REG_BASE_host_interface + 0x1700)
++#define TANGOX_EHCI_IRQ                 IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_EHCI_INT
++#define TANGOX_OHCI_IRQ                 IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_OHCI_INT
++
++/* For 8652 OTG host or 8646 host */
++#define TANGOX_EHCI_REG_OFFSET		0x100
++#define USBMODE				0x1A8
++
++/* tangox ehci */
++#define TANGOX_EHCI_BUS_NAME 		"tangox-ehci-bus"
++#define TANGOX_EHCI_PRODUCT_DESC 	"TangoX Integrated USB 2.0"
++#define EHCI_HCD_NAME		 		"tangox-ehci-hcd"
++/* tangox ohci */
++#define OHCI_HCD_NAME		 		"tangox-ohci-hcd"
++#define TANGOX_OHCI_BUS_NAME 		"tangox-ohci-bus"
++
++
++static u32 __inline__ tangox_read_reg( u32 Reg )
++{
++#ifdef CONFIG_TANGOX
++        u32 data = gbus_read_reg32(Reg);
++#else
++        u32 data = __raw_readl(Reg);
++#endif
++
++//        printk("read data=0x%08x from addr=0x%08x\n", data, Reg);
++        return data;
++}
++
++static void __inline__ tangox_write_reg( u32 Reg, u32 Data )
++{
++//       printk("write data=0x%08x to addr=0x%08x\n", Data, Reg);
++#ifdef CONFIG_TANGOX
++        gbus_write_reg32(Reg, Data);
++#else
++        __raw_writel(Data,Reg);
++#endif
++}
++
++static __inline__ void wait_ms(unsigned int ms)
++{
++        if(!in_interrupt()) {
++                current->state = TASK_UNINTERRUPTIBLE;
++                schedule_timeout(1 + ms * HZ / 1000);
++        }
++        else
++                mdelay(ms);
++}
++#ifdef CONFIG_TANGOX_XENV_READ
++extern int tangox_usb_enabled(void);
++#endif
++extern int is_tango2_es89(void);
++extern int is_tango3_chip(void);
++extern void tangox_usb_init(void);
++extern void tangox_usb_deinit(void);
++#endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/ehci.h linux-2.6.22.19/drivers/usb/host/ehci.h
+--- linux-2.6.22.19.ref/drivers/usb/host/ehci.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/ehci.h	2010-07-26 09:25:17.647693138 -0700
+@@ -254,7 +254,14 @@
+ #define PORT_WKOC_E	(1<<22)		/* wake on overcurrent (enable) */
+ #define PORT_WKDISC_E	(1<<21)		/* wake on disconnect (enable) */
+ #define PORT_WKCONN_E	(1<<20)		/* wake on connect (enable) */
++
+ /* 19:16 for port testing */
++#define PORT_TEST_J     (1<<16)
++#define PORT_TEST_K     (2<<16)
++#define PORT_TEST_SE0_NAK       (3<<16)
++#define PORT_TEST_PACKET        (4<<16)
++#define PORT_TEST_FORCE_ENABLE  (5<<16)
++
+ #define PORT_LED_OFF	(0<<14)
+ #define PORT_LED_AMBER	(1<<14)
+ #define PORT_LED_GREEN	(2<<14)
+@@ -645,6 +652,25 @@
+ #define	ehci_port_speed(ehci, portsc)	(1<<USB_PORT_FEAT_HIGHSPEED)
+ #endif
+ 
++
++static struct list_head * qh_urb_transaction (
++               struct ehci_hcd *ehci,
++               struct urb *urb,
++               struct list_head *head,
++               gfp_t flags);
++
++static int submit_async (
++               struct ehci_hcd *ehci,
++               struct usb_host_endpoint *ep,
++               struct urb *urb,
++               struct list_head *qtd_list,
++               gfp_t mem_flags);
++
++static inline void ehci_qtd_free (
++               struct ehci_hcd *ehci,
++               struct ehci_qtd *qtd);
++
++
+ /*-------------------------------------------------------------------------*/
+ 
+ #ifdef CONFIG_PPC_83xx
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/ehci-hub.c linux-2.6.22.19/drivers/usb/host/ehci-hub.c
+--- linux-2.6.22.19.ref/drivers/usb/host/ehci-hub.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/ehci-hub.c	2010-07-26 09:25:17.647693138 -0700
+@@ -28,8 +28,16 @@
+ 
+ /*-------------------------------------------------------------------------*/
+ 
+-#ifdef	CONFIG_PM
+ 
++#ifdef CONFIG_TANGOX
++
++#define COMPANION_PORT     2  /* For B+ or ES7+, set to 0 instead */
++
++extern int is_tango2_es89(void);
++extern int is_tango3_chip(void);
++#endif /* CONFIG_TANGOX */
++
++#if defined(CONFIG_PM) || defined(CONFIG_USB_EHSET)
+ static int ehci_bus_suspend (struct usb_hcd *hcd)
+ {
+ 	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
+@@ -454,6 +462,10 @@
+ 	int		retval = 0;
+ 	unsigned	selector;
+ 
++#ifdef CONFIG_USB_EHSET
++        u32             temp1;
++#endif
++
+ 	/*
+ 	 * FIXME:  support SetPortFeatures USB_PORT_FEAT_INDICATOR.
+ 	 * HCS_INDICATOR may say we can change LEDs to off/amber/green.
+@@ -732,12 +744,286 @@
+ 		 * about the EHCI-specific stuff.
+ 		 */
+ 		case USB_PORT_FEAT_TEST:
++#ifndef CONFIG_TANGOX
+ 			if (!selector || selector > 5)
+ 				goto error;
+ 			ehci_quiesce(ehci);
+ 			ehci_halt(ehci);
+ 			temp |= selector << 16;
+ 			ehci_writel(ehci, temp, status_reg);
++#else
++#ifdef CONFIG_USB_EHSET
++		   wIndex |= selector << 8;
++           ehci_info (ehci, "running EHCI test %x on port %x\n",
++                           ((wIndex>>8)&0xFF), (wIndex&0xFF)+1);
++
++            /* EHCI spec. 4.14 Port Test Modes*/
++            temp1  = ((wIndex)>>8)&0xFF;
++            if(temp1 < (EHSET_HS_HOST_PORT_SUSPEND_RESUME&0xFF)){
++
++                    /* Disable Periodic and async schedules*/
++                    temp1 = readl (&ehci->regs->command);
++                    temp1 &= ~(CMD_ASE | CMD_PSE);
++                    writel (temp1, &ehci->regs->command);
++
++                    /* Suspend the ports*/
++                    spin_unlock_irqrestore (&ehci->lock, flags);
++                    ehci_bus_suspend (hcd);
++                    spin_lock_irqsave (&ehci->lock, flags);
++
++                    /* stop the host controller*/
++                    temp1 = readl (&ehci->regs->command);
++                    temp1 &= ~CMD_RUN;
++                    writel (temp1, &ehci->regs->command);
++                    handshake (ehci, &ehci->regs->status, STS_HALT, STS_HALT, 16 * 125);
++           }
++
++           switch (((wIndex)>>8)&0xFF) {
++           case USB_PORT_TEST_J:
++                   ehci_info (ehci, "Testing J State\n");
++                   writel (temp|PORT_TEST_J,
++                                   &ehci->regs->port_status
++                                   [wIndex&0xFF]);
++                   break;
++           case USB_PORT_TEST_K:
++                   ehci_info (ehci, "Testing K State\n");
++                   writel (temp|PORT_TEST_K,
++                                   &ehci->regs->port_status
++                                   [wIndex&0xFF]);
++                   break;
++           case USB_PORT_TEST_SE0_NAK:
++                   ehci_info (ehci, "Testing SE0_NAK\n");
++                   writel (temp|PORT_TEST_SE0_NAK,
++                                   &ehci->regs->port_status
++                                   [wIndex&0xFF]);
++                   break;
++           case USB_PORT_TEST_PACKET:
++                   ehci_info (ehci, "Sending Test Packets\n");
++                   writel (temp|PORT_TEST_PACKET,
++                                   &ehci->regs->port_status
++                                   [wIndex&0xFF]);
++                   break;
++           case USB_PORT_TEST_FORCE_ENABLE:
++                   ehci_info (ehci, "Testing FORCE_ENABLE\n");
++                   writel (temp|PORT_TEST_FORCE_ENABLE,
++                                   &ehci->regs->port_status
++                                   [wIndex&0xFF]);
++                   break;
++           case (EHSET_HS_HOST_PORT_SUSPEND_RESUME&0xFF):
++           {
++                   spin_unlock_irqrestore (&ehci->lock, flags);
++                   ehci_info (ehci, "Testing SUSPEND RESUME\n");
++                   set_current_state(TASK_UNINTERRUPTIBLE);
++                   schedule_timeout(msecs_to_jiffies(15000));
++                   ehci_info (ehci, "Suspend Root Hub\n");
++                   ehci_bus_suspend (hcd);
++                   set_current_state(TASK_UNINTERRUPTIBLE);
++                   schedule_timeout(msecs_to_jiffies(15000));
++                   ehci_info (ehci, "Resume Root Hub\n");
++                   ehci_bus_resume (hcd);
++                   spin_lock_irqsave (&ehci->lock, flags);
++                   break;
++           }
++           case (EHSET_SINGLE_STEP_GET_DEV_DESC&0xFF):
++           {
++                   struct list_head        qtd_list;
++                   struct list_head        test_list;
++                   struct usb_device       *dev;
++                   struct ehci_qtd         *qtd;
++                   struct urb              urb;
++                   struct usb_ctrlrequest  setup_packet;
++                   char    data_buffer[USB_DT_DEVICE_SIZE];
++
++                   spin_unlock_irqrestore (&ehci->lock, flags);
++                   ehci_info (ehci, "Testing SINGLE_STEP_GET_DEV"
++                                   "_DESC\n");
++                   if (!buf) {
++                           ehci_err (ehci, "No usb_device pointer"
++                                           " found\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++                   set_current_state(TASK_UNINTERRUPTIBLE);
++                   schedule_timeout(msecs_to_jiffies(15000));
++
++                   dev = (struct usb_device *)buf;
++                   setup_packet.bRequestType = USB_DIR_IN;
++                   setup_packet.bRequest = USB_REQ_GET_DESCRIPTOR;
++                   setup_packet.wValue = (USB_DT_DEVICE << 8);
++                   setup_packet.wIndex = 0;
++                   setup_packet.wLength = USB_DT_DEVICE_SIZE;
++
++                   INIT_LIST_HEAD (&qtd_list);
++                   INIT_LIST_HEAD (&test_list);
++                   urb.transfer_buffer_length =
++                           USB_DT_DEVICE_SIZE;
++                   urb.dev = dev;
++                   urb.pipe = usb_rcvctrlpipe(dev, 0);
++                   urb.hcpriv = dev->ep0.hcpriv;
++                   urb.setup_packet = (char *)&setup_packet;
++                   urb.transfer_buffer = data_buffer;
++                   urb.transfer_flags = URB_HCD_DRIVER_TEST;
++                   spin_lock_init(&urb.lock);
++                   urb.setup_dma = dma_map_single (
++                           hcd->self.controller,
++                           urb.setup_packet,
++                           sizeof (struct usb_ctrlrequest),
++                           DMA_TO_DEVICE);
++                   if (!urb.setup_dma || !urb.transfer_dma) {
++                           ehci_err (ehci, "dma_map_single Failed"
++                                           "\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++
++                   if (!qh_urb_transaction (ehci, &urb, &qtd_list,
++                                           GFP_ATOMIC))
++                   {
++                           ehci_err (ehci, "qh_urb_transaction "
++                                           "Failed\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   list_add (&qtd->qtd_list, &test_list);
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   list_add_tail (&qtd->qtd_list, &test_list);
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   ehci_qtd_free (ehci, qtd);
++
++                   ehci_info (ehci, "Sending SETUP&DATA PHASE\n");
++                   if (submit_async (ehci, &dev->ep0, &urb,
++                                   &test_list, GFP_ATOMIC))
++                   {
++                           ehci_err (ehci, "Failed to queue up "
++                                           "qtds\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++                   spin_lock_irqsave (&ehci->lock, flags);
++                   break;
++           }
++           case (EHSET_SINGLE_STEP_SET_FEATURE&0xFF):
++           {
++                   struct list_head        qtd_list;
++                   struct list_head        setup_list;
++                   struct list_head        data_list;
++                   struct usb_device       *dev;
++                   struct ehci_qtd         *qtd;
++                   struct urb              urb;
++                   struct usb_ctrlrequest  setup_packet;
++                   char    data_buffer[USB_DT_DEVICE_SIZE];
++
++                   spin_unlock_irqrestore (&ehci->lock, flags);
++                   ehci_info (ehci, "Testing SINGLE_STEP_SET_"
++                                   "FEATURE\n");
++                   if (!buf) {
++                           ehci_err (ehci, "No usb_device pointer"
++                                           " found\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++                   dev = (struct usb_device *)buf;
++                   setup_packet.bRequestType = USB_DIR_IN;
++                   setup_packet.bRequest = USB_REQ_GET_DESCRIPTOR;
++                   setup_packet.wValue = (USB_DT_DEVICE << 8);
++                   setup_packet.wIndex = 0;
++                   setup_packet.wLength = USB_DT_DEVICE_SIZE;
++
++                   INIT_LIST_HEAD (&qtd_list);
++                   INIT_LIST_HEAD (&setup_list);
++                   INIT_LIST_HEAD (&data_list);
++                   urb.transfer_buffer_length =
++                           USB_DT_DEVICE_SIZE;
++                   urb.dev = dev;
++                   urb.pipe = usb_rcvctrlpipe(dev, 0);
++                   urb.hcpriv = dev->ep0.hcpriv;
++                   urb.setup_packet = (char *)&setup_packet;
++                   urb.transfer_buffer = data_buffer;
++                   urb.transfer_flags = URB_HCD_DRIVER_TEST;
++                   spin_lock_init(&urb.lock);
++                   urb.setup_dma = dma_map_single (
++                           hcd->self.controller,
++                           urb.setup_packet,
++                           sizeof (struct usb_ctrlrequest),
++                           DMA_TO_DEVICE);
++                   urb.transfer_dma = dma_map_single (
++                           hcd->self.controller,
++                           urb.transfer_buffer,
++                           sizeof (struct usb_ctrlrequest),
++                           DMA_TO_DEVICE);
++                   if (!urb.setup_dma || !urb.transfer_dma) {
++                           ehci_err (ehci, "dma_map_single Failed"
++                                           "\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++
++                   if (!qh_urb_transaction (ehci, &urb, &qtd_list,
++                                           GFP_ATOMIC))
++                   {
++                           ehci_err (ehci, "qh_urb_transaction "
++                                           "Failed\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   list_add (&qtd->qtd_list, &setup_list);
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   list_add (&qtd->qtd_list, &data_list);
++                   qtd =  container_of (qtd_list.next,
++                                   struct ehci_qtd, qtd_list);
++                   list_del_init (&qtd->qtd_list);
++                   ehci_qtd_free (ehci, qtd);
++
++                   ehci_info (ehci, "Sending SETUP PHASE\n");
++                   if (submit_async (ehci, &dev->ep0, &urb,
++                                   &setup_list, GFP_ATOMIC))
++                   {
++                           ehci_err (ehci, "Failed to queue up "
++                                           "qtds\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++
++                   set_current_state(TASK_UNINTERRUPTIBLE);
++                   schedule_timeout(msecs_to_jiffies(15000));
++                   urb.status = 0;
++                   urb.actual_length = 0;
++
++                   ehci_info (ehci, "Sending DATA PHASE\n");
++                   if (submit_async (ehci, &dev->ep0, &urb,
++                                   &data_list, GFP_ATOMIC))
++                   {
++                           ehci_err (ehci, "Failed to queue up "
++                                           "qtds\n");
++                           spin_lock_irqsave (&ehci->lock, flags);
++                           goto error;
++                   }
++                   spin_lock_irqsave (&ehci->lock, flags);
++                   break;
++           }
++           default:
++                   ehci_err (ehci, "EHSET: Unknown test %x\n",
++                                   (wIndex>>8)&0xFF);
++                   goto error;
++           }
++
++//           break;
++#endif /* CONFIG_USB_EHSET */
++#endif
+ 			break;
+ 
+ 		default:
+@@ -748,6 +1034,7 @@
+ 
+ 	default:
+ error:
++                ehci_err (ehci, "SetPortFeature: Unknown Feature %x\n", wValue);
+ 		/* "stall" on error */
+ 		retval = -EPIPE;
+ 	}
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/ehci-tangox.c linux-2.6.22.19/drivers/usb/host/ehci-tangox.c
+--- linux-2.6.22.19.ref/drivers/usb/host/ehci-tangox.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/ehci-tangox.c	2010-07-26 09:25:17.647693138 -0700
+@@ -0,0 +1,247 @@
++/*
++ * Modified for SMP86XX.
++ *
++ * Copyright (c) 2004-2008 Sigma Designs, Inc.
++ *
++ * EHCI HCD (Host Controller Driver) PCI Bus Glue.
++ *
++ * Copyright (c) 2000-2004 by David Brownell
++ *
++ * This program is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU General Public License as published by the
++ * Free Software Foundation; either version 2 of the License, or (at your
++ * option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful, but
++ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
++ * for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software Foundation,
++ * Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ */
++
++#include <linux/platform_device.h>
++#ifndef CONFIG_TANGOX
++#error "This file is TANGOX EHCI bus glue.  CONFIG_TANGOX must be defined."
++#endif
++
++#ifdef	CONFIG_PM
++static int tangox_suspend(struct device *dev, pm_message_t state, u32 phase);
++static int tangox_resume(struct device *dev, u32 phase);
++#endif
++
++extern unsigned long tangox_otg_bits;
++
++/* called during probe() after chip reset completes */
++static int ehci_tangox_setup(struct usb_hcd *hcd)
++{
++        struct ehci_hcd         *ehci = hcd_to_ehci(hcd);
++        u32                     temp;
++        int                     retval;
++
++        ehci->caps = hcd->regs;
++        ehci->regs = hcd->regs + HC_LENGTH(readl(&ehci->caps->hc_capbase));
++        dbg_hcs_params(ehci, "reset");
++        dbg_hcc_params(ehci, "reset");
++
++        /* cache this readonly data; minimize chip reads */
++        ehci->hcs_params = readl(&ehci->caps->hcs_params);
++
++        retval = ehci_halt(ehci);
++        if (retval)
++                return retval;
++
++        /* data structure init */
++        retval = ehci_init(hcd);
++        if (retval)
++                return retval;
++
++        if (ehci_is_TDI(ehci))
++                ehci_reset(ehci);
++
++        /* at least the Genesys GL880S needs fixup here */
++        temp = HCS_N_CC(ehci->hcs_params) * HCS_N_PCC(ehci->hcs_params);
++        temp &= 0x0f;
++        if (temp && (HCS_N_PORTS(ehci->hcs_params) > temp)) {
++                ehci_dbg(ehci, "bogus port configuration: "
++                        "cc=%d x pcc=%d < ports=%d\n",
++                        HCS_N_CC(ehci->hcs_params),
++                        HCS_N_PCC(ehci->hcs_params),
++                        HCS_N_PORTS(ehci->hcs_params));
++        }
++
++        return retval;
++}
++
++static const struct hc_driver ehci_tangox_hc_driver = {
++	.description =		EHCI_HCD_NAME,
++	.product_desc =		"SMP86xx EHCI Host Controller",
++	.hcd_priv_size =	sizeof(struct ehci_hcd),
++
++	/*
++	 * generic hardware linkage
++	 */
++	.irq =			ehci_irq,
++	.flags =		HCD_MEMORY | HCD_USB2,
++
++	/*
++	 * basic lifecycle operations
++	 */
++	.reset =		ehci_tangox_setup,
++	.start =		ehci_run,
++#ifdef	CONFIG_PM
++	.suspend =		tangox_suspend,
++	.resume =		tangox_resume,
++#endif
++	.stop =			ehci_stop,
++	.shutdown =		ehci_shutdown,
++
++	/*
++	 * managing i/o requests and associated device resources
++	 */
++	.urb_enqueue =		ehci_urb_enqueue,
++	.urb_dequeue =		ehci_urb_dequeue,
++	.endpoint_disable =	ehci_endpoint_disable,
++
++	/*
++	 * scheduling support
++	 */
++	.get_frame_number =	ehci_get_frame,
++
++	/*
++	 * root hub support
++	 */
++	.hub_status_data =	ehci_hub_status_data,
++	.hub_control =		ehci_hub_control,
++	.bus_suspend =		ehci_bus_suspend,
++	.bus_resume =		ehci_bus_resume,
++};
++
++/*-------------------------------------------------------------------------*/
++
++int tangox_hcd_probe (struct platform_device *pdev)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++        struct usb_hcd          *hcd;
++        struct ehci_hcd         *ehci;
++        int                     retval;
++
++        tangox_usb_init();
++
++        if (usb_disabled())
++                return -ENODEV;
++
++        hcd = usb_create_hcd (&ehci_tangox_hc_driver, &pdev->dev, pdev->dev.bus_id);
++        if (!hcd) {
++			printk("cannot create hcd\n");
++                retval = -ENOMEM;
++                goto err1;
++        }
++
++        ehci = hcd_to_ehci(hcd);
++
++	hcd->rsrc_start = NON_CACHED(TANGOX_EHCI_BASE_ADDR);
++	hcd->regs = (void *)NON_CACHED(TANGOX_EHCI_BASE_ADDR);
++
++	if (chip_id == 0x8652) {
++		if (test_and_set_bit(0, &tangox_otg_bits) != 0) {
++			printk("OTG is used in different mode.\n");
++			return -EIO;
++		}
++		hcd->rsrc_start += TANGOX_EHCI_REG_OFFSET;
++		hcd->regs += TANGOX_EHCI_REG_OFFSET;
++		/* TT is available with this controller */
++		ehci->is_tdi_rh_tt = 1;
++	} else if (chip_id == 0x8646) {
++		hcd->rsrc_start += TANGOX_EHCI_REG_OFFSET;
++		hcd->regs += TANGOX_EHCI_REG_OFFSET;
++		/* TT is available with this controller */
++		ehci->is_tdi_rh_tt = 1;
++	}
++
++        hcd->irq = TANGOX_EHCI_IRQ;
++        hcd->self.controller = &pdev->dev;
++        hcd->self.bus_name = pdev->dev.bus_id;
++        hcd->product_desc ="TangoX USB 2.0";
++
++        retval = usb_add_hcd(hcd, TANGOX_EHCI_IRQ, 0);
++        if (retval != 0)
++                goto err2;
++        return retval;
++err2:
++        usb_put_hcd (hcd);
++err1:
++        dev_err (&pdev->dev, "init %s fail, %d\n", EHCI_HCD_NAME, retval);
++        return retval;
++}
++
++int tangox_hcd_remove (struct platform_device *pdev)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++        struct usb_hcd *hcd = dev_get_drvdata(&pdev->dev);
++        if (!hcd)
++                return -1;
++
++        usb_remove_hcd (hcd);
++        usb_put_hcd (hcd);
++	if (chip_id == 0x8652) 
++		clear_bit(0, &tangox_otg_bits);
++        tangox_usb_deinit();
++        return 0;
++}
++
++#ifdef	CONFIG_PM
++static int tangox_suspend(struct device *dev, pm_message_t state, u32 phase)
++{
++        printk("TangoX EHCI suspend.\n");
++        return 0;
++}
++
++static int tangox_resume(struct device *dev, u32 phase)
++{
++        printk("TangoX EHCI resume.\n");
++        return 0;
++}
++#endif
++
++static struct platform_driver ehci_tangox_driver = {
++        .probe   =      tangox_hcd_probe,
++        .remove  =      tangox_hcd_remove,
++		.shutdown = usb_hcd_platform_shutdown,
++		.driver = {
++			.name = (char *)EHCI_HCD_NAME,
++			.bus = &platform_bus_type
++		},
++#ifdef CONFIG_PM 
++        .suspend =      tangox_suspend,
++        .resume  =      tangox_resume,
++#endif
++};
++
++static u64 ehci_dmamask = ~(u32)0;
++static void tangox_ehci_release_dev(struct device * dev)
++{
++        dev->parent = NULL;
++}
++
++
++static struct platform_device tangox_ehci_device = {
++        .name           = (char *)EHCI_HCD_NAME,
++        .id             = -1,
++        .dev = {
++                .dma_mask               = &ehci_dmamask,
++                .coherent_dma_mask      = 0xffffffff,
++                .release                = tangox_ehci_release_dev,
++        },
++       .num_resources  = 0,
++       .resource       = 0,
++
++};
++
++static struct platform_device *tangox_platform_devices[] __initdata = {
++        &tangox_ehci_device,
++};
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/Kconfig linux-2.6.22.19/drivers/usb/host/Kconfig
+--- linux-2.6.22.19.ref/drivers/usb/host/Kconfig	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/Kconfig	2010-07-26 09:25:17.647693138 -0700
+@@ -4,6 +4,26 @@
+ comment "USB Host Controller Drivers"
+ 	depends on USB
+ 
++config TANGOX_EHCI_HCD
++        tristate "SMP86xx EHCI HCD (USB 2.0) support"
++        depends on USB && TANGOX 
++	---help---
++	  SMP86xx chips has an USB 2.0 host controller integrated. 
++	  Enable this option if your board has this chip. If unsure, say N.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called tangox-ehci-hcd.
++
++config TANGOX_OHCI_HCD
++        tristate "SMP86xx OHCI HCD support"
++        depends on USB && USB_ARCH_HAS_OHCI && TANGOX && !USB_EHSET
++        ---help---
++	  SMP86xx chips has an USB 1.1 OHCI controller integrated. 
++	  Enable this option if your board has this chip. If unsure, say N.
++
++	  To compile this driver as a module, choose M here: the
++	  module will be called tangox-ohci-hcd.
++
+ config USB_EHCI_HCD
+ 	tristate "EHCI HCD (USB 2.0) support"
+ 	depends on USB && USB_ARCH_HAS_EHCI
+@@ -31,7 +51,7 @@
+ 
+ config USB_EHCI_SPLIT_ISO
+ 	bool "Full speed ISO transactions (EXPERIMENTAL)"
+-	depends on USB_EHCI_HCD && EXPERIMENTAL
++	depends on (USB_EHCI_HCD || TANGOX_EHCI_HCD) && EXPERIMENTAL
+ 	default n
+ 	---help---
+ 	  This code is new and hasn't been used with many different
+@@ -40,7 +60,7 @@
+ 
+ config USB_EHCI_ROOT_HUB_TT
+ 	bool "Root Hub Transaction Translators (EXPERIMENTAL)"
+-	depends on USB_EHCI_HCD && EXPERIMENTAL
++	depends on (USB_EHCI_HCD || TANGOX_EHCI_HCD) && EXPERIMENTAL
+ 	---help---
+ 	  Some EHCI chips have vendor-specific extensions to integrate
+ 	  transaction translators, so that no OHCI or UHCI companion
+@@ -86,7 +106,7 @@
+ 
+ config USB_OHCI_HCD
+ 	tristate "OHCI HCD support"
+-	depends on USB && USB_ARCH_HAS_OHCI
++	depends on USB && (USB_ARCH_HAS_OHCI || PCI)
+ 	select ISP1301_OMAP if MACH_OMAP_H2 || MACH_OMAP_H3
+ 	select I2C if ARCH_PNX4008
+ 	---help---
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/Makefile linux-2.6.22.19/drivers/usb/host/Makefile
+--- linux-2.6.22.19.ref/drivers/usb/host/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/Makefile	2010-07-26 09:25:17.647693138 -0700
+@@ -15,3 +15,6 @@
+ obj-$(CONFIG_USB_SL811_HCD)	+= sl811-hcd.o
+ obj-$(CONFIG_USB_SL811_CS)	+= sl811_cs.o
+ obj-$(CONFIG_USB_U132_HCD)	+= u132-hcd.o
++obj-$(CONFIG_TANGOX_EHCI_HCD)   += tangox-ehci-hcd.o
++obj-$(CONFIG_TANGOX_OHCI_HCD)   += tangox-ohci-hcd.o
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/ohci-tangox.c linux-2.6.22.19/drivers/usb/host/ohci-tangox.c
+--- linux-2.6.22.19.ref/drivers/usb/host/ohci-tangox.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/ohci-tangox.c	2010-07-26 09:25:17.647693138 -0700
+@@ -0,0 +1,276 @@
++/*
++ * OHCI HCD (Host Controller Driver) for TangoX USB 1.1.
++ *
++ * (C) Copyright 1999 Roman Weissgaerber <weissg@vienna.at>
++ * (C) Copyright 2000-2002 David Brownell <dbrownell@users.sourceforge.net>
++ * (C) Copyright 2002 Hewlett-Packard Company
++ * (C) Copyright 2003-2005 MontaVista Software Inc.
++ * (C) Copyright 2004-2008 Sigma Designs, Inc.
++ * 
++ * Bus Glue for TANGOX OHCI driver. Sigma Designs, Inc.
++ * This file is licenced under the GPL.
++ */
++
++#include <linux/platform_device.h>
++
++/**
++ * tangox_ohci_probe - initialize On-Chip HCDs
++ * Context: !in_interrupt()
++ *
++ * Allocates basic resources for this USB host controller.
++ *
++ * Store this function in the HCD's struct pci_driver as probe().
++ */
++static int tangox_ohci_probe(const struct hc_driver *driver,
++			  struct platform_device *pdev)
++{
++	int retval;
++	struct usb_hcd *hcd;
++	struct ohci_hcd	*ohci;
++
++	hcd = usb_create_hcd(driver, &pdev->dev, "TANGOX OHCI");
++	if (!hcd)
++		return -ENOMEM;
++	hcd->rsrc_start = NON_CACHED(TANGOX_OHCI_BASE_ADDR);
++	hcd->regs =(void *)NON_CACHED(TANGOX_OHCI_BASE_ADDR);
++	pr_debug("hcd->register=0x%x\n", (unsigned int)hcd->regs);
++
++	ohci = hcd_to_ohci(hcd);
++	ohci_hcd_init(ohci);
++
++	retval = usb_add_hcd(hcd, TANGOX_OHCI_IRQ, 0);
++	if (retval == 0){
++		if(polling_mode){
++	        	init_timer(&ohci_timer);
++		     	ohci_timer.function = ohci_polling;
++		    	ohci_timer.data = (unsigned long)hcd;
++			mod_timer(&ohci_timer, jiffies + polling_interval);
++		}
++		return retval;
++	}
++
++	pr_debug("Removing TANGOX USB OHCI Controller\n");
++ 	usb_put_hcd(hcd);
++
++	return retval;
++}
++
++
++/* may be called without controller electrically present */
++/* may be called with controller, bus, and devices active */
++
++/**
++ * tangox_ohci_remove - shutdown processing for On-Chip HCDs
++ * @pdev: USB Host Controller being removed
++ * Context: !in_interrupt()
++ *
++ * Reverses the effect of tangox_ohci_probe().
++ * It is always called from a thread
++ * context, normally "rmmod", "apmd", or something similar.
++ *
++ */
++static void tangox_ohci_remove(struct usb_hcd *hcd,
++		struct platform_device *pdev)
++{
++	if(polling_mode)
++	        del_timer_sync(&ohci_timer);
++	
++	usb_remove_hcd(hcd);
++
++	pr_debug("stopping TANGOX USB OHCI Controller\n");
++	usb_put_hcd(hcd);
++}
++
++static int __devinit
++tangox_ohci_start(struct usb_hcd *hcd)
++{
++	struct ohci_hcd	*ohci = hcd_to_ohci(hcd);
++	int		ret;
++
++	if ((ret = ohci_init(ohci)) < 0)
++		return ret;
++
++
++	if ((ret = ohci_run(ohci)) < 0) {
++		err("can't start %s", ohci_to_hcd(ohci)->self.bus_name);
++		ohci_stop(hcd);
++		return ret;
++	}
++
++	return 0;
++}
++
++/*since we cannot set read only irq member so 
++  that copy this struct for polling mode here*/
++static const struct hc_driver tangox_ohci_polling_hc_driver = {
++	.description =		OHCI_HCD_NAME,
++	.hcd_priv_size =	sizeof(struct ohci_hcd),
++
++	/*
++	 * generic hardware linkage
++	 */
++	.irq =			NULL,
++	.flags =		HCD_USB11 | HCD_MEMORY,
++
++	/*
++	 * basic lifecycle operations
++	 */
++	.start =		tangox_ohci_start,
++	.stop =			ohci_stop,
++	.shutdown =		ohci_shutdown,
++
++	/*
++	 * managing i/o requests and associated device resources
++	 */
++	.urb_enqueue =		ohci_urb_enqueue,
++	.urb_dequeue =		ohci_urb_dequeue,
++	.endpoint_disable =	ohci_endpoint_disable,
++
++	/*
++	 * scheduling support
++	 */
++	.get_frame_number =	ohci_get_frame,
++
++	/*
++	 * root hub support
++	 */
++	.hub_status_data =	ohci_hub_status_data,
++	.hub_control =		ohci_hub_control,
++#ifdef	CONFIG_USB_SUSPEND
++	.hub_suspend =		ohci_hub_suspend,
++	.hub_resume =		ohci_hub_resume,
++#endif
++	.start_port_reset =	ohci_start_port_reset,
++};
++
++
++static const struct hc_driver tangox_ohci_hc_driver = {
++	.description =		OHCI_HCD_NAME,
++	.hcd_priv_size =	sizeof(struct ohci_hcd),
++
++	/*
++	 * generic hardware linkage
++	 */
++	.irq =			ohci_irq,
++	.flags =		HCD_USB11 | HCD_MEMORY,
++
++	/*
++	 * basic lifecycle operations
++	 */
++	.start =		tangox_ohci_start,
++	.stop =			ohci_stop,
++	.shutdown =		ohci_shutdown,
++
++	/*
++	 * managing i/o requests and associated device resources
++	 */
++	.urb_enqueue =		ohci_urb_enqueue,
++	.urb_dequeue =		ohci_urb_dequeue,
++	.endpoint_disable =	ohci_endpoint_disable,
++
++	/*
++	 * scheduling support
++	 */
++	.get_frame_number =	ohci_get_frame,
++
++	/*
++	 * root hub support
++	 */
++	.hub_status_data =	ohci_hub_status_data,
++	.hub_control =		ohci_hub_control,
++#ifdef	CONFIG_USB_SUSPEND
++	.hub_suspend =		ohci_hub_suspend,
++	.hub_resume =		ohci_hub_resume,
++#endif
++	.start_port_reset =	ohci_start_port_reset,
++};
++
++static int tangox_ohci_drv_probe(struct platform_device *pdev)
++{
++	unsigned int temp= 0 ;
++	int ret;
++
++	if (usb_disabled())
++		return -ENODEV;
++
++	tangox_usb_init();
++
++	/*check if need switch to polling mode 
++	  The OHCI register reset bug should be resolved in ES8 or above,
++	  as the result, using interrupt mode instead.
++	*/
++	if(is_tango2_es89() || is_tango3_chip())
++		polling_mode = 0;
++	else {
++		temp = gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + 0x8);
++		if(polling_mode == 0){
++			if (temp & 0x7)
++				polling_mode = 1;
++			else
++				polling_mode = 0;
++		}
++	}
++
++	if(polling_mode == 0)
++		printk("Initializing TangoX USB OHCI Controller Membase=0x%x, irq=%d\n", 
++				NON_CACHED(TANGOX_OHCI_BASE_ADDR),TANGOX_OHCI_IRQ);
++	else 
++		printk("Initializing TangoX USB OHCI Controller Polling mode, Membase=0x%x Status=0x%x\n",
++				NON_CACHED(TANGOX_OHCI_BASE_ADDR), temp);
++
++	if(polling_mode)
++		ret = tangox_ohci_probe(&tangox_ohci_polling_hc_driver, pdev);
++	else
++		ret = tangox_ohci_probe(&tangox_ohci_hc_driver, pdev);
++
++	return ret;
++}
++
++static int tangox_ohci_drv_remove(struct platform_device *pdev)
++{
++	struct usb_hcd *hcd = dev_get_drvdata(&pdev->dev);
++
++	tangox_ohci_remove(hcd, pdev);
++        tangox_usb_deinit();
++	return 0;
++}
++
++static void tangox_ohci_release_dev(struct device * dev)
++{
++        dev->parent = NULL;
++}
++
++
++static struct platform_driver tangox_ohci_driver = {
++	.probe		= tangox_ohci_drv_probe,
++	.remove		= tangox_ohci_drv_remove,
++	.driver = {
++		.name = (char *)OHCI_HCD_NAME,
++		.bus = &platform_bus_type
++	},
++
++#if	defined(CONFIG_USB_SUSPEND) || defined(CONFIG_PM)
++	.suspend	= NULL,
++	.resume		= NULL,
++#endif
++};
++
++
++/* The dmamask must be set for OHCI to work */
++static u64 ohci_dmamask = ~(u32)0;
++static struct platform_device tangox_ohci_device = {
++	.name           = OHCI_HCD_NAME,
++	.id             = -1,
++	.dev = {
++		.dma_mask               = &ohci_dmamask,
++		.coherent_dma_mask      = 0xffffffff,
++		.release				= tangox_ohci_release_dev,
++	},
++	.num_resources  = 0,
++	.resource       = 0,
++};
++
++static struct platform_device *tangox_platform_devices[] __initdata = {
++	&tangox_ohci_device,
++};
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/tangox-ehci-hcd.c linux-2.6.22.19/drivers/usb/host/tangox-ehci-hcd.c
+--- linux-2.6.22.19.ref/drivers/usb/host/tangox-ehci-hcd.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/tangox-ehci-hcd.c	2010-07-26 09:25:17.647693138 -0700
+@@ -0,0 +1,993 @@
++/*
++ * Copyright (c) 2000-2004 by David Brownell
++ * Copyright (C) 2004-2008 Sigma Designs, Inc.
++ *
++ * This program is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU General Public License as published by the
++ * Free Software Foundation; either version 2 of the License, or (at your
++ * option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful, but
++ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
++ * for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software Foundation,
++ * Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ */
++
++#include <linux/module.h>
++#include <linux/pci.h>
++#include <linux/dmapool.h>
++#include <linux/kernel.h>
++#include <linux/delay.h>
++#include <linux/ioport.h>
++#include <linux/sched.h>
++#include <linux/slab.h>
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/timer.h>
++#include <linux/list.h>
++#include <linux/interrupt.h>
++#include <linux/reboot.h>
++#include <linux/usb.h>
++#include <linux/moduleparam.h>
++#include <linux/dma-mapping.h>
++
++#include "../core/hcd.h"
++#include "../core/usb.h"
++#include "../core/tangox-usb.h"
++
++#include <asm/byteorder.h>
++#include <asm/io.h>
++#include <asm/irq.h>
++#include <asm/system.h>
++#include <asm/unaligned.h>
++#ifdef CONFIG_PPC_PS3
++#include <asm/firmware.h>
++#endif
++
++
++/*-------------------------------------------------------------------------*/
++
++/*
++ * EHCI hc_driver implementation ... experimental, incomplete.
++ * Based on the final 1.0 register interface specification.
++ *
++ * USB 2.0 shows up in upcoming www.pcmcia.org technology.
++ * First was PCMCIA, like ISA; then CardBus, which is PCI.
++ * Next comes "CardBay", using USB 2.0 signals.
++ *
++ * Contains additional contributions by Brad Hards, Rory Bolt, and others.
++ * Special thanks to Intel and VIA for providing host controllers to
++ * test this driver on, and Cypress (including In-System Design) for
++ * providing early devices for those host controllers to talk to!
++ *
++ * HISTORY:
++ *
++ * 2004-05-10 Root hub and PCI suspend/resume support; remote wakeup. (db)
++ * 2004-02-24 Replace pci_* with generic dma_* API calls (dsaxena@plexity.net)
++ * 2003-12-29 Rewritten high speed iso transfer support (by Michal Sojka,
++ *	<sojkam@centrum.cz>, updates by DB).
++ *
++ * 2002-11-29	Correct handling for hw async_next register.
++ * 2002-08-06	Handling for bulk and interrupt transfers is mostly shared;
++ *	only scheduling is different, no arbitrary limitations.
++ * 2002-07-25	Sanity check PCI reads, mostly for better cardbus support,
++ *	clean up HC run state handshaking.
++ * 2002-05-24	Preliminary FS/LS interrupts, using scheduling shortcuts
++ * 2002-05-11	Clear TT errors for FS/LS ctrl/bulk.  Fill in some other
++ *	missing pieces:  enabling 64bit dma, handoff from BIOS/SMM.
++ * 2002-05-07	Some error path cleanups to report better errors; wmb();
++ *	use non-CVS version id; better iso bandwidth claim.
++ * 2002-04-19	Control/bulk/interrupt submit no longer uses giveback() on
++ *	errors in submit path.  Bugfixes to interrupt scheduling/processing.
++ * 2002-03-05	Initial high-speed ISO support; reduce ITD memory; shift
++ *	more checking to generic hcd framework (db).  Make it work with
++ *	Philips EHCI; reduce PCI traffic; shorten IRQ path (Rory Bolt).
++ * 2002-01-14	Minor cleanup; version synch.
++ * 2002-01-08	Fix roothub handoff of FS/LS to companion controllers.
++ * 2002-01-04	Control/Bulk queuing behaves.
++ *
++ * 2001-12-12	Initial patch version for Linux 2.5.1 kernel.
++ * 2001-June	Works with usb-storage and NEC EHCI on 2.4
++ */
++
++#define DRIVER_VERSION "10 Dec 2004"
++#define DRIVER_AUTHOR "David Brownell"
++#define DRIVER_DESC "USB 2.0 'Enhanced' Host Controller (EHCI) Driver"
++
++
++#undef EHCI_VERBOSE_DEBUG
++#undef EHCI_URB_TRACE
++
++#ifdef DEBUG
++#define EHCI_STATS
++#endif
++
++/* magic numbers that can affect system performance */
++#define	EHCI_TUNE_CERR		3	/* 0-3 qtd retries; 0 == don't stop */
++#define	EHCI_TUNE_RL_HS		4	/* nak throttle; see 4.9 */
++#define	EHCI_TUNE_RL_TT		0
++#define	EHCI_TUNE_MULT_HS	1	/* 1-3 transactions/uframe; 4.10.3 */
++#define	EHCI_TUNE_MULT_TT	1
++#define	EHCI_TUNE_FLS		2	/* (small) 256 frame schedule */
++
++#define EHCI_IAA_JIFFIES	((HZ/1000)?(HZ/1000):1)	/* arbitrary; ~1 msec */
++#define EHCI_IO_JIFFIES		(HZ/10)		/* io watchdog > irq_thresh */
++#define EHCI_ASYNC_JIFFIES	(HZ/20)		/* async idle timeout */
++#define EHCI_SHRINK_JIFFIES	(HZ/200)	/* async qh unlink delay */
++
++/* Initial IRQ latency:  faster than hw default */
++static int log2_irq_thresh = 1;		// 0 to 6
++module_param (log2_irq_thresh, int, S_IRUGO);
++MODULE_PARM_DESC (log2_irq_thresh, "log2 IRQ latency, 1-64 microframes");
++
++/* initial park setting:  slower than hw default */
++static unsigned park = 0;
++module_param (park, uint, S_IRUGO);
++MODULE_PARM_DESC (park, "park setting; 1-3 back-to-back async packets");
++
++/* for flakey hardware, ignore overcurrent indicators */
++static int ignore_oc = 0;
++module_param (ignore_oc, bool, S_IRUGO);
++MODULE_PARM_DESC (ignore_oc, "ignore bogus hardware overcurrent indications");
++
++#define	INTR_MASK (STS_IAA | STS_FATAL | STS_PCD | STS_ERR | STS_INT)
++
++/*-------------------------------------------------------------------------*/
++
++#include "ehci.h"
++#include "ehci-dbg.c"
++
++/*-------------------------------------------------------------------------*/
++
++/* function pointers  to distinguish es8 from earlier revisions
++*/
++static void (*start_unlink_async) (struct ehci_hcd *, struct ehci_qh *);
++
++/*
++ * handshake - spin reading hc until handshake completes or fails
++ * @ptr: address of hc register to be read
++ * @mask: bits to look at in result of read
++ * @done: value of those bits when handshake succeeds
++ * @usec: timeout in microseconds
++ *
++ * Returns negative errno, or zero on success
++ *
++ * Success happens when the "mask" bits have the specified value (hardware
++ * handshake done).  There are two failure modes:  "usec" have passed (major
++ * hardware flakeout), or the register reads as all-ones (hardware removed).
++ *
++ * That last failure should_only happen in cases like physical cardbus eject
++ * before driver shutdown. But it also seems to be caused by bugs in cardbus
++ * bridge shutdown:  shutting down the bridge before the devices using it.
++ */
++static int handshake (struct ehci_hcd *ehci, void __iomem *ptr,
++		      u32 mask, u32 done, int usec)
++{
++	u32	result;
++
++	do {
++		result = ehci_readl(ehci, ptr);
++		if (result == ~(u32)0)		/* card removed */
++			return -ENODEV;
++		result &= mask;
++		if (result == done)
++			return 0;
++		udelay (1);
++		usec--;
++	} while (usec > 0);
++	return -ETIMEDOUT;
++}
++
++/* force HC to halt state from unknown (EHCI spec section 2.3) */
++static int ehci_halt (struct ehci_hcd *ehci)
++{
++	u32	temp = ehci_readl(ehci, &ehci->regs->status);
++
++	/* disable any irqs left enabled by previous code */
++	ehci_writel(ehci, 0, &ehci->regs->intr_enable);
++
++	if ((temp & STS_HALT) != 0)
++		return 0;
++
++	temp = ehci_readl(ehci, &ehci->regs->command);
++	temp &= ~CMD_RUN;
++	ehci_writel(ehci, temp, &ehci->regs->command);
++	return handshake (ehci, &ehci->regs->status,
++			  STS_HALT, STS_HALT, 16 * 125);
++}
++
++/* put TDI/ARC silicon into EHCI mode */
++static void tdi_reset (struct ehci_hcd *ehci)
++{
++	u32 __iomem	*reg_ptr;
++	u32		tmp;
++
++	reg_ptr = (u32 __iomem *)(((u8 __iomem *)ehci->regs) + 0x68);
++	tmp = ehci_readl(ehci, reg_ptr);
++	tmp |= 0x3;
++	ehci_writel(ehci, tmp, reg_ptr);
++}
++
++/* reset a non-running (STS_HALT == 1) controller */
++static int ehci_reset (struct ehci_hcd *ehci)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++	int	retval;
++	u32	command = ehci_readl(ehci, &ehci->regs->command);
++
++	command |= CMD_RESET;
++	dbg_cmd (ehci, "reset", command);
++	ehci_writel(ehci, command, &ehci->regs->command);
++	ehci_to_hcd(ehci)->state = HC_STATE_HALT;
++	ehci->next_statechange = jiffies;
++	retval = handshake (ehci, &ehci->regs->command,
++			    CMD_RESET, 0, 250 * 1000);
++
++	if ((chip_id == 0x8652) || (chip_id == 0x8646))
++		ehci_writel(ehci, 0x3, (void *)(NON_CACHED(TANGOX_EHCI_BASE_ADDR) + USBMODE));
++
++	if (retval)
++		return retval;
++
++	if (ehci_is_TDI(ehci))
++		tdi_reset (ehci);
++
++	return retval;
++}
++
++/* idle the controller (from running) */
++static void ehci_quiesce (struct ehci_hcd *ehci)
++{
++	u32	temp;
++
++#ifdef DEBUG
++	if (!HC_IS_RUNNING (ehci_to_hcd(ehci)->state))
++		BUG ();
++#endif
++
++	/* wait for any schedule enables/disables to take effect */
++	temp = ehci_readl(ehci, &ehci->regs->command) << 10;
++	temp &= STS_ASS | STS_PSS;
++	if (handshake (ehci, &ehci->regs->status, STS_ASS | STS_PSS,
++				temp, 16 * 125) != 0) {
++		ehci_to_hcd(ehci)->state = HC_STATE_HALT;
++		return;
++	}
++
++	/* then disable anything that's still active */
++	temp = ehci_readl(ehci, &ehci->regs->command);
++	temp &= ~(CMD_ASE | CMD_IAAD | CMD_PSE);
++	ehci_writel(ehci, temp, &ehci->regs->command);
++
++	/* hardware can take 16 microframes to turn off ... */
++	if (handshake (ehci, &ehci->regs->status, STS_ASS | STS_PSS,
++				0, 16 * 125) != 0) {
++		ehci_to_hcd(ehci)->state = HC_STATE_HALT;
++		return;
++	}
++}
++
++/*-------------------------------------------------------------------------*/
++
++static void ehci_work(struct ehci_hcd *ehci);
++
++#include "ehci-hub.c"
++#include "ehci-mem.c"
++#include "tangox-ehci-q.c"
++#include "ehci-sched.c"
++
++/*-------------------------------------------------------------------------*/
++
++static void ehci_watchdog (unsigned long param)
++{
++	struct ehci_hcd		*ehci = (struct ehci_hcd *) param;
++	unsigned long		flags;
++
++	spin_lock_irqsave (&ehci->lock, flags);
++
++	/* lost IAA irqs wedge things badly; seen with a vt8235 */
++	if (ehci->reclaim) {
++		u32		status = ehci_readl(ehci, &ehci->regs->status);
++		if (status & STS_IAA) {
++			ehci_vdbg (ehci, "lost IAA\n");
++			COUNT (ehci->stats.lost_iaa);
++			ehci_writel(ehci, STS_IAA, &ehci->regs->status);
++			ehci->reclaim_ready = 1;
++		}
++	}
++
++ 	/* stop async processing after it's idled a bit */
++	if (test_bit (TIMER_ASYNC_OFF, &ehci->actions))
++		start_unlink_async (ehci, ehci->async);
++
++	/* ehci could run by timer, without IRQs ... */
++	ehci_work (ehci);
++
++	spin_unlock_irqrestore (&ehci->lock, flags);
++}
++
++/* On some systems, leaving remote wakeup enabled prevents system shutdown.
++ * The firmware seems to think that powering off is a wakeup event!
++ * This routine turns off remote wakeup and everything else, on all ports.
++ */
++static void ehci_turn_off_all_ports(struct ehci_hcd *ehci)
++{
++	int	port = HCS_N_PORTS(ehci->hcs_params);
++
++	while (port--)
++		ehci_writel(ehci, PORT_RWC_BITS,
++				&ehci->regs->port_status[port]);
++}
++
++/* ehci_shutdown kick in for silicon on any bus (not just pci, etc).
++ * This forcibly disables dma and IRQs, helping kexec and other cases
++ * where the next system software may expect clean state.
++ */
++static void
++ehci_shutdown (struct usb_hcd *hcd)
++{
++	struct ehci_hcd	*ehci;
++
++	ehci = hcd_to_ehci (hcd);
++	(void) ehci_halt (ehci);
++	ehci_turn_off_all_ports(ehci);
++
++	/* make BIOS/etc use companion controller during reboot */
++	ehci_writel(ehci, 0, &ehci->regs->configured_flag);
++
++	/* unblock posted writes */
++	ehci_readl(ehci, &ehci->regs->configured_flag);
++}
++
++static void ehci_port_power (struct ehci_hcd *ehci, int is_on)
++{
++	unsigned port;
++
++	if (!HCS_PPC (ehci->hcs_params))
++		return;
++
++	ehci_dbg (ehci, "...power%s ports...\n", is_on ? "up" : "down");
++	for (port = HCS_N_PORTS (ehci->hcs_params); port > 0; )
++		(void) ehci_hub_control(ehci_to_hcd(ehci),
++				is_on ? SetPortFeature : ClearPortFeature,
++				USB_PORT_FEAT_POWER,
++				port--, NULL, 0);
++	msleep(20);
++}
++
++/*-------------------------------------------------------------------------*/
++
++/*
++ * ehci_work is called from some interrupts, timers, and so on.
++ * it calls driver completion functions, after dropping ehci->lock.
++ */
++static void ehci_work (struct ehci_hcd *ehci)
++{
++	timer_action_done (ehci, TIMER_IO_WATCHDOG);
++	if (ehci->reclaim_ready)
++		end_unlink_async (ehci);
++
++	/* another CPU may drop ehci->lock during a schedule scan while
++	 * it reports urb completions.  this flag guards against bogus
++	 * attempts at re-entrant schedule scanning.
++	 */
++	if (ehci->scanning)
++		return;
++	ehci->scanning = 1;
++	scan_async (ehci);
++	if (ehci->next_uframe != -1)
++		scan_periodic (ehci);
++	ehci->scanning = 0;
++
++	/* the IO watchdog guards against hardware or driver bugs that
++	 * misplace IRQs, and should let us run completely without IRQs.
++	 * such lossage has been observed on both VT6202 and VT8235.
++	 */
++	if (HC_IS_RUNNING (ehci_to_hcd(ehci)->state) &&
++			(ehci->async->qh_next.ptr != NULL ||
++			 ehci->periodic_sched != 0))
++		timer_action (ehci, TIMER_IO_WATCHDOG);
++}
++
++static void ehci_stop (struct usb_hcd *hcd)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++
++	ehci_dbg (ehci, "stop\n");
++
++	/* Turn off port power on all root hub ports. */
++	ehci_port_power (ehci, 0);
++
++	/* no more interrupts ... */
++	del_timer_sync (&ehci->watchdog);
++
++	spin_lock_irq(&ehci->lock);
++	if (HC_IS_RUNNING (hcd->state))
++		ehci_quiesce (ehci);
++
++	ehci_reset (ehci);
++	ehci_writel(ehci, 0, &ehci->regs->intr_enable);
++	spin_unlock_irq(&ehci->lock);
++
++	/* let companion controllers work when we aren't */
++	ehci_writel(ehci, 0, &ehci->regs->configured_flag);
++
++	remove_companion_file(ehci);
++	remove_debug_files (ehci);
++
++	/* root hub is shut down separately (first, when possible) */
++	spin_lock_irq (&ehci->lock);
++	if (ehci->async)
++		ehci_work (ehci);
++	spin_unlock_irq (&ehci->lock);
++	ehci_mem_cleanup (ehci);
++
++#ifdef	EHCI_STATS
++	ehci_dbg (ehci, "irq normal %ld err %ld reclaim %ld (lost %ld)\n",
++		ehci->stats.normal, ehci->stats.error, ehci->stats.reclaim,
++		ehci->stats.lost_iaa);
++	ehci_dbg (ehci, "complete %ld unlink %ld\n",
++		ehci->stats.complete, ehci->stats.unlink);
++#endif
++
++	dbg_status (ehci, "ehci_stop completed",
++		    ehci_readl(ehci, &ehci->regs->status));
++}
++
++/* one-time init, only for memory state */
++static int ehci_init(struct usb_hcd *hcd)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci(hcd);
++	u32			temp;
++	int			retval;
++	u32			hcc_params;
++
++	if(is_tango2_es89() || is_tango3_chip())
++		start_unlink_async = (void *) tangox_es8_start_unlink_async;
++	else 
++		start_unlink_async = (void *) tangox_es7_start_unlink_async;
++	
++	spin_lock_init(&ehci->lock);
++
++	init_timer(&ehci->watchdog);
++	ehci->watchdog.function = ehci_watchdog;
++	ehci->watchdog.data = (unsigned long) ehci;
++
++	/*
++	 * hw default: 1K periodic list heads, one per frame.
++	 * periodic_size can shrink by USBCMD update if hcc_params allows.
++	 */
++	ehci->periodic_size = DEFAULT_I_TDPS;
++	if ((retval = ehci_mem_init(ehci, GFP_KERNEL)) < 0)
++		return retval;
++
++	/* controllers may cache some of the periodic schedule ... */
++	hcc_params = ehci_readl(ehci, &ehci->caps->hcc_params);
++	if (HCC_ISOC_CACHE(hcc_params))		// full frame cache
++		ehci->i_thresh = 8;
++	else					// N microframes cached
++		ehci->i_thresh = 2 + HCC_ISOC_THRES(hcc_params);
++
++	ehci->reclaim = NULL;
++	ehci->reclaim_ready = 0;
++	ehci->next_uframe = -1;
++
++	/*
++	 * dedicate a qh for the async ring head, since we couldn't unlink
++	 * a 'real' qh without stopping the async schedule [4.8].  use it
++	 * as the 'reclamation list head' too.
++	 * its dummy is used in hw_alt_next of many tds, to prevent the qh
++	 * from automatically advancing to the next td after short reads.
++	 */
++	ehci->async->qh_next.qh = NULL;
++	ehci->async->hw_next = QH_NEXT(ehci->async->qh_dma);
++	ehci->async->hw_info1 = cpu_to_le32(QH_HEAD);
++	ehci->async->hw_token = cpu_to_le32(QTD_STS_HALT);
++	ehci->async->hw_qtd_next = EHCI_LIST_END;
++	ehci->async->qh_state = QH_STATE_LINKED;
++	ehci->async->hw_alt_next = QTD_NEXT(ehci->async->dummy->qtd_dma);
++
++	/* clear interrupt enables, set irq latency */
++	if (log2_irq_thresh < 0 || log2_irq_thresh > 6)
++		log2_irq_thresh = 0;
++	temp = 1 << (16 + log2_irq_thresh);
++	if (HCC_CANPARK(hcc_params)) {
++		/* HW default park == 3, on hardware that supports it (like
++		 * NVidia and ALI silicon), maximizes throughput on the async
++		 * schedule by avoiding QH fetches between transfers.
++		 *
++		 * With fast usb storage devices and NForce2, "park" seems to
++		 * make problems:  throughput reduction (!), data errors...
++		 */
++		if (park) {
++			park = min(park, (unsigned) 3);
++			temp |= CMD_PARK;
++			temp |= park << 8;
++		}
++		ehci_dbg(ehci, "park %d\n", park);
++	}
++	if (HCC_PGM_FRAMELISTLEN(hcc_params)) {
++		/* periodic schedule size can be smaller than default */
++		temp &= ~(3 << 2);
++		temp |= (EHCI_TUNE_FLS << 2);
++		switch (EHCI_TUNE_FLS) {
++		case 0: ehci->periodic_size = 1024; break;
++		case 1: ehci->periodic_size = 512; break;
++		case 2: ehci->periodic_size = 256; break;
++		default:	BUG();
++		}
++	}
++	ehci->command = temp;
++
++	return 0;
++}
++
++/* start HC running; it's halted, ehci_init() has been run (once) */
++static int ehci_run (struct usb_hcd *hcd)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	int			retval;
++	u32			temp;
++	u32			hcc_params;
++
++	hcd->uses_new_polling = 1;
++	hcd->poll_rh = 0;
++
++	/* EHCI spec section 4.1 */
++	if ((retval = ehci_reset(ehci)) != 0) {
++		ehci_mem_cleanup(ehci);
++		return retval;
++	}
++	ehci_writel(ehci, ehci->periodic_dma, &ehci->regs->frame_list);
++	ehci_writel(ehci, (u32)ehci->async->qh_dma, &ehci->regs->async_next);
++
++	/*
++	 * hcc_params controls whether ehci->regs->segment must (!!!)
++	 * be used; it constrains QH/ITD/SITD and QTD locations.
++	 * pci_pool consistent memory always uses segment zero.
++	 * streaming mappings for I/O buffers, like pci_map_single(),
++	 * can return segments above 4GB, if the device allows.
++	 *
++	 * NOTE:  the dma mask is visible through dma_supported(), so
++	 * drivers can pass this info along ... like NETIF_F_HIGHDMA,
++	 * Scsi_Host.highmem_io, and so forth.  It's readonly to all
++	 * host side drivers though.
++	 */
++	hcc_params = ehci_readl(ehci, &ehci->caps->hcc_params);
++	if (HCC_64BIT_ADDR(hcc_params)) {
++		ehci_writel(ehci, 0, &ehci->regs->segment);
++#if 0
++// this is deeply broken on almost all architectures
++		if (!dma_set_mask(hcd->self.controller, DMA_64BIT_MASK))
++			ehci_info(ehci, "enabled 64bit DMA\n");
++#endif
++	}
++
++
++	// Philips, Intel, and maybe others need CMD_RUN before the
++	// root hub will detect new devices (why?); NEC doesn't
++	ehci->command &= ~(CMD_LRESET|CMD_IAAD|CMD_PSE|CMD_ASE|CMD_RESET);
++	ehci->command |= CMD_RUN;
++	ehci_writel(ehci, ehci->command, &ehci->regs->command);
++	dbg_cmd (ehci, "init", ehci->command);
++
++	/*
++	 * Start, enabling full USB 2.0 functionality ... usb 1.1 devices
++	 * are explicitly handed to companion controller(s), so no TT is
++	 * involved with the root hub.  (Except where one is integrated,
++	 * and there's no companion controller unless maybe for USB OTG.)
++	 *
++	 * Turning on the CF flag will transfer ownership of all ports
++	 * from the companions to the EHCI controller.  If any of the
++	 * companions are in the middle of a port reset at the time, it
++	 * could cause trouble.  Write-locking ehci_cf_port_reset_rwsem
++	 * guarantees that no resets are in progress.  After we set CF,
++	 * a short delay lets the hardware catch up; new resets shouldn't
++	 * be started before the port switching actions could complete.
++	 */
++	down_write(&ehci_cf_port_reset_rwsem);
++	hcd->state = HC_STATE_RUNNING;
++	ehci_writel(ehci, FLAG_CF, &ehci->regs->configured_flag);
++	ehci_readl(ehci, &ehci->regs->command);	/* unblock posted writes */
++	msleep(5);
++	up_write(&ehci_cf_port_reset_rwsem);
++
++	temp = HC_VERSION(ehci_readl(ehci, &ehci->caps->hc_capbase));
++	ehci_info (ehci,
++		"USB %x.%x started, EHCI %x.%02x, driver %s%s\n",
++		((ehci->sbrn & 0xf0)>>4), (ehci->sbrn & 0x0f),
++		temp >> 8, temp & 0xff, DRIVER_VERSION,
++		ignore_oc ? ", overcurrent ignored" : "");
++
++	ehci_writel(ehci, INTR_MASK,
++		    &ehci->regs->intr_enable); /* Turn On Interrupts */
++
++	/* GRR this is run-once init(), being done every time the HC starts.
++	 * So long as they're part of class devices, we can't do it init()
++	 * since the class device isn't created that early.
++	 */
++	create_debug_files(ehci);
++	create_companion_file(ehci);
++
++	return 0;
++}
++
++/*-------------------------------------------------------------------------*/
++
++static irqreturn_t ehci_irq (struct usb_hcd *hcd)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	u32			status, pcd_status = 0;
++	int			bh;
++
++	spin_lock (&ehci->lock);
++
++	status = ehci_readl(ehci, &ehci->regs->status);
++
++	/* e.g. cardbus physical eject */
++	if (status == ~(u32) 0) {
++		ehci_dbg (ehci, "device removed\n");
++		goto dead;
++	}
++
++	status &= INTR_MASK;
++	if (!status) {			/* irq sharing? */
++		spin_unlock(&ehci->lock);
++		return IRQ_NONE;
++	}
++
++	/* clear (just) interrupts */
++	ehci_writel(ehci, status, &ehci->regs->status);
++	ehci_readl(ehci, &ehci->regs->command);	/* unblock posted write */
++	bh = 0;
++
++#ifdef	EHCI_VERBOSE_DEBUG
++	/* unrequested/ignored: Frame List Rollover */
++	dbg_status (ehci, "irq", status);
++#endif
++
++	/* INT, ERR, and IAA interrupt rates can be throttled */
++
++	/* normal [4.15.1.2] or error [4.15.1.1] completion */
++	if (likely ((status & (STS_INT|STS_ERR)) != 0)) {
++		if (likely ((status & STS_ERR) == 0))
++			COUNT (ehci->stats.normal);
++		else
++			COUNT (ehci->stats.error);
++		bh = 1;
++	}
++
++	/* complete the unlinking of some qh [4.15.2.3] */
++	if (status & STS_IAA) {
++		COUNT (ehci->stats.reclaim);
++		ehci->reclaim_ready = 1;
++		bh = 1;
++	}
++
++	/* remote wakeup [4.3.1] */
++	if (status & STS_PCD) {
++		unsigned	i = HCS_N_PORTS (ehci->hcs_params);
++		pcd_status = status;
++
++		/* resume root hub? */
++		if (!(ehci_readl(ehci, &ehci->regs->command) & CMD_RUN))
++			usb_hcd_resume_root_hub(hcd);
++
++		while (i--) {
++			int pstatus = ehci_readl(ehci,
++						 &ehci->regs->port_status [i]);
++
++			if (pstatus & PORT_OWNER)
++				continue;
++			if (!(pstatus & PORT_RESUME)
++					|| ehci->reset_done [i] != 0)
++				continue;
++
++			/* start 20 msec resume signaling from this port,
++			 * and make khubd collect PORT_STAT_C_SUSPEND to
++			 * stop that signaling.
++			 */
++			ehci->reset_done [i] = jiffies + msecs_to_jiffies (20);
++			ehci_dbg (ehci, "port %d remote wakeup\n", i + 1);
++			mod_timer(&hcd->rh_timer, ehci->reset_done[i]);
++		}
++	}
++
++	/* PCI errors [4.15.2.4] */
++	if (unlikely ((status & STS_FATAL) != 0)) {
++		/* bogus "fatal" IRQs appear on some chips... why?  */
++		status = ehci_readl(ehci, &ehci->regs->status);
++		dbg_cmd (ehci, "fatal", ehci_readl(ehci,
++						   &ehci->regs->command));
++		dbg_status (ehci, "fatal", status);
++		if (status & STS_HALT) {
++			ehci_err (ehci, "fatal error\n");
++dead:
++			ehci_reset (ehci);
++			ehci_writel(ehci, 0, &ehci->regs->configured_flag);
++			/* generic layer kills/unlinks all urbs, then
++			 * uses ehci_stop to clean up the rest
++			 */
++			bh = 1;
++		}
++	}
++
++	if (bh)
++		ehci_work (ehci);
++	spin_unlock (&ehci->lock);
++	if (pcd_status & STS_PCD)
++		usb_hcd_poll_rh_status(hcd);
++	return IRQ_HANDLED;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/*
++ * non-error returns are a promise to giveback() the urb later
++ * we drop ownership so next owner (or urb unlink) can get it
++ *
++ * urb + dev is in hcd.self.controller.urb_list
++ * we're queueing TDs onto software and hardware lists
++ *
++ * hcd-specific init for hcpriv hasn't been done yet
++ *
++ * NOTE:  control, bulk, and interrupt share the same code to append TDs
++ * to a (possibly active) QH, and the same QH scanning code.
++ */
++static int ehci_urb_enqueue (
++	struct usb_hcd	*hcd,
++	struct usb_host_endpoint *ep,
++	struct urb	*urb,
++	gfp_t		mem_flags
++) {
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	struct list_head	qtd_list;
++
++	INIT_LIST_HEAD (&qtd_list);
++
++	switch (usb_pipetype (urb->pipe)) {
++	// case PIPE_CONTROL:
++	// case PIPE_BULK:
++	default:
++		if (!qh_urb_transaction (ehci, urb, &qtd_list, mem_flags))
++			return -ENOMEM;
++		return submit_async (ehci, ep, urb, &qtd_list, mem_flags);
++
++	case PIPE_INTERRUPT:
++		if (!qh_urb_transaction (ehci, urb, &qtd_list, mem_flags))
++			return -ENOMEM;
++		return intr_submit (ehci, ep, urb, &qtd_list, mem_flags);
++
++	case PIPE_ISOCHRONOUS:
++		if (urb->dev->speed == USB_SPEED_HIGH)
++			return itd_submit (ehci, urb, mem_flags);
++		else
++			return sitd_submit (ehci, urb, mem_flags);
++	}
++}
++
++static void unlink_async (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	/* if we need to use IAA and it's busy, defer */
++	if (qh->qh_state == QH_STATE_LINKED
++			&& ehci->reclaim
++			&& HC_IS_RUNNING (ehci_to_hcd(ehci)->state)) {
++		struct ehci_qh		*last;
++
++		for (last = ehci->reclaim;
++				last->reclaim;
++				last = last->reclaim)
++			continue;
++		qh->qh_state = QH_STATE_UNLINK_WAIT;
++		last->reclaim = qh;
++
++	/* bypass IAA if the hc can't care */
++	} else if (!HC_IS_RUNNING (ehci_to_hcd(ehci)->state) && ehci->reclaim)
++		end_unlink_async (ehci);
++
++	/* something else might have unlinked the qh by now */
++	if (qh->qh_state == QH_STATE_LINKED)
++		start_unlink_async (ehci, qh);
++}
++
++/* remove from hardware lists
++ * completions normally happen asynchronously
++ */
++
++static int ehci_urb_dequeue (struct usb_hcd *hcd, struct urb *urb)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	struct ehci_qh		*qh;
++	unsigned long		flags;
++
++	spin_lock_irqsave (&ehci->lock, flags);
++	switch (usb_pipetype (urb->pipe)) {
++	// case PIPE_CONTROL:
++	// case PIPE_BULK:
++	default:
++		qh = (struct ehci_qh *) urb->hcpriv;
++		if (!qh)
++			break;
++		unlink_async (ehci, qh);
++		break;
++
++	case PIPE_INTERRUPT:
++		qh = (struct ehci_qh *) urb->hcpriv;
++		if (!qh)
++			break;
++		switch (qh->qh_state) {
++		case QH_STATE_LINKED:
++			intr_deschedule (ehci, qh);
++			/* FALL THROUGH */
++		case QH_STATE_IDLE:
++			qh_completions (ehci, qh);
++			break;
++		default:
++			ehci_dbg (ehci, "bogus qh %p state %d\n",
++					qh, qh->qh_state);
++			goto done;
++		}
++
++		/* reschedule QH iff another request is queued */
++		if (!list_empty (&qh->qtd_list)
++				&& HC_IS_RUNNING (hcd->state)) {
++			int status;
++
++			status = qh_schedule (ehci, qh);
++			spin_unlock_irqrestore (&ehci->lock, flags);
++
++			if (status != 0) {
++				// shouldn't happen often, but ...
++				// FIXME kill those tds' urbs
++				err ("can't reschedule qh %p, err %d",
++					qh, status);
++			}
++			return status;
++		}
++		break;
++
++	case PIPE_ISOCHRONOUS:
++		// itd or sitd ...
++
++		// wait till next completion, do it then.
++		// completion irqs can wait up to 1024 msec,
++		break;
++	}
++done:
++	spin_unlock_irqrestore (&ehci->lock, flags);
++	return 0;
++}
++
++/*-------------------------------------------------------------------------*/
++
++// bulk qh holds the data toggle
++
++static void
++ehci_endpoint_disable (struct usb_hcd *hcd, struct usb_host_endpoint *ep)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	unsigned long		flags;
++	struct ehci_qh		*qh, *tmp;
++
++	/* ASSERT:  any requests/urbs are being unlinked */
++	/* ASSERT:  nobody can be submitting urbs for this any more */
++
++rescan:
++	spin_lock_irqsave (&ehci->lock, flags);
++	qh = ep->hcpriv;
++	if (!qh)
++		goto done;
++
++	/* endpoints can be iso streams.  for now, we don't
++	 * accelerate iso completions ... so spin a while.
++	 */
++	if (qh->hw_info1 == 0) {
++		ehci_vdbg (ehci, "iso delay\n");
++		goto idle_timeout;
++	}
++
++	if (!HC_IS_RUNNING (hcd->state))
++		qh->qh_state = QH_STATE_IDLE;
++	switch (qh->qh_state) {
++	case QH_STATE_LINKED:
++		for (tmp = ehci->async->qh_next.qh;
++				tmp && tmp != qh;
++				tmp = tmp->qh_next.qh)
++			continue;
++		/* periodic qh self-unlinks on empty */
++		if (!tmp)
++			goto nogood;
++		unlink_async (ehci, qh);
++		/* FALL THROUGH */
++	case QH_STATE_UNLINK:		/* wait for hw to finish? */
++idle_timeout:
++		spin_unlock_irqrestore (&ehci->lock, flags);
++		schedule_timeout_uninterruptible(1);
++		goto rescan;
++	case QH_STATE_IDLE:		/* fully unlinked */
++		if (list_empty (&qh->qtd_list)) {
++			qh_put (qh);
++			break;
++		}
++		/* else FALL THROUGH */
++	default:
++nogood:
++		/* caller was supposed to have unlinked any requests;
++		 * that's not our job.  just leak this memory.
++		 */
++		ehci_err (ehci, "qh %p (#%02x) state %d%s\n",
++			qh, ep->desc.bEndpointAddress, qh->qh_state,
++			list_empty (&qh->qtd_list) ? "" : "(has tds)");
++		break;
++	}
++	ep->hcpriv = NULL;
++done:
++	spin_unlock_irqrestore (&ehci->lock, flags);
++	return;
++}
++
++static int ehci_get_frame (struct usb_hcd *hcd)
++{
++	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
++	return (ehci_readl(ehci, &ehci->regs->frame_index) >> 3) %
++		ehci->periodic_size;
++}
++
++/*-------------------------------------------------------------------------*/
++
++#define DRIVER_INFO DRIVER_VERSION " " DRIVER_DESC
++
++MODULE_DESCRIPTION (DRIVER_INFO);
++MODULE_AUTHOR (DRIVER_AUTHOR);
++MODULE_LICENSE ("GPL");
++
++#include "ehci-tangox.c"
++
++static int __init ehci_hcd_init(void)
++{
++	int retval = 0;
++
++	pr_debug("%s: block sizes: qh %Zd qtd %Zd itd %Zd sitd %Zd\n",
++		 EHCI_HCD_NAME,
++		 sizeof(struct ehci_qh), sizeof(struct ehci_qtd),
++		 sizeof(struct ehci_itd), sizeof(struct ehci_sitd));
++
++#ifdef CONFIG_TANGOX_XENV_READ
++	if (!tangox_usb_enabled())
++		return -ENODEV;
++#endif
++
++	if (usb_disabled())
++        return -ENODEV;
++
++	retval = platform_add_devices(tangox_platform_devices,
++							ARRAY_SIZE(tangox_platform_devices));
++	if(retval){
++		printk("Failed to register tangox ehci platform device .\n");
++		return retval;
++	}
++
++    printk("driver %s, %s\n", EHCI_HCD_NAME, DRIVER_VERSION);
++
++	retval = platform_driver_register(&ehci_tangox_driver);
++	if(retval){
++		printk("Failed to register tangox ehci platform driver.\n");
++		platform_device_unregister(&tangox_ehci_device);
++		return retval;
++	}
++	return retval;
++}
++module_init(ehci_hcd_init);
++
++static void __exit ehci_hcd_cleanup(void)
++{
++	platform_driver_unregister(&ehci_tangox_driver);
++	platform_device_unregister(&tangox_ehci_device);
++}
++module_exit(ehci_hcd_cleanup);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/tangox-ehci-q.c linux-2.6.22.19/drivers/usb/host/tangox-ehci-q.c
+--- linux-2.6.22.19.ref/drivers/usb/host/tangox-ehci-q.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/tangox-ehci-q.c	2010-07-26 09:25:17.657405351 -0700
+@@ -0,0 +1,1203 @@
++/*
++ * Copyright (C) 2001-2004 by David Brownell
++ * Copyright (C) 2004-2008 Sigma Designs, Inc.
++ *
++ * This program is free software; you can redistribute it and/or modify it
++ * under the terms of the GNU General Public License as published by the
++ * Free Software Foundation; either version 2 of the License, or (at your
++ * option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful, but
++ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
++ * for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software Foundation,
++ * Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
++ */
++
++/* this file is part of ehci-hcd.c */
++
++/*-------------------------------------------------------------------------*/
++
++/*
++ * EHCI hardware queue manipulation ... the core.  QH/QTD manipulation.
++ *
++ * Control, bulk, and interrupt traffic all use "qh" lists.  They list "qtd"
++ * entries describing USB transactions, max 16-20kB/entry (with 4kB-aligned
++ * buffers needed for the larger number).  We use one QH per endpoint, queue
++ * multiple urbs (all three types) per endpoint.  URBs may need several qtds.
++ *
++ * ISO traffic uses "ISO TD" (itd, and sitd) records, and (along with
++ * interrupts) needs careful scheduling.  Performance improvements can be
++ * an ongoing challenge.  That's in "ehci-sched.c".
++ *
++ * USB 1.1 devices are handled (a) by "companion" OHCI or UHCI root hubs,
++ * or otherwise through transaction translators (TTs) in USB 2.0 hubs using
++ * (b) special fields in qh entries or (c) split iso entries.  TTs will
++ * buffer low/full speed data so the host collects it at high speed.
++ */
++
++/*-------------------------------------------------------------------------*/
++
++/* fill a qtd, returning how much of the buffer we were able to queue up */
++
++static int
++qtd_fill (struct ehci_qtd *qtd, dma_addr_t buf, size_t len,
++		int token, int maxpacket)
++{
++	int	i, count;
++	u64	addr = buf;
++
++	/* one buffer entry per 4K ... first might be short or unaligned */
++	qtd->hw_buf [0] = cpu_to_le32 ((u32)addr);
++	qtd->hw_buf_hi [0] = cpu_to_le32 ((u32)(addr >> 32));
++	count = 0x1000 - (buf & 0x0fff);	/* rest of that page */
++	if (likely (len < count))		/* ... iff needed */
++		count = len;
++	else {
++		buf +=  0x1000;
++		buf &= ~0x0fff;
++
++		/* per-qtd limit: from 16K to 20K (best alignment) */
++		for (i = 1; count < len && i < 5; i++) {
++			addr = buf;
++			qtd->hw_buf [i] = cpu_to_le32 ((u32)addr);
++			qtd->hw_buf_hi [i] = cpu_to_le32 ((u32)(addr >> 32));
++			buf += 0x1000;
++			if ((count + 0x1000) < len)
++				count += 0x1000;
++			else
++				count = len;
++		}
++
++		/* short packets may only terminate transfers */
++		if (count != len)
++			count -= (count % maxpacket);
++	}
++	qtd->hw_token = cpu_to_le32 ((count << 16) | token);
++	qtd->length = count;
++
++	return count;
++}
++
++/*-------------------------------------------------------------------------*/
++
++static inline void
++qh_update (struct ehci_hcd *ehci, struct ehci_qh *qh, struct ehci_qtd *qtd)
++{
++	/* writes to an active overlay are unsafe */
++	BUG_ON(qh->qh_state != QH_STATE_IDLE);
++
++	qh->hw_qtd_next = QTD_NEXT (qtd->qtd_dma);
++	qh->hw_alt_next = EHCI_LIST_END;
++
++	/* Except for control endpoints, we make hardware maintain data
++	 * toggle (like OHCI) ... here (re)initialize the toggle in the QH,
++	 * and set the pseudo-toggle in udev. Only usb_clear_halt() will
++	 * ever clear it.
++	 */
++	if (!(qh->hw_info1 & cpu_to_le32(1 << 14))) {
++		unsigned	is_out, epnum;
++
++		is_out = !(qtd->hw_token & cpu_to_le32(1 << 8));
++		epnum = (le32_to_cpup(&qh->hw_info1) >> 8) & 0x0f;
++		if (unlikely (!usb_gettoggle (qh->dev, epnum, is_out))) {
++			qh->hw_token &= ~__constant_cpu_to_le32 (QTD_TOGGLE);
++			usb_settoggle (qh->dev, epnum, is_out, 1);
++		}
++	}
++
++	/* HC must see latest qtd and qh data before we clear ACTIVE+HALT */
++	wmb ();
++	qh->hw_token &= __constant_cpu_to_le32 (QTD_TOGGLE | QTD_STS_PING);
++}
++
++/* if it weren't for a common silicon quirk (writing the dummy into the qh
++ * overlay, so qh->hw_token wrongly becomes inactive/halted), only fault
++ * recovery (including urb dequeue) would need software changes to a QH...
++ */
++static void
++qh_refresh (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	struct ehci_qtd *qtd;
++
++	if (list_empty (&qh->qtd_list))
++		qtd = qh->dummy;
++	else {
++		qtd = list_entry (qh->qtd_list.next,
++				struct ehci_qtd, qtd_list);
++		/* first qtd may already be partially processed */
++		if (cpu_to_le32 (qtd->qtd_dma) == qh->hw_current)
++			qtd = NULL;
++	}
++
++	if (qtd)
++		qh_update (ehci, qh, qtd);
++}
++
++/*-------------------------------------------------------------------------*/
++
++static void qtd_copy_status (
++	struct ehci_hcd *ehci,
++	struct urb *urb,
++	size_t length,
++	u32 token
++)
++{
++	/* count IN/OUT bytes, not SETUP (even short packets) */
++	if (likely (QTD_PID (token) != 2))
++		urb->actual_length += length - QTD_LENGTH (token);
++
++	/* don't modify error codes */
++	if (unlikely (urb->status != -EINPROGRESS))
++		return;
++
++	/* force cleanup after short read; not always an error */
++	if (unlikely (IS_SHORT_READ (token)))
++		urb->status = -EREMOTEIO;
++
++	/* serious "can't proceed" faults reported by the hardware */
++	if (token & QTD_STS_HALT) {
++		if (token & QTD_STS_BABBLE) {
++			/* FIXME "must" disable babbling device's port too */
++			urb->status = -EOVERFLOW;
++		} else if (token & QTD_STS_MMF) {
++			/* fs/ls interrupt xfer missed the complete-split */
++			urb->status = -EPROTO;
++		} else if (token & QTD_STS_DBE) {
++			urb->status = (QTD_PID (token) == 1) /* IN ? */
++				? -ENOSR  /* hc couldn't read data */
++				: -ECOMM; /* hc couldn't write data */
++		} else if (token & QTD_STS_XACT) {
++			/* timeout, bad crc, wrong PID, etc; retried */
++			if (QTD_CERR (token))
++				urb->status = -EPIPE;
++			else {
++				ehci_dbg (ehci, "devpath %s ep%d%s 3strikes\n",
++					urb->dev->devpath,
++					usb_pipeendpoint (urb->pipe),
++					usb_pipein (urb->pipe) ? "in" : "out");
++				urb->status = -EPROTO;
++			}
++		/* CERR nonzero + no errors + halt --> stall */
++		} else if (QTD_CERR (token))
++			urb->status = -EPIPE;
++		else	/* unknown */
++			urb->status = -EPROTO;
++
++		ehci_vdbg (ehci,
++			"dev%d ep%d%s qtd token %08x --> status %d\n",
++			usb_pipedevice (urb->pipe),
++			usb_pipeendpoint (urb->pipe),
++			usb_pipein (urb->pipe) ? "in" : "out",
++			token, urb->status);
++
++		/* if async CSPLIT failed, try cleaning out the TT buffer */
++		if (urb->status != -EPIPE
++				&& urb->dev->tt && !usb_pipeint (urb->pipe)
++				&& ((token & QTD_STS_MMF) != 0
++					|| QTD_CERR(token) == 0)
++				&& (!ehci_is_TDI(ehci)
++			                || urb->dev->tt->hub !=
++					   ehci_to_hcd(ehci)->self.root_hub)) {
++#ifdef DEBUG
++			struct usb_device *tt = urb->dev->tt->hub;
++			dev_dbg (&tt->dev,
++				"clear tt buffer port %d, a%d ep%d t%08x\n",
++				urb->dev->ttport, urb->dev->devnum,
++				usb_pipeendpoint (urb->pipe), token);
++#endif /* DEBUG */
++			usb_hub_tt_clear_buffer (urb->dev, urb->pipe);
++		}
++	}
++}
++
++static void
++ehci_urb_done (struct ehci_hcd *ehci, struct urb *urb)
++__releases(ehci->lock)
++__acquires(ehci->lock)
++{
++	if (likely (urb->hcpriv != NULL)) {
++		struct ehci_qh	*qh = (struct ehci_qh *) urb->hcpriv;
++
++		/* S-mask in a QH means it's an interrupt urb */
++		if ((qh->hw_info2 & __constant_cpu_to_le32 (QH_SMASK)) != 0) {
++
++			/* ... update hc-wide periodic stats (for usbfs) */
++			ehci_to_hcd(ehci)->self.bandwidth_int_reqs--;
++		}
++		qh_put (qh);
++	}
++
++	spin_lock (&urb->lock);
++	urb->hcpriv = NULL;
++	switch (urb->status) {
++	case -EINPROGRESS:		/* success */
++		urb->status = 0;
++	default:			/* fault */
++		COUNT (ehci->stats.complete);
++		break;
++	case -EREMOTEIO:		/* fault or normal */
++		if (!(urb->transfer_flags & URB_SHORT_NOT_OK))
++			urb->status = 0;
++		COUNT (ehci->stats.complete);
++		break;
++	case -ECONNRESET:		/* canceled */
++	case -ENOENT:
++		COUNT (ehci->stats.unlink);
++		break;
++	}
++	spin_unlock (&urb->lock);
++
++#ifdef EHCI_URB_TRACE
++	ehci_dbg (ehci,
++		"%s %s urb %p ep%d%s status %d len %d/%d\n",
++		__FUNCTION__, urb->dev->devpath, urb,
++		usb_pipeendpoint (urb->pipe),
++		usb_pipein (urb->pipe) ? "in" : "out",
++		urb->status,
++		urb->actual_length, urb->transfer_buffer_length);
++#endif
++
++#ifdef CONFIG_USB_EHSET
++	if (likely (urb->transfer_flags == URB_HCD_DRIVER_TEST))
++		return;
++#endif
++
++	/* complete() can reenter this HCD */
++	spin_unlock (&ehci->lock);
++	usb_hcd_giveback_urb (ehci_to_hcd(ehci), urb);
++	spin_lock (&ehci->lock);
++}
++
++static void unlink_async (struct ehci_hcd *ehci, struct ehci_qh *qh);
++static void intr_deschedule (struct ehci_hcd *ehci, struct ehci_qh *qh);
++static int qh_schedule (struct ehci_hcd *ehci, struct ehci_qh *qh);
++
++/*
++ * Process and free completed qtds for a qh, returning URBs to drivers.
++ * Chases up to qh->hw_current.  Returns number of completions called,
++ * indicating how much "real" work we did.
++ */
++#define HALT_BIT __constant_cpu_to_le32(QTD_STS_HALT)
++static unsigned
++qh_completions (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	struct ehci_qtd		*last = NULL, *end = qh->dummy;
++	struct list_head	*entry, *tmp;
++	int			stopped;
++	unsigned		count = 0;
++	int			do_status = 0;
++	u8			state;
++
++	if (unlikely (list_empty (&qh->qtd_list)))
++		return count;
++
++	/* completions (or tasks on other cpus) must never clobber HALT
++	 * till we've gone through and cleaned everything up, even when
++	 * they add urbs to this qh's queue or mark them for unlinking.
++	 *
++	 * NOTE:  unlinking expects to be done in queue order.
++	 */
++	state = qh->qh_state;
++	qh->qh_state = QH_STATE_COMPLETING;
++	stopped = (state == QH_STATE_IDLE);
++
++	/* remove de-activated QTDs from front of queue.
++	 * after faults (including short reads), cleanup this urb
++	 * then let the queue advance.
++	 * if queue is stopped, handles unlinks.
++	 */
++	list_for_each_safe (entry, tmp, &qh->qtd_list) {
++		struct ehci_qtd	*qtd;
++		struct urb	*urb;
++		u32		token = 0;
++
++		qtd = list_entry (entry, struct ehci_qtd, qtd_list);
++		urb = qtd->urb;
++
++		/* clean up any state from previous QTD ...*/
++		if (last) {
++			if (likely (last->urb != urb)) {
++				ehci_urb_done (ehci, last->urb);
++				count++;
++			}
++			ehci_qtd_free (ehci, last);
++			last = NULL;
++		}
++
++		/* ignore urbs submitted during completions we reported */
++		if (qtd == end)
++			break;
++
++		/* hardware copies qtd out of qh overlay */
++		rmb ();
++		token = le32_to_cpu (qtd->hw_token);
++
++		/* always clean up qtds the hc de-activated */
++		if ((token & QTD_STS_ACTIVE) == 0) {
++
++			if ((token & QTD_STS_HALT) != 0) {
++				stopped = 1;
++
++			/* magic dummy for some short reads; qh won't advance.
++			 * that silicon quirk can kick in with this dummy too.
++			 */
++			} else if (IS_SHORT_READ (token)
++					&& !(qtd->hw_alt_next & EHCI_LIST_END)) {
++				stopped = 1;
++				goto halt;
++			}
++
++		/* stop scanning when we reach qtds the hc is using */
++		} else if (likely (!stopped
++				&& HC_IS_RUNNING (ehci_to_hcd(ehci)->state))) {
++			break;
++
++		} else {
++			stopped = 1;
++
++			if (unlikely (!HC_IS_RUNNING (ehci_to_hcd(ehci)->state)))
++				urb->status = -ESHUTDOWN;
++
++			/* ignore active urbs unless some previous qtd
++			 * for the urb faulted (including short read) or
++			 * its urb was canceled.  we may patch qh or qtds.
++			 */
++			if (likely (urb->status == -EINPROGRESS))
++				continue;
++
++			/* issue status after short control reads */
++			if (unlikely (do_status != 0)
++					&& QTD_PID (token) == 0 /* OUT */) {
++				do_status = 0;
++				continue;
++			}
++
++			/* token in overlay may be most current */
++			if (state == QH_STATE_IDLE
++					&& cpu_to_le32 (qtd->qtd_dma)
++						== qh->hw_current)
++				token = le32_to_cpu (qh->hw_token);
++
++			/* force halt for unlinked or blocked qh, so we'll
++			 * patch the qh later and so that completions can't
++			 * activate it while we "know" it's stopped.
++			 */
++			if ((HALT_BIT & qh->hw_token) == 0) {
++halt:
++				qh->hw_token |= HALT_BIT;
++				wmb ();
++			}
++		}
++
++		/* remove it from the queue */
++		spin_lock (&urb->lock);
++		qtd_copy_status (ehci, urb, qtd->length, token);
++		do_status = (urb->status == -EREMOTEIO)
++				&& usb_pipecontrol (urb->pipe);
++		spin_unlock (&urb->lock);
++
++		if (stopped && qtd->qtd_list.prev != &qh->qtd_list) {
++			last = list_entry (qtd->qtd_list.prev,
++					struct ehci_qtd, qtd_list);
++			last->hw_next = qtd->hw_next;
++		}
++		list_del (&qtd->qtd_list);
++		last = qtd;
++	}
++
++	/* last urb's completion might still need calling */
++	if (likely (last != NULL)) {
++		ehci_urb_done (ehci, last->urb);
++		count++;
++		ehci_qtd_free (ehci, last);
++	}
++
++	/* restore original state; caller must unlink or relink */
++	qh->qh_state = state;
++
++	/* be sure the hardware's done with the qh before refreshing
++	 * it after fault cleanup, or recovering from silicon wrongly
++	 * overlaying the dummy qtd (which reduces DMA chatter).
++	 */
++	if (stopped != 0 || qh->hw_qtd_next == EHCI_LIST_END) {
++		switch (state) {
++		case QH_STATE_IDLE:
++			qh_refresh(ehci, qh);
++			break;
++		case QH_STATE_LINKED:
++			/* should be rare for periodic transfers,
++			 * except maybe high bandwidth ...
++			 */
++			if ((__constant_cpu_to_le32 (QH_SMASK)
++					& qh->hw_info2) != 0) {
++				intr_deschedule (ehci, qh);
++				(void) qh_schedule (ehci, qh);
++			} else
++				unlink_async (ehci, qh);
++			break;
++		/* otherwise, unlink already started */
++		}
++	}
++
++	return count;
++}
++
++/*-------------------------------------------------------------------------*/
++
++// high bandwidth multiplier, as encoded in highspeed endpoint descriptors
++#define hb_mult(wMaxPacketSize) (1 + (((wMaxPacketSize) >> 11) & 0x03))
++// ... and packet size, for any kind of endpoint descriptor
++#define max_packet(wMaxPacketSize) ((wMaxPacketSize) & 0x07ff)
++
++/*
++ * reverse of qh_urb_transaction:  free a list of TDs.
++ * used for cleanup after errors, before HC sees an URB's TDs.
++ */
++static void qtd_list_free (
++	struct ehci_hcd		*ehci,
++	struct urb		*urb,
++	struct list_head	*qtd_list
++) {
++	struct list_head	*entry, *temp;
++
++	list_for_each_safe (entry, temp, qtd_list) {
++		struct ehci_qtd	*qtd;
++
++		qtd = list_entry (entry, struct ehci_qtd, qtd_list);
++		list_del (&qtd->qtd_list);
++		ehci_qtd_free (ehci, qtd);
++	}
++}
++
++/*
++ * create a list of filled qtds for this URB; won't link into qh.
++ */
++static struct list_head *
++qh_urb_transaction (
++	struct ehci_hcd		*ehci,
++	struct urb		*urb,
++	struct list_head	*head,
++	gfp_t			flags
++) {
++	struct ehci_qtd		*qtd, *qtd_prev;
++	dma_addr_t		buf;
++	int			len, maxpacket;
++	int			is_input;
++	u32			token;
++
++	/*
++	 * URBs map to sequences of QTDs:  one logical transaction
++	 */
++	qtd = ehci_qtd_alloc (ehci, flags);
++	if (unlikely (!qtd))
++		return NULL;
++	list_add_tail (&qtd->qtd_list, head);
++	qtd->urb = urb;
++
++	token = QTD_STS_ACTIVE;
++	token |= (EHCI_TUNE_CERR << 10);
++	/* for split transactions, SplitXState initialized to zero */
++
++	len = urb->transfer_buffer_length;
++	is_input = usb_pipein (urb->pipe);
++	if (usb_pipecontrol (urb->pipe)) {
++		/* SETUP pid */
++		qtd_fill (qtd, urb->setup_dma, sizeof (struct usb_ctrlrequest),
++			token | (2 /* "setup" */ << 8), 8);
++
++		/* ... and always at least one more pid */
++		token ^= QTD_TOGGLE;
++		qtd_prev = qtd;
++		qtd = ehci_qtd_alloc (ehci, flags);
++		if (unlikely (!qtd))
++			goto cleanup;
++		qtd->urb = urb;
++		qtd_prev->hw_next = QTD_NEXT (qtd->qtd_dma);
++		list_add_tail (&qtd->qtd_list, head);
++
++		/* for zero length DATA stages, STATUS is always IN */
++		if (len == 0)
++			token |= (1 /* "in" */ << 8);
++	}
++
++	/*
++	 * data transfer stage:  buffer setup
++	 */
++	buf = urb->transfer_dma;
++
++	if (is_input)
++		token |= (1 /* "in" */ << 8);
++	/* else it's already initted to "out" pid (0 << 8) */
++
++	maxpacket = max_packet(usb_maxpacket(urb->dev, urb->pipe, !is_input));
++
++	/*
++	 * buffer gets wrapped in one or more qtds;
++	 * last one may be "short" (including zero len)
++	 * and may serve as a control status ack
++	 */
++	for (;;) {
++		int this_qtd_len;
++
++		this_qtd_len = qtd_fill (qtd, buf, len, token, maxpacket);
++		len -= this_qtd_len;
++		buf += this_qtd_len;
++		if (is_input)
++			qtd->hw_alt_next = ehci->async->hw_alt_next;
++
++		/* qh makes control packets use qtd toggle; maybe switch it */
++		if ((maxpacket & (this_qtd_len + (maxpacket - 1))) == 0)
++			token ^= QTD_TOGGLE;
++
++		if (likely (len <= 0))
++			break;
++
++		qtd_prev = qtd;
++		qtd = ehci_qtd_alloc (ehci, flags);
++		if (unlikely (!qtd))
++			goto cleanup;
++		qtd->urb = urb;
++		qtd_prev->hw_next = QTD_NEXT (qtd->qtd_dma);
++		list_add_tail (&qtd->qtd_list, head);
++	}
++
++	/* unless the bulk/interrupt caller wants a chance to clean
++	 * up after short reads, hc should advance qh past this urb
++	 */
++	if (likely ((urb->transfer_flags & URB_SHORT_NOT_OK) == 0
++				|| usb_pipecontrol (urb->pipe)))
++		qtd->hw_alt_next = EHCI_LIST_END;
++
++	/*
++	 * control requests may need a terminating data "status" ack;
++	 * bulk ones may need a terminating short packet (zero length).
++	 */
++	if (likely (urb->transfer_buffer_length != 0)) {
++		int	one_more = 0;
++
++		if (usb_pipecontrol (urb->pipe)) {
++			one_more = 1;
++			token ^= 0x0100;	/* "in" <--> "out"  */
++			token |= QTD_TOGGLE;	/* force DATA1 */
++		} else if (usb_pipebulk (urb->pipe)
++				&& (urb->transfer_flags & URB_ZERO_PACKET)
++				&& !(urb->transfer_buffer_length % maxpacket)) {
++			one_more = 1;
++		}
++		if (one_more) {
++			qtd_prev = qtd;
++			qtd = ehci_qtd_alloc (ehci, flags);
++			if (unlikely (!qtd))
++				goto cleanup;
++			qtd->urb = urb;
++			qtd_prev->hw_next = QTD_NEXT (qtd->qtd_dma);
++			list_add_tail (&qtd->qtd_list, head);
++
++			/* never any data in such packets */
++			qtd_fill (qtd, 0, 0, token, 0);
++		}
++	}
++
++	/* by default, enable interrupt on urb completion */
++	if (likely (!(urb->transfer_flags & URB_NO_INTERRUPT)))
++		qtd->hw_token |= __constant_cpu_to_le32 (QTD_IOC);
++	return head;
++
++cleanup:
++	qtd_list_free (ehci, urb, head);
++	return NULL;
++}
++
++/*-------------------------------------------------------------------------*/
++
++// Would be best to create all qh's from config descriptors,
++// when each interface/altsetting is established.  Unlink
++// any previous qh and cancel its urbs first; endpoints are
++// implicitly reset then (data toggle too).
++// That'd mean updating how usbcore talks to HCDs. (2.7?)
++
++
++/*
++ * Each QH holds a qtd list; a QH is used for everything except iso.
++ *
++ * For interrupt urbs, the scheduler must set the microframe scheduling
++ * mask(s) each time the QH gets scheduled.  For highspeed, that's
++ * just one microframe in the s-mask.  For split interrupt transactions
++ * there are additional complications: c-mask, maybe FSTNs.
++ */
++static struct ehci_qh *
++qh_make (
++	struct ehci_hcd		*ehci,
++	struct urb		*urb,
++	gfp_t			flags
++) {
++	struct ehci_qh		*qh = ehci_qh_alloc (ehci, flags);
++	u32			info1 = 0, info2 = 0;
++	int			is_input, type;
++	int			maxp = 0;
++
++	if (!qh)
++		return qh;
++
++	/*
++	 * init endpoint/device data for this QH
++	 */
++	info1 |= usb_pipeendpoint (urb->pipe) << 8;
++	info1 |= usb_pipedevice (urb->pipe) << 0;
++
++	is_input = usb_pipein (urb->pipe);
++	type = usb_pipetype (urb->pipe);
++	maxp = usb_maxpacket (urb->dev, urb->pipe, !is_input);
++
++	/* Compute interrupt scheduling parameters just once, and save.
++	 * - allowing for high bandwidth, how many nsec/uframe are used?
++	 * - split transactions need a second CSPLIT uframe; same question
++	 * - splits also need a schedule gap (for full/low speed I/O)
++	 * - qh has a polling interval
++	 *
++	 * For control/bulk requests, the HC or TT handles these.
++	 */
++	if (type == PIPE_INTERRUPT) {
++		qh->usecs = NS_TO_US (usb_calc_bus_time (USB_SPEED_HIGH, is_input, 0,
++				hb_mult (maxp) * max_packet (maxp)));
++		qh->start = NO_FRAME;
++
++		if (urb->dev->speed == USB_SPEED_HIGH) {
++			qh->c_usecs = 0;
++			qh->gap_uf = 0;
++
++			qh->period = urb->interval >> 3;
++			if (qh->period == 0 && urb->interval != 1) {
++				/* NOTE interval 2 or 4 uframes could work.
++				 * But interval 1 scheduling is simpler, and
++				 * includes high bandwidth.
++				 */
++				dbg ("intr period %d uframes, NYET!",
++						urb->interval);
++				goto done;
++			}
++		} else {
++			struct usb_tt	*tt = urb->dev->tt;
++			int		think_time;
++
++			/* gap is f(FS/LS transfer times) */
++			qh->gap_uf = 1 + usb_calc_bus_time (urb->dev->speed,
++					is_input, 0, maxp) / (125 * 1000);
++
++			/* FIXME this just approximates SPLIT/CSPLIT times */
++			if (is_input) {		// SPLIT, gap, CSPLIT+DATA
++				qh->c_usecs = qh->usecs + HS_USECS (0);
++				qh->usecs = HS_USECS (1);
++			} else {		// SPLIT+DATA, gap, CSPLIT
++				qh->usecs += HS_USECS (1);
++				qh->c_usecs = HS_USECS (0);
++			}
++
++			think_time = tt ? tt->think_time : 0;
++			qh->tt_usecs = NS_TO_US (think_time +
++					usb_calc_bus_time (urb->dev->speed,
++					is_input, 0, max_packet (maxp)));
++			qh->period = urb->interval;
++		}
++	}
++
++	/* support for tt scheduling, and access to toggles */
++	qh->dev = urb->dev;
++
++	/* using TT? */
++	switch (urb->dev->speed) {
++	case USB_SPEED_LOW:
++		info1 |= (1 << 12);	/* EPS "low" */
++		/* FALL THROUGH */
++
++	case USB_SPEED_FULL:
++		/* EPS 0 means "full" */
++		if (type != PIPE_INTERRUPT)
++			info1 |= (EHCI_TUNE_RL_TT << 28);
++		if (type == PIPE_CONTROL) {
++			info1 |= (1 << 27);	/* for TT */
++			info1 |= 1 << 14;	/* toggle from qtd */
++		}
++		info1 |= maxp << 16;
++
++		info2 |= (EHCI_TUNE_MULT_TT << 30);
++
++		/* Some Freescale processors have an erratum in which the
++		 * port number in the queue head was 0..N-1 instead of 1..N.
++		 */
++		if (ehci_has_fsl_portno_bug(ehci))
++			info2 |= (urb->dev->ttport-1) << 23;
++		else
++			info2 |= urb->dev->ttport << 23;
++
++		/* set the address of the TT; for TDI's integrated
++		 * root hub tt, leave it zeroed.
++		 */
++		if (!ehci_is_TDI(ehci)
++				|| urb->dev->tt->hub !=
++					ehci_to_hcd(ehci)->self.root_hub)
++			info2 |= urb->dev->tt->hub->devnum << 16;
++
++		/* NOTE:  if (PIPE_INTERRUPT) { scheduler sets c-mask } */
++
++		break;
++
++	case USB_SPEED_HIGH:		/* no TT involved */
++		info1 |= (2 << 12);	/* EPS "high" */
++		if (type == PIPE_CONTROL) {
++			info1 |= (EHCI_TUNE_RL_HS << 28);
++			info1 |= 64 << 16;	/* usb2 fixed maxpacket */
++			info1 |= 1 << 14;	/* toggle from qtd */
++			info2 |= (EHCI_TUNE_MULT_HS << 30);
++		} else if (type == PIPE_BULK) {
++			info1 |= (EHCI_TUNE_RL_HS << 28);
++			info1 |= 512 << 16;	/* usb2 fixed maxpacket */
++			info2 |= (EHCI_TUNE_MULT_HS << 30);
++		} else {		/* PIPE_INTERRUPT */
++			info1 |= max_packet (maxp) << 16;
++			info2 |= hb_mult (maxp) << 30;
++		}
++		break;
++	default:
++		dbg ("bogus dev %p speed %d", urb->dev, urb->dev->speed);
++done:
++		qh_put (qh);
++		return NULL;
++	}
++
++	/* NOTE:  if (PIPE_INTERRUPT) { scheduler sets s-mask } */
++
++	/* init as live, toggle clear, advance to dummy */
++	qh->qh_state = QH_STATE_IDLE;
++	qh->hw_info1 = cpu_to_le32 (info1);
++	qh->hw_info2 = cpu_to_le32 (info2);
++	usb_settoggle (urb->dev, usb_pipeendpoint (urb->pipe), !is_input, 1);
++	qh_refresh (ehci, qh);
++	return qh;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* move qh (and its qtds) onto async queue; maybe enable queue.  */
++
++static void qh_link_async (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	__le32		dma = QH_NEXT (qh->qh_dma);
++	struct ehci_qh	*head;
++
++	/* (re)start the async schedule? */
++	head = ehci->async;
++	timer_action_done (ehci, TIMER_ASYNC_OFF);
++	if (!head->qh_next.qh) {
++		u32	cmd = ehci_readl(ehci, &ehci->regs->command);
++
++		if (!(cmd & CMD_ASE)) {
++			/* in case a clear of CMD_ASE didn't take yet */
++			(void)handshake(ehci, &ehci->regs->status,
++					STS_ASS, 0, 150);
++			cmd |= CMD_ASE | CMD_RUN;
++			ehci_writel(ehci, cmd, &ehci->regs->command);
++			ehci_to_hcd(ehci)->state = HC_STATE_RUNNING;
++			/* posted write need not be known to HC yet ... */
++		}
++	}
++
++	/* clear halt and/or toggle; and maybe recover from silicon quirk */
++	if (qh->qh_state == QH_STATE_IDLE)
++		qh_refresh (ehci, qh);
++
++	/* splice right after start */
++	qh->qh_next = head->qh_next;
++	qh->hw_next = head->hw_next;
++	wmb ();
++
++	head->qh_next.qh = qh;
++	head->hw_next = dma;
++
++	qh->qh_state = QH_STATE_LINKED;
++	/* qtd completions reported later by interrupt */
++}
++
++/*-------------------------------------------------------------------------*/
++
++#define	QH_ADDR_MASK	__constant_cpu_to_le32(0x7f)
++
++/*
++ * For control/bulk/interrupt, return QH with these TDs appended.
++ * Allocates and initializes the QH if necessary.
++ * Returns null if it can't allocate a QH it needs to.
++ * If the QH has TDs (urbs) already, that's great.
++ */
++static struct ehci_qh *qh_append_tds (
++	struct ehci_hcd		*ehci,
++	struct urb		*urb,
++	struct list_head	*qtd_list,
++	int			epnum,
++	void			**ptr
++)
++{
++	struct ehci_qh		*qh = NULL;
++
++	qh = (struct ehci_qh *) *ptr;
++	if (unlikely (qh == NULL)) {
++		/* can't sleep here, we have ehci->lock... */
++		qh = qh_make (ehci, urb, GFP_ATOMIC);
++		*ptr = qh;
++	}
++	if (likely (qh != NULL)) {
++		struct ehci_qtd	*qtd;
++
++		if (unlikely (list_empty (qtd_list)))
++			qtd = NULL;
++		else
++			qtd = list_entry (qtd_list->next, struct ehci_qtd,
++					qtd_list);
++
++		/* control qh may need patching ... */
++		if (unlikely (epnum == 0)) {
++
++                        /* usb_reset_device() briefly reverts to address 0 */
++                        if (usb_pipedevice (urb->pipe) == 0)
++                                qh->hw_info1 &= ~QH_ADDR_MASK;
++		}
++
++		/* just one way to queue requests: swap with the dummy qtd.
++		 * only hc or qh_refresh() ever modify the overlay.
++		 */
++		if (likely (qtd != NULL)) {
++			struct ehci_qtd		*dummy;
++			dma_addr_t		dma;
++			__le32			token;
++
++			/* to avoid racing the HC, use the dummy td instead of
++			 * the first td of our list (becomes new dummy).  both
++			 * tds stay deactivated until we're done, when the
++			 * HC is allowed to fetch the old dummy (4.10.2).
++			 */
++			token = qtd->hw_token;
++			qtd->hw_token = HALT_BIT;
++			wmb ();
++			dummy = qh->dummy;
++
++			dma = dummy->qtd_dma;
++			*dummy = *qtd;
++			dummy->qtd_dma = dma;
++
++			list_del (&qtd->qtd_list);
++			list_add (&dummy->qtd_list, qtd_list);
++			__list_splice (qtd_list, qh->qtd_list.prev);
++
++			ehci_qtd_init (qtd, qtd->qtd_dma);
++			qh->dummy = qtd;
++
++			/* hc must see the new dummy at list end */
++			dma = qtd->qtd_dma;
++			qtd = list_entry (qh->qtd_list.prev,
++					struct ehci_qtd, qtd_list);
++			qtd->hw_next = QTD_NEXT (dma);
++
++			/* let the hc process these next qtds */
++			wmb ();
++			dummy->hw_token = token;
++
++			urb->hcpriv = qh_get (qh);
++		}
++	}
++	return qh;
++}
++
++/*-------------------------------------------------------------------------*/
++
++static int
++submit_async (
++	struct ehci_hcd		*ehci,
++	struct usb_host_endpoint *ep,
++	struct urb		*urb,
++	struct list_head	*qtd_list,
++	gfp_t			mem_flags
++) {
++	struct ehci_qtd		*qtd;
++	int			epnum;
++	unsigned long		flags;
++	struct ehci_qh		*qh = NULL;
++	int			rc = 0;
++
++	qtd = list_entry (qtd_list->next, struct ehci_qtd, qtd_list);
++	epnum = ep->desc.bEndpointAddress;
++
++#ifdef EHCI_URB_TRACE
++	ehci_dbg (ehci,
++		"%s %s urb %p ep%d%s len %d, qtd %p [qh %p]\n",
++		__FUNCTION__, urb->dev->devpath, urb,
++		epnum & 0x0f, (epnum & USB_DIR_IN) ? "in" : "out",
++		urb->transfer_buffer_length,
++		qtd, ep->hcpriv);
++#endif
++
++	spin_lock_irqsave (&ehci->lock, flags);
++	if (unlikely(!test_bit(HCD_FLAG_HW_ACCESSIBLE,
++			       &ehci_to_hcd(ehci)->flags))) {
++		rc = -ESHUTDOWN;
++		goto done;
++	}
++
++	qh = qh_append_tds (ehci, urb, qtd_list, epnum, &ep->hcpriv);
++	if (unlikely(qh == NULL)) {
++		rc = -ENOMEM;
++		goto done;
++	}
++
++	/* Control/bulk operations through TTs don't need scheduling,
++	 * the HC and TT handle it when the TT has a buffer ready.
++	 */
++	if (likely (qh->qh_state == QH_STATE_IDLE))
++		qh_link_async (ehci, qh_get (qh));
++ done:
++	spin_unlock_irqrestore (&ehci->lock, flags);
++	if (unlikely (qh == NULL))
++		qtd_list_free (ehci, urb, qtd_list);
++	return rc;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* The TangoX USB2.0 core has a bug related async qh unlinking. */
++static void tangox_unlink_async_fix(struct ehci_hcd *ehci)
++{
++        struct ehci_qh *next    =NULL;
++        int async_list          = 0;
++        int cmd = readl (&ehci->regs->command);
++
++        /* Disable ASYNC */
++        writel (cmd & ~CMD_ASE, &ehci->regs->command);
++        udelay(250);
++        async_list =(u32)phys_to_virt(readl (&ehci->regs->async_next));
++        next = (struct ehci_qh *) async_list;
++        if(next->qh_next.qh)
++                writel(next->hw_next, &ehci->regs->async_next);
++        else
++                writel ((u32)ehci->async->qh_dma, &ehci->regs->async_next);
++        wmb();
++        /* Enable ASYNC */
++        writel (cmd | CMD_ASE, &ehci->regs->command);
++        (void) readl (&ehci->regs->command);
++}
++
++
++/* the async qh for the qtds being reclaimed are now unlinked from the HC */
++
++static void end_unlink_async (struct ehci_hcd *ehci)
++{
++	struct ehci_qh		*qh = ehci->reclaim;
++	struct ehci_qh		*next;
++
++	timer_action_done (ehci, TIMER_IAA_WATCHDOG);
++
++	// qh->hw_next = cpu_to_le32 (qh->qh_dma);
++	qh->qh_state = QH_STATE_IDLE;
++	qh->qh_next.qh = NULL;
++	qh_put (qh);			// refcount from reclaim
++
++	/* other unlink(s) may be pending (in QH_STATE_UNLINK_WAIT) */
++	next = qh->reclaim;
++	ehci->reclaim = next;
++	ehci->reclaim_ready = 0;
++	qh->reclaim = NULL;
++
++	qh_completions (ehci, qh);
++
++	if (!list_empty (&qh->qtd_list)
++			&& HC_IS_RUNNING (ehci_to_hcd(ehci)->state))
++		qh_link_async (ehci, qh);
++	else {
++		qh_put (qh);		// refcount from async list
++
++		/* it's not free to turn the async schedule on/off; leave it
++		 * active but idle for a while once it empties.
++		 */
++		if (HC_IS_RUNNING (ehci_to_hcd(ehci)->state)
++				&& ehci->async->qh_next.qh == NULL)
++			timer_action (ehci, TIMER_ASYNC_OFF);
++	}
++
++	if (next) {
++		ehci->reclaim = NULL;
++		start_unlink_async (ehci, next);
++	}
++}
++
++/* makes sure the async qh will become idle */
++/* caller must own ehci->lock */
++
++static void tangox_es7_start_unlink_async (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	int		cmd = ehci_readl(ehci, &ehci->regs->command);
++	struct ehci_qh	*prev;
++
++#ifdef DEBUG
++	assert_spin_locked(&ehci->lock);
++	if (ehci->reclaim
++			|| (qh->qh_state != QH_STATE_LINKED
++				&& qh->qh_state != QH_STATE_UNLINK_WAIT)
++			)
++		BUG ();
++#endif
++
++	tangox_unlink_async_fix(ehci);
++
++	/* stop async schedule right now? */
++	if (unlikely (qh == ehci->async)) {
++		/* can't get here without STS_ASS set */
++		if (ehci_to_hcd(ehci)->state != HC_STATE_HALT
++				&& !ehci->reclaim) {
++			/* ... and CMD_IAAD clear */
++			ehci_writel(ehci, cmd & ~CMD_ASE,
++				    &ehci->regs->command);
++			wmb ();
++			// handshake later, if we need to
++			timer_action_done (ehci, TIMER_ASYNC_OFF);
++		}
++		return;
++	}
++
++	qh->qh_state = QH_STATE_UNLINK;
++	ehci->reclaim = qh = qh_get (qh);
++
++	prev = ehci->async;
++	while (prev->qh_next.qh != qh)
++		prev = prev->qh_next.qh;
++
++	prev->hw_next = qh->hw_next;
++	prev->qh_next = qh->qh_next;
++	wmb ();
++
++	if (unlikely (ehci_to_hcd(ehci)->state == HC_STATE_HALT)) {
++		/* if (unlikely (qh->reclaim != 0))
++		 *	this will recurse, probably not much
++		 */
++		end_unlink_async (ehci);
++		return;
++	}
++
++	ehci->reclaim_ready = 0;
++	cmd |= CMD_IAAD;
++	ehci_writel(ehci, cmd, &ehci->regs->command);
++	(void)ehci_readl(ehci, &ehci->regs->command);
++	timer_action (ehci, TIMER_IAA_WATCHDOG);
++}
++
++
++static void tangox_es8_start_unlink_async (struct ehci_hcd *ehci, struct ehci_qh *qh)
++{
++	int		cmd = ehci_readl(ehci, &ehci->regs->command);
++	struct ehci_qh	*prev;
++
++#ifdef DEBUG
++	assert_spin_locked(&ehci->lock);
++	if (ehci->reclaim
++			|| (qh->qh_state != QH_STATE_LINKED
++				&& qh->qh_state != QH_STATE_UNLINK_WAIT)
++			)
++		BUG ();
++#endif
++
++	/* stop async schedule right now? */
++	if (unlikely (qh == ehci->async)) {
++		/* can't get here without STS_ASS set */
++		if (ehci_to_hcd(ehci)->state != HC_STATE_HALT
++				&& !ehci->reclaim) {
++			/* ... and CMD_IAAD clear */
++			ehci_writel(ehci, cmd & ~CMD_ASE,
++				    &ehci->regs->command);
++			wmb ();
++			// handshake later, if we need to
++			timer_action_done (ehci, TIMER_ASYNC_OFF);
++		}
++		return;
++	}
++
++	qh->qh_state = QH_STATE_UNLINK;
++	ehci->reclaim = qh = qh_get (qh);
++
++	prev = ehci->async;
++	while (prev->qh_next.qh != qh)
++		prev = prev->qh_next.qh;
++
++	prev->hw_next = qh->hw_next;
++	prev->qh_next = qh->qh_next;
++	wmb ();
++
++	if (unlikely (ehci_to_hcd(ehci)->state == HC_STATE_HALT)) {
++		/* if (unlikely (qh->reclaim != 0))
++		 *	this will recurse, probably not much
++		 */
++		end_unlink_async (ehci);
++		return;
++	}
++
++	ehci->reclaim_ready = 0;
++	cmd |= CMD_IAAD;
++	ehci_writel(ehci, cmd, &ehci->regs->command);
++	(void)ehci_readl(ehci, &ehci->regs->command);
++	timer_action (ehci, TIMER_IAA_WATCHDOG);
++}
++
++/*-------------------------------------------------------------------------*/
++
++static void scan_async (struct ehci_hcd *ehci)
++{
++	struct ehci_qh		*qh;
++	enum ehci_timer_action	action = TIMER_IO_WATCHDOG;
++
++	if (!++(ehci->stamp))
++		ehci->stamp++;
++	timer_action_done (ehci, TIMER_ASYNC_SHRINK);
++rescan:
++	qh = ehci->async->qh_next.qh;
++	if (likely (qh != NULL)) {
++		do {
++			/* clean any finished work for this qh */
++			if (!list_empty (&qh->qtd_list)
++					&& qh->stamp != ehci->stamp) {
++				int temp;
++
++				/* unlinks could happen here; completion
++				 * reporting drops the lock.  rescan using
++				 * the latest schedule, but don't rescan
++				 * qhs we already finished (no looping).
++				 */
++				qh = qh_get (qh);
++				qh->stamp = ehci->stamp;
++				temp = qh_completions (ehci, qh);
++				qh_put (qh);
++				if (temp != 0) {
++					goto rescan;
++				}
++			}
++#if 0
++			/* unlink idle entries, reducing HC PCI usage as well
++			 * as HCD schedule-scanning costs.  delay for any qh
++			 * we just scanned, there's a not-unusual case that it
++			 * doesn't stay idle for long.
++			 * (plus, avoids some kind of re-activation race.)
++			 */
++			if (list_empty (&qh->qtd_list)) {
++				if (qh->stamp == ehci->stamp)
++					action = TIMER_ASYNC_SHRINK;
++				else if (!ehci->reclaim
++					    && qh->qh_state == QH_STATE_LINKED)
++					start_unlink_async (ehci, qh);
++			}
++#endif
++
++			qh = qh->qh_next.qh;
++		} while (qh);
++	}
++	if (action == TIMER_ASYNC_SHRINK)
++		timer_action (ehci, TIMER_ASYNC_SHRINK);
++}
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/host/tangox-ohci-hcd.c linux-2.6.22.19/drivers/usb/host/tangox-ohci-hcd.c
+--- linux-2.6.22.19.ref/drivers/usb/host/tangox-ohci-hcd.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/host/tangox-ohci-hcd.c	2010-07-26 09:25:17.657405351 -0700
+@@ -0,0 +1,949 @@
++/*
++ * OHCI HCD (Host Controller Driver) for USB.
++ *
++ * (C) Copyright 1999 Roman Weissgaerber <weissg@vienna.at>
++ * (C) Copyright 2000-2004 David Brownell <dbrownell@users.sourceforge.net>
++ * Copyright (C) 2004-2007 Sigma Designs, Inc.
++
++ *
++ * [ Initialisation is based on Linus'  ]
++ * [ uhci code and gregs ohci fragments ]
++ * [ (C) Copyright 1999 Linus Torvalds  ]
++ * [ (C) Copyright 1999 Gregory P. Smith]
++ *
++ *
++ * OHCI is the main "non-Intel/VIA" standard for USB 1.1 host controller
++ * interfaces (though some non-x86 Intel chips use it).  It supports
++ * smarter hardware than UHCI.  A download link for the spec available
++ * through the http://www.usb.org website.
++ *
++ * This file is licenced under the GPL.
++ */
++
++#include <linux/module.h>
++#include <linux/moduleparam.h>
++#include <linux/pci.h>
++#include <linux/kernel.h>
++#include <linux/delay.h>
++#include <linux/ioport.h>
++#include <linux/sched.h>
++#include <linux/slab.h>
++#include <linux/errno.h>
++#include <linux/init.h>
++#include <linux/timer.h>
++#include <linux/list.h>
++#include <linux/usb.h>
++#include <linux/usb/otg.h>
++#include <linux/dma-mapping.h>
++#include <linux/dmapool.h>
++#include <linux/reboot.h>
++
++#include <asm/io.h>
++#include <asm/irq.h>
++#include <asm/system.h>
++#include <asm/unaligned.h>
++#include <asm/byteorder.h>
++#ifdef CONFIG_PPC_PS3
++#include <asm/firmware.h>
++#endif
++
++#include "../core/hcd.h"
++#include "../core/tangox-usb.h"
++
++#define DRIVER_VERSION "2006 August 04"
++#define DRIVER_AUTHOR "Roman Weissgaerber, David Brownell"
++#define DRIVER_DESC "USB 1.1 'Open' Host Controller (OHCI) Driver"
++
++/*-------------------------------------------------------------------------*/
++
++#undef OHCI_VERBOSE_DEBUG	/* not always helpful */
++
++/* For initializing controller (mask in an HCFS mode too) */
++#define	OHCI_CONTROL_INIT	OHCI_CTRL_CBSR
++#define	OHCI_INTR_INIT \
++		(OHCI_INTR_MIE | OHCI_INTR_RHSC | OHCI_INTR_UE \
++		| OHCI_INTR_RD | OHCI_INTR_WDH)
++
++#ifdef __hppa__
++/* On PA-RISC, PDC can leave IR set incorrectly; ignore it there. */
++#define	IR_DISABLE
++#endif
++
++#ifdef CONFIG_ARCH_OMAP
++/* OMAP doesn't support IR (no SMM; not needed) */
++#define	IR_DISABLE
++#endif
++
++/*-------------------------------------------------------------------------*/
++
++#define	STATECHANGE_DELAY	msecs_to_jiffies(300)
++
++#include "ohci.h"
++
++static void ohci_dump (struct ohci_hcd *ohci, int verbose);
++static int ohci_init (struct ohci_hcd *ohci);
++static void ohci_stop (struct usb_hcd *hcd);
++
++#include "ohci-hub.c"
++#include "ohci-dbg.c"
++#include "ohci-mem.c"
++#include "ohci-q.c"
++
++
++/*
++ * On architectures with edge-triggered interrupts we must never return
++ * IRQ_NONE.
++ */
++#if defined(CONFIG_SA1111)  /* ... or other edge-triggered systems */
++#define IRQ_NOTMINE	IRQ_HANDLED
++#else
++#define IRQ_NOTMINE	IRQ_NONE
++#endif
++
++/* modules parameters for polling mode*/
++static int polling_mode = 1;
++module_param (polling_mode, bool, 0);
++MODULE_PARM_DESC (polling_mode, "1: polling mode, 0 interrupt mode");
++
++static int polling_scale = 1;
++module_param (polling_scale, int, 0);
++MODULE_PARM_DESC (polling_scale, "time interval scaling factor for polling mode timer");
++
++static int polling_interval_min = 1;
++module_param (polling_interval_min, int, 0);
++MODULE_PARM_DESC (polling_interval_min, "Minimum time interval for polling mode timer");
++
++static int polling_interval_max = HZ;
++module_param (polling_interval_max, int, 0);
++MODULE_PARM_DESC (polling_interval_max, "Maximum time interval for polling mode timer");
++
++/* Timer for polling mode*/
++static struct timer_list ohci_timer;
++static unsigned int polling_interval = 1;
++
++
++/* Some boards misreport power switching/overcurrent */
++static int distrust_firmware = 1;
++module_param (distrust_firmware, bool, 0);
++MODULE_PARM_DESC (distrust_firmware,
++	"true to distrust firmware power/overcurrent setup");
++
++/* Some boards leave IR set wrongly, since they fail BIOS/SMM handshakes */
++static int no_handshake = 0;
++module_param (no_handshake, bool, 0);
++MODULE_PARM_DESC (no_handshake, "true (not default) disables BIOS handshake");
++
++/*-------------------------------------------------------------------------*/
++
++/*
++ * queue up an urb for anything except the root hub
++ */
++static int ohci_urb_enqueue (
++	struct usb_hcd	*hcd,
++	struct usb_host_endpoint *ep,
++	struct urb	*urb,
++	gfp_t		mem_flags
++) {
++	struct ohci_hcd	*ohci = hcd_to_ohci (hcd);
++	struct ed	*ed;
++	urb_priv_t	*urb_priv;
++	unsigned int	pipe = urb->pipe;
++	int		i, size = 0;
++	unsigned long	flags;
++	int		retval = 0;
++
++#ifdef OHCI_VERBOSE_DEBUG
++	urb_print (urb, "SUB", usb_pipein (pipe));
++#endif
++
++	/* every endpoint has a ed, locate and maybe (re)initialize it */
++	if (! (ed = ed_get (ohci, ep, urb->dev, pipe, urb->interval)))
++		return -ENOMEM;
++
++	/* for the private part of the URB we need the number of TDs (size) */
++	switch (ed->type) {
++		case PIPE_CONTROL:
++			/* td_submit_urb() doesn't yet handle these */
++			if (urb->transfer_buffer_length > 4096)
++				return -EMSGSIZE;
++
++			/* 1 TD for setup, 1 for ACK, plus ... */
++			size = 2;
++			/* FALLTHROUGH */
++		// case PIPE_INTERRUPT:
++		// case PIPE_BULK:
++		default:
++			/* one TD for every 4096 Bytes (can be upto 8K) */
++			size += urb->transfer_buffer_length / 4096;
++			/* ... and for any remaining bytes ... */
++			if ((urb->transfer_buffer_length % 4096) != 0)
++				size++;
++			/* ... and maybe a zero length packet to wrap it up */
++			if (size == 0)
++				size++;
++			else if ((urb->transfer_flags & URB_ZERO_PACKET) != 0
++				&& (urb->transfer_buffer_length
++					% usb_maxpacket (urb->dev, pipe,
++						usb_pipeout (pipe))) == 0)
++				size++;
++			break;
++		case PIPE_ISOCHRONOUS: /* number of packets from URB */
++			size = urb->number_of_packets;
++			break;
++	}
++
++	/* allocate the private part of the URB */
++	urb_priv = kmalloc (sizeof (urb_priv_t) + size * sizeof (struct td *),
++			mem_flags);
++	if (!urb_priv)
++		return -ENOMEM;
++	memset (urb_priv, 0, sizeof (urb_priv_t) + size * sizeof (struct td *));
++	INIT_LIST_HEAD (&urb_priv->pending);
++	urb_priv->length = size;
++	urb_priv->ed = ed;
++
++	/* allocate the TDs (deferring hash chain updates) */
++	for (i = 0; i < size; i++) {
++		urb_priv->td [i] = td_alloc (ohci, mem_flags);
++		if (!urb_priv->td [i]) {
++			urb_priv->length = i;
++			urb_free_priv (ohci, urb_priv);
++			return -ENOMEM;
++		}
++	}
++
++	spin_lock_irqsave (&ohci->lock, flags);
++
++	/* don't submit to a dead HC */
++	if (!test_bit(HCD_FLAG_HW_ACCESSIBLE, &hcd->flags)) {
++		retval = -ENODEV;
++		goto fail;
++	}
++	if (!HC_IS_RUNNING(hcd->state)) {
++		retval = -ENODEV;
++		goto fail;
++	}
++
++	/* in case of unlink-during-submit */
++	spin_lock (&urb->lock);
++	if (urb->status != -EINPROGRESS) {
++		spin_unlock (&urb->lock);
++		urb->hcpriv = urb_priv;
++		finish_urb (ohci, urb);
++		retval = 0;
++		goto fail;
++	}
++
++	/* schedule the ed if needed */
++	if (ed->state == ED_IDLE) {
++		retval = ed_schedule (ohci, ed);
++		if (retval < 0)
++			goto fail0;
++		if (ed->type == PIPE_ISOCHRONOUS) {
++			u16	frame = ohci_frame_no(ohci);
++
++			/* delay a few frames before the first TD */
++			frame += max_t (u16, 8, ed->interval);
++			frame &= ~(ed->interval - 1);
++			frame |= ed->branch;
++			urb->start_frame = frame;
++
++			/* yes, only URB_ISO_ASAP is supported, and
++			 * urb->start_frame is never used as input.
++			 */
++		}
++	} else if (ed->type == PIPE_ISOCHRONOUS)
++		urb->start_frame = ed->last_iso + ed->interval;
++
++	/* fill the TDs and link them to the ed; and
++	 * enable that part of the schedule, if needed
++	 * and update count of queued periodic urbs
++	 */
++	urb->hcpriv = urb_priv;
++	td_submit_urb (ohci, urb);
++
++fail0:
++	spin_unlock (&urb->lock);
++fail:
++	if (retval)
++		urb_free_priv (ohci, urb_priv);
++	spin_unlock_irqrestore (&ohci->lock, flags);
++	return retval;
++}
++
++/*
++ * decouple the URB from the HC queues (TDs, urb_priv); it's
++ * already marked using urb->status.  reporting is always done
++ * asynchronously, and we might be dealing with an urb that's
++ * partially transferred, or an ED with other urbs being unlinked.
++ */
++static int ohci_urb_dequeue (struct usb_hcd *hcd, struct urb *urb)
++{
++	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
++	unsigned long		flags;
++
++#ifdef OHCI_VERBOSE_DEBUG
++	urb_print (urb, "UNLINK", 1);
++#endif
++
++	spin_lock_irqsave (&ohci->lock, flags);
++	if (HC_IS_RUNNING(hcd->state)) {
++		urb_priv_t  *urb_priv;
++
++		/* Unless an IRQ completed the unlink while it was being
++		 * handed to us, flag it for unlink and giveback, and force
++		 * some upcoming INTR_SF to call finish_unlinks()
++		 */
++		urb_priv = urb->hcpriv;
++		if (urb_priv) {
++			if (urb_priv->ed->state == ED_OPER)
++				start_ed_unlink (ohci, urb_priv->ed);
++		}
++	} else {
++		/*
++		 * with HC dead, we won't respect hc queue pointers
++		 * any more ... just clean up every urb's memory.
++		 */
++		if (urb->hcpriv)
++			finish_urb (ohci, urb);
++	}
++	spin_unlock_irqrestore (&ohci->lock, flags);
++	return 0;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* frees config/altsetting state for endpoints,
++ * including ED memory, dummy TD, and bulk/intr data toggle
++ */
++
++static void
++ohci_endpoint_disable (struct usb_hcd *hcd, struct usb_host_endpoint *ep)
++{
++	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
++	unsigned long		flags;
++	struct ed		*ed = ep->hcpriv;
++	unsigned		limit = 1000;
++
++	/* ASSERT:  any requests/urbs are being unlinked */
++	/* ASSERT:  nobody can be submitting urbs for this any more */
++
++	if (!ed)
++		return;
++
++rescan:
++	spin_lock_irqsave (&ohci->lock, flags);
++
++	if (!HC_IS_RUNNING (hcd->state)) {
++sanitize:
++		ed->state = ED_IDLE;
++		finish_unlinks (ohci, 0);
++	}
++
++	switch (ed->state) {
++	case ED_UNLINK:		/* wait for hw to finish? */
++		/* major IRQ delivery trouble loses INTR_SF too... */
++		if (limit-- == 0) {
++			ohci_warn (ohci, "IRQ INTR_SF lossage\n");
++			goto sanitize;
++		}
++		spin_unlock_irqrestore (&ohci->lock, flags);
++		schedule_timeout_uninterruptible(1);
++		goto rescan;
++	case ED_IDLE:		/* fully unlinked */
++		if (list_empty (&ed->td_list)) {
++			td_free (ohci, ed->dummy);
++			ed_free (ohci, ed);
++			break;
++		}
++		/* else FALL THROUGH */
++	default:
++		/* caller was supposed to have unlinked any requests;
++		 * that's not our job.  can't recover; must leak ed.
++		 */
++		ohci_err (ohci, "leak ed %p (#%02x) state %d%s\n",
++			ed, ep->desc.bEndpointAddress, ed->state,
++			list_empty (&ed->td_list) ? "" : " (has tds)");
++		td_free (ohci, ed->dummy);
++		break;
++	}
++	ep->hcpriv = NULL;
++	spin_unlock_irqrestore (&ohci->lock, flags);
++	return;
++}
++
++static int ohci_get_frame (struct usb_hcd *hcd)
++{
++	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
++
++	return ohci_frame_no(ohci);
++}
++
++static void ohci_usb_reset (struct ohci_hcd *ohci)
++{
++	ohci->hc_control = ohci_readl (ohci, &ohci->regs->control);
++	ohci->hc_control &= OHCI_CTRL_RWC;
++	ohci_writel (ohci, ohci->hc_control, &ohci->regs->control);
++}
++
++/* ohci_shutdown forcibly disables IRQs and DMA, helping kexec and
++ * other cases where the next software may expect clean state from the
++ * "firmware".  this is bus-neutral, unlike shutdown() methods.
++ */
++static void
++ohci_shutdown (struct usb_hcd *hcd)
++{
++	struct ohci_hcd *ohci;
++
++	ohci = hcd_to_ohci (hcd);
++	ohci_writel (ohci, OHCI_INTR_MIE, &ohci->regs->intrdisable);
++	ohci_usb_reset (ohci);
++	/* flush the writes */
++	(void) ohci_readl (ohci, &ohci->regs->control);
++}
++
++/*-------------------------------------------------------------------------*
++ * HC functions
++ *-------------------------------------------------------------------------*/
++
++/* init memory, and kick BIOS/SMM off */
++
++static int ohci_init (struct ohci_hcd *ohci)
++{
++	int ret;
++	struct usb_hcd *hcd = ohci_to_hcd(ohci);
++
++	disable (ohci);
++	ohci->regs = hcd->regs;
++
++	/* REVISIT this BIOS handshake is now moved into PCI "quirks", and
++	 * was never needed for most non-PCI systems ... remove the code?
++	 */
++
++#ifndef IR_DISABLE
++	/* SMM owns the HC?  not for long! */
++	if (!no_handshake && ohci_readl (ohci,
++					&ohci->regs->control) & OHCI_CTRL_IR) {
++		u32 temp;
++
++		ohci_dbg (ohci, "USB HC TakeOver from BIOS/SMM\n");
++
++		/* this timeout is arbitrary.  we make it long, so systems
++		 * depending on usb keyboards may be usable even if the
++		 * BIOS/SMM code seems pretty broken.
++		 */
++		temp = 500;	/* arbitrary: five seconds */
++
++		ohci_writel (ohci, OHCI_INTR_OC, &ohci->regs->intrenable);
++		ohci_writel (ohci, OHCI_OCR, &ohci->regs->cmdstatus);
++		while (ohci_readl (ohci, &ohci->regs->control) & OHCI_CTRL_IR) {
++			msleep (10);
++			if (--temp == 0) {
++				ohci_err (ohci, "USB HC takeover failed!"
++					"  (BIOS/SMM bug)\n");
++				return -EBUSY;
++			}
++		}
++		ohci_usb_reset (ohci);
++	}
++#endif
++
++	/* Disable HC interrupts */
++	ohci_writel (ohci, OHCI_INTR_MIE, &ohci->regs->intrdisable);
++
++	/* flush the writes, and save key bits like RWC */
++	if (ohci_readl (ohci, &ohci->regs->control) & OHCI_CTRL_RWC)
++		ohci->hc_control |= OHCI_CTRL_RWC;
++
++	/* Read the number of ports unless overridden */
++	if (ohci->num_ports == 0)
++		ohci->num_ports = roothub_a(ohci) & RH_A_NDP;
++
++	if (ohci->hcca)
++		return 0;
++
++	ohci->hcca = dma_alloc_coherent (hcd->self.controller,
++			sizeof *ohci->hcca, &ohci->hcca_dma, 0);
++	if (!ohci->hcca)
++		return -ENOMEM;
++
++	if ((ret = ohci_mem_init (ohci)) < 0)
++		ohci_stop (hcd);
++	else {
++		create_debug_files (ohci);
++	}
++
++	return ret;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* Start an OHCI controller, set the BUS operational
++ * resets USB and controller
++ * enable interrupts
++ */
++static int ohci_run (struct ohci_hcd *ohci)
++{
++	u32			mask, temp;
++	int			first = ohci->fminterval == 0;
++	struct usb_hcd		*hcd = ohci_to_hcd(ohci);
++
++	disable (ohci);
++
++	/* boot firmware should have set this up (5.1.1.3.1) */
++	if (first) {
++
++		temp = ohci_readl (ohci, &ohci->regs->fminterval);
++		ohci->fminterval = temp & 0x3fff;
++		if (ohci->fminterval != FI)
++			ohci_dbg (ohci, "fminterval delta %d\n",
++				ohci->fminterval - FI);
++		ohci->fminterval |= FSMP (ohci->fminterval) << 16;
++		/* also: power/overcurrent flags in roothub.a */
++	}
++
++	/* Reset USB nearly "by the book".  RemoteWakeupConnected was
++	 * saved if boot firmware (BIOS/SMM/...) told us it's connected,
++	 * or if bus glue did the same (e.g. for PCI add-in cards with
++	 * PCI PM support).
++	 */
++	if ((ohci->hc_control & OHCI_CTRL_RWC) != 0
++			&& !device_may_wakeup(hcd->self.controller))
++		device_init_wakeup(hcd->self.controller, 1);
++
++	switch (ohci->hc_control & OHCI_CTRL_HCFS) {
++	case OHCI_USB_OPER:
++		temp = 0;
++		break;
++	case OHCI_USB_SUSPEND:
++	case OHCI_USB_RESUME:
++		ohci->hc_control &= OHCI_CTRL_RWC;
++		ohci->hc_control |= OHCI_USB_RESUME;
++		temp = 10 /* msec wait */;
++		break;
++	// case OHCI_USB_RESET:
++	default:
++		ohci->hc_control &= OHCI_CTRL_RWC;
++		ohci->hc_control |= OHCI_USB_RESET;
++		temp = 50 /* msec wait */;
++		break;
++	}
++	ohci_writel (ohci, ohci->hc_control, &ohci->regs->control);
++	// flush the writes
++	(void) ohci_readl (ohci, &ohci->regs->control);
++	msleep(temp);
++	temp = roothub_a (ohci);
++	if (!(temp & RH_A_NPS)) {
++		/* power down each port */
++		for (temp = 0; temp < ohci->num_ports; temp++)
++			ohci_writel (ohci, RH_PS_LSDA,
++				&ohci->regs->roothub.portstatus [temp]);
++	}
++	// flush those writes
++	(void) ohci_readl (ohci, &ohci->regs->control);
++	memset (ohci->hcca, 0, sizeof (struct ohci_hcca));
++
++	/* 2msec timelimit here means no irqs/preempt */
++	spin_lock_irq (&ohci->lock);
++
++retry:
++	/* HC Reset requires max 10 us delay */
++	ohci_writel (ohci, OHCI_HCR,  &ohci->regs->cmdstatus);
++	temp = 30;	/* ... allow extra time */
++	while ((ohci_readl (ohci, &ohci->regs->cmdstatus) & OHCI_HCR) != 0) {
++		if (--temp == 0) {
++			spin_unlock_irq (&ohci->lock);
++			ohci_err (ohci, "USB HC reset timed out!\n");
++			return -1;
++		}
++		udelay (1);
++	}
++
++	/* now we're in the SUSPEND state ... must go OPERATIONAL
++	 * within 2msec else HC enters RESUME
++	 *
++	 * ... but some hardware won't init fmInterval "by the book"
++	 * (SiS, OPTi ...), so reset again instead.  SiS doesn't need
++	 * this if we write fmInterval after we're OPERATIONAL.
++	 * Unclear about ALi, ServerWorks, and others ... this could
++	 * easily be a longstanding bug in chip init on Linux.
++	 */
++	if (ohci->flags & OHCI_QUIRK_INITRESET) {
++		ohci_writel (ohci, ohci->hc_control, &ohci->regs->control);
++		// flush those writes
++		(void) ohci_readl (ohci, &ohci->regs->control);
++	}
++
++	/* Tell the controller where the control and bulk lists are
++	 * The lists are empty now. */
++	ohci_writel (ohci, 0, &ohci->regs->ed_controlhead);
++	ohci_writel (ohci, 0, &ohci->regs->ed_bulkhead);
++
++	/* a reset clears this */
++	ohci_writel (ohci, (u32) ohci->hcca_dma, &ohci->regs->hcca);
++
++	periodic_reinit (ohci);
++
++	/* some OHCI implementations are finicky about how they init.
++	 * bogus values here mean not even enumeration could work.
++	 */
++	if ((ohci_readl (ohci, &ohci->regs->fminterval) & 0x3fff0000) == 0
++			|| !ohci_readl (ohci, &ohci->regs->periodicstart)) {
++		if (!(ohci->flags & OHCI_QUIRK_INITRESET)) {
++			ohci->flags |= OHCI_QUIRK_INITRESET;
++			ohci_dbg (ohci, "enabling initreset quirk\n");
++			goto retry;
++		}
++		spin_unlock_irq (&ohci->lock);
++		ohci_err (ohci, "init err (%08x %04x)\n",
++			ohci_readl (ohci, &ohci->regs->fminterval),
++			ohci_readl (ohci, &ohci->regs->periodicstart));
++		return -EOVERFLOW;
++	}
++
++	/* use rhsc irqs after khubd is fully initialized */
++	hcd->poll_rh = 1;
++	hcd->uses_new_polling = 1;
++
++	/* start controller operations */
++	ohci->hc_control &= OHCI_CTRL_RWC;
++	ohci->hc_control |= OHCI_CONTROL_INIT | OHCI_USB_OPER;
++	ohci_writel (ohci, ohci->hc_control, &ohci->regs->control);
++	hcd->state = HC_STATE_RUNNING;
++
++	/* wake on ConnectStatusChange, matching external hubs */
++	ohci_writel (ohci, RH_HS_DRWE, &ohci->regs->roothub.status);
++
++	/* Choose the interrupts we care about now, others later on demand */
++	mask = OHCI_INTR_INIT;
++	ohci_writel (ohci, ~0, &ohci->regs->intrstatus);
++	ohci_writel (ohci, mask, &ohci->regs->intrenable);
++
++	/* handle root hub init quirks ... */
++	temp = roothub_a (ohci);
++	temp &= ~(RH_A_PSM | RH_A_OCPM);
++	if (ohci->flags & OHCI_QUIRK_SUPERIO) {
++		/* NSC 87560 and maybe others */
++		temp |= RH_A_NOCP;
++		temp &= ~(RH_A_POTPGT | RH_A_NPS);
++		ohci_writel (ohci, temp, &ohci->regs->roothub.a);
++	} else if ((ohci->flags & OHCI_QUIRK_AMD756) || distrust_firmware) {
++		/* hub power always on; required for AMD-756 and some
++		 * Mac platforms.  ganged overcurrent reporting, if any.
++		 */
++		temp |= RH_A_NPS;
++		ohci_writel (ohci, temp, &ohci->regs->roothub.a);
++	}
++	ohci_writel (ohci, RH_HS_LPSC, &ohci->regs->roothub.status);
++	ohci_writel (ohci, (temp & RH_A_NPS) ? 0 : RH_B_PPCM,
++						&ohci->regs->roothub.b);
++	// flush those writes
++	(void) ohci_readl (ohci, &ohci->regs->control);
++
++	ohci->next_statechange = jiffies + STATECHANGE_DELAY;
++	spin_unlock_irq (&ohci->lock);
++
++	// POTPGT delay is bits 24-31, in 2 ms units.
++	mdelay ((temp >> 23) & 0x1fe);
++	hcd->state = HC_STATE_RUNNING;
++
++	ohci_dump (ohci, 1);
++
++	return 0;
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* an interrupt happens */
++
++static irqreturn_t ohci_irq (struct usb_hcd *hcd)
++{
++	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
++	struct ohci_regs __iomem *regs = ohci->regs;
++ 	int			ints; 
++
++	/* we can eliminate a (slow) ohci_readl()
++	   if _only_ WDH caused this irq */
++	if ((ohci->hcca->done_head != 0)
++			&& ! (hc32_to_cpup (ohci, &ohci->hcca->done_head)
++				& 0x01)) {
++		ints =  OHCI_INTR_WDH;
++
++	/* cardbus/... hardware gone before remove() */
++	} else if ((ints = ohci_readl (ohci, &regs->intrstatus)) == ~(u32)0) {
++		disable (ohci);
++		ohci_dbg (ohci, "device removed!\n");
++		return IRQ_HANDLED;
++
++	/* interrupt for some other device? */
++	} else if ((ints &= ohci_readl (ohci, &regs->intrenable)) == 0) {
++	if(polling_mode){
++		polling_interval <<= polling_scale;
++		if (polling_interval > polling_interval_max) /* Poll at least once per second */
++			polling_interval = polling_interval_max;
++		}
++		return IRQ_NOTMINE;
++	}
++
++	if(polling_mode)
++		polling_interval = polling_interval_min;
++
++	if (ints & OHCI_INTR_UE) {
++		disable (ohci);
++		ohci_err (ohci, "OHCI Unrecoverable Error, disabled\n");
++		// e.g. due to PCI Master/Target Abort
++
++		ohci_dump (ohci, 1);
++		ohci_usb_reset (ohci);
++	}
++
++	if (ints & OHCI_INTR_RHSC) {
++		ohci_vdbg(ohci, "rhsc\n");
++		ohci->next_statechange = jiffies + STATECHANGE_DELAY;
++		ohci_writel(ohci, OHCI_INTR_RD | OHCI_INTR_RHSC,
++				&regs->intrstatus);
++
++		/* NOTE: Vendors didn't always make the same implementation
++		 * choices for RHSC.  Many followed the spec; RHSC triggers
++		 * on an edge, like setting and maybe clearing a port status
++		 * change bit.  With others it's level-triggered, active
++		 * until khubd clears all the port status change bits.  We'll
++		 * always disable it here and rely on polling until khubd
++		 * re-enables it.
++		 */
++		ohci_writel(ohci, OHCI_INTR_RHSC, &regs->intrdisable);
++		usb_hcd_poll_rh_status(hcd);
++	}
++
++	/* For connect and disconnect events, we expect the controller
++	 * to turn on RHSC along with RD.  But for remote wakeup events
++	 * this might not happen.
++	 */
++	else if (ints & OHCI_INTR_RD) {
++		ohci_vdbg(ohci, "resume detect\n");
++		ohci_writel(ohci, OHCI_INTR_RD, &regs->intrstatus);
++		hcd->poll_rh = 1;
++		if (ohci->autostop) {
++			spin_lock (&ohci->lock);
++			ohci_rh_resume (ohci);
++			spin_unlock (&ohci->lock);
++		} else
++			usb_hcd_resume_root_hub(hcd);
++	}
++
++	if (ints & OHCI_INTR_WDH) {
++		if (HC_IS_RUNNING(hcd->state))
++			ohci_writel (ohci, OHCI_INTR_WDH, &regs->intrdisable);
++		spin_lock (&ohci->lock);
++		dl_done_list (ohci);
++		spin_unlock (&ohci->lock);
++		if (HC_IS_RUNNING(hcd->state))
++			ohci_writel (ohci, OHCI_INTR_WDH, &regs->intrenable);
++	}
++
++	/* could track INTR_SO to reduce available PCI/... bandwidth */
++
++	/* handle any pending URB/ED unlinks, leaving INTR_SF enabled
++	 * when there's still unlinking to be done (next frame).
++	 */
++	spin_lock (&ohci->lock);
++	if (ohci->ed_rm_list)
++		finish_unlinks (ohci, ohci_frame_no(ohci));
++	if ((ints & OHCI_INTR_SF) != 0 && !ohci->ed_rm_list
++			&& HC_IS_RUNNING(hcd->state))
++		ohci_writel (ohci, OHCI_INTR_SF, &regs->intrdisable);
++	spin_unlock (&ohci->lock);
++
++	if (HC_IS_RUNNING(hcd->state)) {
++		ohci_writel (ohci, ints, &regs->intrstatus);
++		ohci_writel (ohci, OHCI_INTR_MIE, &regs->intrenable);
++		// flush those writes
++		(void) ohci_readl (ohci, &ohci->regs->control);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static void ohci_polling (unsigned long data)
++{
++        unsigned long flags;
++	struct usb_hcd *hcd = (struct usb_hcd *)data;
++
++        local_save_flags(flags);
++        ohci_irq (hcd);
++        local_irq_restore(flags);
++
++#ifdef USE_FIXED_POLL_INTERVAL
++	/* poll using fixed delay: 50ms */
++	mod_timer(&ohci_timer, jiffies + (50 * HZ) / 1000);
++#else
++	/* poll using variable delay */
++	mod_timer(&ohci_timer, jiffies + polling_interval);
++#endif
++
++        return;
++}
++
++/*-------------------------------------------------------------------------*/
++
++static void ohci_stop (struct usb_hcd *hcd)
++{
++	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
++
++	ohci_dump (ohci, 1);
++
++	flush_scheduled_work();
++
++	ohci_usb_reset (ohci);
++	ohci_writel (ohci, OHCI_INTR_MIE, &ohci->regs->intrdisable);
++	free_irq(hcd->irq, hcd);
++	hcd->irq = -1;
++
++	remove_debug_files (ohci);
++	ohci_mem_cleanup (ohci);
++	if (ohci->hcca) {
++		dma_free_coherent (hcd->self.controller,
++				sizeof *ohci->hcca,
++				ohci->hcca, ohci->hcca_dma);
++		ohci->hcca = NULL;
++		ohci->hcca_dma = 0;
++	}
++}
++
++/*-------------------------------------------------------------------------*/
++
++/* must not be called from interrupt context */
++
++#ifdef	CONFIG_PM
++
++static int ohci_restart (struct ohci_hcd *ohci)
++{
++	int temp;
++	int i;
++	struct urb_priv *priv;
++
++	/* mark any devices gone, so they do nothing till khubd disconnects.
++	 * recycle any "live" eds/tds (and urbs) right away.
++	 * later, khubd disconnect processing will recycle the other state,
++	 * (either as disconnect/reconnect, or maybe someday as a reset).
++	 */
++	spin_lock_irq(&ohci->lock);
++	disable (ohci);
++	usb_root_hub_lost_power(ohci_to_hcd(ohci)->self.root_hub);
++	if (!list_empty (&ohci->pending))
++		ohci_dbg(ohci, "abort schedule...\n");
++	list_for_each_entry (priv, &ohci->pending, pending) {
++		struct urb	*urb = priv->td[0]->urb;
++		struct ed	*ed = priv->ed;
++
++		switch (ed->state) {
++		case ED_OPER:
++			ed->state = ED_UNLINK;
++			ed->hwINFO |= cpu_to_hc32(ohci, ED_DEQUEUE);
++			ed_deschedule (ohci, ed);
++
++			ed->ed_next = ohci->ed_rm_list;
++			ed->ed_prev = NULL;
++			ohci->ed_rm_list = ed;
++			/* FALLTHROUGH */
++		case ED_UNLINK:
++			break;
++		default:
++			ohci_dbg(ohci, "bogus ed %p state %d\n",
++					ed, ed->state);
++		}
++
++		spin_lock (&urb->lock);
++		urb->status = -ESHUTDOWN;
++		spin_unlock (&urb->lock);
++	}
++	finish_unlinks (ohci, 0);
++	spin_unlock_irq(&ohci->lock);
++
++	/* paranoia, in case that didn't work: */
++
++	/* empty the interrupt branches */
++	for (i = 0; i < NUM_INTS; i++) ohci->load [i] = 0;
++	for (i = 0; i < NUM_INTS; i++) ohci->hcca->int_table [i] = 0;
++
++	/* no EDs to remove */
++	ohci->ed_rm_list = NULL;
++
++	/* empty control and bulk lists */
++	ohci->ed_controltail = NULL;
++	ohci->ed_bulktail    = NULL;
++
++	if ((temp = ohci_run (ohci)) < 0) {
++		ohci_err (ohci, "can't restart, %d\n", temp);
++		return temp;
++	} else {
++		/* here we "know" root ports should always stay powered,
++		 * and that if we try to turn them back on the root hub
++		 * will respond to CSC processing.
++		 */
++		i = ohci->num_ports;
++		while (i--)
++			ohci_writel (ohci, RH_PS_PSS,
++				&ohci->regs->roothub.portstatus [i]);
++		ohci_dbg (ohci, "restart complete\n");
++	}
++	return 0;
++}
++#endif
++
++/*-------------------------------------------------------------------------*/
++
++#define DRIVER_INFO DRIVER_VERSION " " DRIVER_DESC
++
++MODULE_AUTHOR (DRIVER_AUTHOR);
++MODULE_DESCRIPTION (DRIVER_INFO);
++MODULE_LICENSE ("GPL");
++
++#include "ohci-tangox.c"
++
++static int __init ohci_hcd_mod_init(void)
++{
++	unsigned long tangox_chip_id(void);
++	unsigned long chip_id = (tangox_chip_id() >> 16) & 0xfffe;
++	int retval = 0;
++
++	if (usb_disabled())
++		return -ENODEV;
++
++#ifdef CONFIG_TANGOX_XENV_READ
++	if (!tangox_usb_enabled())
++		return -ENODEV;
++#endif
++	if ((chip_id == 0x8652) || (chip_id == 0x8646)) {
++		printk("No OHCI in SMP8652/SMP8653/SMP8646/SMP8647.\n");
++		return -ENODEV;
++	}
++
++	retval = platform_add_devices(tangox_platform_devices,
++                             ARRAY_SIZE(tangox_platform_devices));
++	if(retval){
++		printk("Failed to register tangox ohci platform device .\n");
++		return retval;
++	}
++
++	printk (KERN_DEBUG "%s: " DRIVER_INFO "\n", OHCI_HCD_NAME);
++	pr_debug ("%s: block sizes: ed %Zd td %Zd\n", OHCI_HCD_NAME,
++		sizeof (struct ed), sizeof (struct td));
++
++	retval = platform_driver_register(&tangox_ohci_driver);
++	if(retval){
++		printk("Failed to register tangox ohci platform driver.\n");
++		platform_device_unregister(&tangox_ohci_device);
++	}
++	return retval;
++}
++module_init(ohci_hcd_mod_init);
++
++static void __exit ohci_hcd_mod_exit(void)
++{
++	platform_driver_unregister(&tangox_ohci_driver);
++	platform_device_unregister(&tangox_ohci_device);
++
++}
++module_exit(ohci_hcd_mod_exit);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/Kconfig linux-2.6.22.19/drivers/usb/Kconfig
+--- linux-2.6.22.19.ref/drivers/usb/Kconfig	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/Kconfig	2010-07-26 09:25:17.657405351 -0700
+@@ -13,6 +13,7 @@
+ 	default y if USB_ARCH_HAS_OHCI
+ 	default y if USB_ARCH_HAS_EHCI
+ 	default y if ARM				# SL-811
++	default y if TANGOX				
+ 	default PCI
+ 
+ # many non-PCI SOC chips embed OHCI
+@@ -32,6 +33,7 @@
+ 	default y if PPC_MPC52xx
+ 	# MIPS:
+ 	default y if SOC_AU1X00
++	default y if TANGOX				
+ 	# more:
+ 	default PCI
+ 
+@@ -40,6 +42,7 @@
+ 	boolean
+ 	default y if PPC_83xx
+ 	default y if SOC_AU1200
++	default y if TANGOX				
+ 	default PCI
+ 
+ # ARM SA1111 chips have a non-PCI based "OHCI-compatible" USB host interface.
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/Makefile linux-2.6.22.19/drivers/usb/Makefile
+--- linux-2.6.22.19.ref/drivers/usb/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/Makefile	2010-07-26 09:25:17.657405351 -0700
+@@ -16,6 +16,8 @@
+ obj-$(CONFIG_USB_SL811_HCD)	+= host/
+ obj-$(CONFIG_USB_U132_HCD)	+= host/
+ obj-$(CONFIG_USB_OHCI_AT91)	+= host/
++obj-$(CONFIG_TANGOX_EHCI_HCD)   += host/
++obj-$(CONFIG_TANGOX_OHCI_HCD)   += host/
+ 
+ obj-$(CONFIG_USB_ACM)		+= class/
+ obj-$(CONFIG_USB_PRINTER)	+= class/
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/storage/Kconfig linux-2.6.22.19/drivers/usb/storage/Kconfig
+--- linux-2.6.22.19.ref/drivers/usb/storage/Kconfig	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/storage/Kconfig	2010-07-26 09:25:17.657405351 -0700
+@@ -24,6 +24,14 @@
+ 	  To compile this driver as a module, choose M here: the
+ 	  module will be called usb-storage.
+ 
++config USB_STORAGE_DELAY_USE
++	int "Delay use (in seconds)"
++	default "5"
++	depends on USB_STORAGE
++	help
++	  The delay (in seconds) needed before making use of mass storage 
++          device once it has been detected.
++	
+ config USB_STORAGE_DEBUG
+ 	bool "USB Mass Storage verbose debug"
+ 	depends on USB_STORAGE
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/usb/storage/usb.c linux-2.6.22.19/drivers/usb/storage/usb.c
+--- linux-2.6.22.19.ref/drivers/usb/storage/usb.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/usb/storage/usb.c	2010-07-26 09:25:17.705817135 -0700
+@@ -107,7 +107,11 @@
+ MODULE_DESCRIPTION("USB Mass Storage driver for Linux");
+ MODULE_LICENSE("GPL");
+ 
++#ifdef CONFIG_USB_STORAGE_DELAY_USE
++static unsigned int delay_use = CONFIG_USB_STORAGE_DELAY_USE;
++#else
+ static unsigned int delay_use = 5;
++#endif
+ module_param(delay_use, uint, S_IRUGO | S_IWUSR);
+ MODULE_PARM_DESC(delay_use, "seconds to delay before using a new device");
+ 
+@@ -967,6 +971,10 @@
+ 		return -ENOMEM;
+ 	}
+ 
++	/*
++	 * Allow 16-byte CDBs and thus > 2TB
++	 */
++	host->max_cmd_len = 16;
+ 	us = host_to_us(host);
+ 	memset(us, 0, sizeof(struct us_data));
+ 	mutex_init(&(us->dev_mutex));
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/asm-mips/tango2/tango2_usb.h linux-2.6.22.19/include/asm-mips/tango2/tango2_usb.h
+--- linux-2.6.22.19.ref/include/asm-mips/tango2/tango2_usb.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/include/asm-mips/tango2/tango2_usb.h	2010-07-26 09:25:17.705817135 -0700
+@@ -0,0 +1,39 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#ifndef __TANGO2_USB_H
++#define __TANGO2_USB_H
++
++#include <asm/tango2/hardware.h>
++#include <asm/tango2/tango2_gbus.h>
++
++#define TANGOX_EHCI_IRQ	(IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_EHCI_INT)
++#define TANGOX_OHCI_IRQ	(IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_OHCI_INT)
++
++#define TANGOX_EHCI_BASE_ADDR		(REG_BASE_host_interface + 0x1400)
++#define TANGOX_OHCI_BASE_ADDR		(REG_BASE_host_interface + 0x1500)
++#define TANGOX_USB_CTL_STATUS_REG_BASE	(REG_BASE_host_interface + 0x1700)
++
++/*
++ * helpers to access USB registers
++ */
++#define RD_OHCI_REG32(r)	\
++		gbus_read_reg32(TANGOX_OHCI_BASE_ADDR + (r))
++
++#define WR_OHCI_REG32(r, v)	\
++		gbus_write_reg32(TANGOX_OHCI_BASE_ADDR + (r), (v))
++
++#define RD_USB_REG32(r)	\
++		gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + (r))
++
++#define WR_USB_REG32(r, v)	\
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + (r), (v))
++
++#endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/asm-mips/tango3/tango3_usb.h linux-2.6.22.19/include/asm-mips/tango3/tango3_usb.h
+--- linux-2.6.22.19.ref/include/asm-mips/tango3/tango3_usb.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/include/asm-mips/tango3/tango3_usb.h	2010-07-26 09:25:17.705817135 -0700
+@@ -0,0 +1,39 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++
++#ifndef __TANGO3_USB_H
++#define __TANGO3_USB_H
++
++#include <asm/tango3/hardware.h>
++#include <asm/tango3/tango3_gbus.h>
++
++#define TANGOX_EHCI_IRQ	(IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_EHCI_INT)
++#define TANGOX_OHCI_IRQ	(IRQ_CONTROLLER_IRQ_BASE + LOG2_CPU_USB_OHCI_INT)
++
++#define TANGOX_EHCI_BASE_ADDR		(REG_BASE_host_interface + 0x1400)
++#define TANGOX_OHCI_BASE_ADDR		(REG_BASE_host_interface + 0x1500)
++#define TANGOX_USB_CTL_STATUS_REG_BASE	(REG_BASE_host_interface + 0x1700)
++
++/*
++ * helpers to access USB registers
++ */
++#define RD_OHCI_REG32(r)	\
++		gbus_read_reg32(TANGOX_OHCI_BASE_ADDR + (r))
++
++#define WR_OHCI_REG32(r, v)	\
++		gbus_write_reg32(TANGOX_OHCI_BASE_ADDR + (r), (v))
++
++#define RD_USB_REG32(r)	\
++		gbus_read_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + (r))
++
++#define WR_USB_REG32(r, v)	\
++		gbus_write_reg32(TANGOX_USB_CTL_STATUS_REG_BASE + (r), (v))
++
++#endif
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/linux/usb.h linux-2.6.22.19/include/linux/usb.h
+--- linux-2.6.22.19.ref/include/linux/usb.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/usb.h	2010-07-26 09:25:17.705817135 -0700
+@@ -948,6 +948,8 @@
+ #define URB_ZERO_PACKET		0x0040	/* Finish bulk OUT with short packet */
+ #define URB_NO_INTERRUPT	0x0080	/* HINT: no non-error interrupt
+ 					 * needed */
++#define URB_HCD_DRIVER_TEST     0xFFFF  /* Do NOT hand back or free this URB. */
++
+ 
+ struct usb_iso_packet_descriptor {
+ 	unsigned int offset;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1007.usb.patch linux-2.6.22.19/README.1007.usb.patch
+--- linux-2.6.22.19.ref/README.1007.usb.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1007.usb.patch	2010-07-26 09:26:17.186445732 -0700
+@@ -0,0 +1,20 @@
++Feature:
++--------
++Support for SMP86xx builtin EHCI/OHCI USB controllers
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++1002
++
++Primary author:
++---------------
++Craig Qu/YH Lin
++
++Related to which chip version SMP86xx xx=?
++------------------------------------------
++Tango2 ES6/RevA or above, or Tango3 ES1 or above
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

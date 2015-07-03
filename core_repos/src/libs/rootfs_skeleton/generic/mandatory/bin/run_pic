@@ -1,0 +1,13 @@
+#!/bin/sh
+# let osd go
+sleep 2
+while [ ! -f "/tmp/firstrunosd" ]; do sleep 1; done
+ifconfig
+killall -9 PICRender
+if [ -f /tmp/STOP_PICRENDER ]; then echo "/tmp/STOP_PICRENDER exists, PICRender spawn stopped"; sleep 10000; fi
+while [ ! -f /tmp/av_ready ]; do sleep 1; echo "run_pic: Wait DMARender"; done
+killall -9 MediaLogic_PIC
+/bin/MediaLogic_PIC PC MSGL_FATAL &
+cd /bin
+exec PICRender
+

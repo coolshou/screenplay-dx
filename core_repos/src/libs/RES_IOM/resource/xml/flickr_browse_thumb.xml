@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/flickr/IService_Flickr_bg.jpg" numitems="10">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="5" rows="2" lbmask="HT" loop_scroll="1" turbo_trigger="10" turbo_multi="10" />
+    <linebreak/>
+  </ctrlgrp>
+  <include filename="./info.xml"/>
+  <text text="@@browse_title_icon" x="185" y="100" w="760" h="50" fontsize="42" textcolor="0xffffff" speed="1"/>
+  <!--image x="350" y="110" w="380" h="300" image="@@browse_background_icon" bg="1"/-->
+  <!--<include filename="./inc_thumb_browse.xml"/>-->
+  <include filename="./inc_flickr_thumb_browse.xml"/>
+  <include filename="./inc_loading.xml"/>
+  <include filename="./inc_decoration_online.xml"/>
+</page>

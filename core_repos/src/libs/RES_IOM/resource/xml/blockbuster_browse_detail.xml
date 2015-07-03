@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<listbox valkey="ourlist" 
+			hormove="1" autoenter="1" move="row" autoswitch="0" 
+			cols="5" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png"/>
+		<linebreak/>
+		<listbox valkey="browselist" 
+			move="page" autoenter="1" autoswitch="0" 
+			cols="1" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+		<linebreak/>
+		<button valkey="PageUp" 
+			normal_bg="image/blockbuster/bb_arrow_left_n.png" 
+			focused_bg="image/blockbuster/bb_arrow_left_f.png" 
+			click_bg="image/blockbuster/bb_arrow_left_c.png"
+			click_effect="p"/>
+		<button valkey="PageDown" 
+			normal_bg="image/blockbuster/bb_arrow_right_n.png" 
+			focused_bg="image/blockbuster/bb_arrow_right_f.png"
+			click_bg="image/blockbuster/bb_arrow_right_c.png"
+			click_effect="p"/>
+		<linebreak/>
+		<listbox valkey="actionlist"
+			hormove="1" autoenter="1" move="row" autoswitch="0" 
+			cols="5" rows="1" lbmask="ud" loop_scroll="1" turbo_trigger="10" turbo_multi="10"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png"/>
+<!--
+		<button valkey="BUTTON1" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="BUTTON2" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="BUTTON3" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="BUTTON4" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="BUTTON5" 
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+-->
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" cols="5" rows="1" align="hcenter" colspacing="5">
+		<imgbtn image="@@bg-ourlist-0" text=""
+			active="@@act-ourlist-0" selected="@@sel-ourlist-0" click="@@click-ourlist-0" 
+			clicked="@@clicked-ourlist-0" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-1" text=""
+			active="@@act-ourlist-1" selected="@@sel-ourlist-1" click="@@click-ourlist-1" 
+			clicked="@@clicked-ourlist-1" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-2" text=""
+			active="@@act-ourlist-2" selected="@@sel-ourlist-2" click="@@click-ourlist-2" 
+			clicked="@@clicked-ourlist-2" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-3" text=""
+			active="@@act-ourlist-3" selected="@@sel-ourlist-3" click="@@click-ourlist-3" 
+			clicked="@@clicked-ourlist-3" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="@@bg-ourlist-4" text=""
+			active="@@act-ourlist-4" selected="@@sel-ourlist-4" click="@@click-ourlist-4" 
+			clicked="@@clicked-ourlist-4" disable="@@disable-ourlist" speed="5" delay="2"/>
+	</table>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="" text="@@ourlist_0_text" lmargin="21" rmargin="21"
+			active="@@act-ourlist-0" selected="@@sel-ourlist-0" click="@@click-ourlist-0" 
+			clicked="@@clicked-ourlist-0" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="" text="@@ourlist_1_text" lmargin="21" rmargin="21"
+			active="@@act-ourlist-1" selected="@@sel-ourlist-1" click="@@click-ourlist-1" 
+			clicked="@@clicked-ourlist-1" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="" text="@@ourlist_2_text" lmargin="21" rmargin="21"
+			active="@@act-ourlist-2" selected="@@sel-ourlist-2" click="@@click-ourlist-2" 
+			clicked="@@clicked-ourlist-2" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="" text="@@ourlist_3_text" lmargin="21" rmargin="21"
+			active="@@act-ourlist-3" selected="@@sel-ourlist-3" click="@@click-ourlist-3" 
+			clicked="@@clicked-ourlist-3" disable="@@disable-ourlist" speed="5" delay="2"/>
+		<imgbtn image="" text="@@ourlist_4_text" lmargin="21" rmargin="21"
+			active="@@act-ourlist-4" selected="@@sel-ourlist-4" click="@@click-ourlist-4" 
+			clicked="@@clicked-ourlist-4" disable="@@disable-ourlist" speed="5" delay="2"/>
+	</table>
+
+	<image x="105" y="140" w="1070" h="49" image="@@ourlist_bar"/>
+
+	<image image="@@ourlist-next" x="1183" y="153" w="14" h="22"/>
+	<image image="@@ourlist-prev" x="80" y="153" w="14" h="22"/>
+
+	<text text="@@action_tip" x="433" y="641" w="416" h="22" fontsize="20" textcolor="0xfffcb040" align="hcenter" disable="@@disable-action_tip"/>
+	<wrapper y="514" w="48" h="48" align="hcenter">
+		<image image="@@bg-PageUp" active="@@act-PageUp" disable="@@disable-PageUp" click="@@click-PageUp" x="348"/>
+		<image image="@@bg-PageDown" active="@@act-PageDown" disable="@@disable-PageDown" click="@@click-PageDown" x="1122"/>
+	</wrapper>
+
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+	<include filename="./blockbuster_common_description.xml"/>
+	<include filename="./blockbuster_common_action_list.xml"/>
+</page>

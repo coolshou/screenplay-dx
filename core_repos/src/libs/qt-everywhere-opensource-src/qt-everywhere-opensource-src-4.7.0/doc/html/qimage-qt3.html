@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qimage.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QImage</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QImage</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">Qt 3 Support Members for QImage</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qimage.html">QImage class reference</a></li></ul></p>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#Endian-enum">Endian</a></b> { IgnoreEndian, BigEndian, LittleEndian }</td></tr>
+</table>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#QImage-12">QImage</a></b> ( int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>numColors</i> = 0, Endian <i>bitOrder</i> = IgnoreEndian )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#QImage-13">QImage</a></b> ( const QSize &amp; <i>size</i>, int <i>depth</i>, int <i>numColors</i> = 0, Endian <i>bitOrder</i> = IgnoreEndian )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#QImage-14">QImage</a></b> ( uchar * <i>data</i>, int <i>width</i>, int <i>height</i>, int <i>depth</i>, const QRgb * <i>colortable</i>, int <i>numColors</i>, Endian <i>bitOrder</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#QImage-15">QImage</a></b> ( uchar * <i>data</i>, int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>bytesPerLine</i>, const QRgb * <i>colortable</i>, int <i>numColors</i>, Endian <i>bitOrder</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#QImage-16">QImage</a></b> ( const QByteArray &amp; <i>data</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Endian </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#bitOrder">bitOrder</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#convertBitOrder">convertBitOrder</a></b> ( Endian <i>bitOrder</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#convertDepth">convertDepth</a></b> ( int <i>depth</i>, Qt::ImageConversionFlags <i>flags</i> = Qt::AutoColor ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#convertDepthWithPalette">convertDepthWithPalette</a></b> ( int <i>depth</i>, QRgb * <i>palette</i>, int <i>palette_count</i>, Qt::ImageConversionFlags <i>flags</i> = Qt::AutoColor ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#copy-2">copy</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i>, Qt::ImageConversionFlags <i>flags</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#copy-3">copy</a></b> ( const QRect &amp; <i>rect</i>, Qt::ImageConversionFlags <i>flags</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#create">create</a></b> ( int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>numColors</i> = 0, Endian <i>bitOrder</i> = IgnoreEndian )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#create-2">create</a></b> ( const QSize &amp; <i>size</i>, int <i>depth</i>, int <i>numColors</i> = 0, Endian <i>bitOrder</i> = IgnoreEndian )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#hasAlphaBuffer">hasAlphaBuffer</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#invertPixels-2">invertPixels</a></b> ( bool <i>invertAlpha</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> uchar ** </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#jumpTable">jumpTable</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const uchar * const * </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#jumpTable-2">jumpTable</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#mirror">mirror</a></b> ( bool <i>horizontal</i> = false, bool <i>vertical</i> = true ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#numBytes">numBytes</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#numColors">numColors</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#reset">reset</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#scaleHeight">scaleHeight</a></b> ( int <i>h</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#scaleWidth">scaleWidth</a></b> ( int <i>w</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#setAlphaBuffer">setAlphaBuffer</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#setNumColors">setNumColors</a></b> ( int <i>numColors</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#smoothScale">smoothScale</a></b> ( int <i>width</i>, int <i>height</i>, Qt::AspectRatioMode <i>mode</i> = Qt::IgnoreAspectRatio ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#smoothScale-2">smoothScale</a></b> ( const QSize &amp; <i>size</i>, Qt::AspectRatioMode <i>mode</i> = Qt::IgnoreAspectRatio ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#swapRGB">swapRGB</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QImage </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#xForm">xForm</a></b> ( const QMatrix &amp; <i>matrix</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> Endian </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#systemBitOrder">systemBitOrder</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Endian </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#systemByteOrder">systemByteOrder</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">13 static public members inherited from <a href="qpaintdevice.html#static-public-members">QPaintDevice</a></li>
+</ul>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qimage.html#bitBlt">bitBlt</a></b> ( QImage * <i>dst</i>, int <i>dx</i>, int <i>dy</i>, const QImage * <i>src</i>, int <i>sx</i> = 0, int <i>sy</i> = 0, int <i>sw</i> = -1, int <i>sh</i> = -1, Qt::ImageConversionFlags <i>flags</i> = Qt::AutoColor )</td></tr>
+</table>
+<h2>Member Type Documentation</h2>
+<!-- $$$Endian$$$BigEndian$$$LittleEndian$$$IgnoreEndian -->
+<h3 class="fn"><a name="Endian-enum"></a>enum QImage::Endian</h3>
+<p>This enum type is used to describe the endianness of the CPU and graphics hardware. It is provided here for compatibility with earlier versions of Qt.</p>
+<p>Use the <a href="qimage.html#Format-enum">Format</a> enum instead. The <a href="qimage.html#Format-enum">Format</a> enum specify the endianess for monchrome formats, but for other formats the endianess is not relevant.</p>
+<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QImage::IgnoreEndian</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">Endianness does not matter. Useful for some operations that are independent of endianness.</td></tr>
+<tr><td  class="topAlign"><tt>QImage::BigEndian</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">Most significant bit first or network byte order, as on SPARC, PowerPC, and Motorola CPUs.</td></tr>
+<tr><td  class="topAlign"><tt>QImage::LittleEndian</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">Least significant bit first or little endian byte order, as on Intel x86.</td></tr>
+</table>
+<!-- @@@Endian -->
+<h2>Member Function Documentation</h2>
+<!-- $$$QImage$$$QImageintintintintEndian -->
+<h3 class="fn"><a name="QImage-12"></a>QImage::QImage ( int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>numColors</i> = 0, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> = IgnoreEndian )</h3>
+<p>Constructs an image with the given <i>width</i>, <i>height</i>, <i>depth</i>, <i>numColors</i> colors and <i>bitOrder</i>.</p>
+<p>Use the constructor that accepts a width, a height and a format (i.e&#x2e; specifying the depth and bit order), in combination with the <a href="qimage.html#setColorCount">setColorCount</a>() function, instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QImage image(width, height, depth, numColors);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QImage image(width, height, format);
+
+<span class="comment"> // For 8 bit images the default number of colors is 256. If</span>
+<span class="comment"> // another number of colors is required it can be specified</span>
+<span class="comment"> // using the setColorCount() function.</span>
+ image.setColorCount(numColors);</pre>
+<!-- @@@QImage -->
+<!-- $$$QImage$$$QImageconstQSize&intintEndian -->
+<h3 class="fn"><a name="QImage-13"></a>QImage::QImage ( const <a href="qsize.html">QSize</a> &amp; <i>size</i>, int <i>depth</i>, int <i>numColors</i> = 0, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> = IgnoreEndian )</h3>
+<p>Constructs an image with the given <i>size</i>, <i>depth</i>, <i>numColors</i> and <i>bitOrder</i>.</p>
+<p>Use the constructor that accepts a size and a format (i.e&#x2e; specifying the depth and bit order), in combination with the <a href="qimage.html#setColorCount">setColorCount</a>() function, instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QSize mySize(width, height);
+ QImage image(mySize, depth, numColors);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QSize mySize(width, height);
+ QImage image(mySize, format);
+
+<span class="comment"> // For 8 bit images the default number of colors is 256. If</span>
+<span class="comment"> // another number of colors is required it can be specified</span>
+<span class="comment"> // using the setColorCount() function.</span>
+ image.setColorCount(numColors);</pre>
+<!-- @@@QImage -->
+<!-- $$$QImage$$$QImageuchar*intintintconstQRgb*intEndian -->
+<h3 class="fn"><a name="QImage-14"></a>QImage::QImage ( <a href="qtglobal.html#uchar-typedef">uchar</a> * <i>data</i>, int <i>width</i>, int <i>height</i>, int <i>depth</i>, const <a href="qcolor.html#QRgb-typedef">QRgb</a> * <i>colortable</i>, int <i>numColors</i>, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> )</h3>
+<p>Constructs an image with the given <i>width</i>, <i>height</i>, depth, <i>colortable</i>, <i>numColors</i> and <i>bitOrder</i>, that uses an existing memory buffer, <i>data</i>.</p>
+<p>Use the constructor that accepts a uchar pointer, a width, a height and a format (i.e&#x2e; specifying the depth and bit order), in combination with the <a href="qimage.html#setColorTable">setColorTable</a>() function, instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> uchar *myData;
+ QRgb *myColorTable;
+
+ QImage image(myData, width, height, depth,
+                        myColorTable, numColors, IgnoreEndian);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> uchar *myData;
+ QVector&lt;QRgb&gt; myColorTable;
+
+ QImage image(myData, width, height, format);
+ image.setColorTable(myColorTable);</pre>
+<!-- @@@QImage -->
+<!-- $$$QImage$$$QImageuchar*intintintintconstQRgb*intEndian -->
+<h3 class="fn"><a name="QImage-15"></a>QImage::QImage ( <a href="qtglobal.html#uchar-typedef">uchar</a> * <i>data</i>, int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>bytesPerLine</i>, const <a href="qcolor.html#QRgb-typedef">QRgb</a> * <i>colortable</i>, int <i>numColors</i>, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> )</h3>
+<p>Constructs an image with the given <i>width</i>, <i>height</i>, <i>depth</i>, <i>bytesPerLine</i>, <i>colortable</i>, <i>numColors</i> and <i>bitOrder</i>, that uses an existing memory buffer, <i>data</i>. The image does not delete the buffer at destruction.</p>
+<p><b>Warning:</b> This constructor is only available in Qt for Embedded Linux.</p>
+<p>The data has to be 32-bit aligned, and each scanline of data in the image must also be 32-bit aligned, so it's no longer possible to specify a custom <i>bytesPerLine</i> value.</p>
+<!-- @@@QImage -->
+<!-- $$$QImage$$$QImageconstQByteArray& -->
+<h3 class="fn"><a name="QImage-16"></a>QImage::QImage ( const <a href="qbytearray.html">QByteArray</a> &amp; <i>data</i> )</h3>
+<p>Use the static <a href="qimage.html#fromData">fromData</a>() function instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QByteArray data;
+ ..&#x2e;
+ QImage image(data);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QByteArray data;
+ ...
+ QImage image = QImage::fromData(data);</pre>
+<!-- @@@QImage -->
+<!-- $$$bitOrder[overload1]$$$bitOrder -->
+<h3 class="fn"><a name="bitOrder"></a><a href="qimage.html#Endian-enum">Endian</a> QImage::bitOrder () const</h3>
+<p>Returns the bit order for the image. If it is a 1-bpp image, this function returns either <a href="qimage.html#Endian-enum">QImage::BigEndian</a> or <a href="qimage.html#Endian-enum">QImage::LittleEndian</a>. Otherwise, this function returns <a href="qimage.html#Endian-enum">QImage::IgnoreEndian</a>.</p>
+<p>Use the <a href="qimage.html#format">format</a>() function instead for the monochrome formats. For non-monochrome formats the bit order is irrelevant.</p>
+<!-- @@@bitOrder -->
+<!-- $$$convertBitOrder[overload1]$$$convertBitOrderEndian -->
+<h3 class="fn"><a name="convertBitOrder"></a>QImage QImage::convertBitOrder ( <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> ) const</h3>
+<p>Converts the bit order of the image to the given <i>bitOrder</i> and returns the converted image. The original image is not changed. Returns this image if the given <i>bitOrder</i> is equal to the image current bit order, or a null image if this image cannot be converted.</p>
+<p>Use <a href="qimage.html#convertToFormat">convertToFormat</a>() instead.</p>
+<!-- @@@convertBitOrder -->
+<!-- $$$convertDepth[overload1]$$$convertDepthintQt::ImageConversionFlags -->
+<h3 class="fn"><a name="convertDepth"></a>QImage QImage::convertDepth ( int <i>depth</i>, <a href="qt.html#ImageConversionFlag-enum">Qt::ImageConversionFlags</a> <i>flags</i> = Qt::AutoColor ) const</h3>
+<p>Converts the depth (bpp) of the image to the given <i>depth</i> and returns the converted image. The original image is not changed. Returns this image if <i>depth</i> is equal to the image depth, or a null image if this image cannot be converted. The <i>depth</i> argument must be 1, 8 or 32. If the image needs to be modified to fit in a lower-resolution result (e.g&#x2e; converting from 32-bit to 8-bit), use the <i>flags</i> to specify how you'd prefer this to happen.</p>
+<p>Use the <a href="qimage.html#convertToFormat">convertToFormat</a>() function instead.</p>
+<!-- @@@convertDepth -->
+<!-- $$$convertDepthWithPalette[overload1]$$$convertDepthWithPaletteintQRgb*intQt::ImageConversionFlags -->
+<h3 class="fn"><a name="convertDepthWithPalette"></a>QImage QImage::convertDepthWithPalette ( int <i>depth</i>, <a href="qcolor.html#QRgb-typedef">QRgb</a> * <i>palette</i>, int <i>palette_count</i>, <a href="qt.html#ImageConversionFlag-enum">Qt::ImageConversionFlags</a> <i>flags</i> = Qt::AutoColor ) const</h3>
+<p>Returns an image with the given <i>depth</i>, using the <i>palette_count</i> colors pointed to by <i>palette</i>. If <i>depth</i> is 1 or 8, the returned image will have its color table ordered in the same way as <i>palette</i>.</p>
+<p>If the image needs to be modified to fit in a lower-resolution result (e.g&#x2e; converting from 32-bit to 8-bit), use the <i>flags</i> to specify how you'd prefer this to happen.</p>
+<p>Note: currently no closest-color search is made. If colors are found that are not in the palette, the palette may not be used at all. This result should not be considered valid because it may change in future implementations.</p>
+<p>Currently inefficient for non-32-bit images.</p>
+<p>Use the <a href="qimage.html#convertToFormat">convertToFormat</a>() function in combination with the <a href="qimage.html#setColorTable">setColorTable</a>() function instead.</p>
+<!-- @@@convertDepthWithPalette -->
+<!-- $$$copy$$$copyintintintintQt::ImageConversionFlags -->
+<h3 class="fn"><a name="copy-2"></a>QImage QImage::copy ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i>, <a href="qt.html#ImageConversionFlag-enum">Qt::ImageConversionFlags</a> <i>flags</i> ) const</h3>
+<p>Use <a href="qimage.html#copy">copy</a>() instead.</p>
+<!-- @@@copy -->
+<!-- $$$copy$$$copyconstQRect&Qt::ImageConversionFlags -->
+<h3 class="fn"><a name="copy-3"></a>QImage QImage::copy ( const <a href="qrect.html">QRect</a> &amp; <i>rect</i>, <a href="qt.html#ImageConversionFlag-enum">Qt::ImageConversionFlags</a> <i>flags</i> ) const</h3>
+<p>Use <a href="qimage.html#copy">copy</a>() instead.</p>
+<!-- @@@copy -->
+<!-- $$$create[overload1]$$$createintintintintEndian -->
+<h3 class="fn"><a name="create"></a>bool QImage::create ( int <i>width</i>, int <i>height</i>, int <i>depth</i>, int <i>numColors</i> = 0, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> = IgnoreEndian )</h3>
+<p>Sets the image <i>width</i>, <i>height</i>, <i>depth</i>, its number of colors (in <i>numColors</i>), and bit order. Returns true if successful, or false if the parameters are incorrect or if memory cannot be allocated.</p>
+<p>The <i>width</i> and <i>height</i> is limited to 32767. <i>depth</i> must be 1, 8, or 32. If <i>depth</i> is 1, <i>bitOrder</i> must be set to either <a href="qimage.html#Endian-enum">QImage::LittleEndian</a> or <a href="qimage.html#Endian-enum">QImage::BigEndian</a>. For other depths <i>bitOrder</i> must be <a href="qimage.html#Endian-enum">QImage::IgnoreEndian</a>.</p>
+<p>This function allocates a color table and a buffer for the image data. The image data is not initialized. The image buffer is allocated as a single block that consists of a table of <a href="qimage.html#scanLine">scanLine</a>() pointers (<a href="qimage.html#jumpTable">jumpTable</a>()) and the image data (<a href="qimage.html#bits">bits</a>()).</p>
+<p>Use a <a href="qimage.html">QImage</a> constructor instead.</p>
+<!-- @@@create -->
+<!-- $$$create$$$createconstQSize&intintEndian -->
+<h3 class="fn"><a name="create-2"></a>bool QImage::create ( const <a href="qsize.html">QSize</a> &amp; <i>size</i>, int <i>depth</i>, int <i>numColors</i> = 0, <a href="qimage.html#Endian-enum">Endian</a> <i>bitOrder</i> = IgnoreEndian )</h3>
+<p>This is an overloaded function.</p>
+<p>The width and height are specified in the <i>size</i> argument.</p>
+<p>Use a <a href="qimage.html">QImage</a> constructor instead.</p>
+<!-- @@@create -->
+<!-- $$$hasAlphaBuffer[overload1]$$$hasAlphaBuffer -->
+<h3 class="fn"><a name="hasAlphaBuffer"></a>bool QImage::hasAlphaBuffer () const</h3>
+<p>Returns true if alpha buffer mode is enabled; otherwise returns false.</p>
+<p>Use the <a href="qimage.html#hasAlphaChannel">hasAlphaChannel</a>() function instead.</p>
+<!-- @@@hasAlphaBuffer -->
+<!-- $$$invertPixels$$$invertPixelsbool -->
+<h3 class="fn"><a name="invertPixels-2"></a>void QImage::invertPixels ( bool <i>invertAlpha</i> )</h3>
+<p>Use the <a href="qimage.html#invertPixels">invertPixels</a>() function that takes a <a href="qimage.html#InvertMode-enum">QImage::InvertMode</a> parameter instead.</p>
+<!-- @@@invertPixels -->
+<!-- $$$jumpTable[overload1]$$$jumpTable -->
+<h3 class="fn"><a name="jumpTable"></a><a href="qtglobal.html#uchar-typedef">uchar</a> ** QImage::jumpTable ()</h3>
+<p>Returns a pointer to the scanline pointer table. This is the beginning of the data block for the image. Returns 0 in case of an error.</p>
+<p>Use the <a href="qimage.html#bits">bits</a>() or <a href="qimage.html#scanLine">scanLine</a>() function instead.</p>
+<!-- @@@jumpTable -->
+<!-- $$$jumpTable$$$jumpTable -->
+<h3 class="fn"><a name="jumpTable-2"></a>const <a href="qtglobal.html#uchar-typedef">uchar</a> * const * QImage::jumpTable () const</h3>
+<p>This is an overloaded function.</p>
+<!-- @@@jumpTable -->
+<!-- $$$mirror[overload1]$$$mirrorboolbool -->
+<h3 class="fn"><a name="mirror"></a>QImage QImage::mirror ( bool <i>horizontal</i> = false, bool <i>vertical</i> = true ) const</h3>
+<p>Use <a href="qimage.html#mirrored">mirrored</a>() instead.</p>
+<!-- @@@mirror -->
+<!-- $$$numBytes[overload1]$$$numBytes -->
+<h3 class="fn"><a name="numBytes"></a>int QImage::numBytes () const</h3>
+<p>Returns the number of bytes occupied by the image data.</p>
+<p>See also <a href="qimage.html#byteCount">byteCount</a>().</p>
+<!-- @@@numBytes -->
+<!-- $$$numColors[overload1]$$$numColors -->
+<h3 class="fn"><a name="numColors"></a>int QImage::numColors () const</h3>
+<p>Returns the size of the color table for the image.</p>
+<p>See also <a href="qimage.html#setNumColors">setNumColors</a>() and <a href="qimage.html#setColorCount">setColorCount</a>().</p>
+<!-- @@@numColors -->
+<!-- $$$reset[overload1]$$$reset -->
+<h3 class="fn"><a name="reset"></a>void QImage::reset ()</h3>
+<p>Resets all image parameters and deallocates the image data.</p>
+<p>Assign a null image instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image.reset();</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image = QImage();</pre>
+<!-- @@@reset -->
+<!-- $$$scaleHeight[overload1]$$$scaleHeightint -->
+<h3 class="fn"><a name="scaleHeight"></a>QImage QImage::scaleHeight ( int <i>h</i> ) const</h3>
+<p>Use <a href="qimage.html#scaledToHeight">scaledToHeight</a>() instead.</p>
+<!-- @@@scaleHeight -->
+<!-- $$$scaleWidth[overload1]$$$scaleWidthint -->
+<h3 class="fn"><a name="scaleWidth"></a>QImage QImage::scaleWidth ( int <i>w</i> ) const</h3>
+<p>Use <a href="qimage.html#scaledToWidth">scaledToWidth</a>() instead.</p>
+<!-- @@@scaleWidth -->
+<!-- $$$setAlphaBuffer[overload1]$$$setAlphaBufferbool -->
+<h3 class="fn"><a name="setAlphaBuffer"></a>void QImage::setAlphaBuffer ( bool <i>enable</i> )</h3>
+<p>Enables alpha buffer mode if <i>enable</i> is true, otherwise disables it. The alpha buffer is used to set a mask when a <a href="qimage.html">QImage</a> is translated to a <a href="qpixmap.html">QPixmap</a>.</p>
+<p>If a monochrome or indexed 8-bit image has alpha channels in their color tables they will automatically detect that they have an alpha channel, so this function is not required. To force alpha channels on 32-bit images, use the <a href="qimage.html#convertToFormat">convertToFormat</a>() function.</p>
+<p>See also <a href="qimage.html#hasAlphaBuffer">hasAlphaBuffer</a>().</p>
+<!-- @@@setAlphaBuffer -->
+<!-- $$$setNumColors[overload1]$$$setNumColorsint -->
+<h3 class="fn"><a name="setNumColors"></a>void QImage::setNumColors ( int <i>numColors</i> )</h3>
+<p>Resizes the color table to contain <i>numColors</i> entries.</p>
+<p>See also <a href="qimage.html#numColors">numColors</a>() and <a href="qimage.html#setColorCount">setColorCount</a>().</p>
+<!-- @@@setNumColors -->
+<!-- $$$smoothScale[overload1]$$$smoothScaleintintQt::AspectRatioMode -->
+<h3 class="fn"><a name="smoothScale"></a>QImage QImage::smoothScale ( int <i>width</i>, int <i>height</i>, <a href="qt.html#AspectRatioMode-enum">Qt::AspectRatioMode</a> <i>mode</i> = Qt::IgnoreAspectRatio ) const</h3>
+<p>Use <a href="qimage.html#scaled">scaled</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image.smoothScale(width, height, mode);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image.scaled(width, height, mode, Qt::SmoothTransformation);</pre>
+<!-- @@@smoothScale -->
+<!-- $$$smoothScale$$$smoothScaleconstQSize&Qt::AspectRatioMode -->
+<h3 class="fn"><a name="smoothScale-2"></a>QImage QImage::smoothScale ( const <a href="qsize.html">QSize</a> &amp; <i>size</i>, <a href="qt.html#AspectRatioMode-enum">Qt::AspectRatioMode</a> <i>mode</i> = Qt::IgnoreAspectRatio ) const</h3>
+<p>This is an overloaded function.</p>
+<p>Use <a href="qimage.html#scaled">scaled</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image.smoothScale(size, mode);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ image.scaled(size, mode, Qt::SmoothTransformation);</pre>
+<!-- @@@smoothScale -->
+<!-- $$$swapRGB[overload1]$$$swapRGB -->
+<h3 class="fn"><a name="swapRGB"></a>QImage QImage::swapRGB () const</h3>
+<p>Use <a href="qimage.html#rgbSwapped">rgbSwapped</a>() instead.</p>
+<!-- @@@swapRGB -->
+<!-- $$$systemBitOrder[overload1]$$$systemBitOrder -->
+<h3 class="fn"><a name="systemBitOrder"></a><a href="qimage.html#Endian-enum">Endian</a> QImage::systemBitOrder ()<tt> [static]</tt></h3>
+<p>Determines the bit order of the display hardware. Returns <a href="qimage.html#Endian-enum">QImage::LittleEndian</a> (LSB first) or <a href="qimage.html#Endian-enum">QImage::BigEndian</a> (MSB first).</p>
+<p>This function is no longer relevant for <a href="qimage.html">QImage</a>. Use <a href="qsysinfo.html">QSysInfo</a> instead.</p>
+<!-- @@@systemBitOrder -->
+<!-- $$$systemByteOrder[overload1]$$$systemByteOrder -->
+<h3 class="fn"><a name="systemByteOrder"></a><a href="qimage.html#Endian-enum">Endian</a> QImage::systemByteOrder ()<tt> [static]</tt></h3>
+<p>Determines the host computer byte order. Returns <a href="qimage.html#Endian-enum">QImage::LittleEndian</a> (LSB first) or <a href="qimage.html#Endian-enum">QImage::BigEndian</a> (MSB first).</p>
+<p>This function is no longer relevant for <a href="qimage.html">QImage</a>. Use <a href="qsysinfo.html">QSysInfo</a> instead.</p>
+<!-- @@@systemByteOrder -->
+<!-- $$$xForm[overload1]$$$xFormconstQMatrix& -->
+<h3 class="fn"><a name="xForm"></a>QImage QImage::xForm ( const <a href="qmatrix.html">QMatrix</a> &amp; <i>matrix</i> ) const</h3>
+<p>Use <a href="qimage.html#transformed">transformed</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ ..&#x2e;
+ image.xForm(matrix);</pre>
+<p>you can rewrite it as</p>
+<pre class="highlightedCode brush: cpp"> QImage image;
+ ...
+ image.transformed(matrix);</pre>
+<!-- @@@xForm -->
+<h2>Related Non-Members</h2>
+<!-- $$$bitBlt[overload1]$$$bitBltQImage*intintconstQImage*intintintintQt::ImageConversionFlags -->
+<h3 class="fn"><a name="bitBlt"></a>void bitBlt ( QImage * <i>dst</i>, int <i>dx</i>, int <i>dy</i>, const QImage * <i>src</i>, int <i>sx</i> = 0, int <i>sy</i> = 0, int <i>sw</i> = -1, int <i>sh</i> = -1, <a href="qt.html#ImageConversionFlag-enum">Qt::ImageConversionFlags</a> <i>flags</i> = Qt::AutoColor )</h3>
+<p>Copies a block of pixels from <i>src</i> to <i>dst</i>. The pixels copied from source (src) are converted according to <i>flags</i> if it is incompatible with the destination (<i>dst</i>).</p>
+<p><i>sx</i>, <i>sy</i> is the top-left pixel in <i>src</i>, <i>dx</i>, <i>dy</i> is the top-left position in <i>dst</i> and <i>sw</i>, <i>sh</i> is the size of the copied block. The copying is clipped if areas outside <i>src</i> or <i>dst</i> are specified. If <i>sw</i> is -1, it is adjusted to src-&gt;width(). Similarly, if <i>sh</i> is -1, it is adjusted to src-&gt;height().</p>
+<p>Currently inefficient for non 32-bit images.</p>
+<p>Use copy() or <a href="qpainter.html#drawImage">QPainter::drawImage</a>() instead.</p>
+<!-- @@@bitBlt -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

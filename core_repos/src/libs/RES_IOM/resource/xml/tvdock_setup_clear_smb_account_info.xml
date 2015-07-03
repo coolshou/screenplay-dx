@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+  <ctrlgrp lbmask="lrud">
+    <button valkey="CANCEL"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+    <button valkey="NEXT"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+ </ctrlgrp>
+
+
+  <text text="$$Delete the preset password?" x="330" y="254" w="620" h="87" fontsize="26" numlines="3" align="hcenter" textcolor="0xe2e2e2"/>
+
+  <imgbtn x="313" y="390" w="343" h="78" image="@@bg-CANCEL" text="$$Cancel" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-CANCEL" actnoseltextcolor="0xffffff"/>
+  <imgbtn x="640" y="390" w="343" h="78" image="@@bg-NEXT" text="$$OK" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-NEXT" actnoseltextcolor="0xffffff"/>
+
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <include filename="./inc_decoration.xml"/>
+</page>

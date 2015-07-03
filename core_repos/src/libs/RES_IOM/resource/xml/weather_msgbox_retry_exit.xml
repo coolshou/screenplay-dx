@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/accu_weather/accuweather_bg.jpg">
+  <ctrlgrp>
+    <button valkey="OK"
+	  focused_bg="image/common_btn_f.png"
+	  normal_bg="image/common_btn_n.png"
+	  click_bg="image/common_btn_p.png"/>
+    <button valkey="CANCEL"
+	  focused_bg="image/common_btn_f.png"
+	  normal_bg="image/common_btn_n.png"
+	  click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  <imgbtn image="@@bg-OK" text="$$Retry" active="@@act-OK" actnoseltextcolor="0xffffff" x="316" y="462" w="300" h="40" align="hcenter" fontsize="20"/>
+  <imgbtn image="@@bg-CANCEL" text="$$Exit" active="@@act-CANCEL" actnoseltextcolor="0xffffff" x="657" y="462" w="300" h="40" align="hcenter" fontsize="20"/>
+  
+  <include filename="./inc_weather_decoration.xml"/>
+</page>

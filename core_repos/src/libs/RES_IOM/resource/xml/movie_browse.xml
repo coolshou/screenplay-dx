@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Ken Zhao <xzhao@redsonic.com> -->
+<page background="./image/dsm320rd_home.jpg" numitems="4">
+
+	<vfd heading="D-LINK" pagetype="MAIN" message=""/>
+
+  <include filename="./info.xml"/>
+  <ctrlgrp more_select="right" lbmask="UD">
+    <button valkey="FOLDER" focused_bg="image/lightbar-320rdhome-mymedia.gif"/>
+    <linebreak/>
+    <button valkey="ALL" focused_bg="image/lightbar-320rdhome-dvd.gif"/>
+    <linebreak/>
+    <button valkey="RECENT" focused_bg="image/lightbar-320rdhome-cardreader.gif"/>
+  </ctrlgrp>
+
+  <table x="178" y="108" w="341" h="272" rowspacing="4" cols="1" rows="4">
+    <image image="@@bg-FOLDER" group="C0"/>
+    <image image="@@bg-ALL" group="C1"/>
+    <image image="@@bg-RECENT" group="C2"/>
+  </table>
+  <table x="185" y="108" w="341" h="272" rowspacing="4" cols="1" rows="4"
+         textcolor="0x666666" activetextcolor="0xFFFFFF">
+    <text text="$$BY FOLDER" group="C0" lmargin="63" h="63" ymargin="16" active="@@act-FOLDER"/>
+    <text text="$$ALL MOVIES" group="C1" lmargin="63" h="63" ymargin="16" active="@@act-ALL"/>
+    <text text="$$MOST RECENT" group="C2" lmargin="63" h="63" ymargin="16" active="@@act-RECENT"/>
+  </table>
+
+  <!-- fixed -->
+  <image image="@@keyicon_ex" x="530" y="53" w="50" h="50"/>
+  <image image="@@keyicon" x="590" y="53" w="50" h="50"/>
+  <image image="@@volume" group="V" x="240" y="360" w="284" h="55"/> 
+
+</page>

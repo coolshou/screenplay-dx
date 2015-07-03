@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+
+<head>
+
+<title>发生错误。</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = Espial.errURL + " 無法使用。";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>很抱歉，網頁發生問題。.</h2>
+<br>
+我們無法載入位於 <b><script>document.writeln(Espial.errURL)</script></b> 的網頁。
+<br>
+<br>
+<b>您可以嘗試下列幾種方法：</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">稍後再重新此載入網頁。</a></li>
+	<li><a onclick="Espial.back();">回到上一個網頁。</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

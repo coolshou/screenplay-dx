@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" wait_seconds="3">
+  <ctrlgrp>
+     <button valkey="BACK"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+     <button valkey="NEXT"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  
+  <text text="@@welcome_msg_line1" x="160" y="180" w="960" h="230" fontsize="28" textcolor="0xffffff" numlines="5" align="hcenter"/>
+  <text text="@@welcome_msg_line2" x="160" y="420" w="960" h="100" fontsize="28" textcolor="0xffffff" numlines="5" align="hcenter"/>
+  <imgbtn image="@@bg-BACK" text="@@text-BACK" active="@@act-BACK" x="316" y="515" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+  <imgbtn image="@@bg-NEXT" text="@@text-NEXT" active="@@act-NEXT" x="657" y="515" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <include filename="./inc_decoration.xml"/>
+</page>

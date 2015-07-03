@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending.qdoc -->
+  <title>Qt 4.7: Extending types from QML</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Extending types from QML</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#adding-new-properties">Adding new properties</a></li>
+<li class="level2"><a href="#property-definitions">Property definitions</a></li>
+<li class="level3"><a href="#property-signal-handlers">Property signal handlers</a></li>
+<li class="level3"><a href="#setting-default-properties">Setting default properties</a></li>
+<li class="level2"><a href="#property-aliases">Property aliases</a></li>
+<li class="level1"><a href="#adding-new-signals">Adding new signals</a></li>
+<li class="level1"><a href="#adding-new-methods">Adding new methods</a></li>
+<li class="level1"><a href="#defining-new-components">Defining new Components</a></li>
+<li class="level2"><a href="#building-reusable-components">Building reusable components</a></li>
+</ul>
+</div>
+<h1 class="title">Extending types from QML</h1>
+<span class="subtitle"></span>
+<!-- $$$qml-extending-types.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Many of the elements available for use in QML are implemented in <a href="qml-extending.html">C++</a>. These types are know as &quot;core types&quot;. QML allows programmers to build new, fully functional elements without using C++. Existing core types can be extended, and new types defined entirely in the QML language.</p>
+<a name="adding-new-properties"></a>
+<h2>Adding new properties</h2>
+<p>New properties can be added to an existing type. These new properties are available for use within QML, and also appear as regular Qt properties on the C++ object, accessible through the regular property access mechanisms.</p>
+<p>Like all properties in QML, custom properties are typed. The type is used to define the property's behavior, and also determines the C++ type of the created Qt property. The following table shows the list of types available when declaring a new property, and the corresponding C++ type.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >QML Type Name</th><th >C++ Type Name</th></tr></thead>
+<tr class="odd topAlign"><td ><p>int</p></td><td ><p>int</p></td></tr>
+<tr class="even topAlign"><td ><p>bool</p></td><td ><p>bool</p></td></tr>
+<tr class="odd topAlign"><td ><p>double</p></td><td ><p>double</p></td></tr>
+<tr class="even topAlign"><td ><p>real</p></td><td ><p>double</p></td></tr>
+<tr class="odd topAlign"><td ><p>string</p></td><td ><p><a href="qstring.html">QString</a></p></td></tr>
+<tr class="even topAlign"><td ><p>url</p></td><td ><p><a href="qurl.html">QUrl</a></p></td></tr>
+<tr class="odd topAlign"><td ><p>color</p></td><td ><p><a href="qcolor.html">QColor</a></p></td></tr>
+<tr class="even topAlign"><td ><p>date</p></td><td ><p><a href="qdatetime.html">QDateTime</a></p></td></tr>
+<tr class="odd topAlign"><td ><p>variant</p></td><td ><p><a href="qvariant.html">QVariant</a></p></td></tr>
+</table>
+<p>QML supports two methods for adding a new property to a type: a new property definition, and a property alias.</p>
+<a name="property-definitions"></a>
+<h3>Property definitions</h3>
+<p>Property definitions add a new property to an existing type. The storage of the property is managed by QML. The defined property may be read, written and bound to and from.</p>
+<p>The syntax for defining a new property is:</p>
+<pre class="highlightedCode brush: cpp"> [default] property &lt;type&gt; &lt;name&gt;[: defaultValue]</pre>
+<p>This declaration may appear anywhere within a type body, but it is customary to include it at the top. Attempting to declare two properties with the same name in the same type block is an error. However, a new property may reuse the name of an existing property on the type. This should be done with caution, as the existing property will be hidden, and become inaccessible.</p>
+<p>The &lt;type&gt; must be one of the QML type names shown in the above table. Additionally, an optional default value of the property can be provided. The default value is a convenient shortcut, but is behaviorally identical to doing it in two steps, like this:</p>
+<pre class="highlightedCode brush: cpp"> // Use default value
+ property int myProperty: 10
+
+<span class="comment"> // Longer, but behaviorally identical</span>
+ property int myProperty
+ myProperty: 10</pre>
+<p>If a default value is not supplied or set later in the file, each type has a default value for when none is explictly set. Below are the default values of some of the types. For the remaining types the default values are undefined.</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >QML Type</th><th >Default Value</th></tr></thead>
+<tr class="odd topAlign"><td ><p>bool</p></td><td ><p>false</p></td></tr>
+<tr class="even topAlign"><td ><p>int</p></td><td ><p>0</p></td></tr>
+<tr class="odd topAlign"><td ><p>double, real</p></td><td ><p>0.0</p></td></tr>
+<tr class="even topAlign"><td ><p>string, url</p></td><td ><p>&quot;&quot; (an empty string)</p></td></tr>
+<tr class="odd topAlign"><td ><p>color</p></td><td ><p>#000000 (black)</p></td></tr>
+</table>
+<p>The following example shows how to declare a new &quot;innerColor&quot; property that controls the color of the inner rectangle.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     property color innerColor: &quot;black&quot;
+
+     color: &quot;red&quot;; width: 100; height: 100
+     Rectangle {
+         anchors.centerIn: parent
+         width: parent.width - 10
+         height: parent.height - 10
+         color: innerColor
+     }
+ }</pre>
+<a name="property-signal-handlers"></a>
+<h4>Property signal handlers</h4>
+<p>Adding a property to an item automatically adds a <i>value-changed</i> signal handler to the item. The signal hander is named <tt>on&lt;Property_name&gt;Changed</tt>, with the first letter of the property name being upper case.</p>
+<p>Signal handlers can have arbitrary <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> code assigned. The following example shows how to output to a text console a new value of property <tt>innerColor</tt> whenever the value of this property changes.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     id: rect
+     property color innerColor: &quot;black&quot;
+
+     onInnerColorChanged: { console.log(rect.innerColor); }
+ }</pre>
+<a name="setting-default-properties"></a>
+<h4>Setting default properties</h4>
+<p>The optional <tt>default</tt> attribute for a property marks it as the <i>default property</i> for a type. This allows other items to specify the default property's value as child elements. For example, the <a href="qml-item.html">Item</a> element's default property is its <a href="qml-item.html#children-prop">children</a> property. This allows the children of an <a href="qml-item.html">Item</a> to be set like this:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     Rectangle {}
+     Rectangle {}
+ }</pre>
+<p>If the <a href="qml-item.html#children-prop">children</a> property was not the default property for <a href="qml-item.html">Item</a>, its value would have to be set like this instead:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     children: [
+         Rectangle {}
+         Rectangle {}
+     ]
+ }</pre>
+<p>See the <a href="declarative-ui-components-tabwidget.html">TabWidget</a> example for a demonstration of using default properties.</p>
+<p>Specifying a default property overrides any existing default property (for example, any default property inherited from a parent item). Using the default attribute twice in the same type block is an error.</p>
+<a name="qml-property-aliases"></a><a name="property-aliases"></a>
+<h3>Property aliases</h3>
+<p>Property aliases are a more advanced form of property declaration. Unlike a property definition, that allocates a new, unique storage space for the property, a property alias connects the newly declared property (called the aliasing property) to an existing property (the aliased property). Read operations on the aliasing property act as read operations on the aliased property, and write operations on the aliasing property as write operations on the aliased property.</p>
+<p>A property alias declaration looks a lot like a property definition:</p>
+<pre class="highlightedCode brush: cpp">     [default] property alias &lt;name&gt;: &lt;alias reference&gt;</pre>
+<p>As the aliasing property has the same type as the aliased property, an explicit type is omitted, and the special &quot;alias&quot; keyword is used. Instead of a default value, a property alias includes a compulsary alias reference. The alias reference is used to locate the aliased property. While similar to a property binding, the alias reference syntax is highly restricted.</p>
+<p>An alias reference takes one of the following forms</p>
+<pre class="highlightedCode brush: cpp">     &lt;id&gt;.&lt;property&gt;
+     &lt;id&gt;</pre>
+<p>where &lt;id&gt; must refer to an object id within the same component as the type declaring the alias, and, optionally, &lt;property&gt; refers to a property on that object.</p>
+<p>Here is the property definition example rewritten to use property aliases.</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     property alias innerColor: innerRect.color
+
+     color: &quot;red&quot;; width: 100; height: 100
+     Rectangle {
+         id: innerRect
+         anchors.centerIn: parent
+         width: parent.width - 10
+         height: parent.height - 10
+         color: &quot;black&quot;
+     }
+ }</pre>
+<p>Aliases are most useful when <a href="#defining-new-components">Defining new Components</a>. Consequently they have several apparent limitations that only make sense in this context.</p>
+<p>Aliases are only activated once the component specifying them is completed. The most obvious consequence of this is that the component itself cannot generally use the aliased property directly. For example, this will not work:</p>
+<pre class="highlightedCode brush: cpp">     <span class="comment">// Does NOT work</span>
+     property alias innerColor: innerRect.color
+     innerColor: &quot;black&quot;</pre>
+<p>This behavior is required to allow type developers to redefine the behavior of existing property names while continuing to use the existing behavior within the type they are building, something that is not possible with property definitions. In the example used so far, this could allows the developer to fix the external rectangle's color as &quot;red&quot; and redefine the &quot;color&quot; property to refer to the inner rectangle, like this:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     property alias color: innerRect.color
+
+     color: &quot;red&quot;; width: 100; height: 100
+     Rectangle {
+         id: innerRect
+         anchors.centerIn: parent
+         width: parent.width - 10
+         height: parent.height - 10
+         color: &quot;black&quot;
+     }
+ }</pre>
+<p>Users of this type would not be able to affect the color of the red rectangle, but would find using the &quot;color&quot; property, rather than the strange new &quot;innerColor&quot; property, much more familiar.</p>
+<p>A second, much less significant, consequence of the delayed activation of aliases is that an alias reference cannot refer to another aliasing property declared within the same component. This will not work:</p>
+<pre class="highlightedCode brush: cpp">     <span class="comment">// Does NOT work</span>
+     id: root
+     property alias innerColor: innerRect.color
+     property alias innerColor2: root.innerColor</pre>
+<p>From outside the component, aliasing properties appear as regular Qt properties and consequently can be used in alias references.</p>
+<a name="adding-new-signals"></a>
+<h2>Adding new signals</h2>
+<p>New signals can be added to an existing type. These new signals are available for use within QML, and also appear as regular Qt signals on the C++ object that can be used in Qt signal/slot connections.</p>
+<p>The syntax for defining a new signal is:</p>
+<pre class="highlightedCode brush: cpp"> signal &lt;name&gt;[([&lt;type&gt; &lt;parameter name&gt;[, ...]])]</pre>
+<p>This declaration may appear anywhere within a type body, but it is customary to include it at the top. Attempting to declare two signals or methods with the same name in the same type block is an error. However, a new signal may reuse the name of an existing signal on the type. This should be done with caution, as the existing signal may be hidden and become inaccessible.</p>
+<p>The options for parameter types are the same as for property types (see <a href="#adding-new-properties">Adding new properties</a>. If this signal has no parameters, the parameter list may be omitted entirely.</p>
+<p>Here are three examples of signal declarations:</p>
+<pre class="highlightedCode brush: cpp">     Item {
+         signal clicked
+         signal hovered()
+         signal performAction(string action, variant actionArgument)
+     }</pre>
+<p>Adding a signal to an item automatically adds a signal handler to it. The signal hander is named on&lt;Signal name&gt;, with the first letter of the signal name being upper cased. The above example item would now have the following signal handlers:</p>
+<ul>
+<li>onClicked</li>
+<li>onHovered</li>
+<li>onPerformAction</li>
+</ul>
+<a name="adding-new-methods"></a>
+<h2>Adding new methods</h2>
+<p>New methods can be added to an existing type. These new methods are available for use within QML, and also appear as regular Qt slots on the C++ object that can be used in Qt signal/slot connections.</p>
+<pre class="highlightedCode brush: cpp"> function &lt;name&gt;([&lt;parameter name&gt;[, ...]]) { &lt;body&gt; }</pre>
+<p>This declaration may appear anywhere within a type body, but it is customary to include it at the top. Attempting to declare two methods or signals with the same name in the same type block is an error. However, a new method may reuse the name of an existing method on the type. This should be done with caution, as the existing method may be hidden and become inaccessible.</p>
+<p>Methods parameters are not typed. In C++ these parameters are of type <a href="qvariant.html">QVariant</a>. The body of the method is written in <a href="https://developer.mozilla.org/en/JavaScript">JavaScript</a> and may access the parameters by name.</p>
+<p>This example adds a new method that behaves like a child:</p>
+<pre class="highlightedCode brush: cpp"> Item {
+     function say(text) {
+         console.log(&quot;You said &quot; + text);
+     }
+ }</pre>
+<a name="defining-new-components"></a>
+<h2>Defining new Components</h2>
+<a name="components"></a><p>A component is a reusable type with a well-defined interface built entirely in QML. Components appear as regular QML elements, and can be used interchangably with core types. Components allow developers to create new types to be reused in other projects without the use of C++. Components can also help to reduce duplication inside one project by limiting the need for large numbers of copy-and-pasted blocks.</p>
+<p>Any snippet of QML code can become a component, just by placing it in the file &quot;&lt;Name&gt;.qml&quot; where &lt;Name&gt; is the new element name, and begins with an uppercase letter. Note that the case of all characters in the &lt;Name&gt; are significant on some filesystems, notably UNIX filesystems. It is recommended that the case of the filename matches the case of the component name in QML exactly, regardless of the platform the QML will be deployed to.</p>
+<p>These QML files automatically become available as new QML element types to other QML components and applications in the same directory.</p>
+<p>For example, here we show how a component named &quot;Box&quot; is defined and used multiple times by an application.</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p>application.qml<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 100; height: 400;
+     Box { x: 0; y: 0 }
+     Box { x: 0; y: 150 }
+     Box { x: 0; y: 300 }
+ }</pre>
+</p></td><td ><p>Box.qml<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 100; height: 100;
+     color: &quot;blue&quot;
+ }</pre>
+</p></td></tr>
+</table>
+<p>Components may be collected into <a href="qdeclarativemodules.html">Modules</a> that gives the developer more freedom than just putting files in the same directory.</p>
+<a name="building-reusable-components"></a>
+<h3>Building reusable components</h3>
+<p>A component type built to be reused by others must have a well defined interface. In QML, an interface consists of a defined collection of properties, signals and methods. Users of a component have access to all the properties, signals and methods defined on the root element of the component.</p>
+<p>In the component example above, the root element of the &quot;Box&quot; component is a Rect. As the Rect type has a &quot;color&quot; property, this property is accessible to users of the Box component. For example, the application.qml can be modified to show three different colored boxes like this:</p>
+<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 100; height: 400;
+     Box { x: 0; y: 0; color: &quot;red&quot;; }
+     Box { x: 0; y: 150; color: &quot;yellow&quot;;  }
+     Box { x: 0; y: 300; color: &quot;green&quot;; }
+ }</pre>
+<p>As expected, adding additional properties to the root element of Box, makes them available externally. Here we add a &quot;text&quot; property:</p>
+<table class="generic">
+<tr class="odd topAlign"><td ><p>application.qml<pre class="highlightedCode brush: cpp"> Rectangle {
+     width: 100; height: 400;
+     Box { x: 0; y: 0; color: &quot;red&quot;; text: &quot;stop&quot; }
+     Box { x: 0; y: 150; color: &quot;yellow&quot;; text: &quot;slow&quot; }
+     Box { x: 0; y: 300; color: &quot;green&quot;; text: &quot;go&quot; }
+ }</pre>
+</p></td><td ><p>Box.qml<pre class="highlightedCode brush: cpp"> Rectangle {
+     property alias text: myText.text
+     width: 100; height: 100;
+     color: &quot;blue&quot;
+     Text {
+         id: myText
+         anchors.centerIn: parent
+     }
+ }</pre>
+</p></td></tr>
+</table>
+<p>Methods and signals may be added in the same way.</p>
+<p>As all external methods, signals and properties are accessible to external users, developers should ensure that setting these properties does not have any undesirable side-effects. For most resiliance, root level properties should only be used for literal default values. When a root level property must be used inside the component - such as the children property - property aliases can be used to redirect this property to a &quot;safe&quot; location for external users. Try to think of the root level properties as being &quot;owned&quot; by the components user, rather than the component itself.</p>
+</div>
+<!-- @@@qml-extending-types.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

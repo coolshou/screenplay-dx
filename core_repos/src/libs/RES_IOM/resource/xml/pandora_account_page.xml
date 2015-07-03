@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page background="image/pandora/pandora_bg.png" type="basic">
+
+	<ctrlgrp lbmask="l" more_select="right">
+		<button valkey="old_account"
+                        focused_bg="image/pandora/pandora_stations_list_f.png"
+                        normal_bg="image/pandora/pandora_stations_list_n.png"/>
+		<linebreak/>
+		<button valkey="new_account"
+						focused_bg="image/pandora/pandora_stations_list_f.png"
+                        normal_bg="image/pandora/pandora_stations_list_n.png"/>
+	</ctrlgrp>
+
+	<text text="@@title" x="95" y="79" w="1094" h="52" fontsize="48" textcolor="0xffffff" aligb="left"/>
+
+	<wrapper x="273" w="737" h="50">
+		<image image="@@bg-old_account" y="235" active="@@act-old_account" disable="@@disable-old_account"/>
+		<image image="@@bg-new_account" y="296" active="@@act-new_account" disable="@@disable-new_account"/>
+	</wrapper>
+
+	<wrapper x="296" w="686" h="24" fontsize="24" textcolor="0x0" align="left">
+		<text text="@@old_account_text" y="250" disable="@@disable-old_account"/>
+		<text text="@@new_account_text" y="311" disable="@@disable-new_account"/>
+	</wrapper>
+
+		<include filename="./inc_pandora_loading.xml"/>
+		<include filename="./inc_decoration_online.xml"/>
+</page>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Ken Zhao <xzhao@redsonic.com> -->
+	<page background="./image/home_background_bg_n.jpg" large_image_cache_num="3" medium_image_cache_num="16" small_image_cache_num="13">
+
+<!--  Remove now playing
+	<image image="@@NOWPLAYINGICON" x="332" y="222" w="28" h="28"/>
+	<text text="@@NOWPLAYINGTEXT" x="369" y="222" w="300" h="24" fontsize="20" textcolor="0xffffff" align="left" speed="2" delay="2"/>
+-->
+
+<!--
+	<image image="@@iconbg" x="358" y="107" w="320" h="335" align="right,bottom"/>
+	<image image="@@CROSSBAR_BG" x="64" y="279" w="597" h="85"/>
+
+	<image image="@@VERTBAR_FOCUS_BG" x="70" y="281" w="212" h="76"/>
+
+	<image image="@@HORIBAR_FOCUS_BG" x="320" y="281" w="212" h="76"/>
+-->
+
+	<image image="@@CROSSBAR_BG" x="64" y="253" w="597" h="85"/>
+
+
+	<table x="330" y="140" w="335" h="72" fontsize="18" textcolor="0xF1C733" align="left" rows="4">
+		<text text="@@WARNING_MSG1" />
+		<text text="@@WARNING_MSG2" />
+		<text text="@@WARNING_MSG3"/>
+		<text text="@@WARNING_MSG4"/>
+	</table>
+
+	<image image="@@WARNING_BG" x="302" y="218" w="173" h="229" align="top,right"/> 
+<!--
+	<crossbar name="VERTBAR" image="" x="75" y="70" w="200" h="360" fontsize="26" fps="20" duration="400" motion_type="decrease" textcolor="0xffffff" align="right" direction="1" itemcount="5" image0="./image/home_my_media_icon_n.png" image1="./image/home_usb_icon_n.png" image2="./image/home_online_icon_n.png" image3="./image/home_wmc_icon_n.png" image4="./image/home_settings_icon_n.png" active_num="4" numlines="2">
+-->		
+
+	<crossbar name="VERTBAR" image="" x="75" y="70" w="200" h="360" fontsize="26" fps="20" duration="250" motion_type="decrease" textcolor="0xffffff" align="right" direction="1" itemcount="4" image0="./image/home_my_media_icon_n.png" image1="./image/home_usb_icon_n.png" image2="@@wmc_icon_image" image3="./image/home_settings_icon_n.png" active_num="3" numlines="2">
+	</crossbar>
+
+	<crossbar name="HORIBAR" x="320" y="244" w="324" h="106" fontsize="20" fps="10" duration="250" motion_type="decrease" textcolor="0xffffff" align="hcenter" direction="2" itemcount="3" text0="@@HORIBAR_text_0" text1="@@HORIBAR_text_1" text2="@@HORIBAR_text_2" image0="@@HORIBAR_image_0" image1="@@HORIBAR_image_1" image2="@@HORIBAR_image_2" active_num="1" numlines="2"/>
+
+	<image image="@@VERTBAR_FOCUS_BG" x="70" y="255" w="212" h="85"/>
+
+	<image image="@@HORIBAR_FOCUS_BG" x="320" y="255" w="212" h="85"/>
+
+	<image image="@@MCE_HOR_ICON" x="290" y="255" w="365" h="76"/>
+
+	<text text="@@curitem" x="325" y="360" w="320" h="60" fontsize="24" textcolor="0xf0c83c" align="hcenter" numlines="2" />
+
+
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./decoration.xml"/>
+</page>

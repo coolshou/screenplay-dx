@@ -1,0 +1,11 @@
+--- arch/mips/kernel/unaligned.c.org	2009-07-29 20:17:26.000000000 +0800
++++ arch/mips/kernel/unaligned.c	2009-07-29 20:17:32.000000000 +0800
+@@ -92,7 +92,7 @@
+ #endif
+ 
+ /* enable message to print unaligned access */
+-#define PRINT_UNALIGNED_ACCESS
++//#define PRINT_UNALIGNED_ACCESS
+ 
+ static inline int emulate_load_store_insn(struct pt_regs *regs,
+ 	void __user *addr, unsigned int __user *pc,

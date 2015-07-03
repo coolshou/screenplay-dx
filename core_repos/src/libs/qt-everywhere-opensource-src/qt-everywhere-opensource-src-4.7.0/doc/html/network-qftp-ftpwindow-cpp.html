@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: ftpwindow.cpp Example File (network/qftp/ftpwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">ftpwindow.cpp Example File</h1>
+<span class="small-subtitle">network/qftp/ftpwindow.cpp</span>
+<!-- $$$network/qftp/ftpwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+ #include &lt;QtNetwork&gt;
+
+ #include &quot;ftpwindow.h&quot;
+
+ FtpWindow::FtpWindow(QWidget *parent)
+     : QDialog(parent), ftp(0), networkSession(0)
+ {
+     ftpServerLabel = new QLabel(tr(&quot;Ftp &amp;server:&quot;));
+     ftpServerLineEdit = new QLineEdit(&quot;ftp.qt.nokia.com&quot;);
+     ftpServerLabel-&gt;setBuddy(ftpServerLineEdit);
+
+     statusLabel = new QLabel(tr(&quot;Please enter the name of an FTP server.&quot;));
+ #ifdef Q_OS_SYMBIAN
+     <span class="comment">// Use word wrapping to fit the text on screen</span>
+     statusLabel-&gt;setWordWrap( true );
+ #endif
+
+     fileList = new QTreeWidget;
+     fileList-&gt;setEnabled(false);
+     fileList-&gt;setRootIsDecorated(false);
+     fileList-&gt;setHeaderLabels(QStringList() &lt;&lt; tr(&quot;Name&quot;) &lt;&lt; tr(&quot;Size&quot;) &lt;&lt; tr(&quot;Owner&quot;) &lt;&lt; tr(&quot;Group&quot;) &lt;&lt; tr(&quot;Time&quot;));
+     fileList-&gt;header()-&gt;setStretchLastSection(false);
+
+     connectButton = new QPushButton(tr(&quot;Connect&quot;));
+     connectButton-&gt;setDefault(true);
+
+     cdToParentButton = new QPushButton;
+     cdToParentButton-&gt;setIcon(QPixmap(&quot;:/images/cdtoparent.png&quot;));
+     cdToParentButton-&gt;setEnabled(false);
+
+     downloadButton = new QPushButton(tr(&quot;Download&quot;));
+     downloadButton-&gt;setEnabled(false);
+
+     quitButton = new QPushButton(tr(&quot;Quit&quot;));
+
+     buttonBox = new QDialogButtonBox;
+     buttonBox-&gt;addButton(downloadButton, QDialogButtonBox::ActionRole);
+     buttonBox-&gt;addButton(quitButton, QDialogButtonBox::RejectRole);
+
+     progressDialog = new QProgressDialog(this);
+
+     connect(fileList, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+             this, SLOT(processItem(QTreeWidgetItem*,int)));
+     connect(fileList, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)),
+             this, SLOT(enableDownloadButton()));
+     connect(progressDialog, SIGNAL(canceled()), this, SLOT(cancelDownload()));
+     connect(connectButton, SIGNAL(clicked()), this, SLOT(connectOrDisconnect()));
+     connect(cdToParentButton, SIGNAL(clicked()), this, SLOT(cdToParent()));
+     connect(downloadButton, SIGNAL(clicked()), this, SLOT(downloadFile()));
+     connect(quitButton, SIGNAL(clicked()), this, SLOT(close()));
+
+     QHBoxLayout *topLayout = new QHBoxLayout;
+     topLayout-&gt;addWidget(ftpServerLabel);
+     topLayout-&gt;addWidget(ftpServerLineEdit);
+ #ifndef Q_OS_SYMBIAN
+     topLayout-&gt;addWidget(cdToParentButton);
+     topLayout-&gt;addWidget(connectButton);
+ #else
+     <span class="comment">// Make app better lookin on small screen</span>
+     QHBoxLayout *topLayout2 = new QHBoxLayout;
+     topLayout2-&gt;addWidget(cdToParentButton);
+     topLayout2-&gt;addWidget(connectButton);
+ #endif
+
+     QVBoxLayout *mainLayout = new QVBoxLayout;
+     mainLayout-&gt;addLayout(topLayout);
+ #ifdef Q_OS_SYMBIAN
+     <span class="comment">// Make app better lookin on small screen</span>
+     mainLayout-&gt;addLayout(topLayout2);
+ #endif
+     mainLayout-&gt;addWidget(fileList);
+     mainLayout-&gt;addWidget(statusLabel);
+     mainLayout-&gt;addWidget(buttonBox);
+     setLayout(mainLayout);
+
+     QNetworkConfigurationManager manager;
+     if (manager.capabilities() &amp; QNetworkConfigurationManager::NetworkSessionRequired) {
+         <span class="comment">// Get saved network configuration</span>
+         QSettings settings(QSettings::UserScope, QLatin1String(&quot;Trolltech&quot;));
+         settings.beginGroup(QLatin1String(&quot;QtNetwork&quot;));
+         const QString id = settings.value(QLatin1String(&quot;DefaultNetworkConfiguration&quot;)).toString();
+         settings.endGroup();
+
+         <span class="comment">// If the saved network configuration is not currently discovered use the system default</span>
+         QNetworkConfiguration config = manager.configurationFromIdentifier(id);
+         if ((config.state() &amp; QNetworkConfiguration::Discovered) !=
+             QNetworkConfiguration::Discovered) {
+             config = manager.defaultConfiguration();
+         }
+
+         networkSession = new QNetworkSession(config, this);
+         connect(networkSession, SIGNAL(opened()), this, SLOT(enableConnectButton()));
+
+         connectButton-&gt;setEnabled(false);
+         statusLabel-&gt;setText(tr(&quot;Opening network session.&quot;));
+         networkSession-&gt;open();
+     }
+
+     setWindowTitle(tr(&quot;FTP&quot;));
+ }
+
+ QSize FtpWindow::sizeHint() const
+ {
+     return QSize(500, 300);
+ }
+
+ void FtpWindow::connectOrDisconnect()
+ {
+     if (ftp) {
+         ftp-&gt;abort();
+         ftp-&gt;deleteLater();
+         ftp = 0;
+         fileList-&gt;setEnabled(false);
+         cdToParentButton-&gt;setEnabled(false);
+         downloadButton-&gt;setEnabled(false);
+         connectButton-&gt;setEnabled(true);
+         connectButton-&gt;setText(tr(&quot;Connect&quot;));
+ #ifndef QT_NO_CURSOR
+         setCursor(Qt::ArrowCursor);
+ #endif
+         statusLabel-&gt;setText(tr(&quot;Please enter the name of an FTP server.&quot;));
+         return;
+     }
+
+ #ifndef QT_NO_CURSOR
+     setCursor(Qt::WaitCursor);
+ #endif
+
+     ftp = new QFtp(this);
+     connect(ftp, SIGNAL(commandFinished(int,bool)),
+             this, SLOT(ftpCommandFinished(int,bool)));
+     connect(ftp, SIGNAL(listInfo(QUrlInfo)),
+             this, SLOT(addToList(QUrlInfo)));
+     connect(ftp, SIGNAL(dataTransferProgress(qint64,qint64)),
+             this, SLOT(updateDataTransferProgress(qint64,qint64)));
+
+     fileList-&gt;clear();
+     currentPath.clear();
+     isDirectory.clear();
+
+     QUrl url(ftpServerLineEdit-&gt;text());
+     if (!url.isValid() || url.scheme().toLower() != QLatin1String(&quot;ftp&quot;)) {
+         ftp-&gt;connectToHost(ftpServerLineEdit-&gt;text(), 21);
+         ftp-&gt;login();
+     } else {
+         ftp-&gt;connectToHost(url.host(), url.port(21));
+
+         if (!url.userName().isEmpty())
+             ftp-&gt;login(QUrl::fromPercentEncoding(url.userName().toLatin1()), url.password());
+         else
+             ftp-&gt;login();
+         if (!url.path().isEmpty())
+             ftp-&gt;cd(url.path());
+     }
+
+     fileList-&gt;setEnabled(true);
+     connectButton-&gt;setEnabled(false);
+     connectButton-&gt;setText(tr(&quot;Disconnect&quot;));
+     statusLabel-&gt;setText(tr(&quot;Connecting to FTP server %1...&quot;)
+                          .arg(ftpServerLineEdit-&gt;text()));
+ }
+
+ void FtpWindow::downloadFile()
+ {
+     QString fileName = fileList-&gt;currentItem()-&gt;text(0);
+<span class="comment"> //</span>
+     if (QFile::exists(fileName)) {
+         QMessageBox::information(this, tr(&quot;FTP&quot;),
+                                  tr(&quot;There already exists a file called %1 in &quot;
+                                     &quot;the current directory.&quot;)
+                                  .arg(fileName));
+         return;
+     }
+
+     file = new QFile(fileName);
+     if (!file-&gt;open(QIODevice::WriteOnly)) {
+         QMessageBox::information(this, tr(&quot;FTP&quot;),
+                                  tr(&quot;Unable to save the file %1: %2.&quot;)
+                                  .arg(fileName).arg(file-&gt;errorString()));
+         delete file;
+         return;
+     }
+
+     ftp-&gt;get(fileList-&gt;currentItem()-&gt;text(0), file);
+
+     progressDialog-&gt;setLabelText(tr(&quot;Downloading %1...&quot;).arg(fileName));
+     downloadButton-&gt;setEnabled(false);
+     progressDialog-&gt;exec();
+ }
+
+ void FtpWindow::cancelDownload()
+ {
+     ftp-&gt;abort();
+ }
+
+ void FtpWindow::ftpCommandFinished(int, bool error)
+ {
+ #ifndef QT_NO_CURSOR
+     setCursor(Qt::ArrowCursor);
+ #endif
+
+     if (ftp-&gt;currentCommand() == QFtp::ConnectToHost) {
+         if (error) {
+             QMessageBox::information(this, tr(&quot;FTP&quot;),
+                                      tr(&quot;Unable to connect to the FTP server &quot;
+                                         &quot;at %1. Please check that the host &quot;
+                                         &quot;name is correct.&quot;)
+                                      .arg(ftpServerLineEdit-&gt;text()));
+             connectOrDisconnect();
+             return;
+         }
+         statusLabel-&gt;setText(tr(&quot;Logged onto %1.&quot;)
+                              .arg(ftpServerLineEdit-&gt;text()));
+         fileList-&gt;setFocus();
+         downloadButton-&gt;setDefault(true);
+         connectButton-&gt;setEnabled(true);
+         return;
+     }
+
+     if (ftp-&gt;currentCommand() == QFtp::Login)
+         ftp-&gt;list();
+
+     if (ftp-&gt;currentCommand() == QFtp::Get) {
+         if (error) {
+             statusLabel-&gt;setText(tr(&quot;Canceled download of %1.&quot;)
+                                  .arg(file-&gt;fileName()));
+             file-&gt;close();
+             file-&gt;remove();
+         } else {
+             statusLabel-&gt;setText(tr(&quot;Downloaded %1 to current directory.&quot;)
+                                  .arg(file-&gt;fileName()));
+             file-&gt;close();
+         }
+         delete file;
+         enableDownloadButton();
+         progressDialog-&gt;hide();
+     } else if (ftp-&gt;currentCommand() == QFtp::List) {
+         if (isDirectory.isEmpty()) {
+             fileList-&gt;addTopLevelItem(new QTreeWidgetItem(QStringList() &lt;&lt; tr(&quot;&lt;empty&gt;&quot;)));
+             fileList-&gt;setEnabled(false);
+         }
+     }
+ }
+
+ void FtpWindow::addToList(const QUrlInfo &amp;urlInfo)
+ {
+     QTreeWidgetItem *item = new QTreeWidgetItem;
+     item-&gt;setText(0, urlInfo.name());
+     item-&gt;setText(1, QString::number(urlInfo.size()));
+     item-&gt;setText(2, urlInfo.owner());
+     item-&gt;setText(3, urlInfo.group());
+     item-&gt;setText(4, urlInfo.lastModified().toString(&quot;MMM dd yyyy&quot;));
+
+     QPixmap pixmap(urlInfo.isDir() ? &quot;:/images/dir.png&quot; : &quot;:/images/file.png&quot;);
+     item-&gt;setIcon(0, pixmap);
+
+     isDirectory[urlInfo.name()] = urlInfo.isDir();
+     fileList-&gt;addTopLevelItem(item);
+     if (!fileList-&gt;currentItem()) {
+         fileList-&gt;setCurrentItem(fileList-&gt;topLevelItem(0));
+         fileList-&gt;setEnabled(true);
+     }
+ }
+
+ void FtpWindow::processItem(QTreeWidgetItem *item, int <span class="comment">/*column*/</span>)
+ {
+     QString name = item-&gt;text(0);
+     if (isDirectory.value(name)) {
+         fileList-&gt;clear();
+         isDirectory.clear();
+         currentPath += '/';
+         currentPath += name;
+         ftp-&gt;cd(name);
+         ftp-&gt;list();
+         cdToParentButton-&gt;setEnabled(true);
+ #ifndef QT_NO_CURSOR
+         setCursor(Qt::WaitCursor);
+ #endif
+         return;
+     }
+ }
+
+ void FtpWindow::cdToParent()
+ {
+ #ifndef QT_NO_CURSOR
+     setCursor(Qt::WaitCursor);
+ #endif
+     fileList-&gt;clear();
+     isDirectory.clear();
+     currentPath = currentPath.left(currentPath.lastIndexOf('/'));
+     if (currentPath.isEmpty()) {
+         cdToParentButton-&gt;setEnabled(false);
+         ftp-&gt;cd(&quot;/&quot;);
+     } else {
+         ftp-&gt;cd(currentPath);
+     }
+     ftp-&gt;list();
+ }
+
+ void FtpWindow::updateDataTransferProgress(qint64 readBytes,
+                                            qint64 totalBytes)
+ {
+     progressDialog-&gt;setMaximum(totalBytes);
+     progressDialog-&gt;setValue(readBytes);
+ }
+
+ void FtpWindow::enableDownloadButton()
+ {
+     QTreeWidgetItem *current = fileList-&gt;currentItem();
+     if (current) {
+         QString currentFile = current-&gt;text(0);
+         downloadButton-&gt;setEnabled(!isDirectory.value(currentFile));
+     } else {
+         downloadButton-&gt;setEnabled(false);
+     }
+ }
+
+ void FtpWindow::enableConnectButton()
+ {
+     <span class="comment">// Save the used configuration</span>
+     QNetworkConfiguration config = networkSession-&gt;configuration();
+     QString id;
+     if (config.type() == QNetworkConfiguration::UserChoice)
+         id = networkSession-&gt;sessionProperty(QLatin1String(&quot;UserChoiceConfiguration&quot;)).toString();
+     else
+         id = config.identifier();
+
+     QSettings settings(QSettings::UserScope, QLatin1String(&quot;Trolltech&quot;));
+     settings.beginGroup(QLatin1String(&quot;QtNetwork&quot;));
+     settings.setValue(QLatin1String(&quot;DefaultNetworkConfiguration&quot;), id);
+     settings.endGroup();
+
+     connectButton-&gt;setEnabled(networkSession-&gt;isOpen());
+     statusLabel-&gt;setText(tr(&quot;Please enter the name of an FTP server.&quot;));
+ }</pre>
+</div>
+<!-- @@@network/qftp/ftpwindow.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

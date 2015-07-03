@@ -1,0 +1,23 @@
+--- drivers/net/tangox_enet.c	2010-08-06 12:16:16.000000000 +0800
++++ drivers/net/tangox_enet_.c	2010-08-06 13:42:05.000000000 +0800
+@@ -263,7 +263,7 @@
+ static void enet_stop_rx(struct net_device *dev)
+ {
+ 	volatile struct enet_desc *rx;
+-	int i, cnt;
++	int i, cnt, retry=0;
+ 	struct sk_buff *dummy_skb=NULL;
+ 	struct ethhdr *ethr;
+ 	struct tangox_enet_priv *priv = netdev_priv(dev);
+@@ -302,9 +302,10 @@
+ 
+ 	/*send the packet and wait for dma stop */
+ 	enet_xmit(dummy_skb,dev);
+-	while (gbus_read_reg32(ENET_RXC_CR(priv->enet_mac_base)) & RCR_EN) {
++	while (gbus_read_reg32(ENET_RXC_CR(priv->enet_mac_base)) & RCR_EN && retry<50) {
+ 		udelay(1000);
+ 		enet_xmit(NULL,dev);
++		retry++;
+ 	}
+ 
+ 	/*stop tx and rx in mac*/

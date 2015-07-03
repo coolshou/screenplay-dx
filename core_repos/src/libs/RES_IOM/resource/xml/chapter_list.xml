@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page wait_seconds="1" type="basic" overlay="1">
+
+  <listbox valkey="chapterlist" move="row" cols="1" rows="6" lbmask="l" more_select="right"/>
+	<image image="@@listprev" x="703" y="355" w="21" h="16"/>
+  <table x="266" y="344" w="430" h="200"
+         cols="1" rows="6" colspacing="0" rowspacing="0"
+        lbimage="image/chapter_focus_btn.png" fontsize="20" activetextcolor="0x00CCFF" textcolor="0xffffff" align="hcenter">
+    <text text="@@chapterlist-0" fontsize="20" xmargin="21" ymargin="5" y="351"
+          lightbar="@@lightbar-chapterlist-0" active="@@act-chapterlist-0"/>
+
+    <text text="@@chapterlist-1" fontsize="20" xmargin="21" ymargin="5" y="382"
+          lightbar="@@lightbar-chapterlist-1" active="@@act-chapterlist-1"/>
+
+    <text text="@@chapterlist-2" fontsize="20" xmargin="21" ymargin="5" y="413"
+          lightbar="@@lightbar-chapterlist-2" active="@@act-chapterlist-2"/>
+
+    <text text="@@chapterlist-3" fontsize="20" xmargin="21" ymargin="5" y="444"
+          lightbar="@@lightbar-chapterlist-3" active="@@act-chapterlist-3"/>
+
+    <text text="@@chapterlist-4" fontsize="20" xmargin="21" ymargin="5" y="475"
+          lightbar="@@lightbar-chapterlist-4" active="@@act-chapterlist-4"/>
+
+    <text text="@@chapterlist-5" fontsize="20" xmargin="21" ymargin="5" y="506"
+          lightbar="@@lightbar-chapterlist-5" active="@@act-chapterlist-5"/>
+
+  </table>
+	<image image="@@listmore" x="703" y="515" w="21" h="16"/>
+
+	<image image="image/chapter_bg.png" x="255" y="338" w="485" h="210"/>
+ </page>

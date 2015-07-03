@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+		<text text="@@msg_title" x="330" y="254" w="620" h="116" fontsize="26" align="hcenter" textcolor="0xffffff" numlines="3" />
+		<!--
+		<motion_icon x="306" y="263" w="109" h="163" count="9" base_filename="image/settings_wait_progress_n" suffix_name="png"/>
+		-->
+<include filename="./inc_decoration.xml"/>
+</page>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<!-- 
+   *
+   *	Implementation of a vertical and horizontal flowing menu-submenu structure, used for Bookmarks page.
+   *    Uses: CSS WebKit animation controlled by JavaScript
+   *
+   *	Visky Tamas, 2010 March
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<title>Favourites</title>	
+
+<link rel="stylesheet" type="text/css" href="../../favourites.css" />
+<script language="javascript" src="../../favourites.js"> </script> 
+
+<!-- Class usage -->
+<script language="javascript">
+	
+	/*
+	 * Code creating the bookmarks, based on the input list. Function called onload.
+	 */
+	var myBookmarks;
+	function CreateBookmarks()
+	{
+		myBookmarks = new BookmarkFlow(document.getElementById("inputList"), document.getElementById("bookmarkArea"));
+		myBookmarks.update();
+
+		// Adding key event listeners to the document
+		document.documentElement.addEventListener("keydown", keyPress, false);
+		document.documentElement.addEventListener("keypress", keyPress, false);
+	};
+	
+	/* Function handling keypresses. */	
+	function keyPress(evt) {
+		var charCode = 0;
+   		if (evt.charCode)				//some browsers support evt.charCode, some only evt.keyCode
+   	 		charCode = evt.charCode;        
+	    else 
+    	   	charCode = evt.keyCode;
+
+		if (charCode == 38)
+			myBookmarks.flow(myBookmarks.UP);
+		else if (charCode == 40)
+			myBookmarks.flow(myBookmarks.DOWN);
+		else if (charCode == 39)
+			myBookmarks.flow(myBookmarks.RIGHT);
+		else if (charCode == 37)
+			myBookmarks.flow(myBookmarks.LEFT);
+		else if (charCode == 13)
+		{
+			myBookmarks.loadSelection();
+		}
+	};
+
+</script>
+
+
+
+<!-- CSS Style this page -->
+<style type="text/css">
+
+</style>
+
+</head>
+
+
+<!-- XHTML -->
+<body HIGHLIGHT="false" onload="CreateBookmarks();">
+
+  <!-- The area that will hold the entire bookmark structure. Content is added with JS. -->
+  <div id="bookmarkArea">
+  	<div id="topSide"></div>
+  	<div id="bottomSide"></div>
+	<div id="leftSide"></div>
+	<div id="rightSide"></div>
+  </div>
+ 	
+ <!-- List containing the info to build up the bookmarks.
+      Used as input, not visible on the screen -->	
+ <ul id="inputList" style="display: none;">
+	<li>iomega.png
+		<ul>
+			<li>
+				<span>Iomega</span>
+				<span>Res/iomega_com.jpg</span>
+				<span>http://iomega.com/screenplay-dx/index.html</span>
+			</li>
+		</ul>
+	</li>
+	<li>Search.png
+  	<ul>
+  		<li>
+	  		<span>Google</span>
+			<span>Res/google_com.jpg</span>
+	  		<span>http://www.google.com/</span>
+		</li>
+  		<li>
+	  		<span>Yahoo</span>
+			<span>Res/yahoo_com.jpg</span>
+	  		<span>http://www.yahoo.com/</span>
+		</li>		
+	</ul>
+  </li>
+ <li>Video.png
+        <ul>
+                <li>
+                        <span>Dailymotion</span>
+						<span>Res/dailymotion_com.jpg</span>
+                        <span>http://www.dailymotion.com/ca-en</span>
+                </li>
+                <li>
+                        <span>Hulu</span>
+						<span>Res/hulu_com.jpg</span>
+                        <span>http://www.hulu.com</span>
+                </li>                
+        </ul>
+  </li>
+ <li>Sports.png
+        <ul>
+                <li>
+                        <span>ESPN</span>
+						<span>Res/espn_com.jpg</span>
+                        <span>http://www.espn.com</span>
+                </li>
+                <li>
+                        <span>Sports Illustrated</span>
+						<span>Res/si_com.jpg</span>
+                        <span>http://sportsillustrated.cnn.com/</span>
+                </li>
+		<li>
+			<span>CBS Sports</span>
+			<span>Res/cbssports_com.jpg</span>
+			<span>http://cbs.sportsline.com</span>
+		</li>
+
+        </ul>
+  </li>
+ <li>Photos.png
+        <ul>
+                <li>
+                        <span>Picasa Web</span>
+						<span>Res/picasa_com.jpg</span>
+                        <span>http://picasaweb.google.com/</span>
+                </li>
+                <li>
+			<span>Shutterfly</span>
+			<span>Res/shutterfly_com.jpg</span>
+                        <span>http://www.shutterfly.com/</span>
+                </li>
+        </ul>
+  </li> <!-- end of News list item -->
+  <li>News.png
+	<!-- Thumbnails in the Pictures folder -->  	
+  	<ul>
+  		<li>
+	  		<span>CNN</span>
+			<span>Res/cnn_com.jpg</span>
+	  		<span>http://www.cnn.com</span>
+		</li>	
+  		<li>
+	  		<span>NY Times</span>
+			<span>Res/nytimes_com.jpg</span>
+	  		<span>http://www.nytimes.com/</span>
+		</li>  	
+	
+  		<li>
+	  		<span>Yahoo! News</span>
+			<span>Res/news_yahoo_com.jpg</span>
+	  		<span>http://news.yahoo.com</span>
+		</li>
+  		<li>
+	  		<span>Digg</span>
+			<span>Res/digg_com_news.jpg</span>
+	  		<span>http://www.digg.com/news</span>
+		</li>
+  	</ul> 
+  </li>  
+  <li>Social.png
+  	<ul>
+  		<li>
+	  		<span>Facebook</span>
+			<span>Res/facebook_com.jpg</span>
+	  		<span>http://www.facebook.com/</span>
+		</li>
+  		<li>
+  			<span>Google+</span>
+			<span>Res/google_plus.png</span>
+	  		<span>https://plus.google.com/</span>
+		</li>
+  		<li>
+	  		<span>Twitter</span>
+			<span>Res/twitter_com.jpg</span>
+	  		<span>http://www.twitter.com/</span>
+		</li>		  		
+	</ul>
+  </li>
+ </ul>
+
+
+ 
+</body>
+
+</html>
+

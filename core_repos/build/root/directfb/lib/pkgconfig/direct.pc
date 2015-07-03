@@ -1,0 +1,10 @@
+prefix=/root/projects/SMP/GPL-1.02.24/core_repos/src/libs/3_8_0/DCCHD/dcchd_SMP8652_3_8_8_rc_11_aqua.mips/directfb
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Direct
+Description: DirectFB base development library
+Version: 1.0.0
+Libs: -L${libdir} -ldirect -lpthread -ldl
+Cflags: -D_REENTRANT -I${prefix}/include/directfb

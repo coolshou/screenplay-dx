@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+    <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_pan_icon_n.png"
+            normal_bg="image/slideshow_options_menu_pan_icon_n.png"/>
+    <button valkey="QML1"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_90clockwise_icon_n.png"
+            normal_bg="image/slideshow_options_menu_90clockwise_icon_n.png"/>
+    <button valkey="QML2"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_90counter_cw_icon_n.png"
+            normal_bg="image/slideshow_options_menu_90counter_cw_icon_n.png"/>
+    <button valkey="QML3"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+            normal_bg="image/slideshow_options_menu_zoomin_icon_n.png"/>
+    <button valkey="QML4"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/slideshow_options_menu_repeat_icon_n.png"
+            normal_bg="image/slideshow_options_menu_repeat_icon_n.png"/>
+    <button valkey="QML5"
+			lightbar_bg="image/slideshow_options_menu_btn.png"
+            focused_bg="image/options_menu_info_icon_n.png"
+            normal_bg="image/options_menu_info_icon_n.png"/>
+    </ctrlgrp>
+
+	<image image="image/slideshow_player_frame_bg.png" x="0" y="534" w="1280" h="165" disable="@@photo_info_disable" bg="1"/>
+
+	<progress_bar name="slideshow_timebar" x="171" y="583" w="560" h="28" pb_back_img="image/slideshow_player_time_played_line_bg.png" pb_front_img="image/slideshow_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="1000" disable="@@photo_info_disable"/>
+
+	<image image="@@slideshow_state" x="126" y="572" w="44" h="50" disable="@@photo_info_disable"/>
+
+	<text text="@@info_filename" x="738" y="585" w="256" h="26" fontsize="24" textcolor="0xfffffff" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+
+	<text text="@@info_cur_pos" x="1038" y="584" w="116" h="30" fontsize="30" textcolor="0xffffff" disable="@@photo_info_disable" align="right"/>
+
+	<text text="@@info_total_count" x="1170" y="592" w="102" h="32" fontsize="18" textcolor="0xffffff" disable="@@photo_info_disable" align="left"/>
+
+	<image image="@@info_trackicon" x="174" y="618" w="35" h="38" disable="@@photo_info_disable"/>
+	<text text="@@info_trackname" x="222" y="624" w="294" h="26" fontsize="24" textcolor="0xffb300" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+
+	<text text="@@info_photo_detail" x="738" y="613" w="256" h="20" fontsize="18" textcolor="0xffffff" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+
+	<image image="image/slideshow_player_compart_line.png" x="1017" y="572" w="2" h="71" disable="@@photo_info_disable"/>
+
+	<image image="@@repeat-ico" x="1030" y="618" w="48" h="36" disable="@@photo_info_disable"/>
+	<image image="@@shuffle-ico" x="1080" y="618" w="48" h="36" disable="@@photo_info_disable"/>
+
+	<include filename="decoration.xml"/>
+	<include filename="inc_options_slideshow_run.xml"/>
+
+	<text text="@@mod_txt" x="162" y="120" w="958" h="32" fontsize="30" textcolor="0xffffff" align="hcenter"/>
+	<image image="@@mod_img" x="1063" y="71" w="107" h="107"/> 
+
+</page>

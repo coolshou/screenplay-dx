@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<page background="image/browse_bg.jpg">
+	<ctrlgrp lbmask="lrud">
+		<button valkey="OK" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+	</ctrlgrp>
+    <include filename="./inc_setup_entry_basic_title.xml" />
+    <!--<image image="image/SL.06.9.jpg" x="0" y="0" w="1280" h="720"/>-->
+	<image image="image/settings_about_iomega_loga.png"   x="553" y="136" w="175" h="156" scale="100" scale_type="fixratio"/>
+    <wrapper x="240" w="800" textcolor="0xffffff" fontsize="20" align="hcenter">
+    <text text="@@version_info" h="25" y="298"/>
+	<text text="@@serial_number_value" h="25" y="330"/>
+	<text text="$$For additional information regarding your HD Media Player, please refer to the user manual or visit"  h="60" y="386" numlines="2"/>
+    </wrapper>
+	<text text="http://www.iomega.com" x="255" y="460" w="768" h="30" textcolor="0xffffff" align="hcenter" fontsize="20"/>
+	<imgbtn image="@@bg-OK" text="$$OK" x="488" y="506" w="300" h="40" fontsize="20" align="hcenter" textcolor="0xffffff" active="@@act-OK" actnoseltextcolor="0xffffff"/>
+    <include filename="./inc_decoration.xml"/>
+</page>

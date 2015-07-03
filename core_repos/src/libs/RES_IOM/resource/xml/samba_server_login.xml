@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg">
+	<ctrlgrp>
+		<button valkey="USERNAME"
+			focused_bg="./image/login_input_box_f.png"
+			normal_bg="./image/login_input_box_n.png"/>
+		<linebreak/>
+		<button valkey="PASSWORD"
+			focused_bg="./image/login_input_box_f.png"
+			normal_bg="./image/login_input_box_n.png"/>
+		<linebreak/>
+		<button valkey="CANCEL"
+			focused_bg="./image/common_btn_f.png"
+			normal_bg="./image/common_btn_n.png"/>
+		<button valkey="OK"
+			focused_bg="./image/common_btn_f.png"
+			normal_bg="./image/common_btn_n.png"/>
+ 	</ctrlgrp>
+ 
+  	<text text="$$Login" x="240" y="124" w="650" h="45" fontsize="40" textcolor="0xffffff"/>
+
+    <wrapper x="250" w="244" h="26" align="right" fontsize="26" textcolor="0xffffff">
+    <text text="$$Account"  y="280"/>
+	<text text="$$Password" y="336"/>
+    </wrapper>
+
+    <wrapper x="516" w="382" h="36">
+    <imgbtn image="@@bg-USERNAME" text="" active="@@act-USERNAME" y="275"/>
+   	<imgbtn image="@@bg-PASSWORD" text="" active="@@act-PASSWORD" y="330"/>
+    </wrapper>
+
+    <wrapper textcolor="0xffffff" x="540" w="382" h="36" align="left" fontsize="26">
+    <text text="@@USERNAME" y="275"/>
+	<text text="@@PASSWORD" y="336"/>
+    </wrapper>
+
+    <wrapper textcolor="0xffffff" y="462" w="300" h="40" align="hcenter" fontsize="20">
+	<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" x="316"/>
+   	<imgbtn image="@@bg-OK" text="$$OK" active="@@act-OK" x="657"/>
+    </wrapper>
+
+	<include filename="./inc_decoration.xml"/>
+</page>

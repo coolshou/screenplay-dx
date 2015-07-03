@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl" lang="nl">
+
+<head>
+<title>Fout opgetreden.</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = Espial.errURL + "  is niet beschikbaar.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Er is een fout opgetreden.</h2>
+<br>
+De webpagina op  <b><script>document.writeln(Espial.errURL)</script></b> kan niet worden geladen.
+<br>
+<br>
+<b>U kunt het volgende proberen:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Probeer de webpagina later nogmaals te openen.</a></li>
+	<li><a onclick="Espial.back();">Ga terug naar de vorige pagina.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

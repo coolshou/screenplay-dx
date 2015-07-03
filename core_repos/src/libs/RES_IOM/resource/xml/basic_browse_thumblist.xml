@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/welcome_background_bg.jpg">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="col" hormove="1" listdirection="vertical" cols="7" rows="1" lbmask="HT" loop_scroll="1"/>
+    <linebreak/>
+  </ctrlgrp>
+  <include filename="./inc_setup_bg.xml"/>
+  <include filename="./info.xml"/>
+  <text text="@@browse_title_icon" x="167" y="62" w="300" h="60" fontsize="40" textcolor="0x666666"/>
+  <!--image x="350" y="110" w="380" h="300" image="@@browse_background_icon" bg="1"/-->
+  <image image="@@page_title_icon" x="74" y="46" w="74" h="74" scale="100" scale_type="fixratio"/>
+  <include filename="./inc_thumblist_browse.xml"/>
+
+<!-- This is fade mark left and right but function not implemented yet,so disable this temporary
+  <wrapper y="150" w="218" h="359">
+    <image image="image/browser_thumbnail_video_mask_left.png" x="0"/>
+    <image image="image/browser_thumbnail_video_mask_right.png" x="1065"/>
+  </wrapper>
+-->
+<include filename="./decoration.xml"/>
+</page>

@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# SecureSOHO config save script
+# (c) 2001 Redsonic, Inc
+# (v) Version 2.3
+# (r) Nov 01 2002
+#
+
+. /etc/init.d/options
+
+DO_LOCK=1
+COUNTER=0
+while [ -f /tmp/save_to_flash -a $DO_LOCK -eq 1 ];
+do
+   sleep 1
+   if [ $COUNTER -eq 0 ]; then
+      COUNTER=1
+   elif [ $COUNTER -eq 1 ]; then
+      COUNTER=2
+   elif [ $COUNTER -eq 2 ]; then
+      COUNTER=3
+   elif [ $COUNTER -eq 3 ]; then
+      COUNTER=4
+   elif [ $COUNTER -eq 4 ]; then
+      COUNTER=5
+   elif [ $COUNTER -eq 5 ]; then
+      COUNTER=6
+   fi
+
+   if [ $COUNTER -gt 5 ]; then
+      DO_LOCK=0
+   fi
+done
+touch /tmp/save_to_flash
+
+cp -f /tmp/conf/config /usr/conf/config
+rm -f /tmp/save_to_flash

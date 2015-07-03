@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Ken Zhao <ken_zhao@alphanetworks.com> -->
+<page background="image/browser_list_background_bg_n.png" type="basic">
+  <ctrlgrp lbmask="l">
+    <ctrlgrp valkey="sub1"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="WAITTIME" value="WAITTIME-value"
+               v0="$$Off" v1="$$1 minute" v2="$$2 minutes" v3="$$3 minutes"
+               v4="$$4 minutes" v5="$$5 minutes" v6="$$6 minutes" v7="$$7 minutes"
+               v8="$$8 minutes" v9="$$9 minutes" v10="$$10 minutes" v11="$$11 minutes"
+               v12="$$12 minutes" v13="$$13 minutes" v14="$$14 minutes" v15="$$15 minutes"
+               v16="$$16 minutes" v17="$$17 minutes" v18="$$18 minutes" v19="$$19 minutes"
+               v20="$$20 minutes" v21="$$21 minutes" v22="$$22 minutes" v23="$$23 minutes"
+               v24="$$24 minutes" v25="$$25 minutes" v26="$$26 minutes" v27="$$27 minutes"
+               v28="$$28 minutes" v29="$$29 minutes" v30="$$30 minutes"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub2"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="BROWSEMODE" value="BROWSEMODE-value"
+               v0="$$List" v1="$$Thumbnail" v2="$$Albumbook"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub3"
+               focused_bg="image/combo_highlight.png"
+               normal_bg="image/combo.png">
+      <combo valkey="SLIDESHOW" value="SLIDESHOW-value"
+               v0="$$3 seconds" v1="$$4 seconds"
+               v2="$$5 seconds" v3="$$6 seconds" v4="$$7 seconds" v5="$$8 seconds"
+               v6="$$9 seconds" v7="$$10 seconds" v8="$$11 seconds" v9="$$12 seconds"
+               v10="$$13 seconds" v11="$$14 seconds" v12="$$15 seconds" v13="$$16 seconds"
+               v14="$$17 seconds" v15="$$18 seconds" v16="$$19 seconds" v17="$$20 seconds"
+               v18="$$21 seconds" v19="$$22 seconds" v20="$$23 seconds" v21="$$24 seconds"
+               v22="$$25 seconds" v23="$$26 seconds" v24="$$27 seconds" v25="$$28 seconds"
+               v26="$$29 seconds" v27="$$30 seconds" v28="$$1 minute" v29="$$2 minutes"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub4"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="PRESET" value="PRESET-value"
+               v0="$$Normal" v1="$$Repeat" v2="$$Repeat and shuffle"
+               arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub5"
+	          focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="AUTOFIT" value="AUTOFIT-value"
+             v0="$$Keep as original"
+	     v1="$$Fit to screen"
+	     v2="$$Scale with distortion"
+             arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub6"
+              focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="PIC_FADE_INOUT" value="PIC_FADE_INOUT-value"
+			v0="$$Enable" v1="$$Disable"
+			arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    <ctrlgrp valkey="sub7"
+	          focused_bg="image/combo_highlight.png"
+              normal_bg="image/combo.png">
+      <combo valkey="LOCALE" value="LOCALE-value" vmap="0:1:2:3:4:5:6"
+			v0="English"
+			v1="Français"
+			v2="Deutsch"
+			v3="Italiano"
+			v4="Español"
+			v5="Suomi"
+			v6="Svenska"
+			arrow-image-format="image/drop_%d%d.png"/>
+    </ctrlgrp>
+    <linebreak/>
+    
+    <button valkey="OK"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+    <button valkey="CANCEL"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+  </ctrlgrp>
+  <text id="headline" text="$$Setup" />
+  <text id="subheadline" text="$$: Additional settings" />
+  <text text="$$Your current additional settings:" x="100" y="90" w="600" h="30" fontsize="24" textcolor="0xFFFFFF"/>
+  
+  <table x="25" y="140" w="327" h="250"
+         rows="7" rowspacing="5" fontsize="20" align="right" textcolor="0xFFFFFF">
+    <text text="$$Screen saver delay:"/>
+    <text text="$$Browse display:"/>
+    <text text="$$Slide show delay:"/>
+    <text text="$$Background music:"/>
+    <text text="$$Photo scaling:"/>
+    <text text="$$Photo fade in/out:"/>
+    <text text="$$Language:"/>
+  </table>
+  <!-- Give the background of combos. -->
+  <table x="360" y="140" w="300" h="250" cols="1" rows="7" rowspacing="5">
+    <image image="@@bg-sub1" />
+    <image image="@@bg-sub2" />
+    <image image="@@bg-sub3" />
+    <image image="@@bg-sub4" />
+    <image image="@@bg-sub5" />
+    <image image="@@bg-sub6" />
+    <image image="@@bg-sub7" />
+  </table>
+  <!-- Give the foreground of combos. -->
+  <table x="360" y="140" w="300" h="250" cols="2" rows="7" rowspacing="5"
+         wcol0="224" wcol1="30"
+         textcolor="0xF0F0F0" selectedtextcolor="0x000000" activetextcolor="0x000000"
+         fontsize="20" actnoseltextcolor="0x000000">
+    <text text="@@WAITTIME" 
+           selected="@@sel-WAITTIME" active="@@act-WAITTIME"/>
+    <image image="@@arrow-WAITTIME"/>
+    <text text="@@BROWSEMODE" 
+           selected="@@sel-BROWSEMODE" active="@@act-BROWSEMODE"/>
+    <image image="@@arrow-BROWSEMODE"/>
+    <text text="@@SLIDESHOW" 
+           selected="@@sel-SLIDESHOW" active="@@act-SLIDESHOW"/>
+    <image image="@@arrow-SLIDESHOW"/>
+    <text text="@@PRESET" 
+           selected="@@sel-PRESET" active="@@act-PRESET"/>
+    <image image="@@arrow-PRESET"/>
+    <text text="@@AUTOFIT" 
+         selected="@@sel-AUTOFIT" active="@@act-AUTOFIT"/>
+    <image image="@@arrow-AUTOFIT"/>
+    <text text="@@PIC_FADE_INOUT" 
+         selected="@@sel-PIC_FADE_INOUT" active="@@act-PIC_FADE_INOUT"/>
+    <image image="@@arrow-PIC_FADE_INOUT"/>
+    <text text="@@LOCALE" 
+         selected="@@sel-LOCALE" active="@@act-LOCALE"/>
+    <image image="@@arrow-LOCALE"/>
+  </table>
+  
+  <table x="338" y="404" w="226" h="36" cols="2" colspacing="10" align="hcenter" fontsize="18">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+   
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

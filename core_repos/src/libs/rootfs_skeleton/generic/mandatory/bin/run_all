@@ -1,0 +1,79 @@
+#!/bin/sh
+
+if [ -f /sysconfig ]; then
+	. /sysconfig
+
+	if [ -f $SYSCONF_STATIC_CONFIG_MOUNT_POINT/config ]; then
+		. $SYSCONF_STATIC_CONFIG_MOUNT_POINT/config
+		if [ x$STOP_DMARENDER == xy ]; then
+			touch /tmp/STOP_DMARENDER;
+		fi
+		if [ x$STOP_PICRENDER == xy ]; then
+			touch /tmp/STOP_PICRENDER;
+		fi
+		if [ x$STOP_OSSP == xy ]; then
+			touch /tmp/STOP_OSSP;
+		fi
+		if [ x$STOP_OSD == xy ]; then
+			touch /tmp/STOP_OSD;
+		fi
+	fi
+
+fi
+
+cd /bin
+if [ -f /tmp/STOP_DMARENDER ]; then 
+	echo "/tmp/STOP_DMARENDER exists, DMARender spawn stopped"; 
+else
+	exec MediaLogic AV MSGL_FATAL &
+	exec dmarender.sh &
+fi
+
+if [ -f /tmp/STOP_PICRENDER ]; then 
+	echo "/tmp/STOP_PICRENDER exists, PICRender spawn stopped"; 
+else
+	exec MediaLogic_PIC PC MSGL_FATAL &
+	exec picrender.sh &
+fi
+
+if [ -f /tmp/STOP_OSSP ]; then 
+	echo "/tmp/STOP_OSSP exists, ossp spawn stopped"; 
+elif [ -f /bin/ossp ]; then 
+	exec ossp.sh &
+else
+	echo "/bin/ossp not exist"; 
+fi
+
+if [ -f /tmp/STOP_DLMGR ]; then 
+	echo "/tmp/STOP_DLMGR exists, dlmgr spawn stopped"; 
+elif [ -f /bin/dlmgr ]; then 
+	exec dlmgr.sh &
+else
+	echo "/bin/dlmgr not exist"; 
+fi
+
+if [ -f /bin/ntpdate ]; then
+	exec ntpd.sh &
+fi
+
+if [ -f /usr/sbin/discovery ]; then
+	echo "IOMega discovery tool";
+	/usr/sbin/discovery;
+fi
+
+if [ -f /proc/iomega/fan ]; then
+	exec temp_detect.sh &
+fi
+
+if [ -f /webserver/bin/httpd ]; then
+	/webserver/bin/httpd &
+fi
+
+if [ -f /tmp/STOP_OSD ]; then 
+	echo "/tmp/STOP_DMARENDER exists, DMARender spawn stopped"; 
+	exec sleep 10000;
+else
+	cd /osd
+	exec dmaosd.sh $1 $2 $3 &
+fi
+

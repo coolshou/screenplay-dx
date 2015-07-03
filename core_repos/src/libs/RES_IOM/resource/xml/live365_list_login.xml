@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<page background="image/live365/Media Player_live365_bg.jpg" type="basic">
+
+	<include filename="./inc_setup_headline.xml"/>
+	<ctrlgrp valkey="options" lbmask="LR">
+		<listbox valkey="account_list" autoenter="1" autoswitch="0"  move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1"/>
+		<linebreak/>
+        <button valkey="QML0"
+            focused_bg="image/live365/Generic_live365_options_menu_delect_account_icon_f.png"
+            normal_bg="image/live365/Generic_live365__options_menu_delect_account_icon_n.png"
+            group_valkey="options"
+            group_focused_text="$$Delete account"/>
+        <button valkey="QML1"
+            focused_bg="image/lie365/Generic_live365_options_menu_all_delect_account_icon_f.png"
+            normal_bg="image/live365/Generic_live365_options_menu_all_delect_account_icon_n.png"
+            group_valkey="options"
+            group_focused_text="$$Delete all"/>
+	</ctrlgrp>
+
+<text x="450" y="160" w="372" h="20" text="@@text-options" fontsize="18" textcolor="0xffb300" align="hcenter" disable="@@disable-text-options"/>
+
+	<text text="@@title" x="97" y="122" w="626" h="44" fontsize="42" textcolor="0xffb300"/>
+
+
+  <table x="291" y="235" w="719" h="357" rows="7" rowspacing="0"
+	  lbimage="image/browser_list_btn.png" clickimage="image/browser_list_btn.png">
+    <image lightbar="@@lightbar-account_list-0" active="@@act-account_list-0"/>
+    <image lightbar="@@lightbar-account_list-1" active="@@act-account_list-1"/>
+    <image lightbar="@@lightbar-account_list-2" active="@@act-account_list-2"/>
+    <image lightbar="@@lightbar-account_list-3" active="@@act-account_list-3"/>
+    <image lightbar="@@lightbar-account_list-4" active="@@act-account_list-4"/>
+    <image lightbar="@@lightbar-account_list-5" active="@@act-account_list-5"/>
+    <image lightbar="@@lightbar-account_list-6" active="@@act-account_list-6"/>
+  </table>
+
+  <wrapper x="293" w="695" h="1">
+    <image image="@@browse_0_line" ymargin="0" bg="1" y="285"/>
+	<image image="@@browse_1_line" ymargin="0" bg="1" y="336"/>
+	<image image="@@browse_2_line" ymargin="0" bg="1" y="387"/>
+    <image image="@@browse_3_line" ymargin="0" bg="1" y="438"/>
+    <image image="@@browse_4_line" ymargin="0" bg="1" y="489"/>
+    <image image="@@browse_5_line" ymargin="0" bg="1" y="540"/>
+    <image image="@@browse_6_line" ymargin="0" bg="1" y="591"/>
+  </wrapper>
+
+  <table x="281" y="235" w="720" h="357"
+    	cols="1" rows="7" colspacing="0" rowspacing="0"  
+		textcolor="@@account_textcolor" 
+		actnoseltextcolor="@@account_noseltextcolor" 
+		fontsize="@@account_fontsize" 
+		selected_fontsize="@@account_selected_fontsize"
+		speed="1" delay="2" align="hcenter">
+    <text text="@@account_0_text" 
+		textcolor="@@account_0_textcolor" 
+		actnoseltextcolor="@@account_0_noseltextcolor" 
+		fontsize="@@account_0_fontsize"  
+		selected_fontsize="@@account_0_selected_fontsize"
+		active="@@act-account_list-0"/>
+    <text text="@@account_1_text"
+		textcolor="@@account_1_textcolor" 
+		actnoseltextcolor="@@account_1_noseltextcolor" 
+		fontsize="@@account_1_fontsize"  
+		selected_fontsize="@@account_1_selected_fontsize"
+		active="@@act-account_list-1"/>
+    <text text="@@account_2_text" active="@@act-account_list-2"/>
+    <text text="@@account_3_text" active="@@act-account_list-3"/>
+    <text text="@@account_4_text" active="@@act-account_list-4"/>
+    <text text="@@account_5_text" active="@@act-account_list-5"/>
+    <text text="@@account_6_text" active="@@act-account_list-6"/>
+  </table>
+
+
+  <image image="@@ss-prev" x="616" y="195" w="38" h="27"/>
+  <image image="@@ss-more" x="616" y="605" w="38" h="27"/>
+  <image image="@@wrongkeyicon" x="1100" y="71" w="52" h="53" align="left" />
+
+<wrapper>
+    <image image="image/live365/Generic_live365_options_menu_bg.png" x="523" y="0" w="233" h="173" bg="1" disable="@@disable-options_bg"/>
+    <table x="547" y="0" h="151" w="186" cols="2" align="hcenter" disable="@@disable-options_bg">
+        <image image="@@bg-QML0"/>
+        <image image="@@bg-QML1"/>
+    </table>
+</wrapper>
+
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_live365_icon.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

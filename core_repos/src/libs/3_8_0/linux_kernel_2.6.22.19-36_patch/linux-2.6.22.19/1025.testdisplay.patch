@@ -1,0 +1,11 @@
+--- linux-2.6.22.19/Makefile	2008-09-25 15:36:22.000000000 -0700
++++ linux-2.6.22.19/Makefile	2008-09-25 15:37:42.000000000 -0700
+@@ -465,7 +465,7 @@
+ PHONY += include/config/auto.conf
+ 
+ include/config/auto.conf:
+-	$(Q)test -e include/linux/autoconf.h -a -e $@ || (		\
++	-@$(Q)test -e include/linux/autoconf.h -a -e $@ || (		\
+ 	echo;								\
+ 	echo "  ERROR: Kernel configuration is invalid.";		\
+ 	echo "         include/linux/autoconf.h or $@ are missing.";	\

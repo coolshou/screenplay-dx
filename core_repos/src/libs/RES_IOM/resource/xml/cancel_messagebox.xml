@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/welcome_background_bg.jpg">
+	<ctrlgrp>
+		<button valkey="CANCEL"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"/>
+	</ctrlgrp>
+
+	<table x="477" y="390" w="343" h="78" cols="1" colspacing="0" fontsize="20" align="hcenter">
+		<imgbtn image="@@bg-CANCEL" text="@@text-CANCEL" active="@@act-CANCEL" actnoseltextcolor="0xffffff" align="hcenter"/>
+	</table>
+
+	<include filename="./inc_messagebox.xml" />
+</page>

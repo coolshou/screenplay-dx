@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/browse_bg.jpg">
+	<listbox valkey="serverlist" move="row" cols="1" rows="7" lbmask="l" more_select="right"/>
+	
+	<image image="@@bg-category" x="65" y="38" w="85" h="85"/>
+	<text text="@@bg-category-headline" x="157" y="62" w="748" h="42" fontsize="40" textcolor="@@headline_color" align="left"/>
+	<text text="@@type" x="157" y="109" w="748" h="28" fontsize="26" textcolor="0xffffffff" align="left"/>
+
+	<image image="@@listprev" x="626" y="150" w="29" h="21"/>
+	<image image="@@listmore" x="626" y="551" w="29" h="21"/>
+
+	<include filename="./info.xml"/>
+
+	<table x="185" y="188" w="913" h="343" cols="1" rows="7" colspacing="0" rowspacing="0" lbimage="image/settings_focus_btn.png" fontsize="22" selected_fontsize="30" actnoseltextcolor="0x00ccff">
+		<text text="@@serverlist-0" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-0" active="@@act-serverlist-0"/>
+		<text text="@@serverlist-1" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-1" active="@@act-serverlist-1"/>
+		<text text="@@serverlist-2" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-2" active="@@act-serverlist-2"/>
+		<text text="@@serverlist-3" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-3" active="@@act-serverlist-3"/>
+		<text text="@@serverlist-4" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-4" active="@@act-serverlist-4"/>
+		<text text="@@serverlist-5" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-5" active="@@act-serverlist-5"/>
+		<text text="@@serverlist-6" fontsize="20" xmargin="35" ymargin="10" lightbar="@@lightbar-serverlist-6" active="@@act-serverlist-6"/>
+	</table>
+	<include filename="./inc_decoration.xml"/>
+</page>

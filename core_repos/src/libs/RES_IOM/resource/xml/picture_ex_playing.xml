@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+    <ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+ 	lightbar_bg="image/slideshow_options_menu_btn.png"
+        focused_bg="image/slideshow_options_menu_pan_icon_f.png"
+        normal_bg="image/slideshow_options_menu_pan_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Pan"/>
+    <button valkey="QML1"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+        focused_bg="image/slideshow_options_menu_90clockwise_icon_f.png"
+        normal_bg="image/slideshow_options_menu_90clockwise_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Rotate right"/>
+    <button valkey="QML2"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+        focused_bg="image/slideshow_options_menu_90counter_cw_icon_f.png"
+        normal_bg="image/slideshow_options_menu_90counter_cw_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Rotate left"/>
+    <button valkey="QML3"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+        focused_bg="image/slideshow_options_menu_zoomin_icon_f.png"
+        normal_bg="image/slideshow_options_menu_zoomin_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom in"/>
+    <button valkey="QML4"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+	focused_bg="image/slideshow_options_menu_zoomout_icon_f.png"
+	normal_bg="image/slideshow_options_menu_zoomout_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Zoom out"/>
+    <button valkey="QML5"
+	lightbar_bg="image/slideshow_options_menu_btn.png"
+        focused_bg="image/options_menu_info_icon_f.png"
+        normal_bg="image/options_menu_info_icon_n.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Info bar"/>
+    </ctrlgrp>
+
+    <text x="450" y="258" w="372" h="26" text="@@text-OPTION" fontsize="24" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+
+	<image image="image/slideshow_player_frame_bg.png" x="260" y="534" w="1280" h="165" disable="@@photo_info_disable" bg="1"/>
+
+	<progress_bar name="slideshow_timebar" x="172" y="583" w="504" h="28" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@photo_info_disable"/>
+
+	<!--	
+	<progress_bar name="slideshow_timebar" x="171" y="583" w="560" h="28" pb_back_img="image/slideshow_player_time_played_line_bg.png" pb_front_img="image/slideshow_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="1000" disable="@@photo_info_disable"/>
+	-->
+    <!--
+	<image image="@@slideshow_state" x="125" y="572" w="44" h="50" disable="@@photo_info_disable"/>
+	-->
+	
+	<progress_bar name="slideshow_timebar" x="172" y="583" w="504" h="28" pb_back_img="image/video_control_time_played_line_bg.png" pb_front_img="image/Video_Player_time_played_line_n_01.png" pb_point_img="image/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="0"/>
+
+	<text text="@@info_filename" x="355" y="590" w="360" h="32" fontsize="28" textcolor="0x000000" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+
+    <!--
+	<text text="@@info_cur_pos" x="778" y="590" w="143" h="33" fontsize="30" textcolor="0x3576a3" disable="@@photo_info_disable" align="right"/>
+    <text text="@@info_total_count" x="922" y="595" w="72" h="30" fontsize="18" textcolor="0x000000" disable="@@photo_info_disable" align="right"/>
+    -->
+
+	<image image="@@info_trackicon" x="185" y="618" w="35" h="38" disable="@@photo_info_disable"/>
+	<text text="@@info_trackname" x="376" y="642" w="310" h="26" fontsize="20" textcolor="0x414141" speed="1" delay="2" disable="@@photo_info_disable" align="left" auto_translate="1"/>
+
+	<text text="@@info_photo_detail" x="755" y="636" w="268" h="20" fontsize="18" textcolor="0x414141" speed="1" delay="2" disable="@@photo_info_disable" align="left"/>
+
+    <!--
+	<image image="image/slideshow_player_compart_line.png" x="955" y="580" w="2" h="71" disable="@@photo_info_disable"/>
+    -->
+
+	<image image="@@repeat-ico" x="968" y="618" w="48" h="36" disable="@@photo_info_disable"/>
+	<image image="@@shuffle-ico" x="1018" y="618" w="48" h="36" disable="@@photo_info_disable"/>
+
+	<include filename="decoration.xml"/>
+	<include filename="inc_options_ex_picture_run.xml"/>
+	<include filename="pic_progress_bar.xml"/>
+
+	<text text="@@mod_txt" x="162" y="294" w="958" h="32" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+	<image image="@@mod_img" x="1063" y="71" w="107" h="107"/> 
+
+</page>

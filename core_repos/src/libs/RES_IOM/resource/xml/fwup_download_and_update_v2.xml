@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg">
+<!--  <image image="image/home_settings_sm_icon_n.png" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio"/>   -->
+  <text text="@@msg_title" x="130" y="254" w="1020" h="30" fontsize="26" align="hcenter"/>
+    <wrapper textcolor="0xffffff">
+  <progress_bar name="download_and_update_progress" x="504" y="406" w="260" h="28" pb_back_img="image/settings_upgrade_precentage_bg_n.png" pb_front_img="image/settings_upgrade_precentage_indicator_n.png" pb_delay="500" disable="@@progress_disable"/>
+  <text text="@@progress" x="330" y="435" w="620" h="26" fontsize="24" align="hcenter"/>
+  </wrapper>
+
+<include filename="./inc_decoration.xml"/>
+  </page>

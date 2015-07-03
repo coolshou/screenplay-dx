@@ -1,0 +1,8 @@
+#!/bin/sh
+sleep 2
+while [ ! -f "/tmp/dmaosd_ready" ]; do sleep 1; done
+if [ -f /tmp/STOP_USBMOUNT ]; then
+    sleep 10000
+fi
+killall usbmount
+exec usbmount

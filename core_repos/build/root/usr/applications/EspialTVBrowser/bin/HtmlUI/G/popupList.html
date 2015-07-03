@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+
+<!-- linking common dialog style file -->
+<link type="text/css" href="dialog.css" rel="stylesheet">
+
+<style>
+
+
+option[selected]{
+		background:#333;
+		color:#FFF
+}
+		
+
+</style>
+
+
+
+<script type="text/javascript">
+
+function doLoad() {
+   var size = Espial.getPopupListSize();
+   var selectList = document.getElementById("mydropdown2");
+   var i = 0;
+   var option;
+
+   for (i=0; i<size; i++) {
+       option = document.createElement('option');
+       option.text = Espial.getPopupListItemText(i);
+       selectList.add(option, null);
+   }
+   selectList.selectedIndex = Espial.getPopupListSelectedIndex();
+   selectList.focus();
+   
+   
+   
+   setFocusStyle()  
+}
+
+function doClose() {
+   Espial.setPopupListSelectedIndex(document.getElementById("mydropdown2").selectedIndex);
+   Espial.closePopupList();
+}
+
+
+
+/*
+*
+*	Test function for Focused Option
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*/
+/*function setFocusStyle (e){
+	
+	//e[e.selectedIndex].setAttribute('class','optionFocused')
+}*/
+
+</script>
+</head>
+
+
+<body highlight="false" onLoad="doLoad();"  onclick="doClose();"> <!--onclick="doClose();" -->
+
+<div id="dialog">
+	<!-- Using images to create the round corners of the dialog page -->
+	<img id="dialogLeftTopBg" src="../Images/dialog-corner-lefttop.png" />
+	<img id="dialogRightTopBg" src="../Images/dialog-corner-righttop.png" />
+	<img id="dialogLeftBottomBg" src="../Images/dialog-corner-leftbottom.png" />
+	<img id="dialogRightBottomBg" src="../Images/dialog-corner-rightbottom.png" />
+	<!-- The message of the dialog 	-->
+	<div id="dialogMsg_Popup">
+		<!--<img id="dialogMsgLeftTopBg" src="../Images/dialog-msg-lefttop.png" />
+		<img id="dialogMsgRightTopBg" src="../Images/dialog-msg-righttop.png" />
+		<img id="dialogMsgLeftBottomBg" src="../Images/dialog-msg-leftbottom.png" />
+		<img id="dialogMsgRightBottomBg" src="../Images/dialog-msg-rightbottom.png" />
+		<div id="dialogTitle">
+			Please select an item from the list:
+		</div>
+		-->
+	</div>
+	
+   <!-- THIS DIV CONTAINER IS FOR SLECT TAG-->
+	<div id="selectContainer" style="
+    width:100%; 
+    height:300px; 
+    background:#fff -webkit-gradient(linear, 0% 0%, 0% 60%, from(#fff), to(#bbb));   
+    " >
+    	<select id="mydropdown2" size=4 onBlur='doClose();' style="
+        width:100%;
+        height:100%; 
+        font-size:30px;
+        font-weight:bold;
+        padding:10px; 
+        background:transparent;
+        color:#555;
+        letter-spacing:3px;
+                      
+        " >
+      <!--  <option value="a" selected >Option - a</option>
+        <option value="b" >Option - b</option>
+        <option value="c">Option - c</option>
+        <option value="d">Option - d</option>
+        <option value="e">Option - e</option>
+        <option value="f">Option - f</option>
+        <option value="g">Option - g</option>
+        <option value="h">Option - h</option>
+        <option value="j">Option - j</option>
+        <option value="k">Option - k</option>-->
+        </select>
+    </div>
+    
+    
+    
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

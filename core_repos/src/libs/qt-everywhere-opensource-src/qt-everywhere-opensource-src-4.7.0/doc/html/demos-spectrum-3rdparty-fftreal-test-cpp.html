@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: test.cpp Example File (demos/spectrum/3rdparty/fftreal/test.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">test.cpp Example File</h1>
+<span class="small-subtitle">demos/spectrum/3rdparty/fftreal/test.cpp</span>
+<!-- $$$demos/spectrum/3rdparty/fftreal/test.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /*****************************************************************************
+
+         test.cpp
+         Copyright (c) 2005 Laurent de Soras
+
+ --- Legal stuff ---
+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2.1 of the License, or (at your option) any later version.
+
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Lesser General Public License for more details.
+
+ You should have received a copy of the GNU Lesser General Public
+ License along with this library; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+ *Tab=3***********************************************************************/</span>
+
+ #if defined (_MSC_VER)
+         #pragma warning (4 : 4786) <span class="comment">// &quot;identifier was truncated to '255' characters in the debug information&quot;</span>
+         #pragma warning (4 : 4800) <span class="comment">// &quot;forcing value to bool 'true' or 'false' (performance warning)&quot;</span>
+ #endif
+
+<span class="comment"> /*\\\ INCLUDE FILES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+
+ #include        &quot;test_settings.h&quot;
+ #include        &quot;TestHelperFixLen.h&quot;
+ #include        &quot;TestHelperNormal.h&quot;
+
+ #if defined (_MSC_VER)
+ #include        &lt;crtdbg.h&gt;
+ #include        &lt;new.h&gt;
+ #endif  <span class="comment">// _MSC_VER</span>
+
+ #include        &lt;new&gt;
+
+ #include        &lt;cassert&gt;
+ #include        &lt;cstdio&gt;
+
+ #define TEST_
+
+<span class="comment"> /*\\\ FUNCTIONS \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span>
+
+ static int      TEST_perform_test_accuracy_all ();
+ static int      TEST_perform_test_speed_all ();
+
+ static void     TEST_prog_init ();
+ static void     TEST_prog_end ();
+
+ int main (int argc, char *argv [])
+ {
+         using namespace std;
+
+         int                             ret_val = 0;
+
+         TEST_prog_init ();
+
+         try
+         {
+                 if (ret_val == 0)
+                 {
+                         ret_val = TEST_perform_test_accuracy_all ();
+                 }
+
+                 if (ret_val == 0)
+                 {
+                         ret_val = TEST_perform_test_speed_all ();
+                 }
+         }
+
+         catch (std::exception &amp;e)
+         {
+                 printf (&quot;\n*** main(): Exception (std::exception) : %s\n&quot;, e.what ());
+                 ret_val = -1;
+         }
+
+         catch (...)
+         {
+                 printf (&quot;\n*** main(): Undefined exception\n&quot;);
+                 ret_val = -1;
+         }
+
+         TEST_prog_end ();
+
+         return (ret_val);
+ }
+
+ int     TEST_perform_test_accuracy_all ()
+ {
+    int            ret_val = 0;
+
+         TestHelperNormal &lt;float &gt;::perform_test_accuracy (ret_val);
+         TestHelperNormal &lt;double&gt;::perform_test_accuracy (ret_val);
+
+    TestHelperFixLen &lt; 1&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt; 2&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt; 3&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt; 4&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt; 7&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt; 8&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt;10&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt;12&gt;::perform_test_accuracy (ret_val);
+    TestHelperFixLen &lt;13&gt;::perform_test_accuracy (ret_val);
+
+         return (ret_val);
+ }
+
+ int     TEST_perform_test_speed_all ()
+ {
+    int            ret_val = 0;
+
+ #if defined (test_settings_SPEED_TEST_ENABLED)
+
+         TestHelperNormal &lt;float &gt;::perform_test_speed (ret_val);
+         TestHelperNormal &lt;double&gt;::perform_test_speed (ret_val);
+
+    TestHelperFixLen &lt; 1&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt; 2&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt; 3&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt; 4&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt; 7&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt; 8&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt;10&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt;12&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt;14&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt;16&gt;::perform_test_speed (ret_val);
+    TestHelperFixLen &lt;20&gt;::perform_test_speed (ret_val);
+
+ #endif
+
+    return (ret_val);
+ }
+
+ #if defined (_MSC_VER)
+ static int __cdecl      TEST_new_handler_cb (size_t dummy)
+ {
+         throw std::bad_alloc ();
+         return (0);
+ }
+ #endif  <span class="comment">// _MSC_VER</span>
+
+ #if defined (_MSC_VER) &amp;&amp; ! defined (NDEBUG)
+ static int      __cdecl TEST_debug_alloc_hook_cb (int alloc_type, void *user_data_ptr, size_t size, int block_type, long request_nbr, const unsigned char *filename_0, int line_nbr)
+ {
+         if (block_type != _CRT_BLOCK)   <span class="comment">// Ignore CRT blocks to prevent infinite recursion</span>
+         {
+                 switch (alloc_type)
+                 {
+                 case    _HOOK_ALLOC:
+                 case    _HOOK_REALLOC:
+                 case    _HOOK_FREE:
+
+                         <span class="comment">// Put some debug code here</span>
+
+                         break;
+
+                 default:
+                         assert (false); <span class="comment">// Undefined allocation type</span>
+                         break;
+                 }
+         }
+
+         return (1);
+ }
+ #endif
+
+ #if defined (_MSC_VER) &amp;&amp; ! defined (NDEBUG)
+ static int      __cdecl TEST_debug_report_hook_cb (int report_type, char *user_msg_0, int *ret_val_ptr)
+ {
+         *ret_val_ptr = 0;       <span class="comment">// 1 to override the CRT default reporting mode</span>
+
+         switch (report_type)
+         {
+         case    _CRT_WARN:
+         case    _CRT_ERROR:
+         case    _CRT_ASSERT:
+
+<span class="comment"> // Put some debug code here</span>
+
+                 break;
+         }
+
+         return (*ret_val_ptr);
+ }
+ #endif
+
+ static void     TEST_prog_init ()
+ {
+ #if defined (_MSC_VER)
+         ::_set_new_handler (::TEST_new_handler_cb);
+ #endif  <span class="comment">// _MSC_VER</span>
+
+ #if defined (_MSC_VER) &amp;&amp; ! defined (NDEBUG)
+         {
+                 const int       mode =   (1 * _CRTDBG_MODE_DEBUG)
+                                                        | (1 * _CRTDBG_MODE_WNDW);
+                 ::_CrtSetReportMode (_CRT_WARN, mode);
+                 ::_CrtSetReportMode (_CRT_ERROR, mode);
+                 ::_CrtSetReportMode (_CRT_ASSERT, mode);
+
+                 const int       old_flags = ::_CrtSetDbgFlag (_CRTDBG_REPORT_FLAG);
+                 ::_CrtSetDbgFlag (  old_flags
+                                   | (1 * _CRTDBG_LEAK_CHECK_DF)
+                                   | (1 * _CRTDBG_CHECK_ALWAYS_DF));
+                 ::_CrtSetBreakAlloc (-1);       <span class="comment">// Specify here a memory bloc number</span>
+                 ::_CrtSetAllocHook (TEST_debug_alloc_hook_cb);
+                 ::_CrtSetReportHook (TEST_debug_report_hook_cb);
+
+                 <span class="comment">// Speed up I/O but breaks C stdio compatibility</span>
+<span class="comment"> //              std::cout.sync_with_stdio (false);</span>
+<span class="comment"> //              std::cin.sync_with_stdio (false);</span>
+<span class="comment"> //              std::cerr.sync_with_stdio (false);</span>
+<span class="comment"> //              std::clog.sync_with_stdio (false);</span>
+         }
+ #endif  <span class="comment">// _MSC_VER, NDEBUG</span>
+ }
+
+ static void     TEST_prog_end ()
+ {
+ #if defined (_MSC_VER) &amp;&amp; ! defined (NDEBUG)
+         {
+                 const int       mode =   (1 * _CRTDBG_MODE_DEBUG)
+                                                        | (0 * _CRTDBG_MODE_WNDW);
+                 ::_CrtSetReportMode (_CRT_WARN, mode);
+                 ::_CrtSetReportMode (_CRT_ERROR, mode);
+                 ::_CrtSetReportMode (_CRT_ASSERT, mode);
+
+                 ::_CrtMemState  mem_state;
+                 ::_CrtMemCheckpoint (&amp;mem_state);
+                 ::_CrtMemDumpStatistics (&amp;mem_state);
+         }
+ #endif  <span class="comment">// _MSC_VER, NDEBUG</span>
+ }
+
+<span class="comment"> /*\\\ EOF \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/</span></pre>
+</div>
+<!-- @@@demos/spectrum/3rdparty/fftreal/test.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

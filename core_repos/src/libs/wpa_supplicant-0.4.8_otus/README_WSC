@@ -1,0 +1,43 @@
+Modifications to wpa_supplicant for supporting Wi-Fi Simple Configuration 
+Reference Implementation from Intel Corporation
+===============================================================================
+
+This file describes the changes done to wpa_supplicant by Intel Corporation 
+to support Wi-Fi Simple Configuration Reference Implementation. The 
+original version of wpa_supplicant used is 0.4.8 as in 
+wpa_supplicant-0.4.8.tar.gz.
+
+Modified Files
+==============
+
+eap_defs.h - Added a new EAP type EAP_TYPE_WSC
+eap.c - Added a new EAP method eap_method_wsc
+defconfig - Added a new configuration option CONFIG_EAP_WSC
+Makefile - Added new files to compile and link
+wpa_supplicant.c - Added init and deinit of wsc_ie
+wpa_supplicant_i.h - Added new functions to call into madwifi driver
+driver.h - Added new function pointers to call into madwifi driver
+driver_madwifi.c - Added code for setting and processing new WSC IEs
+
+New Files
+=========
+
+eap_wsc.c - Implements WSC EAP method
+eap_wsc.h - WSC EAP method header file
+wsc_ie.c - Mechanism to set and process new WSC IEs
+wsc_ie.h - Data structures for new WSC IEs 
+UdpLib.c - Implements transport of messages between wpa_supplicant and upper layer
+UdpLib.h - Transport header file
+
+Additional building instructions
+================================
+To enable new WSC IE functionality (which works only with an updated MadWiFi 
+driver from Atheros) the CONFIG_WSC_IE flag must be uncommented.
+
+Please make sure to update the madwifi path in defconfig file depending
+on the location of madwifi driver code. defconfig file is copied/moved to
+.config file before building.
+
+Contact Information
+===================
+Harsha Hegde  <harsha.hegde@intel.com>

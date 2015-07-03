@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qvalidator.cpp -->
+  <title>Qt 4.7: QRegExpValidator Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QRegExpValidator</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QRegExpValidator Class Reference</h1>
+<!-- $$$QRegExpValidator-brief -->
+<p>The QRegExpValidator class is used to check a string against a regular expression. <a href="#details">More...</a></p>
+<!-- @@@QRegExpValidator -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QRegExpValidator&gt;</pre><p>Inherits <a href="qvalidator.html">QValidator</a>.</p>
+<ul>
+<li><a href="qregexpvalidator-members.html">List of all members, including inherited members</a></li>
+<li><a href="qregexpvalidator-qt3.html">Qt 3 support members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qregexpvalidator.html#regExp-prop">regExp</a></b> : QRegExp</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#QRegExpValidator">QRegExpValidator</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#QRegExpValidator-2">QRegExpValidator</a></b> ( const QRegExp &amp; <i>rx</i>, QObject * <i>parent</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#dtor.QRegExpValidator">~QRegExpValidator</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QRegExp &amp; </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#regExp-prop">regExp</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#regExp-prop">setRegExp</a></b> ( const QRegExp &amp; <i>rx</i> )</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QValidator::State </td><td class="memItemRight bottomAlign"><b><a href="qregexpvalidator.html#validate">validate</a></b> ( QString &amp; <i>input</i>, int &amp; <i>pos</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">4 public functions inherited from <a href="qvalidator.html#public-functions">QValidator</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QRegExpValidator-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QRegExpValidator class is used to check a string against a regular expression.</p>
+<p>QRegExpValidator uses a regular expression (regexp) to determine whether an input string is <a href="qvalidator.html#State-enum">Acceptable</a>, <a href="qvalidator.html#State-enum">Intermediate</a>, or <a href="qvalidator.html#State-enum">Invalid</a>. The regexp can either be supplied when the QRegExpValidator is constructed, or at a later time.</p>
+<p>When QRegExpValidator determines whether a string is <a href="qvalidator.html#State-enum">Acceptable</a> or not, the regexp is treated as if it begins with the start of string assertion (<b>^</b>) and ends with the end of string assertion (<b>$</b>); the match is against the entire input string, or from the given position if a start position greater than zero is given.</p>
+<p>If a string is a prefix of an <a href="qvalidator.html#State-enum">Acceptable</a> string, it is considered <a href="qvalidator.html#State-enum">Intermediate</a>. For example, &quot;&quot; and &quot;A&quot; are <a href="qvalidator.html#State-enum">Intermediate</a> for the regexp <b>[A-Z][0-9]</b> (whereas &quot;<a href="index.html">_</a>&quot; would be <a href="qvalidator.html#State-enum">Invalid</a>).</p>
+<p>For a brief introduction to Qt's regexp engine, see <a href="qregexp.html">QRegExp</a>.</p>
+<p>Example of use:</p>
+<pre class="highlightedCode brush: cpp"><span class="comment"> // regexp: optional '-' followed by between 1 and 3 digits</span>
+ QRegExp rx(&quot;-?\\d{1,3}&quot;);
+ QValidator *validator = new QRegExpValidator(rx, this);
+
+ QLineEdit *edit = new QLineEdit(this);
+ edit-&gt;setValidator(validator);</pre>
+<p>Below we present some examples of validators. In practice they would normally be associated with a widget as in the example above.</p>
+<pre class="highlightedCode brush: cpp"><span class="comment"> // integers 1 to 9999</span>
+ QRegExp rx(&quot;[1-9]\\d{0,3}&quot;);
+<span class="comment"> // the validator treats the regexp as &quot;^[1-9]\\d{0,3}$&quot;</span>
+ QRegExpValidator v(rx, 0);
+ QString s;
+ int pos = 0;
+
+ s = &quot;0&quot;;     v.validate(s, pos);    <span class="comment">// returns Invalid</span>
+ s = &quot;12345&quot;; v.validate(s, pos);    <span class="comment">// returns Invalid</span>
+ s = &quot;1&quot;;     v.validate(s, pos);    <span class="comment">// returns Acceptable</span>
+
+ rx.setPattern(&quot;\\S+&quot;);            <span class="comment">// one or more non-whitespace characters</span>
+ v.setRegExp(rx);
+ s = &quot;myfile.txt&quot;;  v.validate(s, pos); <span class="comment">// Returns Acceptable</span>
+ s = &quot;my file.txt&quot;; v.validate(s, pos); <span class="comment">// Returns Invalid</span>
+
+<span class="comment"> // A, B or C followed by exactly five digits followed by W, X, Y or Z</span>
+ rx.setPattern(&quot;[A-C]\\d{5}[W-Z]&quot;);
+ v.setRegExp(rx);
+ s = &quot;a12345Z&quot;; v.validate(s, pos);        <span class="comment">// Returns Invalid</span>
+ s = &quot;A12345Z&quot;; v.validate(s, pos);        <span class="comment">// Returns Acceptable</span>
+ s = &quot;B12&quot;;     v.validate(s, pos);        <span class="comment">// Returns Intermediate</span>
+
+<span class="comment"> // match most 'readme' files</span>
+ rx.setPattern(&quot;read\\S?me(\.(txt|asc|1st))?&quot;);
+ rx.setCaseSensitive(false);
+ v.setRegExp(rx);
+ s = &quot;readme&quot;;      v.validate(s, pos); <span class="comment">// Returns Acceptable</span>
+ s = &quot;README.1ST&quot;;  v.validate(s, pos); <span class="comment">// Returns Acceptable</span>
+ s = &quot;read me.txt&quot;; v.validate(s, pos); <span class="comment">// Returns Invalid</span>
+ s = &quot;readm&quot;;       v.validate(s, pos); <span class="comment">// Returns Intermediate</span></pre>
+</div>
+<p>See also <a href="qregexp.html">QRegExp</a>, <a href="qintvalidator.html">QIntValidator</a>, <a href="qdoublevalidator.html">QDoubleValidator</a>, and <a href="tools-settingseditor.html">Settings Editor Example</a>.</p>
+<!-- @@@QRegExpValidator -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$regExp-prop$$$regExp$$$setRegExpconstQRegExp& -->
+<h3 class="fn"><a name="regExp-prop"></a>regExp : <a href="qregexp.html">QRegExp</a></h3>
+<p>This property holds the regular expression used for validation.</p>
+<p>By default, this property contains a regular expression with the pattern <tt>.*</tt> that matches any string.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> const QRegExp &amp; </td><td class="memItemRight bottomAlign"><b>regExp</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setRegExp</b> ( const QRegExp &amp; <i>rx</i> )</td></tr>
+</table>
+<!-- @@@regExp -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QRegExpValidator[overload1]$$$QRegExpValidatorQObject* -->
+<h3 class="fn"><a name="QRegExpValidator"></a>QRegExpValidator::QRegExpValidator ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
+<p>Constructs a validator with a <i>parent</i> object that accepts any string (including an empty one) as valid.</p>
+<!-- @@@QRegExpValidator -->
+<!-- $$$QRegExpValidator$$$QRegExpValidatorconstQRegExp&QObject* -->
+<h3 class="fn"><a name="QRegExpValidator-2"></a>QRegExpValidator::QRegExpValidator ( const <a href="qregexp.html">QRegExp</a> &amp; <i>rx</i>, <a href="qobject.html">QObject</a> * <i>parent</i> )</h3>
+<p>Constructs a validator with a <i>parent</i> object that accepts all strings that match the regular expression <i>rx</i>.</p>
+<p>The match is made against the entire string; e.g&#x2e; if the regexp is <b>[A-Fa-f0-9]+</b> it will be treated as <b>^[A-Fa-f0-9]+$</b>.</p>
+<!-- @@@QRegExpValidator -->
+<!-- $$$~QRegExpValidator[overload1]$$$~QRegExpValidator -->
+<h3 class="fn"><a name="dtor.QRegExpValidator"></a>QRegExpValidator::~QRegExpValidator ()</h3>
+<p>Destroys the validator.</p>
+<!-- @@@~QRegExpValidator -->
+<!-- $$$validate[overload1]$$$validateQString&int& -->
+<h3 class="fn"><a name="validate"></a><a href="qvalidator.html#State-enum">QValidator::State</a> QRegExpValidator::validate ( <a href="qstring.html">QString</a> &amp; <i>input</i>, int &amp; <i>pos</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qvalidator.html#validate">QValidator::validate</a>().</p>
+<p>Returns <a href="qvalidator.html#State-enum">Acceptable</a> if <i>input</i> is matched by the regular expression for this validator, <a href="qvalidator.html#State-enum">Intermediate</a> if it has matched partially (i.e&#x2e; could be a valid match if additional valid characters are added), and <a href="qvalidator.html#State-enum">Invalid</a> if <i>input</i> is not matched.</p>
+<p>The <i>pos</i> parameter is set to the length of the <i>input</i> parameter.</p>
+<p>For example, if the regular expression is <b>\w\d\d</b> (word-character, digit, digit) then &quot;A57&quot; is <a href="qvalidator.html#State-enum">Acceptable</a>, &quot;E5&quot; is <a href="qvalidator.html#State-enum">Intermediate</a>, and &quot;+9&quot; is <a href="qvalidator.html#State-enum">Invalid</a>.</p>
+<p>See also <a href="qregexp.html#exactMatch">QRegExp::exactMatch</a>().</p>
+<!-- @@@validate -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

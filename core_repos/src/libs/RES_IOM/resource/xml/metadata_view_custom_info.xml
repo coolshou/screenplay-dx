@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp>
+		<textbox valkey="info" numlines="5" directkey_table="UD[]"/>
+	</ctrlgrp>
+
+    <include filename="./inc_browse_basic_title.xml" />
+	<image image="@@metadata_info_image_bg" x="0" y="0" w="1280" h="720" bg="1"/>
+
+
+	<image image="@@movie_metadata_thumbnail_bg" x="157" y="151" w="184" h="256" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@movie_metadata_thumbnail" x="168" y="161" w="163" h="236" align="hcenter" scale_type="fixratio" scale="100"/>
+
+    <wrapper x="373" w="710" h="22" align="left" fontsize="18" textcolor="0xffffff">
+    <text text="@@filedate" y="168"/>
+	<text text="@@filesize" y="200"/>
+	<text text="@@filetype" y="242"/>
+	<text text="@@filegener" y="279"/>
+    </wrapper>
+
+<wrapper x="353" w="769" h="1" bg="1">
+    <image image="@@metadata_seperator" y="193" bg="1"/>
+    <image image="@@metadata_seperator" y="232" bg="1"/>
+    <image image="@@metadata_seperator" y="271" bg="1"/>
+    <image image="@@metadata_seperator" y="310" bg="1"/>
+</wrapper>
+
+ 
+	<text text="@@info" x="168" y="435" w="924" h="150" fontsize="18" textcolor="0xffffff" align="left" numlines="@@numlines-info" id="info" start_line="@@start_line-info" disable_tail_dots="1"/>
+
+	<include filename="./inc_decoration.xml"/>
+</page>
+

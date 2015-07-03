@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/browse_bg.jpg">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="9" rows="3" lbmask="lrLR" loop_scroll="1" turbo_trigger="5" turbo_multi="10" />
+    <linebreak/>
+    <include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+
+  <include filename="./inc_optionmenu_widgets_photoalbum.xml"/>
+    <include filename="./info.xml"/>
+    <image image="@@page_title_icon" x="65" y="38" w="85" h="85" scale="100" scale_type="fixratio" bg="1"/>
+    <text text="@@headline" x="157" y="62" w="748" h="42" align="left" fontsize="40" textcolor="0x00AA10" bg="1"/>
+    <text text="@@title" x="157" y="109" w="748" h="28" align="left" fontsize="24" textcolor="0xffffff" bg="1"/>
+  <include filename="./inc_thumb_photoalbum.xml"/>
+
+<!-- This is fade mark left and right but function not implemented yet,so disable this temporary
+  <wrapper y="150" w="218" h="359">
+    <image image="image/browser_thumbnail_video_mask_left.png" x="0"/>
+    <image image="image/browser_thumbnail_video_mask_right.png" x="1065"/>
+  </wrapper>
+-->
+
+<!-- Tips -->
+    <!-- We will set appropriate x_offset in run time -->
+    <wrapper  textcolor="0xffffffff" x="0" y="666" w="300" h="22" fontsize="22">
+    <text text="@@tips-0-txt" x_offset="@@tips-0-txt-xoffset"/>
+    <text text="@@tips-1-txt" x_offset="@@tips-1-txt-xoffset"/>
+    <text text="@@tips-2-txt" x_offset="@@tips-2-txt-xoffset"/>
+    <text text="@@tips-3-txt" x_offset="@@tips-3-txt-xoffset"/>
+    </wrapper>
+
+    <wrapper  textcolor="0xffffffff" x="0" y="658" w="46" h="33">
+    <image image="@@tips-0-ico" x_offset="@@tips-0-ico-xoffset"/>
+    <image image="@@tips-1-ico" x_offset="@@tips-1-ico-xoffset"/>
+    <image image="@@tips-2-ico" x_offset="@@tips-2-ico-xoffset"/>
+    <image image="@@tips-3-ico" x_offset="@@tips-3-ico-xoffset"/>
+    </wrapper>
+
+    <include filename="./inc_decoration.xml"/>
+
+</page>

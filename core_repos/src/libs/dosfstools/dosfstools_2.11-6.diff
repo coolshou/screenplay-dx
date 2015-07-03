@@ -1,0 +1,2046 @@
+--- dosfstools-2.11.orig/debian/compat
++++ dosfstools-2.11/debian/compat
+@@ -0,0 +1 @@
++7
+--- dosfstools-2.11.orig/debian/docs
++++ dosfstools-2.11/debian/docs
+@@ -0,0 +1,3 @@
++README.Atari
++TODO
++debian/doc/*
+--- dosfstools-2.11.orig/debian/rules
++++ dosfstools-2.11/debian/rules
+@@ -0,0 +1,55 @@
++#!/usr/bin/make -f
++
++include /usr/share/dpatch/dpatch.make
++
++clean: unpatch
++	dh_testdir
++	dh_testroot
++	rm -f build-stamp
++
++	$(MAKE) distclean
++	rm -f build
++
++	dh_clean
++
++build: build-stamp
++build-stamp: patch
++	dh_testdir
++
++	$(MAKE) DEBUGFLAGS=-g OPTFLAGS="-O2 -fomit-frame-pointer $(shell getconf LFS_CFLAGS)"
++
++	touch build-stamp
++
++install: build
++	dh_testdir
++	dh_testroot
++	dh_clean -k
++	dh_installdirs
++
++	$(MAKE) PREFIX=$(CURDIR)/debian/dosfstools install
++
++	install -D -m 0644 dosfsck/README debian/dosfstools/usr/share/doc/dosfstools/README.dosfsck
++	install -D -m 0644 mkdosfs/README debian/dosfstools/usr/share/doc/dosfstools/README.mkdosfs
++
++	mv debian/dosfstools/usr/man debian/dosfstools/usr/share
++
++binary: binary-arch
++
++binary-arch: build install
++	dh_testdir
++	dh_testroot
++	dh_installchangelogs CHANGES
++	dh_installdocs
++	dh_lintian
++	dh_strip
++	dh_compress
++	dh_fixperms
++	dh_installdeb
++	dh_shlibdeps
++	dh_gencontrol
++	dh_md5sums
++	dh_builddeb
++
++binary-indep:
++
++.PHONY: clean build install binary binary-arch binary-indep
+--- dosfstools-2.11.orig/debian/changelog
++++ dosfstools-2.11/debian/changelog
+@@ -0,0 +1,390 @@
++dosfstools (2.11-6) unstable; urgency=high
++
++  * Temporarily disabling bootcode.dpatch since it breaks syslinux,
++    thanks to Joey Hess <joeyh@debian.org> (Closes: #489292).
++
++ -- Daniel Baumann <daniel@debian.org>  Fri,  4 Jul 2008 20:28:00 +0200
++
++dosfstools (2.11-5) unstable; urgency=medium
++
++  * Adding patch to mention fsckNNNN.rec files in dosfsck manpage
++    (Closes: #444596).
++  * Adding patch from Sam Bingner <sam@bingner.com> to add option for using a
++    bootcode template (Closes: #303442).
++  * Adding patch from Adonikam Virgo <adonikam@virgonet.org> to fix backup
++    sector getopt (Closes: #232387, #479794).
++  * Adding patch from Karl Tomlinson <karlt@karlt.net> to fix segfaults with
++    zero slots in lfn (Closes: #152550, #353198, #356377, #401798).
++  * Rediffing 99-conglomeration.dpatch.
++  * Adding patch from Eero Tamminen <eero.tamminen@nokia.com> to improve memory
++    efficiencey when checking filesystems.
++  * Adding patch to list alternative binary names in manpage synopsis
++    (Closes: #284983).
++  * Adding patch to not deny FAT32 auto-selection in mkdosfs manpage
++    (Closes: #414183).
++  * Adding patch to not use confusing 'drop' in dosfsck manpage where 'delete'
++    in dosfsck manpage where 'delete' is meant (Closes: #134100).
++  * Listing alternative binary names in long-description (Closes: #434381).
++  * Updating manpage spelling patch to also cover wrong acknowledge header
++    (Closes: #306659).
++  * Breaking out manpage typos patch.
++
++ -- Daniel Baumann <daniel@debian.org>  Fri, 27 Jun 2008 09:03:00 +0200
++
++dosfstools (2.11-4) unstable; urgency=low
++
++  * Redone debian packaging from scratch.
++  * Both stop avoiding -O2 and stop adding -fno-strict-aliasing to OPTFLAGS on
++    alpha; seems not to be required anymore.
++  * Added patch from Jakub Jelinek <jakub@redhat.com> to support
++    -D_FORTIFY_SOURCE=2 (for future use).
++  * Added patch from Jeremy Katz <katzj@redhat.com> to add dosfslabel
++    (originally by Peter Jones).
++  * Added patch from Pavol Rusnak <prusnak@suse.cz> to use O_EXCL in mkdosfs.
++  * Added patch from Petr Gajdos <pgajdos@suse.cz> to automatically determine
++    sector size of the device.
++
++ -- Daniel Baumann <daniel@debian.org>  Thu, 26 Jun 2008 13:13:00 +0200
++
++dosfstools (2.11-3) unstable; urgency=low
++
++  * New maintainer (Closes: #488018).
++
++ -- Daniel Baumann <daniel@debian.org>  Thu, 26 Jun 2008 12:31:00 +0200
++
++dosfstools (2.11-2.3) unstable; urgency=low
++
++  * NMU
++  * dpkg --print-gnu-build-architecture is gone, use dpkg-architecture
++    instead. Closes: #407192
++  * Fixed errors in the mkdosfs manpage that could cause confusion to
++    readers, Thanks to Onno Benschop. Closes: #433561 (LP: #126121)
++
++ -- Joey Hess <joeyh@debian.org>  Mon, 10 Sep 2007 15:57:36 -0400
++
++dosfstools (2.11-2.2) unstable; urgency=low
++
++  * Non-maintainer upload.
++  * Apply Ubuntu patches. Closes: #417673
++
++ -- Andreas Barth <aba@not.so.argh.org>  Sat,  9 Jun 2007 21:18:21 +0000
++
++dosfstools (2.11-2.1) unstable; urgency=low
++
++  * Non-maintainer upload.
++  * Fix unaligned memory accesses which cause warnings to appear everytime
++    the elilo bootloader script runs.  This has led a number of users to
++    believe their install has failed.  Thanks to Khalid Aziz for the patch.
++    Closes: #258839.
++
++ -- dann frazier <dannf@debian.org>  Thu,  9 Jun 2005 18:14:45 -0600
++
++dosfstools (2.11-2) unstable; urgency=low
++
++  * Oops, debian/rules overrides OPTFLAGS and therefore the
++    -D_FILE_OFFSET_BITS=64 in the toplevel Makefile had no effect; added
++    $(shell getconf LFS_CFLAGS) to OPTFLAGS as suggested by Lars Wirzenius in
++    #300126. Sorry, I tested a version compiled by the upstream Makefile...
++    Closes: #300126, #301254.
++  * #302517 was indeed the same as #294177, and fix is the same (use __u8) as
++    in 2.11-1. Closes: #302517.
++
++ -- Roman Hodek <roman@hodek.net>  Sun,  3 Apr 2005 13:56:55 +0200
++
++dosfstools (2.11-1) unstable; urgency=low
++
++  * New upstream version (Closes: #293394, #295181, #294177, #270023, #258402,
++    #232482, #214656, #286219, #276834, #266254, #128800)
++
++ -- Roman Hodek <roman@hodek.net>  Sat, 12 Mar 2005 17:19:27 +0100
++
++dosfstools (2.10-1) unstable; urgency=low
++
++  * New upstream version:
++     - dosfsck: various 64-bit fixes and removed some warnings by Michal
++       Cihar <mcihar@suse.cz>
++     - mkdosfs: better error message if called without parameters (also
++       suggested by Michal)
++  * recompilation removed errno@GLIBC_2.0 symbol; Closes: #168540
++    (probably already 2.9-1 did)
++
++ -- Roman Hodek <roman@hodek.net>  Mon, 22 Sep 2003 22:15:32 +0200
++
++dosfstools (2.9-1) unstable; urgency=low
++
++  * New upstream version:
++   (Closes: #156266, #139198, #152769, #152868, #181196)
++    - dosfsck: if EOF from stdin, exit with error code
++   	- dosfsck: Fix potential for "Internal error: next_cluster on bad cluster".
++   	- dosfsck: When clearing long file names, don't overwrite the dir
++   	  entries with all zeros, but put 0xe5 into the first byte.
++   	  Otherwise, some OSes stop reading the directory at that point...
++   	- dosfsck: in statistics printed by -v, fix 32bit overflow in number
++   	  of data bytes.
++   	- dosfsck: fix an potential overflow in "too many clusters" check
++   	- dosfsck: fix 64bit problem in fat.c (Debian bug #152769)
++   	- dosfsck: allow FAT size > 32MB.
++   	- dosfsck: allow for only one FAT
++   	- dosfsck: with -v, also check that last sector of the filesystem can
++   	  be read (in case a partition is smaller than the fs thinks)
++   	- mkdosfs: add note in manpage that creating bootable filesystems is
++   	  not supported.
++   	- mkdosfs: better error message with pointer to -I if target is a
++   	  full-disk device.
++  * debian/control: Added build dependency on debhelper (Closes: #168388)
++  * debian/control: spelling fix (Closes: #124564)
++  * debian/control: metion names of tools in description (Closes: #186047)
++
++ -- Roman Hodek <roman@hodek.net>  Thu, 15 May 2003 20:54:04 +0200
++
++dosfstools (2.8-1) unstable; urgency=low
++
++  * New upstream version fixing an endless loop.
++    (Closes: #87205, #86373, #87590)
++
++ -- Roman Hodek <roman@hodek.net>  Wed, 28 Feb 2001 17:23:16 +0100
++
++dosfstools (2.7-1) unstable; urgency=low
++
++  * New upstream version with various bug fixes. (Closes: #83883)
++  * Changed maintainer e-mail addr.
++
++ -- Roman Hodek <roman@hodek.net>  Wed, 14 Feb 2001 12:49:00 +0100
++
++dosfstools (2.6-1) unstable; urgency=low
++
++  * New upstream version with various bug fixes.
++
++ -- Roman Hodek <roman@hodek.net>  Tue, 28 Nov 2000 17:27:35 +0100
++
++dosfstools (2.5-1) unstable; urgency=low
++
++  * New upstream version fixing llseek() on alpha (Closes: #54145)
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Fri, 7 Jan 2000 09:26:51 +0100
++
++dosfstools (2.4-1) unstable; urgency=low
++
++  * New upstream version fixing compilation problem on alpha (Closes: #48331)
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Tue, 26 Oct 1999 09:38:39 +0200
++
++dosfstools (2.3-1) unstable; urgency=low
++
++  * New upstream version:
++     - Manpage fixes.
++     - Fixed usage message of mkdosfs.
++     - Fixed compilation on alpha (llseek).
++     - Fixed unaligned accesses on alpha (Closes: #47714)
++     - Fixed renaming of files in dosfsck (extension wasn't really
++       written). Closes: #45774
++  * Remove bashisms from debian/rules.
++  * FHS transition.
++  * On alpha, omit -O2 and add -fno-strict-aliasing to OPTFLAGS, as
++    otherwise the programs fail with unaligned traps.
++  * FHS transition (Standards-Version 3.0.1).
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Fri, 22 Oct 1999 13:30:59 +0200
++
++dosfstools (2.2-1) unstable; urgency=low
++
++  * New upstream version. Closes: #40533
++  * Updated copyright file for new location /usr/share/common-licenses/GPL.
++  * Updated Standards-Version to 3.0.0.
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Tue, 6 Jul 1999 16:07:22 +0200
++
++dosfstools (2.1-1) unstable; urgency=low
++
++  * New upstream version.
++  * Also installs symlinks mkfs.vfat and fsck.vfat,so that also
++    filesystems listed with type "vfat" in /etc/fstab can be automatically
++    checked.
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Fri, 28 May 1999 11:25:17 +0200
++
++dosfstools (2.0-1) unstable; urgency=low
++
++  * I'm now upstream maintainer, too.
++  * Adapted debian/rules for new central Makefile and rewritten to
++    debhelper.
++  * Fixed harmless warnings in mkdosfs.c and fat.c.
++  * mkdosfs.c: Return type of getopt() must be stored in an int, not in a
++    char. (Showed up on powerpc, where chars are default unsigned.)
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Fri, 30 Apr 1999 14:37:37 +0200
++
++dosfstools (1.0-16) unstable; urgency=low
++
++  * Both tools are not maintained upstreams anymore, so I take over
++    general maintainership now...
++  * Both mkdosfs and dosfsck now support the FAT32 format. dosfsck
++    automatically detects it. For mkdosfs, 32 is now a valid argument to
++    -F, but FAT32 format isn't selected automatically (yet). With FAT32,
++    you can also set the number of reserved sectors (-R) and location of
++    the boot sector backup (-b) if you like (defaults are reasonable).
++  * dosfsck can handle and check VFAT-style long filenames now. It uses
++    the long names in listing etc. when available. There are also some
++    checks on the structures of LFNs and some fixes for possible problems.
++  * Implemented Atari format in both, dosfsck and mkdosfs. Under Atari TOS
++    basically the same FAT format is used as under DOS, however, there are
++    some little differences. Both tools now automatically select Atari
++    format if they run on an Atari. You can switch between standard MS-DOS
++    and Atari format with the -A option.
++  * Applied patch by Giuliano Procida <gpp10@cus.cam.ac.uk> to add loop
++    device support to mkdosfs: Usual floppy sizes are detected and
++    parameters (media byte,...) are set up accordingly.
++    My own additions to this: Don't die on loop devices that don't have
++    such a floppy size, but use some default hd params. Added endianess
++    conversions to Giulianos patch.
++  * More/better data in boot sector dump of dosfsck -v.
++  * Fixed lots of gcc warnings in the source. Removed -Wno-parentheses flag.
++  * Made dosfsck -v a bit more verbose.
++  * Extended README's for FAT32/LFN.
++  * Written a README for Atari format differences.
++  * Some minor cleanups in debian/rules.
++  * Install README files as README.{mkdosfs,dosfsck,Atari}.gz.
++  * AFAIK the tools still have alignment problems on Alpha machines.
++    Someone wanted to send me a patch, but I haven't heard from him for
++    months...
++  * Set Standards-Version to 2.5.0.0 (no changes).
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Wed, 28 Apr 1999 11:06:15 +0200
++
++dosfstools (1.0-15) frozen unstable; urgency=low
++
++  * Applied patch by Juan Cespedes <cespedes@debian.org> to make mkdosfs
++    work with newer 2.1 kernels again. (Fixes: #20320)
++  * Remove CC=gcc in debian/rules to make cross-compiling possible.
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Thu, 30 Apr 1998 17:09:08 +0200
++
++dosfstools (1.0-14) frozen unstable; urgency=medium
++
++  * New maintainer
++  * Ignore long name directory slots of VFAT, instead of trying to correct
++    that "file names". Fixes: #20711
++  * Don't consider file names with chars >= 128 to be bad, they're allowed.
++
++ -- Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>  Thu, 30 Apr 1998 10:00:16 +0200
++
++dosfstools (1.0-13) stable; urgency=low
++
++  * Fixed nasty bug that caused every file with a name like xxxxxxxx.xxx
++    to be treated as bad name that needed to be fixed. (closes: Bug#17389)
++
++ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Thu, 26 Feb 1998 01:14:40 +0100
++
++dosfstools (1.0-12) stable; urgency=low
++
++  * Moved executables and their links into /sbin (Bug#15037)
++  * Corrected Standards-Version to 2.3.0.1
++
++ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Fri, 9 Jan 1998 21:49:48 +0100
++
++dosfstools (1.0-11) stable; urgency=low
++
++  * Applied patches to source files from Juan Cespedes which got lost in
++    the last upload (Bug#16493, Bug#16494, Bug#16490)
++  * build-stamp is now removed first in clean target (Bug#16491)
++
++ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Sat, 3 Jan 1998 15:06:27 +0100
++
++dosfstools (1.0-10) stable; urgency=low
++
++  * Added links for mkfs.msdos and fsck.msdos (Bug#15037)
++  * Added links for mkfs.msdos.8 and fsck.msdos.8
++  * Corrected source location
++  * Rewrote bad_name() (Bug#9871, part 2)
++  * s/int/time_t in check.c to omit a compiler warning (Bug#9871, part 3.1)
++  * Modified defaults, interactive is the default now
++  * Fixed renaming of files, they are saved now (Bug#9871, part 1)
++  * Fixed return type of date_dos2unix (Bug#9871, part 3.2)
++
++ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Wed, 31 Dec 1997 18:59:53 +0100
++
++dosfstools (1.0-9.1) unstable; urgency=low
++
++  * Non-maintainer release
++  * .diff file was wrong in 1.0-9; fixed (Bug#13102)
++  * Fixed endianess patches (fixes Bug#11648)
++  * Built with libc6
++
++ -- Juan Cespedes <cespedes@etsit.upm.es>  Thu, 23 Oct 1997 23:19:34 +0200
++
++dosfstools (1.0-9) stable; urgency=low
++
++  * Added endianess patches from Frank Neumann
++    <Frank.Neumann@Informatik.Uni-Oldenburg.DE> (Bug#9959)
++  * Updated Werner Almesbergers address
++  * Added -I switch to mkdosfs to allow full disk devices (Bug#10789)
++
++ -- Martin Schulze <joey@finlandia.infodrom.north.de>  Sun, 20 Jul 1997 14:51:33 +0200
++
++dosfstools (1.0-8) stable; urgency=low
++
++  * Fixed typo in mkdosfs.c (Bug#7396)
++
++  * New maintainer address
++
++ -- Martin Schulze <joey@infodrom.north.de>  Mon, 28 Apr 1997 12:51:13 +0200
++
++dosfstools (1.0-7) stable; urgency=low
++
++  * Minor fixes
++
++  * Converted to Standards-Version 2.1.1.2
++
++ -- Martin Schulze <joey@debian.org>  Sat, 8 Feb 1997 15:03:52 +0100
++
++Mon Jan 20 22:45:23 1997  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* debian.control: Corrected otherfs to otherosfs :-)
++
++Sun Jan 19 23:57:09 1997  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* mkdosfs.c: Removed one line printing out debug information.
++
++Wed Jan 15 00:25:02 1997  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* mkdosfs.c: Modified code to work properly under AXP. Thanks to
++	Matt Gundry <mjgundry@primenet.com> for contacting me and
++	providing patched sources.
++	
++Mon Jan 13 13:00:14 1997  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* mkdosfs.c: Added patch from Sven Rudolph <sr1@inf.tu-dresden.de>
++ 	to support creation on disk images as well.
++
++Tue Jan  7 12:04:21 1997  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* Moved into section 'otherfs'
++
++-- Released 1.0-4
++	
++Sun Dec 22 11:28:03 1996  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* debian.rules: Installed ChangeLog
++
++Wed Aug  7 19:07:15 1996  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* Corrected debian.rules to provide $(package)_$(revision).diff.gz
++
++Mon Aug  5 11:13:34 1996  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* Added Conflicts: and Provides: entries in control file to really
++	replace mkdosfs.  Thanks to Michael Meskes for reporting this bug.
++
++Thu Jul 18 22:01:34 1996  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* added dosfscheck to the package
++
++Wed Jul  3 00:57:23 1996  Martin Schulze  <joey@finlandia.infodrom.north.de>
++
++	* Added debian specific files
++
++	* mkdosfs.c: inserted some brackets to stop gcc from moaning
++
++	* mkdosfs.8: corrected some bold/inverse text phrases
++
++	* mkdosfs.c: initialized a variable to stop gcc from moaning
+--- dosfstools-2.11.orig/debian/control
++++ dosfstools-2.11/debian/control
+@@ -0,0 +1,20 @@
++Source: dosfstools
++Section: otherosfs
++Priority: optional
++Maintainer: Daniel Baumann <daniel@debian.org>
++Build-Depends: debhelper (>= 7), dpatch
++Standards-Version: 3.8.0
++Homepage: http://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/
++Vcs-Browser: http://git.debian.net/?p=dosfstools.git
++Vcs-Git: git://git.debian.net/git/dosfstools.git
++
++Package: dosfstools
++Architecture: any
++Depends: ${shlibs:Depends}, ${misc:Depends}
++Description: utilities for making and checking MS-DOS FAT filesystems
++ The dosfstools package includes the mkdosfs (aka mkfs.dos and mkfs.vfat) and
++ dosfsck (aka fsck.msdos and fsck.vfat) utilities, which respectively make and
++ check MS-DOS FAT filesystems on hard drives or on floppies.
++ .
++ This version uses the enhanced boot sector/superblock format of DOS 3.3+ as
++ well as provides a default dummy boot sector code.
+--- dosfstools-2.11.orig/debian/copyright
++++ dosfstools-2.11/debian/copyright
+@@ -0,0 +1,88 @@
++Author: Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>
++Download: http://ftp.uni-erlangen.de/pub/Linux/LOCAL/dosfstools/
++
++Files: *
++Copyright: (C) 1999-2005 Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>
++License: GPL-2+
++ This program is free software; you can redistribute it and/or
++ modify it under the terms of the GNU General Public License
++ as published by the Free Software Foundation; either version 2
++ of the License, or (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program; if not, write to the Free Software
++ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-2 file.
++
++Files: dosfsck/*
++Copyright:
++ (C) 1999-2005 Werner Almesberger <werner.almesberger@lrc.di.epfl.ch>
++ (C) 1999-2005 Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>
++License: GPL-2+
++ This program is free software; you can redistribute it and/or
++ modify it under the terms of the GNU General Public License
++ as published by the Free Software Foundation; either version 2
++ of the License, or (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program; if not, write to the Free Software
++ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-2 file.
++
++Files: mkdosfs/*
++Copyright:
++ (C) 1993-1994 David Hudson <dave@humbug.demon.co.uk>
++ (C) 1991 Linus Torvalds <torvalds@klaava.helsinki.fi>
++ (C) 1992-1993 Remy Card <card@masi.ibp.fr>
++ (C) 1999-2005 Roman Hodek <Roman.Hodek@informatik.uni-erlangen.de>
++License: GPL-2+
++ This program is free software; you can redistribute it and/or
++ modify it under the terms of the GNU General Public License
++ as published by the Free Software Foundation; either version 2
++ of the License, or (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program; if not, write to the Free Software
++ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-2 file.
++
++Files: debian/*
++Copyright: (C) 2008 Daniel Baumann <daniel@debian.org>
++License: GPL-2+
++ This program is free software; you can redistribute it and/or
++ modify it under the terms of the GNU General Public License
++ as published by the Free Software Foundation; either version 2
++ of the License, or (at your option) any later version.
++ .
++ This program is distributed in the hope that it will be useful,
++ but WITHOUT ANY WARRANTY; without even the implied warranty of
++ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
++ GNU General Public License for more details.
++ .
++ You should have received a copy of the GNU General Public License
++ along with this program; if not, write to the Free Software
++ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
++ .
++ On Debian systems, the complete text of the GNU General Public License
++ can be found in /usr/share/common-licenses/GPL-2 file.
+--- dosfstools-2.11.orig/debian/lintian-overrides
++++ dosfstools-2.11/debian/lintian-overrides
+@@ -0,0 +1 @@
++dosfstools: package-contains-readme-for-other-platform-or-distro usr/share/doc/dosfstools/README.Atari
+--- dosfstools-2.11.orig/debian/doc/HISTORY
++++ dosfstools-2.11/debian/doc/HISTORY
+@@ -0,0 +1,20 @@
++This package was put together by Martin Schulze <joey@infodrom.north.de>, from
++sources obtained from:
++  sunsite.unc.edu:/pub/Linux/system/filesystems/dosfs/mkdosfs-ygg-0.3b.lsm
++  sunsite.unc.edu:/pub/Linux/system/filesystems/dosfs/mkdosfs-ygg-0.3b.tar.gz
++  sunsite.unc.edu:/pub/Linux/system/filesystems/dosfs/dosfsck.1.tar.z
++
++Mkdosfs is copyrighted by Dave Hudson <dave@humbug.demon.co.uk>, and was later
++maintained and improved by H. Peter Anvin <hpa@yggdrasil.com>. Dave has put the
++whole package under the GPL.
++
++Dosfsck is copyrighted by Werner Almesberger <werner.almesberger@lrc.di.epfl.ch>
++and Roman Hodek. We both together put the package under the GPL.
++
++The FAT32, LFN, and Atari format additions are copyrighted by Roman Hodek
++<Roman.Hodek@informatik.uni-erlangen.de> and are under the GPL, too.
++
++Both tools (mkdosfs and dosfsck) have been unmaintained since some time, so I
++also took them over as upstream maintainer. The merged package is named
++dosfstools-2.0, and its home site is now
++  ftp.uni-erlangen.de:/pub/Linux/LOCAL/dosfstools
+--- dosfstools-2.11.orig/debian/patches/08-manpage-drop.dpatch
++++ dosfstools-2.11/debian/patches/08-manpage-drop.dpatch
+@@ -0,0 +1,41 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 08-manpage-drop.dpatch by Daniel Baumann <daniel@debian.org>
++##
++## DP: Don't use confusing word 'drop' when 'delete' is meant (Closes: #134100).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/dosfsck/dosfsck.8 dosfstools/dosfsck/dosfsck.8
++--- dosfstools.orig/dosfsck/dosfsck.8	2008-06-27 06:12:18.000000000 +0200
+++++ dosfstools/dosfsck/dosfsck.8	2008-06-27 06:27:03.000000000 +0200
++@@ -24,15 +24,15 @@ Bad clusters (read errors). The clusters
++ removed from files owning them. This check is optional.
++ .IP \-
++ Directories with a large number of bad entries (probably corrupt). The
++-directory can be dropped.
+++directory can be deleted.
++ .IP \-
++-Files . and .. are non-directories. They can be dropped or renamed.
+++Files . and .. are non-directories. They can be deleted or renamed.
++ .IP \-
++-Directories . and .. in root directory. They are dropped.
+++Directories . and .. in root directory. They are deleted.
++ .IP \-
++ Bad file names. They can be renamed.
++ .IP \-
++-Duplicate directory entries. They can be dropped or renamed.
+++Duplicate directory entries. They can be deleted or renamed.
++ .IP \-
++ Directories with non-zero size field. Size is set to zero.
++ .IP \-
++@@ -88,8 +88,8 @@ MS-DOS uses only 0xfff7 for bad clusters
++ 0xfff0...0xfff7 are for this purpose (but the standard value is still
++ 0xfff7).
++ .IP \fB\-d\fP
++-Drop the specified file. If more that one file with that name exists, the
++-first one is dropped.
+++Delete the specified file. If more that one file with that name exists, the
+++first one is deleted.
++ .IP \fB\-f\fP
++ Salvage unused cluster chains to files. By default, unused clusters are
++ added to the free disk space except in auto mode (\fB-a\fP).
+--- dosfstools-2.11.orig/debian/patches/04-unaligned-memory.dpatch
++++ dosfstools-2.11/debian/patches/04-unaligned-memory.dpatch
+@@ -0,0 +1,21 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 04-unaligned-memory.dpatch by Khalid Aziz <khalid_aziz@hp.com>
++##
++## DP: Fix unaligned memory accesses which cause warnings to appear everytime
++## DP: the elilo bootloader script runs. This has led a number of users to
++## DP: believe their install has failed (Closes: #258839).
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/dosfsck/boot.c dosfstools-2.11/dosfsck/boot.c
++--- dosfstools-2.11.orig/dosfsck/boot.c	2008-06-26 13:28:26.000000000 +0000
+++++ dosfstools-2.11/dosfsck/boot.c	2008-06-26 13:28:06.000000000 +0000
++@@ -41,7 +41,7 @@ static struct {
++     ({						\
++ 	unsigned short __v;			\
++ 	memcpy( &__v, &f, sizeof(__v) );	\
++-	CF_LE_W( *(unsigned short *)&f );	\
+++	CF_LE_W( *(unsigned short *)&__v );	\
++     })
++ #else
++ #define GET_UNALIGNED_W(f) CF_LE_W( *(unsigned short *)&f )
+--- dosfstools-2.11.orig/debian/patches/13-getopt.dpatch
++++ dosfstools-2.11/debian/patches/13-getopt.dpatch
+@@ -0,0 +1,19 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 13-getopt.dpatch by Adonikam Virgo <adonikam@virgonet.org>
++##
++## DP: Fixes backup sector getopt (Closes: #232387, #479794).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.c dosfstools/mkdosfs/mkdosfs.c
++--- dosfstools.orig/mkdosfs/mkdosfs.c	2008-06-27 06:19:19.000000000 +0000
+++++ dosfstools/mkdosfs/mkdosfs.c	2008-06-27 06:31:46.000000000 +0000
++@@ -1440,7 +1440,7 @@ main (int argc, char **argv)
++   printf ("%s " VERSION " (" VERSION_DATE ")\n",
++ 	   program_name);
++ 
++-  while ((c = getopt (argc, argv, "AbcCf:F:Ii:l:m:n:r:R:s:S:h:v")) != EOF)
+++  while ((c = getopt (argc, argv, "Ab:cCf:F:Ii:l:m:n:r:R:s:S:h:v")) != EOF)
++     /* Scan the command line for options */
++     switch (c)
++       {
+--- dosfstools-2.11.orig/debian/patches/07-manpage-spelling.dpatch
++++ dosfstools-2.11/debian/patches/07-manpage-spelling.dpatch
+@@ -0,0 +1,109 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 07-manpage-spelling.dpatch by Justin Pryzby <justinpryzby@users.sourceforge.net>
++##
++## DP: manpage typos
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.8 dosfstools/mkdosfs/mkdosfs.8
++--- dosfstools.orig/mkdosfs/mkdosfs.8	2008-06-27 05:59:58.000000000 +0200
+++++ dosfstools/mkdosfs/mkdosfs.8	2008-06-27 06:05:38.000000000 +0200
++@@ -79,19 +79,19 @@ is the special file corresponding to the
++ .I block-count
++ is the number of blocks on the device.  If omitted,
++ .B mkdosfs
++-automatically determiness the file system size.
+++automatically determines the file system size.
++ .SH OPTIONS
++ .TP
++ .B \-A
++-Use Atari variation of the MS-DOS filesystem. This is default if
+++Use Atari variation of the MS-DOS file system. This is default if
++ \fBmkdosfs\fP is run on an Atari, then this option turns off Atari
++ format. There are some differences when using Atari format: If not
++ directed otherwise by the user, \fBmkdosfs\fP will always use 2
++ sectors per cluster, since GEMDOS doesn't like other values very much.
++ It will also obey the maximum number of sectors GEMDOS can handle.
++-Larger filesystems are managed by raising the logical sector size.
+++Larger file systems are managed by raising the logical sector size.
++ Under Atari format, an Atari-compatible serial number for the
++-filesystem is generated, and a 12 bit FAT is used only for filesystems
+++file system is generated, and a 12 bit FAT is used only for file systems
++ that have one of the usual floppy sizes (720k, 1.2M, 1.44M, 2.88M), a
++ 16 bit FAT otherwise. This can be overridden with the \fB\-F\fP
++ option. Some PC-specific boot sector fields aren't written, and a boot
++@@ -126,7 +126,7 @@ more than 2 FATs.
++ .BI \-F " FAT-size"
++ Specifies the type of file allocation tables used (12, 16 or 32 bit).
++ If nothing is specified, \fBmkdosfs\fR will automatically select
++-between 12 and 16 bit, whatever fits better for the filesystem size.
+++between 12 and 16 bit, whatever fits better for the file system size.
++ 32 bit FAT (FAT32 format) must (still) be selected explicitly if you
++ want it.
++ .TP
++@@ -137,17 +137,17 @@ such hidden sectors, this option allows 
++ \'0\' if no value is given on the command line.
++ .TP
++ .I \-i " volume-id"
++-Sets the volume ID of the newly created filesystem;
+++Sets the volume ID of the newly created file system;
++ .I volume-id
++ is a 32-bit hexadecimal number (for example, 2e24ec82).  The default
++-is a number which depends on the filesystem creation time.
+++is a number which depends on the file system creation time.
++ .TP
++ .B \-I
++ Normally you are not allowed to use any 'full' fixed disk devices.
++ .B mkdosfs
++ will complain and tell you that it refuses to work.  This is different
++-when usind MO disks.  One doesn't always need partitions on MO disks.
++-The filesytem can go directly to the whole disk.  Under other OSes
+++when using MO disks.  One doesn't always need partitions on MO disks.
+++The file system can go directly to the whole disk.  Under other OSes
++ this is known as the 'superfloppy' format.
++ 
++ This switch will force
++@@ -159,14 +159,14 @@ Read the bad blocks list from
++ .IR filename .
++ .TP
++ .BI \-m " message-file"
++-Sets the message the user receives on attempts to boot this filesystem
+++Sets the message the user receives on attempts to boot this file system
++ without having properly installed an operating system.  The message
++ file must not exceed 418 bytes once line feeds have been converted to
++ carriage return-line feed combinations, and tabs have been expanded.
++ If the filename is a hyphen (-), the text is taken from standard input. 
++ .TP
++ .BI \-n " volume-name"
++-Sets the volume name (label) of the filesystem.  The volume name can
+++Sets the volume name (label) of the file system.  The volume name can
++ be up to 11 characters long.  The default is no label.
++ .TP
++ .BI \-r " root-dir-entries"
++@@ -174,7 +174,7 @@ Select the number of entries available i
++ default is 112 or 224 for floppies and 512 for hard disks.
++ .TP
++ .BI \-R " number-of-reserved-sectors "
++-Select the number of reserved sectos. With FAT32 format at least 2
+++Select the number of reserved sectors. With FAT32 format at least 2
++ reserved sectors are needed, the default is 32. Otherwise the default
++ is 1 (only the boot sector).
++ .TP
++@@ -191,7 +191,7 @@ and greater than or equal to 512, i.e. 5
++ Verbose execution.
++ .SH BUGS
++ .B mkdosfs
++-can not create bootable filesystems. This isn't as easy as you might
+++can not create boot-able file systems. This isn't as easy as you might
++ think at first glance for various reasons and has been discussed a lot
++ already.
++ .B mkdosfs
++@@ -200,7 +200,7 @@ simply will not support it ;)
++ Dave Hudson - <dave@humbug.demon.co.uk>; modified by Peter Anvin
++ <hpa@yggdrasil.com>. Fixes and additions by Roman Hodek
++ <roman@hodek.net> for Debian/GNU Linux.
++-.SH ACKNOWLEDGEMENTS
+++.SH ACKNOWLEDGMENTS
++ .B mkdosfs
++ is based on code from
++ .BR mke2fs
+--- dosfstools-2.11.orig/debian/patches/01-argfix.dpatch
++++ dosfstools-2.11/debian/patches/01-argfix.dpatch
+@@ -0,0 +1,23 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 01-argfix.dpatch
++##
++## DP: FIXME.
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/mkdosfs/mkdosfs.c dosfstools-2.11/mkdosfs/mkdosfs.c
++--- dosfstools-2.11.orig/mkdosfs/mkdosfs.c	2005-03-12 16:12:16.000000000 +0000
+++++ dosfstools-2.11/mkdosfs/mkdosfs.c	2008-06-26 12:35:45.000000000 +0000
++@@ -1634,6 +1634,12 @@ main (int argc, char **argv)
++   if (optind < argc)
++     {
++       device_name = argv[optind];  /* Determine the number of blocks in the FS */
+++
+++      if (!device_name) {
+++	  printf("No device specified.\n");
+++	  usage();
+++      }
+++
++       if (!create)
++          cblocks = count_blocks (device_name); /*  Have a look and see! */
++     }
+--- dosfstools-2.11.orig/debian/patches/15-manpage-files.dpatch
++++ dosfstools-2.11/debian/patches/15-manpage-files.dpatch
+@@ -0,0 +1,21 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 15-manpage-files.dpatch by Daniel Baumann <daniel@debian.org>
++##
++## DP: Lists fsckNNNN.rec files in FILES section (Closes: #444596).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/dosfsck/dosfsck.8 dosfstools/dosfsck/dosfsck.8
++--- dosfstools.orig/dosfsck/dosfsck.8	2008-06-27 06:55:50.000000000 +0000
+++++ dosfstools/dosfsck/dosfsck.8	2008-06-27 07:01:17.000000000 +0000
++@@ -131,6 +131,10 @@ Recoverable errors have been detected or
++ internal inconsistency.
++ .IP 2
++ Usage error. \fBdosfsck\fP did not access the file system.
+++.SH FILES
+++.IP "fsck0000.rec, fsck0001.rec, ..."
+++When recovering from a corrupted file system, dosfsck dumps recovered data
+++into files named 'fsckNNNN.rec' in the top level directory of the file system.
++ .SH BUGS
++ Does not create . and .. files where necessary. Does not remove entirely
++ empty directories. Should give more diagnostic messages. Undeleting files
+--- dosfstools-2.11.orig/debian/patches/09-manpage-fat32.dpatch
++++ dosfstools-2.11/debian/patches/09-manpage-fat32.dpatch
+@@ -0,0 +1,21 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 09-manpage-fat32.dpatch by Daniel Baumann <daniel@debian.org>
++##
++## DP: Don't claim that FAT32 is not choosed automatically (Closes: #414183).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.8 dosfstools/mkdosfs/mkdosfs.8
++--- dosfstools.orig/mkdosfs/mkdosfs.8	2008-06-27 06:34:10.000000000 +0200
+++++ dosfstools/mkdosfs/mkdosfs.8	2008-06-27 06:35:30.000000000 +0200
++@@ -126,9 +126,7 @@ more than 2 FATs.
++ .BI \-F " FAT-size"
++ Specifies the type of file allocation tables used (12, 16 or 32 bit).
++ If nothing is specified, \fBmkdosfs\fR will automatically select
++-between 12 and 16 bit, whatever fits better for the file system size.
++-32 bit FAT (FAT32 format) must (still) be selected explicitly if you
++-want it.
+++between 12, 16 and 32 bit, whatever fits better for the file system size.
++ .TP
++ .BI \-h " number-of-hidden-sectors "
++ Select the number of hidden sectors in the volume. Apparently some
+--- dosfstools-2.11.orig/debian/patches/12-zero-slot.dpatch
++++ dosfstools-2.11/debian/patches/12-zero-slot.dpatch
+@@ -0,0 +1,204 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 12-zero-slot.dpatch by Karl Tomlinson <karlt@karlt.net>
++##
++## DP: Fixes crashes due to zero slot numbers causing a negative offset in the
++## DP: call to copy_lfn_part in lfn_add_slot. On amd64 this results in a SIGSEGV
++## DP: in copy_lfn_part. On x86 the result is heap corruption and thus sometimes
++## DP: a SIGSEGV or double free abort later.
++## DP: (Closes: #152550, #353198, #356377, #401798).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/dosfsck/lfn.c dosfstools/dosfsck/lfn.c
++--- dosfstools.orig/dosfsck/lfn.c	2008-06-27 05:37:31.000000000 +0000
+++++ dosfstools/dosfsck/lfn.c	2008-06-27 05:59:59.000000000 +0000
++@@ -148,12 +148,15 @@ void lfn_reset( void )
++ void lfn_add_slot( DIR_ENT *de, loff_t dir_offset )
++ {
++     LFN_ENT *lfn = (LFN_ENT *)de;
+++    int slot = lfn->id & LFN_ID_SLOTMASK;
++     unsigned offset;
++ 
+++    if (lfn_slot == 0) lfn_check_orphaned();
+++
++     if (de->attr != VFAT_LN_ATTR)
++ 	die("lfn_add_slot called with non-LFN directory entry");
++ 
++-    if (lfn->id & LFN_ID_START) {
+++    if (lfn->id & LFN_ID_START && slot != 0) {
++ 	if (lfn_slot != -1) {
++ 	    int can_clear = 0;
++ 	    /* There is already a LFN "in progess", so it is an error that a
++@@ -165,7 +168,7 @@ void lfn_add_slot( DIR_ENT *de, loff_t d
++ 	    /* XXX: Should delay that until next LFN known (then can better
++ 	     * display the name) */
++ 	    printf( "A new long file name starts within an old one.\n" );
++-	    if ((lfn->id & LFN_ID_SLOTMASK) == lfn_slot &&
+++	    if (slot == lfn_slot &&
++ 		lfn->alias_checksum == lfn_checksum) {
++ 		char *part1 = CNV_THIS_PART(lfn);
++ 		char *part2 = CNV_PARTS_SO_FAR();
++@@ -197,13 +200,13 @@ void lfn_add_slot( DIR_ENT *de, loff_t d
++ 		}
++ 	    }
++ 	}
++-	lfn_slot = lfn->id & LFN_ID_SLOTMASK;
+++	lfn_slot = slot;
++ 	lfn_checksum = lfn->alias_checksum;
++ 	lfn_unicode = alloc( (lfn_slot*CHARS_PER_LFN+1)*2 );
++ 	lfn_offsets = alloc( lfn_slot*sizeof(loff_t) );
++ 	lfn_parts = 0;
++     }
++-    else if (lfn_slot == -1) {
+++    else if (lfn_slot == -1 && slot != 0) {
++ 	/* No LFN in progress, but slot found; start bit missing */
++ 	/* Causes: 1) start bit got lost, 2) Previous slot with start bit got
++ 	 *         lost */
++@@ -217,32 +220,30 @@ void lfn_add_slot( DIR_ENT *de, loff_t d
++ 		    "3: Set start bit\n" );
++ 	}
++ 	else printf( "  Not auto-correcting this.\n" );
++-	if (interactive) {
++-	    switch( get_key( "123", "?" )) {
++-	      case '1':
++-		if (!lfn_offsets)
++-		    lfn_offsets = alloc( sizeof(loff_t) );
++-		lfn_offsets[0] = dir_offset;
++-		clear_lfn_slots( 0, 0 );
++-		lfn_reset();
++-		return;
++-	      case '2':
++-		lfn_reset();
++-		return;
++-	      case '3':
++-		lfn->id |= LFN_ID_START;
++-		fs_write( dir_offset+offsetof(LFN_ENT,id),
++-			  sizeof(lfn->id), &lfn->id );
++-		lfn_slot = lfn->id & LFN_ID_SLOTMASK;
++-		lfn_checksum = lfn->alias_checksum;
++-		lfn_unicode = alloc( (lfn_slot*CHARS_PER_LFN+1)*2 );
++-		lfn_offsets = alloc( lfn_slot*sizeof(loff_t) );
++-		lfn_parts = 0;
++-		break;
++-	    }
+++	switch( interactive ? get_key( "123", "?" ) : '2') {
+++	  case '1':
+++	    if (!lfn_offsets)
+++	        lfn_offsets = alloc( sizeof(loff_t) );
+++	    lfn_offsets[0] = dir_offset;
+++	    clear_lfn_slots( 0, 0 );
+++	    lfn_reset();
+++	    return;
+++	  case '2':
+++	    lfn_reset();
+++	    return;
+++	  case '3':
+++	    lfn->id |= LFN_ID_START;
+++	    fs_write( dir_offset+offsetof(LFN_ENT,id),
+++		      sizeof(lfn->id), &lfn->id );
+++	    lfn_slot = slot;
+++	    lfn_checksum = lfn->alias_checksum;
+++	    lfn_unicode = alloc( (lfn_slot*CHARS_PER_LFN+1)*2 );
+++	    lfn_offsets = alloc( lfn_slot*sizeof(loff_t) );
+++	    lfn_parts = 0;
+++	    break;
++ 	}
++     }
++-    else if ((lfn->id & LFN_ID_SLOTMASK) != lfn_slot) {
+++    else if (slot != lfn_slot) {
++ 	/* wrong sequence number */
++ 	/* Causes: 1) seq-no destroyed */
++ 	/* Fixes: 1) delete LFN, 2) fix number (maybe only if following parts
++@@ -251,8 +252,8 @@ void lfn_add_slot( DIR_ENT *de, loff_t d
++ 	int can_fix = 0;
++ 	printf( "Unexpected long filename sequence number "
++ 		"(%d vs. expected %d).\n",
++-		(lfn->id & LFN_ID_SLOTMASK), lfn_slot );
++-	if (lfn->alias_checksum == lfn_checksum) {
+++		slot, lfn_slot );
+++	if (lfn->alias_checksum == lfn_checksum && lfn_slot > 0) {
++ 	    char *part1 = CNV_THIS_PART(lfn);
++ 	    char *part2 = CNV_PARTS_SO_FAR();
++ 	    printf( "  It could be that just the number is wrong\n"
++@@ -267,22 +268,24 @@ void lfn_add_slot( DIR_ENT *de, loff_t d
++ 		printf( "3: Correct sequence number\n" );
++ 	}
++ 	else printf( "  Not auto-correcting this.\n" );
++-	if (interactive) {
++-	    switch( get_key( can_fix ? "123" : "12", "?" )) {
++-	      case '1':
++-		lfn_offsets[lfn_parts++] = dir_offset;
++-		clear_lfn_slots( 0, lfn_parts-1 );
++-		lfn_reset();
++-		return;
++-	      case '2':
++-		lfn_reset();
++-		return;
++-	      case '3':
++-		lfn->id = (lfn->id & ~LFN_ID_SLOTMASK) | lfn_slot;
++-		fs_write( dir_offset+offsetof(LFN_ENT,id),
++-			  sizeof(lfn->id), &lfn->id );
++-		break;
+++	switch( interactive ? get_key( can_fix ? "123" : "12", "?" ) : '2') {
+++	  case '1':
+++	    if (!lfn_offsets) {
+++	        lfn_offsets = alloc( sizeof(loff_t) );
+++		lfn_parts = 0;
++ 	    }
+++	    lfn_offsets[lfn_parts++] = dir_offset;
+++	    clear_lfn_slots( 0, lfn_parts-1 );
+++	    lfn_reset();
+++	    return;
+++	  case '2':
+++	    lfn_reset();
+++	    return;
+++	  case '3':
+++	    lfn->id = (lfn->id & ~LFN_ID_SLOTMASK) | lfn_slot;
+++	    fs_write( dir_offset+offsetof(LFN_ENT,id),
+++		      sizeof(lfn->id), &lfn->id );
+++	    break;
++ 	}
++     }
++ 
++@@ -390,25 +393,23 @@ char *lfn_get( DIR_ENT *de )
++ 		    "it to short name %s)\n", short_name );
++ 	}
++ 	else printf( "  Not auto-correcting this.\n" );
++-	if (interactive) {
++-	    switch( get_key( "123", "?" )) {
++-	      case '1':
++-		clear_lfn_slots( 0, lfn_parts-1 );
++-		lfn_reset();
++-		return NULL;
++-	      case '2':
++-		lfn_reset();
++-		return NULL;
++-	      case '3':
++-		for( i = 0; i < lfn_parts; ++i ) {
++-		    __u8 id = (lfn_parts-i) | (i==0 ? LFN_ID_START : 0);
++-		    fs_write( lfn_offsets[i]+offsetof(LFN_ENT,id),
++-			      sizeof(id), &id );
++-		}
++-		memmove( lfn_unicode, lfn_unicode+lfn_slot*CHARS_PER_LFN*2,
++-			 lfn_parts*CHARS_PER_LFN*2 );
++-		break;
+++	switch( interactive ? get_key( "123", "?" ) : '2') {
+++	  case '1':
+++	    clear_lfn_slots( 0, lfn_parts-1 );
+++	    lfn_reset();
+++	    return NULL;
+++	  case '2':
+++	    lfn_reset();
+++	    return NULL;
+++	  case '3':
+++	    for( i = 0; i < lfn_parts; ++i ) {
+++	        __u8 id = (lfn_parts-i) | (i==0 ? LFN_ID_START : 0);
+++		fs_write( lfn_offsets[i]+offsetof(LFN_ENT,id),
+++			  sizeof(id), &id );
++ 	    }
+++	    memmove( lfn_unicode, lfn_unicode+lfn_slot*CHARS_PER_LFN*2,
+++		     lfn_parts*CHARS_PER_LFN*2 );
+++	    break;
++ 	}
++     }
++ 
+--- dosfstools-2.11.orig/debian/patches/03-label.dpatch
++++ dosfstools-2.11/debian/patches/03-label.dpatch
+@@ -0,0 +1,307 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 03-label.dpatch by Jeremy Katz <katzj@redhat.com>
++##
++## DP: add dosfslabel (originally by Peter Jones)
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/dosfsck/Makefile dosfstools-2.11/dosfsck/Makefile
++--- dosfstools-2.11.orig/dosfsck/Makefile	1999-07-06 14:23:11.000000000 +0000
+++++ dosfstools-2.11/dosfsck/Makefile	2008-06-26 13:10:54.000000000 +0000
++@@ -1,9 +1,12 @@
++ 
++-OBJECTS = boot.o check.o common.o dosfsck.o fat.o file.o io.o lfn.o
+++OBJECTS = boot.o check.o common.o fat.o file.o io.o lfn.o
++ 
++-all: dosfsck
+++all: dosfsck dosfslabel
++ 
++-dosfsck: $(OBJECTS)
+++dosfsck: $(OBJECTS) dosfsck.o
+++	$(CC) -o $@ $(LDFLAGS) $^
+++
+++dosfslabel : $(OBJECTS) dosfslabel.o
++ 	$(CC) -o $@ $(LDFLAGS) $^
++ 
++ .c.o:
++@@ -13,6 +16,7 @@ install: dosfsck
++ 	mkdir -p $(SBINDIR) $(MANDIR)
++ 	install -m 755 dosfsck $(SBINDIR)
++ 	install -m 644 dosfsck.8 $(MANDIR)
+++	install -m 755 dosfslabel $(SBINDIR)
++ 	rm -f $(SBINDIR)/fsck.msdos
++ 	rm -f $(SBINDIR)/fsck.vfat
++ 	ln -s dosfsck $(SBINDIR)/fsck.msdos
++@@ -25,7 +29,7 @@ clean:
++ 	rm -f *.o *.s *.i *~ \#*# tmp_make .#* .new*
++ 
++ distclean: clean
++-	rm -f *.a dosfsck
+++	rm -f *.a dosfsck dosfslabel
++ 
++ dep:
++ 	sed '/\#\#\# Dependencies/q' <Makefile >tmp_make
++@@ -38,6 +42,7 @@ check.o: check.c common.h dosfsck.h io.h
++ common.o: common.c common.h
++ dosfsck.o: dosfsck.c common.h dosfsck.h io.h boot.h fat.h file.h \
++  check.h
+++dosfslabel.o: dosfslabel.c common.h dosfsck.h io.h boot.h fat.h file.h check.h
++ fat.o: fat.c common.h dosfsck.h io.h check.h fat.h
++ file.o: file.c common.h file.h
++ io.o: io.c dosfsck.h common.h io.h
++diff -Naurp dosfstools-2.11.orig/dosfsck/boot.c dosfstools-2.11/dosfsck/boot.c
++--- dosfstools-2.11.orig/dosfsck/boot.c	2005-03-12 14:16:22.000000000 +0000
+++++ dosfstools-2.11/dosfsck/boot.c	2008-06-26 13:10:10.000000000 +0000
++@@ -8,6 +8,7 @@
++ #include <stdio.h>
++ #include <string.h>
++ #include <sys/types.h>
+++#include <stdlib.h>
++ 
++ #include "common.h"
++ #include "dosfsck.h"
++@@ -348,6 +349,21 @@ void read_boot(DOS_FS *fs)
++     /* On FAT32, the high 4 bits of a FAT entry are reserved */
++     fs->eff_fat_bits = (fs->fat_bits == 32) ? 28 : fs->fat_bits;
++     fs->fat_size = fat_length*logical_sector_size;
+++
+++    fs->label = calloc(12, sizeof (__u8));
+++    if (fs->fat_bits == 12 || fs->fat_bits == 16) {
+++        struct boot_sector_16 *b16 = (struct boot_sector_16 *)&b;
+++        if (b16->extended_sig == 0x29)
+++            memmove(fs->label, b16->label, 11);
+++        else
+++            fs->label = NULL;
+++    } else if (fs->fat_bits == 32) {
+++        if (b.extended_sig == 0x29)
+++            memmove(fs->label, &b.label, 11);
+++        else
+++            fs->label = NULL;
+++    }
+++
++     if (fs->clusters > ((unsigned long long)fs->fat_size*8/fs->fat_bits)-2)
++ 	die("File system has %d clusters but only space for %d FAT entries.",
++ 	  fs->clusters,((unsigned long long)fs->fat_size*8/fs->fat_bits)-2);
++@@ -365,6 +381,36 @@ void read_boot(DOS_FS *fs)
++     if (verbose) dump_boot(fs,&b,logical_sector_size);
++ }
++ 
+++void write_label(DOS_FS *fs, char *label)
+++{
+++    struct boot_sector b;
+++    struct boot_sector_16 *b16 = (struct boot_sector_16 *)&b;
+++    int l = strlen(label);
+++
+++    while (l < 11)
+++        label[l++] = ' ';
+++
+++    fs_read(0, sizeof(b), &b);
+++    if (fs->fat_bits == 12 || fs->fat_bits == 16) {
+++        if (b16->extended_sig != 0x29) {
+++            b16->extended_sig = 0x29;
+++            b16->serial = 0;
+++            memmove(b16->fs_type, fs->fat_bits == 12 ?"FAT12   ":"FAT16   ", 8);
+++        }
+++        memmove(b16->label, label, 11);
+++    } else if (fs->fat_bits == 32) {
+++        if (b.extended_sig != 0x29) {
+++            b.extended_sig = 0x29;
+++            b.serial = 0;
+++            memmove(b.fs_type, "FAT32   ", 8);
+++        }
+++        memmove(b.label, label, 11);
+++    }
+++    fs_write(0, sizeof(b), &b);
+++    if (fs->fat_bits == 32 && fs->backupboot_start)
+++        fs_write(fs->backupboot_start, sizeof(b), &b);
+++}
+++
++ /* Local Variables: */
++ /* tab-width: 8     */
++ /* End:             */
++diff -Naurp dosfstools-2.11.orig/dosfsck/boot.h dosfstools-2.11/dosfsck/boot.h
++--- dosfstools-2.11.orig/dosfsck/boot.h	1997-06-18 10:09:38.000000000 +0000
+++++ dosfstools-2.11/dosfsck/boot.h	2008-06-26 13:10:10.000000000 +0000
++@@ -7,6 +7,7 @@
++ #define _BOOT_H
++ 
++ void read_boot(DOS_FS *fs);
+++void write_label(DOS_FS *fs, char *label);
++ 
++ /* Reads the boot sector from the currently open device and initializes *FS */
++ 
++diff -Naurp dosfstools-2.11.orig/dosfsck/dosfsck.h dosfstools-2.11/dosfsck/dosfsck.h
++--- dosfstools-2.11.orig/dosfsck/dosfsck.h	2005-03-12 14:23:12.000000000 +0000
+++++ dosfstools-2.11/dosfsck/dosfsck.h	2008-06-26 13:10:10.000000000 +0000
++@@ -70,10 +70,47 @@ struct boot_sector {
++     __u32	root_cluster;	/* first cluster in root directory */
++     __u16	info_sector;	/* filesystem info sector */
++     __u16	backup_boot;	/* backup boot sector */
++-    __u16	reserved2[6];	/* Unused */
+++    __u8 	reserved2[12];	/* Unused */
+++
+++    __u8        drive_number;   /* Logical Drive Number */
+++    __u8        reserved3;      /* Unused */
+++
+++    __u8        extended_sig;   /* Extended Signature (0x29) */
+++    __u32       serial;         /* Serial number */
+++    __u8        label[11];      /* FS label */
+++    __u8        fs_type[8];     /* FS Type */
+++
+++    /* fill up to 512 bytes */
+++    __u8	junk[422];
+++} __attribute__ ((packed));
+++
+++struct boot_sector_16 {
+++    __u8	ignored[3];	/* Boot strap short or near jump */
+++    __u8	system_id[8];	/* Name - can be used to special case
+++				   partition manager volumes */
+++    __u8	sector_size[2];	/* bytes per logical sector */
+++    __u8	cluster_size;	/* sectors/cluster */
+++    __u16	reserved;	/* reserved sectors */
+++    __u8	fats;		/* number of FATs */
+++    __u8	dir_entries[2];	/* root directory entries */
+++    __u8	sectors[2];	/* number of sectors */
+++    __u8	media;		/* media code (unused) */
+++    __u16	fat_length;	/* sectors/FAT */
+++    __u16	secs_track;	/* sectors per track */
+++    __u16	heads;		/* number of heads */
+++    __u32	hidden;		/* hidden sectors (unused) */
+++    __u32	total_sect;	/* number of sectors (if sectors == 0) */
+++
+++    __u8        drive_number;   /* Logical Drive Number */
+++    __u8        reserved2;      /* Unused */
+++
+++    __u8        extended_sig;   /* Extended Signature (0x29) */
+++    __u32       serial;         /* Serial number */
+++    __u8        label[11];      /* FS label */
+++    __u8        fs_type[8];     /* FS Type */
++ 
++     /* fill up to 512 bytes */
++-    __u8	junk[448];
+++    __u8	junk[450];
++ } __attribute__ ((packed));
++ 
++ struct info_sector {
++@@ -133,6 +170,7 @@ typedef struct {
++     long free_clusters;
++     loff_t backupboot_start; /* 0 if not present */
++     FAT_ENTRY *fat;
+++    char *label;
++ } DOS_FS;
++ 
++ #ifndef offsetof
++diff -Naurp dosfstools-2.11.orig/dosfsck/dosfslabel.c dosfstools-2.11/dosfsck/dosfslabel.c
++--- dosfstools-2.11.orig/dosfsck/dosfslabel.c	1970-01-01 00:00:00.000000000 +0000
+++++ dosfstools-2.11/dosfsck/dosfslabel.c	2008-06-26 13:10:10.000000000 +0000
++@@ -0,0 +1,110 @@
+++/* dosfslabel.c  -  User interface */
+++
+++/* Copyright 2007 Red Hat, Inc.
+++ * Portions copyright 1998 Roman Hodek.
+++ * Portions copyright 1993 Werner Almesberger.
+++ */
+++
+++#include "../version.h"
+++
+++#include <stdio.h>
+++#include <stdlib.h>
+++#include <string.h>
+++#include <stdlib.h>
+++#include <unistd.h>
+++#include <getopt.h>
+++
+++#include "common.h"
+++#include "dosfsck.h"
+++#include "io.h"
+++#include "boot.h"
+++#include "fat.h"
+++#include "file.h"
+++#include "check.h"
+++
+++
+++int interactive = 0,list = 0,test = 0,verbose = 0,write_immed = 0;
+++int atari_format = 0;
+++unsigned n_files = 0;
+++void *mem_queue = NULL;
+++
+++
+++static void usage(int error)
+++{
+++    FILE *f = error ? stderr : stdout;
+++    int status = error ? 1 : 0;
+++
+++    fprintf(f,"usage: dosfslabel device [label]\n");
+++    exit(status);
+++}
+++
+++/*
+++ * ++roman: On m68k, check if this is an Atari; if yes, turn on Atari variant
+++ * of MS-DOS filesystem by default.
+++ */
+++static void check_atari( void )
+++{
+++#ifdef __mc68000__
+++    FILE *f;
+++    char line[128], *p;
+++
+++    if (!(f = fopen( "/proc/hardware", "r" ))) {
+++	perror( "/proc/hardware" );
+++	return;
+++    }
+++
+++    while( fgets( line, sizeof(line), f ) ) {
+++	if (strncmp( line, "Model:", 6 ) == 0) {
+++	    p = line + 6;
+++	    p += strspn( p, " \t" );
+++	    if (strncmp( p, "Atari ", 6 ) == 0)
+++		atari_format = 1;
+++	    break;
+++	}
+++    }
+++    fclose( f );
+++#endif
+++}
+++
+++
+++int main(int argc, char *argv[])
+++{
+++    DOS_FS fs;
+++    int rw = 0;
+++
+++    char *device = NULL;
+++    char *label = NULL;
+++
+++    check_atari();
+++
+++    if (argc < 2 || argc > 3)
+++        usage(1);
+++
+++    if (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help"))
+++        usage(0);
+++    else if (!strcmp(argv[1], "-V") || !strcmp(argv[1], "--version")) {
+++        printf( "dosfslabel " VERSION ", " VERSION_DATE ", FAT32, LFN\n" );
+++        exit(0);
+++    }
+++
+++    device = argv[1];
+++    if (argc == 3) {
+++        label = argv[2];
+++        if (strlen(label) > 11) {
+++            fprintf(stderr,
+++                    "dosfslabel: labels can be no longer than 11 characters\n");
+++            exit(1);
+++        }
+++        rw = 1;
+++    }
+++
+++    fs_open(device, rw);
+++    read_boot(&fs);
+++    if (!rw) {
+++        fprintf(stdout, "%s\n", fs.label);
+++        exit(0);
+++    }
+++
+++    write_label(&fs, label);
+++    return fs_close(rw) ? 1 : 0;
+++}
+--- dosfstools-2.11.orig/debian/patches/05-o-excl.dpatch
++++ dosfstools-2.11/debian/patches/05-o-excl.dpatch
+@@ -0,0 +1,28 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 05-o-excl.dpatch by Pavol Rusnak <prusnak@suse.cz>
++##
++## DP: mkdosfs now opens device with O_EXCL.
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/mkdosfs/mkdosfs.c dosfstools-2.11/mkdosfs/mkdosfs.c
++--- dosfstools-2.11.orig/mkdosfs/mkdosfs.c	2005-03-12 16:12:16.000000000 +0000
+++++ dosfstools-2.11/mkdosfs/mkdosfs.c	2008-06-26 13:20:35.000000000 +0000
++@@ -1669,7 +1669,7 @@ main (int argc, char **argv)
++ 
++   if (!create) {
++     check_mount (device_name);	/* Is the device already mounted? */
++-    dev = open (device_name, O_RDWR);	/* Is it a suitable device to build the FS on? */
+++    dev = open (device_name, O_EXCL|O_RDWR);	/* Is it a suitable device to build the FS on? */
++     if (dev < 0)
++       die ("unable to open %s");
++   }
++@@ -1677,7 +1677,7 @@ main (int argc, char **argv)
++       off_t offset = blocks*BLOCK_SIZE - 1;
++       char null = 0;
++       /* create the file */
++-      dev = open( device_name, O_RDWR|O_CREAT|O_TRUNC, 0666 );
+++      dev = open( device_name, O_EXCL|O_RDWR|O_CREAT|O_TRUNC, 0666 );
++       if (dev < 0)
++ 	die("unable to create %s");
++       /* seek to the intended end-1, and write one byte. this creates a
+--- dosfstools-2.11.orig/debian/patches/06-determine-sector-size.dpatch
++++ dosfstools-2.11/debian/patches/06-determine-sector-size.dpatch
+@@ -0,0 +1,44 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 06-determine-sector-size.dpatch by Petr Gajdos <pgajdos@suse.cz>
++##
++## DP: determine sector size of device automatically or if -S parameter present,
++## DP: verify, that it's not under physical sector size.
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/mkdosfs/mkdosfs.c dosfstools-2.11/mkdosfs/mkdosfs.c
++--- dosfstools-2.11.orig/mkdosfs/mkdosfs.c	2005-03-12 16:12:16.000000000 +0000
+++++ dosfstools-2.11/mkdosfs/mkdosfs.c	2008-06-26 13:23:40.000000000 +0000
++@@ -1424,6 +1424,7 @@ main (int argc, char **argv)
++   int i = 0, pos, ch;
++   int create = 0;
++   unsigned long long cblocks;
+++  int min_sector_size;
++   
++   if (argc && *argv) {		/* What's the program name? */
++     char *p;
++@@ -1712,6 +1713,24 @@ main (int argc, char **argv)
++ 	)
++       die ("Will not try to make filesystem on full-disk device '%s' (use -I if wanted)");
++ 
+++  if (sector_size_set)
+++    {
+++      if (ioctl(dev, BLKSSZGET, &min_sector_size) >= 0)
+++          if (sector_size < min_sector_size)
+++            {
+++	      sector_size = min_sector_size;
+++              fprintf(stderr, "Warning: sector size was set to %d (minimal for this device)\n", sector_size);
+++            }
+++    }
+++  else
+++    {
+++      if (ioctl(dev, BLKSSZGET, &min_sector_size) >= 0)
+++        {
+++	  sector_size = min_sector_size;
+++	  sector_size_set = 1;
+++        }
+++    }
+++
++   establish_params (statbuf.st_rdev,statbuf.st_size);	
++                                 /* Establish the media parameters */
++ 
+--- dosfstools-2.11.orig/debian/patches/11-memory-efficiency.dpatch
++++ dosfstools-2.11/debian/patches/11-memory-efficiency.dpatch
+@@ -0,0 +1,88 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 11-memory-efficiency.dpatch by Eero Tamminen <eero.tamminen@nokia.com>
++##
++## DP: Improves memory efficiency when checking filesystems.
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/dosfsck/fat.c dosfstools/dosfsck/fat.c
++--- dosfstools.orig/dosfsck/fat.c	2008-06-27 05:37:31.000000000 +0000
+++++ dosfstools/dosfsck/fat.c	2008-06-27 05:45:31.000000000 +0000
++@@ -51,19 +51,16 @@ void read_fat(DOS_FS *fs)
++ {
++     int eff_size;
++     unsigned long i;
++-    void *first,*second,*use;
+++    void *first,*second = NULL;
++     int first_ok,second_ok;
++ 
++     eff_size = ((fs->clusters+2)*fs->fat_bits+7)/8;
++     first = alloc(eff_size);
++     fs_read(fs->fat_start,eff_size,first);
++-    use = first;
++     if (fs->nfats > 1) {
++ 	second = alloc(eff_size);
++ 	fs_read(fs->fat_start+fs->fat_size,eff_size,second);
++     }
++-    else
++-	second = NULL;
++     if (second && memcmp(first,second,eff_size) != 0) {
++ 	FAT_ENTRY first_media, second_media;
++ 	get_fat(&first_media,first,0,fs);
++@@ -72,24 +69,28 @@ void read_fat(DOS_FS *fs)
++ 	second_ok = (second_media.value & FAT_EXTD(fs)) == FAT_EXTD(fs);
++ 	if (first_ok && !second_ok) {
++ 	    printf("FATs differ - using first FAT.\n");
++-	    fs_write(fs->fat_start+fs->fat_size,eff_size,use = first);
+++	    fs_write(fs->fat_start+fs->fat_size,eff_size,first);
++ 	}
++ 	if (!first_ok && second_ok) {
++ 	    printf("FATs differ - using second FAT.\n");
++-	    fs_write(fs->fat_start,eff_size,use = second);
+++	    fs_write(fs->fat_start,eff_size,second);
+++	    memcpy(first,second,eff_size);
++ 	}
++ 	if (first_ok && second_ok) {
++ 	    if (interactive) {
++ 		printf("FATs differ but appear to be intact. Use which FAT ?\n"
++ 		  "1) Use first FAT\n2) Use second FAT\n");
++-		if (get_key("12","?") == '1')
++-		    fs_write(fs->fat_start+fs->fat_size,eff_size,use = first);
++-		else fs_write(fs->fat_start,eff_size,use = second);
+++		if (get_key("12","?") == '1') {
+++		    fs_write(fs->fat_start+fs->fat_size,eff_size,first);
+++		} else {
+++		    fs_write(fs->fat_start,eff_size,second);
+++		    memcpy(first,second,eff_size);
+++		}
++ 	    }
++ 	    else {
++ 		printf("FATs differ but appear to be intact. Using first "
++ 		  "FAT.\n");
++-		fs_write(fs->fat_start+fs->fat_size,eff_size,use = first);
+++		fs_write(fs->fat_start+fs->fat_size,eff_size,first);
++ 	    }
++ 	}
++ 	if (!first_ok && !second_ok) {
++@@ -97,8 +98,11 @@ void read_fat(DOS_FS *fs)
++ 	    exit(1);
++ 	}
++     }
+++    if (second) {
+++          free(second);
+++    }
++     fs->fat = qalloc(&mem_queue,sizeof(FAT_ENTRY)*(fs->clusters+2));
++-    for (i = 2; i < fs->clusters+2; i++) get_fat(&fs->fat[i],use,i,fs);
+++    for (i = 2; i < fs->clusters+2; i++) get_fat(&fs->fat[i],first,i,fs);
++     for (i = 2; i < fs->clusters+2; i++)
++ 	if (fs->fat[i].value >= fs->clusters+2 &&
++ 	    (fs->fat[i].value < FAT_MIN_BAD(fs))) {
++@@ -107,8 +111,6 @@ void read_fat(DOS_FS *fs)
++ 	    set_fat(fs,i,-1);
++ 	}
++     free(first);
++-    if (second)
++-	free(second);
++ }
++ 
++ 
+--- dosfstools-2.11.orig/debian/patches/10-manpage-synopsis.dpatch
++++ dosfstools-2.11/debian/patches/10-manpage-synopsis.dpatch
+@@ -0,0 +1,31 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 10-manpage-synopsis.dpatch by Daniel Baumann <daniel@debian.org>
++##
++## DP: List alternative binary names in manpage synopsis (Closes: #284983).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/dosfsck/dosfsck.8 dosfstools/dosfsck/dosfsck.8
++--- dosfstools.orig/dosfsck/dosfsck.8	2008-06-27 06:39:58.000000000 +0200
+++++ dosfstools/dosfsck/dosfsck.8	2008-06-27 06:43:04.000000000 +0200
++@@ -3,7 +3,7 @@
++ dosfsck \- check and repair MS-DOS file systems
++ .SH SYNOPSIS
++ .ad l
++-.B dosfsck
+++.B dosfsck|fsck.msdos|fsck.vfat
++ .RB [ \-aAflnrtvVwy ]
++ .RB [ \-d\ \fIpath\fB\ \-d\ \fI...\fB ]
++ .RB [ \-u\ \fIpath\fB\ \-u\ \fI...\fB ]
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.8 dosfstools/mkdosfs/mkdosfs.8
++--- dosfstools.orig/mkdosfs/mkdosfs.8	2008-06-27 06:40:00.000000000 +0200
+++++ dosfstools/mkdosfs/mkdosfs.8	2008-06-27 06:43:14.000000000 +0200
++@@ -4,7 +4,7 @@
++ .B mkdosfs
++ \- create an MS-DOS file system under Linux
++ .SH SYNOPSIS
++-.B mkdosfs
+++.B mkdosfs|mkfs.msdos|mkfs.vfat
++ [
++ .B \-A
++ ]
+--- dosfstools-2.11.orig/debian/patches/02-fortify.dpatch
++++ dosfstools-2.11/debian/patches/02-fortify.dpatch
+@@ -0,0 +1,22 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 02-fortify.dpatch by Jakub Jelinek <jakub@redhat.com>
++##
++## DP: make it build with -D_FORTIFY_SOURCE=2
++## DP: This violates -D_FORTIFY_SOURCE=2 (which is stricter than C standard),
++## DP: but isn't actually any buffer overflow.
++## DP: But using memcpy is more efficient anyway.
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/mkdosfs/mkdosfs.c dosfstools-2.11/mkdosfs/mkdosfs.c
++--- dosfstools-2.11.orig/mkdosfs/mkdosfs.c	2005-03-12 16:12:16.000000000 +0000
+++++ dosfstools-2.11/mkdosfs/mkdosfs.c	2008-06-26 12:46:46.000000000 +0000
++@@ -805,7 +805,7 @@ setup_tables (void)
++       /* On Atari, the first few bytes of the boot sector are assigned
++        * differently: The jump code is only 2 bytes (and m68k machine code
++        * :-), then 6 bytes filler (ignored), then 3 byte serial number. */
++-    strncpy( bs.system_id-1, "mkdosf", 6 );
+++    memcpy( bs.system_id-1, "mkdosf", 6 );
++   else
++     strcpy (bs.system_id, "mkdosfs");
++   if (sectors_per_cluster)
+--- dosfstools-2.11.orig/debian/patches/00list
++++ dosfstools-2.11/debian/patches/00list
+@@ -0,0 +1,15 @@
++01-argfix.dpatch
++02-fortify.dpatch
++03-label.dpatch
++04-unaligned-memory.dpatch
++05-o-excl.dpatch
++06-determine-sector-size.dpatch
++07-manpage-spelling.dpatch
++08-manpage-drop.dpatch
++09-manpage-fat32.dpatch
++10-manpage-synopsis.dpatch
++11-memory-efficiency.dpatch
++12-zero-slot.dpatch
++13-getopt.dpatch
++15-manpage-files.dpatch
++99-conglomeration.dpatch
+--- dosfstools-2.11.orig/debian/patches/99-conglomeration.dpatch
++++ dosfstools-2.11/debian/patches/99-conglomeration.dpatch
+@@ -0,0 +1,164 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 99-conglomeration.dpatch
++##
++## DP: Needs to be broken out (FIXME).
++
++@DPATCH@
++
++diff -Naurp dosfstools-2.11.orig/dosfsck/check.c dosfstools-2.11/dosfsck/check.c
++--- dosfstools-2.11.orig/dosfsck/check.c	2005-03-12 15:08:43.000000000 +0000
+++++ dosfstools-2.11/dosfsck/check.c	2008-06-26 11:51:30.000000000 +0000
++@@ -305,14 +305,14 @@ static void truncate_file(DOS_FS *fs,DOS
++ static void auto_rename(DOS_FILE *file)
++ {
++     DOS_FILE *first,*walk;
++-    int number;
+++    unsigned long int number;
++ 
++     if (!file->offset) return;	/* cannot rename FAT32 root dir */
++     first = file->parent ? file->parent->first : root;
++     number = 0;
++     while (1) {
++-	sprintf(file->dir_ent.name,"FSCK%04d",number);
++-	strncpy(file->dir_ent.ext,"REN",3);
+++	sprintf(file->dir_ent.name, "FSCK%04d", number / 1000);
+++	sprintf(file->dir_ent.name, "%03d", number % 1000);
++ 	for (walk = first; walk; walk = walk->next)
++ 	    if (walk != file && !strncmp(walk->dir_ent.name,file->dir_ent.
++ 	      name,MSDOS_NAME)) break;
++@@ -321,6 +321,9 @@ static void auto_rename(DOS_FILE *file)
++ 	    return;
++ 	}
++ 	number++;
+++	if (number > 9999999) {
+++		die("Too many files need repair.");
+++	}
++     }
++     die("Can't generate a unique name.");
++ }
++@@ -450,10 +453,10 @@ static int check_file(DOS_FS *fs,DOS_FIL
++ 	    break;
++ 	}
++ 	if (!(file->dir_ent.attr & ATTR_DIR) && CF_LE_L(file->dir_ent.size) <=
++-	  clusters*fs->cluster_size) {
++-	    printf("%s\n  File size is %u bytes, cluster chain length is > %lu "
+++	  (unsigned long long)clusters*fs->cluster_size) {
+++	    printf("%s\n  File size is %u bytes, cluster chain length is > %llu "
++ 	      "bytes.\n  Truncating file to %u bytes.\n",path_name(file),
++-	      CF_LE_L(file->dir_ent.size),clusters*fs->cluster_size,
+++	      CF_LE_L(file->dir_ent.size),(unsigned long long)clusters*fs->cluster_size,
++ 	      CF_LE_L(file->dir_ent.size));
++ 	    truncate_file(fs,file,clusters);
++ 	    break;
++@@ -469,20 +472,20 @@ static int check_file(DOS_FS *fs,DOS_FIL
++ 		else clusters2++;
++ 	    restart = file->dir_ent.attr & ATTR_DIR;
++ 	    if (!owner->offset) {
++-		printf( "  Truncating second to %lu bytes because first "
++-			"is FAT32 root dir.\n", clusters2*fs->cluster_size );
+++		printf( "  Truncating second to %llu bytes because first "
+++			"is FAT32 root dir.\n", (unsigned long long)clusters2*fs->cluster_size );
++ 		do_trunc = 2;
++ 	    }
++ 	    else if (!file->offset) {
++-		printf( "  Truncating first to %lu bytes because second "
++-			"is FAT32 root dir.\n", clusters*fs->cluster_size );
+++		printf( "  Truncating first to %llu bytes because second "
+++			"is FAT32 root dir.\n", (unsigned long long)clusters*fs->cluster_size );
++ 		do_trunc = 1;
++ 	    }
++ 	    else if (interactive)
++-		printf("1) Truncate first to %lu bytes%s\n"
++-		  "2) Truncate second to %lu bytes\n",clusters*fs->cluster_size,
++-		  restart ? " and restart" : "",clusters2*fs->cluster_size);
++-	    else printf("  Truncating second to %lu bytes.\n",clusters2*
+++		printf("1) Truncate first to %llu bytes%s\n"
+++		  "2) Truncate second to %llu bytes\n",(unsigned long long)clusters*fs->cluster_size,
+++		  restart ? " and restart" : "",(unsigned long long)clusters2*fs->cluster_size);
+++	    else printf("  Truncating second to %llu bytes.\n",(unsigned long long)clusters2*
++ 		  fs->cluster_size);
++ 	    if (do_trunc != 2 &&
++ 		(do_trunc == 1 ||
++@@ -494,12 +497,13 @@ static int check_file(DOS_FS *fs,DOS_FIL
++ 		    if (this == curr) {
++ 			if (prev) set_fat(fs,prev,-1);
++ 			else MODIFY_START(owner,0,fs);
++-			MODIFY(owner,size,CT_LE_L(clusters*fs->cluster_size));
+++			MODIFY(owner,size,CT_LE_L((unsigned long long)clusters*fs->cluster_size));
++ 			if (restart) return 1;
++ 			while (this > 0 && this != -1) {
++ 			    set_owner(fs,this,NULL);
++ 			    this = next_cluster(fs,this);
++ 			}
+++			this = curr;
++ 			break;
++ 		    }
++ 		    clusters++;
++@@ -520,11 +524,11 @@ static int check_file(DOS_FS *fs,DOS_FIL
++ 	prev = curr;
++     }
++     if (!(file->dir_ent.attr & ATTR_DIR) && CF_LE_L(file->dir_ent.size) >
++-      clusters*fs->cluster_size) {
++-	printf("%s\n  File size is %u bytes, cluster chain length is %lu bytes."
+++      (unsigned long long)clusters*fs->cluster_size) {
+++	printf("%s\n  File size is %u bytes, cluster chain length is %llu bytes."
++ 	  "\n  Truncating file to %lu bytes.\n",path_name(file),CF_LE_L(file->
++-	  dir_ent.size),clusters*fs->cluster_size,clusters*fs->cluster_size);
++-	MODIFY(file,size,CT_LE_L(clusters*fs->cluster_size));
+++	  dir_ent.size),(unsigned long long)clusters*fs->cluster_size,(unsigned long long)clusters*fs->cluster_size);
+++	MODIFY(file,size,CT_LE_L((unsigned long long)clusters*fs->cluster_size));
++     }
++     return 0;
++ }
++diff -Naurp dosfstools.orig/dosfsck/fat.c dosfstools/dosfsck/fat.c
++--- dosfstools.orig/dosfsck/fat.c	2008-06-27 05:49:45.000000000 +0000
+++++ dosfstools/dosfsck/fat.c	2008-06-27 05:53:48.000000000 +0000
++@@ -54,7 +54,7 @@ void read_fat(DOS_FS *fs)
++     void *first,*second = NULL;
++     int first_ok,second_ok;
++ 
++-    eff_size = ((fs->clusters+2)*fs->fat_bits+7)/8;
+++    eff_size = ((fs->clusters+2ULL)*fs->fat_bits+7)/8ULL;
++     first = alloc(eff_size);
++     fs_read(fs->fat_start,eff_size,first);
++     if (fs->nfats > 1) {
++@@ -101,7 +101,7 @@ void read_fat(DOS_FS *fs)
++     if (second) {
++           free(second);
++     }
++-    fs->fat = qalloc(&mem_queue,sizeof(FAT_ENTRY)*(fs->clusters+2));
+++    fs->fat = qalloc(&mem_queue,sizeof(FAT_ENTRY)*(fs->clusters+2ULL));
++     for (i = 2; i < fs->clusters+2; i++) get_fat(&fs->fat[i],first,i,fs);
++     for (i = 2; i < fs->clusters+2; i++)
++ 	if (fs->fat[i].value >= fs->clusters+2 &&
++@@ -179,7 +179,7 @@ unsigned long next_cluster(DOS_FS *fs,un
++ 
++ loff_t cluster_start(DOS_FS *fs,unsigned long cluster)
++ {
++-    return fs->data_start+((loff_t)cluster-2)*fs->cluster_size;
+++    return fs->data_start+((loff_t)cluster-2)*(unsigned long long)fs->cluster_size;
++ }
++ 
++ 
++@@ -227,8 +227,8 @@ void reclaim_free(DOS_FS *fs)
++ 	    reclaimed++;
++ 	}
++     if (reclaimed)
++-	printf("Reclaimed %d unused cluster%s (%d bytes).\n",reclaimed,
++-	  reclaimed == 1 ?  "" : "s",reclaimed*fs->cluster_size);
+++	printf("Reclaimed %d unused cluster%s (%llu bytes).\n",reclaimed,
+++	  reclaimed == 1 ?  "" : "s",(unsigned long long)reclaimed*fs->cluster_size);
++ }
++ 
++ 
++@@ -307,8 +307,8 @@ void reclaim_file(DOS_FS *fs)
++ 	    fs_write(offset,sizeof(DIR_ENT),&de);
++ 	}
++     if (reclaimed)
++-	printf("Reclaimed %d unused cluster%s (%d bytes) in %d chain%s.\n",
++-	  reclaimed,reclaimed == 1 ? "" : "s",reclaimed*fs->cluster_size,files,
+++	printf("Reclaimed %d unused cluster%s (%llu bytes) in %d chain%s.\n",
+++	  reclaimed,reclaimed == 1 ? "" : "s",(unsigned long long)reclaimed*fs->cluster_size,files,
++ 	  files == 1 ? "" : "s");
++ }
++ 
+--- dosfstools-2.11.orig/debian/patches/14-bootcode.dpatch
++++ dosfstools-2.11/debian/patches/14-bootcode.dpatch
+@@ -0,0 +1,235 @@
++#!/bin/sh /usr/share/dpatch/dpatch-run
++## 14-bootcode.dpatch by Sam Bingner <sam@bingner.com>
++##
++## DP: Adds option for using a bootcode template (Closes: #303442).
++
++@DPATCH@
++
++diff -Naurp dosfstools.orig/mkdosfs/ChangeLog dosfstools/mkdosfs/ChangeLog
++--- dosfstools.orig/mkdosfs/ChangeLog	2008-06-27 05:37:31.000000000 +0000
+++++ dosfstools/mkdosfs/ChangeLog	2008-06-27 06:44:05.000000000 +0000
++@@ -1,3 +1,14 @@
+++19th June 2003			Sam Bingner (sam@bingner.com)
+++
+++	Added option to read in bootcode from a file so that if you have
+++	for example Windows 2000 boot code, you can have it write that
+++	as the bootcode.  This is a dump of the behinning of a partition
+++	generally 512 bytes, but can be up to reserved sectors*512 bytes.
+++	Also writes 0x80 as the BIOS drive number if we are formatting a
+++	hard drive, and sets the number of hidden sectors to be the
+++	number of sectors in one track. These were required so that DOS
+++	could boot using the bootcode.
+++
++ 28th January 1995		H. Peter Anvin (hpa@yggdrasil.com)
++ 
++ 	Better algorithm to select cluster sizes on large filesystems.
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.8 dosfstools/mkdosfs/mkdosfs.8
++--- dosfstools.orig/mkdosfs/mkdosfs.8	2008-06-27 06:34:35.000000000 +0000
+++++ dosfstools/mkdosfs/mkdosfs.8	2008-06-27 06:44:05.000000000 +0000
++@@ -44,6 +44,10 @@
++ .I message-file
++ ]
++ [
+++.B \-B
+++.I bootcode-file
+++]
+++[
++ .B \-n
++ .I volume-name
++ ]
++@@ -163,6 +167,18 @@ file must not exceed 418 bytes once line
++ carriage return-line feed combinations, and tabs have been expanded.
++ If the filename is a hyphen (-), the text is taken from standard input. 
++ .TP
+++.BI \-B " bootcode-file"
+++Uses boot machine code from file "file".  On any thing other than FAT32,
+++this only writes the first 3 bytes, and 480 bytes from offset 3Eh.  On
+++FAT32, this writes the first 3 bytes, 420 bytes from offset 5Ah to both
+++primary and backup boot sectors.  Also writes all other reserved sectors
+++excluding the sectors following boot sectors (usually sector 2 and 7).
+++Does not require that the input file be as large as reserved_sectors*512.
+++To make a FAT32 partition bootable, you will need at least the first
+++13 sectors (6656 bytes).  You can also specify a partition as the argument
+++to clone the boot code from that partition.
+++i.e mkdosfs -B /dev/sda1 /dev/sda1
+++.TP
++ .BI \-n " volume-name"
++ Sets the volume name (label) of the file system.  The volume name can
++ be up to 11 characters long.  The default is no label.
++diff -Naurp dosfstools.orig/mkdosfs/mkdosfs.c dosfstools/mkdosfs/mkdosfs.c
++--- dosfstools.orig/mkdosfs/mkdosfs.c	2008-06-27 06:34:35.000000000 +0000
+++++ dosfstools/mkdosfs/mkdosfs.c	2008-06-27 06:50:19.000000000 +0000
++@@ -24,6 +24,12 @@
++    - New options -A, -S, -C
++    - Support for filesystems > 2GB
++    - FAT32 support
+++
+++   Fixes/additions June 2003 by Sam Bingner
+++   <sam@bingner.com>:
+++   - Add -B option to read in bootcode from a file
+++   - Write BIOS drive number so that FS can properly boot
+++   - Set number of hidden sectors before boot code to be one track
++    
++    Copying:     Copyright 1993, 1994 David Hudson (dave@humbug.demon.co.uk)
++ 
++@@ -153,6 +159,8 @@ cdiv (int a, int b)
++ #define FAT_BAD      0x0ffffff7
++ 
++ #define MSDOS_EXT_SIGN 0x29	/* extended boot sector signature */
+++#define HD_DRIVE_NUMBER 0x80	/* Boot off first hard drive */
+++#define FD_DRIVE_NUMBER 0x00	/* Boot off first floppy drive */
++ #define MSDOS_FAT12_SIGN "FAT12   "	/* FAT12 filesystem signature */
++ #define MSDOS_FAT16_SIGN "FAT16   "	/* FAT16 filesystem signature */
++ #define MSDOS_FAT32_SIGN "FAT32   "	/* FAT32 filesystem signature */
++@@ -175,6 +183,8 @@ cdiv (int a, int b)
++ #define BOOTCODE_SIZE		448
++ #define BOOTCODE_FAT32_SIZE	420
++ 
+++#define MAX_RESERVED		0xFFFF
+++
++ /* __attribute__ ((packed)) is used on all structures to make gcc ignore any
++  * alignments */
++ 
++@@ -202,7 +212,7 @@ struct msdos_boot_sector
++   __u16         fat_length;	/* sectors/FAT */
++   __u16         secs_track;	/* sectors per track */
++   __u16         heads;		/* number of heads */
++-  __u32         hidden;		/* hidden sectors (unused) */
+++  __u32         hidden;		/* hidden sectors (one track) */
++   __u32         total_sect;	/* number of sectors (if sectors == 0) */
++   union {
++     struct {
++@@ -285,6 +295,8 @@ char dummy_boot_code[BOOTCODE_SIZE] =
++ 
++ /* Global variables - the root of all evil :-) - see these and weep! */
++ 
+++static char *template_boot_code;	/* Variable to store a full template boot sector in */
+++static int use_template = 0;
++ static char *program_name = "mkdosfs";	/* Name of the program */
++ static char *device_name = NULL;	/* Name of the device on which to create the filesystem */
++ static int atari_format = 0;	/* Use Atari variation of MS-DOS FS format */
++@@ -837,6 +849,12 @@ setup_tables (void)
++     vi->volume_id[2] = (unsigned char) ((volume_id & 0x00ff0000) >> 16);
++     vi->volume_id[3] = (unsigned char) (volume_id >> 24);
++   }
+++  if (bs.media == 0xf8) {
+++      vi->drive_number = HD_DRIVE_NUMBER;  /* Set bios drive number to 80h */
+++  }
+++  else {
+++      vi->drive_number = FD_DRIVE_NUMBER;  /* Set bios drive number to 00h */
+++  }
++ 
++   if (!atari_format) {
++     memcpy(vi->volume_label, volume_name, 11);
++@@ -881,7 +899,7 @@ setup_tables (void)
++     printf( "Using %d reserved sectors\n", reserved_sectors );
++   bs.fats = (char) nr_fats;
++   if (!atari_format || size_fat == 32)
++-    bs.hidden = CT_LE_L(hidden_sectors);
+++    bs.hidden = bs.secs_track;
++   else {
++     /* In Atari format, hidden is a 16 bit field */
++     __u16 hidden = CT_LE_W(hidden_sectors);
++@@ -1362,6 +1380,32 @@ write_tables (void)
++    * dir area on FAT12/16, and the first cluster on FAT32. */
++   writebuf( (char *) root_dir, size_root_dir, "root directory" );
++ 
+++  if (use_template == 1) {
+++    /* dupe template into reserved sectors */
+++    seekto( 0, "Start of partition" );
+++    if (size_fat == 32) {
+++      writebuf( template_boot_code, 3, "backup jmpBoot" );
+++      seekto( 0x5a, "sector 1 boot area" );
+++      writebuf( template_boot_code+0x5a, 420, "sector 1 boot area" );
+++      seekto( 512*2, "third sector" );
+++      if (backup_boot != 0) {
+++        writebuf( template_boot_code+512*2, backup_boot*sector_size - 512*2, "data to backup boot" );
+++	seekto( backup_boot*sector_size, "backup boot sector" );
+++        writebuf( template_boot_code, 3, "backup jmpBoot" );
+++	seekto( backup_boot*sector_size+0x5a, "backup boot sector boot area" );
+++        writebuf( template_boot_code+0x5a, 420, "backup boot sector boot area" );
+++        seekto( (backup_boot+2)*sector_size, "sector following backup code" );
+++        writebuf( template_boot_code+(backup_boot+2)*sector_size, (reserved_sectors-backup_boot-2)*512, "remaining data" );
+++      } else {
+++        writebuf( template_boot_code+512*2, (reserved_sectors-2)*512, "remaining data" );
+++      }
+++    } else {
+++      writebuf( template_boot_code, 3, "jmpBoot" );
+++      seekto( 0x3e, "sector 1 boot area" );
+++      writebuf( template_boot_code+0x3e, 448, "boot code" );
+++    }
+++  }
+++
++   if (blank_sector) free( blank_sector );
++   if (info_sector) free( info_sector );
++   free (root_dir);   /* Free up the root directory space from setup_tables */
++@@ -1376,7 +1420,7 @@ usage (void)
++ {
++   fatal_error("\
++ Usage: mkdosfs [-A] [-c] [-C] [-v] [-I] [-l bad-block-file] [-b backup-boot-sector]\n\
++-       [-m boot-msg-file] [-n volume-name] [-i volume-id]\n\
+++       [-m boot-msg-file] [-n volume-name] [-i volume-id] [-B bootcode]\n\
++        [-s sectors-per-cluster] [-S logical-sector-size] [-f number-of-FATs]\n\
++        [-h hidden-sectors] [-F fat-size] [-r root-dir-entries] [-R reserved-sectors]\n\
++        /dev/name [blocks]\n");
++@@ -1440,7 +1484,7 @@ main (int argc, char **argv)
++   printf ("%s " VERSION " (" VERSION_DATE ")\n",
++ 	   program_name);
++ 
++-  while ((c = getopt (argc, argv, "Ab:cCf:F:Ii:l:m:n:r:R:s:S:h:v")) != EOF)
+++  while ((c = getopt (argc, argv, "AB:b:cCf:F:Ii:l:m:n:r:R:s:S:h:v")) != EOF)
++     /* Scan the command line for options */
++     switch (c)
++       {
++@@ -1510,6 +1554,51 @@ main (int argc, char **argv)
++ 	listfile = optarg;
++ 	break;
++ 
+++      case 'B':         /* B : read in bootcode */
+++        if ( strcmp(optarg, "-") )
+++	  {
+++	    msgfile = fopen(optarg, "r");
+++	    if ( !msgfile )
+++	      perror(optarg);
+++	  }
+++	else
+++	  msgfile = stdin;
+++
+++	if ( msgfile )
+++	  {
+++            if (!(template_boot_code = malloc( MAX_RESERVED )))
+++                die( "Out of memory" );
+++	    /* The template boot sector including reserved must not be > 65535 */
+++            use_template = 1;
+++	    i = 0;
+++	    do
+++	      {
+++		ch = getc(msgfile);
+++		switch (ch)
+++		  {
+++		  case EOF:
+++		    break;
+++
+++		  default:
+++		    template_boot_code[i++] = ch; /* Store character */
+++		    break;
+++		  }
+++	      }
+++	    while ( ch != EOF && i < MAX_RESERVED );
+++	    ch = getc(msgfile); /* find out if we're at EOF */
+++
+++	    /* Fill up with zeros */
+++	    while( i < MAX_RESERVED )
+++		template_boot_code[i++] = '\0';
+++
+++	    if ( ch != EOF )
+++	      printf ("Warning: template too long; truncated after %d bytes\n", i);
+++
+++	    if ( msgfile != stdin )
+++	      fclose(msgfile);
+++	  }
+++	break;
+++
++       case 'm':		/* m : Set boot message */
++ 	if ( strcmp(optarg, "-") )
++ 	  {

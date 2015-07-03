@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page background="image/welcome_background_bg.jpg">
+  <ctrlgrp lbmask="l">
+    <button valkey="KEY"/>
+    <linebreak/>
+    <button valkey="BACK" focused_bg="image/settings_system_msg_reset_btn_n.png" normal_bg="image/settings_system_msg_reset_btn_f.png"/>
+    <button valkey="NEXT" focused_bg="image/settings_system_msg_reset_btn_n.png" normal_bg="image/settings_system_msg_reset_btn_f.png"/>
+  </ctrlgrp>
+
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+  <text text="$$Please enter your encryption key" x="385" y="258" w="510" h="28" align="hcenter"/>
+  <image image="image/network_wireless_search_box.png" x="385" y="290" w="510" h="60"/>
+ 
+  <text text="@@KEY-value" x="395" y="300" w="510" h="28" textcolor="0x101010" selectedtextcolor="0xf0f0f0" activetextcolor="0xf0f0f0" fontsize="30"/>
+
+  <image image="@@bg-BACK" x="313" y="452" w="327" h="61"/>
+  <image image="@@bg-NEXT" x="641" y="452" w="327" h="61"/>
+
+  <text text="$$BACK" x="325" y="472" w="303" h="20" fontsize="20" align="hcenter"/>
+  <text text="$$NEXT" x="653" y="472" w="303" h="20" fontsize="20" align="hcenter"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

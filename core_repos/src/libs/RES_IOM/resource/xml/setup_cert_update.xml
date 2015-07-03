@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp lbmask='l'>
+	<button valkey="DEVICECERT" 
+		focused_bg="image/button_blank_long-act.png"
+		normal_bg="image/button_blank_long.png"
+		disabled_bg="image/textbox_darken.png"/>
+  </ctrlgrp>
+
+  <include filename="./inc_setup_title.xml" />
+  
+  <text text="@@CURRENTMCXID" fontsize="18" x="149" y="150" w="480" h="20" align="hcerter" active="0" textcolor="0xFFFFFF"/>
+  <text text="@@DEVICEID" fontsize="18" x="149" y="180" w="480" h="20" align="hcerter" active="0" textcolor="0xFFFFFF"/>
+  
+  <imgbtn x="271" y="220" w="177" h="36" image="@@bg-DEVICECERT" text="$$UpdateCert" align="hcenter"  fontsize="18" disable="@@disable-DEVICECERT" />
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

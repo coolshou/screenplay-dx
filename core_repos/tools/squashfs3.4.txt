@@ -1,0 +1,15 @@
+License declaration:
+    Refer to squashfs3.4/COPYING
+
+
+squashfs3.4 building steps:
+
+1. Extract squashfs3.4.tar.gz:
+    a) tar zxvf squashfs3.4.tar.gz
+
+2. Compile squashfs3.4
+    a) cd squashfs3.4/squashfs-tools
+    b) make
+
+3. The mksquashfs will be compiled in current directory
+

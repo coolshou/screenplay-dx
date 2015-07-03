@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page overlay="1">
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<image image="image/alert_list_bg.png" x="875" y="197" w="345" h="493" bg="0"/>
+<listbox valkey="serverlist" move="row" cols="1" rows="6" lbmask="" disable_light_bar_click="1"/>
+<!--<text text="@@type" x="247" y="199" w="600" h="26" fontsize="24" textcolor="0xffffff"/> -->
+<!--<text text="@@pagecounter" x="872" y="172" w="118" h="26" fontsize="24" textcolor="0xffffff"/>-->
+	<image image="@@listprev" x="1035" y="245" w="39" h="22"/>
+  <table x="899" y="323" w="310" h="300"
+         cols="1" rows="6" colspacing="0" rowspacing="10"
+         lbimage="image/live_cam_cursor.png" fontsize="20" selected_fontsize="20">
+    <text text="@@serverlist-0" fontsize="20" xmargin="60" ymargin="7" y="323" x="899"
+          lightbar="@@lightbar-serverlist-0" active="@@act-serverlist-0"/>
+
+    <text text="@@serverlist-1" fontsize="20" xmargin="60" ymargin="7" y="373" x="899"
+          lightbar="@@lightbar-serverlist-1" active="@@act-serverlist-1"/>
+
+    <text text="@@serverlist-2" fontsize="20" xmargin="60" ymargin="7" y="423" x="899"
+          lightbar="@@lightbar-serverlist-2" active="@@act-serverlist-2"/>
+
+    <text text="@@serverlist-3" fontsize="20" xmargin="60" ymargin="7" y="473" x="899"
+          lightbar="@@lightbar-serverlist-3" active="@@act-serverlist-3"/>
+
+    <text text="@@serverlist-4" fontsize="20" xmargin="60" ymargin="7" y="523" x="899"
+          lightbar="@@lightbar-serverlist-4" active="@@act-serverlist-4"/>
+
+    <text text="@@serverlist-5" fontsize="20" xmargin="60" ymargin="7" y="573" x="899"
+          lightbar="@@lightbar-serverlist-5" active="@@act-serverlist-5"/>
+  </table>
+
+  <wrapper x="899" w="310" h="35">
+    <image image="@@browser_0_line" ymargin="0" bg="1" y="360"/>
+    <image image="@@browser_1_line" ymargin="0" bg="1" y="410"/>
+    <image image="@@browser_2_line" ymargin="0" bg="1" y="460"/>
+    <image image="@@browser_3_line" ymargin="0" bg="1" y="510"/>
+    <image image="@@browser_4_line" ymargin="0" bg="1" y="560"/>
+    <image image="@@browser_5_line" ymargin="0" bg="1" y="610"/>
+  </wrapper>
+	<image image="@@listmore" x="1035" y="623" w="39" h="22"/>
+  <image image="@@wrongkeyicon" x="1100" y="71" w="52" h="53" align="hcenter"/>
+	<image image="@@pip_preview_rect_image" default_image="@@pip_default_preview_rect_image" x="112" y="475" w="210" h="135" textcolor="@@pip_preview_rect_color" keycolor="1" ignore_keycolor="1"/>
+	<image image="@@pip_movies_frame_top" x="112" y="475" w="210" h="135"/>
+</page>

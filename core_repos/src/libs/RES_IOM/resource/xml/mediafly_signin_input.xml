@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/villa_bg.png">
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+  </ctrlgrp>
+ 
+  <text text="$$Mediafly" x="249" y="132" w="600" h="44" align="left" fontsize="42" textcolor="0x07b5ff"/>
+  <text text="$$Enter Username" x="278" y="232" w="500" h="26" align="left" fontsize="24" textcolor="0xe2e2e2"/>
+<wrapper>
+  <widget_keyboard ctrlname="keyboard" x="262" y="264" h="272" w="739" cols="14" rows="5"
+		   align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0x005811"
+		   changed="@@keyboard_changed" extra_height="10" extra_index="0"/>
+</wrapper>
+
+  <image image="image/keyboard_search_box.png" x="262" y="264" w="633" h="63" bg="1"/>
+  <image image="image/string_input_area.png" x="282" y="264" w="633" h="63" />
+  <texttail text="@@input_01_text" x="262" y="264" w="600" h="63" xmargin="20" textcolor="0x000000" ignore_translate="1"/>
+
+<!--  <include filename="./inc_setup_headline_property.xml" /> -->
+	<include filename="./inc_decoration_online.xml"/>
+
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+
+</page>

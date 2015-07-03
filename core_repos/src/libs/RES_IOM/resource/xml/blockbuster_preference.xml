@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<button valkey="Running"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Completed"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Schedule"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="Notification"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<button valkey="FileLocation"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+		<button valkey="Notify1"/>
+		<linebreak/>
+		<button valkey="Notify2"/>
+		<linebreak/>
+		<button valkey="ChangeDir"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+		<button valkey="AlwaysDownload"/>
+		<linebreak/>
+		<button valkey="StartDownload"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="EndDownload"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="@@bg-Running" text="$$Download" 
+			active="@@act-Running" selected="@@sel-Running" click="@@click-Running" 
+			clicked="@@clicked-Running"/>
+		<imgbtn image="@@bg-Completed" text="$$Completed" 
+			active="@@act-Completed" selected="@@sel-Completed" click="@@click-Completed" 
+			clicked="@@clicked-Completed"/>
+		<imgbtn image="@@bg-Schedule" text="$$Download schedule" 
+			active="@@act-Schedule" selected="@@sel-Schedule" click="@@click-Schedule" 
+			clicked="@@clicked-Schedule"/>
+		<imgbtn image="@@bg-Notification" text="$$Notification" 
+			active="@@act-Notification" selected="@@sel-Notification" click="@@click-Notification" 
+			clicked="@@clicked-Notification"/>
+		<imgbtn image="@@bg-FileLocation" text="$$Select file location" 
+			active="@@act-FileLocation" selected="@@sel-FileLocation" click="@@click-FileLocation" 
+			clicked="@@clicked-FileLocation"/>
+	</table>
+
+	<!-- Notification -->
+	<image image="@@Notify1_image" x="263" y="290" w="36" h="36" disable="@@disable-Notify"/>
+	<text text="$$When a video download successfully completes" x="336" y="299" w="600" h="24" fontsize="20" textcolor="0xfff2f2f2" align="left" disable="@@disable-Notify"/>
+
+	<image image="@@Notify2_image" x="263" y="343" w="36" h="36" disable="@@disable-Notify"/>
+	<text text="$$When a downloading video is ready to watch" x="336" y="350" w="600" h="24" fontsize="20" textcolor="0xfff2f2f2" align="left" disable="@@disable-Notify"/>
+
+	<!-- Path -->
+	<text text="@@download_path" x="107" y="248" w="1066" h="22" align="hcenter" fontsize="20" disable="@@disable-FolderList"/>
+	<imgbtn image="@@bg-ChangeDir" text="$$Change" x="535" y="582" w="210" h="49" fontsize="20" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040" active="@@act-ChangeDir" selected="@@sel-ChangeDir" click="@@click-ChangeDir" disable="@@disable-FolderList" align="hcenter"/>
+
+	<!-- Schedule -->
+	<image image="@@AlwaysDownload_image" x="485" y="262" w="61" h="60" disable="@@disable-AlwaysDownload"/>
+	<text text="$$Always Download" x="563" y="282" w="400" h="22" fontsize="20" textcolor="0xffbabba" disable="@@disable-AlwaysDownload"/>
+	<wrapper textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040" y="582" w="210" h="49" fontsize="20" align="hcenter">
+		<imgbtn x="427" text="$$Start download time" image="@@bg-StartDownload"
+			disable="@@disable-StartDownload" active="@@act-StartDownload" selected="@@sel-StartDownload" click="@@click-StartDownload"/>
+		<imgbtn x="642" text="$$End download time" image="@@bg-EndDownload" 
+			disable="@@disable-EndDownload" active="@@act-EndDownload" selected="@@sel-EndDownload" click="@@click-EndDownload"/>
+	</wrapper>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

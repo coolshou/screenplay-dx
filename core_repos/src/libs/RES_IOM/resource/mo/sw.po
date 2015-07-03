@@ -1,0 +1,4411 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: IO51092 - Q3 2010005\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: SimulTrans\n"
+"Language-Team: Swedish <SimulTrans>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: Sweden\n"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Select language."
+msgstr "Välj språk"
+
+msgid "Welcome to IOMega ScreenPlay Media Player."
+msgstr "Välkommen till Iomega ScreenPlay Media Player"
+
+msgid "This wizard will guide you through connecting this device to your home network. Once your device is connected, it can also be used to access and playback media stored on other network drives."
+msgstr "Den här guiden vägleder dig genom anslutningen av den här enheten till ditt nätverk i hemmet. Så fort enheten är ansluten kan den också användas för att öppna och spela upp media som finns lagrat på andra nätverksenheter."
+
+msgid "Select Next to continue."
+msgstr "Välj Nästa för att fortsätta."
+
+msgid "When Quick Start Mode is set to ON, the power consumption will be higher but will keep the device available on the network and shorten the start up time."
+msgstr "När snabbstartläget är inställt till PÅ blir strömförbrukningen högre, men det håller enheten tillgänglig i nätverket och förkortar starttiden."
+
+msgid "Select your TV type"
+msgstr "Välj TV-typ"
+
+msgid "Select your connection"
+msgstr "Välj anslutning"
+
+msgid "Skip"
+msgstr "Hoppa över"
+
+msgid "Do you want to skip?"
+msgstr "Vill du hoppa över?"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "Static IP"
+msgstr "Fast IP"
+
+msgid "IP address"
+msgstr "IP-adress"
+
+msgid "Netmask"
+msgstr "Nätmask"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "DNS"
+msgstr "DNS"
+
+msgid "Setup is completed"
+msgstr "Installationen är klar"
+
+msgid "Finish"
+msgstr "Finish"
+
+
+msgid "Wizard"
+msgstr "Guide"
+
+msgid "You have successfully completed device configuration"
+msgstr "Du har klarat enhetskonfigurationen."
+
+msgid "Next"
+msgstr "Nästa"
+
+msgid "Later"
+msgstr "Senare"
+
+msgid "Movie"
+msgstr "Film"
+
+msgid "Music"
+msgstr "Musik"
+
+msgid "Photo"
+msgstr "Bilder"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Online media"
+msgstr "Online-media"
+
+msgid "Folders"
+msgstr "Mappar"
+
+msgid "Recent"
+msgstr "Senaste"
+
+msgid "Local storage"
+msgstr "Lokal lagringsplats"
+
+msgid "USB"
+msgstr "USB"
+
+msgid "Media server"
+msgstr "Media-server"
+
+msgid "Shared folder"
+msgstr "Delad mapp"
+
+msgid "All Movies"
+msgstr "Alla filmer"
+
+msgid "All Music"
+msgstr "All musik"
+
+msgid "Playlist"
+msgstr "Spellista"
+
+msgid "Artist"
+msgstr "Artist"
+
+msgid "Genre"
+msgstr "Genre"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Now Playing"
+msgstr "Nu spelas"
+
+msgid "All Photos"
+msgstr "Alla bilder"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Albums"
+msgstr "Album"
+
+msgid "Preview mode"
+msgstr "Förhandsgranskningsläge"
+
+msgid "List mode"
+msgstr "Listläge"
+
+msgid "Thumbnail mode"
+msgstr "Miniatyrläge"
+
+msgid "This folder is empty or unavailable."
+msgstr "Mappen är tom eller otillgänglig."
+
+msgid "Delete"
+msgstr "Ta bort"
+
+msgid "Create"
+msgstr "Skapa"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Rename"
+msgstr "Döp om"
+
+msgid "Clear"
+msgstr "Rensa"
+
+msgid "Move"
+msgstr "Flytta"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Create album"
+msgstr "Skapa album"
+
+msgid "Edit album"
+msgstr "Redigera album"
+
+msgid "Add to list"
+msgstr "Lägg till lista"
+
+msgid "Remove from list"
+msgstr "Ta bort från lista"
+
+msgid "Move focus"
+msgstr "Flytta fokus"
+
+
+msgid "No album exist. Create a new album?"
+msgstr "Inget album finns. Skapa ett nytt album?"
+
+msgid "Are you sure you want to delete the album?"
+msgstr "Vill du verkligen ta bort albumet?"
+
+msgid "Are you sure you want to clear the flies from the list?"
+msgstr "Vill du verkligen rensa filer från listan?"
+
+msgid "This folder is empty"
+msgstr "Mappen är tom"
+
+
+
+
+msgid "Wrong user name or password"
+msgstr "Fel användarnamn eller lösenord"
+
+msgid "This media server cannot be accessed"
+msgstr "Den här medieservern går inte att komma åt"
+
+msgid "No server found"
+msgstr "Ingen server hittades"
+
+msgid "Are you sure you want to delete the file?"
+msgstr "Vill du verkligen ta bort filen?"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Repeat one"
+msgstr "Upprepa en"
+
+msgid "Repeat all"
+msgstr "Upprepa alla"
+
+msgid "Repeat all and shuffle"
+msgstr "Upprepa alla och slumpvis"
+
+msgid "Shuffle"
+msgstr "Slumpvis"
+
+msgid "Pan"
+msgstr "Panorera"
+
+msgid "Rotate right"
+msgstr "Rotera höger"
+
+msgid "Rotate left"
+msgstr "Rotera vänster"
+
+msgid "Zoom in"
+msgstr "Zooma in"
+
+msgid "Zoom out"
+msgstr "Zooma ut"
+
+msgid "Repeat"
+msgstr "Upprepa"
+
+msgid "Info bar"
+msgstr "Infofält"
+
+msgid "Audio"
+msgstr "Ljud"
+
+msgid "Audio channel"
+msgstr "Ljudkanal"
+
+msgid "No audio channel"
+msgstr "Ingen ljudkanal"
+
+msgid "Subtitle"
+msgstr "Undertext"
+
+msgid "Subtitle off"
+msgstr "Undertext av"
+
+msgid "No subtitle"
+msgstr "Ingen undertext"
+
+msgid "Unsupported subtitle"
+msgstr "Undertext stöds ej"
+
+msgid "Please select [OK] to resume playback or [Cancel]  to restart the video"
+msgstr "Välj [OK] för att återuppta uppspelning eller [Avbryt] för att starta om videon"
+
+msgid "Unable to play the selected file. Please refer to the user manual on how to change the file to a supported format."
+msgstr "Kan inte spela upp vald fil. Se bruksanvisningen för information om filformat som stöds."
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your media player to an AV receiver that supports the audio codec."
+msgstr "Videofilen du försökte spela upp innehåller flera ljudkanalutgångar som inte stöds. Växla till digital ljudutgång och anslut din HD Media Player till en AV-mottagare som stöder audio codec."
+
+msgid "No chapter"
+msgstr "Inget kapitel"
+
+msgid "Unable to play this video menu. Would you like to play video file?"
+msgstr "Kunde inte spela den här videomenyn. Vill du spela upp videofil?"
+
+msgid "Would you like to resume play or restart from the beginning?"
+msgstr "Vill du återuppta uppspelning eller starta om från början?"
+
+msgid "Next Song:"
+msgstr "Nästa spår:"
+
+msgid "Current Song"
+msgstr "Aktuellt spår"
+
+msgid "File Type"
+msgstr "Filtyp"
+
+msgid "Duration:"
+msgstr "Längd:"
+
+msgid "File Size"
+msgstr "Filstorlek"
+
+
+
+
+msgid "This DivX rental has been used X out of Y views, continue to view the video?"
+msgstr "Den här DivX-hyrvideon har använts X av Y gånger, vill du fortsätta visa videon?"
+
+msgid "Your device is not authorized to play this DivX protected video."
+msgstr "Din enhet har inte behörighet för att spela upp den här DivX-skyddade videon."
+
+msgid "This DivX rental has been used Y out of Y views. This DivX rental has expired."
+msgstr "Den här DivX-hyrvideon har använts Y av Y gånger. Den här DivX-hyrvideon har gått ut."
+
+msgid "Unsupported DivX DRM version."
+msgstr "DivX DRM-versionen stöds ej."
+
+msgid "Video resolution is not supported."
+msgstr "Videoupplösningen stöds inte."
+
+msgid "Video frame rate is not supported."
+msgstr "Videoramhastigheten stöds inte."
+
+msgid "Audio format is not supported."
+msgstr "Ljudformatet stöds inte."
+
+msgid "Audio/Video"
+msgstr "Audio/Video"
+
+msgid "Playback"
+msgstr "Uppspelning"
+
+msgid "System"
+msgstr "System"
+
+msgid "Network"
+msgstr "Nätverk"
+
+msgid "Shut down"
+msgstr "Avstängning"
+
+msgid "Configure the device's audio and video output settings"
+msgstr "Konfigurera enhetens ljud- och videoutgångsinställningar"
+
+msgid "Configure playback settings"
+msgstr "Konfigurera uppspelningsinställningar"
+
+msgid "Configure basic settings of system"
+msgstr "Konfigurera grundinställningarna för system"
+
+msgid "Configure network settings"
+msgstr "Konfigurera nätverksinställningar"
+
+msgid "Video output"
+msgstr "Videoutgång"
+
+msgid "Configure video output of system"
+msgstr "Konfigurera videoutgång för system"
+
+msgid "Composite"
+msgstr "Komposit"
+
+msgid "Configure NTSC or PAL signal"
+msgstr "Konfigurera NTSC- eller PAL-signal"
+
+msgid "Component"
+msgstr "Komponent"
+
+msgid "Configure display resolution of Component"
+msgstr "Konfigurera skärmupplösning för komponent"
+
+msgid "Color space"
+msgstr "Färgområde"
+
+msgid "Configure color space of Component"
+msgstr "Konfigurera färgområde för komponent"
+
+msgid "YUV"
+msgstr "YUV"
+
+msgid "RGB"
+msgstr "RGB"
+
+msgid "HDMI"
+msgstr "HDMI"
+
+msgid "Configure display resolution of HDMI"
+msgstr "Konfigurera skärmupplösning för HDMI"
+
+msgid "Configure color space of HDMI"
+msgstr "Konfigurera färgområde för HDMI"
+
+msgid "RGB High"
+msgstr "RGB hög"
+
+msgid "RGB Low"
+msgstr "RGB låg"
+
+msgid "YCbCr"
+msgstr "YCbCr"
+
+msgid "Display resolution"
+msgstr "Skärmupplösning"
+
+msgid "480p 60Hz"
+msgstr ""
+
+msgid "576p 50Hz"
+msgstr ""
+
+msgid "720p 50Hz"
+msgstr ""
+
+msgid "720p 60Hz"
+msgstr ""
+
+msgid "1080i 50Hz"
+msgstr ""
+
+msgid "1080i 60Hz"
+msgstr ""
+
+msgid "1080p 23.976Hz"
+msgstr ""
+
+msgid "1080p 24Hz"
+msgstr ""
+
+msgid "1080p 50Hz"
+msgstr ""
+
+msgid "1080p 60Hz"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr "Bildförhållande"
+
+msgid "Configure screen format of system"
+msgstr "Konfigurera skärmformat för system"
+
+msgid "4:3"
+msgstr ""
+
+msgid "16:9"
+msgstr ""
+
+msgid "Audio output"
+msgstr "Ljudutgång"
+
+msgid "Configure audio output channel of system"
+msgstr "Konfigurera ljudutgångskanal för system"
+
+msgid "Stereo"
+msgstr "Stereo"
+
+msgid "Digital"
+msgstr "Digital"
+
+msgid "NTSC/PAL"
+msgstr "NTSC/PAL"
+
+msgid "NTSC"
+msgstr "NTSC"
+
+msgid "PAL"
+msgstr "PAL"
+
+msgid "Are you sure you want to change the video resolution?"
+msgstr "Vill du verkligen ändra videoupplösningen?"
+
+msgid "Are you sure you want to change the video output format?"
+msgstr "Vill du verkligen ändra videoutgångsformatet?"
+
+msgid "Subtitle mode"
+msgstr "Undertextläge"
+
+msgid "Turn on/off subtitle"
+msgstr "Sätt på/stäng av undertext"
+
+msgid "Subtitle font size"
+msgstr "Teckensnittsstorlek för undertext"
+
+msgid "Select subtitle font size"
+msgstr "Välj teckensnittsstorlek för undertext"
+
+msgid "Subtitle type"
+msgstr "Undertexttyp"
+
+msgid "Select the additional encoding"
+msgstr "Välj extra kodning"
+
+msgid "Western Europe (ISO)"
+msgstr "Västeuropa (ISO)"
+
+msgid "Central Europe (Windows-1250)"
+msgstr "Centraleuropa (Windows-1250)"
+
+msgid "Central Europe (ISO)"
+msgstr "Centraleuropa (ISO)"
+
+msgid "Traditional Chinese (Big5)"
+msgstr "Traditionell kinesiska (Big5)"
+
+msgid "Simplified Chinese (GB2312)"
+msgstr "Förenklad kinesiska (GB2312)"
+
+msgid "Japanese (Shift-JIS)"
+msgstr "Japanska (Shift-JIS)"
+
+msgid "Korean (EUC-KR)"
+msgstr "Koreanska (EUC-KR)"
+
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kyrilliska (Windows-1251)"
+
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kyrilliska (KOI8-R)"
+
+msgid "Greek (Windows-1253)"
+msgstr "Grekiska (Windows-1253)"
+
+msgid "Greek (ISO)"
+msgstr "Grekiska (ISO)"
+
+msgid "Arabic (Windows-1256)"
+msgstr "Arabic (Windows-1256)"
+
+msgid "Audio track display"
+msgstr "Skärm för ljudspår"
+
+msgid "Set the display mode while music playing"
+msgstr "Ange skärmläge under musikuppspelning"
+
+msgid "File name"
+msgstr "Filnamn"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Photo scaling"
+msgstr "Bildskalning"
+
+msgid "Configure the photo scaling mode"
+msgstr "Konfigurera bildskalningsläge"
+
+msgid "Keep as original"
+msgstr "Behåll som original"
+
+msgid "Fit to screen"
+msgstr "Anpassa till skärm"
+
+msgid "Display in full screen"
+msgstr "Visa i helskärm"
+
+msgid "Transition effect"
+msgstr "Övergångseffekt"
+
+msgid "Select the transition effect"
+msgstr "Välj övergångseffekt"
+
+
+
+
+msgid "Fade"
+msgstr "Tona ut"
+
+msgid "Wipe"
+msgstr "Torka"
+
+msgid "Zoom"
+msgstr "Zoom"
+
+msgid "Push"
+msgstr "Tryck"
+
+msgid "Replace"
+msgstr "Ersätt"
+
+msgid "Checker board"
+msgstr "Schackrutigt"
+
+msgid "Random"
+msgstr "Osorterad"
+
+msgid "Slideshow Interval"
+msgstr "Bildspelsintervall"
+
+msgid "Configure the interval of slideshow"
+msgstr "Konfigurera intervallet för bildspel"
+
+msgid "second"
+msgstr "sekund"
+
+msgid "seconds"
+msgstr "sekunder"
+
+msgid "3 Seconds"
+msgstr "3 sekunder"
+
+msgid "5 Seconds"
+msgstr "5 sekunder"
+
+msgid "10 Seconds"
+msgstr "10 sekunder"
+
+msgid "20 Seconds"
+msgstr "20 sekunder"
+
+msgid "30 Seconds"
+msgstr "30 sekunder"
+
+msgid "minute"
+msgstr "minut"
+
+msgid "minutes"
+msgstr "minuter"
+
+msgid "1 Minute"
+msgstr "1 minut"
+
+msgid "5 Minutes"
+msgstr "5 minuter"
+
+msgid "Browser display"
+msgstr "Webbläsardisplay"
+
+msgid "Set the display mode of media browser"
+msgstr "Ange visningsläge för mediawebbläsare"
+
+msgid "DivX DRM VOD"
+msgstr "DivX DRM VOD"
+
+msgid "Confiure DivX DRM VOD Settings"
+msgstr "Konfigurera DivX DRM VOD-inställningar"
+
+msgid "Register"
+msgstr "Registrera"
+
+msgid "Deregister"
+msgstr "Avregistrera"
+
+msgid "Activation"
+msgstr "Aktivering"
+
+msgid "Deactivation"
+msgstr "Avaktivering"
+
+msgid "Your device is already registered. Are you sure you want to deregister?"
+msgstr "Din enhet är redan registrerad. Vill du verkligen avregistrera den?"
+
+msgid "You must register your device to play DivX protected videos. "
+msgstr "Du måste registrera enheten för uppspelning av DivX-skyddade videor."
+
+msgid "Registration code:"
+msgstr "Registreringskod:"
+
+msgid "Register at http://vod.divx.com"
+msgstr "Registrera på adressen http://vod.divx.com"
+
+msgid "Deregistration code:"
+msgstr "Avregistreringskod:"
+
+msgid "Deregister at http://vod.divx.com"
+msgstr "Avregistrera på adressen http://vod.divx.com"
+
+msgid "Continue with registration?"
+msgstr "Fortsätt med registrering?"
+
+
+
+
+msgid "Turn on/off media server"
+msgstr "Sätt på/stäng av medieserver"
+
+
+
+
+msgid "Turn on/off shared folder"
+msgstr "Sätt på/stäng av delad mapp"
+
+msgid "Workgroup name"
+msgstr "Arbetsgruppnamn"
+
+msgid "Device name"
+msgstr "Enhetsnamn"
+
+msgid "BT"
+msgstr "BT"
+
+msgid "Auto login"
+msgstr "Autoinloggning"
+
+msgid "Turn on/off auto-login"
+msgstr "Sätt på/stäng av autoinloggning"
+
+msgid "Clear account information"
+msgstr "Rensa kontoinformation"
+
+msgid "Delete the preset password?"
+msgstr "Radera förinställt lösenord?"
+
+msgid "Manual SSID"
+msgstr "Manuell SSID"
+
+msgid "Connection setup"
+msgstr "Anslutningsinställningar"
+
+msgid "Wire"
+msgstr "Kabel"
+
+msgid "Wireless"
+msgstr "Trådlös"
+
+msgid "Network setup"
+msgstr "Nätverksinställningar"
+
+msgid "Wireless setup"
+msgstr "Trådlös inställning"
+
+msgid "Does not contain"
+msgstr "Innehåller inte"
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? “ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Produktnamnet får inte innehålla något av följande teckens \\ / : * ? â?? ; | med blanksteg. Det här namnet får inte vara mer än 15 tecken."
+
+msgid "The device name can not contain any of following "
+msgstr "Enhetsnamnet får inte innehålla något av följande "
+
+msgid "and blank characters. The device name can not over 15 characters."
+msgstr "och mellanslag. Enhetsnamnet får inte innehålla fler än 15 tecken."
+
+msgid "0 is not a valid entry, only numbers from 1 to 223 are allowed. Please check your IP address and enter it again."
+msgstr "0 är inte en giltig post, endast nummer från 1 till 223 tillåts. Kontrollera din IP-adress och mata in igen."
+
+msgid "Only numbers from 0 to 255 are allowed. Please check your IP address and enter it again."
+msgstr "Endast nummer från 0 till 255 tillåts. Kontrollera din IP-adress och mata in den igen."
+
+msgid "Cannot find access point."
+msgstr "Kan inte hitta åtkomstpunkt."
+
+msgid "The AP is not exist. Please check again."
+msgstr "AP finns inte. Kontrollera igen."
+
+msgid "Invalid encryption key. Please try again."
+msgstr "Ogiltig krypteringsnyckel. Försök igen."
+
+msgid "BitTorrent"
+msgstr "BitTorrent"
+
+msgid "Turn on/off BitTorrent"
+msgstr "Sätt på/stäng av BitTorrent"
+
+msgid "Connection mode"
+msgstr "Anslutningsläge"
+
+msgid "Connection type"
+msgstr "Anslutningstyp"
+
+msgid "WPS setup"
+msgstr "WPS-inställningar"
+
+msgid "Please press 'WPS' button in the AP before press 'Connect' button."
+msgstr "Tryck på knappen \"WPS\" i AP innan du trycker på knappen \"Anslut\"."
+
+msgid "Auto search"
+msgstr "Autosökning"
+
+msgid "Site survey"
+msgstr "Platsundersökning"
+
+msgid "Detecting Wireless Access Point"
+msgstr "Detekterar trådlös åtkomstpunkt"
+
+msgid "MAC address"
+msgstr "MAC-adress"
+
+msgid "Please waiting..."
+msgstr "Väntar..."
+
+msgid "Connect Successfully!"
+msgstr "Ansluten!"
+
+msgid "Do you want replace this profile?"
+msgstr "Vill du ersätta den här profilen?"
+
+msgid "Network is disconnected."
+msgstr "Nätverket är urkopplat."
+
+msgid "Can not detect wireless module."
+msgstr "Kan inte detektera trådlös modul."
+
+msgid "The profile space is full!"
+msgstr "Profilområdet är fullt!"
+
+msgid "Access point detecting..."
+msgstr "Öppnar punktdetektering..."
+
+msgid "The network encryption key is not valid."
+msgstr "Nätverkets krypteringsnyckel är inte giltig."
+
+
+
+
+msgid "SSID should not be empty!"
+msgstr "SSID ska inte vara tom!"
+
+msgid "No security"
+msgstr "Ingen säkerhet"
+
+msgid "Setup Complete. Would you like to save this network connection?"
+msgstr "Installation klar. Vill du spara den här nätverksanslutningen?"
+
+msgid "The SSID is empty."
+msgstr "SSID är tomt."
+
+msgid "Can not set this profile to favorite."
+msgstr "Kan inte ange den här profilen som favorit."
+
+msgid "Access point can not be found"
+msgstr "Åtkomstpunkten hittas inte"
+
+
+
+
+msgid "Access point cannot be found"
+msgstr "Åtkomstpunkt kan inte hittas"
+
+msgid "Please enter your encryption key"
+msgstr "Ange krypteringsnyckel"
+
+msgid "The device could not connect to the network."
+msgstr "Enheten kan inte ansluta till nätverket."
+
+msgid "Server disconnect. Please check your network configuation."
+msgstr "Serverfrånkoppling. Kontrollera nätverkskonfigurationen."
+
+msgid "Wireless favorites"
+msgstr "Trådlösa favoriter"
+
+msgid "Connect now"
+msgstr "Anslut nu"
+
+msgid "Favorite"
+msgstr "Favorit"
+
+
+msgid "Encryption key"
+msgstr "Krypteringsnyckel"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Select a display language"
+msgstr "Välj ett skärmspråk"
+
+msgid "English"
+msgstr "Engelska"
+
+msgid "French"
+msgstr "Franska"
+
+msgid "German"
+msgstr "Tyska"
+
+msgid "Italian"
+msgstr "Italienska"
+
+msgid "Spanish"
+msgstr "Spanska"
+
+msgid "Portuguese"
+msgstr "Portugisiska"
+
+msgid "Dutch"
+msgstr "Holländska"
+
+msgid "Greek"
+msgstr "Grekiska"
+
+msgid "Polish"
+msgstr "Polska"
+
+msgid "Russian"
+msgstr "Ryska"
+
+msgid "Swedish"
+msgstr "Svenska"
+
+msgid "Japanese"
+msgstr "Japanska"
+
+msgid "Simplified Chinese"
+msgstr "Förenklad kinesiska"
+
+msgid "Traditional Chinese"
+msgstr "Traditionell kinesiska"
+
+msgid "Korean"
+msgstr "Koreanska"
+
+msgid "Finnish"
+msgstr "Finska"
+
+msgid "Brazilian (Portuguese)"
+msgstr "Portugisiska (Brasilien)"
+
+msgid "Hebrew"
+msgstr "Hebreiska"
+
+msgid "Arabic"
+msgstr "Arabiska"
+
+msgid "Czech"
+msgstr "Tjeckiska"
+
+msgid "Turkish"
+msgstr "Turkiska"
+
+msgid "Danish"
+msgstr "Danska"
+
+msgid "Norwegian"
+msgstr "Norska"
+
+msgid "Media library"
+msgstr "Mediebibliotek"
+
+msgid "Turn on/off media library"
+msgstr "Sätt på/stäng av mediebibliotek"
+
+msgid "Screensaver delay"
+msgstr "Skärmsläckarfördröjning"
+
+msgid "Configure screensaver delay time"
+msgstr "Konfigurera fördröjningstid för skärmsläckare"
+
+msgid "Never"
+msgstr "Aldrig"
+
+
+
+
+msgid "10 Minutes"
+msgstr "10 minuter"
+
+msgid "15 Minutes"
+msgstr "15 minuter"
+
+msgid "Quick start mode"
+msgstr "Snabbstartläge"
+
+msgid "System reset"
+msgstr "Systemåterställning"
+
+msgid "Are you sure you want to restore this device to factory settings?"
+msgstr "Vill du verkligen återställa den här enheten till fabriksinställningar?"
+
+msgid "About"
+msgstr "Om"
+
+
+
+msgid "For additional information regarding your HD Media Player, please refer to the user manual or visit"
+msgstr "För mer information om din HD Media Player, se bruksanvisningen eller besök"
+
+msgid "Restart"
+msgstr "Starta om"
+
+msgid "Rebooting"
+msgstr "Startar om"
+
+msgid "Update device"
+msgstr "Uppdatera enhet"
+
+msgid "New firmware"
+msgstr "Ny firmware"
+
+msgid "New firmware found"
+msgstr "Ny firmware hittades"
+
+msgid "version"
+msgstr "version"
+
+msgid "Firmware Version"
+msgstr "Firmwareversion"
+
+msgid "Current version"
+msgstr "Aktuell version"
+
+msgid "New version"
+msgstr "Ny version"
+
+msgid "New firmware found. Do you want to upgrade?"
+msgstr "Ny firmware hittades. Vill du uppgradera?"
+
+msgid "Invalid firmware"
+msgstr "Ogiltig firmware"
+
+msgid "Check latest firmware and upgrade device."
+msgstr "Kontrollera senaste firmware och uppgradera enhet."
+
+msgid "Checking for recent updates"
+msgstr "Kontrollerar senaste uppdateringarna"
+
+msgid "Searching for updates..."
+msgstr "Söker efter uppdateringar..."
+
+msgid "The device could not download updates, please check your network connection."
+msgstr "Enheten kunde inte hämta uppdateringar, kontrollera nätverksanslutningen."
+
+msgid "Your device is up to date."
+msgstr "Din enhet är uppdaterad."
+
+msgid "Your Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Din mediespelare uppgraderas. Koppla INTE UR strömmen eller den inkopplade lagringsenheten."
+
+msgid "Upgrade complete. The media player will now restart."
+msgstr "Uppgradering klar. Mediaspelaren startar nu om."
+
+msgid "Insert a USB drive with firmware to recover your Media player."
+msgstr "Mata in en USb-enhet med firmware för att återställa din mediespelare."
+
+msgid "Firmware upgrade failed. The device will restart."
+msgstr "Firmware-uppgraderingen misslyckades. Enheten startar om."
+
+msgid "Firmware upgrade failed. Please check your network connection and try again."
+msgstr "Firmware-uppgraderingen misslyckades. Kontrollera nätverksanslutningen och försök igen."
+
+msgid "OK"
+msgstr "OK"
+
+
+
+
+
+
+msgid "On"
+msgstr "På"
+
+msgid "Off"
+msgstr "Av"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Manual"
+msgstr "Manuell"
+
+msgid "Search"
+msgstr "Sök"
+
+
+msgid "Error"
+msgstr "Fel"
+
+msgid "Retry"
+msgstr "Försök igen"
+
+msgid "Copy"
+msgstr "Kopiera"
+
+msgid "Go Back"
+msgstr "Gå bakåt"
+
+msgid "Help"
+msgstr "Hjälp"
+
+msgid "Exit"
+msgstr "Avsluta"
+
+msgid "Unknown"
+msgstr "Okänd"
+
+
+msgid "Play"
+msgstr "Spela"
+
+msgid "Pause"
+msgstr "Paus"
+
+msgid "Stop"
+msgstr "Stopp"
+
+msgid "Eject"
+msgstr "Mata ut"
+
+msgid "Empty"
+msgstr "Tom"
+
+msgid "Standby mode"
+msgstr "Standby-läge"
+
+msgid "Loading data"
+msgstr "Läser in data"
+
+msgid "All"
+msgstr "Alla"
+
+msgid "Contains"
+msgstr "Innehåller"
+
+msgid "Starts with"
+msgstr "Börjar med"
+
+msgid "Unsupported"
+msgstr "Stöds ej"
+
+msgid "Space"
+msgstr "Mellanrum"
+
+msgid "Equal to"
+msgstr "Lika med"
+
+msgid "Not Equal to"
+msgstr "Ej lika med"
+
+msgid "Untitled volume"
+msgstr "Volym utan titel"
+
+msgid "Additional encoding support"
+msgstr "Ytterligare kodningsstöd"
+
+msgid "Subtitle default"
+msgstr "Standard för undertext"
+
+msgid "Subtitle border"
+msgstr "Undertextkant"
+
+msgid "Thick"
+msgstr "Tjock"
+
+msgid "Thin"
+msgstr "Tunn"
+
+msgid "Account"
+msgstr "Konto"
+
+msgid "anonymous"
+msgstr "anonym"
+
+msgid "Connecting"
+msgstr "Ansluter"
+
+
+
+
+msgid "Please select the device you would like to eject."
+msgstr "Välj den enhet du vill mata ut."
+
+msgid "Are you sure you want to remove this device?"
+msgstr "Vill du verkligen ta bort den här enheten?"
+
+msgid "Warning: please eject your USB storage device safely before removing it."
+msgstr "Varning: mata ut USB-lagringsenhet på ett säkert sätt före borttagning."
+
+msgid "The device is busy. Please try later."
+msgstr "Enheten är upptagen. Försök senare."
+
+
+
+msgid "Please wait while your storage unit is being ejected..."
+msgstr "Vänta medan lagringsenheten matas ut..."
+
+msgid "No storage present"
+msgstr "Ingen lagringsplats finns"
+
+msgid "Media library compilation requires more storage space:"
+msgstr "Mediebibliotekskompilering kräver mer lagringsplats:"
+
+msgid "Scanning the attached storage. The first time scanning may take longer. Please wait..."
+msgstr "Skannar bifogad lagring. Första gången kan skanningen ta längre tid. Vänta..."
+
+msgid "Unable to recognize attached device at USB port"
+msgstr "Kunde inte identifiera bifogad enhet i USB-porten"
+
+msgid "Storage can not aggregate"
+msgstr "Lagringsplats kan inte beräknas"
+
+msgid "Media library does not support journaled file system. Playback is still supported."
+msgstr "Mediebiblioteket stöder inte journalfilsystem. Uppspelning stöds fortfarande."
+
+msgid "Unable to create media library on read only storage."
+msgstr "Kan inte skapa mediebibliotek baserat på skrivskyddad lagring."
+
+msgid "Unable to create media library. Please check your storage setting."
+msgstr "Kan inte skapa mediebibliotek. Kontrollera lagringsinställningarna."
+
+msgid "Unrecognized USB device"
+msgstr "USB-enhet oidentifierbar"
+
+msgid "Scanning the attached USB device..."
+msgstr "Skannar bifogad USB-enhet..."
+
+msgid "Under digital audio output setting, an AV receiver with proper audio format support is required in order to play audio track with surround sound."
+msgstr "Under digital ljudutgångsinställninge krävs en AV-mottagare med stöd för lämpligt ljudformat för att kunna spela upp ljudspår med surroundljud."
+
+msgid "Please DO NOT remove AC power or any storage disk."
+msgstr "Koppla INTE FRÅN AC-strömmen eller någon lagringsdisk."
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT turn off the device, remove the power supply, or unplug any attached storage."
+msgstr "Din HD Media Player uppgraderas. STÄNG INTE AV enheten, eller koppla från strömkällan eller koppla ur lagringsenheten."
+
+msgid "Upgrade complete!"
+msgstr "Uppgradering klar!"
+
+msgid "Updates were installed successfully. The device is now restarting..."
+msgstr "Uppdateringarna installerades. Enheten startar nu om..."
+
+msgid "Unable to recognize attached device at USB port."
+msgstr "Kunde inte identifiera ansluten enhet vid USB-porten."
+
+msgid "Device is shutting down..."
+msgstr "Enheten stänger ned..."
+
+msgid "Local device is disconnected."
+msgstr "Lokal enhet är frånkopplad."
+
+msgid "Do you really want to restart device?"
+msgstr "Vill du verkligen starta om enheten?"
+
+msgid "Action cancelled"
+msgstr "Åtgärden avbröts"
+
+msgid "A fatal system error has occurred. The device will restart..."
+msgstr "Ett allvarligt systemfel har inträffat. Enheten startar om."
+
+msgid "To restart device, press the power button of your remote."
+msgstr "För att starta om enheten trycker du på strömknappen på fjärrkontrollen."
+
+
+
+
+msgid "Search completed. No results found."
+msgstr "Sökning slutförd. Inga resultat hittades."
+
+msgid "Press [Option] key for multi-lingual input"
+msgstr "Tryck på knappen [Option] för flerspråkig inmatning"
+
+msgid "BlockBuster"
+msgstr "BlockBuster"
+
+msgid "Flickr"
+msgstr "Flickr"
+
+msgid "Live365"
+msgstr "Live365"
+
+msgid "Mediafly"
+msgstr "Mediafly"
+
+msgid "Netflix"
+msgstr "Netflix"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+
+
+msgid "Explore Flickr"
+msgstr "Upptäck Flickr"
+
+msgid "My recent"
+msgstr "Mina senaste"
+
+msgid "Last 7 days interesting"
+msgstr "Senaste intressanta 7 dagarna"
+
+msgid "Most recent uploads"
+msgstr "Senaste överföringarna"
+
+msgid "Hot tags"
+msgstr "Heta taggar"
+
+msgid "Contacts"
+msgstr "Kontakter"
+
+msgid "Photostream"
+msgstr "Fotoström"
+
+msgid "Tags"
+msgstr "Taggar"
+
+msgid "Delete one"
+msgstr "Radera en"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Keyword"
+msgstr "Nyckelord"
+
+msgid "Flickr members"
+msgstr "Flickr-medlemmar"
+
+msgid "Are you sure you want to delete this item?"
+msgstr "Vill du verkligen radera det här alternativet?"
+
+msgid "Are you sure you want to delete all items?"
+msgstr "Vill du verkligen radera alla alternativ?"
+
+msgid "This member has been added to your contact list."
+msgstr "Medlemmen har lagts till kontaktlistan."
+
+msgid "This member has been add to your contact list."
+msgstr "Den här medlemmen har lagts till kontaktlistan."
+
+msgid "Could not find any tag list."
+msgstr "Kunde inte hitta någon tagglista."
+
+msgid "Could not find any contact list."
+msgstr "Kunde inte hitta någon kontaktlista."
+
+msgid "There is no friend available."
+msgstr "Det finns ingen vän tillgänglig."
+
+msgid "A friend cannot be found."
+msgstr "En vän kan inte hittas."
+
+msgid "There is no content available."
+msgstr "Det finns inget innehåll tillgängligt."
+
+
+
+
+
+
+
+
+
+
+
+msgid "Search completed. No result found."
+msgstr "Sökning slutförd. Inga resultat hittades."
+
+msgid "Now playing:"
+msgstr "Nu spelas"
+
+msgid "Last station:"
+msgstr "Senaste station:"
+
+msgid "My presets"
+msgstr "Mina förinställningar"
+
+msgid "Stations"
+msgstr "Stationer"
+
+msgid "Preferences"
+msgstr "Inställningar"
+
+msgid "Sign in / Sign out"
+msgstr "Logga in/logga ut"
+
+msgid "About Live365"
+msgstr "Om Live365"
+
+msgid "Remove station"
+msgstr "Ta bort station"
+
+msgid "Add to my presets"
+msgstr "Lägg till mina förinställningar"
+
+msgid "Free stations"
+msgstr "Fria stationer"
+
+msgid "VIP stations"
+msgstr "VIP-stationer"
+
+msgid "Recommendations"
+msgstr "Rekommendationer"
+
+msgid "Thumbs up"
+msgstr "Miniatyrer upp"
+
+msgid "Thumbs down"
+msgstr "Minatyrer ned"
+
+
+
+
+msgid "Email track"
+msgstr "E-postsökning"
+
+msgid "Audio quality"
+msgstr "Ljudkvalitet"
+
+msgid "Sort"
+msgstr "Sortera"
+
+msgid "All stations"
+msgstr "Alla stationer"
+
+msgid "Only high"
+msgstr "Endast hög"
+
+msgid "Medium to high"
+msgstr "Medium till hög"
+
+msgid "Low to medium"
+msgstr "Låg till medium"
+
+msgid "Only low"
+msgstr "Endast låg"
+
+msgid "Sort stations alphabetically"
+msgstr "Sortera stationerna i bokstavsordning"
+
+msgid "Sort stations by popularity"
+msgstr "Sortera stationerna efter popularitet"
+
+msgid "Sign in"
+msgstr "Logga in"
+
+msgid "Don't have an account?"
+msgstr "Saknar du konto?"
+
+msgid "Invalid username and password, please try again."
+msgstr "Ogiltigt användarnamn och lösenord, försök igen."
+
+msgid "Save the account information?"
+msgstr "Spara kontoinformation?"
+
+msgid "Save username only"
+msgstr "Spara bara användarnamn"
+
+msgid "Are you sure to sign out?"
+msgstr "Vill du verkligen logga ut?"
+
+msgid "The station is removed from your presets."
+msgstr "Stationen tas bort från förinställningarna."
+
+msgid "The station is added to your presets."
+msgstr "Stationen läggs till dina förinställningar."
+
+msgid "You should login to use this feature. Login now?"
+msgstr "Du ska logga in för att använda den här funktionen. Logga in nu?"
+
+msgid "Thank you for rating this track. Glad you like it."
+msgstr "Tack för att du bedömde det här spåret. Roligt att du tyckte om det."
+
+msgid "Thank you for rating this track. Sorry it's not your taste."
+msgstr "Tack för att du bedömde det här spåret. Tråkigt att du inte tyckte om det."
+
+msgid "Track info has been sent. Please check your email."
+msgstr "Spårinfon har skickats. Kontrollera e-posten."
+
+msgid "If you don't have a Live365 account, please visit http://www.live365.com to get start with your membership or become a VIP."
+msgstr "Om du inte har ett Live365-konto, besök sidan http://www.live365.com för att komma igång med ditt medlemskap eller bli VIP-användare."
+
+
+msgid "Video"
+msgstr "Video"
+
+
+
+
+msgid "Preference"
+msgstr "Inställningar"
+
+msgid "Most favorites"
+msgstr "De flesta favoriter"
+
+msgid "Most viewed"
+msgstr "Mest visade"
+
+msgid "Most popular"
+msgstr "Populäraste"
+
+msgid "Top rated"
+msgstr "Högst klassificerade"
+
+msgid "Most recent"
+msgstr "Senaste"
+
+msgid "My videos"
+msgstr "Mina videor"
+
+msgid "Favorites"
+msgstr "Favoriter"
+
+
+
+
+msgid "Today"
+msgstr "Idag"
+
+msgid "This week"
+msgstr "Den här veckan"
+
+msgid "This month"
+msgstr "Den här månaden"
+
+msgid "All time"
+msgstr "Alltid"
+
+msgid "Rate video"
+msgstr "Bedöm video"
+
+msgid "Related"
+msgstr "Relaterat"
+
+msgid "Full screen"
+msgstr "Helskärm"
+
+msgid "Info"
+msgstr "Info"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sign out"
+msgstr "Logga ut"
+
+msgid "Delete account"
+msgstr "Ta bort konto"
+
+
+
+
+
+
+
+msgid "Username"
+msgstr "Användarnamn"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Current location"
+msgstr "Aktuell plats"
+
+msgid "Worldwide"
+msgstr "Internationellt"
+
+msgid "Germany"
+msgstr "Tyskland"
+
+msgid "France"
+msgstr "Frankrike"
+
+msgid "Spain"
+msgstr "Spanien"
+
+msgid "Italy"
+msgstr "Italien"
+
+msgid "Taiwan"
+msgstr "Taiwan"
+
+msgid "South Korea"
+msgstr "Sydkorea"
+
+
+
+msgid "Russia"
+msgstr "Ryssland"
+
+msgid "Video playback quality"
+msgstr "Videouppspelningskvalitet"
+
+
+
+
+
+
+
+msgid "This video is currently unavailable."
+msgstr "Videon är inte tillgänglig."
+
+
+
+
+
+msgid "Thanks for rating."
+msgstr "Tack för bedömningen."
+
+msgid "The video has been added to your favorites."
+msgstr "Videon har lagts till dina favoriter."
+
+msgid "Are you sure that you want to delete the account?"
+msgstr "Vill du verkligen ta bort kontot?"
+
+msgid "Are you sure that you want to delete all accounts?"
+msgstr "Vill du verkligen ta bort alla konton?"
+
+msgid "Login fail."
+msgstr "Inloggning misslyckades."
+
+
+
+
+msgid "No content available."
+msgstr "Inget innehåll tillgängligt."
+
+
+
+
+msgid "Add/Remove media plug-ins"
+msgstr "Lägg till/ta bort medie-plug-in"
+
+msgid "Manage users"
+msgstr "Hantera användare"
+
+msgid "All (Mix)"
+msgstr "Alla (mix)"
+
+msgid "Business & Finance"
+msgstr "Affärer och finans"
+
+msgid "Cars"
+msgstr "Bilar"
+
+msgid "Comedy"
+msgstr "Komedi"
+
+msgid "Cocking $ drinks"
+msgstr "Matlagning $ drinkar"
+
+msgid "Education"
+msgstr "Utbildning"
+
+msgid "Fashion & luxury"
+msgstr "Mode och lyx"
+
+msgid "Health & fitness"
+msgstr "Hälsa och fitness"
+
+msgid "Kids & cartoons"
+msgstr "Barn & tecknat"
+
+msgid "Learn a languages"
+msgstr "Språkkurser"
+
+
+
+
+msgid "News & politics"
+msgstr "Nyheter och politik"
+
+msgid "Parenting"
+msgstr "Förälder"
+
+msgid "Relationships"
+msgstr "Relationer"
+
+msgid "Science & nature"
+msgstr "Vetenskap och naturprogram"
+
+msgid "Showbiz news"
+msgstr "Underhållning"
+
+msgid "Society & culture"
+msgstr "Samhälle och kultur"
+
+msgid "Sports"
+msgstr "Idrott"
+
+msgid "Technology"
+msgstr "Teknik"
+
+msgid "Travel"
+msgstr "Resor"
+
+msgid "Video games"
+msgstr "TV-spel"
+
+msgid "General"
+msgstr "Allmänt"
+
+msgid "Dashboard"
+msgstr "Anslagstavla"
+
+msgid "Now playing"
+msgstr "Nu spelas"
+
+msgid "Both"
+msgstr "Båda"
+
+
+
+
+
+
+
+msgid "Add to my channels"
+msgstr "Lägg till mina kanaler"
+
+msgid "Remove from my channels"
+msgstr "Ta bort från mina kanaler"
+
+msgid "Rate/Favorite"
+msgstr "Klass/favorit"
+
+msgid "Episodes"
+msgstr "Episoder"
+
+
+
+msgid "My rating"
+msgstr "Min klassificering"
+
+msgid "My favorite"
+msgstr "Min favorit"
+
+
+
+
+msgid "Add media plug-in to dashboard"
+msgstr "Lägg till medie-plug-in till anslagstavla"
+
+msgid "Add media plug-ins manually (via mCode)"
+msgstr "Lägg till medie-plug-in- manuellt (via mCode)"
+
+msgid "Remove media plug-in from dashboard"
+msgstr "Ta bort medie-plug-in från anslagstavla"
+
+msgid "Shows + Episodes"
+msgstr "Program + episoder"
+
+msgid "Shows"
+msgstr "Program"
+
+
+
+
+
+
+
+msgid "Link"
+msgstr "Länk"
+
+msgid "Login"
+msgstr "Inloggning"
+
+msgid "To setup your personalized channels you need to link your player with Mediafly account."
+msgstr "För att installera dina personliga kanaler behöver du länka spelaren till Mediafly-kontot."
+
+msgid "Mediafly accounts are completely free and allow you centralized control and management of your favorite free online content."
+msgstr "Mediafly-konton är helt fria och gör det möjligt för dig att tillåta centraliserad kontroll och hantering av ditt favoritfria online-innehåll."
+
+msgid "Option 1: Open web browser from your computer and navigate to:"
+msgstr "Alternativ 1: Öppna webbläsaren från datorn och gå till:"
+
+msgid "and enter this association code:"
+msgstr "och ange den här associationskoden:"
+
+msgid "Option 2: Login with your Mediafly username and password."
+msgstr "Alternativ 2: Logga in med ditt användarnamn och lösenord för Mediafly."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "All Video"
+msgstr "Alla videor"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Interval time"
+msgstr "Intervalltid"
+
+
+
+
+
+
+
+
+
+
+msgid "Widescreen"
+msgstr "Bredbildsskärm"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "3 Minutes"
+msgstr "3 minuter"
+
+
+
+
+
+
+
+
+
+
+msgid "20 Minutes"
+msgstr "20 minuter"
+
+msgid "30 Minutes"
+msgstr "30 minuter"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Iomega HD Media Player"
+msgstr "Iomega HD Media Player"
+
+
+
+
+
+
+
+
+
+
+msgid "Do you want to upgrade?"
+msgstr "Vill du uppgradera?"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The video file you attempted to play contains multiple audio channel outputs which is not supported. Please switch to digital audio output and connect your HD Media Player to an AV receiver that supports the audio codec."
+msgstr "Videofilen du försökte spela upp innehåller flera ljudkanalutgångar som inte stöds. Växla till digital ljudutgång och anslut din HD Media Player till en AV-mottagare som stöder audio codec."
+
+
+
+
+msgid "Audio Channel"
+msgstr "Ljudkanal"
+
+
+
+
+msgid "Firmware upgrade"
+msgstr "Firmwareuppgradering"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Video sequence"
+msgstr "Videosekvens"
+
+msgid "Music sequence"
+msgstr "Musiksekvens"
+
+msgid "Slideshow sequence"
+msgstr "Bildspelssekvens"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Wipe right"
+msgstr "Torka höger"
+
+msgid "Wipe left"
+msgstr "Torka vänster"
+
+msgid "Your HD Media Player is being upgraded. Please DO NOT disconnect power or the attached storage."
+msgstr "Din HD Media Player uppgraderas. Koppla INTE UR strömmen eller inkopplad lagringsplats."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? â?? ; | with blank characters. This name cannot be over 15 characters. "
+msgstr "Produktnamnet får inte innehålla något av följande teckens \\ / : * ? â?? ; | med blanksteg. Det här namnet får inte vara mer än 15 tecken. "
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Western Europe"
+msgstr "Västeuropa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "You have successfully set up your device for your home network."
+msgstr "Du har installerat enheten för hemmanätverket."
+
+
+
+
+
+
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "HDD"
+msgstr "HDD"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Shutdown"
+msgstr "Avstängning"
+
+msgid "HDMI settings"
+msgstr "HDMI-inställningar"
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Scale with distortion"
+msgstr "Skala med förvridning"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "The product name cannot contain any of the following characters \\ / : * ? ¡§ ; | with blank characters. This name cannot be over 15 characters."
+msgstr "Produktnamnet får inte innehålla något av följande tecken \\ / : * ? ¡§ ; | och inte heller blanksteg. Namnet får inte innehålla fler än 15 tecken."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Content aggregation"
+msgstr "Innehållssammanställning"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "My contacts"
+msgstr "Mina kontakter"
+
+msgid "My tags"
+msgstr "Mina taggar"
+
+msgid "Owner profile"
+msgstr "Ägarprofil"
+
+msgid "Play mode"
+msgstr "Spelläge"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Sorting"
+msgstr "Sorterar"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "BACK"
+msgstr "Tillbaka"
+
+
+
+
+
+
+msgid "ON"
+msgstr "På"
+
+msgid "OFF"
+msgstr "Av"
+
+msgid "NEXT"
+msgstr "Nästa"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+msgid "Folder"
+msgstr "Mapp"
+
+msgid "Album browser"
+msgstr "Albumutforskare"
+
+msgid "Add photo to album"
+msgstr "Lägg till foto till album"
+
+msgid "Select | Unselect item(s)"
+msgstr "Markera | Avmarkera"
+
+msgid "Select album"
+msgstr "Välj album"
+
+msgid "Processing"
+msgstr "Bearbetar"
+
+msgid "Select all"
+msgstr "Markera allt"
+
+msgid "Unselect all"
+msgstr "Avmarkera allt"
+
+msgid "Album name"
+msgstr "Albumnamn"
+
+msgid "Completed"
+msgstr "Slutfört"
+
+msgid "Do you want to add xxxx photo(s) to album?"
+msgstr "Vill du lägga till xxxx bild(er) till album?"
+
+msgid "Are you sure you want to stop adding the file(s)?"
+msgstr "Är du säker på att du vill sluta lägga till fil(er)?"
+
+msgid "Selected album has deleted."
+msgstr "Det valda albumet har raderats."
+
+msgid "Selected photo has been removed from the album."
+msgstr "Det valda fotot har tagits bort från albumet."
+
+msgid "The album has been renamed."
+msgstr "Albumet har döpts om."
+
+msgid "Are you sure to you want to remove selected photos from the album?"
+msgstr "Vill du verkligen ta bort valda bilder från albumet?"
+
+msgid "Are you sure you want to delete the selected album?\nThe photos won't be deleted from storage."
+msgstr "Vill du verkligen ta bort det valda albumet?\nBilderna raderas inte från lagringsplatsen."
+
+msgid "The album name is duplicated. Please try another name."
+msgstr "Albumnamnet har kopierats. Prova ett annat namn."
+
+msgid "Are you sure you want to rename the album?"
+msgstr "Vill du döpa om albumet?"
+
+msgid "Error while writing. Please check local storage. It may be full or read-only."
+msgstr "Fel vid skrivning. Kontrollera lokal lagringsplats. Den kan vara full eller skrivskyddad."
+
+msgid "Error while reading source file, please check your local storage."
+msgstr "Fel vid läsning av källfil, kontrollera lokal lagringsplats."
+
+msgid "File management"
+msgstr "Filhantering"
+
+
+
+msgid "Select source"
+msgstr "Välj källa"
+
+msgid "File(s)"
+msgstr "Fil(er)"
+
+msgid "Folder(s)"
+msgstr "Mapp(ar)"
+
+msgid "Yes to all"
+msgstr "Ja till alla"
+
+msgid "No to all"
+msgstr "Nej till alla"
+
+msgid "Copy, move or delete item(s)"
+msgstr "Kopiera, flytta eller ta bort alternativ"
+
+msgid "Remove photo"
+msgstr "Ta bort foto"
+
+msgid "Rename or delete album"
+msgstr "Döp om eller ta bort album"
+
+msgid "No storage found. Please insert storage and refresh again."
+msgstr "Ingen lagringsenhet hittades. För in lagringsenheten och uppdatera igen."
+
+msgid "Would you like to overwrite it?"
+msgstr "Vill du skriva över det?"
+
+msgid "Do you want to copy the selected files?"
+msgstr "Vill du kopiera valda filer?"
+
+msgid "Do you want to move the selected files?"
+msgstr "Vill du flytta valda filer?"
+
+
+
+msgid "Chapter"
+msgstr "Kapitel"
+
+msgid "Title and Edition"
+msgstr "Titel och utgåva"
+
+msgid "Menu"
+msgstr "Meny"
+
+msgid "Operation not supported"
+msgstr "Åtgärden stöds inte"
+
+msgid "File Date"
+msgstr "Fildatum"
+
+msgid "Resolution"
+msgstr "Upplösning"
+
+msgid "Turkish (Windows-1254)"
+msgstr "Turkiska (Windows-1254)"
+
+msgid "Hebrew (ISO-8859-8)"
+msgstr "Hebreiska (ISO-8859-8)"
+
+msgid "Submit"
+msgstr "Sänd"
+
+msgid "Check network status"
+msgstr "Kontrollera nätverksstatus"
+
+msgid "Key type error!\n If your key type is hex, please check key value is A~F, 0~9."
+msgstr "Nyckeltypsfel!\n Om nyckeltypen är hextyp ska du kontrollera om värdet är A~F, 0~9."
+
+msgid "Key length error!\n If your key type is ASCII, the length should be 5, 13, or 16.\nIf your key type if Hex, the length should be 10, 26 or 32."
+msgstr "Nyckellängdsfel!\n Om nyckeltypen är ASCII, ska längden vara 5, 13 eller 16.\nOm nyckeltypen är hextyp ska längden vara 10, 26 eller 32."
+
+msgid "Key length error!\n The length of WPAPSK should be 8~64!"
+msgstr "Nyckellängdsfel!\n Längden på WPAPSK ska vara 8~64!"
+
+msgid "Key type error!\n The WPAPSK key with length 64 must be hex(A~F, 0~9)."
+msgstr "Nyckeltypsfel!\n Nyckeln för WPAPSK med längden 64 måste vara av hextyp (A~F, 0~9)."
+
+msgid "IP address is invalid. Please verify your IP address and try again."
+msgstr "IP-adressen är ogiltig. Kontrollera IP-adressen och försök igen."
+
+
+
+
+
+
+
+msgid "E-mail address is invalid, please verify your e-mail address and try it again."
+msgstr "E-postadressen är ogiltig. Kontrollera e-postadressen och försök igen."
+
+msgid "Invalid character(s) in first name."
+msgstr "Ogiltiga tecken i förnamnet."
+
+msgid "Invalid character(s) in last name."
+msgstr "Ogiltiga tecken i efternamnet."
+
+
+
+msgid "Hungarian"
+msgstr "Ungerska"
+
+msgid "Serial number:"
+msgstr "Serienummer:"
+
+msgid "To restart, press the power button on your remote."
+msgstr "Tryck bara på strömknappen på fjärrkontrollen för att starta om."
+
+msgid "Creator"
+msgstr "Creator"
+
+msgid "Web browser"
+msgstr "Webbläsare"
+
+msgid "Add to contacts"
+msgstr "Lägg till kontakter"
+
+msgid "Recently upload"
+msgstr "Nyligen överförd"
+
+msgid "Photo set"
+msgstr "Fotoenhet"
+
+msgid "Friends"
+msgstr "Vänner"
+
+msgid "There is no contact."
+msgstr "Det finns ingen kontakt."
+
+msgid "There is no tag."
+msgstr "Det finns ingen tagg."
+
+msgid "Search Results"
+msgstr "Sökresultat"
+
+msgid "Are you sure you want to delete this station?"
+msgstr "Vill du verkligen radera den här stationen?"
+
+msgid "Are you sure you want to add this station to preset?"
+msgstr "Vill du verkligen lägga till den här stationen till förinställningar?"
+
+msgid "Listen to thousands of commercial-free Internet radio stations! Live365 has broadcasts From Radio Disney, Santana, David Bynne, Pat Metheny, and Paul Oakenfold, As well as stations created by music lovers just like you! Easily browse through popular genres such as Rock, Hip-hop, Jazz and new age. Or discover treasures in some of the less-traveled styles such as gospel, comedy, anime, Hindi, trip-hop, 30s, glam, tribal, Celtic and 100s more."
+msgstr "Lyssna på tusentals Internet-radiokanaler helt gratis! Live365 har sändingar från Radio Disney, Santana, David Bynne, Pat Metheny och Paul Oakenfold, liksom kanaler som har skapats av musikälskare precis som du! Sök snabbt och enkelt igenom populära genrar, såsom rock, hip-hop, jazz och new age. Du kan också upptäcka nya intressanta ämnen, exempelvis gospel, komedi, animerat, hindi, trip-hop, trettiotalet, keltiskt och mycket mer."
+
+msgid "Japan"
+msgstr "Japan"
+
+msgid "This file is currently unavailable. Please try again later."
+msgstr "Den här filen är otillgänglig. Försök igen senare."
+
+msgid "Want to rate the video? Sign in now!"
+msgstr "Vill du betygsätta videon? Registrera dig nu!"
+
+msgid "Want to add to favorites? Sign in now!"
+msgstr "Vill du lägga till i favoriter? Registrera dig nu!"
+
+msgid "Press PLAY/PAUSE to view on full screen"
+msgstr "Tryck på PLAY/PAUSE för att visa på helskärm"
+
+msgid "Cannot connect to YouTube. An unknown network error has occurred. Please check your network setting and try again."
+msgstr "Kan inte ansluta till YouTube. Ett okänt nätverksfel har inträffat. Kontrollera nätverksinställningarna och försök igen."
+
+msgid "Poor"
+msgstr "Dålig"
+
+msgid "Nothing special"
+msgstr "Inget speciellt"
+
+msgid "Worth watching"
+msgstr "Värt att titta på"
+
+msgid "Pretty cool"
+msgstr "Ganska bra"
+
+msgid "Awesome"
+msgstr "Fantastiskt"
+
+msgid "Show info"
+msgstr "Visa info"
+
+msgid "The temperature of the device is over 60 degree, the hard disk will be shut down."
+msgstr "Enhetens temperatur är över 60 grader, hårddisken stängs av."
+
+msgid "The temperature of the device is over 65 degree, the device will be shut down."
+msgstr "Enhetens temperatur är över 65 grader, enheten stängs av."
+
+msgid "Configure"
+msgstr "Konfigurera"
+
+msgid "Delete album"
+msgstr "Radera album"
+
+msgid "Rename album"
+msgstr "Döp om album"
+
+
+
+
+
+
+
+msgid "Delete playlist"
+msgstr "Radera spellista"
+
+msgid "Rename playlist"
+msgstr "Döp om spellista"
+
+msgid "No playlist exist. Create a new playlist?"
+msgstr "Det finns ingen spellista. Skapa en ny spellista?"
+
+msgid "Are you sure you want to delete the playlist?"
+msgstr "Vill du verkligen radera spellistan?"
+
+msgid "Are you sure you want to clear the flies from the playlist?"
+msgstr "Vill du verkligen rensa filerna från spellistan?"
+
+msgid "Are you sure to stop adding the file(s)?"
+msgstr "Är du säker på att du vill sluta lägga till fil(er)?"
+
+msgid "The selected album has been deleted."
+msgstr "Det valda albumet har raderats."
+
+msgid "The selected photo has been removed from album."
+msgstr "Det valda fotot har tagits bort från albumet."
+
+msgid "Error while reading remote file. Please check media server or networking status."
+msgstr "Fel vid läsning av fjärrfil. Kontrollera medieservern eller nätverksstatus."
+
+msgid "The selected music has been deleted."
+msgstr "Den valda musiken har raderats."
+
+
+
+msgid "Do you want to add xxxx music to album?"
+msgstr "Vill du lägga till xxxx musik till albumet?"
+
+msgid "Are you sure to stop adding the music?"
+msgstr "Vill du verkligen sluta lägga till musik?"
+
+msgid "The playlist has been renamed."
+msgstr "Spellistan har döpts om."
+
+msgid "Are you sure to you want to remove selected music from the playlist?"
+msgstr "Vill du verkligen ta bort den valda musiken från spellistan?"
+
+msgid "Are you sure you want to delete the selected playlist?\nThe music won't be deleted from storage."
+msgstr "Vill du verkligen radera den valda spellistan?\nMusiken raderas inte från lagringsplatsen."
+
+msgid "The playlist name is duplicated. Please try another name."
+msgstr "Spellistnamnet har en dubblett. Prova med ett annat namn."
+
+msgid "Are you sure you want to rename the playlist?"
+msgstr "Vill du verkligen döpa om spellistan?"
+
+msgid "Netflix deactivation"
+msgstr "Netflix deactivation"
+
+msgid "Are you sure that you want to deactivate Netflix?"
+msgstr "Are you sure that you want to deactivate Netflix?"
+
+msgid "Netflix is not activated."
+msgstr "Netflix is not activated."
+
+msgid "No storage and media server found. Please insert storage or check network configuration and refresh again."
+msgstr "Ingen lagrings- och medieserver hittades. Mata in lagringsenheten eller kontrollera nätverkskonfigurationen och uppdatera igen."
+
+msgid "This folder already contains a file named:Would you like to overwrite it?"
+msgstr "Den här mappen innehåller redan en fil med namnet:Vill du skriva över den?"
+
+msgid "Process completed."
+msgstr "Bearbetning klar."
+
+msgid "The folder name cannot contain any of following \\ / : * ? \" < > | ."
+msgstr "Mappnamnet får inte innehålla något av följande \\ / : * ? \" < > | ."
+
+msgid "The album name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Albumnamnet får inte innehålla mellanslag eller något av följande \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nFilnamnet är begränsat upp till xx tecken."
+
+msgid "The playlist name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Spellistnamnet får inte innehålla mellanslag eller något av följande \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nFilnamnet är begränsat upp till xx tecken."
+
+msgid "Select"
+msgstr "Markera"
+
+
+
+
+
+msgid "IF YOU DO NOT AGREE TO THESE TERMS, YOU SHOULD IMMEDIATELY RETURN THE ENTIRE PRODUCT IN ITS ORIGINAL PACKAGING TO THE PLACE YOU OBTAINED IT FOR A FULL REFUND OF THE PURCHASE PRICE WITHIN THIRTY (30) DAYS OF YOUR ORIGINAL PURCHASE."
+msgstr "OM DU INTE INSTÄMMER I DE HÄR REGLERNA, SKALL DU OMEDELBART LÄMNA TILLBAKA PRODUKTEN I DESS ORIGINALFÖRPACKNING TILL INKÖPSSTÄLLET FÖR ATT FÅ TILLBAKA HELA BELOPPET SOM UTGÖR INKÖPSPRISET INOM TRETTIO (30) DAGAR FRÅN OCH MED INKÖPSDATUM."
+
+msgid "MediaflyVideo"
+msgstr "Video"
+
+msgid "Accept"
+msgstr "Acceptera"
+
+msgid "Decline"
+msgstr "Nedgång"
+
+msgid "Rename or delete playlist"
+msgstr "Byt namn eller ta bort spellista"
+
+msgid "The playlist has been created."
+msgstr "Spellistan har skapats."
+
+msgid "Select music"
+msgstr "Välj musik"
+
+msgid "Select playlist"
+msgstr "Välj spellistan"
+
+msgid "Do you want to add xxx music to playlist?"
+msgstr "Vill du lägga till XXX musik till spellistan?"
+
+msgid "Do you want to add xxx photo to album?"
+msgstr "Vill du lägga till XXX foto i album?"
+
+msgid "Remove music from playlist"
+msgstr "Ta bort musik från spellistan"
+
+msgid "Sort music"
+msgstr "Sortera musik"
+
+msgid "Move up"
+msgstr "Flytta upp"
+
+msgid "Move down"
+msgstr "Flytta ner"
+
+msgid "Are you sure to change the sort?"
+msgstr "Är du säker på att ändra sorteringsordning?"
+
+msgid "Remove or sort playlist"
+msgstr "Ta bort eller sortera spellistan"
+
+msgid "Remove music"
+msgstr "Ta bort musik"
+
+msgid "Are you sure you want to remove selected music from playlist?"
+msgstr "Är du säker på att du vill ta bort valda musiken från spellistan?"
+
+msgid "Photo album"
+msgstr "Fotoalbum"
+
+msgid "The album has been created."
+msgstr "Albumet har skapats."
+
+msgid "Select photo"
+msgstr "välj foto"
+
+msgid "Add to album"
+msgstr "Lägg till i album"
+
+msgid "Can’t load video.  Unsupported format."
+msgstr "Det går inte att ladda video. Formatet stöds inte."
+
+msgid "Turning on the plug-in will allow you to view video streamed in supported formats.  Not all streamed video content is supported."
+msgstr "Du kan visa video som strömmas i stödda format om du slår på plug-in:en.  Inte allt videoinnehåll som strömmas stöds."
+
+msgid "Enable for Favorites"
+msgstr "Aktivera för Favoriter"
+
+msgid "Enable for all websites"
+msgstr "Aktivera för alla webbplatser"
+
+msgid "To improve performance of the web browser, the Flash plug-in is only enabled for websites listed in Favorites.  To enable the plug-in for all websites, please go to Network in the Settings menu."
+msgstr "För att förbättra webbläsarens prestanda är Flash-pluginen endast aktiverad för webbplatser som är listade i Favoriter. Öppna Nätverk i menyn Inställningar för att aktivera pluginen för alla webbplatser. "
+
+
+msgid "Photos"
+msgstr "Bilder"
+msgid "Ok"
+msgstr "Ok"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Confirm"
+msgstr "Bekräfta"
+
+msgid "Bookmarks"
+msgstr "Bokmärken"
+
+msgid "Add Bookmark"
+msgstr "Lägg till bokmärke"
+
+msgid "Edit Bookmark"
+msgstr "Redigera bokmärke"
+
+msgid "Clear Bookmarks"
+msgstr "Rensa bokmärken"
+
+msgid "Are you sure you want to clear your bookmarks?"
+msgstr "Vill du verkligen rensa dina bokmärken?"
+
+msgid "Are you sure you want to delete this bookmark?"
+msgstr "Vill du verkligen radera det här bokmärket?"
+
+
+msgid "The server [server-name] presented a certificate issued by an entity that is not trusted, proceed anyway?"
+msgstr "Servern [server-name] presenterade ett certifikat som har utfärdats av en enhet som inte tillförlitlig. Fortsätt ändå?"
+
+msgid "[url] is not available."
+msgstr "[url] ej tillgänglig."
+
+msgid "We're sorry, but there seems to be a problem."
+msgstr "Tyvärr verkar det ha uppstått ett problem."
+
+msgid "The webpage at [url] couldn't be loaded."
+msgstr "Webbsidan på [url] kunde inte läsas in."
+
+msgid "Here are a few things you may want to try:"
+msgstr "Här följer några saker du kan försöka göra:"
+
+msgid "Reload this web page later."
+msgstr "Ladda om den här webbsidan senare."
+
+msgid "Return to the previous web page."
+msgstr "Återgå till tidigare webbsida."
+
+msgid "Are you sure you want to clear your history?"
+msgstr "Vill du verkligen rensa historiken?"
+
+msgid "Clear History"
+msgstr "Rensa historik"
+
+msgid "History"
+msgstr "Historik"
+
+msgid "No Title"
+msgstr "Ingen titel"
+
+msgid "The history is empty."
+msgstr "Historiken är tom."
+
+msgid "HTTP Authentication"
+msgstr "HTTP-autentisering"
+
+msgid "Authentication Required"
+msgstr "Autentisering krävs"
+
+msgid "The server [server-hostname] at [url-name] requires a username and password."
+msgstr "Servern [server-hostname] på [url-name] kräver användarnamn och lösenord."
+
+msgid "User Name:"
+msgstr "Användarnamn:"
+
+msgid "Password:"
+msgstr "Lösenord:"
+
+msgid "Pop-up Window"
+msgstr "Popup-fönster"
+
+msgid "Do you want to open pop-up window from [domain-name]?"
+msgstr "Vill du öppna popup-fönstret från [domain-name]?"
+
+msgid "New Window"
+msgstr "Nytt fönster"
+
+msgid "New URL [url] from [url]"
+msgstr "Ny URL [url] från [url]"
+
+msgid "Same"
+msgstr "Samma"
+
+msgid "Insecure to Secure"
+msgstr "Osäker till säker"
+
+msgid "Secure to Insecure"
+msgstr "Säker till osäker"
+
+msgid "Would you like to be alerted of this message again?"
+msgstr "Vill du informeras av det här meddelandet igen?"
+
+msgid "Security Warning"
+msgstr "Säkerhetsvarning"
+
+msgid "Started"
+msgstr "Startad"
+
+msgid "Loading"
+msgstr "Laddar"
+
+msgid "Done"
+msgstr "Klar"
+
+msgid "Title of the page."
+msgstr "Sidans titel."
+
+msgid "Goto"
+msgstr "Gå till"
+
+
+
+msgid "Forward"
+msgstr "Framåt"
+
+
+
+msgid "Refresh"
+msgstr "Uppdatera"
+
+msgid "Cursor"
+msgstr "Markör"
+
+msgid "Using the Remote Control in Web Browser"
+msgstr "Använda fjärrkontrollen i webbläsare"
+
+msgid "Exit web browser"
+msgstr "Avsluta webbläsare"
+
+msgid "Move cursor in web browser"
+msgstr "Flytta pekaren i webbläsare"
+
+msgid "Click to select links in web browser"
+msgstr "Klicka för att välja linkar i webbläsare"
+
+msgid "Alt key when using the web browser keyboard"
+msgstr "Alt-tangenten när webbläsarens tangentbord används"
+
+msgid "Back to previous web page"
+msgstr "Tillbaka till föregående webbsida"
+
+msgid "Display URL bar and web browser options"
+msgstr "Visa URL-listen och webbläsaralternativ"
+
+msgid "Use Enter to submit a URL or text entry"
+msgstr "Använd Enter för att sända en URL eller textinskrivning"
+
+msgid "Use Up/Down buttons to scroll web pages"
+msgstr "Använd upp och ned-knapparna för att bläddra webbsidor."
+
+msgid "Symbol key when using the web browser keyboard"
+msgstr "Symbol-tangenten när webbläsarens tangentbord används"
+
+msgid "Spacebar when using the web browser keyboard"
+msgstr "Mellanslagstangenten när webbläsarens tangentbord används"
+
+msgid "Show this information again?"
+msgstr "Visa den här informationen igen?"
+
+msgid "NO"
+msgstr "NEJ"
+
+msgid "YES"
+msgstr "JA"
+
+msgid "Eject USB device"
+msgstr "Mata ut USB-enhet"
+
+
+
+msgid "With the beta Web Browser you can view popular content from the Favorites List. You may navigate to other websites; video content is only available from websites on the Favorites List."
+
+msgstr "Med beta Webbläsaren kan du visa populära innehåll från Favoritlistan. Du kan navigera till andra webbplatser; videoinnehåll är endast tillgängliga från webbplatser i Favoritlistan."
+
+msgid "Downloading update..."
+msgstr "Hämtar uppdatering..."
+
+msgid "Media library need to enable before using Search function."
+msgstr "Mediabibliotek måste aktivera innan du använder sökfunktionen."
+
+msgid "IOMEGA LICENSE AGREEMENT"
+msgstr "IOMEGA LICENSAVTAL"
+
+msgid "IF YOU DO NOT…"
+msgstr "OM DU INTE ..."
+
+msgid "Digital without HDMI audio"
+msgstr "Digitalt utan HDMI-ljud"
+
+msgid "This Divx rental has used X of Y views"
+msgstr "Den här DivX-hyrningen har använt X av Y visningar"
+
+msgid "Continue?"
+msgstr "Fortsätt?"
+
+msgid "Are you sure to stop copying file?"
+msgstr "Vill du verkligen sluta kopiera filer?"
+
+msgid "Mediafly dashboard"
+msgstr "Mediafly-instrumentbräda"
+
+msgid "My channels"
+msgstr "Mina kanaler"
+
+msgid "Popular channels"
+msgstr "Populära kanaler"
+
+msgid "Are you sure you want to delete this account?"
+msgstr "Vill du verkligen ta bort det här kontot?"
+
+msgid "Are you sure you want to add the show:"
+msgstr "Vill du verkligen lägga till programmet:"
+
+msgid "This episode"
+msgstr "Det här avsnittet"
+
+msgid "This episode has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Det här avsnittet har lagts till din kanal. Ytterligare alternativ finns tillgängliga på Mediafly.com."
+
+msgid "All Episodes in this show"
+msgstr "Alla avsnitt för det här programmet"
+
+msgid "This show has been added to your channel.Additional options are available on Mediafly.com."
+msgstr "Det här programmet har lagts till din kanal. Ytterligare alternativ finns tillgängliga på Mediafly.com."
+
+msgid "What would you like to remove?"
+msgstr "Vad vill du ta bort?"
+
+msgid "This episode has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Det här avsnittet har tagits bort från din kanal. Ytterligare alternativ finns tillgängliga på Mediafly.com."
+
+msgid "This show has been removed from your channel.Additional options are available on Mediafly.com."
+msgstr "Det här programmet har tagits bort från din kanal. Ytterligare alternativ finns tillgängliga på Mediafly.com."
+
+msgid "Would you like to rate for this show/episode?"
+msgstr "Vill du betygsätta det här programmet/avsnittet?"
+
+msgid "Thank you. Additional options are available on Mediafly.com."
+msgstr "Tack. Ytterligare alternativ finns tillgängliga på Mediafly.com."
+
+msgid "View episodes"
+msgstr "Visa avsnitt"
+
+msgid "Add content source"
+msgstr "Lägg till innehållskälla"
+
+msgid "Add via mcode"
+msgstr "Lägg till via mCode"
+
+msgid "Enter a Content Source mCode below"
+msgstr "Ange en innehållskälla för mCode nedan"
+
+msgid "an mCode is used to activate private content source"
+msgstr "en mCode används för att aktivera en privat innehållskälla"
+
+msgid "Content source was added successfully to your Mediafly dashboard."
+msgstr "En innehållskälla lades till din Mediafly-instrumentbräda."
+
+msgid "Invalid mCode, please try again."
+msgstr "Ogiltig mCode, försök igen."
+
+msgid "AccuWeather"
+msgstr "AccuWeather"
+
+msgid "Add city"
+msgstr "Lägg till stad"
+
+msgid "City management"
+msgstr "Hantering av stad"
+
+msgid "Search location"
+msgstr "Sök plats"
+
+msgid "Change temperature unit"
+msgstr "Byt temperaturenhet"
+
+msgid "Please define your default city location."
+msgstr "Definiera platsen för din standardstad."
+
+msgid "Do you want to clear all city?"
+msgstr "Vill du rensa alla städer?"
+
+msgid "Do you want to delete selected city?"
+msgstr "Vill du radera valda städer?"
+
+msgid "No result, please search again."
+msgstr "Inga resultat, sök igen."
+
+msgid "Remove movie Info"
+msgstr "Ta bort filminformation"
+
+msgid "Rescan Movie Info"
+msgstr "Skanna filminformation igen"
+
+
+
+msgid "Manual search"
+msgstr "Manuell sökning"
+
+
+
+msgid "Please wait..."
+msgstr "Vänta ..."
+
+msgid "Are you sure you want to remove content info?"
+msgstr "Vill du verkligen ta bort innhållsinformation?"
+
+msgid "Content info has been removed."
+msgstr "Innehållsinformation har tagits bort."
+
+msgid "The movie poster and text are authorized by TMDb."
+msgstr "Information från TMDb"
+
+msgid "No need"
+msgstr "Behövs inte"
+
+msgid "No content info found from the online database. Please change the search term and try again."
+msgstr "Inge innehållsinformation hittades på onlinedatabasen. Byt söktermer och försök igen."
+
+msgid "Failed to save movie information. Please check the network connection."
+msgstr "Misslyckades att spara filminformation. Kontrollera nätverksanslutningen."
+
+msgid "Failed to save movie information. Storage may be full or Read-Only."
+msgstr "Misslyckades att spara filminformation. Lagringsutrymmet kan vara fullt eller skrivskyddad."
+
+msgid "Add to playlist"
+msgstr "Lägg till spellista"
+
+msgid "Back"
+msgstr "Bakåt"
+
+msgid "Connect"
+msgstr "Anslut"
+
+msgid "Create playlist"
+msgstr "Skapa spellista"
+
+msgid "DNS is invalid. Please verify your DNS and try again."
+msgstr "DNS är ogiltig. Kontrollera din DNS och försök igen."
+
+msgid "Do you want to delete the selected files?"
+msgstr "Vill du radera valda filer?"
+
+msgid "Edit playlist"
+msgstr "Redigera spellista"
+
+msgid "Gateway is invalid. Please verify your Gateway and try again."
+msgstr "Gatewayen är ogiltig. Kontrollera gatewayen och försök igen."
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "It should not be empty!"
+msgstr "Det ska vara tomt!"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "Select destination"
+msgstr "Välj destination"
+
+msgid "Subnet mask is invalid. Please verify your Subnet Mask and try again."
+msgstr "Nätmasken är ogiltig. Kontrollera nätmasken och försök igen."
+
+msgid "The device has lost its connection with the media server."
+msgstr "Enheten har förlorat anslutningen med medieservern."
+
+msgid "The selected music has been removed from playlist."
+msgstr "Vald musik har tagits bort från spellistan."
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Movies"
+msgstr "Film"
+
+msgid "Press 'OK' to apply the information for video."
+msgstr "Tryck på 'ENTER' för att tillämpa informationen för video."
+
+msgid "Getting movie information.\nPlease wait..."
+msgstr "Hämtar videoinformation.\nVänta ..."
+msgid "Delete all"
+msgstr "Radera allt"
+
+msgid "Wind velocity:"
+msgstr "vindhastighet"
+
+msgid "Humidity:"
+msgstr "luftfuktighet"
+
+msgid "High/Low"
+msgstr "Hög / Låg"
+
+msgid "Wind direction:"
+msgstr "Vindriktning"
+
+msgid "AccuWeather server not responding.  Please try again later."
+msgstr "AccuWeather servern svarar inte. Var vänlig försök igen senare."
+
+msgid "Movie info auto scan"
+msgstr "Film info Auto Scan"
+
+msgid "Ignore"
+msgstr "ignorera"
+
+msgid "Scan movie info"
+msgstr "Scan movie info"
+
+msgid "The workgroup name cannot contain space or any of following \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nThe file name is limited up to xx characters."
+msgstr "Arbetsgruppnamn får inte innehålla mellanslag eller något av följande \\ / : * ? \" ; | ~ ! @ # $ & ( ) = + [ ] { } ' < > %.\nFilnamnet är begränsat upp till xx tecken."
+

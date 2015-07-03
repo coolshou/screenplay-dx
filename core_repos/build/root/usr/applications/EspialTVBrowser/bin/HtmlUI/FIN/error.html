@@ -1,0 +1,49 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi">
+
+<head>
+
+<title>Virhe</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = Espial.errURL + " ei ole käytettävissä.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Jokin ongelma on havaittu.</h2>
+<br>
+WWW-sivun lataaminen osoitteesta  <b><script>document.writeln(Espial.errURL)</script></b> ei onnistu.
+<br>
+<br>
+<b>Voit kokeilla seuraavia asioita:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Lataa tämä WWW-sivu myöhemmin uudelleen.</a></li>
+	<li><a onclick="Espial.back();">Palaa edelliselle WWW-sivulle.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

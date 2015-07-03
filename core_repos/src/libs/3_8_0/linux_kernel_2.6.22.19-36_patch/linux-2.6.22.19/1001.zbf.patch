@@ -1,0 +1,969 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/boot/Makefile linux-2.6.22.19/arch/mips/boot/Makefile
+--- linux-2.6.22.19.ref/arch/mips/boot/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/boot/Makefile	2010-07-19 18:44:32.805817534 -0700
+@@ -42,6 +42,92 @@
+ $(obj)/addinitrd: $(obj)/addinitrd.c
+ 	$(HOSTCC) -o $@ $^
+ 
++$(obj)/vmlinux.gz: $(obj)/vmlinux.bin
++	gzip -c9nf $< > $@
++
++ifdef CONFIG_TANGO2
++$(obj)/vmlinux.zbf: $(obj)/vmlinux.gz 
++	genzbf -l $(loadaddr) -s 0x`$(NM) $(VMLINUX) | grep kernel_entry | awk '{ print $$1 }'` -a lzf -o $@ $<
++
++$(obj)/xrpc_xload_vmlinux_$(certtype).bin: $(obj)/vmlinux.zbf
++	bash $(TOPDIR)/scripts/build_cpu_xrpc_xload.bash $(obj)/vmlinux $(certid) $(certtype)
++
++zbimage-linux-xrpc: $(obj)/zbimage-linux-xrpc
++endif
++
++ifdef CONFIG_TANGO3
++ifdef CONFIG_TANGO3_8656OTP
++# OTP part uses different scheme
++$(obj)/vmlinux.gz.xload3: $(obj)/vmlinux.gz
++	bash $(TOPDIR)/scripts/create_xload3.bash -p $(obj)/vmlinux.gz -c $(certid)
++
++$(obj)/vmlinux_xload.zbf: $(obj)/vmlinux.gz.xload3
++	genzbf -l $(loadaddr) -s 0x`$(NM) $(VMLINUX) | grep kernel_entry | awk '{ print $$1 }'` -a lzef -o $@ $<
++else
++$(obj)/vmlinux_gz.zbf: $(obj)/vmlinux.gz
++	cp -f $< $@
++
++$(obj)/vmlinux_gz_$(certtype).xload: $(obj)/vmlinux_gz.zbf
++	bash $(TOPDIR)/scripts/build_cpu_xload.bash $(obj)/vmlinux_gz $(certid) $(certtype)
++
++$(obj)/vmlinux_xload.zbf: $(obj)/vmlinux_gz_$(certtype).xload
++	genzbf -l $(loadaddr) -s 0x`$(NM) $(VMLINUX) | grep kernel_entry | awk '{ print $$1 }'` -a lzef -o $@ $<
++endif
++
++zbimage-linux-xload: $(obj)/zbimage-linux-xload
++endif
++
++ifdef CONFIG_TANGO2
++$(obj)/zbimage-linux-xrpc: $(obj)/xrpc_xload_vmlinux_$(certtype).bin
++	mkdir romfs
++	cp -f $< romfs
++	genromfs -V MIPS_LINUX_XRPC -d romfs -f $@
++	rm -rf romfs
++endif
++ifdef CONFIG_TANGO3
++$(obj)/zbimage-linux-xload: $(obj)/vmlinux_xload.zbf
++	mkdir romfs
++	cp -f $< romfs
++	genromfs -V MIPSLINUX_XLOAD -d romfs -f $@
++	rm -rf romfs
++endif
++
++ifdef CONFIG_TANGO2
++# The choice of .zbf extension is not really the case, simply make it
++# work with the build_cpu_x* script which assumes the .zbf extension.
++$(obj)/vmlinux_shax.zbf: $(obj)/vmlinux.gz
++	@echo "Using sha1 digest .."
++	@tobin.bash `sha1sum -b $< | awk '{ print $$1 }'` > $@
++
++$(obj)/xrpc_xload_vmlinux_shax_$(certtype).bin: $(obj)/vmlinux_shax.zbf
++	bash $(TOPDIR)/scripts/build_cpu_xrpc_xload.bash $(obj)/vmlinux_shax $(certid) $(certtype)
++
++$(obj)/vmlinux_enc.bin: $(obj)/xrpc_xload_vmlinux_shax_$(certtype).bin $(obj)/vmlinux.gz
++	@cat $^ > $@
++
++$(obj)/vmlinux_enc.zbf: $(obj)/vmlinux_enc.bin 
++	genzbf -l $(loadaddr) -s 0x`$(NM) $(VMLINUX) | grep kernel_entry | awk '{ print $$1 }'` -e `stat --format=%s $(obj)/xrpc_xload_vmlinux_shax_$(certtype).bin` -a lzef -o $@ $<
++
++zbimage-linux-enc: $(obj)/zbimage-linux-enc
++
++$(obj)/zbimage-linux-enc: $(obj)/vmlinux_enc.zbf
++	mkdir romfs
++	cp -f $< romfs
++	genromfs -V MIPS_LINUX_ENC -d romfs -f $@
++	rm -rf romfs
++
++$(obj)/vmlinux_encs.zbf: $(obj)/vmlinux_enc.bin 
++	genzbf -l $(loadaddr) -s 0x`$(NM) $(VMLINUX) | grep kernel_entry | awk '{ print $$1 }'` -e `stat --format=%s $(obj)/xrpc_xload_vmlinux_shax_$(certtype).bin` -a lzes -o $@ $<
++
++zbimage-linux-encs: $(obj)/zbimage-linux-encs
++
++$(obj)/zbimage-linux-encs: $(obj)/vmlinux_encs.zbf
++	mkdir romfs
++	cp -f $< romfs
++	genromfs -V MIPS_LINUX_ENC -d romfs -f $@
++	rm -rf romfs
++endif
++
+ archhelp:
+ 	@echo	'* vmlinux.ecoff	- ECOFF boot image'
+ 	@echo	'* vmlinux.srec		- SREC boot image'
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/Makefile linux-2.6.22.19/arch/mips/Makefile
+--- linux-2.6.22.19.ref/arch/mips/Makefile	2010-07-19 18:42:37.000000000 -0700
++++ linux-2.6.22.19/arch/mips/Makefile	2010-07-19 18:44:32.805817534 -0700
+@@ -705,6 +705,7 @@
+ CLEAN_FILES += arch/mips/boot/vmlinux.gz \
+ 		arch/mips/boot/*.bin \
+ 		arch/mips/boot/*.xload \
++		arch/mips/boot/*.xload3 \
+ 		arch/mips/boot/*.zbf \
+ 		arch/mips/boot/zbimage-linux-* 
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1001.zbf.patch linux-2.6.22.19/README.1001.zbf.patch
+--- linux-2.6.22.19.ref/README.1001.zbf.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1001.zbf.patch	2010-07-19 18:45:50.295818285 -0700
+@@ -0,0 +1,19 @@
++Feature:
++--------
++ZBF container packaging and binary signing.
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++------------------------------------------
++Tango2 ES6/RevA or above, or Tango3 ES1 or above
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/scripts/build_cpu_xload.bash linux-2.6.22.19/scripts/build_cpu_xload.bash
+--- linux-2.6.22.19.ref/scripts/build_cpu_xload.bash	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/scripts/build_cpu_xload.bash	2010-07-19 18:44:32.805817534 -0700
+@@ -0,0 +1,55 @@
++#!/bin/bash
++set -e
++#
++if [ $# != 3 ]; then 
++    cat <<EOF
++
++Syntax: $0 cpupkg 000b 8634_ES4_dev
++
++The cpupkg came with .zbf extension. You have to specify cpu binary xtask to wrap, 
++the certificate id you plan to use, and the chip revision (ES1_dev or ES4_dev) .
++also make sure that the scripts below are accessible and in your PATH variable
++EOF
++    exit -1 
++fi
++#
++if [ -z "$XSDK_ROOT" ]; then 
++	if [ -d /utils/em8xxx/signed_items ]; then
++		# Use default
++		XSDK_ROOT=/utils/em8xxx/signed_items
++	else
++		echo "*** You need to define the XSDK_ROOT variable ***"
++		exit -1
++	fi
++fi
++#
++CPUPKG=$1
++CERTID=$2
++REV=$3
++BNAME=`basename $1`
++DNAME=`dirname $1`
++TMPADDR=0x13000000
++
++CPUPKG_BIN=${DNAME}/${BNAME}.zbf
++CPUPKG_SIG=${DNAME}/${BNAME}.${REV}_${CERTID}.bin
++XLOAD_BIN=${DNAME}/${BNAME}_${REV}.xload
++XRPC_BIN=xrpc_xload_${BNAME}_${REV}.bin
++PRIVATE_KEY=$XSDK_ROOT/dummy_private_keys/${REV}_${CERTID}_keyboth.pem
++
++echo Using $CERT_BIN
++
++# aes128 pad!
++zeropad.bash $CPUPKG_BIN 16
++SIZE=`stat --format=%s $CPUPKG_BIN`
++
++echo CPUPKG Image Map : size=$SIZE
++
++if [ -s $XSDK_ROOT/CPU_KEYS.password ]; then
++echo ">>> CPU_KEYS private key password file has been found <<<"
++openssl sha1 -sign $PRIVATE_KEY < $CPUPKG_BIN -passin file:$XSDK_ROOT/CPU_KEYS.password | revbytes.pl > $CPUPKG_SIG
++else
++echo ">>> CPU_KEYS private key password file has not been found, read password from keyboard <<<"
++openssl sha1 -sign $PRIVATE_KEY < $CPUPKG_BIN | revbytes.pl > $CPUPKG_SIG
++fi
++mkxload.bash $XSDK_ROOT $REV $CERTID $CPUPKG_BIN $CPUPKG_SIG $XLOAD_BIN
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/scripts/build_cpu_xrpc_xload.bash linux-2.6.22.19/scripts/build_cpu_xrpc_xload.bash
+--- linux-2.6.22.19.ref/scripts/build_cpu_xrpc_xload.bash	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/scripts/build_cpu_xrpc_xload.bash	2010-07-19 18:44:32.805817534 -0700
+@@ -0,0 +1,56 @@
++#!/bin/bash
++set -e
++#
++if [ $# != 3 ]; then 
++    cat <<EOF
++
++Syntax: $0 cpupkg 000b 8634_ES4_dev
++
++The cpupkg came with .zbf extension. You have to specify cpu binary xtask to wrap, 
++the certificate id you plan to use, and the chip revision (ES1_dev or ES4_dev) .
++also make sure that the scripts below are accessible and in your PATH variable
++EOF
++    exit -1 
++fi
++#
++if [ -z "$XSDK_ROOT" ]; then 
++	if [ -d /utils/em8xxx/signed_items ]; then
++		# Use default
++		XSDK_ROOT=/utils/em8xxx/signed_items
++	else
++		echo "*** You need to define the XSDK_ROOT variable ***"
++		exit -1
++	fi
++fi
++#
++CPUPKG=$1
++CERTID=$2
++REV=$3
++BNAME=`basename $1`
++DNAME=`dirname $1`
++TMPADDR=0x13000000
++
++CPUPKG_BIN=${DNAME}/${BNAME}.zbf
++CPUPKG_SIG=${DNAME}/${BNAME}.${REV}_${CERTID}.bin
++XLOAD_BIN=${DNAME}/${BNAME}_${REV}.xload
++XRPC_BIN=xrpc_xload_${BNAME}_${REV}.bin
++PRIVATE_KEY=$XSDK_ROOT/dummy_private_keys/${REV}_${CERTID}_keyboth.pem
++
++echo Using $CERT_BIN
++
++# aes128 pad!
++zeropad.bash $CPUPKG_BIN 16
++SIZE=`stat --format=%s $CPUPKG_BIN`
++
++echo CPUPKG Image Map : size=$SIZE
++
++if [ -s $XSDK_ROOT/CPU_KEYS.password ]; then
++echo ">>> CPU_KEYS private key password file has been found <<<"
++openssl sha1 -sign $PRIVATE_KEY < $CPUPKG_BIN -passin file:$XSDK_ROOT/CPU_KEYS.password | revbytes.pl > $CPUPKG_SIG
++else
++echo ">>> CPU_KEYS private key password file has not been found, read password from keyboard <<<"
++openssl sha1 -sign $PRIVATE_KEY < $CPUPKG_BIN | revbytes.pl > $CPUPKG_SIG
++fi
++mkxload.bash $XSDK_ROOT $REV $CERTID $CPUPKG_BIN $CPUPKG_SIG $XLOAD_BIN
++buildxrpc.bash XRPC_CALLERID_IGNORED XRPC_ID_XLOAD $SIZE $TMPADDR 2 3 4 $XLOAD_BIN ${DNAME}/$XRPC_BIN
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/scripts/create_xload3.bash linux-2.6.22.19/scripts/create_xload3.bash
+--- linux-2.6.22.19.ref/scripts/create_xload3.bash	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/scripts/create_xload3.bash	2010-07-19 18:44:52.716255747 -0700
+@@ -0,0 +1,346 @@
++#!/bin/bash
++trap "cleanup" EXIT SIGTERM SIGINT
++
++if [ -z "$XLOAD3_ROOT" ]; then
++	export XLOAD3_ROOT=/utils/em8xxx/signed_items/xload3
++fi
++if [ -z "$XLOAD3_GEN_SCRIPTS" ]; then
++	export XLOAD3_GEN_SCRIPTS=$XLOAD3_ROOT/scripts/gen
++fi
++
++pushd `dirname $0` &> /dev/null
++scripts=`pwd -P`
++popd &> /dev/null
++export PATH=$PATH:$scripts
++source $scripts/xload3.env
++
++# Signing config file parameters
++CFG_CKDS=''
++CFG_CERT_PRIVATE_KEYS=''
++CFG_CERT=''
++
++# Encryption config file parameters
++ECFG_CIPHER=''
++ECFG_MODE=''
++ECFG_IDX0=''
++ECFG_IDX1=''
++ECFG_IDX2=''
++ECFG_KEY=''
++ECFG_SEED=''
++
++# globals
++tmpdir=''
++cfg=''
++ecfg=''
++payload=''
++p=''
++certid=''
++c=''
++xload3out=''
++decrypted_private_keys=()
++ndecrypted=0
++
++USAGE=`cat<<EOF
++Usage: $0 --payload <payload> (--certid <certid> | --cfg <cfgfile>)
++          [--ecfg <ecfgfile>]
++
++  payload: (required)
++     Path to payload file.
++
++  certid:
++     16-bit certificate id.  Specify to use a default config
++     file corresponding to this certificate id.
++
++  cfgfile:
++     Signing Configuration file that specifies certificate keys
++     to use.
++
++  ecfgfile:
++     Encryption Configuration file that specifies parameters for
++     encrypting the payload.  If left unspecified the payload will
++     be left unencrypted.
++EOF`
++
++# Override logfile writing (locally only)
++function log_interface_logfile() {
++	echo -n "" >&2
++}
++
++function usage() {
++	if [ ! -z "$1" ]; then logerr "$@"; fi
++	echo -e "$USAGE\n" >&2 
++	exit -1;
++}
++
++function cleanup() {
++	for f in ${decrypted_private_keys[@]}; do
++		if [ -f $f ]; then
++			echo "Removing decrypted private key $f"
++			shred -u $f
++		fi
++	done
++	if [ -d "$tmpdir" ]; then
++		echo ""
++		rm -rf $tmpdir
++	fi
++}
++
++function parse_cmdline() {
++
++    while [ "$1" ]; do
++
++        # found & params_consumed are globals set by
++        # check_and_set_* methods
++        found=0
++        params_consumed=0
++		set_param_marker '--'
++		check_and_set_file_param "payload" $@
++		check_and_set_int_param "certid" 0 0xffff $@
++		check_and_set_file_param "cfg" $@
++		check_and_set_file_param "ecfg" $@
++
++		# Maintain backwards compatability with old api '-p' and '-c'
++		set_param_marker '-'
++		check_and_set_file_param "p" $@
++		if [ ! -z "$p" ]; then payload=$p; p=''; fi
++		check_and_set_int_param "c" 0 0xffff $@
++		if [ ! -z "$c" ]; then certid=$c; c=''; fi
++
++        if [ $found -eq 0 ]; then
++            usage "Error: invalid parameter!"
++        fi
++
++        # shift out used parameters
++        for i in `seq 1 $params_consumed`; do shift; done
++    done
++
++	# check that all required params have been set:
++	exit_if_not_defined "payload"
++	if [ "$certid" ]; then
++		# certid should be 4-byte hex formatted string
++		certid=`printf "%04x" $certid`
++	else
++		msg="Either 'certid' or 'cfg' must be specified."
++		warn_if_not_defined "certid"
++		if [ -z "$certid" ]; then
++			exit_if_not_defined "cfg" "$msg"
++		else
++			warn_if_not_defined "cfg"
++		fi
++	fi
++	warn_if_not_defined "ecfg" "Payload will be left unencrypted."
++}
++
++function validate_cfg_parameters() {
++	if [ ! -f "$CFG_CERT" ]; then
++		logerr "undefined cert in cfg file ($cfg)"
++		exit -1;
++	fi
++	if [ -z "$CFG_CKDS" ]; then
++		logerr "no ckds defined within cfg file ($cfg)"
++		exit -1;
++	fi
++	if [ -z "$CFG_CERT_PRIVATE_KEYS" ]; then
++		logerr "no private keys defined within cfg file ($cfg)"
++		exit -1;
++	fi
++	for ckd in ${CFG_CKDS[@]}; do
++		if [ ! -f "$ckd" ]; then
++			logerr "invalid ckd found ($ckd)!"
++			exit -1;
++		fi
++		echo "CKD--: $ckd"
++	done
++	for k in ${CFG_CERT_PRIVATE_KEYS[@]}; do
++		if [ ! -f "$k" ]; then
++			logerr "invalid private key found ($k)!"
++			exit -1;
++		fi
++		echo "key--: $k"
++	done
++	if [ ${#CFG_CKDS[@]} -ne ${#CFG_CERT_PRIVATE_KEYS[@]} ]; then
++		logerr "mismatch between number of Cert keys and CKDs"
++		exit -1;
++	fi
++}
++
++function validate_ecfg_parameters() {
++	case $ECFG_CIPHER in
++	none)
++		echo "No cipher used."
++		return 0;
++		;;
++	aes128)
++		echo "Using aes-128-cbc for cipher."
++		;;
++	*)
++		logerr "invalid cipher ($ECFG_CIPHER)."
++		return 1;
++		;;
++	esac
++
++	case $ECFG_MODE in 
++	1)
++		log "Using direct encryption (mode1)."
++		if [ -z $ECFG_IDX0 ]; then
++			logerr "missing idx0 for mode1 encryption!"
++			return 1;
++		fi
++		;;
++	2)
++		log "Using indirect encryption (mode2)."
++		if [[ -z $ECFG_IDX0 || -z $ECFG_IDX1 ]]; then
++			logerr "missing idx0 or idx1 for mode2 encryption!"
++			return 1;
++		echo ""
++		fi
++		;;
++	3)
++		log "Using double-indirect encryption (mode3)."
++		if [[ -z $ECFG_IDX0 || -z $ECFG_IDX1 || -z $ECFG_IDX2 ]]; then
++			logerr "missing idx0 or idx1 or idx2 for mode2 encryption!"
++			return 1;
++		fi
++		;;
++	*)
++		logerr "Invalid mode specified ($ECFG_MODE)"
++		return 1;
++		;;
++	esac
++
++	if [[ -z "$ECFG_KEY" || ! -f "$ECFG_KEY" ]]; then
++		logerr "Missing encryption key ($ECFG_KEY)!"
++		return 1;
++	fi
++}
++
++## Start of script execution
++
++source $scripts/process_args.env
++parse_cmdline $@
++cert_dir=$XLOAD3_SIGNED_CERTS
++
++if [ -z "$cfg" ]; then
++	# Hack for testing:
++	cfg=`ls $cert_dir/config/*$certid* 2> /dev/null`;
++fi
++
++if [ ! -f "$cfg" ]; then
++	logerr "Signing configuration file not found! ($cfg)"
++	exit -1;
++else
++	echo "Using configuration file: $cfg"
++fi
++source $cfg
++if ! validate_cfg_parameters; then exit -1; fi
++cert=$CFG_CERT
++
++tmpdir=`mktemp -d tmp.xload3.sign.XXXXXX`
++pl=$tmpdir/`basename $payload`
++cp $payload $pl
++	
++# strip '.bin' from the end of the file, replace with '.xload3'
++xload3filename=`basename $payload|sed 's/\(.*\)\.bin$/\1/'`.xload3
++# Default to same directory with the input payload.
++xload3out=`dirname $payload`/$xload3filename
++
++# Add encryption parameters if ecfg specified
++if [ "$ecfg" ]; then
++	source $ecfg
++	if ! validate_ecfg_parameters; then exit -1; fi
++	payload_params="--cipher $ECFG_CIPHER"
++
++	if [ "$ECFG_MODE" ]; then
++		payload_params="$payload_params --mode $ECFG_MODE"
++	fi
++	if [ "$ECFG_IDX0" ]; then
++		payload_params="$payload_params --idx0 $ECFG_IDX0"
++	fi
++	if [ "$ECFG_IDX1" ]; then
++		payload_params="$payload_params --idx1 $ECFG_IDX1"
++	fi
++	if [ "$ECFG_IDX2" ]; then
++		payload_params="$payload_params --idx2 $ECFG_IDX2"
++	fi
++	if [ "$ECFG_SIZE" ]; then
++		payload_params="$payload_params --size $ECFG_SIZE"
++	fi
++	
++	if [ "$ECFG_OUT_DIR" ]; then
++		xload3out=$ECFG_OUT_DIR/$xload3filename
++	fi
++
++	key=$ECFG_KEY
++	if [ ${key:${#key}-4:4} = ".gpg" ]; then
++		echo "Encryption key ($key) is gpg encrypted."
++		keyname=`basename ${key:0:${#key}-4}`
++		key=`mktemp $tmpdir/tmp.DECRYPTED_ENCRYPTION_KEY.$keyname.XXXXXX`
++		gpg -o $key --yes ${ECFG_KEY}
++		decrypted_private_keys[$ndecrypted]=$key
++		((ndecrypted++))
++	elif [ ${key:${#key}-6:6} = ".smime" ]; then
++		# Assume it is protected by ncipher.
++		echo "Signing key ($key) is smime encrypted."
++		protectedkey=$tmpdir/`basename $ECFG_KEY`
++		cp $ECFG_KEY $protectedkey
++		key=${protectedkey:0:${#protectedkey}-6}
++		$XLOAD3_NCIPHER_SCRIPTS/decrypt_protected_file.bash $key
++		decrypted_private_keys[$ndecrypted]=$key
++		((ndecrypted++))
++	fi
++	payload_params="$payload_params --key $key"
++	
++	if [ "$ECFG_SEED" ]; then
++		payload_params="$payload_params --seed $ECFG_SEED"
++	fi
++else
++	payload_params="--cipher none"
++fi
++
++if [ ! -w `dirname $xload3out` ]; then
++	logerr "No write permission to create file $xload3out."
++	exit -1;
++fi
++
++echo "cat $pl | $XLOAD3_GEN_SCRIPTS/create_payload.pl $payload_params \
++		--hdr $pl.hdr --out $pl.enc"
++cat $pl | $XLOAD3_GEN_SCRIPTS/create_payload.pl $payload_params \
++		--hdr $pl.hdr --out $pl.enc
++
++# sign with all cert keys
++for i in `seq 0 $((${#CFG_CKDS[@]} - 1))`; do
++	key=${CFG_CERT_PRIVATE_KEYS[$i]}
++	ckd=${CFG_CKDS[$i]}
++
++	if [ ${key:${#key}-4:4} = ".gpg" ]; then
++		echo "Signing key ($key) is gpg encrypted."
++		keyname=`basename ${key:0:${#key}-4}`
++		key=`mktemp $tmpdir/tmp.DECRYPTED_CERT_PRIVATE_KEY.$keyname.XXXXXX`
++		gpg -o $key --yes ${CFG_CERT_PRIVATE_KEYS[$i]}
++		decrypted_private_keys[$ndecrypted]=$key
++		((ndecrypted++))
++	fi
++	
++	echo "Signing with key=$key ckd=$ckd"
++
++	# sign the header
++	$XLOAD3_GEN_SCRIPTS/create_payload_sig.pl --pem $key \
++			--cert-key ${CFG_CKDS[$i]} \
++			--payload $pl.hdr > $pl.hdr.sig.$i
++	# sign the payload
++	$XLOAD3_GEN_SCRIPTS/create_payload_sig.pl --pem $key \
++			--cert-key $ckd \
++			--payload $pl > $pl.sig.$i
++done
++
++# output hdr + all hdr sigs + encrypted payload + all payload sigs
++# note: if there are more than 10 keys, then there will be a problem
++#       with the ordering of the signatures (shouldn't happen!)
++cat $cert $pl.hdr $pl.hdr.sig* $pl.enc $pl.sig* > $xload3out
++
++# For now maintain backwards compatability (.bin.xload3).
++# TODO: REMOVEME
++cp $xload3out `dirname $xload3out`/`basename $payload`.xload3
++
++rm -rf $tmpdir
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/scripts/process_args.env linux-2.6.22.19/scripts/process_args.env
+--- linux-2.6.22.19.ref/scripts/process_args.env	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/scripts/process_args.env	2010-07-19 18:45:01.166149178 -0700
+@@ -0,0 +1,208 @@
++#!/bin/bash
++
++_PRE='-'
++
++function logstderr() {
++	echo -e "$@" >&2
++}
++
++function set_param_marker() {
++	_PRE=$1
++}
++
++function replace_hyphen_with_underscore() {
++	# it is common to have param names '--param-name'
++	# in such cases the automated arg processor will fail.
++	# this method will convert the names from 'param-name'
++	# to the bash friendly 'param_name'
++	echo -n "$1" | sed 's/-/_/g'
++}
++
++function check_param_is_hex() {
++	local _str=$1
++	local _binlen=$2
++	local _hexlen=$[(2 * _binlen)]
++
++	if [[ `echo -n $_str | wc -c` -ne $_hexlen ||
++	   -z `echo $_str | grep -i "[[:xdigit:]]\{${_hexlen}\}"` ]]; then
++		return -1;
++	fi
++	return 0;
++}
++
++function check_str_len() {
++	local _str=$1
++	local _minlen=$2
++	local _maxlen=$3
++	if [[ ${#_str} -lt $_minlen || ${#_str} -gt $_maxlen ]]; then
++		return -1;
++	fi
++	return 0;
++}
++
++function check_and_set_str_param() {
++	local _name=$1
++	local _minsize=$2
++	local _maxsize=$3
++	shift;shift;shift;
++	if [[ $found -eq 0 && "$1" = "$_PRE$_name" ]]; then
++		shift
++		_name=`replace_hyphen_with_underscore $_name`
++		eval $_name=$1
++		eval local _str=\$${_name}
++		if [ -z "$_str" ]; then
++			logstderr "Error: missing parameter to option '$_name'"
++			usage
++		fi
++		shift
++		found=1
++		params_consumed=2
++		if [ -z "$_minsize" ]; then
++			check_str_len $_str $_minsize $_maxsize
++			if [ $? -ne 0 ]; then
++				logstderr "Error: $_name param is of invalid length"
++				usage
++			fi
++		fi
++	fi
++}
++
++function is_integer() {
++	local value=$1
++	local hex=''
++	if [ -z "$value" ]; then return -1; fi
++	if [ ${value:0:1} = "-" ]; then value=${value:1}; fi
++	if [ "${value:0:2}" = "0x" ]; then value=${value:2}; hex=x; fi
++	echo "$value" | grep -E "^[[:space:]]*[[:${hex}digit:]]+$" > /dev/null
++}
++
++function check_and_set_int_param() {
++	local _name=$1
++	local _min=$2
++	local _max=$3
++	shift;shift;shift;
++	if [[ $found -eq 0 && "$1" = "$_PRE$_name" ]]; then
++		shift
++		_name=`replace_hyphen_with_underscore $_name`
++		local _str=$1
++		shift
++		if [ -z "$_str" ]; then
++			logstderr "Error: missing parameter to option '$_name'"
++			usage
++		fi
++		if ! is_integer $_str; then
++			logstderr "Error: argument not integer to $_name param"
++			usage
++		fi
++		eval $_name=$((_str))
++		found=1
++		params_consumed=2
++		if [[ $((_str)) -lt $((_min)) || $((_str)) -gt $((_max)) ]]; then
++			logstderr "Error: $_name param is out of range! ($_str)[$_min:$_max]"
++			usage
++		fi
++	fi
++}
++
++function check_and_set_fileout_param() {
++	local _name=$1
++	shift;
++	if [[ $found -eq 0 && "$1" = "$_PRE$_name" ]]; then
++		shift
++		_name=`replace_hyphen_with_underscore $_name`
++		eval $_name=$1
++		eval local _file=\$${_name}
++		if [ -z "$_file" ]; then 
++			logstderr "Error: missing parameter to option '$_name'"
++			usage
++		fi
++		shift
++		found=1
++		touch "$_file"
++		if [[ -z "$_file" || ! -f "$_file" ]]; then
++			logstderr "Error: $_name param (invalid file path!)"
++			usage
++		fi
++		params_consumed=2
++	fi
++}
++
++function check_and_set_file_param() {
++	local _name=$1
++	shift;
++	if [[ $found -eq 0 && "$1" = "$_PRE$_name" ]]; then
++		shift
++		_name=`replace_hyphen_with_underscore $_name`
++		eval $_name=$1
++		eval local _file=\$${_name}
++		if [ -z "$_file" ]; then 
++			logstderr "Error: missing parameter to option '$_name'"
++			usage
++		fi
++		shift
++		found=1
++		if [ ! -f "$_file" ]; then
++			logstderr "Error: $_name param (file not found!)"
++			usage
++		fi
++		params_consumed=2
++	fi
++}
++
++function check_and_set_hex_param() {
++	local _name=$1
++	local _minsize=$2
++	local _maxsize=$3
++	shift;shift;
++	if [[ $found -eq 0 && "$1" = "$_PRE$_name" ]]; then
++		shift
++		_name=`replace_hyphen_with_underscore $_name`
++		eval $_name=$1
++		eval local _hexstr=\$${_name}
++		if [ -z "$_hexstr" ]; then 
++			logstderr "Error: missing parameter to option '$_name'"
++			usage
++		fi
++		shift
++		found=1
++		if [[ ${#_hexstr} -gt $((2 * $_maxsize)) ||
++		      ${#_hexstr} -lt $((2 * $_minsize)) ]]; then
++			logstderr "Error: $_name hex param is of invalid length"
++			local _errstr="(found ${#_hexstr}, should be between "
++			_errstr=$_errstr" [$((_minsize * 2)), $((_maxsize *2))])"
++			logstderr $_errstr
++			usage
++		fi
++		check_param_is_hex $_hexstr ${#_hexstr}
++		if [ $? -ne 0 ]; then
++			logstderr "Error: $_name param is not valid hex"
++			usage
++		fi
++		params_consumed=2
++	fi
++}
++
++function exit_if_not_defined() {
++	local _name=`replace_hyphen_with_underscore $1`
++	local _msg=$2
++
++	eval local _contents=\$${_name}
++	if [ -z "$_contents" ]; then
++		logstderr -n "\e[0;31mError: missing parameter \"$_name\"."
++		if [ "$_msg" ]; then logstderr -n "\n$_msg"; fi
++		logstderr "\e[0m"
++		usage
++	fi
++}
++
++function warn_if_not_defined() {
++	local _name=`replace_hyphen_with_underscore $1`
++	local _msg=$2
++
++	eval local _contents=\$${_name}
++	if [ -z "$_contents" ]; then
++		logstderr -n "\e[0;103mWarning: parameter \"$_name\" not specified."
++		if [ "$_msg" ]; then logstderr -n "\n$_msg"; fi
++		logstderr "\e[0m"
++	fi
++}
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/scripts/xload3.env linux-2.6.22.19/scripts/xload3.env
+--- linux-2.6.22.19.ref/scripts/xload3.env	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/scripts/xload3.env	2010-07-19 18:44:57.696192347 -0700
+@@ -0,0 +1,154 @@
++#!/bin/bash
++
++if [ -z "$XLOAD3_ROOT" ]; then
++	echo "*** You need to define XLOAD3_ROOT ***"
++	exit -1;
++fi
++
++if [ "$XLOAD3_FLASH" ]; then
++	echo -n "*** XLOAD3_FLASH defined setting XLOAD3_ROOT ">&2
++	echo "to XLOAD3_FLASH ***">&2
++	XLOAD3_ROOT=$XLOAD3_FLASH
++fi
++
++if [ -z "$INTERFACE_LOG_FILE" ]; then 
++	INTERFACE_LOG_FILE=$XLOAD3_ROOT/interface.log
++fi
++if [ -z "$XLOAD3_BACKUPS" ]; then 
++	XLOAD3_BACKUPS=$XLOAD3_ROOT/backup
++fi
++if [ -z "$XLOAD3_CHIP_CFG" ]; then
++	XLOAD3_CHIP_CFG=$XLOAD3_ROOT/chip_config
++fi
++if [ -z "$XLOAD3_ITEMS" ]; then 
++	XLOAD3_ITEMS=$XLOAD3_ROOT/items
++fi
++if [ -z "$XLOAD3_SIGS" ]; then 
++	XLOAD3_SIGS=$XLOAD3_ROOT/signatures
++fi
++if [ -z "$XLOAD3_XLOADS" ]; then 
++	XLOAD3_XLOADS=$XLOAD3_ROOT/xloads
++fi
++if [ -z "$XLOAD3_RKD" ]; then
++	XLOAD3_RKD=$XLOAD3_ROOT/rkd
++fi
++if [ -z "$XLOAD3_ROOTKEYS" ]; then
++	XLOAD3_ROOTKEYS=$XLOAD3_ROOT/rootkeys
++fi
++if [ -z "$XLOAD3_CERT" ]; then
++	XLOAD3_CERT=$XLOAD3_ITEMS/xload_certificates
++fi
++if [ -z "$XLOAD3_CERT_SIG" ]; then
++	XLOAD3_CERT_SIG=$XLOAD3_SIGS/xload_certificates
++fi
++if [ -z "$XLOAD3_SIGNED_CERTS" ]; then
++	XLOAD3_SIGNED_CERTS=$XLOAD3_ROOT/signed_certs
++fi
++if [ -z "$XLOAD3_CKD" ]; then
++	XLOAD3_CKD=$XLOAD3_ROOT/ckd
++fi
++if [ -z "$XLOAD3_PUBLIC_KEYS" ]; then
++	XLOAD3_PUBLIC_KEYS=$XLOAD3_ROOT/public_keys
++fi
++if [ -z "$XLOAD3_OTP" ]; then
++	XLOAD3_OTP=$XLOAD3_ROOT/otp
++fi
++if [ -z "$XLOAD3_ROM" ]; then
++	XLOAD3_ROM=$XLOAD3_ROOT/rom
++fi
++if [ -z "$XLOAD3_PRIVATE_KEYS" ]; then
++	XLOAD3_PRIVATE_KEYS=$XLOAD3_ROOT/private_keys
++fi
++if [ -z "$XLOAD3_PRIVATE_AES_KEYS" ]; then
++	XLOAD3_PRIVATE_AES_KEYS=$XLOAD3_ROOT/private_keys
++fi
++if [ -z "$XLOAD3_SEKAES" ]; then
++	XLOAD3_SEKAES=$XLOAD3_PRIVATE_KEYS/sekaes
++fi
++if [ -z "$XLOAD3_CHIP_DESIGN" ]; then
++	XLOAD3_CHIP_DESIGN=$XLOAD3_ROOT/chip_design
++fi
++if [ -z "$XLOAD3_OPENSSL" ]; then
++	XLOAD3_OPENSSL=openssl
++fi
++
++# Openssl for private key handling
++if [ -z "$XLOAD3_PRIVATE_OPENSSL" ]; then
++	XLOAD3_PRIVATE_OPENSSL=$XLOAD3_OPENSSL
++fi
++
++# Protection keys
++PROTECTION_PUBLIC_KEY=${XLOAD3_ROOT}/xos_local_keys/xos_rsa_pubkey.pem
++PROTECTION_PRIVATE_KEY=${XLOAD3_ROOT}/xos_local_keys/xos_rsa_keyboth.pem
++PROTECTION_CERTIFICATE=${XLOAD3_ROOT}/xos_local_keys/xos_rsa_selfcert.pem
++
++# Backup keys
++#PUBLIC_BACKUP_KEY=${XSDK_BACKUPS}/backup_pubkey.pem
++#PRIVATE_BACKUP_KEY=${XSDK_BACKUPS}/backup_keyboth.pem
++#CERTIFICATE_BACKUP=${XSDK_BACKUPS}/backup_selfcert.pem
++
++# certificates ID:
++CERT_TYPE_ZBOOT=00
++CERT_TYPE_CPU=01
++CERT_TYPE_XTASK1=02
++CERT_TYPE_VIDEO_UCODE=03
++CERT_TYPE_AUDIO_UCODE=04
++CERT_TYPE_DEMUX_UCODE=05
++CERT_TYPE_IH=06
++CERT_TYPE_XTASK2=07
++CERT_TYPE_XTASK3=08
++CERT_TYPE_XTASK4=09
++CERT_TYPE_XOSU=ff
++
++# This function adds a line in the logfile with the date and the message given as argument 
++function log_interface_logfile() {
++	echo -e `date +"%F %T"`": $@" >>$INTERFACE_LOG_FILE
++}
++
++function log() {
++	echo -e "$@" >&2
++	log_interface_logfile "$@"
++}
++
++function logerr() {
++	errmsg="Error: $@"
++	echo -e "\e[0;31m$errmsg\e[0m" >&2
++	log_interface_logfile "$errmsg"
++}
++
++## Utility functions
++
++function get_rootkey_basename() {
++	echo -n RK_sigma_${1}
++}
++function get_rootkey_pub_name() {
++	echo -n `get_rootkey_basename $1`_pubkey.pem
++}
++function get_rootkey_priv_name() {
++	echo -n `get_rootkey_basename $1`_keyboth.pem
++}
++function get_rootkey_symmetric_name() {
++	echo -n `get_rootkey_basename $1`_aes.bin
++}
++function get_siliconkey_basename() {
++	echo -n SK_${1}
++}
++function get_siliconkey_pub_name() {
++	echo -n `get_siliconkey_basename $1`_rsa_${2}_pubkey.pem
++}
++function get_siliconkey_priv_name() {
++	echo -n `get_siliconkey_basename $1`_rsa_${2}_keyboth.pem
++}
++function get_siliconkey_symmetric_name() {
++	echo -n `get_siliconkey_basename $1`_aes$2.bin
++}
++function get_certkey_basename() {
++	echo -n CK_sigma_${1}
++}
++function get_certkey_pub_name() {
++	echo -n `get_certkey_basename $1`_pubkey.pem
++}
++function get_certkey_priv_name() {
++	echo -n `get_certkey_basename $1`_keyboth.pem
++}
++

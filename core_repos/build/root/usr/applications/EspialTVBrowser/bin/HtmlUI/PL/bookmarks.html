@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+
+ <head>
+  <title>Zakładki</title>
+  <style type="text/css">
+
+    body {
+	background-color:black;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	font-family: arial, sans-serif;	/* setting the font style */
+	font-size: 1em;
+	color: white;
+    }
+
+    a {
+      color:white;
+    }
+
+    p {
+      color:white;
+    }
+
+  </style>
+
+<script>
+var str_Bookmarks = "Zakładki";
+var str_AddBookmark = "Dodaj zakładkę";
+var str_EditBookmark = "Edytuj zakładkę";
+var str_ClearBookmarks = "Wyczyść zakładki";
+var str_ClearBookmarksConfirm = "Czy na pewno chcesz wyczyścić zakładki?";
+var str_RemoveBookmarkConfirm = "Czy na pewno chcesz usunąć tę zakładkę?";
+</script>
+ </head>
+
+<!--
+
+      font-weight: bold;
+      font-family: arial, sans-serif;
+      text-align:center;
+      padding-top:4px;
+      padding-right:10px;
+
+ -->
+
+ <body onload="doOnLoad();"> &nbsp;
+ </body>
+
+  <script type="text/javascript">
+
+
+// --------------------------------------------------------
+//      L O C A L I Z A T I O N 
+//
+//  see the   init()   function for how the localized text is loaded
+//
+
+
+// we'll need an API call to get this ...
+var current_locale = "fr"; // "fr"; // "de";
+
+// --------------------------------------------------------
+
+
+
+  function doAddBookmark() {
+	Espial.openBookmarksDialog();
+	Espial.refresh();
+  }
+
+  function doDeleteBookmark() {
+    Espial.deleteBookmark('http://www.google.com"');
+  }
+
+function editBookmark(url, title)
+{
+	Espial.openBookmarksDialog(url, title, url);
+	Espial.refresh();
+}
+
+  function doGetBookmarks() {
+    Espial.getBookmarks();
+  }
+
+  function init() {
+    var l10n = document.createElement('script');
+    l10n.type = 'text/javascript';
+    l10n.src = 'bookmark_' + current_locale + '.js';
+    document.getElementsByTagName('head')[0].appendChild(l10n);
+  }
+
+
+  function doOnLoad() {
+
+    document.write("<div id='bodyDiv' style='background-color:#000000;padding:8px;margin:-8px;width:100%;min-height:100%;'>");
+    document.write("<img src='../../Images/toolbar-icon-folder.png' style='padding-left:12px;padding-top:12px;'><a style='color:white;font-size:32pt;font-family:arial;padding-left:4px;font-weight:bold'>&nbsp;");
+    document.write(str_Bookmarks);
+    document.write("</a><hr />");
+
+
+
+document.write("<div id=\"dialogButtons\">");
+document.write("<table>");
+	document.write("<tr>");
+		document.write("<td>");
+			document.write("<table cellspacing=\"0\" cellpadding=\"0\" style=\"height:30px;\" HIGHLIGHT=\"false\" onmouseover=\"hilightButton('add-button-left', null, 'add-button-sliver','add-button-right');\" onmouseout=\"deHilightButton('add-button-left', null, 'add-button-sliver','add-button-right');\" onclick='doAddBookmark();'>");
+				document.write("<tr>");
+					document.write("<td id=\"add-button-left\" style=\"width:41px;background-image:url('../../Images/button-add-left.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+					document.write("<td id=\"add-button-sliver\" style=\"color:white;font-family:arial;font-weight:bold;text-align:center;padding-left:4px;padding-right:10px;padding-top:10px;padding-bottom:10px;white-space:nowrap;background-image:url('../../Images/button-sliver.png');background-repeat: repeat-x\"'>");
+												document.write(str_AddBookmark);
+					document.write("</td>");
+					document.write("<td id=\"add-button-right\" style=\"width:18px;background-image:url('../../Images/button-right.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+				document.write("</tr>");
+			document.write("</table>");
+		document.write("</td>");
+		document.write("<td>");
+			document.write("<table cellspacing=\"0\" cellpadding=\"0\" style=\"padding-left:20px;height:30px;\" HIGHLIGHT=\"false\" onmouseover=\"hilightButton(null, 'del-button-left','del-button-sliver','del-button-right');\" onmouseout=\"deHilightButton(null, 'del-button-left','del-button-sliver','del-button-right');\" onclick='clearBookmarks();'>");
+				document.write("<tr>");
+					document.write("<td id=\"del-button-left\" style=\"width:41px;background-image:url('../../Images/button-delete-left.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+					document.write("<td id=\"del-button-sliver\" style=\"color:white;font-family:arial;font-weight:bold;text-align:center;padding-left:4px;padding-right:10px;padding-top:10px;padding-bottom:10px;white-space:nowrap;background-image:url('../../Images/button-sliver.png');background-repeat: repeat-x;\"'>");
+						document.write(str_ClearBookmarks);
+					document.write("</td>");
+					document.write("<td id=\"del-button-right\" style=\"width:18px;background-image:url('../../Images/button-right.png');background-repeat: no-repeat\"'>&nbsp;</td>");
+				document.write("</tr>");
+			document.write("</table>");
+		document.write("</td>");
+	document.write("</tr>");
+document.write("</table>");
+document.write("<div>");
+
+
+ document.write("<hr /><br />");
+
+          var currentBookmarkItem;
+          var bookmarks = Espial.getBookmarks();
+
+          if (bookmarks != null) {
+
+            var i = bookmarks.length - 1;
+
+            while (i >= 0) {
+
+              currentBookmarkItem = bookmarks[i];
+
+              // currentBookmarkItem[0] is the title / website name
+              // currentBookmarkItem[1] is the url
+  
+              if (currentBookmarkItem != null) {    
+
+                document.write("<div>");
+                document.write("<table width='100%'><tr><td width='80%'>");
+                document.write("<a style='color:white;font-size:16pt;font-family:arial;padding-left:18px;font-weight:bold' href='");
+                document.write(currentBookmarkItem[0]);
+                document.write("'> ");
+                document.write(currentBookmarkItem[1]);
+                document.write(" </a><br />");
+                document.write("</td><td rowspan='2' style='vertical-align:top'>");    
+                document.write("<img style='padding-left:30px;' HIGHLIGHT='false' onclick='confirmRemove(\"");
+                document.write(currentBookmarkItem[0]);
+                document.write("\", \"");
+                document.write(currentBookmarkItem[1]);
+                document.write("\");' " +
+	                       "onmouseout='this.src=\"../../Images/button-delete-left.png\";document.getElementById(\"bookmark-delete-" + i + "\").src=\"../../Images/button-right.png\";' " + 
+                               "onmouseover='this.src=\"../../Images/button-delete-left-hil.png\";document.getElementById(\"bookmark-delete-" + i + "\").src=\"../../Images/button-right-hil.png\";' " + 
+                               "src='../../Images/button-delete-left.png'><img id='bookmark-delete-" + i + "' HIGHLIGHT='false' src='../../Images/button-right.png'> &nbsp; ");
+
+                document.write(" &nbsp; <img style='padding-left:2px;' HIGHLIGHT='false' onclick=\"editBookmark('");
+                document.write(currentBookmarkItem[0]);
+                document.write("', '");
+                document.write(currentBookmarkItem[1]);
+                document.write("');\"  " +
+                               "onmouseout='this.src=\"../../Images/button-edit-left.png\";document.getElementById(\"bookmark-edit-" + i + "\").src=\"../../Images/button-right.png\";' " + 
+                               "onmouseover='this.src=\"../../Images/button-edit-left-hil.png\";document.getElementById(\"bookmark-edit-" + i + "\").src=\"../../Images/button-right-hil.png\";' " +
+                               " src='../../Images/button-edit-left.png'><img id='bookmark-edit-" + i + "' HIGHLIGHT='false' src='../../Images/button-right.png'> &nbsp; ");
+
+                document.write("</td></tr><tr><td>");    
+                document.write("<a style='color:white;font-size:12pt;font-family:arial;padding-left:24px;font-weight:bold'> ");
+                document.write(currentBookmarkItem[0]);
+                document.write(" </a>");
+                document.write("</td></tr></table>");    
+                document.write("</div>");
+                document.write("<br />");
+              }
+
+              i--;
+            }
+          } 
+
+    document.write("</div>");
+  }
+
+
+function clearBookmarks() {
+
+  if (confirm(str_ClearBookmarksConfirm)) {
+		Espial.deleteAllBookmarks();
+    Espial.refresh();
+  }
+}
+
+
+
+function confirmRemove(url, title) {
+  if (confirm(str_RemoveBookmarkConfirm + "<br /> " + title)) {
+		Espial.deleteBookmark(url);
+    Espial.refresh();
+  }
+}
+
+
+/* This method is called when a button is hilighted (mouse over) */
+function hilightButton(addBookmark, deleteBookmark, sliver, right) {
+  if (deleteBookmark != null) {
+    document.getElementById(deleteBookmark).style.backgroundImage = "url(../../Images/button-delete-left-hil.png)";
+  }
+
+if (addBookmark != null) {
+    document.getElementById(addBookmark).style.backgroundImage = "url(../../Images/button-add-left-hil.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(../../Images/button-sliver-hil.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(../../Images/button-right-hil.png)";
+  }
+}
+
+/* This method is called when a button is dehilighted (mouse out) */
+function deHilightButton(addBookmark, deleteBookmark, sliver, right) {
+  if (deleteBookmark != null) {
+    document.getElementById(deleteBookmark).style.backgroundImage = "url(../../Images/button-delete-left.png)";
+  }
+
+if (addBookmark != null) {
+    document.getElementById(addBookmark).style.backgroundImage = "url(../../Images/button-add-left.png)";
+  }
+
+  if (sliver != null) {
+    document.getElementById(sliver).style.backgroundImage = "url(../../Images/button-sliver.png)";
+  }
+
+  if (right != null) {
+    document.getElementById(right).style.backgroundImage = "url(../../Images/button-right.png)";
+  }
+}
+
+  </script>
+ </html>

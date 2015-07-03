@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/welcome_background_bg.jpg">
+  <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="l"  loop_scroll="1"/>
+
+  <text id="headline" text="$$Search" fontsize="40" textcolor="0xffb300" />
+
+  <include filename="./inc_list_browse.xml"/>
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./inc_headline_property.xml"/>
+</page>

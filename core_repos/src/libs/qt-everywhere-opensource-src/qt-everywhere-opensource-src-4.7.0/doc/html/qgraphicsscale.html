@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgraphicstransform.cpp -->
+  <title>Qt 4.7: QGraphicsScale Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QGraphicsScale</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QGraphicsScale Class Reference</h1>
+<!-- $$$QGraphicsScale-brief -->
+<p>The QGraphicsScale class provides a scale transformation. <a href="#details">More...</a></p>
+<!-- @@@QGraphicsScale -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QGraphicsScale&gt;</pre><p>Inherits <a href="qgraphicstransform.html">QGraphicsTransform</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qgraphicsscale-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qgraphicsscale.html#origin-prop">origin</a></b> : QVector3D</li>
+<li class="fn"><b><a href="qgraphicsscale.html#xScale-prop">xScale</a></b> : qreal</li>
+<li class="fn"><b><a href="qgraphicsscale.html#yScale-prop">yScale</a></b> : qreal</li>
+<li class="fn"><b><a href="qgraphicsscale.html#zScale-prop">zScale</a></b> : qreal</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#QGraphicsScale">QGraphicsScale</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#dtor.QGraphicsScale">~QGraphicsScale</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVector3D </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#origin-prop">origin</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#origin-prop">setOrigin</a></b> ( const QVector3D &amp; <i>point</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScale-prop">setXScale</a></b> ( qreal )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScale-prop">setYScale</a></b> ( qreal )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScale-prop">setZScale</a></b> ( qreal )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScale-prop">xScale</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScale-prop">yScale</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScale-prop">zScale</a></b> () const</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#applyTo">applyTo</a></b> ( QMatrix4x4 * <i>matrix</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">1 public function inherited from <a href="qgraphicstransform.html#public-functions">QGraphicsTransform</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#originChanged">originChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#scaleChanged">scaleChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScaleChanged">xScaleChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScaleChanged">yScaleChanged</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScaleChanged">zScaleChanged</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+<li class="fn">1 protected slot inherited from <a href="qgraphicstransform.html#protected-slots">QGraphicsTransform</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QGraphicsScale-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QGraphicsScale class provides a scale transformation.</p>
+<p><a href="qgraphicsscene.html">QGraphicsScene</a> provides certain parameters to help control how the scale should be applied.</p>
+<p>The origin is the point that the item is scaled from (i.e&#x2e;, it stays fixed relative to the parent as the rest of the item grows). By default the origin is <a href="qpointf.html">QPointF</a>(0, 0).</p>
+<p>The parameters <a href="qgraphicsscale.html#xScale-prop">xScale</a>, <a href="qgraphicsscale.html#yScale-prop">yScale</a>, and <a href="qgraphicsscale.html#zScale-prop">zScale</a> describe the scale factors to apply in horizontal, vertical, and depth directions. They can take on any value, including 0 (to collapse the item to a point) or negative value. A negative <a href="qgraphicsscale.html#xScale-prop">xScale</a> value will mirror the item horizontally. A negative <a href="qgraphicsscale.html#yScale-prop">yScale</a> value will flip the item vertically. A negative <a href="qgraphicsscale.html#zScale-prop">zScale</a> will flip the item end for end.</p>
+</div>
+<p>See also <a href="qgraphicstransform.html">QGraphicsTransform</a>, <a href="qgraphicsitem.html#setScale">QGraphicsItem::setScale</a>(), and <a href="qtransform.html#scale">QTransform::scale</a>().</p>
+<!-- @@@QGraphicsScale -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$origin-prop$$$origin$$$setOriginconstQVector3D&$$$originChanged -->
+<h3 class="fn"><a name="origin-prop"></a>origin : <a href="qvector3d.html">QVector3D</a></h3>
+<p>This property holds the origin of the scale in 3D space.</p>
+<p>All scaling will be done relative to this point (i.e&#x2e;, this point will stay fixed, relative to the parent, when the item is scaled).</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QVector3D </td><td class="memItemRight bottomAlign"><b>origin</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setOrigin</b> ( const QVector3D &amp; <i>point</i> )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#originChanged">originChanged</a></b> ()</td></tr>
+</table>
+<p>See also <a href="qgraphicsscale.html#xScale-prop">xScale</a>, <a href="qgraphicsscale.html#yScale-prop">yScale</a>, and <a href="qgraphicsscale.html#zScale-prop">zScale</a>.</p>
+<!-- @@@origin -->
+<!-- $$$xScale-prop$$$xScale$$$setXScaleqreal$$$xScaleChanged -->
+<h3 class="fn"><a name="xScale-prop"></a>xScale : <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
+<p>This property holds the horizontal scale factor.</p>
+<p>The scale factor can be any real number; the default value is 1.0&#x2e; If you set the factor to 0.0, the item will be collapsed to a single point. If you provide a negative value, the item will be mirrored horizontally around its origin.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b>xScale</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setXScale</b> ( qreal )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#xScaleChanged">xScaleChanged</a></b> ()</td></tr>
+</table>
+<p>See also <a href="qgraphicsscale.html#yScale-prop">yScale</a>, <a href="qgraphicsscale.html#zScale-prop">zScale</a>, and <a href="qgraphicsscale.html#origin-prop">origin</a>.</p>
+<!-- @@@xScale -->
+<!-- $$$yScale-prop$$$yScale$$$setYScaleqreal$$$yScaleChanged -->
+<h3 class="fn"><a name="yScale-prop"></a>yScale : <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
+<p>This property holds the vertical scale factor.</p>
+<p>The scale factor can be any real number; the default value is 1.0&#x2e; If you set the factor to 0.0, the item will be collapsed to a single point. If you provide a negative value, the item will be flipped vertically around its origin.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b>yScale</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setYScale</b> ( qreal )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#yScaleChanged">yScaleChanged</a></b> ()</td></tr>
+</table>
+<p>See also <a href="qgraphicsscale.html#xScale-prop">xScale</a>, <a href="qgraphicsscale.html#zScale-prop">zScale</a>, and <a href="qgraphicsscale.html#origin-prop">origin</a>.</p>
+<!-- @@@yScale -->
+<!-- $$$zScale-prop$$$zScale$$$setZScaleqreal$$$zScaleChanged -->
+<h3 class="fn"><a name="zScale-prop"></a>zScale : <a href="qtglobal.html#qreal-typedef">qreal</a></h3>
+<p>This property holds the depth scale factor.</p>
+<p>The scale factor can be any real number; the default value is 1.0&#x2e; If you set the factor to 0.0, the item will be collapsed to a single point. If you provide a negative value, the item will be flipped end for end around its origin.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b>zScale</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setZScale</b> ( qreal )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscale.html#zScaleChanged">zScaleChanged</a></b> ()</td></tr>
+</table>
+<p>See also <a href="qgraphicsscale.html#xScale-prop">xScale</a>, <a href="qgraphicsscale.html#yScale-prop">yScale</a>, and <a href="qgraphicsscale.html#origin-prop">origin</a>.</p>
+<!-- @@@zScale -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QGraphicsScale[overload1]$$$QGraphicsScaleQObject* -->
+<h3 class="fn"><a name="QGraphicsScale"></a>QGraphicsScale::QGraphicsScale ( <a href="qobject.html">QObject</a> * <i>parent</i> = 0 )</h3>
+<p>Constructs an empty <a href="qgraphicsscale.html">QGraphicsScale</a> object with the given <i>parent</i>.</p>
+<!-- @@@QGraphicsScale -->
+<!-- $$$~QGraphicsScale[overload1]$$$~QGraphicsScale -->
+<h3 class="fn"><a name="dtor.QGraphicsScale"></a>QGraphicsScale::~QGraphicsScale ()</h3>
+<p>Destroys the graphics scale.</p>
+<!-- @@@~QGraphicsScale -->
+<!-- $$$applyTo[overload1]$$$applyToQMatrix4x4* -->
+<h3 class="fn"><a name="applyTo"></a>void QGraphicsScale::applyTo ( <a href="qmatrix4x4.html">QMatrix4x4</a> * <i>matrix</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qgraphicstransform.html#applyTo">QGraphicsTransform::applyTo</a>().</p>
+<!-- @@@applyTo -->
+<!-- $$$originChanged[overload1]$$$originChanged -->
+<h3 class="fn"><a name="originChanged"></a>void QGraphicsScale::originChanged ()<tt> [signal]</tt></h3>
+<p><a href="qgraphicsscale.html">QGraphicsScale</a> emits this signal when its origin changes.</p>
+<p>See also <a href="qgraphicsscale.html#origin-prop">QGraphicsScale::origin</a>.</p>
+<!-- @@@originChanged -->
+<!-- $$$scaleChanged[overload1]$$$scaleChanged -->
+<h3 class="fn"><a name="scaleChanged"></a>void QGraphicsScale::scaleChanged ()<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the <a href="qgraphicsscale.html#xScale-prop">xScale</a>, <a href="qgraphicsscale.html#yScale-prop">yScale</a>, or <a href="qgraphicsscale.html#zScale-prop">zScale</a> of the object changes.</p>
+<p>See also <a href="qgraphicsscale.html#xScale-prop">QGraphicsScale::xScale</a>, <a href="qgraphicsscale.html#yScale-prop">QGraphicsScale::yScale</a>, and <a href="qgraphicsscale.html#zScale-prop">QGraphicsScale::zScale</a>.</p>
+<!-- @@@scaleChanged -->
+<!-- $$$xScaleChanged[overload1]$$$xScaleChanged -->
+<h3 class="fn"><a name="xScaleChanged"></a>void QGraphicsScale::xScaleChanged ()<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the <a href="qgraphicsscale.html#xScale-prop">xScale</a> property changes.</p>
+<p>This function was introduced in Qt 4.7.</p>
+<!-- @@@xScaleChanged -->
+<!-- $$$yScaleChanged[overload1]$$$yScaleChanged -->
+<h3 class="fn"><a name="yScaleChanged"></a>void QGraphicsScale::yScaleChanged ()<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the <a href="qgraphicsscale.html#yScale-prop">yScale</a> property changes.</p>
+<p>This function was introduced in Qt 4.7.</p>
+<!-- @@@yScaleChanged -->
+<!-- $$$zScaleChanged[overload1]$$$zScaleChanged -->
+<h3 class="fn"><a name="zScaleChanged"></a>void QGraphicsScale::zScaleChanged ()<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the <a href="qgraphicsscale.html#zScale-prop">zScale</a> property changes.</p>
+<p>This function was introduced in Qt 4.7.</p>
+<!-- @@@zScaleChanged -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

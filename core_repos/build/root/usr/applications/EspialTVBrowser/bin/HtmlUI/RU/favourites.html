@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<!-- 
+*
+*	Implementation of a vertical and horizontal flowing menu-submenu structure, used for Bookmarks page.
+*    Uses: CSS WebKit animation controlled by JavaScript
+*
+*	Visky Tamas, 2010 March
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+	
+	<head>
+		
+		<title> Избранное </title>	
+		
+		<link rel="stylesheet" type="text/css" href="../favourites.css" />
+		<script language="javascript" src="../favourites.js"> </script> 
+		
+		<!-- Class usage -->
+		<script language="javascript">
+		
+		/*
+		* Code creating the bookmarks, based on the input list. Function called onload.
+		*/
+		var myBookmarks;
+		function CreateBookmarks()
+		{
+			myBookmarks = new BookmarkFlow(document.getElementById("inputList"), document.getElementById("bookmarkArea"));
+			myBookmarks.update();
+			
+			// Adding key event listeners to the document
+			document.documentElement.addEventListener("keydown", keyPress, false);
+			document.documentElement.addEventListener("keypress", keyPress, false);
+		};
+		
+		/* Function handling keypresses. */	
+		function keyPress(evt) {
+			var charCode = 0;
+			if (evt.charCode)				//some browsers support evt.charCode, some only evt.keyCode
+				charCode = evt.charCode;        
+			else 
+				charCode = evt.keyCode;
+			
+			if (charCode == 38)
+				myBookmarks.flow(myBookmarks.UP);
+			else if (charCode == 40)
+				myBookmarks.flow(myBookmarks.DOWN);
+			else if (charCode == 39)
+				myBookmarks.flow(myBookmarks.RIGHT);
+			else if (charCode == 37)
+				myBookmarks.flow(myBookmarks.LEFT);
+			else if (charCode == 13)
+			{
+				myBookmarks.loadSelection();
+			}
+		};
+		
+		</script>
+		
+		
+		
+		<!-- CSS Style this page -->
+		<style type="text/css">
+			
+		</style>
+		
+	</head>
+	
+	
+	<!-- XHTML -->
+	<body HIGHLIGHT="false" onload="CreateBookmarks();">
+		
+		<!-- The area that will hold the entire bookmark structure. Content is added with JS. -->
+		<div id="bookmarkArea">
+			<div id="topSide"></div>
+			<div id="bottomSide"></div>
+			<div id="leftSide"></div>
+			<div id="rightSide"></div>
+		</div>
+		
+		<!-- List containing the info to build up the bookmarks.
+		Used as input, not visible on the screen -->	
+		<ul id="inputList" style="display: none;">
+			<li>iomega.png
+			<ul>
+				<li>
+				<span>Iomega</span>
+				<span>Res/iomega_com.jpg</span>
+				<span>http://iomega.com/screenplay-dx/index-ru.html</span>
+				</li>
+			</ul>
+			</li>
+			<li>search_rus.png
+			<ul>
+				<li>
+				<span>Google</span>
+				<span>Res/google_com.jpg</span>
+				<span>http://www.google.com</span>
+				</li>
+				<li>
+				<span>Yandex</span>
+				<span>Res/yandex_ru.jpg</span>
+				<span>http://www.yandex.com/</span>
+				</li>		
+			</ul>
+			</li>
+			<li>video_rus.png
+			<ul>
+				<li>
+				<span>Kinopoisk</span>
+				<span>Res/kinopoisk_ru.jpg</span>
+				<span>http://kinopoisk.ru</span>
+				</li>
+				<li>
+				<span>Yandex Video</span>
+				<span>Res/video_yandex_ru.jpg</span>
+				<span>http://video.yandex.ru</span>
+				</li>
+				<li>
+				<span>Rutube</span>
+				<span>Res/rutube_ru.jpg</span>
+				<span>http://rutube.ru</span>
+				</li>				
+				<li>
+				        <span>YouTube BoxOffice</span>
+					<span>Res/youtube_bo.jpg</span>
+				        <span>http://www.youtube.com/boxoffice</span>
+				</li>  
+			</ul>
+			</li>
+			<li>sports_rus.png
+			<ul>
+				<li>
+				<span>Sports</span>
+				<span>Res/sports_ru.jpg</span>
+				<span>http://sports.ru</span>
+				</li>
+				<li>
+				<span>Sport-Express</span>
+				<span>Res/sport-express_ru.jpg</span>
+				<span>http://www.sport-express.ru/</span>
+				</li>
+				<li>
+				<span>RBC</span>
+				<span>Res/sport_rbc_ru.jpg</span>
+				<span>http://sport.rbc.ru</span>
+				</li>				
+			</ul>
+			</li>
+			<li>photos_rus.png
+			<ul>
+				<li>
+				<span>Picasa Web</span>
+				<span>Res/picasa_com.jpg</span>
+				<span>http://picasaweb.google.com/</span>
+				</li>
+				<li>
+				<span>Photofile</span>
+				<span>Res/photofile_ru.jpg</span>
+				<span>http://photofile.ru</span>
+				</li>
+				<li>
+				<span>Radikal</span>
+				<span>Res/radikal_ru.jpg</span>
+				<span>http://radikal.ru</span>
+				</li>
+			</ul>
+			</li> 
+			<li>news_rus.png
+			<ul>
+				<li>
+				<span>Rian</span>
+				<span>Res/rian_ru.jpg</span>
+				<span>http://rian.ru</span>
+				</li>	
+				<li>
+				<span>Lenta</span>
+				<span>Res/lenta_ru.jpg</span>
+				<span>http://lenta.ru</span>
+				</li>  				
+			</ul> 
+			</li>  
+			<li>social_rus.png
+			<ul>
+				<li>
+				<span>Facebook</span>
+				<span>Res/facebook_com.jpg</span>
+				<span>http://www.facebook.com/</span>
+				</li>
+  		<li>
+  			<span>Google+</span>
+			<span>Res/google_plus.png</span>
+	  		<span>https://plus.google.com/</span>
+		</li>
+				<li>
+				<span>Twitter</span>
+				<span>Res/twitter_com.jpg</span>
+				<span>http://www.twitter.com/</span>
+				</li>						
+				<li>
+				<span>Vkontakte</span>
+				<span>Res/vkontakte_ru.jpg</span>
+				<span>http://vkontakte.ru</span>		
+				</li>
+				<li>
+				<span>Odnoklassniki</span>
+				<span>Res/odnoklassniki_ru.jpg</span>
+				<span>http://odnoklassniki.ru</span>
+				</li>
+			</ul>
+			</li>
+		</ul>
+	</body>	
+</html>
+

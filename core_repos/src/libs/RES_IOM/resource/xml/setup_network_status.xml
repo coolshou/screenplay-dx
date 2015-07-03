@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png" numitems="5">	  
+  <ctrlgrp lbmask="lrud">
+    <button valkey="WIRELESS_REVIEW_SETTINGS_NEXT"
+      focused_bg="image/common_button_B_btn_f.png"
+      normal_bg="image/common_button_B_btn_n.png"
+      click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+   
+  <text id="subheadline" text="$$Current network settings"/>  
+  <!--include filename="./inc_setup_title.xml" /-->
+
+  <image image="image/settings_network_1title_n.png"   x="57" y="46" w="276" h="56"/>
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  
+  <table x="150" y="180" w="200" h="210" cols="1" rows="9" fontsize="18" >
+  <text text="@@TITLE1"   align="right"/>
+  <text text="@@TITLE2"   align="right"/>
+  <text text="@@TITLE3"   align="right"/>
+  <text text="@@TITLE4"   align="right"/>
+  <text text="@@TITLE5"   align="right"/>
+  <text text="@@TITLE6"   align="right"/>
+  <text text="@@TITLE7"   align="right"/>
+  <text text="@@TITLE8"   align="right"/>
+  <text text="@@TITLE9"   align="right"/>
+  </table>
+  
+  <table x="360" y="180" w="300" h="210" cols="1" rows="9" fontsize="18" >
+  <text text="@@VALUE1"/>
+  <text text="@@VALUE2"/>
+  <text text="@@VALUE3"/>
+  <text text="@@VALUE4"/>
+  <text text="@@VALUE5"/>
+  <text text="@@VALUE6"/>
+  <text text="@@VALUE7"/>
+  <text text="@@VALUE8"/>
+  <text text="@@VALUE9"/>
+  </table>
+
+  <!--text text="@@PING_STATUS" x="160" y="395" w="400" h="20" fontsize="18" align="hcenter"/-->
+  <imgbtn image="@@bg-WIRELESS_REVIEW_SETTINGS_NEXT" x="223" y="398" w="275" h="36" text="$$Configure Network" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-WIRELESS_REVIEW_SETTINGS_NEXT" actnoseltextcolor="0x3333333"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

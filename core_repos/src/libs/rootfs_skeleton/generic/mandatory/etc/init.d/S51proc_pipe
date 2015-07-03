@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "Inserting the proc_pipe modules..."
+/sbin/insmod /lib/modules/proc_pipe.ko

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" wait_seconds="3">
+  <ctrlgrp>
+     <button valkey="BACK"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+     <button valkey="NEXT"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png" 
+        click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+
+  <text text="@@msg0" x="160" y="150" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg1" x="160" y="180" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg2" x="160" y="210" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg3" x="160" y="240" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg4" x="160" y="270" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg5" x="160" y="300" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg6" x="160" y="330" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg7" x="160" y="360" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg8" x="160" y="390" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg9" x="160" y="420" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+  <text text="@@msg10" x="160" y="450" w="960" h="30" fontsize="20" textcolor="0xffffff" align="left" auto_translate="0" ignore_translate="1"/>
+
+  
+  <imgbtn image="@@bg-BACK" text="@@text-BACK" active="@@act-BACK" x="316" y="515" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+  <imgbtn image="@@bg-NEXT" text="@@text-NEXT" active="@@act-NEXT" x="657" y="515" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+
+  <image image="@@moreprev" x="626" y="120" w="29" h="21"/>
+  <image image="@@morenext" x="626" y="484" w="29" h="21"/>
+
+
+  <include filename="./inc_setup_entry_basic_title.xml" />
+
+  <include filename="./inc_decoration.xml"/>
+</page>

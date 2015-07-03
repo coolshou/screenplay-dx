@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<page  background="image/video_encoding_bg.png" overlay="1">
+	<ctrlgrp valkey="options" autoenter="1" lbmask="udlr"> 
+		<button valkey="UP"/>
+		<linebreak/>
+		<listbox valkey="browselist" autoenter="1" move="page" cols="1" rows="5" lbmask="udlr"/>
+		<linebreak/>
+		<button valkey="CANCEL" focused_bg="image/global_cancel_bt_f.png" normal_bg="image/global_cancel_bt_n.png" click_bg="image/global_cancel_bt_n.png"/>
+		<button valkey="OK" focused_bg="image/global_ok_bt_f.png" normal_bg="image/global_ok_bt_n.png" click_bg="image/global_ok_bt_n.png"/>
+	</ctrlgrp>
+
+	<image image="image/global_messagebox_large_bg.png" x="226" y="108" w="832" h="515" align="hcenter" scale_type="fixratio" scale="100"/>
+
+	<text x="254" y="137" w="733" h="40" text="@@title" textcolor="0xffffff" fontsize="36"/>
+
+	<text x="328" y="206" w="685" h="51" text="@@text-UP" textcolor="0xffffff" active="@@act-UP" selected="sel-UP" actnoseltextcolor="0xff8400" activetextcolor="0xff8400" fontsize="36" disable="@@disable-UP"/>
+
+	<image image="@@folder_icon" x="282" y="206" w="43" h="45" align="hcenter" scale_type="fixratio" scale="100"/>
+
+        <table x="265" y="260" w="749" h="300"  selected_fontsize="30" 
+                        textcolor="0xC1C1C1" actnoseltextcolor="0xC1C1C1" actoverlistcolor="0xC1C1C1" 
+                        activetextcolor="0xff8400" selectedtextcolor="0xff8400"
+                        cols="1" rows="5" colspacing="0" rowspacing="0" ymargin="0"
+                        lbimage="image/global_messagebox_large_select_bar.png" fontsize="30"
+                        lightbar_hide_if_unfocused="1">
+                <text text="@@browse_0_name" lmargin="7" rmargin="47" speed="@@browse_0_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" selected="@@browse_0_select"/>
+                <text text="@@browse_1_name" lmargin="7" rmargin="47" speed="@@browse_1_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" selected="@@browse_1_select"/>
+                <text text="@@browse_2_name" lmargin="7" rmargin="47" speed="@@browse_2_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" selected="@@browse_2_select"/>
+                <text text="@@browse_3_name" lmargin="7" rmargin="47" speed="@@browse_3_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" selected="@@browse_3_select"/>
+                <text text="@@browse_4_name" lmargin="7" rmargin="47" speed="@@browse_4_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" selected="@@browse_4_select"/>
+        </table>
+
+        <image image="@@morenext" x="628" y="570" w="37" h="24"/>
+
+	<imgbtn x="1096" y="303" w="116" h="116" image="@@bg-CANCEL" align="hcenter" active="@@act-CANCEL" disable="@@disable-CANCEL"/>
+	<imgbtn x="1096" y="303" w="116" h="116" image="@@bg-OK" align="hcenter" active="@@act-OK" disable="@@disable-OK"/>
+	<image image="@@cancel_icon" x="1096" y="303" w="116" h="116"/>
+
+	<include filename="./inc_loading.xml"/>
+</page>

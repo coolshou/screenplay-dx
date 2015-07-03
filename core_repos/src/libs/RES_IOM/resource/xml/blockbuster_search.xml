@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+	<ctrlgrp valkey="main">
+		<button valkey="ToHome"
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<eventbox_keyboard valkey="keyboard" autoenter="1"/>
+		<listbox valkey="browselist" move="page" cols="1" rows="8" autoenter="1" lbmask="lr" loop_scroll="1"
+			focused_bg="image/blockbuster/bb_list_select_bar_f.png"
+			click_bg="image/blockbuster/bb_list_select_bar_c.png"/>
+	</ctrlgrp>
+
+	<widget_keyboard ctrlname="keyboard" x="107" y="224" w="374" h="350" cols="8" rows="7" align="hcenter" 
+		textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029" 
+		changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+
+	<image image="image/blockbuster/keyboard_search_box.png" x="107" y="164" w="374" h="50" bg="1"/>
+	<texttail text="@@input_01_text" x="123" y="179" w="342" h="26"  textcolor="0xfff2f2f2" fontsize="24" align="hcenter" ignore_translate="1"/>
+
+	<table x="526" y="170" w="648" h="408" fontsize="20" cols="1" rows="8" colspacing="5">
+		<imgbtn image="@@bg-browselist-0" 
+			active="@@act-browselist-0" selected="@@sel-browselist-0" click="@@click-browselist-0"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-1"
+			active="@@act-browselist-1" selected="@@sel-browselist-1" click="@@click-browselist-1"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-2" 
+			active="@@act-browselist-2" selected="@@sel-browselist-2" click="@@click-browselist-2"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-3"
+			active="@@act-browselist-3" selected="@@sel-browselist-3" click="@@click-browselist-3"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-4"
+			active="@@act-browselist-4" selected="@@sel-browselist-4" click="@@click-browselist-4"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-5"
+			active="@@act-browselist-5" selected="@@sel-browselist-5" click="@@click-browselist-5"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-6"
+			active="@@act-browselist-6" selected="@@sel-browselist-6" click="@@click-browselist-6"
+			disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-7"
+			active="@@act-browselist-7" selected="@@sel-browselist-7" click="@@click-browselist-7"
+			disable="@@disable-browselist"/>
+	</table>
+
+	<table x="526" y="170" w="648" h="408" fontsize="20" cols="1" rows="8" align="left" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029">
+		<text text="@@browselist_0_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-0" selected="@@sel-browselist-0" click="@@click-browselist-0"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_1_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-1" selected="@@sel-browselist-1" click="@@click-browselist-1"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_2_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-2" selected="@@sel-browselist-2" click="@@click-browselist-2"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_3_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-3" selected="@@sel-browselist-3" click="@@click-browselist-3"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_4_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-4" selected="@@sel-browselist-4" click="@@click-browselist-4"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_5_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-5" selected="@@sel-browselist-5" click="@@click-browselist-5"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_6_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-6" selected="@@sel-browselist-6" click="@@click-browselist-6"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+		<text text="@@browselist_7_text" umargin="16" dmargin="16" lmargin="21" rmargin="21"
+			active="@@act-browselist-7" selected="@@sel-browselist-7" click="@@click-browselist-7"
+			disable="@@disable-browselist" speed="5" delay="2"/>
+	</table>
+
+	<image x="526" y="586" w="648" h="5" image="image/blockbuster/bb_find_line.jpg"/>
+	<image x="523" y="597" w="41" h="39" image="image/blockbuster/bb_browse_left.png" disable="@@disable-browselist"/>
+	<image x="1146" y="597" w="41" h="39" image="image/blockbuster/bb_browse_right.png" disable="@@disable-browselist"/>
+	<wrapper h="22" fontsize="20" textcolor="0xff6e6e6e">
+		<text x="564" y="599" w="140" text="$$Previous" align="left" disable="@@disable-browselist"/>
+		<text x="714" y="599" w="270" text="@@Title" align="hcenter" disable="@@disable-browselist"/>
+		<text x="994" y="599" w="140" text="$$Next" align="right" disable="@@disable-browselist"/>
+	</wrapper>
+
+	<text text="@@inform_text" x="542" y="343" w="632" h="100" fontsize="20" textcolor="0xff727272" align="hcenter"/>
+	<image image="@@status_icon" x="794" y="304" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

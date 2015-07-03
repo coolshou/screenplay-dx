@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/flickr/IService_Flickr_bg.jpg" type="basic">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="5" lbmask="lr"  loop_scroll="1" turbo_trigger="10" turbo_multi="10" />
+	<linebreak/>
+  </ctrlgrp>
+
+  <include filename="./info.xml"/>
+  <text id="headline" text="@@browse_title_icon" fontsize="40" textcolor="0xffb300"/>
+  <include filename="./inc_flickr_list_browse2.xml"/>
+  <include filename="./inc_loading.xml"/>
+  <!-- fixed --> 
+  <include filename="././inc_headline_property.xml"/>
+  <include filename="./inc_decoration_online.xml"/>
+</page>

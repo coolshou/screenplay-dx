@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp>
+    <button valkey="START"
+      focused_bg="image/common_button_D_btn_f.png"
+      normal_bg="image/common_button_D_btn_n.png"
+      click_bg="image/common_button_D_btn_p.png" />
+    <button valkey="SETUP_LATER"
+      	focused_bg="image/common_button_E_btn_f.png"
+      	normal_bg="image/common_button_E_btn_n.png"
+      	click_bg="image/common_button_E_btn_p.png" />
+  </ctrlgrp>
+
+  <image id="step" image="image/wizard_step_1_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+<!--
+  <text text="$$Welcome to the D-Link MediaLounge DSM-750. This wizard will guide you through connecting this device to your home network. Once your device is connected, it can be used to access and enjoy media stored on your PC. If you have a PC with Windows Vista Home Premium or Ultimate (or later), this device can be used as a Media Center Extender. " x="122" y="177" w="477" h="180" fontsize="18" numlines="8"/>
+-->
+  <text text="@@WARNLINE1" x="160" y="320" w="400" h="30" fontsize="18" align="hcenter"/>
+  <text text="@@WARNLINE2" x="160" y="350" w="400" h="30" fontsize="18" align="hcenter"/>
+
+
+  <!--imgbtn x="223" y="398" w="275" h="36" image="@@bg-START" text="$$Next" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-START" actnoseltextcolor="0x3333333"/-->
+
+  <imgbtn x="256" y="398" w="207" h="36" image="@@bg-START" text="$$Next" align="hcenter" fontsize="24" textcolor="0xEDC831"  active="@@act-START" actnoseltextcolor="0x3333333"/>
+  <imgbtn x="470" y="398" w="113" h="36" image="@@bg-SETUP_LATER" text="@@LATER" align="hcenter" fontsize="24" textcolor="0xEDC831"  active="@@act-SETUP_LATER" actnoseltextcolor="0x3333333"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

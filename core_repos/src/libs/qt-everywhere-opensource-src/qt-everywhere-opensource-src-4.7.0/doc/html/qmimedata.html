@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmimedata.cpp -->
+  <title>Qt 4.7: QMimeData Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtcore.html">QtCore</a></li>
+              <li>QMimeData</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#platform-specific-mime-types">Platform-Specific MIME Types</a></li>
+</ul>
+</div>
+<h1 class="title">QMimeData Class Reference</h1>
+<!-- $$$QMimeData-brief -->
+<p>The QMimeData class provides a container for data that records information about its MIME type. <a href="#details">More...</a></p>
+<!-- @@@QMimeData -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QMimeData&gt;</pre><p>Inherits <a href="qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="qmimedata-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#QMimeData">QMimeData</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#dtor.QMimeData">~QMimeData</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#clear">clear</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#colorData">colorData</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#data">data</a></b> ( const QString &amp; <i>mimeType</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QStringList </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#formats">formats</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasColor">hasColor</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasFormat">hasFormat</a></b> ( const QString &amp; <i>mimeType</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasHtml">hasHtml</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasImage">hasImage</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasText">hasText</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#hasUrls">hasUrls</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#html">html</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#imageData">imageData</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#removeFormat">removeFormat</a></b> ( const QString &amp; <i>mimeType</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setColorData">setColorData</a></b> ( const QVariant &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setData">setData</a></b> ( const QString &amp; <i>mimeType</i>, const QByteArray &amp; <i>data</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setHtml">setHtml</a></b> ( const QString &amp; <i>html</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setImageData">setImageData</a></b> ( const QVariant &amp; <i>image</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setText">setText</a></b> ( const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#setUrls">setUrls</a></b> ( const QList&lt;QUrl&gt; &amp; <i>urls</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#text">text</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;QUrl&gt; </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#urls">urls</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QVariant </td><td class="memItemRight bottomAlign"><b><a href="qmimedata.html#retrieveData">retrieveData</a></b> ( const QString &amp; <i>mimeType</i>, QVariant::Type <i>type</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QMimeData-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QMimeData class provides a container for data that records information about its MIME type.</p>
+<p>QMimeData is used to describe information that can be stored in the <a href="qclipboard.html">clipboard</a>, and transferred via the <a href="dnd.html">drag and drop</a> mechanism. QMimeData objects associate the data that they hold with the corresponding MIME types to ensure that information can be safely transferred between applications, and copied around within the same application.</p>
+<p>QMimeData objects are usually created using <tt>new</tt> and supplied to <a href="qdrag.html">QDrag</a> or <a href="qclipboard.html">QClipboard</a> objects. This is to enable Qt to manage the memory that they use.</p>
+<p>A single QMimeData object can store the same data using several different formats at the same time. The <a href="qmimedata.html#formats">formats</a>() function returns a list of the available formats in order of preference. The <a href="qmimedata.html#data">data</a>() function returns the raw data associated with a MIME type, and <a href="qmimedata.html#setData">setData</a>() allows you to set the data for a MIME type.</p>
+<p>For the most common MIME types, QMimeData provides convenience functions to access the data:</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Tester</th><th >Getter</th><th >Setter</th><th >MIME Types</th></tr></thead>
+<tr class="odd topAlign"><td ><p><a href="qmimedata.html#hasText">hasText</a>()</p></td><td ><p><a href="qmimedata.html#text">text</a>()</p></td><td ><p><a href="qmimedata.html#setText">setText</a>()</p></td><td ><p><tt>text/plain</tt></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmimedata.html#hasHtml">hasHtml</a>()</p></td><td ><p><a href="qmimedata.html#html">html</a>()</p></td><td ><p><a href="qmimedata.html#setHtml">setHtml</a>()</p></td><td ><p><tt>text/html</tt></p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmimedata.html#hasUrls">hasUrls</a>()</p></td><td ><p><a href="qmimedata.html#urls">urls</a>()</p></td><td ><p><a href="qmimedata.html#setUrls">setUrls</a>()</p></td><td ><p><tt>text/uri-list</tt></p></td></tr>
+<tr class="even topAlign"><td ><p><a href="qmimedata.html#hasImage">hasImage</a>()</p></td><td ><p><a href="qmimedata.html#imageData">imageData</a>()</p></td><td ><p><a href="qmimedata.html#setImageData">setImageData</a>()</p></td><td ><p><tt>image/</tt> *</p></td></tr>
+<tr class="odd topAlign"><td ><p><a href="qmimedata.html#hasColor">hasColor</a>()</p></td><td ><p><a href="qmimedata.html#colorData">colorData</a>()</p></td><td ><p><a href="qmimedata.html#setColorData">setColorData</a>()</p></td><td ><p><tt>application/x-color</tt></p></td></tr>
+</table>
+<p>For example, if your write a widget that accepts URL drags, you would end up writing code like this:</p>
+<pre class="highlightedCode brush: cpp"> void MyWidget::dragEnterEvent(QDragEnterEvent *event)
+ {
+     if (event-&gt;mimeData()-&gt;hasUrls())
+         event-&gt;acceptProposedAction();
+ }
+
+ void MyWidget::dropEvent(QDropEvent *event)
+ {
+     if (event-&gt;mimeData()-&gt;hasUrls()) {
+         foreach (QUrl url, event-&gt;mimeData()-&gt;urls()) {
+             ...
+         }
+     }
+ }</pre>
+<p>There are three approaches for storing custom data in a QMimeData object:</p>
+<ol type="1">
+<li>Custom data can be stored directly in a QMimeData object as a <a href="qbytearray.html">QByteArray</a> using <a href="qmimedata.html#setData">setData</a>(). For example:<pre class="highlightedCode brush: cpp"> QByteArray csvData = ...;
+
+ QMimeData *mimeData = new QMimeData;
+ mimeData-&gt;setData(&quot;text/csv&quot;, csvData);</pre>
+</li>
+<li>We can subclass QMimeData and reimplement <a href="qmimedata.html#hasFormat">hasFormat</a>(), <a href="qmimedata.html#formats">formats</a>(), and <a href="qmimedata.html#retrieveData">retrieveData</a>().</li>
+<li>If the drag and drop operation occurs withing a single application, we can subclass QMimeData and add extra data in it, and use a <a href="qobject.html#qobject_cast">qobject_cast</a>() in the receiver's drop event handler. For example:<pre class="highlightedCode brush: cpp"> void MyWidget::dropEvent(QDropEvent *event)
+ {
+     const MyMimeData *myData =
+             qobject_cast&lt;const MyMimeData *&gt;(event-&gt;mimeData());
+     if (myData) {
+         <span class="comment">// access myData's data directly (not through QMimeData's API)</span>
+     }
+ }</pre>
+</li>
+</ol>
+<a name="platform-specific-mime-types"></a>
+<h3>Platform-Specific MIME Types</h3>
+<p>On Windows, <a href="qmimedata.html#formats">formats</a>() will also return custom formats available in the MIME data, using the <tt>x-qt-windows-mime</tt> subtype to indicate that they represent data in non-standard formats. The formats will take the following form:</p>
+<pre class="highlightedCode brush: cpp"> application/x-qt-windows-mime;value=&quot;&lt;custom type&gt;&quot;</pre>
+<p>The following are examples of custom MIME types:</p>
+<pre class="highlightedCode brush: cpp"> application/x-qt-windows-mime;value=&quot;FileGroupDescriptor&quot;
+ application/x-qt-windows-mime;value=&quot;FileContents&quot;</pre>
+<p>The <tt>value</tt> declaration of each format describes the way in which the data is encoded.</p>
+<p>On Windows, the MIME format does not always map directly to the clipboard formats. Qt provides <a href="qwindowsmime.html">QWindowsMime</a> to map clipboard formats to open-standard MIME formats. Similarly, the <a href="qmacpasteboardmime.html">QMacPasteboardMime</a> maps MIME to Mac flavors.</p>
+</div>
+<p>See also <a href="qclipboard.html">QClipboard</a>, <a href="qdragenterevent.html">QDragEnterEvent</a>, <a href="qdragmoveevent.html">QDragMoveEvent</a>, <a href="qdropevent.html">QDropEvent</a>, <a href="qdrag.html">QDrag</a>, <a href="qwindowsmime.html">QWindowsMime</a>, <a href="qmacpasteboardmime.html">QMacPasteboardMime</a>, and <a href="dnd.html">Drag and Drop</a>.</p>
+<!-- @@@QMimeData -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QMimeData[overload1]$$$QMimeData -->
+<h3 class="fn"><a name="QMimeData"></a>QMimeData::QMimeData ()</h3>
+<p>Constructs a new MIME data object with no data in it.</p>
+<!-- @@@QMimeData -->
+<!-- $$$~QMimeData[overload1]$$$~QMimeData -->
+<h3 class="fn"><a name="dtor.QMimeData"></a>QMimeData::~QMimeData ()</h3>
+<p>Destroys the MIME data object.</p>
+<!-- @@@~QMimeData -->
+<!-- $$$clear[overload1]$$$clear -->
+<h3 class="fn"><a name="clear"></a>void QMimeData::clear ()</h3>
+<p>Removes all the MIME type and data entries in the object.</p>
+<!-- @@@clear -->
+<!-- $$$colorData[overload1]$$$colorData -->
+<h3 class="fn"><a name="colorData"></a><a href="qvariant.html">QVariant</a> QMimeData::colorData () const</h3>
+<p>Returns a color if the data stored in the object represents a color (MIME type <tt>application/x-color</tt>); otherwise returns a null variant.</p>
+<p>A <a href="qvariant.html">QVariant</a> is used because <a href="qmimedata.html">QMimeData</a> belongs to the <a href="qtcore.html">QtCore</a> library, whereas <a href="qcolor.html">QColor</a> belongs to <a href="qtgui.html">QtGui</a>. To convert the <a href="qvariant.html">QVariant</a> to a <a href="qcolor.html">QColor</a>, simply use <a href="qvariant.html#qvariant_cast">qvariant_cast</a>(). For example:</p>
+<pre class="highlightedCode brush: cpp"> if (event-&gt;mimeData()-&gt;hasColor()) {
+     QColor color = qvariant_cast&lt;QColor&gt;(event-&gt;mimeData()-&gt;colorData());
+     ...
+ }</pre>
+<p>See also <a href="qmimedata.html#hasColor">hasColor</a>(), <a href="qmimedata.html#setColorData">setColorData</a>(), and <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@colorData -->
+<!-- $$$data[overload1]$$$dataconstQString& -->
+<h3 class="fn"><a name="data"></a><a href="qbytearray.html">QByteArray</a> QMimeData::data ( const <a href="qstring.html">QString</a> &amp; <i>mimeType</i> ) const</h3>
+<p>Returns the data stored in the object in the format described by the MIME type specified by <i>mimeType</i>.</p>
+<p>See also <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@data -->
+<!-- $$$formats[overload1]$$$formats -->
+<h3 class="fn"><a name="formats"></a><a href="qstringlist.html">QStringList</a> QMimeData::formats () const<tt> [virtual]</tt></h3>
+<p>Returns a list of formats supported by the object. This is a list of MIME types for which the object can return suitable data. The formats in the list are in a priority order.</p>
+<p>For the most common types of data, you can call the higher-level functions <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), <a href="qmimedata.html#hasImage">hasImage</a>(), and <a href="qmimedata.html#hasColor">hasColor</a>() instead.</p>
+<p>See also <a href="qmimedata.html#hasFormat">hasFormat</a>(), <a href="qmimedata.html#setData">setData</a>(), and <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@formats -->
+<!-- $$$hasColor[overload1]$$$hasColor -->
+<h3 class="fn"><a name="hasColor"></a>bool QMimeData::hasColor () const</h3>
+<p>Returns true if the object can return a color (MIME type <tt>application/x-color</tt>); otherwise returns false.</p>
+<p>See also <a href="qmimedata.html#setColorData">setColorData</a>(), <a href="qmimedata.html#colorData">colorData</a>(), and <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
+<!-- @@@hasColor -->
+<!-- $$$hasFormat[overload1]$$$hasFormatconstQString& -->
+<h3 class="fn"><a name="hasFormat"></a>bool QMimeData::hasFormat ( const <a href="qstring.html">QString</a> &amp; <i>mimeType</i> ) const<tt> [virtual]</tt></h3>
+<p>Returns true if the object can return data for the MIME type specified by <i>mimeType</i>; otherwise returns false.</p>
+<p>For the most common types of data, you can call the higher-level functions <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), <a href="qmimedata.html#hasImage">hasImage</a>(), and <a href="qmimedata.html#hasColor">hasColor</a>() instead.</p>
+<p>See also <a href="qmimedata.html#formats">formats</a>(), <a href="qmimedata.html#setData">setData</a>(), and <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@hasFormat -->
+<!-- $$$hasHtml[overload1]$$$hasHtml -->
+<h3 class="fn"><a name="hasHtml"></a>bool QMimeData::hasHtml () const</h3>
+<p>Returns true if the object can return HTML (MIME type <tt>text/html</tt>); otherwise returns false.</p>
+<p>See also <a href="qmimedata.html#setHtml">setHtml</a>(), <a href="qmimedata.html#html">html</a>(), and <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
+<!-- @@@hasHtml -->
+<!-- $$$hasImage[overload1]$$$hasImage -->
+<h3 class="fn"><a name="hasImage"></a>bool QMimeData::hasImage () const</h3>
+<p>Returns true if the object can return an image; otherwise returns false.</p>
+<p>See also <a href="qmimedata.html#setImageData">setImageData</a>(), <a href="qmimedata.html#imageData">imageData</a>(), and <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
+<!-- @@@hasImage -->
+<!-- $$$hasText[overload1]$$$hasText -->
+<h3 class="fn"><a name="hasText"></a>bool QMimeData::hasText () const</h3>
+<p>Returns true if the object can return plain text (MIME type <tt>text/plain</tt>); otherwise returns false.</p>
+<p>See also <a href="qmimedata.html#setText">setText</a>(), <a href="qmimedata.html#text">text</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), and <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
+<!-- @@@hasText -->
+<!-- $$$hasUrls[overload1]$$$hasUrls -->
+<h3 class="fn"><a name="hasUrls"></a>bool QMimeData::hasUrls () const</h3>
+<p>Returns true if the object can return a list of urls; otherwise returns false.</p>
+<p>URLs correspond to the MIME type <tt>text/uri-list</tt>.</p>
+<p>See also <a href="qmimedata.html#setUrls">setUrls</a>(), <a href="qmimedata.html#urls">urls</a>(), and <a href="qmimedata.html#hasFormat">hasFormat</a>().</p>
+<!-- @@@hasUrls -->
+<!-- $$$html[overload1]$$$html -->
+<h3 class="fn"><a name="html"></a><a href="qstring.html">QString</a> QMimeData::html () const</h3>
+<p>Returns a string if the data stored in the object is HTML (MIME type <tt>text/html</tt>); otherwise returns an empty string.</p>
+<p>See also <a href="qmimedata.html#setHtml">setHtml</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@html -->
+<!-- $$$imageData[overload1]$$$imageData -->
+<h3 class="fn"><a name="imageData"></a><a href="qvariant.html">QVariant</a> QMimeData::imageData () const</h3>
+<p>Returns a <a href="qvariant.html">QVariant</a> storing a <a href="qimage.html">QImage</a> if the object can return an image; otherwise returns a null variant.</p>
+<p>A <a href="qvariant.html">QVariant</a> is used because <a href="qmimedata.html">QMimeData</a> belongs to the <a href="qtcore.html">QtCore</a> library, whereas <a href="qimage.html">QImage</a> belongs to <a href="qtgui.html">QtGui</a>. To convert the <a href="qvariant.html">QVariant</a> to a <a href="qimage.html">QImage</a>, simply use <a href="qvariant.html#qvariant_cast">qvariant_cast</a>(). For example:</p>
+<pre class="highlightedCode brush: cpp"> if (event-&gt;mimeData()-&gt;hasImage()) {
+     QImage image = qvariant_cast&lt;QImage&gt;(event-&gt;mimeData()-&gt;imageData());
+     ...
+ }</pre>
+<p>See also <a href="qmimedata.html#setImageData">setImageData</a>() and <a href="qmimedata.html#hasImage">hasImage</a>().</p>
+<!-- @@@imageData -->
+<!-- $$$removeFormat[overload1]$$$removeFormatconstQString& -->
+<h3 class="fn"><a name="removeFormat"></a>void QMimeData::removeFormat ( const <a href="qstring.html">QString</a> &amp; <i>mimeType</i> )</h3>
+<p>Removes the data entry for <i>mimeType</i> in the object.</p>
+<p>This function was introduced in Qt 4.4.</p>
+<!-- @@@removeFormat -->
+<!-- $$$retrieveData[overload1]$$$retrieveDataconstQString&QVariant::Type -->
+<h3 class="fn"><a name="retrieveData"></a><a href="qvariant.html">QVariant</a> QMimeData::retrieveData ( const <a href="qstring.html">QString</a> &amp; <i>mimeType</i>, <a href="qvariant.html#Type-enum">QVariant::Type</a> <i>type</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Returns a variant with the given <i>type</i> containing data for the MIME type specified by <i>mimeType</i>. If the object does not support the MIME type or variant type given, a null variant is returned instead.</p>
+<p>This function is called by the general <a href="qmimedata.html#data">data</a>() getter and by the convenience getters (<a href="qmimedata.html#text">text</a>(), <a href="qmimedata.html#html">html</a>(), <a href="qmimedata.html#urls">urls</a>(), <a href="qmimedata.html#imageData">imageData</a>(), and <a href="qmimedata.html#colorData">colorData</a>()). You can reimplement it if you want to store your data using a custom data structure (instead of a <a href="qbytearray.html">QByteArray</a>, which is what <a href="qmimedata.html#setData">setData</a>() provides). You would then also need to reimplement <a href="qmimedata.html#hasFormat">hasFormat</a>() and <a href="qmimedata.html#formats">formats</a>().</p>
+<p>See also <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@retrieveData -->
+<!-- $$$setColorData[overload1]$$$setColorDataconstQVariant& -->
+<h3 class="fn"><a name="setColorData"></a>void QMimeData::setColorData ( const <a href="qvariant.html">QVariant</a> &amp; <i>color</i> )</h3>
+<p>Sets the color data in the object to the given <i>color</i>.</p>
+<p>Colors correspond to the MIME type <tt>application/x-color</tt>.</p>
+<p>See also <a href="qmimedata.html#colorData">colorData</a>(), <a href="qmimedata.html#hasColor">hasColor</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@setColorData -->
+<!-- $$$setData[overload1]$$$setDataconstQString&constQByteArray& -->
+<h3 class="fn"><a name="setData"></a>void QMimeData::setData ( const <a href="qstring.html">QString</a> &amp; <i>mimeType</i>, const <a href="qbytearray.html">QByteArray</a> &amp; <i>data</i> )</h3>
+<p>Sets the data associated with the MIME type given by <i>mimeType</i> to the specified <i>data</i>.</p>
+<p>For the most common types of data, you can call the higher-level functions <a href="qmimedata.html#setText">setText</a>(), <a href="qmimedata.html#setHtml">setHtml</a>(), <a href="qmimedata.html#setUrls">setUrls</a>(), <a href="qmimedata.html#setImageData">setImageData</a>(), and <a href="qmimedata.html#setColorData">setColorData</a>() instead.</p>
+<p>Note that if you want to use a custom data type in an item view drag and drop operation, you must register it as a Qt <a href="qmetatype.html">meta type</a>, using the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro, and implement stream operators for it. The stream operators must then be registered with the <a href="qmetatype.html#qRegisterMetaTypeStreamOperators">qRegisterMetaTypeStreamOperators</a>() function.</p>
+<p>See also <a href="qmimedata.html#data">data</a>(), <a href="qmimedata.html#hasFormat">hasFormat</a>(), <a href="qmetatype.html">QMetaType</a>, and <a href="qmetatype.html#qRegisterMetaTypeStreamOperators">qRegisterMetaTypeStreamOperators</a>().</p>
+<!-- @@@setData -->
+<!-- $$$setHtml[overload1]$$$setHtmlconstQString& -->
+<h3 class="fn"><a name="setHtml"></a>void QMimeData::setHtml ( const <a href="qstring.html">QString</a> &amp; <i>html</i> )</h3>
+<p>Sets <i>html</i> as the HTML (MIME type <tt>text/html</tt>) used to represent the data.</p>
+<p>See also <a href="qmimedata.html#html">html</a>(), <a href="qmimedata.html#hasHtml">hasHtml</a>(), <a href="qmimedata.html#setText">setText</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@setHtml -->
+<!-- $$$setImageData[overload1]$$$setImageDataconstQVariant& -->
+<h3 class="fn"><a name="setImageData"></a>void QMimeData::setImageData ( const <a href="qvariant.html">QVariant</a> &amp; <i>image</i> )</h3>
+<p>Sets the data in the object to the given <i>image</i>.</p>
+<p>A <a href="qvariant.html">QVariant</a> is used because <a href="qmimedata.html">QMimeData</a> belongs to the <a href="qtcore.html">QtCore</a> library, whereas <a href="qimage.html">QImage</a> belongs to <a href="qtgui.html">QtGui</a>. The conversion from <a href="qimage.html">QImage</a> to <a href="qvariant.html">QVariant</a> is implicit. For example:</p>
+<pre class="highlightedCode brush: cpp"> mimeData-&gt;setImageData(QImage(&quot;beautifulfjord.png&quot;));</pre>
+<p>See also <a href="qmimedata.html#imageData">imageData</a>(), <a href="qmimedata.html#hasImage">hasImage</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@setImageData -->
+<!-- $$$setText[overload1]$$$setTextconstQString& -->
+<h3 class="fn"><a name="setText"></a>void QMimeData::setText ( const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>Sets <i>text</i> as the plain text (MIME type <tt>text/plain</tt>) used to represent the data.</p>
+<p>See also <a href="qmimedata.html#text">text</a>(), <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#setHtml">setHtml</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@setText -->
+<!-- $$$setUrls[overload1]$$$setUrlsconstQList<QUrl>& -->
+<h3 class="fn"><a name="setUrls"></a>void QMimeData::setUrls ( const <a href="qlist.html">QList</a>&lt;<a href="qurl.html">QUrl</a>&gt; &amp; <i>urls</i> )</h3>
+<p>Sets the URLs stored in the MIME data object to those specified by <i>urls</i>.</p>
+<p>URLs correspond to the MIME type <tt>text/uri-list</tt>.</p>
+<p>See also <a href="qmimedata.html#urls">urls</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), and <a href="qmimedata.html#setData">setData</a>().</p>
+<!-- @@@setUrls -->
+<!-- $$$text[overload1]$$$text -->
+<h3 class="fn"><a name="text"></a><a href="qstring.html">QString</a> QMimeData::text () const</h3>
+<p>Returns a plain text (MIME type <tt>text/plain</tt>) representation of the data.</p>
+<p>See also <a href="qmimedata.html#setText">setText</a>(), <a href="qmimedata.html#hasText">hasText</a>(), <a href="qmimedata.html#html">html</a>(), and <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@text -->
+<!-- $$$urls[overload1]$$$urls -->
+<h3 class="fn"><a name="urls"></a><a href="qlist.html">QList</a>&lt;<a href="qurl.html">QUrl</a>&gt; QMimeData::urls () const</h3>
+<p>Returns a list of URLs contained within the MIME data object.</p>
+<p>URLs correspond to the MIME type <tt>text/uri-list</tt>.</p>
+<p>See also <a href="qmimedata.html#setUrls">setUrls</a>(), <a href="qmimedata.html#hasUrls">hasUrls</a>(), and <a href="qmimedata.html#data">data</a>().</p>
+<!-- @@@urls -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

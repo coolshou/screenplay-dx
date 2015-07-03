@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<page>
+  <ctrlgrp>
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+  <include filename="./inc_optionmenu_widgets_mediafly.xml"/>
+  <!-- subtitle -->
+  <include filename="./subtitle.xml" />
+
+  <!-- information -->
+	<image x="137" y="633" w="46" h="46" image="@@play_state"/>
+	<image x="880" y="617" w="38" h="16" image="@@speed_state"/>
+	<image x="0" y="540" w="1280" h="180" image="@@video_inforbar" bg="1"/>
+
+	<progress_bar name="video_time_bar" x="190" y="643" w="712" h="15" pb_back_img="image/mediafly/music_player_line_bg.png" pb_front_img="image/mediafly/music_player_time_played_line_n_01.png" pb_point_img="image/mediafly/slideshow_player_time_played_line_mark.png" pb_delay="500" disable="@@progress_disable" pb_enable_buffer="1"/>
+	
+	<text text="@@info_filename" x="202" y="580" w="576" h="29" fontsize="26" textcolor="0x343434" speed="1" delay="2" align="left" auto_translate="1"/>
+
+
+	<text x="202" y="617" w="83" h="20" fontsize="18" text="@@info_cur_time" align="left" textcolor="0x343434"/>
+	<text x="778" y="617" w="83" h="20" fontsize="18" text="@@info_duration" align="left" textcolor="0x343434"/>
+	<text x="502" y="664" w="362" h="20" fontsize="18" textcolor="0x343434" text="@@media_date" align="right" />
+
+  <text text="@@mod_txt" x="162" y="186" w="958" h="34" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+  <text x="372" y="159" w="514" h="28" text="@@text-OPTION" fontsize="24" textcolor="0x07b5ff" align="hcenter" disable="@@disable-text-options"/>
+  <image image="@@mod_img" x="1063" y="71" w="107" h="107"/> 
+<include filename="./inc_loading.xml"/> 
+<include filename="./inc_decoration_online.xml"/>
+
+</page>

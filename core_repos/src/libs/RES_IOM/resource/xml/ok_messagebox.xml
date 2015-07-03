@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg">
+	<ctrlgrp>
+		<button valkey="OK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png"/>
+	</ctrlgrp>
+
+  <table x="480" y="453" w="314" h="56" cols="1" colspacing="0" fontsize="20" align="hcenter">
+    <imgbtn image="@@bg-OK" text="@@text-OK" active="@@act-OK" actnoseltextcolor="0xffffff" align="hcenter"/>
+  </table> 
+
+  <include filename="./inc_messagebox.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

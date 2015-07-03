@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: localeselector.cpp Example File (widgets/validators/localeselector.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">localeselector.cpp Example File</h1>
+<span class="small-subtitle">widgets/validators/localeselector.cpp</span>
+<!-- $$$widgets/validators/localeselector.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &quot;localeselector.h&quot;
+ #include &lt;QLocale&gt;
+
+ struct SupportedLocale
+ {
+     int lang, country;
+ };
+
+ const SupportedLocale SUPPORTED_LOCALES[] = {
+     {      1,     0 }, <span class="comment">// C/AnyCountry</span>
+     {      3,    69 }, <span class="comment">// Afan/Ethiopia</span>
+     {      3,   111 }, <span class="comment">// Afan/Kenya</span>
+     {      4,    59 }, <span class="comment">// Afar/Djibouti</span>
+     {      4,    67 }, <span class="comment">// Afar/Eritrea</span>
+     {      4,    69 }, <span class="comment">// Afar/Ethiopia</span>
+     {      5,   195 }, <span class="comment">// Afrikaans/SouthAfrica</span>
+     {      5,   148 }, <span class="comment">// Afrikaans/Namibia</span>
+     {      6,     2 }, <span class="comment">// Albanian/Albania</span>
+     {      7,    69 }, <span class="comment">// Amharic/Ethiopia</span>
+     {      8,   186 }, <span class="comment">// Arabic/SaudiArabia</span>
+     {      8,     3 }, <span class="comment">// Arabic/Algeria</span>
+     {      8,    17 }, <span class="comment">// Arabic/Bahrain</span>
+     {      8,    64 }, <span class="comment">// Arabic/Egypt</span>
+     {      8,   103 }, <span class="comment">// Arabic/Iraq</span>
+     {      8,   109 }, <span class="comment">// Arabic/Jordan</span>
+     {      8,   115 }, <span class="comment">// Arabic/Kuwait</span>
+     {      8,   119 }, <span class="comment">// Arabic/Lebanon</span>
+     {      8,   122 }, <span class="comment">// Arabic/LibyanArabJamahiriya</span>
+     {      8,   145 }, <span class="comment">// Arabic/Morocco</span>
+     {      8,   162 }, <span class="comment">// Arabic/Oman</span>
+     {      8,   175 }, <span class="comment">// Arabic/Qatar</span>
+     {      8,   201 }, <span class="comment">// Arabic/Sudan</span>
+     {      8,   207 }, <span class="comment">// Arabic/SyrianArabRepublic</span>
+     {      8,   216 }, <span class="comment">// Arabic/Tunisia</span>
+     {      8,   223 }, <span class="comment">// Arabic/UnitedArabEmirates</span>
+     {      8,   237 }, <span class="comment">// Arabic/Yemen</span>
+     {      9,    11 }, <span class="comment">// Armenian/Armenia</span>
+     {     10,   100 }, <span class="comment">// Assamese/India</span>
+     {     12,    15 }, <span class="comment">// Azerbaijani/Azerbaijan</span>
+     {     14,   197 }, <span class="comment">// Basque/Spain</span>
+     {     15,    18 }, <span class="comment">// Bengali/Bangladesh</span>
+     {     15,   100 }, <span class="comment">// Bengali/India</span>
+     {     16,    25 }, <span class="comment">// Bhutani/Bhutan</span>
+     {     20,    33 }, <span class="comment">// Bulgarian/Bulgaria</span>
+     {     22,    20 }, <span class="comment">// Byelorussian/Belarus</span>
+     {     23,    36 }, <span class="comment">// Cambodian/Cambodia</span>
+     {     24,   197 }, <span class="comment">// Catalan/Spain</span>
+     {     25,    44 }, <span class="comment">// Chinese/China</span>
+     {     25,    97 }, <span class="comment">// Chinese/HongKong</span>
+     {     25,   126 }, <span class="comment">// Chinese/Macau</span>
+     {     25,   190 }, <span class="comment">// Chinese/Singapore</span>
+     {     25,   208 }, <span class="comment">// Chinese/Taiwan</span>
+     {     27,    54 }, <span class="comment">// Croatian/Croatia</span>
+     {     28,    57 }, <span class="comment">// Czech/CzechRepublic</span>
+     {     29,    58 }, <span class="comment">// Danish/Denmark</span>
+     {     30,   151 }, <span class="comment">// Dutch/Netherlands</span>
+     {     30,    21 }, <span class="comment">// Dutch/Belgium</span>
+     {     31,   225 }, <span class="comment">// English/UnitedStates</span>
+     {     31,     4 }, <span class="comment">// English/AmericanSamoa</span>
+     {     31,    13 }, <span class="comment">// English/Australia</span>
+     {     31,    21 }, <span class="comment">// English/Belgium</span>
+     {     31,    22 }, <span class="comment">// English/Belize</span>
+     {     31,    28 }, <span class="comment">// English/Botswana</span>
+     {     31,    38 }, <span class="comment">// English/Canada</span>
+     {     31,    89 }, <span class="comment">// English/Guam</span>
+     {     31,    97 }, <span class="comment">// English/HongKong</span>
+     {     31,   100 }, <span class="comment">// English/India</span>
+     {     31,   104 }, <span class="comment">// English/Ireland</span>
+     {     31,   107 }, <span class="comment">// English/Jamaica</span>
+     {     31,   133 }, <span class="comment">// English/Malta</span>
+     {     31,   134 }, <span class="comment">// English/MarshallIslands</span>
+     {     31,   148 }, <span class="comment">// English/Namibia</span>
+     {     31,   154 }, <span class="comment">// English/NewZealand</span>
+     {     31,   160 }, <span class="comment">// English/NorthernMarianaIslands</span>
+     {     31,   163 }, <span class="comment">// English/Pakistan</span>
+     {     31,   170 }, <span class="comment">// English/Philippines</span>
+     {     31,   190 }, <span class="comment">// English/Singapore</span>
+     {     31,   195 }, <span class="comment">// English/SouthAfrica</span>
+     {     31,   215 }, <span class="comment">// English/TrinidadAndTobago</span>
+     {     31,   224 }, <span class="comment">// English/UnitedKingdom</span>
+     {     31,   226 }, <span class="comment">// English/UnitedStatesMinorOutlyingIslands</span>
+     {     31,   234 }, <span class="comment">// English/USVirginIslands</span>
+     {     31,   240 }, <span class="comment">// English/Zimbabwe</span>
+     {     33,    68 }, <span class="comment">// Estonian/Estonia</span>
+     {     34,    71 }, <span class="comment">// Faroese/FaroeIslands</span>
+     {     36,    73 }, <span class="comment">// Finnish/Finland</span>
+     {     37,    74 }, <span class="comment">// French/France</span>
+     {     37,    21 }, <span class="comment">// French/Belgium</span>
+     {     37,    38 }, <span class="comment">// French/Canada</span>
+     {     37,   125 }, <span class="comment">// French/Luxembourg</span>
+     {     37,   142 }, <span class="comment">// French/Monaco</span>
+     {     37,   206 }, <span class="comment">// French/Switzerland</span>
+     {     40,   197 }, <span class="comment">// Galician/Spain</span>
+     {     41,    81 }, <span class="comment">// Georgian/Georgia</span>
+     {     42,    82 }, <span class="comment">// German/Germany</span>
+     {     42,    14 }, <span class="comment">// German/Austria</span>
+     {     42,    21 }, <span class="comment">// German/Belgium</span>
+     {     42,   123 }, <span class="comment">// German/Liechtenstein</span>
+     {     42,   125 }, <span class="comment">// German/Luxembourg</span>
+     {     42,   206 }, <span class="comment">// German/Switzerland</span>
+     {     43,    85 }, <span class="comment">// Greek/Greece</span>
+     {     43,    56 }, <span class="comment">// Greek/Cyprus</span>
+     {     44,    86 }, <span class="comment">// Greenlandic/Greenland</span>
+     {     46,   100 }, <span class="comment">// Gujarati/India</span>
+     {     47,    83 }, <span class="comment">// Hausa/Ghana</span>
+     {     47,   156 }, <span class="comment">// Hausa/Niger</span>
+     {     47,   157 }, <span class="comment">// Hausa/Nigeria</span>
+     {     48,   105 }, <span class="comment">// Hebrew/Israel</span>
+     {     49,   100 }, <span class="comment">// Hindi/India</span>
+     {     50,    98 }, <span class="comment">// Hungarian/Hungary</span>
+     {     51,    99 }, <span class="comment">// Icelandic/Iceland</span>
+     {     52,   101 }, <span class="comment">// Indonesian/Indonesia</span>
+     {     57,   104 }, <span class="comment">// Irish/Ireland</span>
+     {     58,   106 }, <span class="comment">// Italian/Italy</span>
+     {     58,   206 }, <span class="comment">// Italian/Switzerland</span>
+     {     59,   108 }, <span class="comment">// Japanese/Japan</span>
+     {     61,   100 }, <span class="comment">// Kannada/India</span>
+     {     63,   110 }, <span class="comment">// Kazakh/Kazakhstan</span>
+     {     64,   179 }, <span class="comment">// Kinyarwanda/Rwanda</span>
+     {     65,   116 }, <span class="comment">// Kirghiz/Kyrgyzstan</span>
+     {     66,   114 }, <span class="comment">// Korean/RepublicOfKorea</span>
+     {     67,   102 }, <span class="comment">// Kurdish/Iran</span>
+     {     67,   103 }, <span class="comment">// Kurdish/Iraq</span>
+     {     67,   207 }, <span class="comment">// Kurdish/SyrianArabRepublic</span>
+     {     67,   217 }, <span class="comment">// Kurdish/Turkey</span>
+     {     69,   117 }, <span class="comment">// Laothian/Lao</span>
+     {     71,   118 }, <span class="comment">// Latvian/Latvia</span>
+     {     72,    49 }, <span class="comment">// Lingala/DemocraticRepublicOfCongo</span>
+     {     72,    50 }, <span class="comment">// Lingala/PeoplesRepublicOfCongo</span>
+     {     73,   124 }, <span class="comment">// Lithuanian/Lithuania</span>
+     {     74,   127 }, <span class="comment">// Macedonian/Macedonia</span>
+     {     76,   130 }, <span class="comment">// Malay/Malaysia</span>
+     {     76,    32 }, <span class="comment">// Malay/BruneiDarussalam</span>
+     {     77,   100 }, <span class="comment">// Malayalam/India</span>
+     {     78,   133 }, <span class="comment">// Maltese/Malta</span>
+     {     80,   100 }, <span class="comment">// Marathi/India</span>
+     {     82,   143 }, <span class="comment">// Mongolian/Mongolia</span>
+     {     84,   150 }, <span class="comment">// Nepali/Nepal</span>
+     {     85,   161 }, <span class="comment">// Norwegian/Norway</span>
+     {     87,   100 }, <span class="comment">// Oriya/India</span>
+     {     88,     1 }, <span class="comment">// Pashto/Afghanistan</span>
+     {     89,   102 }, <span class="comment">// Persian/Iran</span>
+     {     89,     1 }, <span class="comment">// Persian/Afghanistan</span>
+     {     90,   172 }, <span class="comment">// Polish/Poland</span>
+     {     91,   173 }, <span class="comment">// Portuguese/Portugal</span>
+     {     91,    30 }, <span class="comment">// Portuguese/Brazil</span>
+     {     92,   100 }, <span class="comment">// Punjabi/India</span>
+     {     92,   163 }, <span class="comment">// Punjabi/Pakistan</span>
+     {     95,   177 }, <span class="comment">// Romanian/Romania</span>
+     {     96,   178 }, <span class="comment">// Russian/RussianFederation</span>
+     {     96,   222 }, <span class="comment">// Russian/Ukraine</span>
+     {     99,   100 }, <span class="comment">// Sanskrit/India</span>
+     {    100,   241 }, <span class="comment">// Serbian/SerbiaAndMontenegro</span>
+     {    100,    27 }, <span class="comment">// Serbian/BosniaAndHerzegowina</span>
+     {    100,   238 }, <span class="comment">// Serbian/Yugoslavia</span>
+     {    101,   241 }, <span class="comment">// SerboCroatian/SerbiaAndMontenegro</span>
+     {    101,    27 }, <span class="comment">// SerboCroatian/BosniaAndHerzegowina</span>
+     {    101,   238 }, <span class="comment">// SerboCroatian/Yugoslavia</span>
+     {    102,   195 }, <span class="comment">// Sesotho/SouthAfrica</span>
+     {    103,   195 }, <span class="comment">// Setswana/SouthAfrica</span>
+     {    107,   195 }, <span class="comment">// Siswati/SouthAfrica</span>
+     {    108,   191 }, <span class="comment">// Slovak/Slovakia</span>
+     {    109,   192 }, <span class="comment">// Slovenian/Slovenia</span>
+     {    110,   194 }, <span class="comment">// Somali/Somalia</span>
+     {    110,    59 }, <span class="comment">// Somali/Djibouti</span>
+     {    110,    69 }, <span class="comment">// Somali/Ethiopia</span>
+     {    110,   111 }, <span class="comment">// Somali/Kenya</span>
+     {    111,   197 }, <span class="comment">// Spanish/Spain</span>
+     {    111,    10 }, <span class="comment">// Spanish/Argentina</span>
+     {    111,    26 }, <span class="comment">// Spanish/Bolivia</span>
+     {    111,    43 }, <span class="comment">// Spanish/Chile</span>
+     {    111,    47 }, <span class="comment">// Spanish/Colombia</span>
+     {    111,    52 }, <span class="comment">// Spanish/CostaRica</span>
+     {    111,    61 }, <span class="comment">// Spanish/DominicanRepublic</span>
+     {    111,    63 }, <span class="comment">// Spanish/Ecuador</span>
+     {    111,    65 }, <span class="comment">// Spanish/ElSalvador</span>
+     {    111,    90 }, <span class="comment">// Spanish/Guatemala</span>
+     {    111,    96 }, <span class="comment">// Spanish/Honduras</span>
+     {    111,   139 }, <span class="comment">// Spanish/Mexico</span>
+     {    111,   155 }, <span class="comment">// Spanish/Nicaragua</span>
+     {    111,   166 }, <span class="comment">// Spanish/Panama</span>
+     {    111,   168 }, <span class="comment">// Spanish/Paraguay</span>
+     {    111,   169 }, <span class="comment">// Spanish/Peru</span>
+     {    111,   174 }, <span class="comment">// Spanish/PuertoRico</span>
+     {    111,   225 }, <span class="comment">// Spanish/UnitedStates</span>
+     {    111,   227 }, <span class="comment">// Spanish/Uruguay</span>
+     {    111,   231 }, <span class="comment">// Spanish/Venezuela</span>
+     {    113,   111 }, <span class="comment">// Swahili/Kenya</span>
+     {    113,   210 }, <span class="comment">// Swahili/Tanzania</span>
+     {    114,   205 }, <span class="comment">// Swedish/Sweden</span>
+     {    114,    73 }, <span class="comment">// Swedish/Finland</span>
+     {    116,   209 }, <span class="comment">// Tajik/Tajikistan</span>
+     {    117,   100 }, <span class="comment">// Tamil/India</span>
+     {    118,   178 }, <span class="comment">// Tatar/RussianFederation</span>
+     {    119,   100 }, <span class="comment">// Telugu/India</span>
+     {    120,   211 }, <span class="comment">// Thai/Thailand</span>
+     {    122,    67 }, <span class="comment">// Tigrinya/Eritrea</span>
+     {    122,    69 }, <span class="comment">// Tigrinya/Ethiopia</span>
+     {    124,   195 }, <span class="comment">// Tsonga/SouthAfrica</span>
+     {    125,   217 }, <span class="comment">// Turkish/Turkey</span>
+     {    129,   222 }, <span class="comment">// Ukrainian/Ukraine</span>
+     {    130,   100 }, <span class="comment">// Urdu/India</span>
+     {    130,   163 }, <span class="comment">// Urdu/Pakistan</span>
+     {    131,   228 }, <span class="comment">// Uzbek/Uzbekistan</span>
+     {    131,     1 }, <span class="comment">// Uzbek/Afghanistan</span>
+     {    132,   232 }, <span class="comment">// Vietnamese/VietNam</span>
+     {    134,   224 }, <span class="comment">// Welsh/UnitedKingdom</span>
+     {    136,   195 }, <span class="comment">// Xhosa/SouthAfrica</span>
+     {    138,   157 }, <span class="comment">// Yoruba/Nigeria</span>
+     {    140,   195 }, <span class="comment">// Zulu/SouthAfrica</span>
+     {    141,   161 }, <span class="comment">// Nynorsk/Norway</span>
+     {    142,    27 }, <span class="comment">// Bosnian/BosniaAndHerzegowina</span>
+     {    143,   131 }, <span class="comment">// Divehi/Maldives</span>
+     {    144,   224 }, <span class="comment">// Manx/UnitedKingdom</span>
+     {    145,   224 }, <span class="comment">// Cornish/UnitedKingdom</span>
+     {    146,    83 }, <span class="comment">// Akan/Ghana</span>
+     {    147,   100 }, <span class="comment">// Konkani/India</span>
+     {    148,    83 }, <span class="comment">// Ga/Ghana</span>
+     {    149,   157 }, <span class="comment">// Igbo/Nigeria</span>
+     {    150,   111 }, <span class="comment">// Kamba/Kenya</span>
+     {    151,   207 }, <span class="comment">// Syriac/SyrianArabRepublic</span>
+     {    152,    67 }, <span class="comment">// Blin/Eritrea</span>
+     {    153,    67 }, <span class="comment">// Geez/Eritrea</span>
+     {    153,    69 }, <span class="comment">// Geez/Ethiopia</span>
+     {    154,   157 }, <span class="comment">// Koro/Nigeria</span>
+     {    155,    69 }, <span class="comment">// Sidamo/Ethiopia</span>
+     {    156,   157 }, <span class="comment">// Atsam/Nigeria</span>
+     {    157,    67 }, <span class="comment">// Tigre/Eritrea</span>
+     {    158,   157 }, <span class="comment">// Jju/Nigeria</span>
+     {    159,   106 }, <span class="comment">// Friulian/Italy</span>
+     {    160,   195 }, <span class="comment">// Venda/SouthAfrica</span>
+     {    161,    83 }, <span class="comment">// Ewe/Ghana</span>
+     {    161,   212 }, <span class="comment">// Ewe/Togo</span>
+     {    163,   225 }, <span class="comment">// Hawaiian/UnitedStates</span>
+     {    164,   157 }, <span class="comment">// Tyap/Nigeria</span>
+     {    165,   129 } <span class="comment">// Chewa/Malawi</span>
+ };
+
+ const int SUPPORTED_LOCALES_COUNT = sizeof(SUPPORTED_LOCALES)/sizeof(SupportedLocale);
+
+ typedef QPair&lt;int, int&gt; IntPair;
+ Q_DECLARE_METATYPE(SupportedLocale)
+
+ LocaleSelector::LocaleSelector(QWidget *parent)
+     : QComboBox(parent)
+ {
+     int curIndex = -1;
+     QLocale curLocale;
+
+     for (int i = 0; i &lt; SUPPORTED_LOCALES_COUNT; ++i) {
+         const SupportedLocale &amp;l = SUPPORTED_LOCALES[i];
+         if (l.lang == curLocale.language() &amp;&amp; l.country == curLocale.country())
+             curIndex = i;
+         QString text = QLocale::languageToString(QLocale::Language(l.lang))
+                         + QLatin1Char('/')
+                         + QLocale::countryToString(QLocale::Country(l.country));
+         addItem(text, qVariantFromValue(l));
+     }
+
+     setCurrentIndex(curIndex);
+
+     connect(this, SIGNAL(activated(int)), this, SLOT(emitLocaleSelected(int)));
+ }
+
+ void LocaleSelector::emitLocaleSelected(int index)
+ {
+     QVariant v = itemData(index);
+     if (!v.isValid())
+         return;
+     SupportedLocale l = qVariantValue&lt;SupportedLocale&gt;(v);
+     emit localeSelected(QLocale(QLocale::Language(l.lang), QLocale::Country(l.country)));
+ }</pre>
+</div>
+<!-- @@@widgets/validators/localeselector.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

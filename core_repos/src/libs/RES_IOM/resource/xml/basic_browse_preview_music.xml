@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/browse_bg.jpg" type="basic">
+
+<ctrlgrp>
+	<listbox valkey="browselist" move="page" cols="1" rows="8" lbmask="lr" loop_scroll="1" turbo_trigger="5" turbo_multi="10" autoenter="1"/>
+	<linebreak/>
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+</ctrlgrp>
+	<include filename="./inc_optionmenu_widgets_audio_playlist.xml"/>
+
+    <include filename="./inc_browse_basic_title.xml" />
+    <!--<text text="$$List" x="157" y="109" w="200" h="40" fontsize="26" textcolor="0xffffff"/>-->
+    
+    <text text="@@pagecounter" x="925" y="113" w="200" h="26" fontsize="20" align="right" textcolor="0xffffff" bg="1"/>
+    <image image="@@moreprev" x="823" y="120" w="29" h="21" bg="1"/>
+    <table x="550" y="156" w="592" h="409"
+         cols="1" rows="8" colspacing="0" rowspacing="0"
+         lbimage="image/villa_movies_select_bar_left.png" fontsize="22" textcolor="0xffffff" selected_fontsize="28" actnoseltextcolor="0x00ccff">
+    <text text="@@browselist_0_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" speed="@@browse_0_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_1_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" speed="@@browse_1_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_2_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" speed="@@browse_2_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_3_text" xmargin="69" ymargin="16"
+	    lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" speed="@@browse_3_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_4_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" speed="@@browse_4_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_5_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" speed="@@browse_5_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_6_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-6" active="@@act-browselist-6" speed="@@browse_6_speed" delay="2" bg="1"/>
+
+    <text text="@@browselist_7_text" xmargin="69" ymargin="16"
+          lightbar="@@lightbar-browselist-7" active="@@act-browselist-7" speed="@@browse_7_speed" delay="2" bg="1"/>
+
+    </table>
+    <image image="@@morenext" x="823" y="573" w="29" h="21"/>
+
+<wrapper x="550" w="578" h="1" bg="1">
+    <image image="@@browse_0_line" y="207" bg="1"/>
+    <image image="@@browse_1_line" y="258" bg="1"/>
+    <image image="@@browse_2_line" y="309" bg="1"/>
+    <image image="@@browse_3_line" y="360" bg="1"/>
+    <image image="@@browse_4_line" y="411" bg="1"/>
+    <image image="@@browse_5_line" y="462" bg="1"/>
+    <image image="@@browse_6_line" y="513" bg="1"/>
+    <image image="@@browse_7_line" y="564" bg="1"/>
+</wrapper>
+<wrapper x="560" w="50" h="50" align="hcenter" scale_type="fixratio" scale="100" bg="1">
+    <image image="@@browse_0_thumbnail" default_image="@@browse_0_default_image" y="157" bg="1"/>
+    <image image="@@browse_1_thumbnail" default_image="@@browse_1_default_image" y="208" bg="1"/>
+    <image image="@@browse_2_thumbnail" default_image="@@browse_2_default_image" y="259" bg="1"/>
+    <image image="@@browse_3_thumbnail" default_image="@@browse_3_default_image" y="310" bg="1"/>
+    <image image="@@browse_4_thumbnail" default_image="@@browse_4_default_image" y="361" bg="1"/>
+    <image image="@@browse_5_thumbnail" default_image="@@browse_5_default_image" y="412" bg="1"/>
+    <image image="@@browse_6_thumbnail" default_image="@@browse_6_default_image" y="463" bg="1"/>
+    <image image="@@browse_7_thumbnail" default_image="@@browse_7_default_image" y="514" bg="1"/>
+</wrapper>
+<!-- movie infomation -->
+<wrapper x="164" w="164" h="20" fontsize="18" textcolor="0xffffff">
+    <text text="$$Artist" y="462"/>
+    <text text="$$Album" y="497"/>
+    <text text="$$Genre" y="533"/>
+</wrapper>
+<wrapper x="313" w="182" h="20" fontsize="18" textcolor="0xffffff">
+    <text text="@@artist" y="462" speed="1" delay="2"/>
+    <text text="@@album" y="497" speed="1" delay="2"/>
+    <text text="@@filegener" y="533" speed="1" delay="2"/>
+</wrapper>
+<wrapper x="152" w="359" h="1" image="image/villa_fileManagement_line_right.png" bg="1">
+    <image y="486"/>
+    <image y="522"/>
+    <image y="558"/>
+</wrapper>
+<!-- movie pip -->
+<!-- image image="image/browse_cover_music_frame_f.png" x="227" y="148" w="209" h="209" bg="1" -->
+<image image="image/browse_music_list_preview_frame.png" x="227" y="148" w="211" h="211" bg="1"/>
+<image image="@@preview_cover_image" default_image="image/browse_music_list_preview_default.png" x="228" y="149" w="209" h="209" textcolor="@@preview_rect_color" keycolor="1" ignore_keycolor="1" align="hcenter" scale_type="fixratio" scale="100" bg="1"/>
+
+<image image="image/music_browse_list_playbar_bg.png" x="152" y="396" w="359" h="50" scale_type="fixratio" scale="100" bg="1" />
+<progress_bar name="preview_time_bar" x="227" y="411" w="211" h="16" pb_back_img="image/browse_list_playbar_bg.png" pb_front_img="image/browse_list_playbar_scale.png" pb_point_img="image/browse_list_playbar_dot.png" pb_delay="500"  disable="@@disable-progress"/>
+<text text="@@preview_currtime" x="162" y="410" w="68" h="18" fontsize="14" textcolor="0x414141"/>
+<text text="@@preview_duration" x="439" y="410" w="68" h="18" fontsize="14" textcolor="0x7c7c7c"/>
+
+	<include filename="./inc_loading.xml"/>
+
+	<include filename="./inc_decoration.xml"/>
+
+</page>

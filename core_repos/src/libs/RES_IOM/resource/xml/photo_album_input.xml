@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+  <ctrlgrp>
+    <eventbox_keyboard valkey="keyboard" autoenter="1"/>
+  </ctrlgrp>
+
+  <include filename="./inc_browse_basic_title.xml"/>
+  <wrapper>
+    <widget_keyboard ctrlname="keyboard" x="310" y="226" w="670" h="237" cols="14" rows="5"
+  		     align="hcenter" textcolor="0xFFFFFF"  activetextcolor="0xffffff"
+		     changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+  </wrapper>
+    
+  <image image="image/input_box_n.png" x="316" y="226" w="516" h="46" bg="1"/>
+  <texttail text="@@input_01_text" x="329" y="238" w="479" h="26"  textcolor="0x3b3b3b" ignore_translate="1"/>
+
+	<text text="$$Press [Option] key for multi-lingual input" x="201" y="528" w="880" h="22" align="hcenter" fontsize="18" textcolor="0xe2e2e2" disable="@@disable-OPTION"/>
+
+	<include filename="./inc_decoration.xml"/>
+
+	<image image="@@alert_icon" x="524" y="656" w="102" h="26"/>
+	<image image="@@alert_icon2" x="650" y="656" w="102" h="26"/>
+
+</page>

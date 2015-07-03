@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+	<ctrlgrp>
+  		<button valkey="WIRE"/> 
+		<linebreak/>
+		<button valkey="BACK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png" 
+			click_bg="image/common_btn_p.png"/>
+		<button valkey="SKIP"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png" 
+			click_bg="image/common_btn_p.png"/>
+	</ctrlgrp>
+  
+
+    <table x="156" y="190" w="943" h="49" cols="1" rows="1" colspacing="0" rowspacing="0"
+      fontsize="22" lbimage="image/settings_focus_btn.png" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" lmargin="30">
+      <text lightbar="@@bg-WIRE" text="$$Wire" active="@@act-WIRE"/>
+    </table>
+
+	<imgbtn image="@@bg-BACK" text="@@text-BACK" active="@@act-BACK" x="316" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+	<imgbtn image="@@bg-SKIP" text="@@text-SKIP" active="@@act-SKIP" x="657" y="462" w="300" h="40" align="hcenter" fontsize="20" selected_fontsize="20"/>
+
+	<include filename="./inc_setup_entry_basic_title.xml" />
+
+	<include filename="./inc_decoration.xml"/>
+</page>

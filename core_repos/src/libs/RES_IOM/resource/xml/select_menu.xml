@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page background="image/playlistmenu.gif" x="385" y="125" w="404" h="250">
+  <table x="15" y="20" w="205" h="160" fontsize="24" 
+         cols="1" rows="4" colspacing="0" rowspacing="0"
+         lbimage="image/epl_highlight.gif">
+    <text text="@@BUT_0" xmargin="5" ymargin="5"
+          lightbar="@@BUT_0_active" active="@@BUT_0_active"/>
+    <text text="@@BUT_1" xmargin="5" ymargin="5"
+          lightbar="@@BUT_1_active" active="@@BUT_1_active"/>
+    <text text="@@BUT_2" xmargin="5" ymargin="5"
+          lightbar="@@BUT_2_active" active="@@BUT_2_active"/>
+    <text text="@@BUT_3" xmargin="5" ymargin="5"
+          lightbar="@@BUT_3_active" active="@@BUT_3_active"/>
+  </table>
+</page>

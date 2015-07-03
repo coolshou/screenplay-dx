@@ -1,0 +1,11 @@
+--- kernel/panic.c.org	2010-12-10 15:14:22.991862886 +0800
++++ kernel/panic.c	2010-12-10 15:16:27.589185129 +0800
+@@ -80,6 +80,8 @@
+ 	printk(KERN_EMERG "Kernel panic - not syncing: %s\n",buf);
+ 	bust_spinlocks(0);
+ 
++	machine_restart( NULL );    /* Restart machine once kernel panic was occurred */
++
+ 	/*
+ 	 * If we have crashed and we have a crash kernel loaded let it handle
+ 	 * everything else.

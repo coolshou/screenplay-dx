@@ -1,0 +1,40 @@
+
+menu "DRM features"
+	config DMA_DTCP_SIGMA
+		bool "Choose y to support DTCP-IP-Sigma"
+		default n
+		help
+			Support DTCP-IP protocol in procpipe using sigma designs sdk(librmdtcp.so librmdtcpapi.so librmdrm.so xtask_drm_dtcp-1_5-t3_8644_ES1_prod_0007.xload) 
+	config DMA_MS_JANUS
+		bool "support microsoft janus drm"
+		default n
+		help
+			currently, we only support janus on sigma smp86xx platform
+	config DMA_MS_JANUS_SIGMA
+		bool
+		depends on DMA_MS_JANUS
+		default y
+		help
+			support ms janus sigma package. we need librmwmdrmstub.so , librmwmdrm.so and librmjanus.so
+	config DMA_HDCP_ALWAYS_ON
+		bool "Always turn on HDCP"
+		depends on DMA_DTCP_SIGMA || DMA_MS_JANUS
+		default n
+		help
+			Always turn on HDCP to prevent video glitch while turn it on and off. SMP8654 has this issue when you turn it on in the begin of play back and turn it off after the play back. 
+	config DMA_DRM_FILE_MONITOR
+		bool "support monitor /tmp/drm to write to/read from flash(IMAT)"
+		depends on PRODUCT_EXT_IOM_T4
+		default n
+		help
+			This feature will monitor the folder(/tmp/drm) and write to flash if change happened.
+                        We should reserve 12MB in flash(IMAT) to support this feature.
+	config DMA_DRM_STORE_IN_HDD
+		string "select securestore in specific location"
+		depends on PRODUCT_EXT_IOM_X2
+		default "/tmp/drm"
+		help
+			Now IOM-X2 will make a soft-link(/tmp/drm) to first partition in HDD while CN_DLMCP_Init().
+endmenu
+
+

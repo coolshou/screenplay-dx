@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: imagecomposer.cpp Example File (painting/imagecomposition/imagecomposer.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">imagecomposer.cpp Example File</h1>
+<span class="small-subtitle">painting/imagecomposition/imagecomposer.cpp</span>
+<!-- $$$painting/imagecomposition/imagecomposer.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QtGui&gt;
+
+ #include &quot;imagecomposer.h&quot;
+
+ static const QSize resultSize(200, 200);
+
+ ImageComposer::ImageComposer()
+ {
+     sourceButton = new QToolButton;
+     sourceButton-&gt;setIconSize(resultSize);
+
+     operatorComboBox = new QComboBox;
+     addOp(QPainter::CompositionMode_SourceOver, tr(&quot;SourceOver&quot;));
+     addOp(QPainter::CompositionMode_DestinationOver, tr(&quot;DestinationOver&quot;));
+     addOp(QPainter::CompositionMode_Clear, tr(&quot;Clear&quot;));
+     addOp(QPainter::CompositionMode_Source, tr(&quot;Source&quot;));
+     addOp(QPainter::CompositionMode_Destination, tr(&quot;Destination&quot;));
+     addOp(QPainter::CompositionMode_SourceIn, tr(&quot;SourceIn&quot;));
+     addOp(QPainter::CompositionMode_DestinationIn, tr(&quot;DestinationIn&quot;));
+     addOp(QPainter::CompositionMode_SourceOut, tr(&quot;SourceOut&quot;));
+     addOp(QPainter::CompositionMode_DestinationOut, tr(&quot;DestinationOut&quot;));
+     addOp(QPainter::CompositionMode_SourceAtop, tr(&quot;SourceAtop&quot;));
+     addOp(QPainter::CompositionMode_DestinationAtop, tr(&quot;DestinationAtop&quot;));
+     addOp(QPainter::CompositionMode_Xor, tr(&quot;Xor&quot;));
+     addOp(QPainter::CompositionMode_Plus, tr(&quot;Plus&quot;));
+     addOp(QPainter::CompositionMode_Multiply, tr(&quot;Multiply&quot;));
+     addOp(QPainter::CompositionMode_Screen, tr(&quot;Screen&quot;));
+     addOp(QPainter::CompositionMode_Overlay, tr(&quot;Overlay&quot;));
+     addOp(QPainter::CompositionMode_Darken, tr(&quot;Darken&quot;));
+     addOp(QPainter::CompositionMode_Lighten, tr(&quot;Lighten&quot;));
+     addOp(QPainter::CompositionMode_ColorDodge, tr(&quot;ColorDodge&quot;));
+     addOp(QPainter::CompositionMode_ColorBurn, tr(&quot;ColorBurn&quot;));
+     addOp(QPainter::CompositionMode_HardLight, tr(&quot;HardLight&quot;));
+     addOp(QPainter::CompositionMode_SoftLight, tr(&quot;SoftLight&quot;));
+     addOp(QPainter::CompositionMode_Difference, tr(&quot;Difference&quot;));
+     addOp(QPainter::CompositionMode_Exclusion, tr(&quot;Exclusion&quot;));
+
+     destinationButton = new QToolButton;
+     destinationButton-&gt;setIconSize(resultSize);
+
+     equalLabel = new QLabel(tr(&quot;=&quot;));
+
+     resultLabel = new QLabel;
+     resultLabel-&gt;setMinimumWidth(resultSize.width());
+
+     connect(sourceButton, SIGNAL(clicked()), this, SLOT(chooseSource()));
+     connect(operatorComboBox, SIGNAL(activated(int)),
+             this, SLOT(recalculateResult()));
+     connect(destinationButton, SIGNAL(clicked()),
+             this, SLOT(chooseDestination()));
+
+     QGridLayout *mainLayout = new QGridLayout;
+     mainLayout-&gt;addWidget(sourceButton, 0, 0, 3, 1);
+     mainLayout-&gt;addWidget(operatorComboBox, 1, 1);
+     mainLayout-&gt;addWidget(destinationButton, 0, 2, 3, 1);
+     mainLayout-&gt;addWidget(equalLabel, 1, 3);
+     mainLayout-&gt;addWidget(resultLabel, 0, 4, 3, 1);
+     mainLayout-&gt;setSizeConstraint(QLayout::SetFixedSize);
+     setLayout(mainLayout);
+
+     resultImage = QImage(resultSize, QImage::Format_ARGB32_Premultiplied);
+
+     loadImage(&quot;:/images/butterfly.png&quot;, &amp;sourceImage, sourceButton);
+     loadImage(&quot;:/images/checker.png&quot;, &amp;destinationImage, destinationButton);
+
+     setWindowTitle(tr(&quot;Image Composition&quot;));
+ }
+
+ void ImageComposer::chooseSource()
+ {
+     chooseImage(tr(&quot;Choose Source Image&quot;), &amp;sourceImage, sourceButton);
+ }
+
+ void ImageComposer::chooseDestination()
+ {
+     chooseImage(tr(&quot;Choose Destination Image&quot;), &amp;destinationImage,
+                 destinationButton);
+ }
+
+ void ImageComposer::recalculateResult()
+ {
+     QPainter::CompositionMode mode = currentMode();
+
+     QPainter painter(&amp;resultImage);
+     painter.setCompositionMode(QPainter::CompositionMode_Source);
+     painter.fillRect(resultImage.rect(), Qt::transparent);
+     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+     painter.drawImage(0, 0, destinationImage);
+     painter.setCompositionMode(mode);
+     painter.drawImage(0, 0, sourceImage);
+     painter.setCompositionMode(QPainter::CompositionMode_DestinationOver);
+     painter.fillRect(resultImage.rect(), Qt::white);
+     painter.end();
+
+     resultLabel-&gt;setPixmap(QPixmap::fromImage(resultImage));
+ }
+
+ void ImageComposer::addOp(QPainter::CompositionMode mode, const QString &amp;name)
+ {
+     operatorComboBox-&gt;addItem(name, mode);
+ }
+
+ void ImageComposer::chooseImage(const QString &amp;title, QImage *image,
+                                 QToolButton *button)
+ {
+     QString fileName = QFileDialog::getOpenFileName(this, title);
+     if (!fileName.isEmpty())
+         loadImage(fileName, image, button);
+ }
+
+ void ImageComposer::loadImage(const QString &amp;fileName, QImage *image,
+                               QToolButton *button)
+ {
+     image-&gt;load(fileName);
+
+     QImage fixedImage(resultSize, QImage::Format_ARGB32_Premultiplied);
+     QPainter painter(&amp;fixedImage);
+     painter.setCompositionMode(QPainter::CompositionMode_Source);
+     painter.fillRect(fixedImage.rect(), Qt::transparent);
+     painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
+     painter.drawImage(imagePos(*image), *image);
+     painter.end();
+     button-&gt;setIcon(QPixmap::fromImage(fixedImage));
+
+     *image = fixedImage;
+
+     recalculateResult();
+ }
+
+ QPainter::CompositionMode ImageComposer::currentMode() const
+ {
+     return (QPainter::CompositionMode)
+            operatorComboBox-&gt;itemData(operatorComboBox-&gt;currentIndex()).toInt();
+ }
+
+ QPoint ImageComposer::imagePos(const QImage &amp;image) const
+ {
+     return QPoint((resultSize.width() - image.width()) / 2,
+                   (resultSize.height() - image.height()) / 2);
+ }</pre>
+</div>
+<!-- @@@painting/imagecomposition/imagecomposer.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

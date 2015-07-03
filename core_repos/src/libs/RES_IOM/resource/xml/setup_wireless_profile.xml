@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg">
+  <ctrlgrp>
+    <listbox valkey="profile_list" autoenter="1" move="row" cols="1" rows="5" lbmask="l" loop_scroll="1"/>
+    <linebreak/>
+    <button valkey="CONNECT" focused_bg="image/network_Wireless_browse_favorites_btn_f.png" normal_bg="image/network_Wireless_browse_favorites_btn_n.png" disabled_bg="image/network_Wireless_browse_favorites_btn_n.png"/>
+    <button valkey="FAVORITE" focused_bg="image/network_Wireless_browse_favorites_btn_f.png" normal_bg="image/network_Wireless_browse_favorites_btn_n.png" disabled_bg="image/network_Wireless_browse_favorites_btn_n.png"/>
+    <button valkey="DELETE" focused_bg="image/network_Wireless_browse_favorites_btn_f.png" normal_bg="image/network_Wireless_browse_favorites_btn_n.png" disabled_bg="image/network_Wireless_browse_favorites_btn_n.png"/>
+    <button valkey="DONE" focused_bg="image/network_Wireless_browse_favorites_btn_f.png" normal_bg="image/network_Wireless_browse_favorites_btn_n.png"/>
+  </ctrlgrp>
+
+  <include filename="./inc_setup_entry_basic_title.xml"/>
+
+  <table x="185" y="188" w="913" h="245" cols="1" rows="5" lbimage="./image/settings_focus_btn.png">
+    <image lightbar="@@lightbar-profile_list-0" active="@@act-profile_list-0"/>
+    <image lightbar="@@lightbar-profile_list-1" active="@@act-profile_list-1"/>
+    <image lightbar="@@lightbar-profile_list-2" active="@@act-profile_list-2"/>
+    <image lightbar="@@lightbar-profile_list-3" active="@@act-profile_list-3"/>
+    <image lightbar="@@lightbar-profile_list-4" active="@@act-profile_list-4"/>
+ </table>
+
+  <table x="250" y="188" w="330" h="245" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30" cols="1" rows="5" border="0" speed="1" delay="2">
+	  <text text="@@title-profile_list-0" active="@@act-profile_list-0"/>
+	  <text text="@@title-profile_list-1" active="@@act-profile_list-1"/>
+	  <text text="@@title-profile_list-2" active="@@act-profile_list-2"/>
+	  <text text="@@title-profile_list-3" active="@@act-profile_list-3"/>
+	  <text text="@@title-profile_list-4" active="@@act-profile_list-4"/>
+  </table>
+
+  <table x="600" y="188" w="372" h="245" textcolor="0xffffff" actnoseltextcolor="0x00ccff" fontsize="22" selected_fontsize="30" cols="1" rows="5" border="0" speed="1" delay="2">
+	  <text text="@@ss-profile-0" active="@@act-profile_list-0"/>
+	  <text text="@@ss-profile-1" active="@@act-profile_list-1"/>
+	  <text text="@@ss-profile-2" active="@@act-profile_list-2"/>
+	  <text text="@@ss-profile-3" active="@@act-profile_list-3"/>
+	  <text text="@@ss-profile-4" active="@@act-profile_list-4"/>
+  </table>
+
+  <table x="194" y="188" w="46" h="245" cols="1" rows="5" border="0">
+	  <image image="@@ss-favorite-0" active="@@act-profile_list-0"/>
+	  <image image="@@ss-favorite-1" active="@@act-profile_list-1"/>
+	  <image image="@@ss-favorite-2" active="@@act-profile_list-2"/>
+	  <image image="@@ss-favorite-3" active="@@act-profile_list-3"/>
+	  <image image="@@ss-favorite-4" active="@@act-profile_list-4"/>
+  </table>
+
+  <table x="983" y="188" w="46" h="245" cols="1" rows="5" border="0">
+	  <image image="@@ss-associated-0" active="@@act-profile_list-0"/>
+	  <image image="@@ss-associated-1" active="@@act-profile_list-1"/>
+	  <image image="@@ss-associated-2" active="@@act-profile_list-2"/>
+	  <image image="@@ss-associated-3" active="@@act-profile_list-3"/>
+	  <image image="@@ss-associated-4" active="@@act-profile_list-4"/>
+  </table>
+
+  <imgbtn image="@@bg-CONNECT" text="$$Connect now" align="hcenter" x="181" y="516" w="220" h="42" textcolor="0xffffff" actnoseltextcolor="0xffffff" fontsize="15" selected_fontsize="18" active="@@act-CONNECT"/>
+  <imgbtn image="@@bg-FAVORITE" text="$$Favorite" align="hcenter" x="416" y="516" w="220" h="42" textcolor="0xffffff" actnoseltextcolor="0xffffff" fontsize="15" selected_fontsize="18" active="@@act-FAVORITE"/>
+  <imgbtn image="@@bg-DELETE" text="$$Delete" align="hcenter" x="651" y="516" w="220" h="42" textcolor="0xffffff" actnoseltextcolor="0xffffff" fontsize="15" selected_fontsize="18" active="@@act-DELETE"/>
+  <imgbtn image="@@bg-DONE" text="$$Done" align="hcenter" x="886" y="516" w="220" h="42" textcolor="0xffffff" actnoseltextcolor="0xffffff" fontsize="15" selected_fontsize="18" active="@@act-DONE"/>
+
+  <include filename="./inc_loading.xml"/>
+
+  <include filename="./inc_decoration.xml"/>
+</page>

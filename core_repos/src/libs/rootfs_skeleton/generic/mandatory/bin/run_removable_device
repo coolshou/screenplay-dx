@@ -1,0 +1,11 @@
+#!/bin/sh
+sleep 2
+while [ ! -f "/tmp/dmaosd_ready" ]; do sleep 1; done
+if [ -f /tmp/STOP_REMOVABLE_DEVICE ]; then
+    sleep 10000
+fi
+if [ ! -f "/proc/bus/usb/devices" ]; then
+    mount -t usbfs none /proc/bus/usb
+fi
+killall removable_device
+exec removable_device

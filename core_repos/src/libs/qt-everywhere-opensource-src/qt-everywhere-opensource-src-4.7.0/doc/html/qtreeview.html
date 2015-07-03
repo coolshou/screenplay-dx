@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtreeview.cpp -->
+  <title>Qt 4.7: QTreeView Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtgui.html">QtGui</a></li>
+              <li>QTreeView</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#protected-slots">Protected Slots</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#key-bindings">Key Bindings</a></li>
+<li class="level2"><a href="#improving-performance">Improving Performance</a></li>
+</ul>
+</div>
+<h1 class="title">QTreeView Class Reference</h1>
+<!-- $$$QTreeView-brief -->
+<p>The QTreeView class provides a default model/view implementation of a tree view. <a href="#details">More...</a></p>
+<!-- @@@QTreeView -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QTreeView&gt;</pre><p>Inherits <a href="qabstractitemview.html">QAbstractItemView</a>.</p>
+<p>Inherited by <a href="qhelpcontentwidget.html">QHelpContentWidget</a> and <a href="qtreewidget.html">QTreeWidget</a>.</p>
+<ul>
+<li><a href="qtreeview-members.html">List of all members, including inherited members</a></li>
+<li><a href="qtreeview-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<table class="propsummary">
+<tr><td  class="topAlign"><ul>
+<li class="fn"><b><a href="qtreeview.html#allColumnsShowFocus-prop">allColumnsShowFocus</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#animated-prop">animated</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#autoExpandDelay-prop">autoExpandDelay</a></b> : int</li>
+<li class="fn"><b><a href="qtreeview.html#expandsOnDoubleClick-prop">expandsOnDoubleClick</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#headerHidden-prop">headerHidden</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#indentation-prop">indentation</a></b> : int</li>
+</ul></td><td  class="topAlign"><ul>
+<li class="fn"><b><a href="qtreeview.html#itemsExpandable-prop">itemsExpandable</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#rootIsDecorated-prop">rootIsDecorated</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#sortingEnabled-prop">sortingEnabled</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#uniformRowHeights-prop">uniformRowHeights</a></b> : bool</li>
+<li class="fn"><b><a href="qtreeview.html#wordWrap-prop">wordWrap</a></b> : bool</li>
+</ul>
+</td></tr>
+</table>
+<ul>
+<li class="fn">16 properties inherited from <a href="qabstractitemview.html#properties">QAbstractItemView</a></li>
+<li class="fn">2 properties inherited from <a href="qabstractscrollarea.html#properties">QAbstractScrollArea</a></li>
+<li class="fn">6 properties inherited from <a href="qframe.html#properties">QFrame</a></li>
+<li class="fn">58 properties inherited from <a href="qwidget.html#properties">QWidget</a></li>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#QTreeView">QTreeView</a></b> ( QWidget * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#dtor.QTreeView">~QTreeView</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#allColumnsShowFocus-prop">allColumnsShowFocus</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#autoExpandDelay-prop">autoExpandDelay</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnAt">columnAt</a></b> ( int <i>x</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnViewportPosition">columnViewportPosition</a></b> ( int <i>column</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnWidth">columnWidth</a></b> ( int <i>column</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expandsOnDoubleClick-prop">expandsOnDoubleClick</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QHeaderView * </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#header">header</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indentation-prop">indentation</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indexAbove">indexAbove</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indexBelow">indexBelow</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#animated-prop">isAnimated</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#isColumnHidden">isColumnHidden</a></b> ( int <i>column</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#isExpanded">isExpanded</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#isFirstColumnSpanned">isFirstColumnSpanned</a></b> ( int <i>row</i>, const QModelIndex &amp; <i>parent</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#headerHidden-prop">isHeaderHidden</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#isRowHidden">isRowHidden</a></b> ( int <i>row</i>, const QModelIndex &amp; <i>parent</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#sortingEnabled-prop">isSortingEnabled</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#itemsExpandable-prop">itemsExpandable</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rootIsDecorated-prop">rootIsDecorated</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#allColumnsShowFocus-prop">setAllColumnsShowFocus</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#animated-prop">setAnimated</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#autoExpandDelay-prop">setAutoExpandDelay</a></b> ( int <i>delay</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setColumnHidden">setColumnHidden</a></b> ( int <i>column</i>, bool <i>hide</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setColumnWidth">setColumnWidth</a></b> ( int <i>column</i>, int <i>width</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setExpanded">setExpanded</a></b> ( const QModelIndex &amp; <i>index</i>, bool <i>expanded</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expandsOnDoubleClick-prop">setExpandsOnDoubleClick</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setFirstColumnSpanned">setFirstColumnSpanned</a></b> ( int <i>row</i>, const QModelIndex &amp; <i>parent</i>, bool <i>span</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setHeader">setHeader</a></b> ( QHeaderView * <i>header</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#headerHidden-prop">setHeaderHidden</a></b> ( bool <i>hide</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indentation-prop">setIndentation</a></b> ( int <i>i</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#itemsExpandable-prop">setItemsExpandable</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rootIsDecorated-prop">setRootIsDecorated</a></b> ( bool <i>show</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setRowHidden">setRowHidden</a></b> ( int <i>row</i>, const QModelIndex &amp; <i>parent</i>, bool <i>hide</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#sortingEnabled-prop">setSortingEnabled</a></b> ( bool <i>enable</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#uniformRowHeights-prop">setUniformRowHeights</a></b> ( bool <i>uniform</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#wordWrap-prop">setWordWrap</a></b> ( bool <i>on</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#sortByColumn">sortByColumn</a></b> ( int <i>column</i>, Qt::SortOrder <i>order</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#uniformRowHeights-prop">uniformRowHeights</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#wordWrap-prop">wordWrap</a></b> () const</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#dataChanged">dataChanged</a></b> ( const QModelIndex &amp; <i>topLeft</i>, const QModelIndex &amp; <i>bottomRight</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indexAt">indexAt</a></b> ( const QPoint &amp; <i>point</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#keyboardSearch">keyboardSearch</a></b> ( const QString &amp; <i>search</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#reset">reset</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#scrollTo">scrollTo</a></b> ( const QModelIndex &amp; <i>index</i>, ScrollHint <i>hint</i> = EnsureVisible )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#selectAll">selectAll</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setModel">setModel</a></b> ( QAbstractItemModel * <i>model</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setRootIndex">setRootIndex</a></b> ( const QModelIndex &amp; <i>index</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setSelectionModel">setSelectionModel</a></b> ( QItemSelectionModel * <i>selectionModel</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QRect </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#visualRect">visualRect</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">57 public functions inherited from <a href="qabstractitemview.html#public-functions">QAbstractItemView</a></li>
+<li class="fn">17 public functions inherited from <a href="qabstractscrollarea.html#public-functions">QAbstractScrollArea</a></li>
+<li class="fn">14 public functions inherited from <a href="qframe.html#public-functions">QFrame</a></li>
+<li class="fn">217 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">13 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#collapse">collapse</a></b> ( const QModelIndex &amp; <i>index</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#collapseAll">collapseAll</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expand">expand</a></b> ( const QModelIndex &amp; <i>index</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expandAll">expandAll</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expandToDepth">expandToDepth</a></b> ( int <i>depth</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#hideColumn">hideColumn</a></b> ( int <i>column</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#resizeColumnToContents">resizeColumnToContents</a></b> ( int <i>column</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#showColumn">showColumn</a></b> ( int <i>column</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">9 public slots inherited from <a href="qabstractitemview.html#public-slots">QAbstractItemView</a></li>
+<li class="fn">19 public slots inherited from <a href="qwidget.html#public-slots">QWidget</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#collapsed">collapsed</a></b> ( const QModelIndex &amp; <i>index</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#expanded">expanded</a></b> ( const QModelIndex &amp; <i>index</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">6 signals inherited from <a href="qabstractitemview.html#signals">QAbstractItemView</a></li>
+<li class="fn">1 signal inherited from <a href="qwidget.html#signals">QWidget</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#drawBranches">drawBranches</a></b> ( QPainter * <i>painter</i>, const QRect &amp; <i>rect</i>, const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#drawRow">drawRow</a></b> ( QPainter * <i>painter</i>, const QStyleOptionViewItem &amp; <i>option</i>, const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#drawTree">drawTree</a></b> ( QPainter * <i>painter</i>, const QRegion &amp; <i>region</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#indexRowSizeHint">indexRowSizeHint</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rowHeight">rowHeight</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+</table>
+<a name="reimplemented-protected-functions"></a>
+<h2>Reimplemented Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#currentChanged">currentChanged</a></b> ( const QModelIndex &amp; <i>current</i>, const QModelIndex &amp; <i>previous</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#dragMoveEvent">dragMoveEvent</a></b> ( QDragMoveEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#horizontalOffset">horizontalOffset</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#isIndexHidden">isIndexHidden</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#keyPressEvent">keyPressEvent</a></b> ( QKeyEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#mouseDoubleClickEvent">mouseDoubleClickEvent</a></b> ( QMouseEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#mouseMoveEvent">mouseMoveEvent</a></b> ( QMouseEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#mousePressEvent">mousePressEvent</a></b> ( QMouseEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#mouseReleaseEvent">mouseReleaseEvent</a></b> ( QMouseEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#moveCursor">moveCursor</a></b> ( CursorAction <i>cursorAction</i>, Qt::KeyboardModifiers <i>modifiers</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#paintEvent">paintEvent</a></b> ( QPaintEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rowsAboutToBeRemoved">rowsAboutToBeRemoved</a></b> ( const QModelIndex &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rowsInserted">rowsInserted</a></b> ( const QModelIndex &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#scrollContentsBy">scrollContentsBy</a></b> ( int <i>dx</i>, int <i>dy</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QModelIndexList </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#selectedIndexes">selectedIndexes</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#selectionChanged">selectionChanged</a></b> ( const QItemSelection &amp; <i>selected</i>, const QItemSelection &amp; <i>deselected</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#setSelection">setSelection</a></b> ( const QRect &amp; <i>rect</i>, QItemSelectionModel::SelectionFlags <i>command</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#sizeHintForColumn">sizeHintForColumn</a></b> ( int <i>column</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#timerEvent">timerEvent</a></b> ( QTimerEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#updateGeometries">updateGeometries</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual int </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#verticalOffset">verticalOffset</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#viewportEvent">viewportEvent</a></b> ( QEvent * <i>event</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QRegion </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#visualRegionForSelection">visualRegionForSelection</a></b> ( const QItemSelection &amp; <i>selection</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">36 protected functions inherited from <a href="qabstractitemview.html#protected-functions">QAbstractItemView</a></li>
+<li class="fn">18 protected functions inherited from <a href="qabstractscrollarea.html#protected-functions">QAbstractScrollArea</a></li>
+<li class="fn">3 protected functions inherited from <a href="qframe.html#protected-functions">QFrame</a></li>
+<li class="fn">37 protected functions inherited from <a href="qwidget.html#protected-functions">QWidget</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+<li class="fn">1 protected function inherited from <a href="qpaintdevice.html#protected-functions">QPaintDevice</a></li>
+</ul>
+<a name="protected-slots"></a>
+<h2>Protected Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnCountChanged">columnCountChanged</a></b> ( int <i>oldCount</i>, int <i>newCount</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnMoved">columnMoved</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#columnResized">columnResized</a></b> ( int <i>column</i>, int <i>oldSize</i>, int <i>newSize</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreeview.html#rowsRemoved">rowsRemoved</a></b> ( const QModelIndex &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">9 protected slots inherited from <a href="qabstractitemview.html#protected-slots">QAbstractItemView</a></li>
+<li class="fn">1 protected slot inherited from <a href="qabstractscrollarea.html#protected-slots">QAbstractScrollArea</a></li>
+<li class="fn">1 protected slot inherited from <a href="qwidget.html#protected-slots">QWidget</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">4 static public members inherited from <a href="qwidget.html#static-public-members">QWidget</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QTreeView-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QTreeView class provides a default model/view implementation of a tree view.</p>
+<p>A QTreeView implements a tree representation of items from a model. This class is used to provide standard hierarchical lists that were previously provided by the <tt>QListView</tt> class, but using the more flexible approach provided by Qt's model/view architecture.</p>
+<p>The QTreeView class is one of the <a href="model-view.html">Model/View Classes</a> and is part of Qt's <a href="model-view-programming.html">model/view framework</a>.</p>
+<p>QTreeView implements the interfaces defined by the <a href="qabstractitemview.html">QAbstractItemView</a> class to allow it to display data provided by models derived from the <a href="qabstractitemmodel.html">QAbstractItemModel</a> class.</p>
+<p>It is simple to construct a tree view displaying data from a model. In the following example, the contents of a directory are supplied by a <a href="qdirmodel.html" class="obsolete">QDirModel<sup>(obsolete)</sup></a> and displayed as a tree:</p>
+<pre class="highlightedCode brush: cpp">     QFileSystemModel *model = new QFileSystemModel;
+     model-&gt;setRootPath(QDir::currentPath());
+     QTreeView *tree = new QTreeView(splitter);
+     tree-&gt;setModel(model);</pre>
+<p>The model/view architecture ensures that the contents of the tree view are updated as the model changes.</p>
+<p>Items that have children can be in an expanded (children are visible) or collapsed (children are hidden) state. When this state changes a <a href="qtreeview.html#collapsed">collapsed</a>() or <a href="qtreeview.html#expanded">expanded</a>() signal is emitted with the model index of the relevant item.</p>
+<p>The amount of indentation used to indicate levels of hierarchy is controlled by the <a href="qtreeview.html#indentation-prop">indentation</a> property.</p>
+<p>Headers in tree views are constructed using the <a href="qheaderview.html">QHeaderView</a> class and can be hidden using <tt>header()-&gt;hide()</tt>. Note that each header is configured with its <a href="qheaderview.html#stretchLastSection-prop">stretchLastSection</a> property set to true, ensuring that the view does not waste any of the space assigned to it for its header. If this value is set to true, this property will override the resize mode set on the last section in the header.</p>
+<a name="key-bindings"></a>
+<h3>Key Bindings</h3>
+<p>QTreeView supports a set of key bindings that enable the user to navigate in the view and interact with the contents of items:</p>
+<table class="generic">
+<thead><tr class="qt-style topAlign"><th >Key</th><th >Action</th></tr></thead>
+<tr class="odd topAlign"><td ><p>Up</p></td><td ><p>Moves the cursor to the item in the same column on the previous row. If the parent of the current item has no more rows to navigate to, the cursor moves to the relevant item in the last row of the sibling that precedes the parent.</p></td></tr>
+<tr class="even topAlign"><td ><p>Down</p></td><td ><p>Moves the cursor to the item in the same column on the next row. If the parent of the current item has no more rows to navigate to, the cursor moves to the relevant item in the first row of the sibling that follows the parent.</p></td></tr>
+<tr class="odd topAlign"><td ><p>Left</p></td><td ><p>Hides the children of the current item (if present) by collapsing a branch.</p></td></tr>
+<tr class="even topAlign"><td ><p>Minus</p></td><td ><p>Same as LeftArrow.</p></td></tr>
+<tr class="odd topAlign"><td ><p>Right</p></td><td ><p>Reveals the children of the current item (if present) by expanding a branch.</p></td></tr>
+<tr class="even topAlign"><td ><p>Plus</p></td><td ><p>Same as RightArrow.</p></td></tr>
+<tr class="odd topAlign"><td ><p>Asterisk</p></td><td ><p>Expands all children of the current item (if present).</p></td></tr>
+<tr class="even topAlign"><td ><p>PageUp</p></td><td ><p>Moves the cursor up one page.</p></td></tr>
+<tr class="odd topAlign"><td ><p>PageDown</p></td><td ><p>Moves the cursor down one page.</p></td></tr>
+<tr class="even topAlign"><td ><p>Home</p></td><td ><p>Moves the cursor to an item in the same column of the first row of the first top-level item in the model.</p></td></tr>
+<tr class="odd topAlign"><td ><p>End</p></td><td ><p>Moves the cursor to an item in the same column of the last row of the last top-level item in the model.</p></td></tr>
+<tr class="even topAlign"><td ><p>F2</p></td><td ><p>In editable models, this opens the current item for editing. The Escape key can be used to cancel the editing process and revert any changes to the data displayed.</p></td></tr>
+</table>
+<table class="generic">
+ <tr class="odd topAlign"><td ><p><img src="images/windowsxp-treeview.png" alt="Screenshot of a Windows XP style tree view" /></p></td><td ><p><img src="images/macintosh-treeview.png" alt="Screenshot of a Macintosh style tree view" /></p></td><td ><p><img src="images/plastique-treeview.png" alt="Screenshot of a Plastique style tree view" /></p></td></tr>
+<tr class="even topAlign"><td ><p>A <a href="gallery-windowsxp.html">Windows XP style</a> tree view.</p></td><td ><p>A <a href="gallery-macintosh.html">Macintosh style</a> tree view.</p></td><td ><p>A <a href="gallery-plastique.html">Plastique style</a> tree view.</p></td></tr>
+</table>
+<a name="improving-performance"></a>
+<h3>Improving Performance</h3>
+<p>It is possible to give the view hints about the data it is handling in order to improve its performance when displaying large numbers of items. One approach that can be taken for views that are intended to display items with equal heights is to set the <a href="qtreeview.html#uniformRowHeights-prop">uniformRowHeights</a> property to true.</p>
+</div>
+<p>See also <a href="qlistview.html">QListView</a>, <a href="qtreewidget.html">QTreeWidget</a>, <a href="model-view-programming.html#view-classes">View Classes</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, <a href="qabstractitemview.html">QAbstractItemView</a>, and <a href="itemviews-dirview.html">Dir View Example</a>.</p>
+<!-- @@@QTreeView -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$allColumnsShowFocus-prop$$$allColumnsShowFocus$$$setAllColumnsShowFocusbool -->
+<h3 class="fn"><a name="allColumnsShowFocus-prop"></a>allColumnsShowFocus : bool</h3>
+<p>This property holds whether items should show keyboard focus using all columns.</p>
+<p>If this property is true all columns will show focus, otherwise only one column will show focus.</p>
+<p>The default is false.</p>
+<p>This property was introduced in Qt 4.2.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>allColumnsShowFocus</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setAllColumnsShowFocus</b> ( bool <i>enable</i> )</td></tr>
+</table>
+<!-- @@@allColumnsShowFocus -->
+<!-- $$$animated-prop$$$isAnimated$$$setAnimatedbool -->
+<h3 class="fn"><a name="animated-prop"></a>animated : bool</h3>
+<p>This property holds whether animations are enabled.</p>
+<p>If this property is true the treeview will animate expandsion and collasping of branches. If this property is false, the treeview will expand or collapse branches immediately without showing the animation.</p>
+<p>By default, this property is false.</p>
+<p>This property was introduced in Qt 4.2.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>isAnimated</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setAnimated</b> ( bool <i>enable</i> )</td></tr>
+</table>
+<!-- @@@animated -->
+<!-- $$$autoExpandDelay-prop$$$autoExpandDelay$$$setAutoExpandDelayint -->
+<h3 class="fn"><a name="autoExpandDelay-prop"></a>autoExpandDelay : int</h3>
+<p>This property holds the delay time before items in a tree are opened during a drag and drop operation.</p>
+<p>This property holds the amount of time in milliseconds that the user must wait over a node before that node will automatically open or close. If the time is set to less then 0 then it will not be activated.</p>
+<p>By default, this property has a value of -1, meaning that auto-expansion is disabled.</p>
+<p>This property was introduced in Qt 4.3.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b>autoExpandDelay</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setAutoExpandDelay</b> ( int <i>delay</i> )</td></tr>
+</table>
+<!-- @@@autoExpandDelay -->
+<!-- $$$expandsOnDoubleClick-prop$$$expandsOnDoubleClick$$$setExpandsOnDoubleClickbool -->
+<h3 class="fn"><a name="expandsOnDoubleClick-prop"></a>expandsOnDoubleClick : bool</h3>
+<p>This property holds whether the items can be expanded by double-clicking.</p>
+<p>This property holds whether the user can expand and collapse items by double-clicking. The default value is true.</p>
+<p>This property was introduced in Qt 4.4.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>expandsOnDoubleClick</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setExpandsOnDoubleClick</b> ( bool <i>enable</i> )</td></tr>
+</table>
+<p>See also <a href="qtreeview.html#itemsExpandable-prop">itemsExpandable</a>.</p>
+<!-- @@@expandsOnDoubleClick -->
+<!-- $$$headerHidden-prop$$$isHeaderHidden$$$setHeaderHiddenbool -->
+<h3 class="fn"><a name="headerHidden-prop"></a>headerHidden : bool</h3>
+<p>This property holds whether the header is shown or not.</p>
+<p>If this property is true, the header is not shown otherwise it is. The default value is false.</p>
+<p>This property was introduced in Qt 4.4.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>isHeaderHidden</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setHeaderHidden</b> ( bool <i>hide</i> )</td></tr>
+</table>
+<p>See also <a href="qtreeview.html#header">header</a>().</p>
+<!-- @@@headerHidden -->
+<!-- $$$indentation-prop$$$indentation$$$setIndentationint -->
+<h3 class="fn"><a name="indentation-prop"></a>indentation : int</h3>
+<p>This property holds indentation of the items in the tree view.</p>
+<p>This property holds the indentation measured in pixels of the items for each level in the tree view. For top-level items, the indentation specifies the horizontal distance from the viewport edge to the items in the first column; for child items, it specifies their indentation from their parent items.</p>
+<p>By default, this property has a value of 20.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b>indentation</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setIndentation</b> ( int <i>i</i> )</td></tr>
+</table>
+<!-- @@@indentation -->
+<!-- $$$itemsExpandable-prop$$$itemsExpandable$$$setItemsExpandablebool -->
+<h3 class="fn"><a name="itemsExpandable-prop"></a>itemsExpandable : bool</h3>
+<p>This property holds whether the items are expandable by the user.</p>
+<p>This property holds whether the user can expand and collapse items interactively.</p>
+<p>By default, this property is true.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>itemsExpandable</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setItemsExpandable</b> ( bool <i>enable</i> )</td></tr>
+</table>
+<!-- @@@itemsExpandable -->
+<!-- $$$rootIsDecorated-prop$$$rootIsDecorated$$$setRootIsDecoratedbool -->
+<h3 class="fn"><a name="rootIsDecorated-prop"></a>rootIsDecorated : bool</h3>
+<p>This property holds whether to show controls for expanding and collapsing top-level items.</p>
+<p>Items with children are typically shown with controls to expand and collapse them, allowing their children to be shown or hidden. If this property is false, these controls are not shown for top-level items. This can be used to make a single level tree structure appear like a simple list of items.</p>
+<p>By default, this property is true.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>rootIsDecorated</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setRootIsDecorated</b> ( bool <i>show</i> )</td></tr>
+</table>
+<!-- @@@rootIsDecorated -->
+<!-- $$$sortingEnabled-prop$$$isSortingEnabled$$$setSortingEnabledbool -->
+<h3 class="fn"><a name="sortingEnabled-prop"></a>sortingEnabled : bool</h3>
+<p>This property holds whether sorting is enabled.</p>
+<p>If this property is true, sorting is enabled for the tree; if the property is false, sorting is not enabled. The default value is false.</p>
+<p><b>Note:</b> In order to avoid performance issues, it is recommended that sorting is enabled <i>after</i> inserting the items into the tree. Alternatively, you could also insert the items into a list before inserting the items into the tree.</p>
+<p>This property was introduced in Qt 4.2.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>isSortingEnabled</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setSortingEnabled</b> ( bool <i>enable</i> )</td></tr>
+</table>
+<p>See also <a href="qtreeview.html#sortByColumn">sortByColumn</a>().</p>
+<!-- @@@sortingEnabled -->
+<!-- $$$uniformRowHeights-prop$$$uniformRowHeights$$$setUniformRowHeightsbool -->
+<h3 class="fn"><a name="uniformRowHeights-prop"></a>uniformRowHeights : bool</h3>
+<p>This property holds whether all items in the treeview have the same height.</p>
+<p>This property should only be set to true if it is guaranteed that all items in the view has the same height. This enables the view to do some optimizations.</p>
+<p>The height is obtained from the first item in the view. It is updated when the data changes on that item.</p>
+<p>By default, this property is false.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>uniformRowHeights</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setUniformRowHeights</b> ( bool <i>uniform</i> )</td></tr>
+</table>
+<!-- @@@uniformRowHeights -->
+<!-- $$$wordWrap-prop$$$wordWrap$$$setWordWrapbool -->
+<h3 class="fn"><a name="wordWrap-prop"></a>wordWrap : bool</h3>
+<p>This property holds the item text word-wrapping policy.</p>
+<p>If this property is true then the item text is wrapped where necessary at word-breaks; otherwise it is not wrapped at all. This property is false by default.</p>
+<p>Note that even if wrapping is enabled, the cell will not be expanded to fit all text. Ellipsis will be inserted according to the current <a href="qabstractitemview.html#textElideMode-prop">textElideMode</a>.</p>
+<p>This property was introduced in Qt 4.3.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b>wordWrap</b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b>setWordWrap</b> ( bool <i>on</i> )</td></tr>
+</table>
+<!-- @@@wordWrap -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QTreeView[overload1]$$$QTreeViewQWidget* -->
+<h3 class="fn"><a name="QTreeView"></a>QTreeView::QTreeView ( <a href="qwidget.html">QWidget</a> * <i>parent</i> = 0 )</h3>
+<p>Constructs a tree view with a <i>parent</i> to represent a model's data. Use <a href="qtreeview.html#setModel">setModel</a>() to set the model.</p>
+<p>See also <a href="qabstractitemmodel.html">QAbstractItemModel</a>.</p>
+<!-- @@@QTreeView -->
+<!-- $$$~QTreeView[overload1]$$$~QTreeView -->
+<h3 class="fn"><a name="dtor.QTreeView"></a>QTreeView::~QTreeView ()</h3>
+<p>Destroys the tree view.</p>
+<!-- @@@~QTreeView -->
+<!-- $$$collapse[overload1]$$$collapseconstQModelIndex& -->
+<h3 class="fn"><a name="collapse"></a>void QTreeView::collapse ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )<tt> [slot]</tt></h3>
+<p>Collapses the model item specified by the <i>index</i>.</p>
+<p>See also <a href="qtreeview.html#collapsed">collapsed</a>().</p>
+<!-- @@@collapse -->
+<!-- $$$collapseAll[overload1]$$$collapseAll -->
+<h3 class="fn"><a name="collapseAll"></a>void QTreeView::collapseAll ()<tt> [slot]</tt></h3>
+<p>Collapses all expanded items.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtreeview.html#expandAll">expandAll</a>(), <a href="qtreeview.html#expand">expand</a>(), <a href="qtreeview.html#collapse">collapse</a>(), and <a href="qtreeview.html#setExpanded">setExpanded</a>().</p>
+<!-- @@@collapseAll -->
+<!-- $$$collapsed[overload1]$$$collapsedconstQModelIndex& -->
+<h3 class="fn"><a name="collapsed"></a>void QTreeView::collapsed ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted when the item specified by <i>index</i> is collapsed.</p>
+<!-- @@@collapsed -->
+<!-- $$$columnAt[overload1]$$$columnAtint -->
+<h3 class="fn"><a name="columnAt"></a>int QTreeView::columnAt ( int <i>x</i> ) const</h3>
+<p>Returns the column in the tree view whose header covers the <i>x</i> coordinate given.</p>
+<!-- @@@columnAt -->
+<!-- $$$columnCountChanged[overload1]$$$columnCountChangedintint -->
+<h3 class="fn"><a name="columnCountChanged"></a>void QTreeView::columnCountChanged ( int <i>oldCount</i>, int <i>newCount</i> )<tt> [protected slot]</tt></h3>
+<p>Informs the tree view that the number of columns in the tree view has changed from <i>oldCount</i> to <i>newCount</i>.</p>
+<!-- @@@columnCountChanged -->
+<!-- $$$columnMoved[overload1]$$$columnMoved -->
+<h3 class="fn"><a name="columnMoved"></a>void QTreeView::columnMoved ()<tt> [protected slot]</tt></h3>
+<p>This slot is called whenever a column has been moved.</p>
+<!-- @@@columnMoved -->
+<!-- $$$columnResized[overload1]$$$columnResizedintintint -->
+<h3 class="fn"><a name="columnResized"></a>void QTreeView::columnResized ( int <i>column</i>, int <i>oldSize</i>, int <i>newSize</i> )<tt> [protected slot]</tt></h3>
+<p>This function is called whenever <i>column</i>'s size is changed in the header. <i>oldSize</i> and <i>newSize</i> give the previous size and the new size in pixels.</p>
+<p>See also <a href="qtreeview.html#setColumnWidth">setColumnWidth</a>().</p>
+<!-- @@@columnResized -->
+<!-- $$$columnViewportPosition[overload1]$$$columnViewportPositionint -->
+<h3 class="fn"><a name="columnViewportPosition"></a>int QTreeView::columnViewportPosition ( int <i>column</i> ) const</h3>
+<p>Returns the horizontal position of the <i>column</i> in the viewport.</p>
+<!-- @@@columnViewportPosition -->
+<!-- $$$columnWidth[overload1]$$$columnWidthint -->
+<h3 class="fn"><a name="columnWidth"></a>int QTreeView::columnWidth ( int <i>column</i> ) const</h3>
+<p>Returns the width of the <i>column</i>.</p>
+<p>See also <a href="qtreeview.html#resizeColumnToContents">resizeColumnToContents</a>() and <a href="qtreeview.html#setColumnWidth">setColumnWidth</a>().</p>
+<!-- @@@columnWidth -->
+<!-- $$$currentChanged[overload1]$$$currentChangedconstQModelIndex&constQModelIndex& -->
+<h3 class="fn"><a name="currentChanged"></a>void QTreeView::currentChanged ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>current</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>previous</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#currentChanged">QAbstractItemView::currentChanged</a>().</p>
+<!-- @@@currentChanged -->
+<!-- $$$dataChanged[overload1]$$$dataChangedconstQModelIndex&constQModelIndex& -->
+<h3 class="fn"><a name="dataChanged"></a>void QTreeView::dataChanged ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>topLeft</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>bottomRight</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#dataChanged">QAbstractItemView::dataChanged</a>().</p>
+<!-- @@@dataChanged -->
+<!-- $$$dragMoveEvent[overload1]$$$dragMoveEventQDragMoveEvent* -->
+<h3 class="fn"><a name="dragMoveEvent"></a>void QTreeView::dragMoveEvent ( <a href="qdragmoveevent.html">QDragMoveEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#dragMoveEvent">QWidget::dragMoveEvent</a>().</p>
+<!-- @@@dragMoveEvent -->
+<!-- $$$drawBranches[overload1]$$$drawBranchesQPainter*constQRect&constQModelIndex& -->
+<h3 class="fn"><a name="drawBranches"></a>void QTreeView::drawBranches ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qrect.html">QRect</a> &amp; <i>rect</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Draws the branches in the tree view on the same row as the model item <i>index</i>, using the <i>painter</i> given. The branches are drawn in the rectangle specified by <i>rect</i>.</p>
+<!-- @@@drawBranches -->
+<!-- $$$drawRow[overload1]$$$drawRowQPainter*constQStyleOptionViewItem&constQModelIndex& -->
+<h3 class="fn"><a name="drawRow"></a>void QTreeView::drawRow ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> &amp; <i>option</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Draws the row in the tree view that contains the model item <i>index</i>, using the <i>painter</i> given. The <i>option</i> control how the item is displayed.</p>
+<p>See also <a href="qabstractitemview.html#alternatingRowColors-prop">setAlternatingRowColors</a>().</p>
+<!-- @@@drawRow -->
+<!-- $$$drawTree[overload1]$$$drawTreeQPainter*constQRegion& -->
+<h3 class="fn"><a name="drawTree"></a>void QTreeView::drawTree ( <a href="qpainter.html">QPainter</a> * <i>painter</i>, const <a href="qregion.html">QRegion</a> &amp; <i>region</i> ) const<tt> [protected]</tt></h3>
+<p>Draws the part of the tree intersecting the given <i>region</i> using the specified <i>painter</i>.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtreeview.html#paintEvent">paintEvent</a>().</p>
+<!-- @@@drawTree -->
+<!-- $$$expand[overload1]$$$expandconstQModelIndex& -->
+<h3 class="fn"><a name="expand"></a>void QTreeView::expand ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )<tt> [slot]</tt></h3>
+<p>Expands the model item specified by the <i>index</i>.</p>
+<p>See also <a href="qtreeview.html#expanded">expanded</a>().</p>
+<!-- @@@expand -->
+<!-- $$$expandAll[overload1]$$$expandAll -->
+<h3 class="fn"><a name="expandAll"></a>void QTreeView::expandAll ()<tt> [slot]</tt></h3>
+<p>Expands all expandable items.</p>
+<p>Warning: if the model contains a large number of items, this function will take some time to execute.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtreeview.html#collapseAll">collapseAll</a>(), <a href="qtreeview.html#expand">expand</a>(), <a href="qtreeview.html#collapse">collapse</a>(), and <a href="qtreeview.html#setExpanded">setExpanded</a>().</p>
+<!-- @@@expandAll -->
+<!-- $$$expandToDepth[overload1]$$$expandToDepthint -->
+<h3 class="fn"><a name="expandToDepth"></a>void QTreeView::expandToDepth ( int <i>depth</i> )<tt> [slot]</tt></h3>
+<p>Expands all expandable items to the given <i>depth</i>.</p>
+<p>This function was introduced in Qt 4.3.</p>
+<p>See also <a href="qtreeview.html#expandAll">expandAll</a>(), <a href="qtreeview.html#collapseAll">collapseAll</a>(), <a href="qtreeview.html#expand">expand</a>(), <a href="qtreeview.html#collapse">collapse</a>(), and <a href="qtreeview.html#setExpanded">setExpanded</a>().</p>
+<!-- @@@expandToDepth -->
+<!-- $$$expanded[overload1]$$$expandedconstQModelIndex& -->
+<h3 class="fn"><a name="expanded"></a>void QTreeView::expanded ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted when the item specified by <i>index</i> is expanded.</p>
+<p>See also <a href="qtreeview.html#setExpanded">setExpanded</a>().</p>
+<!-- @@@expanded -->
+<!-- $$$header[overload1]$$$header -->
+<h3 class="fn"><a name="header"></a><a href="qheaderview.html">QHeaderView</a> * QTreeView::header () const</h3>
+<p>Returns the header for the tree view.</p>
+<p>See also <a href="qtreeview.html#setHeader">setHeader</a>() and <a href="qabstractitemmodel.html#headerData">QAbstractItemModel::headerData</a>().</p>
+<!-- @@@header -->
+<!-- $$$hideColumn[overload1]$$$hideColumnint -->
+<h3 class="fn"><a name="hideColumn"></a>void QTreeView::hideColumn ( int <i>column</i> )<tt> [slot]</tt></h3>
+<p>Hides the <i>column</i> given.</p>
+<p><b>Note:</b> This function should only be called after the model has been initialized, as the view needs to know the number of columns in order to hide <i>column</i>.</p>
+<p>See also <a href="qtreeview.html#showColumn">showColumn</a>() and <a href="qtreeview.html#setColumnHidden">setColumnHidden</a>().</p>
+<!-- @@@hideColumn -->
+<!-- $$$horizontalOffset[overload1]$$$horizontalOffset -->
+<h3 class="fn"><a name="horizontalOffset"></a>int QTreeView::horizontalOffset () const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#horizontalOffset">QAbstractItemView::horizontalOffset</a>().</p>
+<p>Returns the horizontal offset of the items in the treeview.</p>
+<p>Note that the tree view uses the horizontal header section positions to determine the positions of columns in the view.</p>
+<p>See also <a href="qtreeview.html#verticalOffset">verticalOffset</a>().</p>
+<!-- @@@horizontalOffset -->
+<!-- $$$indexAbove[overload1]$$$indexAboveconstQModelIndex& -->
+<h3 class="fn"><a name="indexAbove"></a><a href="qmodelindex.html">QModelIndex</a> QTreeView::indexAbove ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const</h3>
+<p>Returns the model index of the item above <i>index</i>.</p>
+<!-- @@@indexAbove -->
+<!-- $$$indexAt[overload1]$$$indexAtconstQPoint& -->
+<h3 class="fn"><a name="indexAt"></a><a href="qmodelindex.html">QModelIndex</a> QTreeView::indexAt ( const <a href="qpoint.html">QPoint</a> &amp; <i>point</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#indexAt">QAbstractItemView::indexAt</a>().</p>
+<!-- @@@indexAt -->
+<!-- $$$indexBelow[overload1]$$$indexBelowconstQModelIndex& -->
+<h3 class="fn"><a name="indexBelow"></a><a href="qmodelindex.html">QModelIndex</a> QTreeView::indexBelow ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const</h3>
+<p>Returns the model index of the item below <i>index</i>.</p>
+<!-- @@@indexBelow -->
+<!-- $$$indexRowSizeHint[overload1]$$$indexRowSizeHintconstQModelIndex& -->
+<h3 class="fn"><a name="indexRowSizeHint"></a>int QTreeView::indexRowSizeHint ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [protected]</tt></h3>
+<p>Returns the size hint for the row indicated by <i>index</i>.</p>
+<p>See also <a href="qtreeview.html#sizeHintForColumn">sizeHintForColumn</a>() and <a href="qtreeview.html#uniformRowHeights-prop">uniformRowHeights</a>().</p>
+<!-- @@@indexRowSizeHint -->
+<!-- $$$isColumnHidden[overload1]$$$isColumnHiddenint -->
+<h3 class="fn"><a name="isColumnHidden"></a>bool QTreeView::isColumnHidden ( int <i>column</i> ) const</h3>
+<p>Returns true if the <i>column</i> is hidden; otherwise returns false.</p>
+<p>See also <a href="qtreeview.html#hideColumn">hideColumn</a>() and <a href="qtreeview.html#isRowHidden">isRowHidden</a>().</p>
+<!-- @@@isColumnHidden -->
+<!-- $$$isExpanded[overload1]$$$isExpandedconstQModelIndex& -->
+<h3 class="fn"><a name="isExpanded"></a>bool QTreeView::isExpanded ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const</h3>
+<p>Returns true if the model item <i>index</i> is expanded; otherwise returns false.</p>
+<p>See also <a href="qtreeview.html#expand">expand</a>(), <a href="qtreeview.html#expanded">expanded</a>(), and <a href="qtreeview.html#setExpanded">setExpanded</a>().</p>
+<!-- @@@isExpanded -->
+<!-- $$$isFirstColumnSpanned[overload1]$$$isFirstColumnSpannedintconstQModelIndex& -->
+<h3 class="fn"><a name="isFirstColumnSpanned"></a>bool QTreeView::isFirstColumnSpanned ( int <i>row</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i> ) const</h3>
+<p>Returns true if the item in first column in the given <i>row</i> of the <i>parent</i> is spanning all the columns; otherwise returns false.</p>
+<p>This function was introduced in Qt 4.3.</p>
+<p>See also <a href="qtreeview.html#setFirstColumnSpanned">setFirstColumnSpanned</a>().</p>
+<!-- @@@isFirstColumnSpanned -->
+<!-- $$$isIndexHidden[overload1]$$$isIndexHiddenconstQModelIndex& -->
+<h3 class="fn"><a name="isIndexHidden"></a>bool QTreeView::isIndexHidden ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#isIndexHidden">QAbstractItemView::isIndexHidden</a>().</p>
+<!-- @@@isIndexHidden -->
+<!-- $$$isRowHidden[overload1]$$$isRowHiddenintconstQModelIndex& -->
+<h3 class="fn"><a name="isRowHidden"></a>bool QTreeView::isRowHidden ( int <i>row</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i> ) const</h3>
+<p>Returns true if the item in the given <i>row</i> of the <i>parent</i> is hidden; otherwise returns false.</p>
+<p>See also <a href="qtreeview.html#setRowHidden">setRowHidden</a>() and <a href="qtreeview.html#isColumnHidden">isColumnHidden</a>().</p>
+<!-- @@@isRowHidden -->
+<!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
+<h3 class="fn"><a name="keyPressEvent"></a>void QTreeView::keyPressEvent ( <a href="qkeyevent.html">QKeyEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#keyPressEvent">QWidget::keyPressEvent</a>().</p>
+<!-- @@@keyPressEvent -->
+<!-- $$$keyboardSearch[overload1]$$$keyboardSearchconstQString& -->
+<h3 class="fn"><a name="keyboardSearch"></a>void QTreeView::keyboardSearch ( const <a href="qstring.html">QString</a> &amp; <i>search</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#keyboardSearch">QAbstractItemView::keyboardSearch</a>().</p>
+<!-- @@@keyboardSearch -->
+<!-- $$$mouseDoubleClickEvent[overload1]$$$mouseDoubleClickEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseDoubleClickEvent"></a>void QTreeView::mouseDoubleClickEvent ( <a href="qmouseevent.html">QMouseEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#mouseDoubleClickEvent">QWidget::mouseDoubleClickEvent</a>().</p>
+<!-- @@@mouseDoubleClickEvent -->
+<!-- $$$mouseMoveEvent[overload1]$$$mouseMoveEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseMoveEvent"></a>void QTreeView::mouseMoveEvent ( <a href="qmouseevent.html">QMouseEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#mouseMoveEvent">QWidget::mouseMoveEvent</a>().</p>
+<!-- @@@mouseMoveEvent -->
+<!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
+<h3 class="fn"><a name="mousePressEvent"></a>void QTreeView::mousePressEvent ( <a href="qmouseevent.html">QMouseEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#mousePressEvent">QWidget::mousePressEvent</a>().</p>
+<!-- @@@mousePressEvent -->
+<!-- $$$mouseReleaseEvent[overload1]$$$mouseReleaseEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseReleaseEvent"></a>void QTreeView::mouseReleaseEvent ( <a href="qmouseevent.html">QMouseEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#mouseReleaseEvent">QWidget::mouseReleaseEvent</a>().</p>
+<!-- @@@mouseReleaseEvent -->
+<!-- $$$moveCursor[overload1]$$$moveCursorCursorActionQt::KeyboardModifiers -->
+<h3 class="fn"><a name="moveCursor"></a><a href="qmodelindex.html">QModelIndex</a> QTreeView::moveCursor ( <a href="qabstractitemview.html#CursorAction-enum">CursorAction</a> <i>cursorAction</i>, <a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a> <i>modifiers</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#moveCursor">QAbstractItemView::moveCursor</a>().</p>
+<p>Move the cursor in the way described by <i>cursorAction</i>, using the information provided by the button <i>modifiers</i>.</p>
+<!-- @@@moveCursor -->
+<!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
+<h3 class="fn"><a name="paintEvent"></a>void QTreeView::paintEvent ( <a href="qpaintevent.html">QPaintEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qwidget.html#paintEvent">QWidget::paintEvent</a>().</p>
+<!-- @@@paintEvent -->
+<!-- $$$reset[overload1]$$$reset -->
+<h3 class="fn"><a name="reset"></a>void QTreeView::reset ()<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#reset">QAbstractItemView::reset</a>().</p>
+<!-- @@@reset -->
+<!-- $$$resizeColumnToContents[overload1]$$$resizeColumnToContentsint -->
+<h3 class="fn"><a name="resizeColumnToContents"></a>void QTreeView::resizeColumnToContents ( int <i>column</i> )<tt> [slot]</tt></h3>
+<p>Resizes the <i>column</i> given to the size of its contents.</p>
+<p>See also <a href="qtreeview.html#columnWidth">columnWidth</a>() and <a href="qtreeview.html#setColumnWidth">setColumnWidth</a>().</p>
+<!-- @@@resizeColumnToContents -->
+<!-- $$$rowHeight[overload1]$$$rowHeightconstQModelIndex& -->
+<h3 class="fn"><a name="rowHeight"></a>int QTreeView::rowHeight ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [protected]</tt></h3>
+<p>Returns the height of the row indicated by the given <i>index</i>.</p>
+<p>This function was introduced in Qt 4.3.</p>
+<p>See also <a href="qtreeview.html#indexRowSizeHint">indexRowSizeHint</a>().</p>
+<!-- @@@rowHeight -->
+<!-- $$$rowsAboutToBeRemoved[overload1]$$$rowsAboutToBeRemovedconstQModelIndex&intint -->
+<h3 class="fn"><a name="rowsAboutToBeRemoved"></a>void QTreeView::rowsAboutToBeRemoved ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#rowsAboutToBeRemoved">QAbstractItemView::rowsAboutToBeRemoved</a>().</p>
+<p>Informs the view that the rows from the <i>start</i> row to the <i>end</i> row inclusive are about to removed from the given <i>parent</i> model item.</p>
+<!-- @@@rowsAboutToBeRemoved -->
+<!-- $$$rowsInserted[overload1]$$$rowsInsertedconstQModelIndex&intint -->
+<h3 class="fn"><a name="rowsInserted"></a>void QTreeView::rowsInserted ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#rowsInserted">QAbstractItemView::rowsInserted</a>().</p>
+<p>Informs the view that the rows from the <i>start</i> row to the <i>end</i> row inclusive have been inserted into the <i>parent</i> model item.</p>
+<!-- @@@rowsInserted -->
+<!-- $$$rowsRemoved[overload1]$$$rowsRemovedconstQModelIndex&intint -->
+<h3 class="fn"><a name="rowsRemoved"></a>void QTreeView::rowsRemoved ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i>, int <i>start</i>, int <i>end</i> )<tt> [protected slot]</tt></h3>
+<p>Informs the view that the rows from the <i>start</i> row to the <i>end</i> row inclusive have been removed from the given <i>parent</i> model item.</p>
+<p>This function was introduced in Qt 4.1.</p>
+<!-- @@@rowsRemoved -->
+<!-- $$$scrollContentsBy[overload1]$$$scrollContentsByintint -->
+<h3 class="fn"><a name="scrollContentsBy"></a>void QTreeView::scrollContentsBy ( int <i>dx</i>, int <i>dy</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractscrollarea.html#scrollContentsBy">QAbstractScrollArea::scrollContentsBy</a>().</p>
+<p>Scrolls the contents of the tree view by (<i>dx</i>, <i>dy</i>).</p>
+<!-- @@@scrollContentsBy -->
+<!-- $$$scrollTo[overload1]$$$scrollToconstQModelIndex&ScrollHint -->
+<h3 class="fn"><a name="scrollTo"></a>void QTreeView::scrollTo ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i>, <a href="qabstractitemview.html#ScrollHint-enum">ScrollHint</a> <i>hint</i> = EnsureVisible )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#scrollTo">QAbstractItemView::scrollTo</a>().</p>
+<p>Scroll the contents of the tree view until the given model item <i>index</i> is visible. The <i>hint</i> parameter specifies more precisely where the item should be located after the operation. If any of the parents of the model item are collapsed, they will be expanded to ensure that the model item is visible.</p>
+<!-- @@@scrollTo -->
+<!-- $$$selectAll[overload1]$$$selectAll -->
+<h3 class="fn"><a name="selectAll"></a>void QTreeView::selectAll ()<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#selectAll">QAbstractItemView::selectAll</a>().</p>
+<!-- @@@selectAll -->
+<!-- $$$selectedIndexes[overload1]$$$selectedIndexes -->
+<h3 class="fn"><a name="selectedIndexes"></a><a href="qmodelindex.html#QModelIndexList-typedef">QModelIndexList</a> QTreeView::selectedIndexes () const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#selectedIndexes">QAbstractItemView::selectedIndexes</a>().</p>
+<!-- @@@selectedIndexes -->
+<!-- $$$selectionChanged[overload1]$$$selectionChangedconstQItemSelection&constQItemSelection& -->
+<h3 class="fn"><a name="selectionChanged"></a>void QTreeView::selectionChanged ( const <a href="qitemselection.html">QItemSelection</a> &amp; <i>selected</i>, const <a href="qitemselection.html">QItemSelection</a> &amp; <i>deselected</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#selectionChanged">QAbstractItemView::selectionChanged</a>().</p>
+<!-- @@@selectionChanged -->
+<!-- $$$setColumnHidden[overload1]$$$setColumnHiddenintbool -->
+<h3 class="fn"><a name="setColumnHidden"></a>void QTreeView::setColumnHidden ( int <i>column</i>, bool <i>hide</i> )</h3>
+<p>If <i>hide</i> is true the <i>column</i> is hidden, otherwise the <i>column</i> is shown.</p>
+<p>See also <a href="qtreeview.html#isColumnHidden">isColumnHidden</a>(), <a href="qtreeview.html#hideColumn">hideColumn</a>(), and <a href="qtreeview.html#setRowHidden">setRowHidden</a>().</p>
+<!-- @@@setColumnHidden -->
+<!-- $$$setColumnWidth[overload1]$$$setColumnWidthintint -->
+<h3 class="fn"><a name="setColumnWidth"></a>void QTreeView::setColumnWidth ( int <i>column</i>, int <i>width</i> )</h3>
+<p>Sets the width of the given <i>column</i> to the <i>width</i> specified.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtreeview.html#columnWidth">columnWidth</a>() and <a href="qtreeview.html#resizeColumnToContents">resizeColumnToContents</a>().</p>
+<!-- @@@setColumnWidth -->
+<!-- $$$setExpanded[overload1]$$$setExpandedconstQModelIndex&bool -->
+<h3 class="fn"><a name="setExpanded"></a>void QTreeView::setExpanded ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i>, bool <i>expanded</i> )</h3>
+<p>Sets the item referred to by <i>index</i> to either collapse or expanded, depending on the value of <i>expanded</i>.</p>
+<p>See also <a href="qtreeview.html#expanded">expanded</a>(), <a href="qtreeview.html#expand">expand</a>(), and <a href="qtreeview.html#isExpanded">isExpanded</a>().</p>
+<!-- @@@setExpanded -->
+<!-- $$$setFirstColumnSpanned[overload1]$$$setFirstColumnSpannedintconstQModelIndex&bool -->
+<h3 class="fn"><a name="setFirstColumnSpanned"></a>void QTreeView::setFirstColumnSpanned ( int <i>row</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i>, bool <i>span</i> )</h3>
+<p>If <i>span</i> is true the item in the first column in the <i>row</i> with the given <i>parent</i> is set to span all columns, otherwise all items on the <i>row</i> are shown.</p>
+<p>This function was introduced in Qt 4.3.</p>
+<p>See also <a href="qtreeview.html#isFirstColumnSpanned">isFirstColumnSpanned</a>().</p>
+<!-- @@@setFirstColumnSpanned -->
+<!-- $$$setHeader[overload1]$$$setHeaderQHeaderView* -->
+<h3 class="fn"><a name="setHeader"></a>void QTreeView::setHeader ( <a href="qheaderview.html">QHeaderView</a> * <i>header</i> )</h3>
+<p>Sets the header for the tree view, to the given <i>header</i>.</p>
+<p>The view takes ownership over the given <i>header</i> and deletes it when a new header is set.</p>
+<p>See also <a href="qabstractitemmodel.html#headerData">QAbstractItemModel::headerData</a>().</p>
+<!-- @@@setHeader -->
+<!-- $$$setModel[overload1]$$$setModelQAbstractItemModel* -->
+<h3 class="fn"><a name="setModel"></a>void QTreeView::setModel ( <a href="qabstractitemmodel.html">QAbstractItemModel</a> * <i>model</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#setModel">QAbstractItemView::setModel</a>().</p>
+<!-- @@@setModel -->
+<!-- $$$setRootIndex[overload1]$$$setRootIndexconstQModelIndex& -->
+<h3 class="fn"><a name="setRootIndex"></a>void QTreeView::setRootIndex ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#setRootIndex">QAbstractItemView::setRootIndex</a>().</p>
+<!-- @@@setRootIndex -->
+<!-- $$$setRowHidden[overload1]$$$setRowHiddenintconstQModelIndex&bool -->
+<h3 class="fn"><a name="setRowHidden"></a>void QTreeView::setRowHidden ( int <i>row</i>, const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>parent</i>, bool <i>hide</i> )</h3>
+<p>If <i>hide</i> is true the <i>row</i> with the given <i>parent</i> is hidden, otherwise the <i>row</i> is shown.</p>
+<p>See also <a href="qtreeview.html#isRowHidden">isRowHidden</a>() and <a href="qtreeview.html#setColumnHidden">setColumnHidden</a>().</p>
+<!-- @@@setRowHidden -->
+<!-- $$$setSelection[overload1]$$$setSelectionconstQRect&QItemSelectionModel::SelectionFlags -->
+<h3 class="fn"><a name="setSelection"></a>void QTreeView::setSelection ( const <a href="qrect.html">QRect</a> &amp; <i>rect</i>, <a href="qitemselectionmodel.html#SelectionFlag-enum">QItemSelectionModel::SelectionFlags</a> <i>command</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#setSelection">QAbstractItemView::setSelection</a>().</p>
+<p>Applies the selection <i>command</i> to the items in or touched by the rectangle, <i>rect</i>.</p>
+<p>See also <a href="qabstractitemview.html#selectionCommand">selectionCommand</a>().</p>
+<!-- @@@setSelection -->
+<!-- $$$setSelectionModel[overload1]$$$setSelectionModelQItemSelectionModel* -->
+<h3 class="fn"><a name="setSelectionModel"></a>void QTreeView::setSelectionModel ( <a href="qitemselectionmodel.html">QItemSelectionModel</a> * <i>selectionModel</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#setSelectionModel">QAbstractItemView::setSelectionModel</a>().</p>
+<!-- @@@setSelectionModel -->
+<!-- $$$showColumn[overload1]$$$showColumnint -->
+<h3 class="fn"><a name="showColumn"></a>void QTreeView::showColumn ( int <i>column</i> )<tt> [slot]</tt></h3>
+<p>Shows the given <i>column</i> in the tree view.</p>
+<p>See also <a href="qtreeview.html#hideColumn">hideColumn</a>() and <a href="qtreeview.html#setColumnHidden">setColumnHidden</a>().</p>
+<!-- @@@showColumn -->
+<!-- $$$sizeHintForColumn[overload1]$$$sizeHintForColumnint -->
+<h3 class="fn"><a name="sizeHintForColumn"></a>int QTreeView::sizeHintForColumn ( int <i>column</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#sizeHintForColumn">QAbstractItemView::sizeHintForColumn</a>().</p>
+<p>Returns the size hint for the <i>column</i>'s width or -1 if there is no model.</p>
+<p>If you need to set the width of a given column to a fixed value, call <a href="qheaderview.html#resizeSection">QHeaderView::resizeSection</a>() on the view's header.</p>
+<p>If you reimplement this function in a subclass, note that the value you return is only used when <a href="qtreeview.html#resizeColumnToContents">resizeColumnToContents</a>() is called. In that case, if a larger column width is required by either the view's header or the item delegate, that width will be used instead.</p>
+<p>See also <a href="qwidget.html#sizeHint-prop">QWidget::sizeHint</a> and <a href="qtreeview.html#header">header</a>().</p>
+<!-- @@@sizeHintForColumn -->
+<!-- $$$sortByColumn[overload1]$$$sortByColumnintQt::SortOrder -->
+<h3 class="fn"><a name="sortByColumn"></a>void QTreeView::sortByColumn ( int <i>column</i>, <a href="qt.html#SortOrder-enum">Qt::SortOrder</a> <i>order</i> )</h3>
+<p>Sets the model up for sorting by the values in the given <i>column</i> and <i>order</i>.</p>
+<p><i>column</i> may be -1, in which case no sort indicator will be shown and the model will return to its natural, unsorted order. Note that not all models support this and may even crash in this case.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<p>See also <a href="qtreeview.html#sortingEnabled-prop">sortingEnabled</a>.</p>
+<!-- @@@sortByColumn -->
+<!-- $$$timerEvent[overload1]$$$timerEventQTimerEvent* -->
+<h3 class="fn"><a name="timerEvent"></a>void QTreeView::timerEvent ( <a href="qtimerevent.html">QTimerEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qobject.html#timerEvent">QObject::timerEvent</a>().</p>
+<!-- @@@timerEvent -->
+<!-- $$$updateGeometries[overload1]$$$updateGeometries -->
+<h3 class="fn"><a name="updateGeometries"></a>void QTreeView::updateGeometries ()<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#updateGeometries">QAbstractItemView::updateGeometries</a>().</p>
+<!-- @@@updateGeometries -->
+<!-- $$$verticalOffset[overload1]$$$verticalOffset -->
+<h3 class="fn"><a name="verticalOffset"></a>int QTreeView::verticalOffset () const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#verticalOffset">QAbstractItemView::verticalOffset</a>().</p>
+<p>Returns the vertical offset of the items in the tree view.</p>
+<p>See also <a href="qtreeview.html#horizontalOffset">horizontalOffset</a>().</p>
+<!-- @@@verticalOffset -->
+<!-- $$$viewportEvent[overload1]$$$viewportEventQEvent* -->
+<h3 class="fn"><a name="viewportEvent"></a>bool QTreeView::viewportEvent ( <a href="qevent.html">QEvent</a> * <i>event</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractscrollarea.html#viewportEvent">QAbstractScrollArea::viewportEvent</a>().</p>
+<!-- @@@viewportEvent -->
+<!-- $$$visualRect[overload1]$$$visualRectconstQModelIndex& -->
+<h3 class="fn"><a name="visualRect"></a><a href="qrect.html">QRect</a> QTreeView::visualRect ( const <a href="qmodelindex.html">QModelIndex</a> &amp; <i>index</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#visualRect">QAbstractItemView::visualRect</a>().</p>
+<p>Returns the rectangle on the viewport occupied by the item at <i>index</i>. If the index is not visible or explicitly hidden, the returned rectangle is invalid.</p>
+<!-- @@@visualRect -->
+<!-- $$$visualRegionForSelection[overload1]$$$visualRegionForSelectionconstQItemSelection& -->
+<h3 class="fn"><a name="visualRegionForSelection"></a><a href="qregion.html">QRegion</a> QTreeView::visualRegionForSelection ( const <a href="qitemselection.html">QItemSelection</a> &amp; <i>selection</i> ) const<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemview.html#visualRegionForSelection">QAbstractItemView::visualRegionForSelection</a>().</p>
+<p>Returns the rectangle from the viewport of the items in the given <i>selection</i>.</p>
+<p>Since 4.7, the returned region only contains rectangles intersecting (or included in) the viewport.</p>
+<!-- @@@visualRegionForSelection -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

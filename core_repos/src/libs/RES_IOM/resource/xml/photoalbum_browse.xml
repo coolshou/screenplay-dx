@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/photo_album.jpg" type="photo_album" numitems="6">
+  <include filename="./info.xml"/>
+  <text text="@@title" fontsize="26" x="200" y="40" w="400" h="40"/>
+  <table x="126" y="120" w="457" h="124" borderwidth="3"
+         cols="3" rows="1" colspacing="10">
+    <image image="@@album_active_0" />
+    <image image="@@album_active_1" />
+    <image image="@@album_active_2" />
+  </table>
+  <table x="126" y="255" w="457" h="124" borderwidth="3"
+         cols="3" rows="1" colspacing="10">
+    <image image="@@album_active_3" />
+    <image image="@@album_active_4" />
+    <image image="@@album_active_5" />
+  </table>
+  <table x="134" y="127" w="440" h="87"
+         cols="3" rows="1" colspacing="28" >
+    <image image="@@browse_0_icon" xmargin="5" ymargin="5" imageIndex="0"/>
+    <image image="@@browse_1_icon" xmargin="5" ymargin="5" imageIndex="1"/>
+    <image image="@@browse_2_icon" xmargin="5" ymargin="5" imageIndex="2"/>
+  </table>
+  <table x="134" y="263" w="440" h="87"
+         cols="3" rows="1" colspacing="30" >
+    <image image="@@browse_3_icon" xmargin="5" ymargin="5" imageIndex="3"/>
+    <image image="@@browse_4_icon" xmargin="5" ymargin="5" imageIndex="4"/>
+    <image image="@@browse_5_icon" xmargin="5" ymargin="5" imageIndex="5"/>
+  </table>
+  
+  <table x="136" y="216" w="454" h="20" borderwidth="3"
+         cols="3" rows="1" colspacing="10"
+         fontsize="18" textcolor="0xf0f0f0" activetextcolor="0xFFFFFF">
+    <text text="@@browselist_0_text" xmargin="5"
+          active="@@browse_0_active"/>
+    <text text="@@browselist_1_text" xmargin="5"
+          active="@@browse_1_active"/>
+    <text text="@@browselist_2_text" xmargin="5"
+          active="@@browse_2_active"/>
+  </table>
+  <table x="136" y="352" w="454" h="20" borderwidth="3"
+         cols="3" rows="1" colspacing="10"
+         fontsize="18" textcolor="0xf0f0f0" activetextcolor="0xFFFFFF">
+    <text text="@@browselist_3_text" xmargin="5"
+          active="@@browse_3_active"/>
+    <text text="@@browselist_4_text" xmargin="5"
+          active="@@browse_4_active"/>
+    <text text="@@browselist_5_text" xmargin="5"
+          active="@@browse_5_active"/>
+  </table>
+  
+  <table x="134" y="127" w="440" h="87"
+         cols="3" rows="1" colspacing="28" >
+    <text text="@@browse_0_childcount" xmargin="5" ymargin="5" />
+    <text text="@@browse_1_childcount" xmargin="5" ymargin="5" />
+    <text text="@@browse_2_childcount" xmargin="5" ymargin="5" />
+  </table>
+  <table x="134" y="263" w="440" h="87"
+         cols="3" rows="1" colspacing="30" >
+    <text text="@@browse_3_childcount" xmargin="5" ymargin="5" />
+    <text text="@@browse_4_childcount" xmargin="5" ymargin="5" />
+    <text text="@@browse_5_childcount" xmargin="5" ymargin="5" />
+  </table>
+  
+  <image  x="600" y="123" w="50" h="50" image="@@thumbnail_moreprev"/>
+  <image  x="600" y="333" w="50" h="50" image="@@thumbnail_morenext"/>
+  
+  <text text="@@browse_status" x="200" y="210" w="400" h="40" fontsize="26" />
+  <image image="@@status_icon" x="328" y="208" w="64" h="64" />
+  <text text="@@focus_name" x="100" y="400" w="400" h="40" fontsize="26" />
+  <!-- PIP window -->
+  <include filename="./inc_pip.xml"/>
+  <!-- fixed -->
+  <include filename="./decoration.xml"/>
+</page>

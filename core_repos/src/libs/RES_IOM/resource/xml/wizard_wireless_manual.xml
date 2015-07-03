@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page background="image/videophoto_player_bg_n.png">	  
+  <ctrlgrp lbmask="l">
+    <button valkey="WIRELESSMANUALNEXT"
+      	focused_bg="image/common_button_B_btn_f.png"
+      	normal_bg="image/common_button_B_btn_n.png"
+      	click_bg="image/common_button_B_btn_p.png" />
+  </ctrlgrp>
+   
+  <text id="subheadline" text="$$Wireless network"/>
+  <image id="step" image="image/wizard_step_2_indicator_n.png"/>
+  <include filename="./inc_setup_title.xml" />
+
+  <image image="@@wrongkeyicon" x="594" y="40" w="69" h="51" align="hcenter" />
+  <text text="$$Are you sure you want to manually enter your wireless settings?" x="122" y="177" w="482" h="200" fontsize="20" numlines="8"/>
+  <imgbtn image="@@bg-WIRELESSMANUALNEXT" x="223" y="398" w="275" h="36" text="$$Next" align="hcenter" fontsize="24" textcolor="0xEDC831" active="@@act-WIRELESSMANUALNEXT" actnoseltextcolor="0x3333333"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+</page>

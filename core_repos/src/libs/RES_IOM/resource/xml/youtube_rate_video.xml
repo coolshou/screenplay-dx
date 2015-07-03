@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="./image/youtube/youtube_bg.jpg">
+	<ctrlgrp>
+		<button valkey="LEVEL"/>
+		<linebreak/>
+		<button valkey="YES"
+			focused_bg="image/youtube/settings_system_msg_reset_btn_f.png"
+			normal_bg="image/youtube/settings_system_msg_reset_btn_n.png"/>
+		<button valkey="NO"
+			focused_bg="image/youtube/settings_system_msg_reset_btn_f.png"
+			normal_bg="image/youtube/settings_system_msg_reset_btn_n.png"/>
+	</ctrlgrp>
+	<text text="@@title" x="188" y="156" w="600" h="44" fontsize="42" textcolor="0xffffff" speed="1"/>
+	<image image="@@video_thumb_outline" x="186" y="225" w="373" h="227"/>
+	<image image="@@video_thumb_icon" x="198" y="236" w="349" h="204" align="hcenter" scale="100"/>
+	<text text="@@video_title" x="585" y="225" w="560" h="28" fontsize="26" textcolor="0xffffff"/>
+	<text text="@@video_desc" x="585" y="265" w="560" h="50" fontsize="18" textcolor="0xffffff" numlines="2"/>
+
+	<image image="@@level_bg_img" x="585" y="324" w="525" h="95"/>
+<!--	<image image="@@level_mask_img" x="382" y="314" w="359" h="87"/>-->
+	<text text="@@grade" x="585" y="433" w="560" h="22" fontsize="20" textcolor="0xffffff"/>
+
+	<image image="@@bg-YES" x="319" y="492" w="327" h="61"/>
+	<image image="@@bg-NO" x="647" y="492" w="327" h="61"/>
+	<text text="$$OK" x="334" y="508" w="285" h="22" fontsize="20" align="hcenter" textcolor="0xffffff"/>
+	<text text="$$Cancel" x="662" y="508" w="285" h="22" fontsize="20" align="hcenter" textcolor="0xffffff"/>
+	<image image="image/youtube/youtube_logo.png" x="1047" y="563" w="150" h="95"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

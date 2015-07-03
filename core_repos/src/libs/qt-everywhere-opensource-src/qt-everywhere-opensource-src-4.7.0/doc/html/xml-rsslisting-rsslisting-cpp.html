@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: rsslisting.cpp Example File (xml/rsslisting/rsslisting.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">rsslisting.cpp Example File</h1>
+<span class="small-subtitle">xml/rsslisting/rsslisting.cpp</span>
+<!-- $$$xml/rsslisting/rsslisting.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+<span class="comment"> /*
+ rsslisting.cpp
+
+ Provides a widget for displaying news items from RDF news sources.
+ RDF is an XML-based format for storing items of information (see
+ http://www.w3.org/RDF/ for details).
+
+ The widget itself provides a simple user interface for specifying
+ the URL of a news source, and controlling the downloading of news.
+
+ The widget downloads and parses the XML asynchronously, feeding the
+ data to an XML reader in pieces. This allows the user to interrupt
+ its operation, and also allows very large data sources to be read.
+ */</span>
+
+ #include &lt;QtCore&gt;
+ #include &lt;QtGui&gt;
+ #include &lt;QtNetwork&gt;
+
+ #include &quot;rsslisting.h&quot;
+
+<span class="comment"> /*
+     Constructs an RSSListing widget with a simple user interface, and sets
+     up the XML reader to use a custom handler class.
+
+     The user interface consists of a line edit, two push buttons, and a
+     list view widget. The line edit is used for entering the URLs of news
+     sources; the push buttons start and abort the process of reading the
+     news.
+ */</span>
+
+ RSSListing::RSSListing(QWidget *parent)
+     : QWidget(parent)
+ {
+     lineEdit = new QLineEdit(this);
+     lineEdit-&gt;setText(&quot;http://labs.qt.nokia.com/blogs/feed&quot;);
+
+     fetchButton = new QPushButton(tr(&quot;Fetch&quot;), this);
+     abortButton = new QPushButton(tr(&quot;Abort&quot;), this);
+     abortButton-&gt;setEnabled(false);
+
+     treeWidget = new QTreeWidget(this);
+     connect(treeWidget, SIGNAL(itemActivated(QTreeWidgetItem*,int)),
+             this, SLOT(itemActivated(QTreeWidgetItem*)));
+     QStringList headerLabels;
+     headerLabels &lt;&lt; tr(&quot;Title&quot;) &lt;&lt; tr(&quot;Link&quot;);
+     treeWidget-&gt;setHeaderLabels(headerLabels);
+     treeWidget-&gt;header()-&gt;setResizeMode(QHeaderView::ResizeToContents);
+
+     connect(&amp;http, SIGNAL(readyRead(QHttpResponseHeader)),
+              this, SLOT(readData(QHttpResponseHeader)));
+
+     connect(&amp;http, SIGNAL(requestFinished(int,bool)),
+              this, SLOT(finished(int,bool)));
+
+     connect(lineEdit, SIGNAL(returnPressed()), this, SLOT(fetch()));
+     connect(fetchButton, SIGNAL(clicked()), this, SLOT(fetch()));
+     connect(abortButton, SIGNAL(clicked()), &amp;http, SLOT(abort()));
+
+     QVBoxLayout *layout = new QVBoxLayout(this);
+
+     QHBoxLayout *hboxLayout = new QHBoxLayout;
+
+     hboxLayout-&gt;addWidget(lineEdit);
+     hboxLayout-&gt;addWidget(fetchButton);
+     hboxLayout-&gt;addWidget(abortButton);
+
+     layout-&gt;addLayout(hboxLayout);
+     layout-&gt;addWidget(treeWidget);
+
+     setWindowTitle(tr(&quot;RSS listing example&quot;));
+     resize(640,480);
+ }
+
+<span class="comment"> /*
+     Starts fetching data from a news source specified in the line
+     edit widget.
+
+     The line edit is made read only to prevent the user from modifying its
+     contents during the fetch; this is only for cosmetic purposes.
+     The fetch button is disabled, and the abort button is enabled to allow
+     the user to interrupt processing. The list view is cleared, and we
+     define the last list view item to be 0, meaning that there are no
+     existing items in the list.
+
+     The HTTP handler is supplied with the raw contents of the line edit and
+     a fetch is initiated. We keep the ID value returned by the HTTP handler
+     for future reference.
+ */</span>
+
+ void RSSListing::fetch()
+ {
+     lineEdit-&gt;setReadOnly(true);
+     fetchButton-&gt;setEnabled(false);
+     abortButton-&gt;setEnabled(true);
+     treeWidget-&gt;clear();
+
+     xml.clear();
+
+     QUrl url(lineEdit-&gt;text());
+
+     http.setHost(url.host());
+     connectionId = http.get(url.path());
+ }
+
+<span class="comment"> /*
+     Reads data received from the RDF source.
+
+     We read all the available data, and pass it to the XML
+     stream reader. Then we call the XML parsing function.
+
+     If parsing fails for any reason, we abort the fetch.
+ */</span>
+
+ void RSSListing::readData(const QHttpResponseHeader &amp;resp)
+ {
+     if (resp.statusCode() != 200)
+         http.abort();
+     else {
+         xml.addData(http.readAll());
+         parseXml();
+     }
+ }
+
+<span class="comment"> /*
+     Finishes processing an HTTP request.
+
+     The default behavior is to keep the text edit read only.
+
+     If an error has occurred, the user interface is made available
+     to the user for further input, allowing a new fetch to be
+     started.
+
+     If the HTTP get request has finished, we make the
+     user interface available to the user for further input.
+ */</span>
+
+ void RSSListing::finished(int id, bool error)
+ {
+     if (error) {
+         qWarning(&quot;Received error during HTTP fetch.&quot;);
+         lineEdit-&gt;setReadOnly(false);
+         abortButton-&gt;setEnabled(false);
+         fetchButton-&gt;setEnabled(true);
+     }
+     else if (id == connectionId) {
+         lineEdit-&gt;setReadOnly(false);
+         abortButton-&gt;setEnabled(false);
+         fetchButton-&gt;setEnabled(true);
+     }
+ }
+
+<span class="comment"> /*
+     Parses the XML data and creates treeWidget items accordingly.
+ */</span>
+ void RSSListing::parseXml()
+ {
+     while (!xml.atEnd()) {
+         xml.readNext();
+         if (xml.isStartElement()) {
+             if (xml.name() == &quot;item&quot;)
+                 linkString = xml.attributes().value(&quot;rss:about&quot;).toString();
+             currentTag = xml.name().toString();
+         } else if (xml.isEndElement()) {
+             if (xml.name() == &quot;item&quot;) {
+
+                 QTreeWidgetItem *item = new QTreeWidgetItem;
+                 item-&gt;setText(0, titleString);
+                 item-&gt;setText(1, linkString);
+                 treeWidget-&gt;addTopLevelItem(item);
+
+                 titleString.clear();
+                 linkString.clear();
+             }
+
+         } else if (xml.isCharacters() &amp;&amp; !xml.isWhitespace()) {
+             if (currentTag == &quot;title&quot;)
+                 titleString += xml.text().toString();
+             else if (currentTag == &quot;link&quot;)
+                 linkString += xml.text().toString();
+         }
+     }
+     if (xml.error() &amp;&amp; xml.error() != QXmlStreamReader::PrematureEndOfDocumentError) {
+         qWarning() &lt;&lt; &quot;XML ERROR:&quot; &lt;&lt; xml.lineNumber() &lt;&lt; &quot;: &quot; &lt;&lt; xml.errorString();
+         http.abort();
+     }
+ }
+
+<span class="comment"> /*
+     Open the link in the browser
+ */</span>
+ void RSSListing::itemActivated(QTreeWidgetItem * item)
+ {
+     QDesktopServices::openUrl(QUrl(item-&gt;text(1)));
+ }</pre>
+</div>
+<!-- @@@xml/rsslisting/rsslisting.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

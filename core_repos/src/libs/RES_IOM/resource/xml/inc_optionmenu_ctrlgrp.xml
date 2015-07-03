@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<wrapper>
+<ctrlgrp valkey="optionmenu" disable="@@disable-optionmenu">
+	<mlmenu valkey="mlmenu-optionmenu" is_loop="1" autoenter="1">
+		<include filename="./inc_optionmenu_node.xml"/>
+	</mlmenu>
+</ctrlgrp>
+</wrapper>
+

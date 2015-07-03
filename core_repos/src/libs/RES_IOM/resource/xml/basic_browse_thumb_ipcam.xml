@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/welcome_background_bg.jpg" numitems="10">
+  <ctrlgrp valkey="OPTION">
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="row" cols="5" rows="2" lbmask="HT" loop_scroll="1"/>
+    <linebreak/>
+	<button valkey="QML0"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_pip_on.png"
+		normal_bg="image/option_pip_on.png"
+		disabled_bg="image/option_pip_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="PIP"/>
+	<button valkey="QML1"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_motion_on.png"
+		normal_bg="image/option_motion_on.png"
+		disabled_bg="image/option_motion_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="Motion Detect"/>
+	<button valkey="QML2"
+		lightbar_bg="image/slideshow_options_menu_btn.png"
+		focused_bg="image/option_fullScr_on.png"
+		normal_bg="image/option_fullScr_on.png"
+		disabled_bg="image/option_fullScr_disable.png"
+		group_valkey="OPTION"
+		group_focused_text="ZOOM"/>
+  </ctrlgrp>
+  <include filename="./info.xml"/>
+  <text text="@@browse_title_icon" x="180" y="75" w="300" h="60" fontsize="40" textcolor="0xffb300"/>
+  <!--image x="350" y="110" w="380" h="300" image="@@browse_background_icon" bg="1"/-->
+  <include filename="./inc_thumb_browse.xml"/>
+  <include filename="./decoration.xml"/>
+  <include filename="./inc_options_list_x3.xml"/>
+	<include filename="ipcam_pip_win.xml"/>
+</page>

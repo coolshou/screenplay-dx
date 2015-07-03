@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebframe.cpp -->
+  <title>Qt 4.7: QWebHitTestResult Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtwebkit.html">QtWebKit</a></li>
+              <li>QWebHitTestResult</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWebHitTestResult Class Reference</h1>
+<!-- $$$QWebHitTestResult-brief -->
+<p>The QWebHitTestResult class provides information about the web page content after a hit test. <a href="#details">More...</a></p>
+<!-- @@@QWebHitTestResult -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QWebHitTestResult&gt;</pre><p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qwebhittestresult-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#QWebHitTestResult">QWebHitTestResult</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#QWebHitTestResult-2">QWebHitTestResult</a></b> ( const QWebHitTestResult &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#dtor.QWebHitTestResult">~QWebHitTestResult</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#alternateText">alternateText</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#boundingRect">boundingRect</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#element">element</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#enclosingBlockElement">enclosingBlockElement</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebFrame * </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#frame">frame</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#imageUrl">imageUrl</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#isContentEditable">isContentEditable</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#isContentSelected">isContentSelected</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#isNull">isNull</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebElement </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#linkElement">linkElement</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebFrame * </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#linkTargetFrame">linkTargetFrame</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#linkText">linkText</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#linkTitle">linkTitle</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QUrl </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#linkUrl">linkUrl</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPixmap </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#pixmap">pixmap</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#pos">pos</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#title">title</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QWebHitTestResult &amp; </td><td class="memItemRight bottomAlign"><b><a href="qwebhittestresult.html#operator-eq">operator=</a></b> ( const QWebHitTestResult &amp; <i>other</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebHitTestResult-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWebHitTestResult class provides information about the web page content after a hit test.</p>
+<p>QWebHitTestResult is returned by <a href="qwebframe.html#hitTestContent">QWebFrame::hitTestContent</a>() to provide information about the content of the web page at the specified position.</p>
+</div>
+<!-- @@@QWebHitTestResult -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWebHitTestResult[overload1]$$$QWebHitTestResult -->
+<h3 class="fn"><a name="QWebHitTestResult"></a>QWebHitTestResult::QWebHitTestResult ()</h3>
+<p>Constructs a null hit test result.</p>
+<!-- @@@QWebHitTestResult -->
+<!-- $$$QWebHitTestResult$$$QWebHitTestResultconstQWebHitTestResult& -->
+<h3 class="fn"><a name="QWebHitTestResult-2"></a>QWebHitTestResult::QWebHitTestResult ( const QWebHitTestResult &amp; <i>other</i> )</h3>
+<p>Constructs a hit test result from <i>other</i>.</p>
+<!-- @@@QWebHitTestResult -->
+<!-- $$$~QWebHitTestResult[overload1]$$$~QWebHitTestResult -->
+<h3 class="fn"><a name="dtor.QWebHitTestResult"></a>QWebHitTestResult::~QWebHitTestResult ()</h3>
+<p>Destructor.</p>
+<!-- @@@~QWebHitTestResult -->
+<!-- $$$alternateText[overload1]$$$alternateText -->
+<h3 class="fn"><a name="alternateText"></a><a href="qstring.html">QString</a> QWebHitTestResult::alternateText () const</h3>
+<p>Returns the alternate text of the element. This corresponds to the HTML alt attribute.</p>
+<!-- @@@alternateText -->
+<!-- $$$boundingRect[overload1]$$$boundingRect -->
+<h3 class="fn"><a name="boundingRect"></a><a href="qrect.html">QRect</a> QWebHitTestResult::boundingRect () const</h3>
+<p>Returns the bounding rect of the element.</p>
+<p>This function was introduced in Qt 4.5.</p>
+<!-- @@@boundingRect -->
+<!-- $$$element[overload1]$$$element -->
+<h3 class="fn"><a name="element"></a><a href="qwebelement.html">QWebElement</a> QWebHitTestResult::element () const</h3>
+<p>Returns the underlying DOM element as <a href="qwebelement.html">QWebElement</a>.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<!-- @@@element -->
+<!-- $$$enclosingBlockElement[overload1]$$$enclosingBlockElement -->
+<h3 class="fn"><a name="enclosingBlockElement"></a><a href="qwebelement.html">QWebElement</a> QWebHitTestResult::enclosingBlockElement () const</h3>
+<p>Returns the block element that encloses the element hit.</p>
+<p>A block element is an element that is rendered using the CSS &quot;block&quot; style. This includes for example text paragraphs.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<!-- @@@enclosingBlockElement -->
+<!-- $$$frame[overload1]$$$frame -->
+<h3 class="fn"><a name="frame"></a><a href="qwebframe.html">QWebFrame</a> * QWebHitTestResult::frame () const</h3>
+<p>Returns the frame the hit test was executed in.</p>
+<!-- @@@frame -->
+<!-- $$$imageUrl[overload1]$$$imageUrl -->
+<h3 class="fn"><a name="imageUrl"></a><a href="qurl.html">QUrl</a> QWebHitTestResult::imageUrl () const</h3>
+<p>Returns the url of the image.</p>
+<!-- @@@imageUrl -->
+<!-- $$$isContentEditable[overload1]$$$isContentEditable -->
+<h3 class="fn"><a name="isContentEditable"></a>bool QWebHitTestResult::isContentEditable () const</h3>
+<p>Returns true if the content is editable by the user; otherwise returns false.</p>
+<!-- @@@isContentEditable -->
+<!-- $$$isContentSelected[overload1]$$$isContentSelected -->
+<h3 class="fn"><a name="isContentSelected"></a>bool QWebHitTestResult::isContentSelected () const</h3>
+<p>Returns true if the content tested is part of the selection; otherwise returns false.</p>
+<!-- @@@isContentSelected -->
+<!-- $$$isNull[overload1]$$$isNull -->
+<h3 class="fn"><a name="isNull"></a>bool QWebHitTestResult::isNull () const</h3>
+<p>Returns true if the hit test result is null; otherwise returns false.</p>
+<!-- @@@isNull -->
+<!-- $$$linkElement[overload1]$$$linkElement -->
+<h3 class="fn"><a name="linkElement"></a><a href="qwebelement.html">QWebElement</a> QWebHitTestResult::linkElement () const</h3>
+<p>Returns the element that represents the link.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<p>See also <a href="qwebhittestresult.html#linkTargetFrame">linkTargetFrame</a>().</p>
+<!-- @@@linkElement -->
+<!-- $$$linkTargetFrame[overload1]$$$linkTargetFrame -->
+<h3 class="fn"><a name="linkTargetFrame"></a><a href="qwebframe.html">QWebFrame</a> * QWebHitTestResult::linkTargetFrame () const</h3>
+<p>Returns the frame that will load the link if it is activated.</p>
+<p>See also <a href="qwebhittestresult.html#linkElement">linkElement</a>().</p>
+<!-- @@@linkTargetFrame -->
+<!-- $$$linkText[overload1]$$$linkText -->
+<h3 class="fn"><a name="linkText"></a><a href="qstring.html">QString</a> QWebHitTestResult::linkText () const</h3>
+<p>Returns the text of the link.</p>
+<!-- @@@linkText -->
+<!-- $$$linkTitle[overload1]$$$linkTitle -->
+<h3 class="fn"><a name="linkTitle"></a><a href="qurl.html">QUrl</a> QWebHitTestResult::linkTitle () const</h3>
+<p>Returns the title of the link.</p>
+<!-- @@@linkTitle -->
+<!-- $$$linkUrl[overload1]$$$linkUrl -->
+<h3 class="fn"><a name="linkUrl"></a><a href="qurl.html">QUrl</a> QWebHitTestResult::linkUrl () const</h3>
+<p>Returns the url to which the link points to.</p>
+<!-- @@@linkUrl -->
+<!-- $$$pixmap[overload1]$$$pixmap -->
+<h3 class="fn"><a name="pixmap"></a><a href="qpixmap.html">QPixmap</a> QWebHitTestResult::pixmap () const</h3>
+<p>Returns a <a href="qpixmap.html">QPixmap</a> containing the image. A null pixmap is returned if the element being tested is not an image.</p>
+<!-- @@@pixmap -->
+<!-- $$$pos[overload1]$$$pos -->
+<h3 class="fn"><a name="pos"></a><a href="qpoint.html">QPoint</a> QWebHitTestResult::pos () const</h3>
+<p>Returns the position where the hit test occured.</p>
+<!-- @@@pos -->
+<!-- $$$title[overload1]$$$title -->
+<h3 class="fn"><a name="title"></a><a href="qstring.html">QString</a> QWebHitTestResult::title () const</h3>
+<p>Returns the title of the nearest enclosing HTML element.</p>
+<!-- @@@title -->
+<!-- $$$operator=[overload1]$$$operator=constQWebHitTestResult& -->
+<h3 class="fn"><a name="operator-eq"></a>QWebHitTestResult &amp; QWebHitTestResult::operator= ( const QWebHitTestResult &amp; <i>other</i> )</h3>
+<p>Assigns the <i>other</i> hit test result to this.</p>
+<!-- @@@operator= -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

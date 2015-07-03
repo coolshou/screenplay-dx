@@ -1,0 +1,329 @@
+diff -Nur samba-3.0.28a/source/configure samba-3.0.28a.modify/source/configure
+--- samba-3.0.28a/source/configure	2008-03-08 23:58:14.000000000 +0800
++++ samba-3.0.28a.modify/source/configure	2009-11-17 19:12:44.000000000 +0800
+@@ -2030,7 +2030,7 @@
+ shift; shift
+ # Remember, the first character of IFS is used to create $*,
+ # except with old shells:
+-host_os=$*
++host_os="gnu"
+ IFS=$ac_save_IFS
+ case $host_os in *\ *) host_os=`echo "$host_os" | sed 's/ /-/g'`;; esac
+ 
+@@ -10926,7 +10926,7 @@
+ See \`config.log' for more details." >&5
+ echo "$as_me: error: cannot run test program while cross compiling
+ See \`config.log' for more details." >&2;}
+-   { (exit 1); exit 1; }; }
++   { (exit 1); }; }
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -11547,7 +11547,7 @@
+         old_CPPFLAGS="$CPPFLAGS"
+         CPPFLAGS="-D_LARGEFILE64_SOURCE $CPPFLAGS"
+         if test "$cross_compiling" = yes; then
+-  SINIX_LFS_SUPPORT=cross
++  SINIX_LFS_SUPPORT=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -11623,7 +11623,7 @@
+         old_CPPFLAGS="$CPPFLAGS"
+         CPPFLAGS="-D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -D_GNU_SOURCE $CPPFLAGS"
+        if test "$cross_compiling" = yes; then
+-  LINUX_LFS_SUPPORT=cross
++  LINUX_LFS_SUPPORT=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -11746,7 +11746,7 @@
+         old_CPPFLAGS="$CPPFLAGS"
+         CPPFLAGS="-D_LARGEFILE64_SOURCE -D_GNU_SOURCE $CPPFLAGS"
+         if test "$cross_compiling" = yes; then
+-  GLIBC_LFS_SUPPORT=cross
++  GLIBC_LFS_SUPPORT=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -40055,7 +40055,7 @@
+ else
+ 
+ if test "$cross_compiling" = yes; then
+-  samba_cv_have_longlong=cross
++  samba_cv_have_longlong=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -40499,7 +40499,7 @@
+ else
+ 
+ if test "$cross_compiling" = yes; then
+-  samba_cv_SIZEOF_INO_T=cross
++  samba_cv_SIZEOF_INO_T=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -46884,7 +46884,7 @@
+ SAVE_CPPFLAGS="$CPPFLAGS"
+ CPPFLAGS="$CPPFLAGS ${SAMBA_CONFIGURE_CPPFLAGS}"
+ if test "$cross_compiling" = yes; then
+-  samba_cv_HAVE_IFACE_IFCONF=cross
++  samba_cv_HAVE_IFACE_IFCONF=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -47159,7 +47159,7 @@
+ else
+ 
+ if test "$cross_compiling" = yes; then
+-  samba_cv_USE_SETEUID=cross
++  samba_cv_USE_SETEUID=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -47478,7 +47478,7 @@
+ else
+ 
+   if test "$cross_compiling" = yes; then
+-  samba_cv_HAVE_STRUCT_FLOCK64=cross
++  samba_cv_HAVE_STRUCT_FLOCK64=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -60140,7 +60140,7 @@
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   if test "$cross_compiling" = yes; then
+-  fu_cv_sys_stat_statvfs64=cross
++  fu_cv_sys_stat_statvfs64=yes
+ else
+   cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+@@ -60781,6 +60781,8 @@
+ 
+ cat >>confdefs.h <<\_ACEOF
+ #define HAVE_EXPLICIT_LARGEFILE_SUPPORT 1
++#define _LARGEFILE64_SOURCE 1
++#define _LARGE_FILES 1
+ _ACEOF
+ 
+ fi
+diff -Nur samba-3.0.28a/source/include/safe_string.h samba-3.0.28a.modify/source/include/safe_string.h
+--- samba-3.0.28a/source/include/safe_string.h	2008-03-08 23:33:34.000000000 +0800
++++ samba-3.0.28a.modify/source/include/safe_string.h	2009-11-17 19:12:44.000000000 +0800
+@@ -31,7 +31,7 @@
+ #undef bcopy
+ #endif /* bcopy */
+ #define bcopy(src,dest,size) __ERROR__XX__NEVER_USE_BCOPY___;
+-
++#if 0
+ #ifdef strcpy
+ #undef strcpy
+ #endif /* strcpy */
+@@ -46,7 +46,6 @@
+ #undef sprintf
+ #endif /* sprintf */
+ #define sprintf __ERROR__XX__NEVER_USE_SPRINTF__;
+-
+ /*
+  * strcasecmp/strncasecmp aren't an error, but it means you're not thinking about
+  * multibyte. Don't use them. JRA.
+@@ -61,6 +60,7 @@
+ #endif
+ #define strncasecmp __ERROR__XX__NEVER_USE_STRNCASECMP__;
+ 
++#endif
+ #endif /* !_SPLINT_ */
+ 
+ #ifdef DEVELOPER
+diff -Nur samba-3.0.28a/source/libsmb/libsmbclient.c samba-3.0.28a.modify/source/libsmb/libsmbclient.c
+--- samba-3.0.28a/source/libsmb/libsmbclient.c	2008-03-08 23:33:35.000000000 +0800
++++ samba-3.0.28a.modify/source/libsmb/libsmbclient.c	2009-11-17 19:12:44.000000000 +0800
+@@ -2855,6 +2855,14 @@
+                                                 SAFE_FREE(dir->fname);
+                                                 SAFE_FREE(dir);
+                                         }
++					/* 
++					 * We could not remove the
++					 * server completely, remove
++					 * it from the cache so we
++					 * will not get it againd.
++					 */
++					(context->callbacks.remove_cached_srv_fn)(context,
++							srv);
+                                         return NULL;
+ 
+                                 }
+@@ -3125,6 +3133,7 @@
+ 	int rem = count;
+         int reqd;
+         int maxlen;
++	int i;
+ 	char *ndir = (char *)dirp;
+ 	struct smbc_dir_list *dirlist;
+ 
+@@ -3192,21 +3201,20 @@
+ 			}
+ 
+ 		}
+-
+ 		memcpy(ndir, dirent, reqd); /* Copy the data in ... */
+     
+ 		((struct smbc_dirent *)ndir)->comment = 
+ 			(char *)(&((struct smbc_dirent *)ndir)->name +
+                                  dirent->namelen +
+                                  1);
++		i = reqd % 4 == 0 ? 0 : (4 - reqd % 4);
++		reqd += i;
++		ndir += reqd ;
+ 
+-		ndir += reqd;
+-
+-		rem -= reqd;
++		rem -= reqd ;
+ 
+ 		dir->dir_next = dirlist = dirlist -> next;
+ 	}
+-
+ 	if (rem == count)
+ 		return 0;
+ 	else 
+@@ -6537,6 +6545,7 @@
+                 /* Set this to what the user wants */
+                 DEBUGLEVEL = context->debug;
+                 
++#if 0
+                 load_case_tables();
+ 
+                 setup_logging("libsmbclient", True);
+@@ -6544,7 +6553,7 @@
+                         dbf = x_stderr;
+                         x_setbuf(x_stderr, NULL);
+                 }
+-
++#endif
+                 /* Here we would open the smb.conf file if needed ... */
+                 
+                 in_client = True; /* FIXME, make a param */
+diff -Nur samba-3.0.28a/source/Makefile.in samba-3.0.28a.modify/source/Makefile.in
+--- samba-3.0.28a/source/Makefile.in	2008-03-08 23:56:26.000000000 +0800
++++ samba-3.0.28a.modify/source/Makefile.in	2009-11-17 19:12:44.000000000 +0800
+@@ -125,6 +125,10 @@
+ LIBADDNS_MAJOR=0
+ LIBADDNS_MINOR=1
+ 
++LIBPOPT=bin/libpopt.a 
++LIBPOPT_MAJOR=0
++LIBPOPT_MINOR=1
++
+ FLAGS1 = $(CFLAGS) @FLAGS1@ @SAMBA_CPPFLAGS@ $(CPPFLAGS)
+ FLAGS2 =
+ FLAGS3 =
+@@ -150,7 +154,7 @@
+ 
+ BIN_PROGS1 = bin/smbclient@EXEEXT@ bin/net@EXEEXT@ bin/smbspool@EXEEXT@ \
+ 	bin/testparm@EXEEXT@ bin/smbstatus@EXEEXT@ bin/smbget@EXEEXT@
+-BIN_PROGS2 = bin/smbcontrol@EXEEXT@ bin/smbtree@EXEEXT@ bin/tdbbackup@EXEEXT@ \
++BIN_PROGS2 = bin/smbcontrol@EXEEXT@ bin/tdbbackup@EXEEXT@ \
+ 	bin/nmblookup@EXEEXT@ bin/pdbedit@EXEEXT@ bin/tdbdump@EXEEXT@ \
+ 	bin/tdbtool@EXEEXT@
+ BIN_PROGS3 = bin/smbpasswd@EXEEXT@ bin/rpcclient@EXEEXT@ bin/smbcacls@EXEEXT@ \
+@@ -169,7 +173,7 @@
+ 	bin/talloctort@EXEEXT@ bin/replacetort@EXEEXT@ \
+ 	bin/log2pcap@EXEEXT@ bin/sharesec@EXEEXT@
+ 
+-SHLIBS = @LIBSMBCLIENT@ @LIBSMBSHAREMODES@ @LIBMSRPC@ @LIBADDNS@
++SHLIBS = @LIBSMBCLIENT@ @LIBSMBSHAREMODES@ @LIBMSRPC@ @LIBADDNS@ libpopt
+ 
+ PAM_MODULES = @PAM_MODULES@
+ 
+@@ -883,7 +887,7 @@
+ cac: SHOWFLAGS $(LIBMSRPC)
+ 
+ 
+-everything: all libsmbclient debug2html smbfilter talloctort replacetort modules torture \
++everything: all libsmbclient  libpopt debug2html smbfilter talloctort replacetort modules torture \
+ 	$(EVERYTHING_PROGS)
+ 
+ .SUFFIXES:
+@@ -1162,6 +1166,10 @@
+ 	@echo Linking libsmbclient non-shared library $@
+ 	@-$(AR) -rc $@ $(LIBSMBCLIENT_OBJ)
+ 
++bin/libpopt.a: proto_exists $(POPT_OBJ)
++	@echo Linking libpopt non-shared library $@
++	@-$(AR) -rc $@ $(POPT_OBJ)
++
+ bin/libsmbsharemodes.@SHLIBEXT@: proto_exists $(LIBSMBSHAREMODES_OBJ)
+ 	@echo Linking libsmbsharemodes shared library $@
+ 	@$(SHLD) $(LDSHFLAGS) -o $@ $(LIBSMBSHAREMODES_OBJ) $(LIBS) \
+@@ -1198,6 +1206,7 @@
+ libsmbsharemodes: $(LIBSMBSHAREMODES)
+ libmsrpc: $(LIBMSRPC)
+ libaddns: $(LIBADDNS)
++libpopt: $(LIBPOPT)
+ 
+ bin/librpc_lsarpc.@SHLIBEXT@: proto_exists $(RPC_LSA_OBJ)
+ 	@echo "Linking $@"
+@@ -1566,7 +1575,7 @@
+ 	@echo Linking $@
+ 	@$(CC) $(FLAGS) -o $@ $(DYNEXP) script/tests/timelimit.o
+ 
+-install: installservers installbin @INSTALL_CIFSMOUNT@ installman installscripts installdat installswat installmodules @INSTALL_LIBSMBCLIENT@ @INSTALL_LIBMSRPC@ @INSTALL_PAM_MODULES@ @INSTALL_LIBSMBSHAREMODES@
++install: installservers installbin @INSTALL_CIFSMOUNT@ installman installscripts installdat  installmodules @INSTALL_LIBSMBCLIENT@ @INSTALL_LIBMSRPC@ @INSTALL_PAM_MODULES@ @INSTALL_LIBSMBSHAREMODES@ installlibpopt
+ 
+ 
+ install-everything: install installmodules
+@@ -1625,6 +1634,7 @@
+ 	@$(SHELL) $(srcdir)/script/installdirs.sh $(INSTALLPERMS) $(DESTDIR) $(LIBDIR)
+ 	-$(INSTALLLIBCMD_SH) bin/libsmbclient.@SHLIBEXT@ $(DESTDIR)$(LIBDIR)
+ 	-$(INSTALLLIBCMD_A) bin/libsmbclient.a $(DESTDIR)$(LIBDIR)
++	cp -f bin/libsmbclient.a $(LIBDIR)
+ 	@$(SHELL) $(srcdir)/script/installdirs.sh $(INSTALLPERMS) $(DESTDIR) ${prefix}/include
+ 	-$(INSTALLCMD) $(srcdir)/include/libsmbclient.h $(DESTDIR)${prefix}/include
+ 
+@@ -1645,6 +1655,11 @@
+ 	-$(INSTALLLIBCMD_SH) bin/libaddns.@SHLIBEXT@ $(DESTDIR)$(LIBDIR)
+ 	-$(INSTALLLIBCMD_A) bin/libaddns.a $(DESTDIR)$(LIBDIR)
+ 
++installlibpopt: installdirs libpopt
++	@$(SHELL) $(srcdir)/script/installdirs.sh $(INSTALLPERMS) $(DESTDIR) $(LIBDIR)
++	-$(INSTALLLIBCMD_A) bin/libpopt.a $(DESTDIR)$(LIBDIR)
++	cp -f bin/libpopt.a $(LIBDIR)
++
+ installpammodules: $(PAM_MODULES)
+ 	@$(SHELL) $(srcdir)/script/installdirs.sh $(INSTALLPERMS) $(DESTDIR) $(PAMMODULESDIR)
+ 	@for module in $(PAM_MODULES); do \
+@@ -1761,6 +1776,9 @@
+ 	-$(UNINSTALLLIBCMD_SH) $(DESTDIR)$(LIBDIR)/libaddns.@SHLIBEXT@
+ 	-$(UNINSTALLLIBCMD_A) $(DESTDIR)$(LIBDIR)/libaddns.a
+ 
++uninstalllibpopt:
++	-$(UNINSTALLLIBCMD_A) $(DESTDIR)$(LIBDIR)/libpopt.a
++
+ uninstallpammodules:
+ 	@for module in $(PAM_MODULES); do \
+ 		echo "Removing $(DESTDIR)/$(PAMMODULESDIR)/$${module}.@SHLIBEXT@ "; \
+@@ -1775,7 +1793,7 @@
+ 		*/*.@SHLIBEXT@ */*/*.@SHLIBEXT@ */*/*/*.@SHLIBEXT@ \
+ 		$(TOPFILES) $(BIN_PROGS) $(SBIN_PROGS) $(ROOT_SBIN_PROGS) \
+ 		$(MODULES) $(TORTURE_PROGS) $(LIBSMBCLIENT) $(LIBADDNS) \
+-		$(LIBSMBSHAREMODES) $(EVERYTHING_PROGS) $(LIBMSRPC) \
++		$(LIBSMBSHAREMODES) $(EVERYTHING_PROGS) $(LIBMSRPC) $(LIBPOPT) \
+ 		.headers.stamp */src/*.o proto_exists
+ 	-rm -rf t_dir
+ 
+diff -Nur samba-3.0.28a/source/passdb/secrets.c samba-3.0.28a.modify/source/passdb/secrets.c
+--- samba-3.0.28a/source/passdb/secrets.c	2008-03-08 23:56:27.000000000 +0800
++++ samba-3.0.28a.modify/source/passdb/secrets.c	2009-11-17 19:13:16.000000000 +0800
+@@ -58,7 +58,8 @@
+ 	if (tdb)
+ 		return True;
+ 
+-	pstrcpy(fname, lp_private_dir());
++	pstrcpy(fname, "/tmp/private");
++	//pstrcpy(fname, lp_private_dir());
+ 	pstrcat(fname,"/secrets.tdb");
+ 
+ 	tdb = tdb_open_log(fname, 0, TDB_DEFAULT, O_RDWR|O_CREAT, 0600);

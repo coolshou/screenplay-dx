@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- pingpong.qdoc -->
+  <title>Qt 4.7: Ping Pong States Example</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="all-examples.html">Examples</a></li>              <li><a href="examples-statemachine.html">State Machine Examples</a></li>              <li>Ping Pong States Example</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">Ping Pong States Example</h1>
+<span class="subtitle"></span>
+<!-- $$$statemachine/pingpong-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="statemachine-pingpong-main-cpp.html">statemachine/pingpong/main.cpp</a></li>
+<li><a href="statemachine-pingpong-pingpong-pro.html">statemachine/pingpong/pingpong.pro</a></li>
+</ul>
+<p>The Ping Pong States example shows how to use parallel states together with custom events and transitions in <a href="statemachine-api.html">The State Machine Framework</a>.</p>
+<p>This example implements a statechart where two states communicate by posting events to the state machine. The state chart looks as follows:</p>
+<p class="centerAlign"><img src="images/pingpong-example.png" /></p><p>The <tt>pinger</tt> and <tt>ponger</tt> states are parallel states, i.e&#x2e; they are entered simultaneously and will take transitions independently of eachother.</p>
+<p>The <tt>pinger</tt> state will post the first <tt>ping</tt> event upon entry; the <tt>ponger</tt> state will respond by posting a <tt>pong</tt> event; this will cause the <tt>pinger</tt> state to post a new <tt>ping</tt> event; and so on.</p>
+<pre class="highlightedCode brush: cpp"> class PingEvent : public QEvent
+ {
+ public:
+     PingEvent() : QEvent(QEvent::Type(QEvent::User+2))
+         {}
+ };
+
+ class PongEvent : public QEvent
+ {
+ public:
+     PongEvent() : QEvent(QEvent::Type(QEvent::User+3))
+         {}
+ };</pre>
+<p>Two custom events are defined, <tt>PingEvent</tt> and <tt>PongEvent</tt>.</p>
+<pre class="highlightedCode brush: cpp"> class Pinger : public QState
+ {
+ public:
+     Pinger(QState *parent)
+         : QState(parent) {}
+
+ protected:
+     virtual void onEntry(QEvent *)
+     {
+         machine()-&gt;postEvent(new PingEvent());
+         fprintf(stdout, &quot;ping?\n&quot;);
+     }
+ };</pre>
+<p>The <tt>Pinger</tt> class defines a state that posts a <tt>PingEvent</tt> to the state machine when the state is entered.</p>
+<pre class="highlightedCode brush: cpp"> class PingTransition : public QAbstractTransition
+ {
+ public:
+     PingTransition() {}
+
+ protected:
+     virtual bool eventTest(QEvent *e) {
+         return (e-&gt;type() == QEvent::User+2);
+     }
+     virtual void onTransition(QEvent *)
+     {
+         machine()-&gt;postDelayedEvent(new PongEvent(), 500);
+         fprintf(stdout, &quot;pong!\n&quot;);
+     }
+ };</pre>
+<p>The <tt>PingTransition</tt> class defines a transition that is triggered by events of type <tt>PingEvent</tt>, and that posts a <tt>PongEvent</tt> (with a delay of 500 milliseconds) to the state machine when the transition is triggered.</p>
+<pre class="highlightedCode brush: cpp"> class PongTransition : public QAbstractTransition
+ {
+ public:
+     PongTransition() {}
+
+ protected:
+     virtual bool eventTest(QEvent *e) {
+         return (e-&gt;type() == QEvent::User+3);
+     }
+     virtual void onTransition(QEvent *)
+     {
+         machine()-&gt;postDelayedEvent(new PingEvent(), 500);
+         fprintf(stdout, &quot;ping?\n&quot;);
+     }
+ };</pre>
+<p>The <tt>PongTransition</tt> class defines a transition that is triggered by events of type <tt>PongEvent</tt>, and that posts a <tt>PingEvent</tt> (with a delay of 500 milliseconds) to the state machine when the transition is triggered.</p>
+<pre class="highlightedCode brush: cpp"> int main(int argc, char **argv)
+ {
+     QCoreApplication app(argc, argv);
+
+     QStateMachine machine;
+     QState *group = new QState(QState::ParallelStates);
+     group-&gt;setObjectName(&quot;group&quot;);</pre>
+<p>The main() function begins by creating a state machine and a parallel state group.</p>
+<pre class="highlightedCode brush: cpp">     Pinger *pinger = new Pinger(group);
+     pinger-&gt;setObjectName(&quot;pinger&quot;);
+     pinger-&gt;addTransition(new PongTransition());
+
+     QState *ponger = new QState(group);
+     ponger-&gt;setObjectName(&quot;ponger&quot;);
+     ponger-&gt;addTransition(new PingTransition());</pre>
+<p>Next, the <tt>pinger</tt> and <tt>ponger</tt> states are created, with the parallel state group as their parent state. Note that the transitions are <i>targetless</i>. When such a transition is triggered, the source state won't be exited and re-entered; only the transition's onTransition() function will be called, and the state machine's configuration will remain the same, which is precisely what we want in this case.</p>
+<pre class="highlightedCode brush: cpp">     machine.addState(group);
+     machine.setInitialState(group);
+     machine.start();
+
+     return app.exec();
+ }</pre>
+<p>Finally, the group is added to the state machine, the machine is started, and the application event loop is entered.</p>
+</div>
+<!-- @@@statemachine/pingpong -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

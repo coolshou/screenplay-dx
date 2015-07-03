@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg">
+
+  <text text="@@message" x="330" y="243" w="620" h="26" fontsize="24" align="hcenter" textcolor="0xffffff"/>
+  <image image="@@status_icon" x="573" y="286" w="133" h="133" /> <!--loading icon-->
+</page>

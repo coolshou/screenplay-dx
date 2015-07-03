@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<page background="image/live365/Media Player_live365_bg.jpg">
+<!--	<text text="$$About Live365 VIP" x="169" y="121" w="748" h="50" align="left" fontsize="42" textcolor="0x343298"/> -->
+
+	<include filename="./inc_live365_icon.xml"/>
+	<include filename="./inc_loading.xml" />
+</page>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+
+<!-- 
+   *
+   *	Implementation of a vertical and horizontal flowing menu-submenu structure, used for Bookmarks page.
+   *    Uses: CSS WebKit animation controlled by JavaScript
+   *
+   *	Visky Tamas, 2010 March
+ -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+
+<title>お気に入り</title>	
+
+<link rel="stylesheet" type="text/css" href="../favourites.css" />
+<script language="javascript" src="../favourites.js"> </script> 
+
+<!-- Class usage -->
+<script language="javascript">
+	
+	/*
+	 * Code creating the bookmarks, based on the input list. Function called onload.
+	 */
+	var myBookmarks;
+	function CreateBookmarks()
+	{
+		myBookmarks = new BookmarkFlow(document.getElementById("inputList"), document.getElementById("bookmarkArea"));
+		myBookmarks.update();
+
+		// Adding key event listeners to the document
+		document.documentElement.addEventListener("keydown", keyPress, false);
+		document.documentElement.addEventListener("keypress", keyPress, false);
+	};
+	
+	/* Function handling keypresses. */	
+	function keyPress(evt) {
+		var charCode = 0;
+   		if (evt.charCode)				//some browsers support evt.charCode, some only evt.keyCode
+   	 		charCode = evt.charCode;        
+	    else 
+    	   	charCode = evt.keyCode;
+
+		if (charCode == 38)
+			myBookmarks.flow(myBookmarks.UP);
+		else if (charCode == 40)
+			myBookmarks.flow(myBookmarks.DOWN);
+		else if (charCode == 39)
+			myBookmarks.flow(myBookmarks.RIGHT);
+		else if (charCode == 37)
+			myBookmarks.flow(myBookmarks.LEFT);
+		else if (charCode == 13)
+		{
+			myBookmarks.loadSelection();
+		}
+	};
+
+</script>
+
+
+
+<!-- CSS Style this page -->
+<style type="text/css">
+
+</style>
+
+</head>
+
+
+<!-- XHTML -->
+<body HIGHLIGHT="false" onload="CreateBookmarks();">
+
+  <!-- The area that will hold the entire bookmark structure. Content is added with JS. -->
+  <div id="bookmarkArea">
+  	<div id="topSide"></div>
+  	<div id="bottomSide"></div>
+	<div id="leftSide"></div>
+	<div id="rightSide"></div>
+  </div>
+ 	
+ <!-- List containing the info to build up the bookmarks.
+      Used as input, not visible on the screen -->	
+ <ul id="inputList" style="display: none;">
+ <li>iomega.png
+		<ul>
+			<li>
+				<span>Iomega</span>
+				<span>Res/iomega_com.jpg</span>
+				<span>http://iomega.com/screenplay-dx/index-uk.html</span>
+			</li>
+		</ul>
+	</li>
+  <li>search_jap.png
+  	<ul>  		
+  		<li>
+	  		<span>Yahoo</span>
+			<span>Res/yahoo_co_jp.jpg</span>
+	  		<span>http://www.yahoo.co.jp/</span>
+		</li>		
+		<li>
+	  		<span>Google</span>
+			<span>Res/google_com.jpg</span>
+	  		<span>http://www.google.com/webhp?hl=ja</span>
+		</li>
+  		<li>
+	  		<span>GOO</span>
+			<span>Res/goo_ne_jp.jpg</span>
+	  		<span>http://www.goo.ne.jp/</span>
+		</li>
+		<li>
+	  		<span>MSN</span>
+			<span>Res/jp_msn_com.jpg</span>
+	  		<span>http://jp.msn.com/</span>
+		</li>
+	</ul>
+  </li>
+ <li>video_jap.png
+        <ul>
+                <li>
+                        <span>NicoVideo</span>
+						<span>Res/nicovideo_jp.jpg</span>
+                        <span>http://www.nicovideo.jp/</span>
+                </li>                
+                <li>
+                        <span>YouTube BoxOffice</span>
+			<span>Res/youtube_bo.jpg</span>
+                        <span>http://www.youtube.com/boxoffice</span>
+                </li>  
+        </ul>
+  </li>
+ <li>sports_jap.png
+        <ul>
+                <li>
+                        <span>SportsNavi</span>
+						<span>Res/sportsnavi_yahoo_co_jp.jpg</span>
+                        <span>http://sportsnavi.yahoo.co.jp/</span>
+                </li>
+                <li>
+                        <span>Sanspo</span>
+						<span>Res/sanspo_com.jpg</span>
+                        <span>http://www.sanspo.com/sports/sports.htm</span>
+                </li>
+				<li>
+						<span>Hochi</span>
+						<span>Res/hochi_yomiuri_co_jp.jpg</span>
+						<span>http://hochi.yomiuri.co.jp/</span>
+				</li>
+        </ul>
+  </li>
+ <li>photos_jap.png
+        <ul>
+                <li>
+                        <span>Picasa Web</span>
+						<span>Res/picasa_com.jpg</span>
+                        <span>http://picasaweb.google.com/</span>
+                </li>
+                <li>
+						<span>Photozou</span>
+						<span>Res/photozou_jp.jpg</span>
+						<span>http://photozou.jp</span>
+                </li>                
+        </ul>
+  </li> <!-- end of News list item -->
+  <li>news_jap.png
+	<!-- Thumbnails in the Pictures folder -->  	
+  	<ul>
+  		<li>
+	  		<span>Nikkei</span>
+			<span>Res/nikkei_co_jp.jpg</span>
+	  		<span>http://www.nikkei.co.jp </span>
+		</li>	
+  		<li>
+	  		<span>CNN</span>
+			<span>Res/cnn_co_jp.jpg</span>
+	  		<span>http://www.cnn.co.jp/</span>
+		</li>  	
+	
+  		<li>
+	  		<span>Asahi</span>
+			<span>Res/asahi_com.jpg</span>
+	  		<span>http://www.asahi.com</span>
+		</li>
+  		<li>
+	  		<span>Yomiuri</span>
+			<span>Res/yomiuri_co_jp.jpg</span>
+	  		<span>http://www.yomiuri.co.jp</span>
+		</li>
+		<li>
+	  		<span>Mainichi</span>
+			<span>Res/mainichi_jp.jpg</span>
+	  		<span>http://mainichi.jp/</span>
+		</li>
+  	</ul> 
+  </li>  
+  <li>social_jap.png
+  	<ul>
+  		<li>
+	  		<span>Facebook</span>
+			<span>Res/facebook_com.jpg</span>
+	  		<span>http://www.facebook.com/</span>
+		</li>
+  		<li>
+  			<span>Google+</span>
+			<span>Res/google_plus.png</span>
+	  		<span>https://plus.google.com/</span>
+		</li>
+  		<li>
+	  		<span>Mixi</span>
+			<span>Res/mixi_jp.jpg</span>
+	  		<span>http://mixi.jp/</span>
+		</li>		
+		<li>
+	  		<span>Twitter</span>
+			<span>Res/twitter_com.jpg</span>
+	  		<span>http://www.twitter.com/</span>
+		</li>
+	</ul>
+  </li>
+ </ul>
+</body>
+</html>
+

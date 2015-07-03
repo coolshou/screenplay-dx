@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<page background="./image/youtube/youtube_bg.jpg">
+	<ctrlgrp>
+		<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+		<listbox valkey="account_list" autoenter="1" autoswitch="0"  move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1"/>
+	</ctrlgrp>
+
+	<include filename="./inc_optionmenu_widgets_youtube.xml"/>
+	<include filename="./inc_setup_headline.xml"/>
+
+	<image image="image/youtube/youtube_logo.png" x="1047" y="563" w="150" h="75"/>
+	<text text="@@title" x="188" y="156" w="610" h="44" align="left" fontsize="42" textcolor="0xffffff" />
+
+	<table x="281" y="238" w="719" h="301" rows="7" rowspacing="0" lbimage="image/youtube/browser_list_btn.png" clickimage="image/youtube/browser_list_btn.png">
+		<image lightbar="@@lightbar-account_list-0" active="@@act-account_list-0"/>
+		<image lightbar="@@lightbar-account_list-1" active="@@act-account_list-1"/>
+		<image lightbar="@@lightbar-account_list-2" active="@@act-account_list-2"/>
+		<image lightbar="@@lightbar-account_list-3" active="@@act-account_list-3"/>
+		<image lightbar="@@lightbar-account_list-4" active="@@act-account_list-4"/>
+		<image lightbar="@@lightbar-account_list-5" active="@@act-account_list-5"/>
+		<image lightbar="@@lightbar-account_list-6" active="@@act-account_list-6"/>
+	</table>
+
+	<wrapper x="293" w="695" h="1">
+		<image image="@@browse_0_line" ymargin="0" bg="1" y="280"/>
+		<image image="@@browse_1_line" ymargin="0" bg="1" y="323"/>
+		<image image="@@browse_2_line" ymargin="0" bg="1" y="366"/>
+		<image image="@@browse_3_line" ymargin="0" bg="1" y="409"/>
+		<image image="@@browse_4_line" ymargin="0" bg="1" y="452"/>
+		<image image="@@browse_5_line" ymargin="0" bg="1" y="485"/>
+		<image image="@@browse_6_line" ymargin="0" bg="1" y="528"/>
+	</wrapper>
+
+	<table x="281" y="238" w="719" h="301" lmargin="10" rmargin="11"
+		cols="1" rows="7" colspacing="0" rowspacing="0" 
+		textcolor="@@account_textcolor" 
+		actnoseltextcolor="@@account_noseltextcolor" 
+		fontsize="@@account_fontsize" 
+		selected_fontsize="@@account_selected_fontsize"
+		speed="1" delay="2" align="hcenter">
+		<text text="@@account_0_text" 
+			textcolor="@@account_0_textcolor" 
+			actnoseltextcolor="@@account_0_noseltextcolor" 
+			fontsize="@@account_0_fontsize"  
+			selected_fontsize="@@account_0_selected_fontsize"
+			active="@@act-account_list-0"/>
+		<text text="@@account_1_text" active="@@act-account_list-1"/>
+		<text text="@@account_2_text" active="@@act-account_list-2"/>
+		<text text="@@account_3_text" active="@@act-account_list-3"/>
+		<text text="@@account_4_text" active="@@act-account_list-4"/>
+		<text text="@@account_5_text" active="@@act-account_list-5"/>
+		<text text="@@account_6_text" active="@@act-account_list-6"/>
+	</table>
+
+	<image image="@@ss-prev" x="623" y="195" w="38" h="27"/>
+	<image image="@@ss-more" x="623" y="560" w="38" h="27"/>
+
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

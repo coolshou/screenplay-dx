@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2009, Alphanetworks inc. -->
+<!-- Author: Leo Hsu <leo_hsu@alphanetworks.com> -->
+<wrapper>
+	<image image="@@motion-alert" x="1107" y="143" w="107" h="107"/>
+	<image image="@@pip_preview_rect_image" default_image="@@pip_default_preview_rect_image" x="112" y="475" w="210" h="135" textcolor="@@pip_preview_rect_color" keycolor="1" ignore_keycolor="1"/>
+	<image image="@@pip_movies_frame_top" x="112" y="475" w="210" h="135"/>
+</wrapper>

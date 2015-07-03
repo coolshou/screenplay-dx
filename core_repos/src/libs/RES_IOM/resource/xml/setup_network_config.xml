@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="./image/browse_bg.jpg">
+  <ctrlgrp lbmask="l">
+	  <button valkey="CONFIGURE"
+		  focused_bg="./image/common_btn_f.png"
+		  normal_bg="./image/common_btn_n.png"
+		  click_bg="./image/common_btn_p.png"/>
+	  <button valkey="CANCEL"
+		  focused_bg="./image/common_btn_f.png"
+		  normal_bg="./image/common_btn_n.png"
+		  click_bg="./image/common_btn_p.png"/>
+  </ctrlgrp>
+
+    <include filename="./inc_setup_entry_basic_title.xml"/>
+  <table x="327" y="183" w="292" h="246" cols="1" rows="6" colspacing="1" textcolor="0xffffff" fontsize="22" align="right">
+	  <text text="$$Connection type"/>
+	  <text text="$$IP address"/>
+	  <text text="$$Netmask"/>
+	  <text text="$$Gateway"/>
+	  <text text="$$DNS"/>
+	  <text text="$$MAC address"/>
+  </table>
+  <table x="658" y="183" w="292" h="246" cols="1" rows="6" colspacing="1" fontsize="22" textcolor="0xffffff">
+	  <text text="@@value-CONNECTTYPE"/>
+	  <text text="@@value-IP"/>
+	  <text text="@@value-NETMASK"/>
+	  <text text="@@value-GATEWAY"/>
+	  <text text="@@value-DNS"/>
+	  <text text="@@value-MAC"/>
+  </table>
+  <image x="316" y="462" w="300" h="40" image="@@bg-CONFIGURE"/>
+  <image x="657" y="462" w="300" h="40" image="@@bg-CANCEL"/>
+  <text x="336" y="472" w="260" h="20" text="$$Configure" align="hcenter" fontsize="20" textcolor="0xffffff"/>
+  <text x="676" y="472" w="260" h="20" text="$$Cancel" align="hcenter" fontsize="20" textcolor="0xffffff"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

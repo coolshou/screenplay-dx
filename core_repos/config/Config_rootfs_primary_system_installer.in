@@ -1,0 +1,33 @@
+menu "rootfs primary system installer"
+	depends on BUILD_ROOTFS_PRIMARY_SYSTEM
+
+	choice
+		prompt "rootfs primary system skeleton generic"
+		config	ROOTFS_PRIMARY_SYSTEM_SKELETON_GENERIC
+			bool "generic"
+	endchoice
+
+	config BUSYBOX_PRIMARY_SYSTEM
+		bool "Build busybox for primary system"
+		default y
+		choice
+			depends on BUSYBOX_PRIMARY_SYSTEM 
+			prompt "busybox"
+			config	BUSYBOX_PRIMARY_SYSTEM_1_10_0
+				bool "busybox 1.10.0 for primary system"
+		endchoice
+		choice
+			depends on BUSYBOX_PRIMARY_SYSTEM
+			prompt "busybox"
+			config	BUSYBOX_PRIMARY_SYSTEM_1_10_0_CONFIG_GENERIC
+				depends on BUSYBOX_1_10_0 && PLATFORM_SMP8634
+				bool "generic configuration for primary system"
+			config	BUSYBOX_PRIMARY_SYSTEM_1_10_0_CONFIG_GENERIC_WITH_MODULES
+				depends on BUSYBOX_1_10_0 && PLATFORM_SMP8654
+				bool "generic configuration with insmod modules functions"
+		endchoice
+		config	BUSYBOX_PRIMARY_SYSTEM_VERSION
+			string
+			default "1.10.0" if BUSYBOX_PRIMARY_SYSTEM_1_10_0
+endmenu
+

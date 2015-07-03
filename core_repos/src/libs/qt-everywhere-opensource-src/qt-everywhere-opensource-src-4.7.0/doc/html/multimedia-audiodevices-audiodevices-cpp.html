@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: audiodevices.cpp Example File (multimedia/audiodevices/audiodevices.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">audiodevices.cpp Example File</h1>
+<span class="small-subtitle">multimedia/audiodevices/audiodevices.cpp</span>
+<!-- $$$multimedia/audiodevices/audiodevices.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="highlightedCode brush: cpp"><span class="comment"> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ #include &lt;QAudioDeviceInfo&gt;
+
+ #include &quot;audiodevices.h&quot;
+
+<span class="comment"> // Utility functions for converting QAudioFormat fields into text</span>
+
+ QString toString(QAudioFormat::SampleType sampleType)
+ {
+     QString result(&quot;Unknown&quot;);
+     switch (sampleType) {
+     case QAudioFormat::SignedInt:
+         result = &quot;SignedInt&quot;;
+         break;
+     case QAudioFormat::UnSignedInt:
+         result = &quot;UnSignedInt&quot;;
+         break;
+     case QAudioFormat::Float:
+         result = &quot;Float&quot;;
+         break;
+     case QAudioFormat::Unknown:
+         break;
+     }
+     return result;
+ }
+
+ QString toString(QAudioFormat::Endian endian)
+ {
+     QString result(&quot;Unknown&quot;);
+     switch (endian) {
+     case QAudioFormat::LittleEndian:
+         result = &quot;LittleEndian&quot;;
+         break;
+     case QAudioFormat::BigEndian:
+         result = &quot;BigEndian&quot;;
+         break;
+     }
+     return result;
+ }
+
+ AudioDevicesBase::AudioDevicesBase(QWidget *parent, Qt::WFlags f)
+     : QMainWindow(parent, f)
+ {
+     setupUi(this);
+ }
+
+ AudioDevicesBase::~AudioDevicesBase() {}
+
+ AudioTest::AudioTest(QWidget *parent, Qt::WFlags f)
+     : AudioDevicesBase(parent, f)
+ {
+     mode = QAudio::AudioOutput;
+
+     connect(testButton, SIGNAL(clicked()), SLOT(test()));
+     connect(modeBox, SIGNAL(activated(int)), SLOT(modeChanged(int)));
+     connect(deviceBox, SIGNAL(activated(int)), SLOT(deviceChanged(int)));
+     connect(frequencyBox, SIGNAL(activated(int)), SLOT(freqChanged(int)));
+     connect(channelsBox, SIGNAL(activated(int)), SLOT(channelChanged(int)));
+     connect(codecsBox, SIGNAL(activated(int)), SLOT(codecChanged(int)));
+     connect(sampleSizesBox, SIGNAL(activated(int)), SLOT(sampleSizeChanged(int)));
+     connect(sampleTypesBox, SIGNAL(activated(int)), SLOT(sampleTypeChanged(int)));
+     connect(endianBox, SIGNAL(activated(int)), SLOT(endianChanged(int)));
+     connect(populateTableButton, SIGNAL(clicked()), SLOT(populateTable()));
+
+     modeBox-&gt;setCurrentIndex(0);
+     modeChanged(0);
+     deviceBox-&gt;setCurrentIndex(0);
+     deviceChanged(0);
+ }
+
+ AudioTest::~AudioTest()
+ {
+ }
+
+ void AudioTest::test()
+ {
+     <span class="comment">// tries to set all the settings picked.</span>
+     testResult-&gt;clear();
+
+     if (!deviceInfo.isNull()) {
+         if (deviceInfo.isFormatSupported(settings)) {
+             testResult-&gt;setText(tr(&quot;Success&quot;));
+             nearestFreq-&gt;setText(&quot;&quot;);
+             nearestChannel-&gt;setText(&quot;&quot;);
+             nearestCodec-&gt;setText(&quot;&quot;);
+             nearestSampleSize-&gt;setText(&quot;&quot;);
+             nearestSampleType-&gt;setText(&quot;&quot;);
+             nearestEndian-&gt;setText(&quot;&quot;);
+         } else {
+             QAudioFormat nearest = deviceInfo.nearestFormat(settings);
+             testResult-&gt;setText(tr(&quot;Failed&quot;));
+             nearestFreq-&gt;setText(QString(&quot;%1&quot;).arg(nearest.frequency()));
+             nearestChannel-&gt;setText(QString(&quot;%1&quot;).arg(nearest.channels()));
+             nearestCodec-&gt;setText(nearest.codec());
+             nearestSampleSize-&gt;setText(QString(&quot;%1&quot;).arg(nearest.sampleSize()));
+             nearestSampleType-&gt;setText(toString(nearest.sampleType()));
+             nearestEndian-&gt;setText(toString(nearest.byteOrder()));
+         }
+     }
+     else
+         testResult-&gt;setText(tr(&quot;No Device&quot;));
+ }
+
+ void AudioTest::modeChanged(int idx)
+ {
+     testResult-&gt;clear();
+
+     <span class="comment">// mode has changed</span>
+     if (idx == 0)
+         mode = QAudio::AudioInput;
+     else
+         mode = QAudio::AudioOutput;
+
+     deviceBox-&gt;clear();
+     foreach (const QAudioDeviceInfo &amp;deviceInfo, QAudioDeviceInfo::availableDevices(mode))
+         deviceBox-&gt;addItem(deviceInfo.deviceName(), qVariantFromValue(deviceInfo));
+
+     deviceBox-&gt;setCurrentIndex(0);
+     deviceChanged(0);
+ }
+
+ void AudioTest::deviceChanged(int idx)
+ {
+     testResult-&gt;clear();
+
+     if (deviceBox-&gt;count() == 0)
+         return;
+
+     <span class="comment">// device has changed</span>
+     deviceInfo = deviceBox-&gt;itemData(idx).value&lt;QAudioDeviceInfo&gt;();
+
+     frequencyBox-&gt;clear();
+     QList&lt;int&gt; freqz = deviceInfo.supportedFrequencies();
+     for(int i = 0; i &lt; freqz.size(); ++i)
+         frequencyBox-&gt;addItem(QString(&quot;%1&quot;).arg(freqz.at(i)));
+     if(freqz.size())
+         settings.setFrequency(freqz.at(0));
+
+     channelsBox-&gt;clear();
+     QList&lt;int&gt; chz = deviceInfo.supportedChannels();
+     for(int i = 0; i &lt; chz.size(); ++i)
+         channelsBox-&gt;addItem(QString(&quot;%1&quot;).arg(chz.at(i)));
+     if(chz.size())
+         settings.setChannels(chz.at(0));
+
+     codecsBox-&gt;clear();
+     QStringList codecz = deviceInfo.supportedCodecs();
+     for (int i = 0; i &lt; codecz.size(); ++i)
+         codecsBox-&gt;addItem(QString(&quot;%1&quot;).arg(codecz.at(i)));
+     if (codecz.size())
+         settings.setCodec(codecz.at(0));
+     <span class="comment">// Add false to create failed condition</span>!
+     codecsBox-&gt;addItem(&quot;audio/test&quot;);
+
+     sampleSizesBox-&gt;clear();
+     QList&lt;int&gt; sampleSizez = deviceInfo.supportedSampleSizes();
+     for (int i = 0; i &lt; sampleSizez.size(); ++i)
+         sampleSizesBox-&gt;addItem(QString(&quot;%1&quot;).arg(sampleSizez.at(i)));
+     if (sampleSizez.size())
+         settings.setSampleSize(sampleSizez.at(0));
+
+     sampleTypesBox-&gt;clear();
+     QList&lt;QAudioFormat::SampleType&gt; sampleTypez = deviceInfo.supportedSampleTypes();
+
+     for (int i = 0; i &lt; sampleTypez.size(); ++i)
+         sampleTypesBox-&gt;addItem(toString(sampleTypez.at(i)));
+     if (sampleTypez.size())
+         settings.setSampleType(sampleTypez.at(0));
+
+     endianBox-&gt;clear();
+     QList&lt;QAudioFormat::Endian&gt; endianz = deviceInfo.supportedByteOrders();
+     for (int i = 0; i &lt; endianz.size(); ++i)
+         endianBox-&gt;addItem(toString(endianz.at(i)));
+     if (endianz.size())
+         settings.setByteOrder(endianz.at(0));
+
+     allFormatsTable-&gt;clearContents();
+ }
+
+ void AudioTest::populateTable()
+ {
+     int row = 0;
+
+     QAudioFormat format;
+     foreach (QString codec, deviceInfo.supportedCodecs()) {
+         format.setCodec(codec);
+         foreach (int frequency, deviceInfo.supportedFrequencies()) {
+             format.setFrequency(frequency);
+             foreach (int channels, deviceInfo.supportedChannels()) {
+                 format.setChannels(channels);
+                 foreach (QAudioFormat::SampleType sampleType, deviceInfo.supportedSampleTypes()) {
+                     format.setSampleType(sampleType);
+                     foreach (int sampleSize, deviceInfo.supportedSampleSizes()) {
+                         format.setSampleSize(sampleSize);
+                         foreach (QAudioFormat::Endian endian, deviceInfo.supportedByteOrders()) {
+                             format.setByteOrder(endian);
+                             if (deviceInfo.isFormatSupported(format)) {
+                                 allFormatsTable-&gt;setRowCount(row + 1);
+
+                                 QTableWidgetItem *codecItem = new QTableWidgetItem(format.codec());
+                                 allFormatsTable-&gt;setItem(row, 0, codecItem);
+
+                                 QTableWidgetItem *frequencyItem = new QTableWidgetItem(QString(&quot;%1&quot;).arg(format.frequency()));
+                                 allFormatsTable-&gt;setItem(row, 1, frequencyItem);
+
+                                 QTableWidgetItem *channelsItem = new QTableWidgetItem(QString(&quot;%1&quot;).arg(format.channels()));
+                                 allFormatsTable-&gt;setItem(row, 2, channelsItem);
+
+                                 QTableWidgetItem *sampleTypeItem = new QTableWidgetItem(toString(format.sampleType()));
+                                 allFormatsTable-&gt;setItem(row, 3, sampleTypeItem);
+
+                                 QTableWidgetItem *sampleSizeItem = new QTableWidgetItem(QString(&quot;%1&quot;).arg(format.sampleSize()));
+                                 allFormatsTable-&gt;setItem(row, 4, sampleSizeItem);
+
+                                 QTableWidgetItem *byteOrderItem = new QTableWidgetItem(toString(format.byteOrder()));
+                                 allFormatsTable-&gt;setItem(row, 5, byteOrderItem);
+
+                                 ++row;
+                             }
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }
+
+ void AudioTest::freqChanged(int idx)
+ {
+     <span class="comment">// freq has changed</span>
+     settings.setFrequency(frequencyBox-&gt;itemText(idx).toInt());
+ }
+
+ void AudioTest::channelChanged(int idx)
+ {
+     settings.setChannels(channelsBox-&gt;itemText(idx).toInt());
+ }
+
+ void AudioTest::codecChanged(int idx)
+ {
+     settings.setCodec(codecsBox-&gt;itemText(idx));
+ }
+
+ void AudioTest::sampleSizeChanged(int idx)
+ {
+     settings.setSampleSize(sampleSizesBox-&gt;itemText(idx).toInt());
+ }
+
+ void AudioTest::sampleTypeChanged(int idx)
+ {
+     switch (sampleTypesBox-&gt;itemText(idx).toInt()) {
+         case QAudioFormat::SignedInt:
+             settings.setSampleType(QAudioFormat::SignedInt);
+             break;
+         case QAudioFormat::UnSignedInt:
+             settings.setSampleType(QAudioFormat::UnSignedInt);
+             break;
+         case QAudioFormat::Float:
+             settings.setSampleType(QAudioFormat::Float);
+     }
+ }
+
+ void AudioTest::endianChanged(int idx)
+ {
+     switch (endianBox-&gt;itemText(idx).toInt()) {
+         case QAudioFormat::LittleEndian:
+             settings.setByteOrder(QAudioFormat::LittleEndian);
+             break;
+         case QAudioFormat::BigEndian:
+             settings.setByteOrder(QAudioFormat::BigEndian);
+     }
+ }</pre>
+</div>
+<!-- @@@multimedia/audiodevices/audiodevices.cpp -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

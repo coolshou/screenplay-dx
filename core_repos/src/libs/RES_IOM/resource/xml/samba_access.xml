@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<page background="./image/browse_bg.jpg"> 
+	<text text="$$Connecting" x="296" y="321" w="688" h="30" fontsize="26" textcolor="0xffffff" selectedtextcolor="0xffffff" align="hcenter" speed="1" delay="2" auto_translate="1"/>
+  	<image image="@@status_icon" x="562" y="404" w="158" h="32"/>
+	<include filename="./inc_decoration.xml"/>
+</page>

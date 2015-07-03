@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar" lang="ar" dir='rtl'>
+
+
+
+<head>
+
+<title></title>	<!-- no title goes here, but the tag is required to be an xhtml page -->
+
+
+<!-- linking common dialog style file -->
+<link type="text/css" href="dialog.css" rel="stylesheet">
+
+<style>
+
+
+#myList{
+	height:300px; 
+	display:block;
+	background:#fff -webkit-gradient(linear, 0% 0%, 0% 60%, from(#fff), to(#bbb));
+	overflow:auto;
+	text-decoration:none;
+	color:#333;
+	list-style:none;
+	
+	padding:0;
+	margin:0;
+	direction:rtl;
+}
+
+#myList *{
+	font-size:30px;
+	line-height:30px;
+	border-bottom:solid 1px #aaa;
+	padding:4px;
+	text-indent:10px;
+    display:block;
+}
+ 
+#myList *.selected{
+	background:#333;
+	color:#fff;
+}
+#trace{
+	color:#000;
+	font-size:14px;
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+
+/*	var Espial = {'getPopupListSize':function(){return 24},
+	'getPopupListItemText':function(i){	
+		return 'option' + i},
+	'getPopupListSelectedIndex':function(){return 20},
+	'setPopupListSelectedIndex':function(a){},
+	'closeDialog':function(){},
+	'closeDialog':function (){alert(selectedIndex)}
+	}*/
+
+var size = null;
+var selectList = null;
+var selectedIndex= null;
+var hovering = 'selected'
+var tagName = 'DIV'
+var tag
+var selectListOffset = {}
+/*
+*
+*
+*
+*
+*
+*
+*/
+function doLoad() 
+{	 
+	selectList = document.getElementById("myList");
+	selectedIndex =  Espial.getPopupListSelectedIndex();
+	size = Espial.getPopupListSize();
+  
+	numEach( size, function(i){
+	   tag  = document.createElement(tagName)
+	   tag.innerHTML = Espial.getPopupListItemText(i);
+	   tag.setAttribute('index', i )
+	   selectList.appendChild(tag);
+	})  
+	 
+	selectListOffset.offsetTop = selectList.offsetTop
+	selectListOffset.offsetHeight = selectList.offsetHeight
+	selectListOffset.minY = selectList.offsetTop
+ 	selectListOffset.maxY = selectListOffset.minY + selectList.offsetHeight	
+	
+	arrEach (selectList.getElementsByTagName(tagName),function(i, el){if( el.getAttribute('index') == selectedIndex )	hoverItem(el)})
+}
+
+function arrEach (__arr, __cb){ for(var i=0;i<__arr.length;i++)	__cb(i,__arr[i])}
+function numEach (__num, __cb){	for(var i=0;i<__num;i++) __cb(i)}
+
+function hoverItem(target)
+{ 
+	arrEach (selectList.getElementsByClassName(hovering), function(i, el){
+		el != target ? el.setAttribute('class', ''):'';
+	})
+	
+	target.setAttribute('class', hovering)
+	 
+	var clientY = target.offsetTop - selectList.scrollTop;	
+    selectList.scrollTop = clientY + target.offsetHeight >  selectListOffset.maxY ? target.offsetTop - selectList.offsetHeight + selectListOffset.offsetTop*2 :
+	clientY  < selectListOffset.minY ? target.offsetTop  - selectListOffset.offsetTop : selectList.scrollTop ; 
+	
+	//target.focus()
+}
+ 
+ 
+
+function doClose()
+{  
+   Espial.setPopupListSelectedIndex( selectedIndex );
+   Espial.closeDialog();
+}
+ 
+
+ 
+document.onkeydown = function(event)
+{
+//	var target 
+	var el 
+	arrEach(selectList.getElementsByClassName(hovering),function(i, __el){
+		if(__el.tagName == tagName) el =  __el
+		})
+	
+	//alert(el)
+	
+	if(event.keyCode == 38 && el.previousSibling)
+	{
+		//selectedIndex = el.previousSibling.getAttribute('index')
+		hoverItem(el.previousSibling)
+	}
+	else if(event.keyCode == 40 && el.nextSibling)
+	{
+	//	selectedIndex = el.nextSibling.getAttribute('index')
+		hoverItem(el.nextSibling) 
+	}
+	else if(event.keyCode == 13)
+	{	
+		selectedIndex = el.getAttribute('index')	 
+		doClose()
+	}
+}
+
+
+
+document.onclick = function (event)
+{
+	var __target = document.elementFromPoint(event.clientX, event.clientY)
+	
+	selectedIndex = __target && __target.tagName == tagName ?  __target.getAttribute('index') : selectedIndex;
+	
+	doClose()	
+}
+
+var pastEvent = {'clientY':-100,'clientX':-100}
+setTimeout(function(){document.onmousemove = onMove },400)
+
+function onMove (event)
+{
+	if(event.clientX != pastEvent.clientX || event.clientY != pastEvent.clientY )
+	{
+		var __target = document.elementFromPoint(event.clientX, event.clientY)	
+		if(__target && __target.tagName == tagName && __target.getAttribute('class')!= hovering ) hoverItem(__target)	
+	}
+	pastEvent = event
+}
+
+
+document.onerror = function(){}
+ 
+</script>
+</head>
+
+
+<body  HIGHLIGHT=false X-Navigation=0 onLoad="doLoad();"  > 
+
+<div id="dialog" >
+	<DIV id="myList" ></DIV>
+</div>
+<!--<p id="trace">TRACER</p>-->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

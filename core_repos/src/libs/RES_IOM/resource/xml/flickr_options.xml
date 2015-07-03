@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<page  type="basic" overlay="1" >
+  <ctrlgrp valkey="OPTION" autoenter="1" lbmask="LR"> 
+    <button valkey="QML0"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_explore_icon.png"
+	normal_bg="image/villa_options_menu_explore_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Home"/>
+    <button valkey="QML1"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_last_7_days_interesting_icon.png"
+	normal_bg="image/villa_options_menu_last_7_days_interesting_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Last 7 days interesting"/>
+    <button valkey="QML2"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_most_recent_uploads_icon.png"
+	normal_bg="image/villa_options_menu_most_recent_uploads_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Most recent uploads"/>
+    <button valkey="QML3"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_my_tags_icon.png"
+	normal_bg="image/villa_options_menu_my_tags_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Hot tags"/>
+    <button valkey="QML4"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_contacts_icon.png"
+	normal_bg="image/villa_options_menu_contacts_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$My Contacts"/>
+    <button valkey="QML5"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_hot_tags_icon.png"
+	normal_bg="image/villa_options_menu_hot_tags_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$My tags"/>
+    <button valkey="QML6"
+    	lightbar_bg="image/villa_options_menu_select_bar.png"
+	focused_bg="image/villa_options_menu_search_icon.png"
+	normal_bg="image/villa_options_menu_search_icon.png"
+	group_valkey="OPTION"
+	group_focused_text="$$Search"/>
+  </ctrlgrp>
+
+  <image image="image/villa_options_menu_bg_07.png" x="290" y="0" w="696" h="173"/>
+  <table x="314" y="0" w="651" h="173" cols="7" align="hcenter" disable="@@disable-OPTION">
+	  <image image="@@bg-QML0" text="@@text-QML0" lightbar="@@lightbar-QML0" 
+		  active="@@act-QML0" lbimage="@@lightbar-QML0" align="hcenter"/>
+	  <image image="@@bg-QML1" text="@@text-QML1" lightbar="@@lightbar-QML1"
+		  active="@@act-QML1" lbimage="@@lightbar-QML1" align="hcenter"/>
+  	  <image image="@@bg-QML2" text="@@text-QML2" lightbar="@@lightbar-QML2" 
+		  active="@@act-QML2" lbimage="@@lightbar-QML2" align="hcenter"/>
+	  <image image="@@bg-QML3" text="@@text-QML3" lightbar="@@lightbar-QML3" 
+		  active="@@act-QML3" lbimage="@@lightbar-QML3" align="hcenter"/>
+	  <image image="@@bg-QML4" text="@@text-QML4" lightbar="@@lightbar-QML4" 		
+		active="@@act-QML4" lbimage="@@lightbar-QML4" align="hcenter"/>
+	  <image image="@@bg-QML5" text="@@text-QML5" lightbar="@@lightbar-QML5" 		
+		active="@@act-QML5" lbimage="@@lightbar-QML5" align="hcenter"/>
+	  <image image="@@bg-QML6" text="@@text-QML6" lightbar="@@lightbar-QML6" 		
+		active="@@act-QML6" lbimage="@@lightbar-QML6" align="hcenter"/>
+   </table>
+   <wrapper x="372" y="173" w="514" h="28" align="hcenter" disable="@@disable-OPTION">
+	   <text text="@@text-OPTION" fontsize="18" textcolor="0xffb300" align="hcenter"/>
+   </wrapper>
+  <include filename="./inc_decoration_online.xml"/>
+</page>
+

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/pandora/pandora_bg.png">
+	<ctrlgrp valkey="options" autoenter="1" lbmask="LR"> 
+			<button valkey="CMD0"
+					focused_bg="image/pandora/PANDORA-Station-cover_play_I-like-this-song-f.png"
+		    	    normal_bg="image/pandora/PANDORA-Station-cover_play_I-like-this-song-n.png"
+	            	group_valkey="buttons"
+			        group_focused_text="I like this song"/>
+	        <button valkey="CMD1"
+            		focused_bg="image/pandora/PANDORA-Station-cover_play_I-don’t-like-this-song-f.png"
+			        normal_bg="image/pandora/PANDORA-Station-cover_play_I-don’t-like-this-song-n.png"
+		    	    group_valkey="buttons"
+		        	group_focused_text="I don't like this song"/>
+        	<button valkey="CMD2"
+			        focused_bg="image/pandora/PANDORA-Station-cover_play_Bookmark-f.png"
+			        normal_bg="image/pandora/PANDORA-Station-cover_play_Bookmark-n.png"
+		    	    group_valkey="buttons"
+		        	group_focused_text="Bookmark"/>
+			<button valkey="CMD3"
+            		focused_bg="image/pandora/PANDORA-Station-cover_play_I-am-tired-of-this-song-f.png"
+            		normal_bg="image/pandora/PANDORA-Station-cover_play_I-am-tired-of-this-song-n.png"
+            		group_valkey="buttons"
+            		group_focused_text="I'm tired of this song"/>
+	        <button valkey="CMD4"
+            		focused_bg="image/pandora/PANDORA-Station-cover_play_Why-play-the-f.png"
+            		normal_bg="image/pandora/PANDORA-Station-cover_play_Why-play-the-n.png"
+            		group_valkey="buttons"
+		       	 	group_focused_text="Why was this song selected?"/>
+	        <button valkey="CMD5"
+            		focused_bg="image/pandora/PANDORA-Station-cover_play_Rename-station-f.png"
+            		normal_bg="image/pandora/PANDORA-Station-cover_play_Rename-station-n.png"
+            		group_valkey="buttons"
+		       	 	group_focused_text="Rename station"/>
+	        <button valkey="CMD6"
+            		focused_bg="image/pandora/PANDORA-Station-cover_play_1_Delete-station-f.png"
+            		normal_bg="image/pandora/PANDORA-Station-cover_play_1_Delete-station-n.png"
+            		group_valkey="buttons"
+		       	 	group_focused_text="Delete station"/>
+
+	</ctrlgrp>
+
+	<image x="179" y="173" w="370" h="324" image="image/pandora/PANDORA-Station-cover_play_Box.png" bg="1"/>
+	<image x="229" y="192" w="267" h="253" image="@@album_icon" default_image="image/pandora/PANDORA-Station-cover_play_poto.png" xmargin="0" ymargin="0" umargin="0" dmargin="0" bg="1" scale_type="fixratio" scale="100" align="hcenter"/>
+
+	<image image="image/pandora/PANDORA-Station-cover_play_17.png" x="569" y="227" w="49" h="43"/>
+	<text text="@@songname" x="639" y="234" w="434" h="34" fontsize="24" numlines="1" textcolor="0x0064aa" speed="1" delay="2" align="left"/>
+	<image x="636" y="273" w="434" h="12" image="image/pandora/PANDORA-Station-cover_play_line.png" bg="1"/>
+
+	<image image="@@play_state" x="569" y="291" w="48" h="48"/>
+	<progress_bar name="point_bar" x="638" y="305" w="432" h="21" pb_back_img="image/pandora/PANDORA-Station-cover_play_n.png" pb_front_img="image/pandora/PANDORA-Station-cover_play_f.png" pb_delay="500"/>
+	<text x="1080" y="304" w="69" h="22" fontsize="20" text="@@audio_currenttime" align="left" textcolor="0x0"/>
+	
+	<image x="213" y="505" w="41" h="37" image="image/pandora/PANDORA-Station-cover_play_Artist.png"/>
+	<text text="@@artist" x="262" y="506" w="715" h="30" fontsize="24" align="left" speed="1" delay="2" textcolor="0x0"/> 
+
+
+	<image x="213" y="546" w="41" h="37" image="image/pandora/PANDORA-Station-cover_play_Album.png"/>
+	<text text="@@album" x="262" y="548" w="715" h="30" fontsize="24" align="left" speed="1" delay="2" textcolor="0x0"/>
+
+	<image x="213" y="587" w="41" h="37" image="image/pandora/PANDORA-Station-cover_play_Station-name.png"/>
+	<text x="262" y="590" w="715" h="30" text="@@station" fontsize="24" textcolor="0x0" speed="1" delay="2" align="left"/>
+
+	<!-- fixed -->
+
+	<wrapper y="344" w="67" h="72">
+		<image x="643" image="@@bg-CMD0"/>
+		<image x="710" image="@@bg-CMD1"/>
+		<image x="777" image="@@bg-CMD2"/>
+		<image x="844" image="@@bg-CMD3"/>
+		<image x="911" image="@@bg-CMD4"/>
+		<image x="978" image="@@bg-CMD5"/>
+		<image x="1045" image="@@bg-CMD6"/>
+	</wrapper>
+
+	<text text="@@text-buttons" disable="@@disable-text-buttons" x="643" y="422" w="370" h="20" fontsize="18" textcolor="0x0" align="hcenter" />
+	<image x="643" y="344" w="64" h="64" image="@@thumb_up"/>
+	<image x="710" y="344" w="64" h="64" image="@@thumb_down"/>
+	<include filename="./inc_pandora_loading.xml"/>
+	<include filename="./inc_decoration_online.xml"/>
+</page>

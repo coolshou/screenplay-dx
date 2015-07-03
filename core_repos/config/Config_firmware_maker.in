@@ -1,0 +1,443 @@
+
+menu "Firmware maker"
+	depends on BUILD_FIRMWARE
+
+	config SYSCONFIG_USING_SQUASHFS
+		bool "using squashfs to store rootfs"
+		default y
+		depends on PRODUCT_EXT_WDTV_RV || PRODUCT_EXT_IOM
+		help
+			using squashfs to store the rootfs
+	config CRAMFS_GATHER_16MB
+		bool "Fix file gather than 16MB issue in cramfs"
+		default n
+		help
+			Fix file gather than 16MB issue in cramfs.	
+	choice
+		prompt "Firmware upgrade type"
+		config FIRMWARE_UPGRADE_AFTER_REBOOT
+			bool "Firmware upgrade after reboot (Support USB upgrade without networking)"
+			help
+				Mark flag at end of romfs partition and upgrade after boot from USB.(House/Hut style)
+		config FIRMWARE_UPGRADE_PLUGIN
+			bool "Use firmware upgrade plug-in (Support both USB and Networking upgrade)"
+			depends on ENABLE_NETWORKING
+			help
+				Enable firmware plug-in which support download firmware from USB/FTP. Other download methods are TBD.
+	endchoice
+
+	config BUNGALOW_NEW_PARTITION
+		bool "Using new NAND partition for bungalow"
+		default n
+		depends on PRODUCT_EXT_WDTV_VILLA_BUNGALOW
+		help
+			Rearrange partition of Bungalow. Enlarge kernel partition to 4MB and shrink rootfs/pkg for License partition and License backup partition, ie 6MB.	
+
+	config SYSCONFIG_PATH
+		string
+		default "sysconfig"
+
+	config SYSCONFIG_FIRMWARE_NAME_COMPARE
+		bool "Check firmware name is sysconfig ?"
+		default y if FIRMWARE_WDTV_SMP8654_WISTRON
+		default n if FIRMWARE_WDTV_SMP8634_WISTRON
+		help
+			Compare firmware name in current rootfs /sysconfig and new firmware /sysconfig. If they do not match, we'll skip this new firmware.
+
+#	config FIRMWARE_BLOCKING_ROLLBACK_VERSION 
+#		string "Set a version so that current firmware can not be rollback to prior version" 
+#		default "1.01.14"
+#		help 
+#			Due to hardware compatibility or other issue, we don't want to allow current firmware being rollback to prior version. 
+#			e.g.: In RV/Villa/Bungalow, the new SAMSUNG NAND flash (2GU0C) whose timing is slow than before is not be able to rollback to old firwmare. If we write old firmware whose timing isn't modified to new chip, the device will brick. 
+			
+	choice 
+		prompt "Firmware maker type"
+		config FIRMWARE_WDTV_SMP8634_WISTRON
+			bool "WDTV smp8634 on Wistron's platform"
+		config FIRMWARE_WDTV_SMP8654_WISTRON
+			bool "WDTV smp8654 on Wistron's platform"
+			help 
+				TODO : Remove wistron
+	endchoice
+
+	config FIRMWARE_SCRIPT
+		string
+		default "firmware_script_wdtv_smp8634_wistron.mk" if FIRMWARE_WDTV_SMP8634_WISTRON
+		default "firmware_script_wdtv_smp8654_wistron.mk" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+	config FIRMWARE_FULL_UPGRADE_SMP8654
+		bool
+		depends on FIRMWARE_WDTV_SMP8654_WISTRON
+		default y if FIRMWARE_WDTV_SMP8654_WISTRON
+		help
+			Enable full firmware upgrade for SMP8654
+
+	config FIRMWARE_UPGRADE_WORKAROUND
+		bool "Write the boot's value to CPU register"
+		default y if PRODUCT_EXT_AV_LS700L || PRODUCT_EXT_IMEDIA_HD100 || PRODUCT_EXT_EM7075
+		default n
+		depends on PRODUCT_EXT_AV_LS700L || PRODUCT_EXT_IMEDIA_HD100 || PRODUCT_EXT_EM7075
+		help
+			When the system starts,the boot index is from CPU register(0x00061950) not XENV.
+			When someone change the z.default_boot value,it will write the value to the CPU register.
+			The function also check the z.boot2 value is 0x003c0000 or not.
+			If not,it will set the 0x003c0000 to z.boot2.
+	
+	config FIRMWARE_SERVER
+			string  "Firmware upgrade FTP server"
+			depends on FIRMWARE_UPGRADE_PLUGIN
+			default "http://cache.websupport.wdc.com" if PRODUCT_EXT_WDTV_VILLA
+			default "" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "ftp://public.lacie.com/LMP555" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE)
+			default "http://500le.avls.jp/500le" if PRODUCT_EXT_AV_LS700L
+			default "" if PRODUCT_EXT_IMEDIA_HD100
+			default "" if PRODUCT_EXT_FUNTWIST
+			default "" if PRODUCT_EXT_WDTV_RV
+			default "www.eminent-online.com/firmware/EM7075" if PRODUCT_EXT_EM7075
+	config FIRMWARE_SERVER_USRPWD
+			string  "FTP username:password"
+			depends on FIRMWARE_UPGRADE_PLUGIN
+			default "wdcuser:wdcpasswd" if PRODUCT_EXT_WDTV_VILLA
+			default "ftp:alphauser" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "AlphaNetworks:pEb7kTc@" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE) 
+	config FIRMWARE_VER_FILE
+			string  "Firmware version filename"
+			default "wdtv.ver" if PRODUCT_EXT_WDTV_HOUSE
+			default "wdtvhd.ver" if PRODUCT_EXT_WDTV_HUT 
+			default "wdtvlive.ver" if PRODUCT_EXT_WDTV_VILLA
+			default "wdtvrv.ver" if PRODUCT_EXT_WDTV_RV
+			default "adm555.ver" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "lmp555.ver" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE)
+			default "avls500le.ver" if PRODUCT_EXT_AV_LS700L
+			default "imediahd100.ver" if PRODUCT_EXT_IMEDIA_HD100
+			default "funtwist.ver" if PRODUCT_EXT_FUNTWIST
+			default "em7075.ver" if PRODUCT_EXT_EM7075
+	config FIRMWARE_BIN_FILE
+			string  "Firmware romfs binary filename" 
+			default "wdtv.bin" if PRODUCT_EXT_WDTV_HOUSE
+			default "wdtvhd.bin" if PRODUCT_EXT_WDTV_HUT 
+			default "wdtvlive.bin" if PRODUCT_EXT_WDTV_VILLA
+			default "wdtvrv.bin" if PRODUCT_EXT_WDTV_RV
+			default "adm555.bin" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "lmp555.bin" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE)
+			default "avls500le.bin" if PRODUCT_EXT_AV_LS700L
+			default "imediahd100.bin" if PRODUCT_EXT_IMEDIA_HD100
+			default "funtwist.bin" if PRODUCT_EXT_FUNTWIST
+			default "em7075.bin" if PRODUCT_EXT_EM7075
+	config FIRMWARE_FULL_FILE
+			string  "Full firmware contains bootloader, kernel, splash1, splash2, ..." 
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			default "wdtv.fff" if PRODUCT_EXT_WDTV_HOUSE
+			default "wdtvhd.fff" if PRODUCT_EXT_WDTV_HUT 
+			default "wdtvlive.fff" if PRODUCT_EXT_WDTV_VILLA
+			default "wdtvrv.fff" if PRODUCT_EXT_WDTV_RV
+			default "adm555.fff" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "lmp555.fff" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE)
+			default "avls500le.fff" if PRODUCT_EXT_AV_LS700L
+			default "imediahd100.fff" if PRODUCT_EXT_IMEDIA_HD100
+			default "funtwist.fff" if PRODUCT_EXT_FUNTWIST
+			default "em7075.fff" if PRODUCT_EXT_EM7075
+
+	config FIRMWARE_PACKAGE_FILE
+			string  "FIRMWARE_BIN_FILE(must) + FIRMWARE_FULL_FILE(optional)" 
+			depends on FIRMWARE_UPGRADE_PLUGIN
+			default "wdtv.pkg" if PRODUCT_EXT_WDTV_HOUSE
+			default "wdtvhd.pkg" if PRODUCT_EXT_WDTV_HUT 
+			default "wdtvlive.pkg" if PRODUCT_EXT_WDTV_VILLA
+			default "wdtvrv.pkg" if PRODUCT_EXT_WDTV_RV
+			default "adm555.pkg" if (PRODUCT_EXT_LMP555 && OEM_LMP555_ALPHA)
+			default "lmp555.pkg" if (PRODUCT_EXT_LMP555 && OEM_LMP555_LACIE)
+			default "avls500le.pkg" if PRODUCT_EXT_AV_LS700L
+			default "imediahd100.pkg" if PRODUCT_EXT_IMEDIA_HD100
+			default "funtwist.pkg" if PRODUCT_EXT_FUNTWIST
+			default "em7075.pkg" if PRODUCT_EXT_AV_LS700L
+
+	choice
+		prompt "Firmware Plugin Type"
+		depends on FIRMWARE_UPGRADE_PLUGIN
+		default FIRMWARE_PLUGIN_WDTV_VILLA if PRODUCT_EXT_WDTV_VILLA
+		config FIRMWARE_PLUGIN_TYPE_LEGACY
+			bool "Tranditional FTP(or HTTP) with getting version file only"
+		config FIRMWARE_PLUGIN_WDTV_VILLA
+			bool "WDTV Villa style : multiple HTTP request"
+	endchoice
+
+	config FIRMWARE_PLUGIN_WDTV_VILLA_DEV
+		depends on FIRMWARE_PLUGIN_WDTV_VILLA
+		bool "Development firmware URL for WDTV villa (dev=y)"
+		default n
+		help
+			For formal release to user (e.g.: golden), disable this
+			For development release, enable this
+
+	config FWUP_MEM_POOL_SIZE
+		depends on FIRMWARE_UPGRADE_PLUGIN
+		int "Memory alloc for downloading firmware"
+		default 20971520 if FIRMWARE_WDTV_SMP8654_WISTRON
+		default 14680064 if FIRMWARE_WDTV_SMP8634_WISTRON 
+
+	menu "MTD settings"
+		config NAND_FLASH_SIZE
+			depends on FIRMWARE_WDTV_SMP8654_WISTRON
+			int 
+			default 268435456 if PRODUCT_EXT_WDTV_VILLA || PRODUCT_EXT_WDTV_RV || PRODUCT_EXT_IOM
+			default 134217728 if PRODUCT_EXT_WDTV_HUT || PRODUCT_EXT_LMP555 || PRODUCT_EXT_AV_LS700L || PRODUCT_EXT_IMEDIA_HD100 || PRODUCT_EXT_FUNTWIST || PRODUCT_EXT_ALPHA || PRODUCT_EXT_EM7075
+			default 0
+		config NAND_IMAGE_NO_YAMON
+			bool "Full NAND flash image without YAMON"
+			default y if PRODUCT_EXT_WDTV_VILLA_BUNGALOW 
+			default n 
+		config BOOTLOADER_MTD_PARTITION
+			string " Bootloader partition name"
+			default "/dev/mtdblock1" if FIRMWARE_WDTV_SMP8634_WISTRON
+			default "/dev/sigmblocka" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config BOOTLOADER_MTD_SIZE
+			int " Bootloader partition size"
+			default 131072 if FIRMWARE_WDTV_SMP8654_WISTRON
+			default 262148 if FIRMWARE_WDTV_SMP8634_WISTRON
+
+		config BOOTLOADER_UPGRADE
+			bool " Upgrade bootloader"
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			default y if (FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_WDTV_HUT)
+			default n if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config MTD_BEFORE_YAMON_SIZE
+			int
+			default 524288
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			help
+				"Partition size before YAMON"
+
+		config MTD_YAMON_SIZE
+			int
+			default 262144
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			help
+				"YAMON partition size"
+
+		config DUAL_KERNEL
+			bool "Dual KERNEL MTD"
+			default y if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_WDTV_HUT 
+			default n 
+		config KERNEL_MTD_PARTITION
+			string " primary system partition name"
+			default "/dev/mtdblock2" if FIRMWARE_WDTV_SMP8634_WISTRON
+			default "/dev/sigmblockd" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config KERNEL_MTD_MIRROR_PARTITION
+			string " primary partition mirror partition name"
+			default "/dev/sigmblocke" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config MTD_IMAT_PARTITION
+			depends on FIRMWARE_WDTV_SMP8654_WISTRON
+			string " Splash screen IMAT partition name"
+			default "/dev/sigmblockf" if FIRMWARE_WDTV_SMP8654_WISTRON
+	
+		config MTD_IMAT_SIZE
+			depends on FIRMWARE_WDTV_SMP8654_WISTRON
+			int "  Splash screen IMAT partition size (Bytes)"
+			default 8388608 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_WISTRON_VILLA_BOARD_D2 && BUNGALOW_NEW_PARTITION
+			default 16777216 if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config MTD_IMAT_UPGRADE
+			bool " Upgrade IMAT splash screen"
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			default y
+
+		config MTD_XMAT_PARTITION
+			depends on FIRMWARE_WDTV_SMP8654_WISTRON
+			string " Splash screen XMAT name"
+			default "/dev/sigmblockg" if FIRMWARE_WDTV_SMP8654_WISTRON
+	
+		config MTD_XMAT_SIZE
+			depends on FIRMWARE_WDTV_SMP8654_WISTRON
+			int "  Splash screen XMAT partition size (Bytes)"
+			default 8388608 if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config MTD_XMAT_UPGRADE
+			bool " Upgrade XMAT splash screen"
+			depends on FIRMWARE_FULL_UPGRADE_SMP8654
+			default y
+
+		config FIRMWARE_MTD_PARTITION
+			string " 1st application firmware partition"
+			default "/dev/mtdblock3" if FIRMWARE_WDTV_SMP8634_WISTRON
+			default "/dev/sigmblockh" if FIRMWARE_WDTV_SMP8654_WISTRON
+		config FIRMWARE_STORAGE_PARTITION
+			string " Temp flash storage for storing downloaded firmware"
+			depends on FIRMWARE_UPGRADE_PLUGIN
+			default "/dev/sigmblocki" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config MIRROR_FOR_KEYSTORAGE
+			bool "Dual keystorage in MTD"
+			depends on PRODUCT_EXT_IOM_T4
+			default y
+		config KEYSTORAGE_MTD_PARTITION
+			string "MTD partition for key storage"
+			depends on PRODUCT_EXT_IOM_T4
+			default "/dev/sigmblockj"
+		config KEYSTORAGE_MIRROR_MTD_PARTITION
+			string "MTD partition for key storage of mirror"
+			depends on MIRROR_FOR_KEYSTORAGE
+			default "/dev/sigmblockk"
+
+		config MIRROR_FOR_SETTINGS 
+			bool "Dual settings in MTD"
+			default y
+		config CONFIG_MTD_PARTITION
+			string "MTD partition for settings"
+			default "/dev/mtdblock4" if FIRMWARE_WDTV_SMP8634_WISTRON
+			default "/dev/sigmblockl" if FIRMWARE_WDTV_SMP8654_WISTRON
+		config CONFIG_MIRROR_MTD_PARTITION
+			string "MTD partition for settings of mirror"
+			depends on MIRROR_FOR_SETTINGS
+			default "/dev/mtdblock5" if FIRMWARE_WDTV_SMP8634_WISTRON
+			default "/dev/sigmblockm" if FIRMWARE_WDTV_SMP8654_WISTRON
+
+		config BOOT_LOADER_SIZE
+			int
+			default 393216 if FIRMWARE_WDTV_SMP8634_WISTRON
+		config PRIMARY_SYSTEM_SIZE
+			int 
+			default 4194304 if FIRMWARE_WDTV_SMP8654_WISTRON && BUNGALOW_NEW_PARTITION
+			default 4194304 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_ALPHA_RV_BOARD
+			default 4194304 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_ALPHA_IOM_BOARD
+			default 2228224 if FIRMWARE_WDTV_SMP8634_WISTRON
+			default 3145728 if FIRMWARE_WDTV_SMP8654_WISTRON
+			help
+				Linux kernel + minimal ramdisk partition size. The built "primary_ystem.bin" should be less than it.
+		config APP_ROMFS_SIZE
+			int
+			default 13893632 if FIRMWARE_WDTV_SMP8634_WISTRON
+			default 87031808 if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_IOM_T4
+			default 87031808 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_WISTRON_VILLA_BOARD_D2 && BUNGALOW_NEW_PARTITION
+			default 94371840 if FIRMWARE_WDTV_SMP8654_WISTRON && (PLATFORM_SMP8654_WISTRON_VILLA_BOARD_D2 || PLATFORM_SMP8654_ALPHA_8AV500LE_BOARD) 
+			default 96468992 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_ALPHA_RV_BOARD
+			default 51904512 if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_WDTV_HUT
+			default 96468992 if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_IOM_X2
+			default 31195136 if FIRMWARE_WDTV_SMP8654_WISTRON
+			help
+				Total application firmware partition(s) size. The built "romfs.bin" should be less than it.
+		config STORAGE_PARTITION_SIZE
+			int " Temp flash storage for storing downloaded firmware(It should be equal or greater then app romfs size)"
+			default 93323264 if FIRMWARE_WDTV_SMP8654_WISTRON && PLATFORM_SMP8654_WISTRON_VILLA_BOARD_D2 && BUNGALOW_NEW_PARTITION
+			default 93323264 if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_IOM_T4
+			default 96468992 if FIRMWARE_WDTV_SMP8654_WISTRON && PRODUCT_EXT_IOM_X2
+			default APP_ROMFS_SIZE
+			help
+				Storage is used to store downloaded firmware. We'll use it after reboot.
+
+		config FLASH_BLOCK_SIZE 
+			int "firmware upgrade chunk size"
+			default 131072
+			help
+				The chunk size for write firmware at a batch.
+
+	endmenu
+
+	config	COMBINE_HOUSE_HUT_FW
+		depends on BUILD_ROOTFS_PRIMARY_SYSTEM && (PRODUCT_EXT_WDTV_HOUSE || PRODUCT_EXT_WDTV_HUT)
+		bool "Combine WDTV house and HUT firmware together"
+		help
+			This is used to combine firmware of House and Hut together.
+			The firmware of House and Hut must have been committed to SVN
+			server first before you proceed. 
+
+			The make target of this is to:
+
+				make fwo2
+
+			fwo2 means "Firmwares all together"
+
+	comment "You have to commit House and Hut firmware to SVN server before combining them"
+		depends on COMBINE_HOUSE_HUT_FW
+	comment "The version of House and Hut should be exactally the same."
+		depends on COMBINE_HOUSE_HUT_FW
+	comment "The folder on the SVN server for House and Hut should be house_x.xx.xx and hut_x.xx.xx, respectly."
+		depends on COMBINE_HOUSE_HUT_FW
+	comment "The target for making this is:"
+		depends on COMBINE_HOUSE_HUT_FW
+	comment "	make fwo2"
+		depends on COMBINE_HOUSE_HUT_FW
+
+	config KERNEL_PAGE_SIZE
+		int "kernel page size (4096 or 16384)"
+		default 4096
+		help
+			1) if we use 16384, we will use 16KB kernel config to build kernel
+			2) we will use this value in the command line mkcramfs in the firmware_script_wdtv_smp8654_wistron.mk
+			3) currently, when we use sigma kernel :smp86xx_kernel_source_R2.6.22-19
+				we will map rua memory error sometimes, and sigma suggests us use 16KB page size.
+
+	config FACTORY_RESET_AFTER_REBOOT
+		bool "Doing factory reset default after firmware upgrade done"
+		default n
+		help
+			Lacie will do reworking by firmware upgrade. Thus it needs to reset factory after firmware upgrade done.
+
+	config FWUP_ENCRYPT
+		bool "Encrypt *.bin file. ex. wdtvlive2.bin."
+		default n
+		help
+			Encrypt *.bin.
+
+	config SECURITY_USE_CPU_BINDING
+		bool "When release the offical firmware , you must open it"
+		default n
+
+	config FWUP_SEK_FILE
+		string "Firmware update serial keys file"
+		depends on FWUP_ENCRYPT
+		default "fwup_sek_general"
+		help
+			Firmware update serial keys file used to decrypt session key.
+	config SECURITY_PROPRIETARY_ENCRYPT
+		bool "Encrypt alpha proprietary files by crypto ex. dmaosd MediaLogic ... etc"
+		default n
+
+	choice
+		prompt "Choiec a key's sha1sum for crypto's password"
+		  depends on SECURITY_PROPRIETARY_ENCRYPT
+
+		config SECURITY_USE_JANUS_SHA1SUM
+		 bool "use the janus's sha1sum for crypto's password"
+
+		config SECURITY_USE_CPU_KEY_SHA1SUM
+		 bool "use the cpu key's sha1sum for crypto's password"
+
+		config SECURITY_USE_IPTOKEN_SHA1SUM
+		 bool "use the iptoken's sha1sum for crypto's password"
+	endchoice
+
+	config SECURITY_USE_JANUS_SHA1SUM_FILENAME
+		string "Select janus encrypt key's name"
+		depends on SECURITY_PROPRIETARY_ENCRYPT
+		default "janus_iomega_X2" if PRODUCT_EXT_IOM_X2
+		default "janus_iomega_T4" if PRODUCT_EXT_IOM_T4
+
+	config SECURITY_USE_CPU_KEY_SHA1SUM_FILENAME
+		string "Select cpu key encrypt key's name"
+		depends on SECURITY_PROPRIETARY_ENCRYPT
+		default "cpu_key_iomega_X2" if PRODUCT_EXT_IOM_X2
+		default "cpu_key_iomega_T4" if PRODUCT_EXT_IOM_T4
+	
+	config SECURITY_USE_IPTOKEN_SHA1SUM_FILENAME
+		string "Select iptoken encrypt key's name"
+		depends on SECURITY_PROPRIETARY_ENCRYPT
+		default "iptoken_iomega_X2" if PRODUCT_EXT_IOM_X2
+		default "iptoken_iomega_T4" if PRODUCT_EXT_IOM_T4
+
+	config BOOT_AUTH
+		bool "Use sigma tool boot_auth to certificate the whole firmware"
+		default n
+	config BOOT_AUTH_KEY
+		string "Select boot_auth key"
+		depends on BOOT_AUTH
+		default "bungalow.pem" if PRODUCT_EXT_WDTV_VILLA_BUNGALOW
+		default "rv.pem" if PRODUCT_EXT_WDTV_RV
+		default "iomega_x2.pem" if PRODUCT_EXT_IOM_X2
+		default "iomega_t4.pem" if PRODUCT_EXT_IOM_T4
+endmenu

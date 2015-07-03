@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+  <ctrlgrp>
+    <button valkey="NEW_FW_UPGRADE_LATER"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png"
+        click_bg="image/common_btn_p.png"/>
+    <button valkey="NEW_FW_UPGRADE_NOW"
+      	focused_bg="image/common_btn_f.png"
+      	normal_bg="image/common_btn_n.png"
+        click_bg="image/common_btn_p.png"/>
+  </ctrlgrp>
+  
+    <wrapper textcolor="0xffffff">
+  <text text="$$New firmware found" x="200" y="131" w="880" h="46" fontsize="40"/>
+  <text text="@@msg-value0" x="330" y="254" w="620" h="30" fontsize="26" align="hcenter"/>
+
+  <text text="@@msg-value1" x="330" y="284" w="620" h="30" fontsize="26" align="hcenter"/>
+
+  <text text="$$Do you want to upgrade?" x="330" y="314" w="620" h="60" fontsize="26" align="hcenter" numlines="2"/>
+  </wrapper>
+  <imgbtn x="313" y="438" w="327" h="62" image="@@bg-NEW_FW_UPGRADE_LATER" text="$$Cancel" align="hcenter" fontsize="20" selected_fontsize="20" textcolor="0xf0f0f0"  active="@@act-NEW_FW_UPGRADE_LATER" actnoseltextcolor="0xffffff"/>
+  <imgbtn x="640" y="438" w="327" h="62" image="@@bg-NEW_FW_UPGRADE_NOW" text="$$OK" align="hcenter" fontsize="20" selected_fontsize="20" textcolor="0xf0f0f0"  active="@@act-NEW_FW_UPGRADE_NOW" actnoseltextcolor="0xffffff"/>
+
+  <include filename="./inc_setup_headline_property.xml" />
+  <include filename="./inc_decoration.xml"/>
+</page>

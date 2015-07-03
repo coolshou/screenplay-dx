@@ -1,0 +1,14 @@
+--- libgphoto2_port/configure.bak	2010-07-23 12:52:15.073705050 +0800
++++ libgphoto2_port/configure	2010-07-23 12:53:18.014701277 +0800
+@@ -26916,6 +26916,11 @@
+ echo "${ECHO_T}yes" >&6; }
+ 	have_hal=true
+ fi
++
++have_hal=false
++HAL_CFLAGS=
++HAL_LIBS=
++
+ if test "x$have_hal" = "xtrue"; then
+ 
+ 

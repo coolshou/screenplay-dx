@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/flickr/IService_Flickr_bg.jpg" type="basic">
+  <ctrlgrp>
+    <listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr"  loop_scroll="1" turbo_trigger="10" turbo_multi="10" />
+	<linebreak/>
+  </ctrlgrp>
+
+  <include filename="./info.xml"/>
+  <text id="headline" text="@@browse_title_icon" fontsize="42" textcolor="0xffffff"/>
+  <!--image x="350" y="110" w="380" h="340" image="@@browse_background_icon" bg="1" align="hcenter"/-->
+  <include filename="./inc_list_browse.xml"/>
+  <include filename="./inc_loading.xml"/>
+  <!-- fixed --> 
+  <include filename="././inc_headline_property.xml"/>
+  <!--<image image="./image/flickr_logo.png" x="1072" y="590" w="126" h="56"/>-->
+  <include filename="./inc_decoration_online.xml"/>
+</page>

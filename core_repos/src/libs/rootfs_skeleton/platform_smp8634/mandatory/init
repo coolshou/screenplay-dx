@@ -1,0 +1,100 @@
+#!/bin/sh
+
+. ./sysconfig 
+
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+/bin/mount -t proc none /proc
+mount -t usbfs usb /proc/bus/usb
+mount -t sysfs sysfs /sys
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+mount -t tmpfs mdev /dev
+mkdir /dev/pts
+mount -t devpts devpts /dev/pts
+mdev -s
+mount -t tmpfs none /tmp
+/bin/hostname -F /etc/hostname
+
+ln -s $SYSCONF_BOOTLOADER_MTD_PARTITION /dev/mtdblock_bootloader
+ln -s $SYSCONF_KERNEL_MTD_PARTITION /dev/mtdblock_kernel
+ln -s $SYSCONF_FIRMWARE_MTD_PARTITION /dev/mtdblock_romfs
+
+cp /etc/securetty.ori /tmp
+/sbin/ldconfig -C /tmp/ld.so.cache
+if [ $1 == "upgrade" ]; then
+	/sbin/config_tool -l &
+	touch /tmp/STOP_DMARENDER
+	touch /tmp/STOP_PICRENDER
+else
+	/sbin/config_tool -l -m 10 &
+fi
+
+
+cd /dev
+mknod mum0 c 126 0
+mknod em8xxx0 c 127 0
+mknod ir c 254 0
+mknod led_rst c 253 0
+ln -s ir irda
+
+echo "Inserting the modules..."
+#/sbin/insmod /lib/modules/llad.ko
+#/sbin/insmod /lib/modules/em8xxx.ko
+#/sbin/insmod /lib/modules/em8xxxoss.ko
+insmod -f /lib/modules/llad.ko 
+insmod -f /lib/modules/proc_pipe.ko
+#insmod -f /lib/modules/wd_led_rst.ko 
+export EM8XXX_SERVER=":0" 
+xrpc -u 
+xrpc -z 
+xrpc /lib/firmware/xrpc_xload_audio_ucode_SMP8634_*_facsprod.mips.nodts.bin 
+xrpc /lib/firmware/xrpc_xload_video_ucode_SMP8634_*_facsprod.mips.bin 
+xrpc /lib/firmware/xrpc_xload_demux_ucode_SMP8634_*_facsprod.mips.bin 
+xrpc /lib/firmware/xrpc_xload_irq_handler_SMP8634_*_facsprod.mips.bin
+xrpc -ustart 2 4 
+xrpc -ustart 1 0 
+xrpc -ustart 1 1 
+xrpc -ustart 0 2 
+xrpc -ustart 0 3 
+insmod -f /lib/modules/em8xxx.ko 
+
+#/bin/run_removable_device&
+mkdir -p /tmp/media
+mkdir -p /tmp/media/usb
+
+ifconfig lo 127.0.0.1
+
+if [ $1 == "f1f1" ]; then
+	echo "enter f1 test ..."
+	/bin/sh
+fi
+
+if [ $1 == "sisi" ]; then
+	echo "enter si test ..."
+	mount /dev/sda /tmp/media/usb
+	if [ $? != 0 ]; then
+		echo "Mounting /dev/sda fail, try to mount /dev/sda1 to /tmp/media/usb"
+		mount /dev/sda1 /tmp/media/usb
+		if [ $? != 0 ]; then
+			echo "Mounting /dev/sda1 still fail, abort!!!"
+			/bin/sh
+		fi
+	fi
+	/tmp/media/usb/runsit.sh
+	/bin/sh
+fi
+
+if [ -f /nfs_debug ]; then
+	/sbin/insmod /lib/modules/2.6.15-TvDock/kernel/drivers/net/mii.ko
+	/sbin/insmod /lib/modules/2.6.15-TvDock/kernel/drivers/net/tango2_enet.ko
+	/sbin/insmod /lib/modules/2.6.15-TvDock/kernel/net/sunrpc/sunrpc.ko
+	/sbin/insmod /lib/modules/2.6.15-TvDock/kernel/fs/lockd/lockd.ko
+	/sbin/insmod /lib/modules/2.6.15-TvDock/kernel/fs/nfs/nfs.ko
+fi
+
+run_all $1 $2 $3&
+#/bin/run_cas&
+
+while [ 1 ]; do 
+		/bin/sh ;
+done
+

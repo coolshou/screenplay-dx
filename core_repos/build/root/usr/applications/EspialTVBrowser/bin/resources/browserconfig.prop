@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+
+<!--Evo Browser config file-->
+<EspialBrowser>
+	<!--the cache size in KB-->
+	<CacheSize>8192</CacheSize>
+	
+	<!--mode Web or Kiosk-->
+	<Mode>Web</Mode>
+	
+	<!--enable incremental draw-->
+	<IncrementalDraw>1</IncrementalDraw>
+	
+	<!--enable/disable image-->
+	<ImageEnabled>1</ImageEnabled>
+	
+	<!--enable/disable script-->
+	<ScriptEnabled>1</ScriptEnabled>
+
+	<!-- enable/disable css -->
+	<CSSEnabled>1</CSSEnabled>
+	
+	<!--repaint dealy in ms-->
+	<RepaintDelay>70</RepaintDelay>
+	<!--repaint dealy in ms during content loading-->
+        <LoadRepaintDelay>1000</LoadRepaintDelay>
+	
+	<HtmlUIDir>/usr/applications/EspialTVBrowser/bin/HtmlUI</HtmlUIDir>
+
+	<ResourcesDir>/usr/applications/EspialTVBrowser/bin/resources</ResourcesDir>
+
+	<!-- history support -->
+	<History>
+                <!-- enabled/disable -->
+                <Enabled>1</Enabled>
+                <!-- filename to store history -->
+                <Filename>/tmp/conf/ESP_History.xml</Filename>
+        </History>
+
+        <!-- bookmark support -->
+        <Bookmarks>
+                <!-- filename to store bookmarks -->
+                <Filename>/tmp/conf/ESP_Bookmarks.xml</Filename>
+		<!-- maximum number of bookmarks allowed -->
+                <MaxNumber>256</MaxNumber>
+                <!-- maximum size of the title in kilobytes. titles longer will be truncated -->
+                <MaxTitleSize>256</MaxTitleSize>
+                <!-- maximum size of the url in kilobytes.  urls longer will result in the bookmark not being added -->
+                <MaxURLSize>512</MaxURLSize>
+        </Bookmarks>
+
+	<!-- enable popup windows -->
+	<PopupEnabled>1</PopupEnabled>
+
+	<!-- Warning on open target window -->
+        <TargetWindowWarning>1</TargetWindowWarning>
+
+	<!-- cookie support -->
+	<Cookies>
+		<!-- enable/disable cookies -->
+		<Enabled>1</Enabled>
+		<!-- name of cookie jar file -->
+		<Filename>/tmp/conf/ESP_Cookie</Filename>
+        <!-- name of cookie jar file for NetTV Device-ID cookies -->
+        <NetTVFilename></NetTVFilename>
+        <!-- Maximum number of cookis in the system --> <!-- one site saves one cookie. if exceed this value, it will save the next one and kick out the first one -->
+        <MaxCookieNumber>256</MaxCookieNumber>
+        <!-- Maximum size of individual cookie--> <!-- if exceed this value, it won't save the following cookie anymore -->
+        <MaxCookieSize>1024</MaxCookieSize>
+        <!-- Maximum number of cookies per domain --> <!-- if exceed this value, it will save the next one kick out the first one -->
+        <MaxCookiesPerDomain></MaxCookiesPerDomain>
+	</Cookies>
+
+	<!-- enable/disable SSL -->
+	<SSLEnabled>1</SSLEnabled>
+	<SSLVersion></SSLVersion>
+
+	<!-- open ssl cipher lists, refer to OpenSSL document -->
+        <SSLCiphers>AES128-SHA:CAMELLIA128-SHA:RC4-MD5:RC4-SHA:DES-CBC-SHA:DES-CBC3-SHA:EXP-RC4-MD5:EXP-RC2-CBC-MD5:EXP-DES-CBC-SHA</SSLCiphers>
+
+	<!-- SSL Certificate file -->
+    <SSLCertificates>
+        <!-- ca-bundle.crt path and file name -->
+        <RootCAFile>/usr/applications/EspialTVBrowser/bin/resources/ca-bundle.crt</RootCAFile>
+        <!-- server certificates path and file name -->
+        <ServerCertFile></ServerCertFile>
+        <!-- maximum number of server certificates allowed in ServerCertFile -->
+        <MaxServerCertNum></MaxServerCertNum>
+    </SSLCertificates>
+
+	<!-- enable/disable 2d Navigation -->
+	<NavigationEnabled>0</NavigationEnabled>
+
+	<!-- scrollbar setting -->
+    <Scrollbar>
+    	<!-- make scrollbars visible or not -->
+    	<Visible>1</Visible>
+        <!-- scroll step-->
+	    <PixelsPerLineStep>50</PixelsPerLineStep>
+    </Scrollbar>
+
+	<!--user agent-->
+	<UserAgent>Mozilla/5.0 (Linux; U; Linux mips; en-US) AppleWebKit/531.2+ (KHTML, like Gecko) Version/4.0 Safari/531.2+</UserAgent>
+	
+	<!--browser rectangle-->
+	<SafeRect x='40' y='10' width='1200' height='700'/>
+			
+	<!--fonts-->
+	<Fonts>
+		<!--Default></Default-->		
+		<!--Size></Size-->
+		<!-- multiple fallback fonts allowed -->
+		<!--Fallback></Fallback-->
+		<!--Fallback></Fallback-->
+	</Fonts>
+	
+	<!--HTTP/s Proxy-->
+	<HttpProxy>
+	    <Enabled></Enabled>
+		<HttpHost></HttpHost>
+		<HttpPort></HttpPort>
+		<HttpsHost></HttpsHost>
+		<HttpsPort></HttpsPort>
+		<Exclude></Exclude>
+	</HttpProxy>
+
+	<!--HTTP version-->
+	<HttpVersion></HttpVersion>
+
+	<!--Memory Manager configuration-->
+	<OOMHandler>
+		<OOMThreshold>60000</OOMThreshold>
+		<BrowserMemoryCap>64000</BrowserMemoryCap>
+		<OOMTimerPeriod>1000</OOMTimerPeriod>
+	</OOMHandler>
+	
+	<!-- Underline links -->
+	<UnderlineLinks>1</UnderlineLinks>
+
+	<!-- Default browser encoding -->
+	<!--DefaultEncoding></DefaultEncoding-->
+
+	<!-- Japanese Feature support -->
+	<JapaneseFeature>
+		<Hyphenation>0</Hyphenation>
+		<WordWrap>0</WordWrap>
+	</JapaneseFeature>
+
+	<!-- Enable/disable word wrap -->
+	<WordWrapEnabled>1</WordWrapEnabled>
+
+	<!-- Security warning dialogs -->
+        <SecurityWarningDialog>
+                <ViewSecure>0</ViewSecure>
+                <LeaveSecureForInsecure>0</LeaveSecureForInsecure>
+        </SecurityWarningDialog>
+
+	<Plugins>
+		<!-- total number of plugin instances allowed -->
+		<MaxPlugins>6</MaxPlugins>
+		<!-- a value of 0 mean use plugin default -->
+		<MaxFPS>0</MaxFPS>
+	</Plugins>
+
+</EspialBrowser>
+ 

@@ -1,0 +1,11 @@
+prefix=/root/projects/SMP/GPL-1.02.24/core_repos/src/libs/3_8_0/DCCHD/dcchd_SMP8652_3_8_8_rc_11_aqua.mips/directfb
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Fusion IPC
+Description: High Level IPC Mechanisms
+Version: 1.0.0
+Requires: direct
+Libs: -L${libdir} -lfusion
+Cflags: -I${prefix}/include/directfb

@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<page background="image/browser_list_background_bg_n.png" type="basic">
+  <ctrlgrp lbmask='l'>
+	<ctrlgrp valkey="sub0"
+           focused_bg="image/combo_highlight_short.png"
+		   normal_bg="image/combo_short.png">
+	   <combo valkey="AUTOCHECK" value="autocheck-value"
+		v0="$$Yes" v1="$$No"
+		arrow-image-format="image/drop_%d%d.png"/>
+	</ctrlgrp>
+	<linebreak/>
+	<button valkey="CHECK" 
+		focused_bg="image/button_blank_long-act.png"
+		normal_bg="image/button_blank_long.png"/>
+	<linebreak />
+	<button valkey="DEVICECERT" 
+		focused_bg="image/button_blank_long-act.png"
+		normal_bg="image/button_blank_long.png"
+		disabled_bg="image/textbox_darken.png"/>
+	<linebreak />
+	<button valkey="OK"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+    <button valkey="CANCEL"
+             focused_bg="image/button_blank-act.png"
+             normal_bg="image/button_blank.png"/>
+	<linebreak />
+  </ctrlgrp>
+
+  <image id="headline" image="image/Setup_Version.png" />
+  
+  <table x="261" y="149" w="300" h="80"
+         cols="1" rows="3" fontsize="24" align="hcenter" textcolor="0xFFFFFF">
+    <text text="$$The current version of your"/>
+    <text text="$$media player is:"/>
+    <text text="@@firmware_version"/>
+  </table>
+
+  <text text="$$Automatically check for firmware update." fontsize="20"
+	x="131" y="235" w="380" h="30" align="left" active="0" textcolor="0xFFFFFF"/>
+  <table x="515" y="229" w="94" h="32" cols="1" rows="1" rowspacing="5">
+    <image image="@@bg-sub0" align="left"/>
+  </table>
+  <table x="510" y="229" w="94" h="32" cols="1" rows="1" rowspacing="5"
+         wcol0="54" wcol1="30"
+         textcolor="0xFFFFFF" selectedtextcolor="0x000000" activetextcolor="0x000000" actnoseltextcolor="0x000000" fontsize="20">
+    <text text="@@AUTOCHECK" align="hcenter" 
+          selected="@@sel-AUTOCHECK" active="@@act-AUTOCHECK"/>
+  </table>
+    <image image="@@arrow-AUTOCHECK" align="left" x="581" y="229" w="28" h="32"/>
+
+  <imgbtn x="271" y="269" w="177" h="36" image="@@bg-CHECK" text="$$Check" align="hcenter"  fontsize="18"/>
+  <imgbtn x="271" y="365" w="177" h="36" image="@@bg-DEVICECERT" text="$$UpdateCert" align="hcenter"  fontsize="18"/>
+  <table x="338" y="404" w="226" h="36" cols="2" rows="1" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+
+  <text text="@@CURRENTMCXID" fontsize="18" x="149" y="310" w="480" h="25" align="hcerter" active="0" textcolor="0xFFFFFF"/>
+  <text text="@@DEVICEID" fontsize="18" x="149" y="340" w="480" h="25" align="hcerter" active="0" textcolor="0xFFFFFF"/>
+  
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/> 
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./decoration.xml"/>
+</page>

@@ -1,0 +1,2480 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/arch/mips/Kconfig.debug linux-2.6.22.19/arch/mips/Kconfig.debug
+--- linux-2.6.22.19.ref/arch/mips/Kconfig.debug	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/arch/mips/Kconfig.debug	2009-10-23 17:56:52.000000000 -0700
+@@ -28,6 +28,14 @@
+ 	  other cases you can specify kernel args so that you don't have
+ 	  to set them up in board prom initialization routines.
+ 
++config SD_CDROM_NEED_REQUEST_SENSE
++	bool "Request sense whenever optical drive unit attention occurs"
++	default n 
++	depends on  (BLK_DEV_IDECD || BLK_DEV_SR) && TANGOX
++	help
++		This is normally done by the drive firmware, however, some optical drives 
++		need this explicitly.
++
+ config DEBUG_STACK_USAGE
+ 	bool "Enable stack utilization instrumentation"
+ 	depends on DEBUG_KERNEL
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ata/libata-scsi.c linux-2.6.22.19/drivers/ata/libata-scsi.c
+--- linux-2.6.22.19.ref/drivers/ata/libata-scsi.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ata/libata-scsi.c	2009-10-23 17:56:52.000000000 -0700
+@@ -2325,7 +2325,11 @@
+ 	}
+ 
+ 	/* successful completion or old EH failure path */
++#ifdef CONFIG_SD_CDROM_NEED_REQUEST_SENSE
++	if (unlikely(err_mask)) {
++#else
+ 	if (unlikely(err_mask & AC_ERR_DEV)) {
++#endif
+ 		cmd->result = SAM_STAT_CHECK_CONDITION;
+ 		atapi_request_sense(qc);
+ 		return;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/cdrom/cdrom.c linux-2.6.22.19/drivers/cdrom/cdrom.c
+--- linux-2.6.22.19.ref/drivers/cdrom/cdrom.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/cdrom/cdrom.c	2009-10-23 17:56:52.000000000 -0700
+@@ -1109,6 +1109,8 @@
+ 		}
+ 		else {
+ 		    cdinfo(CD_OPEN, "wrong media type, but CDO_CHECK_TYPE not set.\n");
++		    ret=-EMEDIUMTYPE;
++		    goto clean_up_and_return;
+ 		}
+ 	}
+ 
+@@ -1452,10 +1454,12 @@
+ 	tracks->xa=0;
+ 	tracks->error=0;
+ 	cdinfo(CD_COUNT_TRACKS, "entering cdrom_count_tracks\n"); 
++#if 0
+         if (!CDROM_CAN(CDC_PLAY_AUDIO)) { 
+                 tracks->error=CDS_NO_INFO;
+                 return;
+         }        
++#endif
+ 	/* Grab the TOC header so we can see how many tracks there are */
+ 	if ((ret = cdi->ops->audio_ioctl(cdi, CDROMREADTOCHDR, &header))) {
+ 		if (ret == -ENOMEDIUM)
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/ide.c linux-2.6.22.19/drivers/ide/ide.c
+--- linux-2.6.22.19.ref/drivers/ide/ide.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/ide.c	2009-10-23 17:56:52.000000000 -0700
+@@ -758,7 +758,6 @@
+ {
+ 	int index, retry = 1;
+ 	ide_hwif_t *hwif;
+-
+ 	do {
+ 		for (index = 0; index < MAX_HWIFS; ++index) {
+ 			hwif = &ide_hwifs[index];
+@@ -778,8 +777,9 @@
+ 	} while (retry--);
+ 	return -1;
+ found:
+-	if (hwif->present)
++	if (hwif->present){
+ 		ide_unregister(index);
++	}
+ 	else if (!hwif->hold) {
+ 		init_hwif_data(hwif, index);
+ 		init_hwif_default(hwif, index);
+@@ -800,7 +800,6 @@
+ 
+ 	if (hwifp)
+ 		*hwifp = hwif;
+-
+ 	return (initializing || hwif->present) ? index : -1;
+ }
+ 
+@@ -1668,6 +1667,18 @@
+ #ifdef CONFIG_H8300
+ 	h8300_ide_init();
+ #endif
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX
++	{
++		extern int __init tangox_bmide_init(void);
++		tangox_bmide_init();
++	}
++#endif
++#ifdef CONFIG_BLK_DEV_PBIDE_TANGOX
++	{
++		extern int __init tangox_pbide_init(void);
++		tangox_pbide_init();
++	}
++#endif
+ }
+ 
+ /*
+@@ -1826,7 +1837,6 @@
+ 
+ 	/* Probe for special PCI and other "known" interface chipsets. */
+ 	probe_for_hwifs();
+-
+ 	return 0;
+ }
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/ide-cd.c linux-2.6.22.19/drivers/ide/ide-cd.c
+--- linux-2.6.22.19.ref/drivers/ide/ide-cd.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/ide-cd.c	2009-10-23 17:56:52.000000000 -0700
+@@ -324,6 +324,12 @@
+ 
+ #include "ide-cd.h"
+ 
++#ifdef CONFIG_SD_CDROM_WAIT
++#define CONFIG_SD_CDROM_WAIT_TICKS     (CONFIG_SD_CDROM_WAIT_TIME * HZ)
++static unsigned long cdrom_wait = 0;
++static int req_retries = 0;
++#endif
++
+ static DEFINE_MUTEX(idecd_ref_mutex);
+ 
+ #define to_ide_cd(obj) container_of(obj, struct cdrom_info, kref) 
+@@ -524,21 +530,15 @@
+ 
+ 		if (failed_command != NULL) {
+ 
+-			int lo=0, mid, hi= ARY_LEN (packet_command_texts);
++			int lo=0, hi= ARY_LEN (packet_command_texts);
+ 			s = NULL;
+ 
+-			while (hi > lo) {
+-				mid = (lo + hi) / 2;
+-				if (packet_command_texts[mid].packet_command ==
++			for (lo = 0; lo < hi; lo++) {
++				if (packet_command_texts[lo].packet_command ==
+ 				    failed_command->cmd[0]) {
+-					s = packet_command_texts[mid].text;
++					s = packet_command_texts[lo].text;
+ 					break;
+ 				}
+-				if (packet_command_texts[mid].packet_command >
+-				    failed_command->cmd[0])
+-					hi = mid;
+-				else
+-					lo = mid+1;
+ 			}
+ 
+ 			printk (KERN_ERR "  The failed \"%s\" packet command was: \n  \"", s);
+@@ -673,6 +673,11 @@
+ 		nsectors = 1;
+ 
+ 	ide_end_request(drive, uptodate, nsectors);
++
++#ifdef CONFIG_SD_CDROM_WAIT
++        if (uptodate)
++		cdrom_wait = 0;
++#endif
+ }
+ 
+ static void ide_dump_status_no_sense(ide_drive_t *drive, const char *msg, u8 stat)
+@@ -688,7 +693,7 @@
+ {
+ 	struct request *rq = HWGROUP(drive)->rq;
+ 	int stat, err, sense_key;
+-	
++
+ 	/* Check for errors. */
+ 	stat = HWIF(drive)->INB(IDE_STATUS_REG);
+ 	if (stat_ret)
+@@ -734,7 +739,9 @@
+ 			/* Check for media change. */
+ 			cdrom_saw_media_change (drive);
+ 			/*printk("%s: media changed\n",drive->name);*/
++#ifndef CONFIG_SD_CDROM_NEED_REQUEST_SENSE
+ 			return 0;
++#endif
+  		} else if ((sense_key == ILLEGAL_REQUEST) &&
+  			   (rq->cmd[0] == GPCMD_START_STOP_UNIT)) {
+  			/*
+@@ -815,8 +822,32 @@
+ 			   too many times. */
+ 			if (++rq->errors > ERROR_MAX)
+ 				do_end_request = 1;
+-		} else if (sense_key == ILLEGAL_REQUEST ||
+-			   sense_key == DATA_PROTECT) {
++		} else if (sense_key == ILLEGAL_REQUEST){
++#ifdef CONFIG_SD_CDROM_WAIT
++                        if (cdrom_wait == 0)
++                                cdrom_wait = jiffies;
++                        if (time_after(cdrom_wait + CONFIG_SD_CDROM_WAIT_TICKS, jiffies)) {
++							req_retries ++;
++							printk("%s: retrying operation %d.\n", drive->name, req_retries);
++							if(req_retries == 10){
++								do_end_request = 1; 
++								req_retries = 0;
++							} else
++								do_end_request = 0; 
++                        } else {
++                                /* No point in retrying after an illegal
++                                   request or data protect error.*/
++                                cdrom_wait = 0;
++                                ide_dump_status (drive, "command error", stat);
++                                do_end_request = 1;
++                        }
++#else
++                        /* No point in retrying after an illegal
++                           request or data protect error.*/
++                        ide_dump_status (drive, "command error", stat);
++                        do_end_request = 1;
++#endif
++		} else if (sense_key == DATA_PROTECT) {
+ 			/* No point in retrying after an illegal
+ 			   request or data protect error.*/
+ 			ide_dump_status_no_sense (drive, "command error", stat);
+@@ -913,6 +944,16 @@
+ 	struct cdrom_info *info = drive->driver_data;
+ 	ide_hwif_t *hwif = drive->hwif;
+ 
++#ifdef CONFIG_SD_CDROM_DMAPACKET
++	struct request *rq = HWGROUP(drive)->rq;
++	if ((rq->cmd[0] != GPCMD_READ_10) &&
++			(rq->cmd[0] != GPCMD_READ_CD) &&
++			(rq->cmd[0] != GPCMD_WRITE_10) &&
++			(rq->cmd[0] != GPCMD_VERIFY_10) &&
++			(rq->cmd[0] != GPCMD_WRITE_AND_VERIFY_10))
++		info->dma = 0;
++#endif
++
+ 	/* Wait for the controller to be idle. */
+ 	if (ide_wait_stat(&startstop, drive, 0, BUSY_STAT, WAIT_READY))
+ 		return startstop;
+@@ -1112,8 +1153,11 @@
+ 	 */
+ 	if (dma) {
+ 		info->dma = 0;
+-		if ((dma_error = HWIF(drive)->ide_dma_end(drive)))
++		if ((dma_error = HWIF(drive)->ide_dma_end(drive))) {
++#ifndef CONFIG_SD_CDROM_KEEP_DMA
+ 			ide_dma_off(drive);
++#endif
++		}
+ 	}
+ 
+ 	if (cdrom_decode_status(drive, 0, &stat))
+@@ -1709,7 +1753,9 @@
+ 	if (dma) {
+ 		if (dma_error) {
+ 			printk(KERN_ERR "ide-cd: dma error\n");
++#ifndef CONFIG_SD_CDROM_KEEP_DMA
+ 			ide_dma_off(drive);
++#endif
+ 			return ide_error(drive, "dma error", stat);
+ 		}
+ 
+@@ -1835,7 +1881,9 @@
+ 		info->dma = 0;
+ 		if ((dma_error = HWIF(drive)->ide_dma_end(drive))) {
+ 			printk(KERN_ERR "ide-cd: write dma error\n");
++#ifndef CONFIG_SD_CDROM_KEEP_DMA
+ 			ide_dma_off(drive);
++#endif
+ 		}
+ 	}
+ 
+@@ -2297,7 +2345,7 @@
+ 	stat = cdrom_read_capacity(drive, &toc->capacity, &sectors_per_frame,
+ 				   sense);
+ 	if (stat)
+-		toc->capacity = 0x1fffff;
++		toc->capacity = 0x1ffffff; 
+ 
+ 	set_capacity(info->disk, toc->capacity * sectors_per_frame);
+ 	/* Save a private copy of te TOC capacity for error handling */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/ide-iops.c linux-2.6.22.19/drivers/ide/ide-iops.c
+--- linux-2.6.22.19.ref/drivers/ide/ide-iops.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/ide-iops.c	2009-10-23 17:56:52.000000000 -0700
+@@ -1057,8 +1057,16 @@
+ 		ide_set_xfer_rate(drive, ide_auto_reduce_xfer(drive));
+ 		if (drive->current_speed >= XFER_SW_DMA_0)
+ 			(void) HWIF(drive)->ide_dma_on(drive);
+-	} else
+-		ide_dma_off(drive);
++	} else 
++#ifdef CONFIG_SD_CDROM_KEEP_DMA
++                /* Turn off DMA only for HDD */
++                if (drive->media == ide_disk) {
++#endif
++			ide_dma_off(drive);
++#ifdef CONFIG_SD_CDROM_KEEP_DMA
++                }
++#endif
++
+ #endif
+ }
+ 
+@@ -1227,6 +1235,9 @@
+ 		 * about locking issues (2.5 work ?).
+ 		 */
+ 		mdelay(1);
++		if(!hwif){
++			return -ENODEV;
++		}
+ 		stat = hwif->INB(hwif->io_ports[IDE_STATUS_OFFSET]);
+ 		if ((stat & BUSY_STAT) == 0)
+ 			return 0;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/ide-probe.c linux-2.6.22.19/drivers/ide/ide-probe.c
+--- linux-2.6.22.19.ref/drivers/ide/ide-probe.c	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/ide-probe.c	2009-10-23 17:57:16.000000000 -0700
+@@ -722,10 +722,8 @@
+ 	unsigned int unit;
+ 	unsigned long flags;
+ 	unsigned int irqd;
+-
+ 	if (hwif->noprobe)
+ 		return;
+-
+ 	if ((hwif->chipset != ide_4drives || !hwif->mate || !hwif->mate->present) &&
+ 	    (ide_hwif_request_regions(hwif))) {
+ 		u16 msgout = 0;
+@@ -963,7 +961,15 @@
+ 		return 1;
+ 
+ 	q->queuedata = drive;
++
++#if defined(CONFIG_BLK_DEV_BMIDE_TANGOX) || defined(CONFIG_BLK_DEV_PBIDE_TANGOX)
++	/* we  can handle  physical address  crossing  any boundaries,
++	 * this will make linux really merge all physically contiguous
++	 * bio */
++	blk_queue_segment_boundary(q, 0xffffffff);
++#else
+ 	blk_queue_segment_boundary(q, 0xffff);
++#endif
+ 
+ 	if (!hwif->rqsize) {
+ 		if (hwif->no_lba48 || hwif->no_lba48_dma)
+@@ -971,8 +977,19 @@
+ 		else
+ 			hwif->rqsize = 65536;
+ 	}
+-	if (hwif->rqsize < max_sectors)
++	if ((hwif->rqsize < max_sectors) && (drive->media == ide_disk))
+ 		max_sectors = hwif->rqsize;
++
++#ifdef CONFIG_SD_CDROM_MAXIMUM_SECTOR_RESTRICTION
++        /*
++         * limits the max_sectors for some CDROM drives
++         */
++        if ((drive->media == ide_cdrom)){
++                max_sectors = CONFIG_SD_CDROM_MAXIMUM_SECTORS;
++                printk("The CDROM maximum sectors is set to 0x%x\n", max_sectors);
++        }
++#endif
++
+ 	blk_queue_max_sectors(q, max_sectors);
+ 
+ #ifdef CONFIG_PCI
+@@ -1096,9 +1113,9 @@
+ 	 */
+ 	if (!match || match->irq != hwif->irq) {
+ 		int sa = IRQF_DISABLED;
+-#if defined(__mc68000__) || defined(CONFIG_APUS)
+-		sa = IRQF_SHARED;
+-#endif /* __mc68000__ || CONFIG_APUS */
++#if defined(__mc68000__) || defined(CONFIG_APUS) || defined(CONFIG_TANGOX)
++		sa = IRQF_SHARED;
++#endif /* __mc68000__ || CONFIG_APUS || CONFIG_TANGOX*/
+ 
+ 		if (IDE_CHIPSET_IS_PCI(hwif->chipset)) {
+ 			sa = IRQF_SHARED;
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/Kconfig linux-2.6.22.19/drivers/ide/Kconfig
+--- linux-2.6.22.19.ref/drivers/ide/Kconfig	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/Kconfig	2009-10-23 17:56:52.000000000 -0700
+@@ -832,6 +832,87 @@
+        default "128"
+        depends on BLK_DEV_IDE_AU1XXX
+ 
++config BLK_DEV_BMIDE_TANGOX
++       select IDE_GENERIC
++       tristate "BMIDE for SMP86xx"
++       depends on TANGOX
++       help
++         Enable the support for Bus Mastering IDE controller. 
++
++config BLK_DEV_BMIDE_TANGOX_DMA
++       select SD_CDROM_DMAPACKET if BLK_DEV_IDECD
++       bool "support BMIDE DMA operations"
++       default y
++       depends on BLK_DEV_BMIDE_TANGOX
++       help
++         Enable the DMA support for Bus Mastering IDE controller, which
++	 include support for MDMA and UDMA modes. 
++
++config BLK_DEV_PBIDE_TANGOX
++       select IDE_GENERIC
++       tristate "PBIDE for SMP863x"
++       depends on TANGO2
++       help
++         Enable the support for Peripheral Bus IDE controller. 
++
++config BLK_DEV_PBIDE_TANGOX_DMA
++       select SD_CDROM_DMAPACKET if BLK_DEV_IDECD
++       bool "support PBIDE DMA operations"
++       default y
++       depends on BLK_DEV_PBIDE_TANGOX
++       help
++         Enable the DMA support for Bus Mastering IDE controller, which
++	  include support for MDMA modes. 
++
++config SD_CDROM_MAXIMUM_SECTOR_RESTRICTION
++       bool "Limit CDROM maximum transfer sectors"
++       default n
++       depends on (BLK_DEV_BMIDE_TANGOX || BLK_DEV_PBIDE_TANGOX) && BLK_DEV_IDECD
++       help
++         Some CDROM has restriction on maximum tansfer sectors per request.
++
++config SD_CDROM_MAXIMUM_SECTORS
++       int "Maximum transfer sectors per request (in sectors)"
++       default 256
++       depends on SD_CDROM_MAXIMUM_SECTOR_RESTRICTION
++       help
++         How many maximum sectors can be tranferred per request.
++
++config SD_DIRECT_DMA
++       depends on (((BLK_DEV_BMIDE_TANGOX && BLK_DEV_BMIDE_TANGOX_DMA) || (BLK_DEV_PBIDE_TANGOX && BLK_DEV_PBIDE_TANGOX_DMA))) && EXPERIMENTAL
++       bool "Enabling DDMA support for TangoX platform (experimental)"
++       default n
++       help
++         Enable user level direct DMA transfer to speed up IDE I/O for TangoX chips.
++
++config SD_CDROM_WAIT
++       bool "enable CDROM wait for spin-up"
++       default y
++       depends on (BLK_DEV_BMIDE_TANGOX || BLK_DEV_PBIDE_TANGOX) && BLK_DEV_IDECD
++       help
++         Some CDROM implements spin-down control and hence will be spinned down after
++	 a period of inactivities. However, once the access started after spinned down,
++	 timeout may occured with I/O error. Enable this (and specify wait time) for
++	 your platform.
++
++config SD_CDROM_WAIT_TIME
++       int "CDROM spin-up wait time (in seconds)"
++       default 5
++       depends on SD_CDROM_WAIT
++       help
++         How long should the driver wait for CDROM spin-up.
++
++config SD_CDROM_KEEP_DMA
++       bool "Keep DMA mode even I/O failed on non-HDD"
++       default y
++       depends on ((BLK_DEV_BMIDE_TANGOX && BLK_DEV_BMIDE_TANGOX_DMA) || (BLK_DEV_PBIDE_TANGOX && BLK_DEV_PBIDE_TANGOX_DMA)) && BLK_DEV_IDECD 
++       help
++         Normally when DMA operation went bad, IDE layer may disable DMA and switch to
++	 PIO operation afterward. Enable this to keep DMA mode intact.
++
++config SD_CDROM_DMAPACKET
++	bool
++
+ config IDE_ARM
+ 	def_bool ARM && (ARCH_A5K || ARCH_CLPS7500 || ARCH_RPC || ARCH_SHARK)
+ 
+@@ -1054,7 +1135,7 @@
+ endif
+ 
+ config BLK_DEV_IDEDMA
+-	def_bool BLK_DEV_IDEDMA_PCI || BLK_DEV_IDEDMA_PMAC || BLK_DEV_IDEDMA_ICS || BLK_DEV_IDE_AU1XXX_MDMA2_DBDMA
++	def_bool BLK_DEV_IDEDMA_PCI || BLK_DEV_IDEDMA_PMAC || BLK_DEV_IDEDMA_ICS || BLK_DEV_IDE_AU1XXX_MDMA2_DBDMA || BLK_DEV_BMIDE_TANGOX_DMA || BLK_DEV_PBIDE_TANGOX_DMA
+ 
+ config IDEDMA_IVB
+ 	bool "IGNORE word93 Validation BITS"
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/Makefile linux-2.6.22.19/drivers/ide/Makefile
+--- linux-2.6.22.19.ref/drivers/ide/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/Makefile	2009-10-23 17:56:52.000000000 -0700
+@@ -49,6 +49,6 @@
+ obj-$(CONFIG_BLK_DEV_IDETAPE)		+= ide-tape.o
+ obj-$(CONFIG_BLK_DEV_IDEFLOPPY)		+= ide-floppy.o
+ 
+-obj-$(CONFIG_BLK_DEV_IDE)		+= legacy/ arm/ mips/
++obj-$(CONFIG_BLK_DEV_IDE)		+= legacy/ arm/ mips/ tangox/
+ obj-$(CONFIG_BLK_DEV_HD)		+= legacy/
+ obj-$(CONFIG_ETRAX_IDE)		+= cris/
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/mips/Makefile linux-2.6.22.19/drivers/ide/mips/Makefile
+--- linux-2.6.22.19.ref/drivers/ide/mips/Makefile	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/mips/Makefile	2009-10-23 17:56:52.000000000 -0700
+@@ -1,4 +1,4 @@
+ obj-$(CONFIG_BLK_DEV_IDE_SWARM)		+= swarm.o
+ obj-$(CONFIG_BLK_DEV_IDE_AU1XXX)	+= au1xxx-ide.o
+ 
+-CFLAGS_au1xxx-ide.o := -Idrivers/ide
++EXTRA_CFLAGS    := -Idrivers/ide
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/tangox/Makefile linux-2.6.22.19/drivers/ide/tangox/Makefile
+--- linux-2.6.22.19.ref/drivers/ide/tangox/Makefile	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/tangox/Makefile	2009-10-23 17:56:52.000000000 -0700
+@@ -0,0 +1,4 @@
++obj-$(CONFIG_BLK_DEV_BMIDE_TANGOX)	+= tangox-bmide.o
++obj-$(CONFIG_BLK_DEV_PBIDE_TANGOX)	+= tangox-pbide.o
++
++EXTRA_CFLAGS	:= -I../
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/tangox/tangox-bmide.c linux-2.6.22.19/drivers/ide/tangox/tangox-bmide.c
+--- linux-2.6.22.19.ref/drivers/ide/tangox/tangox-bmide.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/tangox/tangox-bmide.c	2009-10-23 17:56:52.000000000 -0700
+@@ -0,0 +1,1170 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++ 
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++  
++#include <linux/config.h>
++#include <linux/init.h>
++#include <linux/module.h>
++#include <linux/ide.h>
++
++#include "tangox-ide.h"
++
++static DEFINE_SPINLOCK(bmide_tune_chipset_spin_lock);
++
++#define PFX	"tangox_bmide: "
++
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++#define CONFIG_BLK_DEV_BMIDE_TANGOX_UDMA /* enable UDMA as well */
++#endif
++
++/* some drive cannot use mbus chaining, use bounce buffer instead */
++//#define USE_BOUNCE_BUF
++#ifdef USE_BOUNCE_BUF
++// maximum = 128 sectors = 2^7 sectors = 2^7 * 2^9 bytes = 2^16 bytes
++#define DMA_BOUNCE_BUF_ORDER		(19 - PAGE_SHIFT)	
++static unsigned char *g_bounce_buf = NULL;
++//#define USE_MBUS_MEMCPY
++#endif
++
++
++/*
++ * helper to access host interface
++ */
++#define RD_HOST_REG32(r)	\
++		gbus_read_reg32(REG_BASE_host_interface + (r))
++
++#define WR_HOST_REG32(r, v)	\
++		gbus_write_reg32(REG_BASE_host_interface + (r), (v))
++
++#define RD_HOST_REG8(r)	\
++		gbus_read_reg8(REG_BASE_host_interface + (r))
++
++#define WR_HOST_REG8(r, v)	\
++		gbus_write_reg8(REG_BASE_host_interface + (r), (v))
++
++#define CONFIG_RUNTIME_CLK_CALC
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++typedef struct {
++	unsigned long cycle_time;
++	unsigned long active_time;
++	unsigned long recovery_time;
++	unsigned long setup_time;
++	unsigned long hold_time;
++} j2_tim_pio_dma_t;
++
++typedef struct {
++	unsigned long t_zah;//
++	unsigned long t_mli;//
++	unsigned long t_ack;//
++	unsigned long t_env;//
++	unsigned long t_rp;	//
++	unsigned long t_cyc;//
++	unsigned long t_cvh;//
++	unsigned long t_cvs;//
++} j2_tim_udma_t;
++
++static j2_tim_pio_dma_t	j2_pio_timings[] = 
++{
++//	 cycle	, active, recov	, setup	, hold
++	{600	, 165	, 70	, 70	, 30	},
++	{383	, 125	, 70	, 50	, 20	},
++	{240	, 100	, 70	, 30	, 15	},
++	{180	, 80	, 70	, 30	, 10	},
++	{120	, 70	, 25	, 25	, 10	},
++};
++
++static j2_tim_pio_dma_t	j2_dma_timings[] =
++{
++//	 cycle	, active, recov	, setup	, hold
++	{480	, 215	, 215	, 50	, 20	},
++	{150	, 80	, 50	, 30	, 15	},
++	{120	, 70	, 25	, 25	, 10	},
++};
++
++// We round 16.8 to 17 - Ex: mode 5, t_cyc=16.8!!!
++static j2_tim_udma_t j2_udma_timings[] =
++{
++//	 t_zah,  t_mli, t_ack,  t_env,  t_rp,  t_cyc   t_cvh   t_cvs
++	{ 20,	 20,	 20,	20,		160,	120,	  7,	 70	},
++	{ 20,	 20,	 20,	20,		125,	 80,	  7,	 48	},
++	{ 20,	 20,	 20,	20,		100,	 60,	  7,	 31	},
++	{ 20,	 20,	 20,	20,		100,	 45,	  7,	 20	},
++	{ 20,	 20,	 20,	20,		100,	 30,	  7,	  7	},
++	{ 20,	 20,	 20,	20,		 85,	 20,	 10,	 10	},
++	{ 20,	 20,	 20,	20,		 85,	 15,	 10,	 10	},
++	{ 20,	 20,	 20,	20,		 85,	 15,	 10,	 10	},
++};
++
++static unsigned int CalcRegValTiming_PIO_DMA(j2_tim_pio_dma_t *t, unsigned long ide_clock);
++static unsigned int CalcRegValTiming1_UDMA(j2_tim_udma_t *t, unsigned long ide_clock);
++static unsigned int CalcRegValTiming2_UDMA(j2_tim_udma_t *t, unsigned long ide_clock);
++#endif /* CONFIG_RUNTIME_CLK_CALC */
++
++/*
++ * io helpers for PIO access
++ */
++static void tangox_bmide_outb(u8 data, unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static void tangox_bmide_outw(u16 data, unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static void tangox_bmide_outbsync(ide_drive_t *drive, u8 data,
++				unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static u8 tangox_bmide_inb(unsigned long port)
++{
++	u8 val;
++
++	val = ((u8)(gbus_read_reg16(port) & 0xff));
++	return val;
++}
++
++static u16 tangox_bmide_inw(unsigned long port)
++{
++	u16 val;
++
++	val = ((u16)(gbus_read_reg16(port) & 0xffff));
++	return val;
++}
++
++static void tangox_bmide_insw(unsigned long port, void *addr, u32 count)
++{
++	while (count--) {
++		*(u16 *)addr = (u16)(gbus_read_reg16(port) & 0xffff);
++		addr += 2;
++	}
++}
++
++static void tangox_bmide_outsw(unsigned long port, void *addr, u32 count)
++{
++	while (count--) {
++		gbus_write_reg16(port, *(u16 *)addr);
++		addr += 2;
++	}
++}
++
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++/*
++ * returns closest pio mode timings from given dma speed
++ */
++static u8 dma_2_pio(u8 xfer_rate) {
++
++	switch (xfer_rate) {
++	case XFER_UDMA_6:
++	case XFER_UDMA_5:
++	case XFER_UDMA_4:
++	case XFER_UDMA_3:
++	case XFER_UDMA_2:
++	case XFER_UDMA_1:
++	case XFER_UDMA_0:
++	case XFER_MW_DMA_2:
++	case XFER_PIO_4:
++		return 4;
++
++	case XFER_MW_DMA_1:
++	case XFER_PIO_3:
++		return 3;
++
++	case XFER_SW_DMA_2:
++	case XFER_PIO_2:
++		return 2;
++
++	case XFER_MW_DMA_0:
++	case XFER_SW_DMA_1:
++	case XFER_SW_DMA_0:
++	case XFER_PIO_1:
++	case XFER_PIO_0:
++	case XFER_PIO_SLOW:
++	default:
++		return 0;
++	}
++}
++
++/*
++ * dma related callbacks
++ */
++void tangox_bmide_dma_host_on(ide_drive_t *drive)
++{
++	if (drive->using_dma) {
++		ide_hwif_t *hwif = HWIF(drive);
++		u8 unit = (drive->select.b.unit & 0x01);
++		u8 dma_stat = hwif->INB(hwif->dma_status);
++
++		hwif->OUTB((dma_stat | (1 << (5 + unit))), hwif->dma_status);
++	}
++}
++
++void tangox_bmide_dma_host_off(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	u8 unit = (drive->select.b.unit & 0x01);
++	u8 dma_stat = hwif->INB(hwif->dma_status);
++
++	hwif->OUTB((dma_stat & ~(1 << (5 + unit))), hwif->dma_status);
++}
++
++int tangox_bmide_dma_check(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	u8 pio, speed;
++
++	if(ide_tune_dma(drive))
++		return 0;
++
++	/* fallback to pio mode */
++	pio = ide_get_best_pio_mode(drive, 255, 5, NULL);
++	speed = dma_2_pio(XFER_PIO_0 + pio) + XFER_PIO_0;
++	hwif->speedproc(drive, speed);
++	hwif->dma_off_quietly(drive);
++	return 0; 
++}
++
++int tangox_bmide_dma_on(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++
++	if (hwif->dma_host_on)
++		hwif->dma_host_on(drive);
++
++	if (drive->using_dma)
++		return 0;
++
++	printk("%s: DMA enabled for %s%s\n", hwif->name,
++	       drive->media == ide_disk ? "ATA DISK " :
++	       (drive->media == ide_cdrom ? "ATAPI CDROM " : ""),
++	       drive->name);
++	drive->using_dma = 1;
++
++	return 0;
++}
++
++void tangox_bmide_dma_off_quietly(ide_drive_t *drive)
++{
++	drive->using_dma = 0;
++}
++
++/*
++ * dma operations
++ */
++static unsigned long g_mbus_reg = 0;
++static unsigned int g_next_sg = 0;
++
++static ide_startstop_t tangox_dma_intr(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	u8 dma_stat, stat;
++	struct request *rq;
++
++	dma_stat = hwif->ide_dma_end(drive);
++	stat = HWIF(drive)->INB(IDE_STATUS_REG);
++
++	if (OK_STAT(stat, DRIVE_READY, drive->bad_wstat | DRQ_STAT)) {
++		if (!(dma_stat & 1)) {
++			rq = HWGROUP(drive)->rq;
++			ide_end_request(drive, 1, rq->nr_sectors);
++			return ide_stopped;
++		}
++		printk(KERN_ERR PFX "%s: bad DMA status (dma_stat=%x)\n",
++		       drive->name, dma_stat);
++	}
++
++	return ide_error(drive, "dma_intr", 0);
++}
++
++static void tangox_mbus_intr(int irq, void *arg)
++{
++	ide_drive_t *drive = (ide_drive_t *)arg;
++	ide_hwif_t *hwif = HWIF(drive);
++        struct scatterlist *sg;
++
++	if (drive->using_dma == 0) {
++		printk(KERN_ERR PFX "bug: tangox_mbus_intr called while "
++		       "using_dma == 0\n");
++		return;
++	}
++
++	if (g_next_sg > hwif->sg_nents)
++		return; /* should be the last interrupt */
++	else if (g_next_sg == hwif->sg_nents) { /* no more sg */
++		g_next_sg++;
++		em86xx_mbus_setup_dma_void(g_mbus_reg); 
++		return;
++	}
++
++	em86xx_mbus_wait(g_mbus_reg, SBOX_IDEDVD);
++
++	/*
++	 * setup a new mbus transfer
++	 */
++	sg = &hwif->sg_table[g_next_sg];
++	g_next_sg++;
++
++	if (em86xx_mbus_setup_dma(g_mbus_reg, sg_dma_address(sg), sg_dma_len(sg),
++				  tangox_mbus_intr, drive, 0)) {
++		printk(KERN_ERR PFX "fail to resetup dma, wait "
++		       "for timeout...\n");
++	}
++}
++
++static void tangox_dma_exec_cmd(ide_drive_t *drive, u8 command)
++{
++	/* issue  cmd to  drive,  and register  interrupt handler  for
++	 * command completion */
++	ide_execute_command(drive, command, &tangox_dma_intr, (2 * WAIT_CMD),
++			    NULL);
++}
++
++/* Get the I/O size of given request */
++static inline int get_request_size(struct request *rq)
++{
++	unsigned int rq_size;
++	struct bio *bio;
++	
++	for (rq_size = 0, bio = rq->bio; bio != NULL; bio = bio->bi_next)
++		rq_size += bio->bi_size;
++	
++	return rq_size;
++}
++
++static void tangox_dma_start(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	struct request *rq;
++	unsigned long val, len;
++
++	rq = HWGROUP(drive)->rq;
++	len = get_request_size(rq);
++
++	/* setup IDE DMA transfer len */
++	gbus_write_reg32(REG_BASE_host_interface + IDECTRL_ide_dmalen, len);
++
++	/* enable bus mastering */
++	val = 0x05;
++	if (hwif->sg_dma_direction == DMA_FROM_DEVICE)
++		val |= 0x8;
++
++	gbus_write_reg32(REG_BASE_host_interface + IDECTRL_bmic, val);
++}
++
++static int tangox_dma_setup(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	struct request *rq;
++	int iswrite, phys_mapped;
++	struct scatterlist *sg = hwif->sg_table;
++
++        rq = HWGROUP(drive)->rq;
++
++	iswrite = (rq_data_dir(rq) == WRITE);
++	hwif->sg_dma_direction = iswrite ? DMA_TO_DEVICE : DMA_FROM_DEVICE;
++
++	phys_mapped = (bio_flagged(rq->bio, BIO_PHYSICAL) ? 1 : 0);
++
++	if (!phys_mapped) {
++		/*
++		 * ide_map_sg will merge contiguous memory zone for us
++		 */
++		ide_map_sg(drive, rq);
++	}
++
++	/* try to setup dma channel */
++	if (em86xx_mbus_alloc_dma(SBOX_IDEDVD, iswrite ? 0 : 1, &g_mbus_reg,
++				  NULL, 0)) {
++		printk(KERN_ERR PFX "fail to alloc dma, fallback to pio\n");
++		goto fallback_pio;
++	}
++
++	if (!phys_mapped) {
++		/*
++		 * map and transfer first segment
++		 */
++		dma_map_sg(&hwif->gendev, sg, hwif->sg_nents, hwif->sg_dma_direction);
++		g_next_sg = 1;
++
++#ifdef USE_BOUNCE_BUF
++		if((hwif->sg_nents > 1)) {
++			int i; 
++			unsigned long len = 0, total_len=0, addr;
++			unsigned long buf = (unsigned long) g_bounce_buf;
++			if(iswrite){ /* write using bounce buffer */
++				//memset(g_bounce_buf, 0, 1 << (DMA_BOUNCE_BUF_ORDER + PAGE_SHIFT));
++				for(i = 0; i< hwif->sg_nents; i++){
++					len = sg_dma_len(sg);
++					addr =	KSEG1ADDR(tangox_inv_dma_address(sg_dma_address(sg)));
++#ifndef USE_MBUS_MEMCPY
++					memcpy((void *)buf, (void *)addr, len);
++#else
++					dma_cache_wback((unsigned long)addr, len);
++					mbus_memcpy(g_mbus_reg, tangox_dma_address(CPHYSADDR(buf)), sg_dma_address(sg), len);
++#endif
++					total_len += len;
++					buf += len;
++					sg = &hwif->sg_table[g_next_sg];
++					g_next_sg++;
++				}
++				if (buf > ((unsigned long) g_bounce_buf + (1 << (DMA_BOUNCE_BUF_ORDER + PAGE_SHIFT)))){
++					printk("IDE: Bounce buffer is too small to fit requested transfers\n");
++					goto fallback_pio;
++				}
++
++#ifndef USE_MBUS_MEMCPY
++				mb();
++				dma_cache_wback_inv((unsigned long)g_bounce_buf, total_len);
++#else
++				dma_cache_inv((unsigned long)g_bounce_buf, total_len);
++#endif
++
++				if (em86xx_mbus_setup_dma(g_mbus_reg, CPHYSADDR(g_bounce_buf), total_len,
++						   NULL,  drive, 1 )) {
++					printk(KERN_ERR PFX "fail to setup dma, fallback to pio\n");
++					dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents,
++						     hwif->sg_dma_direction);
++					em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++					goto fallback_pio;
++				}
++			} else { /*read using bounce buffer */
++				for(i = 0; i< hwif->sg_nents; i++){
++					len = sg_dma_len(sg);
++					total_len += len;
++					sg = &hwif->sg_table[g_next_sg];
++					g_next_sg++;
++				}
++				if (em86xx_mbus_setup_dma(g_mbus_reg, CPHYSADDR(g_bounce_buf), total_len,
++						   NULL,  drive, 1 )) {
++					printk(KERN_ERR PFX "fail to setup dma, fallback to pio\n");
++					dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents,
++						     hwif->sg_dma_direction);
++					em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++					goto fallback_pio;
++				}
++			}
++		}
++		else {
++
++			/*
++			 * setup mbus dma for this address.  we want an mbus interrupt
++			 * only if this is not the last sg element,  so we can refeed
++			 * mbus.
++			 */
++			if (em86xx_mbus_setup_dma(g_mbus_reg, sg_dma_address(sg),
++					  sg_dma_len(sg),
++					  (hwif->sg_nents == 1) ? NULL : tangox_mbus_intr, 
++					  drive, 
++					  (hwif->sg_nents == 1) ? 1 : 0)) {
++				printk(KERN_ERR PFX "fail to setup dma, fallback to pio\n");
++				dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents,
++					     hwif->sg_dma_direction);
++				em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++				goto fallback_pio;
++			}
++		}
++#else
++
++		/*
++		 * setup mbus dma for this address.  we want an mbus interrupt
++		 * only if this is not the last sg element,  so we can refeed
++		 * mbus.
++		 */
++		if (em86xx_mbus_setup_dma(g_mbus_reg, sg_dma_address(sg),
++					sg_dma_len(sg),
++					(hwif->sg_nents == 1) ? NULL : tangox_mbus_intr,
++					drive,
++					(hwif->sg_nents == 1) ? 1 : 0)) {
++			printk(KERN_ERR PFX "fail to setup dma, fallback to pio\n");
++			dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents,
++					hwif->sg_dma_direction);
++			em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++			goto fallback_pio;
++		}
++#endif
++	} else {
++		/*
++		 * setup mbus dma for this address.  we want an mbus interrupt
++		 * only if this  is not the last sg element,  so we can refeed
++		 * mbus.
++		 */
++		/* physical addr was carried by bi_private*/
++		if (em86xx_mbus_setup_dma(g_mbus_reg, (unsigned int)rq->bio->bi_private,
++					rq->bio->bi_size, NULL, drive, 1)) {
++			printk(KERN_ERR PFX "fail to setup dma, fallback to pio\n");
++			em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++			goto fallback_pio;
++		}
++	}
++
++	drive->waiting_for_dma = 1;
++	return 0;
++
++fallback_pio:
++	if (!phys_mapped) 
++		ide_map_sg(drive, rq);
++	return 1;
++}
++
++static int tangox_bmide_dma_end(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	u8 dma_stat;
++	int mbus_stat;
++        struct scatterlist *sg = hwif->sg_table;
++	struct request *rq;
++	int phys_mapped;
++
++        rq = HWGROUP(drive)->rq;
++	phys_mapped = (bio_flagged(rq->bio, BIO_PHYSICAL) ? 1 : 0);
++
++	dma_stat = hwif->INB(hwif->dma_status);
++
++	/*
++	 * make sure DMA is not in progress
++	 */
++	if ((dma_stat & 0x7) == 1) {
++		printk(KERN_ERR PFX "huh ? dma_end called while dma still "
++		       "in progress...\n");
++	}
++
++	/* clear the INTR & ERROR bits */
++	hwif->OUTB(dma_stat | 6, hwif->dma_status);
++
++	/*
++	 * confirm  whether MBUS transfer  is done  due to  the memory
++	 * arbitration, IDE  device thinks  the DMA transfer  is done,
++	 * but the data might be held in MBUS FIFO
++	 */
++	mbus_stat = em86xx_mbus_wait(g_mbus_reg, SBOX_IDEDVD);
++
++	/* release mbus */
++	em86xx_mbus_free_dma(g_mbus_reg, SBOX_IDEDVD);
++
++	/* stop bus mastering */
++	hwif->OUTB(0x4, hwif->dma_command);
++
++	if (!phys_mapped) 
++		dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents,
++				hwif->sg_dma_direction);
++
++	drive->waiting_for_dma = 0;
++
++#ifdef USE_BOUNCE_BUF
++	if(!mbus_stat && ((dma_stat & 0x1) == 0) && 
++		(hwif->sg_dma_direction == DMA_FROM_DEVICE) && 
++		(hwif->sg_nents > 1)) {
++		int i;
++		unsigned long len = 0, addr;
++		unsigned long buf = (unsigned long) g_bounce_buf;
++		for(i = 0; i< hwif->sg_nents; i++){
++			addr = KSEG0ADDR(tangox_inv_dma_address(sg_dma_address(sg)));
++			len = sg_dma_len(sg);
++
++#ifndef USE_MBUS_MEMCPY
++			memcpy((void *)addr, (void *)buf, len);
++			mb();
++			dma_cache_wback_inv(addr, len);
++#else
++			dma_cache_inv(addr, len);
++			mbus_memcpy(g_mbus_reg, sg_dma_address(sg), 
++					tangox_dma_address(CPHYSADDR(buf)), len);
++#endif
++
++			buf += len;
++			sg = &hwif->sg_table[i+1];
++		}
++	}
++#endif
++
++	/* fake  dma  error  in  case  of mbus  timeout,  else  return
++	 * dma_status error bit */
++	return (mbus_stat == 0) ? (dma_stat & 1) : 0x1;
++}
++
++static int tangox_bmide_dma_test_irq(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	u8 dma_stat;
++
++	dma_stat = hwif->INB(hwif->dma_status);
++	if ((dma_stat & 0x4))
++		return 1;
++	return 0;
++}
++
++static int tangox_bmide_dma_lostirq(ide_drive_t *drive)
++{
++	return 0;
++}
++
++static int tangox_bmide_dma_timeout(ide_drive_t *drive)
++{
++	return 0;
++}
++#endif
++
++#ifndef CONFIG_RUNTIME_CLK_CALC
++/*
++ * timing values for each ide mode
++ */
++static const unsigned int s_pio_tim[] = {
++	0xff230ee6, 0xd41b0fa4, 0xb4150f63, 0xa7110f62, 0x9a0f0552
++};
++
++static const unsigned int s_dma_tim[] = {
++	0xf33333b4, 0xa3130b73, 0x9c100552
++};
++static const unsigned int s_udma_tim1[] = {
++	0x35440b08, 0x35440a06, 0x35440804
++};
++static const unsigned int s_udma_tim2[] = {
++	0x00000208, 0x00000206, 0x00000204
++};
++
++static const unsigned int s_udma_tim1_alt[] = {
++	0x44442418, 0x44441c10, 0x4444160b, 0x44441608,
++	0x44441605, 0x44441303, 0x44441302, 0x44441302
++};
++static const unsigned int s_udma_tim2_alt[] = {
++	0x0000010f, 0x0000010a, 0x00000106, 0x00000104,
++	0x00000101, 0x00000202, 0x00000202, 0x00000202
++};
++#endif /* !CONFIG_RUNTIME_CLK_CALC */
++
++
++/*
++ * tangox_bmide_tune_drive
++ */
++static void tangox_bmide_tune_drive(ide_drive_t *drive, u8 pio)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++
++	if (pio == 255)
++		pio = ide_get_best_pio_mode(drive, pio, 4, NULL);
++	hwif->speedproc(drive, pio + XFER_PIO_0);
++}
++
++/* 
++ * tangox_bmide_udma_filter
++ */
++static u8 tangox_bmide_udma_filter(ide_drive_t *drive)
++{
++	if ((gbus_read_reg32(REG_BASE_host_interface + IDECTRL_idestatus) & 0x02) == 0x02) {
++		printk("%s: no 80 conductors cable, falling back to lower udma mode\n", drive->name);
++		return 0x7; /* max. at UDMA2 */
++	}
++	return 0x3f; /* max. at UDMA5 */
++}
++
++/*
++ * tangox_bmide_tune_chipset
++ */
++static u8 drive_speed[2] = { 0xff, 0xff };
++
++static int tangox_bmide_tune_chipset(ide_drive_t *drive, u8 xferspeed)
++{
++	int didx;
++	unsigned int ctrlreg, newflag;
++        unsigned long flags;
++	u8 mode, pio;
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++#define TIMING_MARGIN(x) (((x) * 105) / 100) /* add 5% margin */
++//#define TIMING_MARGIN(x) (x) /* no margin added */
++	extern unsigned long tangox_get_sysclock(void);
++	unsigned int ide_clock = TIMING_MARGIN(tangox_get_sysclock() / 1000000); /* in MHz */
++#endif
++	
++	didx = drive->select.b.unit;
++	newflag = 0;
++
++        spin_lock_irqsave(&bmide_tune_chipset_spin_lock, flags);
++
++	if (xferspeed >= XFER_PIO_0 && xferspeed <= XFER_PIO_4) {
++		/*
++		 * setup timing for PIO mode
++		 */
++		mode = xferspeed - XFER_PIO_0;
++		printk("%s: set to PIO mode %d\n", drive->name, mode);
++
++		/* fast timing for PIO, enable IORDY sampling */
++		newflag = 0x03;
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim), 
++			    CalcRegValTiming_PIO_DMA(&(j2_pio_timings[mode]), ide_clock));
++#else
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim), 
++			    s_pio_tim[mode]);
++#endif
++
++	}
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++	else if (xferspeed >= XFER_MW_DMA_0 && xferspeed <= XFER_MW_DMA_2) {
++		/*
++		 * setup timing for Multi-word DMA
++		 */
++		mode = xferspeed - XFER_MW_DMA_0;
++		printk("%s: set to Multi-word DMA mode %d\n", drive->name,
++		       mode);
++
++		/* fast timing for PIO, prefetch enable */
++		newflag = 0x05;
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim), 
++			    CalcRegValTiming_PIO_DMA(&(j2_dma_timings[mode]), ide_clock));
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1), 
++			    CalcRegValTiming1_UDMA(&(j2_udma_timings[mode]), ide_clock));
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2), 
++			    CalcRegValTiming2_UDMA(&(j2_udma_timings[mode]), ide_clock));
++#else
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim), 
++			    s_dma_tim[mode]);
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1), 
++			    s_udma_tim1[mode]);
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2), 
++			    s_udma_tim2[mode]);
++#endif
++
++	} 
++#endif
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_UDMA
++	else if (xferspeed >= XFER_UDMA_0 && xferspeed <= XFER_UDMA_7) {
++		unsigned int val;
++
++		/*
++		 * setup timing for Ultra DMA
++		 */
++		mode = xferspeed - XFER_UDMA_0;
++		printk("%s: set to Ultra DMA mode %d\n", drive->name, mode);
++
++		newflag = 0x00;
++
++		/* enable Ultra DMA */
++		val = gbus_read_reg32(REG_BASE_host_interface + IDECTRL_udmactl);
++		val |= (didx == 0) ? 0x01 : 0x02;
++		gbus_write_reg32(REG_BASE_host_interface + IDECTRL_udmactl, val);
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1), 
++			    CalcRegValTiming1_UDMA(&(j2_udma_timings[mode]), ide_clock));
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2), 
++			    CalcRegValTiming2_UDMA(&(j2_udma_timings[mode]), ide_clock));
++#else
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1), 
++			    s_udma_tim1_alt[mode]);
++		gbus_write_reg32(REG_BASE_host_interface +
++			    ((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2), 
++			    s_udma_tim2_alt[mode]);
++#endif
++ 	}
++#endif
++	else {
++		printk("%s: unknown speed to be set %d\n", drive->name, xferspeed);
++	}
++
++	ctrlreg = gbus_read_reg32(REG_BASE_host_interface + IDECTRL_pri_idectl);
++	ctrlreg &= ~(didx == 0 ? 0xf : 0xf0);
++	ctrlreg |= newflag << (didx * 4);
++	gbus_write_reg32(REG_BASE_host_interface + IDECTRL_pri_idectl, ctrlreg);
++
++	spin_unlock_irqrestore(&bmide_tune_chipset_spin_lock, flags);
++
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++	if (xferspeed >= XFER_SW_DMA_0)
++		pio = dma_2_pio(xferspeed);
++	else
++#endif
++		pio = xferspeed - XFER_PIO_0;
++
++	drive_speed[didx] = xferspeed;
++	return ide_config_drive_speed(drive, xferspeed);
++}
++
++static void tangox_hw_setup(hw_regs_t *hw, unsigned long data_port,
++		     unsigned long ctrl_port)
++{
++	int i;
++	unsigned long reg;
++
++	memset(hw, 0, sizeof (*hw));
++
++	/* setup io_ports */
++	reg = data_port;
++	for (i = IDE_DATA_OFFSET; i <= IDE_STATUS_OFFSET; i++) {
++		hw->io_ports[i] = reg;
++		reg += 4;
++	}
++
++	hw->io_ports[IDE_CONTROL_OFFSET] = ctrl_port;
++}
++
++
++/*
++ * init function, ide controller is registred here
++ */
++extern int tangox_bmide_enabled(void);
++
++/* to calcuate the speed needed */
++void tangox_bmide_calc_speed(void)
++{
++	int didx;
++	u8 xferspeed;
++	u8 mode;
++	unsigned long flags;
++#ifdef CONFIG_RUNTIME_CLK_CALC
++	extern unsigned long tangox_get_sysclock(void);
++	unsigned int ide_clock = TIMING_MARGIN(tangox_get_sysclock() / 1000000); /* in MHz */
++#endif
++	
++	if (!tangox_bmide_enabled())
++		return;
++	
++	spin_lock_irqsave(&bmide_tune_chipset_spin_lock, flags);
++	
++	for (didx = 0; didx < 2; didx++) {
++		if ((xferspeed = drive_speed[didx]) == 0xff)
++			continue;
++		
++		if (xferspeed >= XFER_PIO_0 && xferspeed <= XFER_PIO_4) {
++			/*
++			 * setup timing for PIO mode
++			 */
++			mode = xferspeed - XFER_PIO_0;
++#ifdef CONFIG_RUNTIME_CLK_CALC
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim),
++					CalcRegValTiming_PIO_DMA(&(j2_pio_timings[mode]), ide_clock));
++#else
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim),
++					s_pio_tim[mode]);
++#endif
++		}
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++		else if (xferspeed >= XFER_MW_DMA_0 && xferspeed <= XFER_MW_DMA_2) {
++			/*
++			 * setup timing for Multi-word DMA
++			 */
++			mode = xferspeed - XFER_MW_DMA_0;
++#ifdef CONFIG_RUNTIME_CLK_CALC
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim),
++					CalcRegValTiming_PIO_DMA(&(j2_dma_timings[mode]), ide_clock));
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1),
++					
++					CalcRegValTiming1_UDMA(&(j2_udma_timings[mode]), ide_clock));
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2),
++					CalcRegValTiming2_UDMA(&(j2_udma_timings[mode]), ide_clock));
++#else
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0tim : IDECTRL_pri_drv1tim),
++					s_dma_tim[mode]);
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1),
++					s_udma_tim1[mode]);
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2),
++					s_udma_tim2[mode]);
++#endif
++		}
++#endif
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_UDMA
++		else if (xferspeed >= XFER_UDMA_0 && xferspeed <= XFER_UDMA_7) {
++			/*
++			 * setup timing for Ultra DMA
++			 */
++			mode = xferspeed - XFER_UDMA_0;
++#ifdef CONFIG_RUNTIME_CLK_CALC
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1),
++					CalcRegValTiming1_UDMA(&(j2_udma_timings[mode]), ide_clock));
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2),
++					CalcRegValTiming2_UDMA(&(j2_udma_timings[mode]), ide_clock));
++#else
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim1 : IDECTRL_pri_drv1udmatim1),
++					s_udma_tim1_alt[mode]);
++			gbus_write_reg32(REG_BASE_host_interface +
++					((didx == 0) ? IDECTRL_pri_drv0udmatim2 : IDECTRL_pri_drv1udmatim2),
++					s_udma_tim2_alt[mode]);
++#endif
++		}
++#endif
++	}
++
++	spin_unlock_irqrestore(&bmide_tune_chipset_spin_lock, flags);
++}
++
++int __init tangox_bmide_init(void)
++{
++	ide_hwif_t *hwif;
++	hw_regs_t hw;
++	int index;
++	if (!tangox_bmide_enabled()) {
++		printk(KERN_NOTICE PFX "bmide support is disabled\n");
++		return -1;
++	}
++
++	/* Enable bus master IDE interface */
++	WR_HOST_REG32(IDECTRL_pri_idectl, 0x8400);
++
++	/* no skew : normal IORDY, normal data */
++	WR_HOST_REG32(IDECTRL_idesrc, 0);
++
++	/* Enable non-PRD mode */
++	WR_HOST_REG32(IDECTRL_bmic, 0x4);
++
++	/*
++	 * set register offset for our controller
++	 */
++	tangox_hw_setup(&hw, REG_BASE_host_interface_BMIDE,
++			REG_BASE_host_interface + IDECTRL_pri_ctrlblock);
++	hw.dma = NO_DMA;
++	/*
++	 * Tango   has   two   interrupts   for   IDE   controller   :
++	 * IRQ_IDECTRL_IDE,  IRQ_IDECTRL_IDEDMA
++	 *
++	 * IRQ_IDECTRL_IDEDMA is to be used for DMA transfer but it is
++	 * almost same with IRQ_IDECTRL_IDE interrupt.  Tango triggers
++	 * IDEDMA interrupt  after DMA FIFO  is flushed, and  it stays
++	 * high   until  BMIS   register  bit   2  is   cleared.   Use
++	 * IRQ_IDECTRL_IDE interrupt for both of PIO and DMA.
++	 */
++	hw.irq = IRQ_IDECTRL_IDE;
++
++	/*
++	 * register our controller
++	 */
++	if ((index = ide_register_hw(&hw, 1, &hwif)) < 0) {
++		printk("failed to register SMP86xx BM IDE controller\n");
++		return -1;
++	}
++	printk("%s: SMP86xx Bus Mastering IDE controller\n", hwif->name);
++
++	/*
++	 * fill controller callbacks
++	 */
++
++        /* set up local I/O function entry points */
++        hwif->INB = tangox_bmide_inb;
++        hwif->INW = tangox_bmide_inw;
++        hwif->INSW = tangox_bmide_insw;
++        hwif->OUTB = tangox_bmide_outb;
++        hwif->OUTW = tangox_bmide_outw;
++        hwif->OUTBSYNC = tangox_bmide_outbsync;
++        hwif->OUTSW = tangox_bmide_outsw;
++
++	hwif->tuneproc = &tangox_bmide_tune_drive;
++        hwif->speedproc = &tangox_bmide_tune_chipset;
++
++	hwif->udma_filter = tangox_bmide_udma_filter;
++
++	hwif->drives[0].autotune = 1;
++	hwif->drives[1].autotune = 1;
++
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_DMA
++	/* enable dma of both ide drives */
++	hwif->drives[0].autodma = noautodma ? 0 : 1;
++	hwif->drives[1].autodma = noautodma ? 0 : 1;
++	hwif->rqsize = 256;
++
++	/* we will do autotune at dmacheck time */
++	if (noautodma == 0) {
++		hwif->drives[0].autotune = 0;
++		hwif->drives[1].autotune = 0;
++	}
++
++	/* enable  all  ultra dma  and  multiword  dma operation,  but
++	 * disable single */
++#ifdef CONFIG_BLK_DEV_BMIDE_TANGOX_UDMA
++	hwif->ultra_mask = 0x3f; /* enable UDMA, up to UDMA5 */
++#else
++	hwif->ultra_mask = 0x0; /* disable UDMA */
++#endif
++	hwif->udma_four = 1;
++	hwif->mwdma_mask = 0x07;
++	hwif->swdma_mask = 0x0;
++
++ 	hwif->autodma = 1;
++ 	hwif->atapi_dma = 1;
++
++	/* dma callbacks */
++	hwif->ide_dma_on = tangox_bmide_dma_on;
++	hwif->ide_dma_check = tangox_bmide_dma_check;
++	hwif->dma_off_quietly = tangox_bmide_dma_off_quietly;
++	hwif->dma_host_on = tangox_bmide_dma_host_on;
++	hwif->dma_host_off = tangox_bmide_dma_host_off;
++	hwif->ide_dma_test_irq = tangox_bmide_dma_test_irq;
++	hwif->ide_dma_lostirq = tangox_bmide_dma_lostirq;
++	hwif->ide_dma_timeout = tangox_bmide_dma_timeout;
++
++	hwif->dma_setup = tangox_dma_setup;
++	hwif->dma_exec_cmd = tangox_dma_exec_cmd;
++	hwif->dma_start = tangox_dma_start;
++	hwif->ide_dma_end = tangox_bmide_dma_end;
++
++	hwif->dma_command = REG_BASE_host_interface + IDECTRL_bmic;
++	hwif->dma_status = REG_BASE_host_interface + IDECTRL_bmis;
++
++	em86xx_mbus_init();
++
++#ifdef USE_BOUNCE_BUF
++	if ((g_bounce_buf = (unsigned char *)__get_free_pages(GFP_KERNEL, DMA_BOUNCE_BUF_ORDER)) == NULL)
++		printk("IDE: Can not allocate buffer for IDE transfer\n");
++
++	printk("Bounce buffer starts at 0x%08lx\n", (unsigned long)g_bounce_buf);
++#endif	
++
++#endif
++	return 0;
++}
++
++static void __exit tangox_bmide_exit(void)
++{
++#ifdef USE_BOUNCE_BUF
++        free_pages((unsigned long)g_bounce_buf, DMA_BOUNCE_BUF_ORDER);
++#endif
++        return;
++}
++
++
++#ifdef MODULE
++module_init(tangox_bmide_init);
++module_exit(tangox_bmide_exit);
++#endif
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("SMP86xx BM IDE driver");
++
++#ifdef CONFIG_RUNTIME_CLK_CALC
++/* The following is for runtime calculation of register value based on the mode and given
++ * system frequency by Ivan K. */
++static unsigned int CalcRegValTiming_PIO_DMA(j2_tim_pio_dma_t *t, unsigned long ide_clock)
++{
++	unsigned int dwRet;
++	unsigned int cycle_clks;	// ide clocks / cycle
++	unsigned int active_clks;	// ide clocks for active strobe
++	unsigned int recov_clks;	// ide clocks for recovery
++	unsigned int setup_clks;	// ide clocks for setup
++	unsigned int hold_clks;	// ide clocks for hold
++
++	// pio_timings in ns
++	cycle_clks	= (ide_clock * t->cycle_time)/1000;
++	active_clks	= (ide_clock * t->active_time)/1000;
++	recov_clks	= (ide_clock * t->recovery_time)/1000;
++	setup_clks	= (ide_clock * t->setup_time)/1000;
++	hold_clks	= (ide_clock * t->hold_time)/1000;
++
++	if(cycle_clks>0x7F) {
++		cycle_clks = 0x7F;
++	}
++	
++	if(active_clks>0x3F) {
++		active_clks = 0x3F;
++	}
++
++	if(recov_clks>0x3F) {
++		recov_clks = 0x3F;
++	}
++
++	if(setup_clks>0xF) {
++		setup_clks = 0xF;
++	}
++	
++	if(hold_clks>0x7) {
++		setup_clks = 0x7;
++	}
++	
++	dwRet	= (1<<31) | (cycle_clks<<24) | (active_clks<<16) | (recov_clks<<8) | (setup_clks<<4) | (hold_clks);
++
++	return dwRet;
++}
++
++static unsigned int CalcRegValTiming1_UDMA(j2_tim_udma_t *t, unsigned long ide_clock)
++{
++	unsigned int dwRet;
++	unsigned int t_zah,t_mli,t_ack,t_env,t_rp,t_cyc;
++
++	// pio_timings in ns
++	t_zah	= (ide_clock * t->t_zah)/1000;
++	t_mli	= (ide_clock * t->t_mli)/1000;
++	t_ack	= (ide_clock * t->t_ack)/1000;
++	t_env	= (ide_clock * t->t_env)/1000;
++	t_rp	= (ide_clock * t->t_rp) /1000;
++	t_cyc	= (ide_clock * t->t_cyc)/1000;
++
++	if ( t_zah > 0x0F ) {
++		t_zah = 0x0F;
++	}
++	if ( t_mli > 0x0F ) {
++		t_mli = 0x0F;
++	}
++	if ( t_ack > 0x0F ) {
++		t_ack = 0x0F;
++	}
++	if ( t_env > 0x0F) {
++		t_env = 0x0F;
++	}
++	if ( t_rp > 0x3F ) {
++		t_rp = 0x3F;
++	}
++	if ( t_cyc > 0x3F ) {
++		t_cyc = 0x3F;
++	}
++	
++	dwRet	= (t_zah<<28) | (t_mli<<24) | (t_ack<<20) | (t_env<<16) | (t_rp<<8) | (t_cyc);
++
++	return dwRet;
++}
++
++static unsigned int CalcRegValTiming2_UDMA(j2_tim_udma_t *t, unsigned long ide_clock)
++{
++	unsigned int dwRet;
++	unsigned int t_cvh,t_cvs;
++	
++	// pio_timings in ns
++	t_cvh	= (ide_clock * t->t_cvh)/1000;
++	t_cvs	= (ide_clock * t->t_cvs)/1000;
++
++	if ( t_cvh > 0x03 ) {
++		t_cvh = 0x03;
++	}
++	if ( t_cvs > 0x3F ) {
++		t_cvs = 0x3F;
++	}
++
++	dwRet	= (t_cvh<<8) | (t_cvs);
++
++	return dwRet;
++}
++#endif /* CONFIG_RUNTIME_CLK_CALC */
++
++EXPORT_SYMBOL(tangox_bmide_calc_speed);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/tangox/tangox-ide.h linux-2.6.22.19/drivers/ide/tangox/tangox-ide.h
+--- linux-2.6.22.19.ref/drivers/ide/tangox/tangox-ide.h	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/tangox/tangox-ide.h	2009-10-23 17:56:52.000000000 -0700
+@@ -0,0 +1,25 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++ 
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++  
++#ifndef __TANGOX_IDE_H
++#define __TANGOX_IDE_H
++
++#ifdef CONFIG_TANGO2
++#include <asm/tango2/hardware.h>
++#include <asm/tango2/tango2_gbus.h>
++#include <asm/tango2/tango2api.h>
++#elif defined(CONFIG_TANGO3)
++#include <asm/tango3/hardware.h>
++#include <asm/tango3/tango3_gbus.h>
++#include <asm/tango3/tango3api.h>
++#endif
++
++#endif /* __TANGOX_IDE_H */
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/drivers/ide/tangox/tangox-pbide.c linux-2.6.22.19/drivers/ide/tangox/tangox-pbide.c
+--- linux-2.6.22.19.ref/drivers/ide/tangox/tangox-pbide.c	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/drivers/ide/tangox/tangox-pbide.c	2009-10-23 17:56:52.000000000 -0700
+@@ -0,0 +1,620 @@
++
++/*********************************************************************
++ Copyright (C) 2001-2007
++ Sigma Designs, Inc. 
++ 
++ This program is free software; you can redistribute it and/or modify
++ it under the terms of the GNU General Public License version 2 as
++ published by the Free Software Foundation.
++ *********************************************************************/
++  
++/*
++ * driver/ide/tangox/tangox_pbide.c
++ * TANGOX PB IDE driver
++ */
++
++#include <linux/config.h>
++#include <linux/init.h>
++#include <linux/module.h>
++#include <linux/ide.h>
++#include "tangox-ide.h"
++
++extern int tangox_isaide_irq_map(void);
++extern int tangox_isaide_enabled(void);
++extern int tangox_isaide_cs_select(void);
++extern int tangox_isaide_timing_slot(void);
++extern void mbus_setup_dma_double(unsigned int regbase, unsigned int addr, 
++		unsigned int count, unsigned int addr2, unsigned int count2, unsigned int width);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("SMP86xx PB IDE driver");
++
++static unsigned long g_regbase_read, g_regbase_write;
++
++/*
++ * io helpers for PIO access
++ */
++static void tangox_pbide_outb(u8 data, unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static void tangox_pbide_outw(u16 data, unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static void tangox_pbide_outbsync(ide_drive_t *drive, u8 data, unsigned long port)
++{
++	gbus_write_reg16(port, data);
++}
++
++static u8 tangox_pbide_inb(unsigned long port)
++{
++	u8 val;
++
++	val = ((u8)(gbus_read_reg16(port) & 0xff));
++	return val;
++}
++
++static u16 tangox_pbide_inw(unsigned long port)
++{
++	u16 val;
++
++	val = ((u16)(gbus_read_reg16(port) & 0xffff));
++	return val;
++}
++
++static void tangox_pbide_insw(unsigned long port, void *addr, u32 count)
++{
++	while (count--) {
++		*(u16 *)addr = (u16)(gbus_read_reg16(port) & 0xffff);
++		addr += 2;
++	}
++}
++
++static void tangox_pbide_outsw(unsigned long port, void *addr, u32 count)
++{
++	while (count--) {
++		gbus_write_reg16(port, *(u16 *)addr);
++		addr += 2;
++	}
++}
++
++//
++// data structure initialization
++//
++static void tangox_pbide_init_hwif_ports(hw_regs_t *hw, unsigned long data_port, 
++					unsigned long ctrl_port, int *irq)
++{
++	int i;
++	unsigned long reg;
++
++	memset(hw, 0, sizeof(*hw));
++
++	// setup io_ports
++	for (i = IDE_DATA_OFFSET, reg = data_port; i <= IDE_STATUS_OFFSET; i++) {
++		hw->io_ports[i] = reg;
++		reg += 4;
++	}
++
++	hw->io_ports[IDE_CONTROL_OFFSET] = ctrl_port;
++	hw->dma = NO_DMA;
++
++	if (irq) 
++		*irq = tangox_isaide_irq_map();
++}
++
++/*
++ * tangox_pbide_tune_drive
++ */
++static void tangox_pbide_tune_drive(ide_drive_t *drive, u8 pio)
++{
++        ide_hwif_t *hwif = HWIF(drive);
++
++        if (pio == 255)
++                pio = ide_get_best_pio_mode(drive, pio, 4, NULL);
++        hwif->speedproc(drive, pio + XFER_PIO_0);
++}
++
++#ifdef CONFIG_BLK_DEV_PBIDE_TANGOX_DMA
++static void tangox_pbide_dma_off_quietly(ide_drive_t *drive)
++{
++        drive->using_dma = 0;
++}
++
++static int tangox_pbide_dma_test_irq(ide_drive_t *drive)
++{
++        return 1;
++}
++
++static void tangox_pbide_dma_exec_cmd(ide_drive_t *drive, u8 command)
++{
++        /* issue  cmd to  drive,  and register  interrupt handler  for
++         * command completion */
++        //ide_execute_command(drive, command, &ide_dma_intr, (2 * WAIT_CMD), NULL);
++}
++
++static void tangox_pbide_dma_start(ide_drive_t *drive)
++{
++	return;
++}
++
++static int tangox_pbide_dma_lostirq(ide_drive_t *drive)
++{
++	return 0;
++}
++
++static int tangox_pbide_dma_timeout(ide_drive_t *drive)
++{
++	return 0;
++}
++
++static void tangox_pbide_dma_host_on(ide_drive_t *drive)
++{
++	return;
++}
++
++static void tangox_pbide_dma_host_off(ide_drive_t *drive)
++{
++	return;
++}
++
++static int tangox_pbide_dma_on(ide_drive_t *drive)
++{
++#if 0
++        ide_hwif_t *hwif = HWIF(drive);
++        if (hwif->ide_dma_host_on)
++                hwif->ide_dma_host_on(drive);
++#endif
++        printk("IDE: DMA enabled for %s%s\n",
++                drive->media == ide_disk ? "ATA DISK " :
++                (drive->media == ide_cdrom ? "ATAPI CDROM " : ""),
++                drive->name);
++        drive->using_dma = 1;
++        return 0;
++}
++
++/*
++ * Calculate the peripheral bus timing needed for the register used by IDE
++ * devices.
++ */
++
++/* 
++ * The tables bellows use indices as Multi-word DMA 2, Multi-word DMA 1,
++ * Multi-word DMA 0, PIO 4, PIO 3, PIO 2, PIO 1, and PIO 0 (From 0 to 7, 
++ * respectively).
++ */
++
++/* For storing value pair */
++typedef struct {
++	unsigned char x;
++	unsigned char y;
++} value_pair;
++
++/* Table used for calculate Ta and Tb */
++static const value_pair tab_values[] = {
++	{3,0}, {5,0}, {7,2}, {3,0}, {5,0}, {5,0}, {7,2}, {10,4}
++};
++
++/* Table used for calculate Tc */
++static const value_pair tc_values[] = {
++	{13,8}, {19,11}, {60,41}, {10,5}, {12,6}, {14,8}, {17,11}, {23,15}
++};
++
++/* Table used for calculate Td */
++static const value_pair td_values[] = {
++	{1,100}, {1,100}, {3,200}, {1,100}, {1,100}, {1,100}, {3,200}, {5,250}
++};
++
++/* 
++ * Calculate the required timing for setting up peripheral bus timing register.
++ *
++ * Input: sysclk = system clock rate (in MHz)
++ *        mode = IDE mode (0-2: Multiword DMA mode 2-0, 3-7: PIO mode 4-0)
++ * Return: 0 = Error
++ *         else = value for setting up the timing register
++ */
++static unsigned long get_pb_ide_timing(unsigned int sysclk, int mode)
++{
++	unsigned char ta = 0;
++	unsigned char tb = 0;
++	unsigned char tc = 0;
++	unsigned char td = 0;
++	long temp = 0;
++	const value_pair *val_ptr = (const value_pair *)0;
++
++	/* The formula is only effective between 100-240MHz */
++	if ((sysclk < 100) && (sysclk > 240))
++		return(0);
++	else if ((mode < 0) && (mode > 7)) /* Mode index is 0-7 only */
++		return(0);
++
++	/* (x, y) = tab_values[mode] */
++	/* (Ta + Tb) = Temp = (ceiling((sysclk - 100) * x / 140) + y) */
++	/* Ta = ceiling(Temp / 2) */
++	/* Tb = (Temp / 2) */
++	val_ptr = &tab_values[mode];
++	temp = ((sysclk - 100) * val_ptr->x) / 140;
++	if ((temp * 140) < ((sysclk - 100) * val_ptr->x))
++		temp++;
++	temp += val_ptr->y;
++	tb = ta = (unsigned char)((temp >> 1) & 0xff);
++	if (temp & 0x1)
++		ta++;
++
++	/* (x, y) = tc_values[mode] */
++	/* Tc = (ceiling((sysclk - 100) * x / 140) + y) */
++	val_ptr = &tc_values[mode];
++	tc = (unsigned char)(((sysclk - 100) * val_ptr->x) / 140) & 0xff;
++	if ((tc * 140) < ((sysclk - 100) * val_ptr->x))
++		tc++;
++	tc += val_ptr->y;
++
++	/* (x, y) = td_values[mode] */
++	/* Td = ceiling(sysclk + y - 400) * x / y) */
++	val_ptr = &td_values[mode];
++	if ((temp = (sysclk + val_ptr->y) - 400) < 0)
++		td = 0; /* It's possible that Td < 0, so we set it to 0 */
++	else {
++		td = (unsigned char)(((temp * val_ptr->x) / val_ptr->y) & 0xff);
++		if ((td * val_ptr->y) < (temp * val_ptr->x))
++			td++;
++	}
++	return((td << 24) | (tc << 16) | (tb << 8) | ta);
++}
++
++ide_startstop_t tangox_pbide_dma_intr(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	struct request *rq = HWGROUP(drive)->rq;
++
++	hwif->ide_dma_end(drive);
++
++	ide_end_request(drive, 1,rq->nr_sectors);
++
++	return ide_stopped;
++}
++
++static int tangox_pbide_rwdma(ide_drive_t *drive, int read, struct request *rq)
++{
++	unsigned long size = 0;
++	unsigned long addr = 0;
++
++        ide_hwif_t *hwif = HWIF(drive);
++        struct scatterlist *sg = hwif->sg_table;
++	int phys_mapped;
++
++	phys_mapped = (bio_flagged(rq->bio, BIO_PHYSICAL) ? 1 : 0);
++
++	if (!phys_mapped) {
++		dma_map_sg(&hwif->gendev, sg, hwif->sg_nents, hwif->sg_dma_direction);
++
++		if (hwif->sg_nents > 2) { /* this shouldn't happen since we limited rqsize=16 for now*/
++			printk("cannot handle multiple transfer yet. sg_nents=0x%x\n", hwif->sg_nents);
++			dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents, hwif->sg_dma_direction);
++			return 1;
++		}
++	}
++
++	// setup switchbox and wait for its readiness
++        if (em86xx_mbus_alloc_dma(SBOX_IDEFLASH,  1, &g_regbase_read, NULL, 0)) {
++                printk("fail to alloc read dma, fallback to pio.\n");
++		return 1;
++        }
++
++        /* try to setup dma write channel */
++        if (em86xx_mbus_alloc_dma(SBOX_IDEFLASH,  0, &g_regbase_write, NULL, 0)) {
++                printk("fail to alloc write dma, fallback to pio.\n");
++		em86xx_mbus_free_dma(g_regbase_read, SBOX_IDEFLASH);
++		return 1;
++        }
++
++	// setup handler
++	if (drive->media == ide_disk)
++		ide_set_handler(drive, &tangox_pbide_dma_intr, 2 * WAIT_CMD, NULL);
++
++	if (!phys_mapped) {
++		addr = sg_dma_address(sg); 
++		size = sg_dma_len(sg);
++	} else {
++		addr = (unsigned int)rq->bio->bi_private;
++		size = rq->bio->bi_size;
++	}
++
++	if (!phys_mapped) {
++		if (hwif->sg_nents == 1) {
++
++			/* perform a single (linear/rectangle) transfer */
++
++			// setup PB automode registers
++			gbus_write_reg32(REG_BASE_host_interface + PB_automode_start_address, 0);
++			gbus_write_reg32(REG_BASE_host_interface + PB_automode_control,
++					0x00140000 | ((read ? 1 : 0) << 16) | (size >> 1));
++
++			if (read)
++				dma_cache_inv((unsigned int)phys_to_virt(addr), size);
++			else
++				dma_cache_wback_inv((unsigned int)phys_to_virt(addr), size);
++
++			em86xx_mbus_setup_dma(read ? g_regbase_read : g_regbase_write,
++					addr, size, NULL, NULL, 1);
++		} else { 
++			/* perform a double transfer */
++			unsigned int addr1 = 0;
++			unsigned int size1 = 0;
++
++			sg = &hwif->sg_table[1];
++
++			addr1 = sg_dma_address(sg);
++			size1 = sg_dma_len(sg);
++
++			// setup PB automode registers
++			gbus_write_reg32(REG_BASE_host_interface + PB_automode_start_address, 0);
++			gbus_write_reg32(REG_BASE_host_interface + PB_automode_control,
++					0x00140000 | ((read ? 1 : 0) << 16) | ((size+size1) >> 1));
++
++			if (read) {
++				dma_cache_inv((unsigned int)phys_to_virt(addr), size);
++				dma_cache_inv((unsigned int)phys_to_virt(addr1), size1);
++			} else {
++				dma_cache_wback_inv((unsigned int)phys_to_virt(addr), size);
++				dma_cache_wback_inv((unsigned int)phys_to_virt(addr1), size1);
++			}
++
++			mbus_setup_dma_double(read ? g_regbase_read : g_regbase_write, 
++					addr, size, addr1, size1, 1);
++		}
++	} else {
++		/* perform a single (linear/rectangle) transfer */
++
++		// setup PB automode registers
++		gbus_write_reg32(REG_BASE_host_interface + PB_automode_start_address, 0);
++		gbus_write_reg32(REG_BASE_host_interface + PB_automode_control,
++				0x00140000 | ((read ? 1 : 0) << 16) | (size >> 1));
++
++		em86xx_mbus_setup_dma(read ? g_regbase_read : g_regbase_write, 
++				addr, size, NULL, NULL, 1);
++	}
++
++	if (drive->media == ide_disk) {
++		// send IDE command
++		HWIF(drive)->OUTB(read ? (drive->addressing ? WIN_READDMA_EXT : WIN_READDMA) : 
++			(drive->addressing ? WIN_WRITEDMA_EXT : WIN_WRITEDMA), IDE_COMMAND_REG);
++	}
++
++	return 0;
++}
++
++static int tangox_pbide_dma_setup(ide_drive_t *drive)
++{
++        ide_hwif_t *hwif = HWIF(drive);
++        struct request *rq;
++        int iswrite;
++	int phys_mapped;
++
++        drive->waiting_for_dma = 1;
++        rq = HWGROUP(drive)->rq;
++        iswrite = (rq_data_dir(rq) == WRITE);
++        hwif->sg_dma_direction = iswrite ? DMA_TO_DEVICE : DMA_FROM_DEVICE;
++	phys_mapped = (bio_flagged(rq->bio, BIO_PHYSICAL) ? 1 : 0);
++	
++	if (!phys_mapped) {
++		// this will do the merge
++		ide_map_sg(drive, rq);
++	}
++
++        return tangox_pbide_rwdma(drive, !iswrite, rq);
++}
++
++static int tangox_ide_config_drive_for_dma(ide_drive_t *drive, int mode)
++{
++        ide_hwif_t *hwif = HWIF(drive);
++        int config_allows_dma = 0;
++        struct hd_driveid *id = drive->id;
++        int speed;
++
++        // enable DMA for CDROM by default
++        if (drive->media == ide_disk || drive->media == ide_cdrom)
++                config_allows_dma = 1;
++
++        if (id && (id->capability & 1) && hwif->autodma && config_allows_dma) {
++                speed = ide_max_dma_mode(drive);//ide_dma_speed(drive, mode);
++
++                /* For CDROM, we do the max. MDMA mode 2 */
++		//if ((speed > XFER_MW_DMA_2) && (drive->media == ide_cdrom))
++		//	speed = XFER_MW_DMA_2;
++
++                if (speed >= XFER_MW_DMA_0) {
++                        if (hwif->speedproc)
++                                hwif->speedproc(drive, speed);
++                        ide_config_drive_speed(drive, speed);
++                        return hwif->ide_dma_on(drive);
++                }
++        }
++
++        tangox_pbide_dma_off_quietly(drive);
++	return 0;
++}
++
++static int tangox_pbide_dma_check(ide_drive_t *drive)
++{
++	return tangox_ide_config_drive_for_dma(drive, 0);
++}
++
++static u8 drive_speed[2] = { 0xff, 0xff };
++
++static void tangox_pbide_tune_chipset_drive(int drive, int speed, int verbose)
++{
++	extern unsigned long tangox_get_sysclock(void);
++	int mode = speed & 0x0f;
++	unsigned int timing;
++	
++	if (speed >= XFER_PIO_0 && speed <= XFER_PIO_4)
++		mode -= 8;
++	else if (speed >= XFER_MW_DMA_0 && speed <= XFER_MW_DMA_2)
++		mode += 5;
++	else
++		return;	
++
++	drive_speed[drive] = speed;
++
++	// get_pb_ide_timing() receives mode in reversed order
++	//   PIO : 7-3
++	//   Multi-word DMA : 2-0
++	mode = 7 - mode;
++	timing = get_pb_ide_timing(tangox_get_sysclock() * 11 / (10*1000000), mode);
++	gbus_write_reg32(REG_BASE_host_interface + PB_timing_slot(tangox_isaide_timing_slot()), timing);
++}
++
++static int tangox_pbide_tune_chipset(ide_drive_t *drive, u8 speed)
++{
++	tangox_pbide_tune_chipset_drive(drive->select.b.unit, speed, 1);
++
++	return ide_config_drive_speed(drive, speed);
++}
++
++static int tangox_pbide_dma_end_io(ide_drive_t *drive)
++{
++	ide_hwif_t *hwif = HWIF(drive);
++	struct request *rq = HWGROUP(drive)->rq;
++        struct scatterlist *sg = hwif->sg_table;
++	int phys_mapped;
++	int stat = em86xx_mbus_wait(rq->cmd == READ ? g_regbase_read : 
++					g_regbase_write, SBOX_IDEFLASH);
++
++	phys_mapped = (bio_flagged(rq->bio, BIO_PHYSICAL) ? 1 : 0);
++
++	if (!phys_mapped)
++		dma_unmap_sg(&hwif->gendev, sg, hwif->sg_nents, hwif->sg_dma_direction);
++
++	/* Free up MBUS channel */
++	em86xx_mbus_free_dma(g_regbase_read, SBOX_IDEFLASH);
++	em86xx_mbus_free_dma(g_regbase_write, SBOX_IDEFLASH);
++	return((stat != 0) ? 1 : 0);
++}
++
++static int tangox_pbide_dma_end(ide_drive_t *drive)
++{
++	int status;
++
++	drive->waiting_for_dma = 0;
++	status = tangox_pbide_dma_end_io(drive);
++	return(status);
++}
++#endif
++
++/* to calcuate the speed needed */
++void tangox_pbide_calc_speed(void)
++{
++	int didx;
++	int mode, speed;
++	unsigned int timing;
++	// u8 xferspeed;
++	extern unsigned long tangox_get_sysclock(void);
++	
++	if (tangox_isaide_enabled() == 0)
++		return;
++	
++	for (didx = 0; didx < 2; didx++) {
++		if ((speed = drive_speed[didx]) == 0xff)
++			continue;
++		
++		mode = speed & 0x0f;
++		
++		if (speed >= XFER_PIO_0 && speed <= XFER_PIO_4)
++			mode -= 8;
++		else if (speed >= XFER_MW_DMA_0 && speed <= XFER_MW_DMA_2)
++			mode += 5;
++		else
++			continue;
++		
++		// get_pb_ide_timing() receives mode in reversed order
++		//   PIO : 7-3
++		//   Multi-word DMA : 2-0
++		mode = 7 - mode;
++		timing = get_pb_ide_timing(tangox_get_sysclock() * 11 / (10*1000000), mode);
++		gbus_write_reg32(REG_BASE_host_interface + PB_timing_slot(tangox_isaide_timing_slot()), timing);
++	}
++}
++
++//
++// initialize IDE driver
++//
++int __init tangox_pbide_init(void)
++{
++	int index, i;
++	ide_hwif_t *hwif;
++	hw_regs_t hw;
++#ifdef MODULE
++        ide_drive_t *drive = NULL;
++#endif
++
++	if (tangox_isaide_enabled() == 0)
++		return 0;
++	else
++		tangox_pbide_init_hwif_ports(&hw, 
++			REG_BASE_host_interface_ISAIDE(tangox_isaide_cs_select()), 0, &hw.irq);
++
++       	index = ide_register_hw(&hw, 1, &hwif);
++	printk("%s: SMP86xx PB IDE controller.\n", hwif->name);
++
++	// initialize ide_hwifs data structure
++	// supports only one interface
++	for (i = index; i < index + 1; ++i) {
++		// register DMA handler
++		hwif = &ide_hwifs[i];
++
++	        /* set up local I/O function entry points */
++	        hwif->INB = tangox_pbide_inb;
++	        hwif->INW = tangox_pbide_inw;
++	        hwif->INSW = tangox_pbide_insw;
++	        hwif->OUTB = tangox_pbide_outb;
++	        hwif->OUTW = tangox_pbide_outw;
++	        hwif->OUTBSYNC = tangox_pbide_outbsync;
++	        hwif->OUTSW = tangox_pbide_outsw;
++
++		hwif->rqsize = 16; 
++
++	    if (!noautodma) {
++#ifdef CONFIG_BLK_DEV_PBIDE_TANGOX_DMA 
++		hwif->autodma = 1;
++		hwif->atapi_dma = 1;
++		hwif->ultra_mask = 0x00;	// disable all Ultra DMA
++		hwif->mwdma_mask = 0x07;	// enable all Multi-word DMA
++		hwif->swdma_mask = 0x80;	// disable all Single-word DMA
++
++	        hwif->dma_setup = tangox_pbide_dma_setup;
++	        hwif->dma_exec_cmd = tangox_pbide_dma_exec_cmd;
++	        hwif->dma_start = tangox_pbide_dma_start;
++		hwif->ide_dma_end = tangox_pbide_dma_end;
++
++		hwif->ide_dma_check = tangox_pbide_dma_check;
++		hwif->ide_dma_on = tangox_pbide_dma_on;
++		hwif->ide_dma_test_irq = tangox_pbide_dma_test_irq;
++		hwif->dma_off_quietly = tangox_pbide_dma_off_quietly;
++		hwif->dma_host_on = tangox_pbide_dma_host_on;
++		hwif->dma_host_off = tangox_pbide_dma_host_off;
++		hwif->ide_dma_lostirq = tangox_pbide_dma_lostirq;
++		hwif->ide_dma_timeout = tangox_pbide_dma_timeout;
++	      	hwif->tuneproc = tangox_pbide_tune_drive;
++		hwif->speedproc = tangox_pbide_tune_chipset;
++#endif
++	    }
++	}
++
++	return 0;
++}
++
++void __exit tangox_pbide_exit(void)
++{
++        return;
++}
++
++#ifdef MODULE
++module_init(tangox_pbide_init);
++module_exit(tangox_pbide_exit);
++#endif
++
++EXPORT_SYMBOL(tangox_pbide_calc_speed);
++
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/asm-mips/mach-generic/ide.h linux-2.6.22.19/include/asm-mips/mach-generic/ide.h
+--- linux-2.6.22.19.ref/include/asm-mips/mach-generic/ide.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/asm-mips/mach-generic/ide.h	2009-10-23 17:56:52.000000000 -0700
+@@ -29,6 +29,62 @@
+ 
+ #define IDE_ARCH_OBSOLETE_DEFAULTS
+ 
++static __inline__ int ide_default_irq(unsigned long base)
++{
++	switch (base) {
++		case 0x1f0: return 14;
++		case 0x170: return 15;
++		case 0x1e8: return 11;
++		case 0x168: return 10;
++		case 0x1e0: return 8;
++		case 0x160: return 12;
++		default:
++			return 0;
++	}
++}
++
++#ifdef CONFIG_TANGOX
++static __inline__ int ide_probe_legacy(void)
++{
++#ifdef CONFIG_PCI
++        struct pci_dev *dev;
++        if ((dev = pci_get_class(PCI_CLASS_BRIDGE_EISA << 8, NULL)) != NULL ||
++            (dev = pci_get_class(PCI_CLASS_BRIDGE_ISA << 8, NULL)) != NULL) {
++                pci_dev_put(dev);
++
++                return 1;
++        }
++        return 0;
++#elif defined(CONFIG_EISA) || defined(CONFIG_ISA)
++        return 1;
++#else
++        return 0;
++#endif
++}
++static __inline__ unsigned long ide_default_io_base(int index)
++{
++        if (ide_probe_legacy())
++                switch (index) {
++                case 0:
++                        return 0x1f0;
++                case 1:
++                        return 0x170;
++                case 2:
++                        return 0x1e8;
++                case 3:
++                        return 0x168;
++                case 4:
++                        return 0x1e0;
++                case 5:
++                        return 0x160;
++                default:
++                        return 0;
++                }
++        else
++                return 0;
++}
++
++#else
+ static __inline__ int ide_probe_legacy(void)
+ {
+ #ifdef CONFIG_PCI
+@@ -58,20 +114,6 @@
+ #endif
+ }
+ 
+-static __inline__ int ide_default_irq(unsigned long base)
+-{
+-	switch (base) {
+-		case 0x1f0: return 14;
+-		case 0x170: return 15;
+-		case 0x1e8: return 11;
+-		case 0x168: return 10;
+-		case 0x1e0: return 8;
+-		case 0x160: return 12;
+-		default:
+-			return 0;
+-	}
+-}
+-
+ static __inline__ unsigned long ide_default_io_base(int index)
+ {
+ 	if (!ide_probe_legacy())
+@@ -97,6 +139,7 @@
+ 		return 0;
+ 	}
+ }
++#endif
+ 
+ #define IDE_ARCH_OBSOLETE_INIT
+ #define ide_default_io_ctl(base)	((base) + 0x206) /* obsolete */
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/linux/cdrom.h linux-2.6.22.19/include/linux/cdrom.h
+--- linux-2.6.22.19.ref/include/linux/cdrom.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/cdrom.h	2009-10-23 17:56:52.000000000 -0700
+@@ -287,6 +287,10 @@
+ 	unsigned char		data_direction;
+ 	int			quiet;
+ 	int			timeout;
++#ifdef CONFIG_SD_CDROM_DMAPACKET
++	int                     do_dma;         /* Try to use DMA */
++	int                     dma_error;      /* A DMA_specific error occurred */
++#endif
+ 	void			__user *reserved[1];	/* unused, actually */
+ };
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/include/linux/ide.h linux-2.6.22.19/include/linux/ide.h
+--- linux-2.6.22.19.ref/include/linux/ide.h	2008-02-26 01:54:25.000000000 -0800
++++ linux-2.6.22.19/include/linux/ide.h	2009-10-23 17:56:52.000000000 -0700
+@@ -63,7 +63,7 @@
+ /*
+  * Probably not wise to fiddle with these
+  */
+-#define ERROR_MAX	8	/* Max read/write errors per sector */
++#define ERROR_MAX	4	/* Max read/write errors per sector */
+ #define ERROR_RESET	3	/* Reset controller every 4th retry */
+ #define ERROR_RECAL	1	/* Recalibrate every 2nd retry */
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin linux-2.6.22.19.ref/README.1005.ide.patch linux-2.6.22.19/README.1005.ide.patch
+--- linux-2.6.22.19.ref/README.1005.ide.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1005.ide.patch	2009-10-23 17:57:48.000000000 -0700
+@@ -0,0 +1,22 @@
++Feature:
++--------
++Bus Mastering IDE and PB IDE controllers support for SMP86xx chips.
++Some common fixes for block device operations are included as well.
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++1002
++1004
++
++Primary author:
++---------------
++Craig Qu/YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++Tango2 ES6/RevA or above, or Tango3 ES1 or above
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

@@ -1,0 +1,49 @@
+﻿
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt" lang="pt">
+
+<head>
+
+<title>Ocorreu um erro.</title>
+
+<script type="text/javascript">
+
+/* Method used to return the error description based on the error code */
+function errStr()
+{
+	return "TYPE[" + Espial.errType + "] CODE[" + Espial.errCode + "] - " + Espial.errStr;
+}
+
+function setTitle()
+{
+	document.title = Espial.errURL + " não está disponível.";
+	errStr();
+}
+
+</script>
+
+<style type="text/css">
+	<!-- add here any style specific to this dialog -->
+</style>
+
+</head>
+
+<body onload="javascript:setTitle();">
+<br>
+<h2>Lamentamos, mas parece que há um problema.</h2>
+<br>
+ Não foi possível carregar a página da Web em<b><script>document.writeln(Espial.errURL)</script></b> .
+<br>
+<br>
+<b>Veja o que você pode tentar fazer:</b>
+<ul>
+	<li><a onclick="Espial.gotoURL(Espial.errURL);">Recarregar esta página da Web mais tarde.</a></li>
+	<li><a onclick="Espial.back();">Voltar para a página anterior.</a></li>
+</ul>
+
+<br>
+<br>
+<i><script>document.writeln(errStr());</script></i>
+</body>
+</html>

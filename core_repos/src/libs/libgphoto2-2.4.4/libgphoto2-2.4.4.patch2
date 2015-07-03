@@ -1,0 +1,13 @@
+--- libgphoto2_port/usb/libusb.c	2008-11-22 02:24:40.000000000 +0800
++++ libgphoto2_port/usb/libusb_patch.c	2010-12-08 14:13:08.000000000 +0800
+@@ -851,8 +851,10 @@
+ {
+ 	int i, i1, i2;
+ 
++#if 0
+ 	if (class == 666) /* Special hack for MTP devices with MS OS descriptors. */
+ 		return gp_port_usb_match_mtp_device (dev, configno, interfaceno, altsettingno);
++#endif
+ 
+ 	if (dev->descriptor.bDeviceClass == class &&
+ 	    (subclass == -1 ||

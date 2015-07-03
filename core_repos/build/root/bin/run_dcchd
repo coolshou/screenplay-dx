@@ -1,0 +1,13 @@
+#!/bin/sh
+cp /etc/directfbrc /tmp/directfbrc
+export DFB_CONFIG_DIR=/tmp
+export CDROM_DEVICE_NAME="/dev/sr0"
+export CDROM_MOUNT_POINT="/cdrom"
+export DCCHD_LOG_CFG=/etc/dcchdlog.cfg
+#export ENABLE_DEV_SUPPORT=1
+
+export DIRECTFB_INSTALL_DIR=/directfb
+export PATH=$DIRECTFB_INSTALL_DIR/bin:$PATH
+export LD_LIBRARY_PATH=/lib/dcchd:/lib
+
+exec /bin/amp_test  $1  

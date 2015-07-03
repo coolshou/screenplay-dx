@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp lbmask="lr">
+		<button valkey="OK"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png" />
+		<button valkey="CANCEL"
+			focused_bg="image/common_btn_f.png"
+			normal_bg="image/common_btn_n.png"
+			click_bg="image/common_btn_p.png" />
+	</ctrlgrp>
+
+	<image image="image/home_video_sm_icon_f.png" x="70" y="43" w="74" h="74" scale="100" scale_type="fixratio"/>
+	<text text="$$Video" x="157" y="62" w="748" h="42" align="left" fontsize="40" textcolor="0x525754"/>
+
+    <wrapper x="203" w="877" h="40" textcolor="0xffffff" fontsize="22" align="hcenter">
+	<text text="@@text1" y="251"/>
+	<text text="@@text2" y="291"/>
+	<text text="@@text3" y="331"/>
+    </wrapper>
+
+	<imgbtn x="316" y="462" w="300" h="40" image="@@bg-OK" text="$$OK" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-OK" actnoseltextcolor="0xffffff"/>
+	<imgbtn x="657" y="462" w="300" h="40" image="@@bg-CANCEL" text="$$CANCEL" align="hcenter" fontsize="20" textcolor="0xffffff"  active="@@act-CANCEL" actnoseltextcolor="0xffffff"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

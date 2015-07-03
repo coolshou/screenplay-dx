@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2004, REDSonic, inc. -->
+<!-- Author: Charles Wang <cwang@redsonic.com> -->
+<page background="image/browse_bg.jpg">
+
+	<include filename="./inc_browse_basic_title.xml" />
+	<listbox valkey="searchlist" move="row" cols="1" rows="7" lbmask="l" more_select="right"/>
+	<image image="@@listprev" x="619" y="194" w="38" h="27"/>
+	<include filename="./info.xml"/>
+
+	<image image="@@listprev" x="626" y="150" w="29" h="21"/>
+	<image image="@@listmore" x="626" y="551" w="29" h="21"/>
+
+	<include filename="./info.xml"/>
+
+	<table x="185" y="188" w="913" h="334" cols="1" rows="7" colspacing="0" rowspacing="0" lbimage="image/settings_focus_btn.png" fontsize="22" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff">
+        <text text="@@search_0_text" xmargin="65" ymargin="5" 
+			lightbar="@@lightbar-searchlist-0" active="@@act-searchlist-0"
+			selected="@@search_0_select" speed="@@search_0_speed" delay="2"/>
+
+		<text text="@@search_1_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-1" active="@@act-searchlist-1" 
+			selected="@@search_1_select" speed="@@search_1_speed" delay="2"/>
+
+		<text text="@@search_2_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-2" active="@@act-searchlist-2" 
+			selected="@@search_2_select" speed="@@search_2_speed" delay="2"/>
+
+		<text text="@@search_3_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-3" active="@@act-searchlist-3" 
+			selected="@@search_3_select" speed="@@search_3_speed" delay="2"/>
+
+		<text text="@@search_4_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-4" active="@@act-searchlist-4" 
+			selected="@@search_4_select" speed="@@search_4_speed" delay="2"/>
+
+		<text text="@@search_5_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-5" active="@@act-searchlist-5" 
+			selected="@@search_5_select" speed="@@search_5_speed" delay="2"/>
+
+		<text text="@@search_6_text" xmargin="65" ymargin="5"
+			lightbar="@@lightbar-searchlist-6" active="@@act-searchlist-6" 
+			selected="@@search_6_select" speed="@@search_6_speed" delay="2"/>
+	</table>
+	<include filename="./inc_decoration.xml"/>
+</page>

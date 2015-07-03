@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<page>
+  <ctrlgrp valkey="options" autoenter="1" lbmask="LR">
+	<include filename="./inc_optionmenu_ctrlgrp.xml"/>
+  </ctrlgrp>
+  <include filename="./inc_optionmenu_widgets_video.xml"/>
+
+  <!-- information -->
+  <image image="@@video_inforbar" x="258" y="570" w="793" h="118" bg="1"/>
+
+  <image x="365" y="607" w="54" h="24" image="@@speed_state"/>
+  <image image="@@play_state" x="281" y="598" w="69" h="60"/>
+
+  <progress_bar name="video_time_bar" x="426" y="648" w="516" h="18" pb_back_img="image/video_playing_playbar_bg.png" pb_front_img="image/video_playing_playbar_scale.png" pb_point_img="image/video_playing_playbar_dot.png" pb_delay="500" disable="@@progress_disable"/>
+
+  <text text="@@info_filename" x="435" y="589" w="493" h="31" fontsize="24" textcolor="0x41413f" speed="1" delay="2" align="left" auto_translate="1"/>
+  <text text="@@info_video" x="435" y="629" w="300" h="18" fontsize="14" textcolor="0x7d7d7d"/>
+  <text text="@@info_audio" x="735" y="629" w="192" h="18" fontsize="14" textcolor="0x7d7d7d" align="right"/>
+
+  <text text="@@info_cur_time" x="365" y="649" w="68" h="18" fontsize="14" textcolor="0x41413f" align="left"/>
+  <text text="@@info_duration" x="939" y="649" w="68" h="18" fontsize="14" textcolor="0x7c7c7c" align="left"/>
+
+  <image image="@@repeat-ico" x="946" y="603" w="48" h="36"/>
+  <image image="@@shufle-ico" x="946" y="603" w="48" h="36"/>
+  <image image="@@real-ico" x="993" y="603" w="44" h="36"/>
+
+  <include filename="decoration.xml"/>
+
+  <text x="162" y="258" w="958" h="40" text="@@text-OPTION" fontsize="30" textcolor="0x00ccff" align="hcenter" disable="@@disable-text-options"/>
+  <text text="@@mod_txt" x="162" y="302" w="958" h="40" fontsize="30" textcolor="0xffffff" align="hcenter" auto_translate="1"/>
+  <image image="@@mod_img" x="1146" y="54" w="80" h="80"/> 
+
+</page>

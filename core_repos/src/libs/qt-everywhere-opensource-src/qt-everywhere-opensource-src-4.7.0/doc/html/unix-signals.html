@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- unix-signal-handlers.qdoc -->
+  <title>Qt 4.7: Calling Qt Functions From Unix Signal Handlers</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li>Calling Qt Functions From Unix Signal Handlers</li>            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<h1 class="title">Calling Qt Functions From Unix Signal Handlers</h1>
+<span class="subtitle"></span>
+<!-- $$$unix-signals.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>You <i>can't</i> call Qt functions from Unix signal handlers. The standard POSIX rule applies: You can only call async-signal-safe functions from signal handlers. See <a href="http://www.opengroup.org/onlinepubs/000095399/functions/xsh_chap02_04.html#tag_02_04_01">Signal Actions</a> for the complete list of functions you can call from Unix signal handlers.</p>
+<p>But don't despair, there is a way to use Unix signal handlers with Qt. The strategy is to have your Unix signal handler do something that will eventually cause a Qt signal to be emitted, and then you simply return from your Unix signal handler. Back in your Qt program, that Qt signal gets emitted and then received by your Qt slot function, where you can safely do whatever Qt stuff you weren't allowed to do in the Unix signal handler.</p>
+<p>One simple way to make this happen is to declare a socket pair in your class for each Unix signal you want to handle. The socket pairs are declared as static data members. You also create a <a href="qsocketnotifier.html">QSocketNotifier</a> to monitor the <i>read</i> end of each socket pair, declare your Unix signal handlers to be static class methods, and declare a slot function corresponding to each of your Unix signal handlers. In this example, we intend to handle both the SIGHUP and SIGTERM signals. Note: You should read the socketpair(2) and the sigaction(2) man pages before plowing through the following code snippets.</p>
+<pre class="highlightedCode brush: cpp"> class MyDaemon : public QObject
+ {
+     Q_OBJECT
+
+   public:
+     MyDaemon(QObject *parent = 0, const char *name = 0);
+     ~MyDaemon();
+
+     // Unix signal handlers.
+     static void hupSignalHandler(int unused);
+     static void termSignalHandler(int unused);
+
+   public slots:
+     // Qt signal handlers.
+     void handleSigHup();
+     void handleSigTerm();
+
+   private:
+     static int sighupFd[2];
+     static int sigtermFd[2];
+
+     QSocketNotifier *snHup;
+     QSocketNotifier *snTerm;
+ };</pre>
+<p>In the MyDaemon constructor, use the socketpair(2) function to initialize each file descriptor pair, and then create the <a href="qsocketnotifier.html">QSocketNotifier</a> to monitor the <i>read</i> end of each pair. The activated() signal of each <a href="qsocketnotifier.html">QSocketNotifier</a> is connected to the appropriate slot function, which effectively converts the Unix signal to the <a href="qsocketnotifier.html#activated">QSocketNotifier::activated</a>() signal.</p>
+<pre class="highlightedCode brush: cpp"> MyDaemon::MyDaemon(QObject *parent, const char *name)
+          : QObject(parent,name)
+ {
+     if (::socketpair(AF_UNIX, SOCK_STREAM, 0, sighupFd))
+        qFatal(&quot;Couldn't create HUP socketpair&quot;);
+
+     if (::socketpair(AF_UNIX, SOCK_STREAM, 0, sigtermFd))
+        qFatal(&quot;Couldn't create TERM socketpair&quot;);
+     snHup = new QSocketNotifier(sighupFd[1], QSocketNotifier::Read, this);
+     connect(snHup, SIGNAL(activated(int)), this, SLOT(handleSigHup()));
+     snTerm = new QSocketNotifier(sigtermFd[1], QSocketNotifier::Read, this);
+     connect(snTerm, SIGNAL(activated(int)), this, SLOT(handleSigTerm()));
+
+     ...
+ }</pre>
+<p>Somewhere else in your startup code, you install your Unix signal handlers with sigaction(2).</p>
+<pre class="highlightedCode brush: cpp"> static int setup_unix_signal_handlers()
+ {
+     struct sigaction hup, term;
+
+     hup.sa_handler = MyDaemon::hupSignalHandler;
+     sigemptyset(&amp;hup.sa_mask);
+     hup.sa_flags = 0;
+     hup.sa_flags |= SA_RESTART;
+
+     if (sigaction(SIGHUP, &amp;hup, 0) &gt; 0)
+        return 1;
+
+     term.sa_handler = MyDaemon::termSignalHandler;
+     sigemptyset(&amp;term.sa_mask);
+     term.sa_flags |= SA_RESTART;
+
+     if (sigaction(SIGTERM, &amp;term, 0) &gt; 0)
+        return 2;
+
+     return 0;
+ }</pre>
+<p>In your Unix signal handlers, you write a byte to the <i>write</i> end of a socket pair and return. This will cause the corresponding <a href="qsocketnotifier.html">QSocketNotifier</a> to emit its activated() signal, which will in turn cause the appropriate Qt slott function to run.</p>
+<pre class="highlightedCode brush: cpp"> void MyDaemon::hupSignalHandler(int)
+ {
+     char a = 1;
+     ::write(sighupFd[0], &amp;a, sizeof(a));
+ }
+
+ void MyDaemon::termSignalHandler(int)
+ {
+     char a = 1;
+     ::write(sigtermFd[0], &amp;a, sizeof(a));
+ }</pre>
+<p>In the slot functions connected to the <a href="qsocketnotifier.html#activated">QSocketNotifier::activated</a>() signals, you <i>read</i> the byte. Now you are safely back in Qt with your signal, and you can do all the Qt stuff you weren'tr allowed to do in the Unix signal handler.</p>
+<pre class="highlightedCode brush: cpp"> void MyDaemon::handleSigTerm()
+ {
+     snTerm-&gt;setEnabled(false);
+     char tmp;
+     ::read(sigtermFd[1], &amp;tmp, sizeof(tmp));
+
+     // do Qt stuff
+
+     snTerm-&gt;setEnabled(true);
+ }
+
+ void MyDaemon::handleSigHup()
+ {
+     snHup-&gt;setEnabled(false);
+     char tmp;
+     ::read(sighupFd[1], &amp;tmp, sizeof(tmp));
+
+     // do Qt stuff
+
+     snHup-&gt;setEnabled(true);
+ }</pre>
+</div>
+<!-- @@@unix-signals.html -->
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

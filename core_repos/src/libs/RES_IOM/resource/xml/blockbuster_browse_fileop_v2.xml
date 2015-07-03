@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<page>
+	<ctrlgrp lbmask="LRud">
+		<button valkey="ToHome" 
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"
+			disabled_bg="image/blockbuster/bb_browse_home_n.png"/>
+		<linebreak/>
+		<button valkey="Running"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Completed"
+			normal_bg="image/blockbuster/bb_bt_n.png" 
+			focused_bg="image/blockbuster/bb_bt_f.png" 
+			disabled_bg="image/blockbuster/bb_bt_d.png"
+			click_bg="image/blockbuster/bb_bt_c.png" click_effect="tp"/>
+		<button valkey="Preference"
+			normal_bg="image/blockbuster/bb_bt_n.png"
+			focused_bg="image/blockbuster/bb_bt_f.png"
+			click_bg="image/blockbuster/bb_bt_c.png"
+			clicked_bg="image/blockbuster/bb_bt_n.png" click_effect="tp"/>
+		<linebreak/>
+		<listbox valkey="browselist" move="page" cols="1" rows="6" autoenter="1"
+			focused_bg="image/blockbuster/bb_prefrernce_Select-bar_f.png"
+			click_bg="image/blockbuster/bb_prefrernce_Select-bar_c.png"/>
+	</ctrlgrp>
+
+	<table x="105" y="140" w="1070" h="49" fontsize="20" cols="5" rows="1" align="hcenter" colspacing="5" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfffcb040">
+		<imgbtn image="image/blockbuster/bb_bt_n.png"/>
+		<imgbtn image="@@bg-Running" text="$$Download" 
+			active="@@act-Running" selected="@@sel-Running" click="@@click-Running" 
+			clicked="@@clicked-Running"/>
+		<imgbtn image="@@bg-Completed" text="$$Completed" 
+			active="@@act-Completed" selected="@@sel-Completed" click="@@click-Completed" 
+			clicked="@@clicked-Completed"/>
+		<imgbtn image="@@bg-Preference" text="$$Preference" 
+			active="@@act-Preference" selected="@@sel-Preference" click="@@click-Preference" 
+			clicked="@@clicked-Preference"/>
+		<imgbtn image="image/blockbuster/bb_bt_n.png"/>
+	</table>
+
+	<table x="316" y="224" w="648" h="306" cols="1" rows="6">
+		<imgbtn image="@@bg-browselist-0" active="@@act-browselist-0" selected="@@sel-browselist-0" click="@@click-browselist-0" clicked="@@clicked-browselist-0" disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-1" active="@@act-browselist-1" selected="@@sel-browselist-1" click="@@click-browselist-1" clicked="@@clicked-browselist-1" disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-2" active="@@act-browselist-2" selected="@@sel-browselist-2" click="@@click-browselist-2" clicked="@@clicked-browselist-2" disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-3" active="@@act-browselist-3" selected="@@sel-browselist-3" click="@@click-browselist-3" clicked="@@clicked-browselist-3" disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-4" active="@@act-browselist-4" selected="@@sel-browselist-4" click="@@click-browselist-4" clicked="@@clicked-browselist-4" disable="@@disable-browselist"/>
+		<imgbtn image="@@bg-browselist-5" active="@@act-browselist-5" selected="@@sel-browselist-5" click="@@click-browselist-5" clicked="@@clicked-browselist-5" disable="@@disable-browselist"/>
+	</table>
+
+	<table x="316" y="224" w="600" h="306" cols="1" rows="6" fontsize="20" align="left,top" textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029">
+		<text text="@@browselist_0_text" active="@@act-browselist-0" selected="@@sel-browselist-0" click="@@click-browselist-0" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+		<text text="@@browselist_1_text" active="@@act-browselist-1" selected="@@sel-browselist-1" click="@@click-browselist-1" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+		<text text="@@browselist_2_text" active="@@act-browselist-2" selected="@@sel-browselist-2" click="@@click-browselist-2" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+		<text text="@@browselist_3_text" active="@@act-browselist-3" selected="@@sel-browselist-3" click="@@click-browselist-3" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+		<text text="@@browselist_4_text" active="@@act-browselist-4" selected="@@sel-browselist-4" click="@@click-browselist-4" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+		<text text="@@browselist_5_text" active="@@act-browselist-5" selected="@@sel-browselist-5" click="@@click-browselist-5" disable="@@disable-browselist" lmargin="20" umargin="16"/>
+	</table>
+	<text text="$$Press [OPTION] to select source" x="316" y="573" w="648" h="22" textcolor="0xff727272" fontsize="20"/>
+	<image image="@@status_icon" x="585" y="303" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

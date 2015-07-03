@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptcontext.cpp -->
+  <title>Qt 4.7: QScriptContext Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script src="scripts/jquery.js" type="text/javascript"></script>
+  <script src="scripts/functions.js" type="text/javascript"></script>
+</head>
+<body class="offline narrow creator">
+ <div class="header" id="qtdocheader">
+    <div class="content"> 
+    <div id="nav-logo">
+      <a href="index.html">Home</a></div>
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+		<div id="narrowsearch"><form onsubmit="return false;" action="" id="qtdocsearch">
+		<fieldset>
+		<input type="text" value="" id="pageType2" name="searchstring"/>
+		 </fieldset>
+		</form></div>
+    <div id="nav-topright">
+      <ul>
+        <li class="nav-topright-home"><a href="http://qt.nokia.com/">Qt HOME</a></li>
+        <li class="nav-topright-dev"><a href="http://developer.qt.nokia.com/">DEV</a></li>
+        <li class="nav-topright-labs"><a href="http://labs.qt.nokia.com/blogs/">LABS</a></li>
+        <li class="nav-topright-doc nav-topright-doc-active"><a href="http://doc.qt.nokia.com/">
+          DOC</a></li>
+        <li class="nav-topright-blog"><a href="http://blog.qt.nokia.com/">BLOG</a></li>
+      </ul>
+    </div>
+    <div id="shortCut">
+      <ul>
+        <li class="shortCut-topleft-inactive"><span><a href="index.html">Qt 4.7</a></span></li>
+        <li class="shortCut-topleft-active"><a href="http://qt.nokia.com/doc/">ALL VERSIONS        </a></li>
+      </ul>
+     </div>
+ <ul class="sf-menu sf-js-enabled sf-shadow" id="narrowmenu"> 
+		 <li><a href="#">API Lookup</a> 
+			 <ul id="topmenuLook"> 
+			   <li><a href="classes.html">Class index</a></li> 
+ 			  <li><a href="functions.html">Function index</a></li> 
+			   <li><a href="modules.html">Modules</a></li> 
+			   <li><a href="namespaces.html">Namespaces</a></li> 
+			   <li><a href="qtglobal.html">Global stuff</a></li> 
+			   <li><a href="qdeclarativeelements.html">QML elements</a></li> 
+			   </ul> 
+		 </li> 
+		 <li><a href="#">Qt Topics</a> 
+			 <ul id="topmenuTopic"> 
+			   <li><a href="qt-basic-concepts.html">Basic Qt architecture</a></li> 
+			   <li><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li> 
+			   <li><a href="qt-gui-concepts.html">Desktop UI components</a></li> 
+			   <li><a href="platform-specific.html">Platform-specific info</a></li> 
+			   <li><a href="best-practices.html">How-To's and Best Practices</a></li> 
+			 </ul> 
+		</li> 
+		 <li><a href="#">Examples</a> 
+			 <ul id="topmenuexample"> 
+				 <li><a href="all-examples.html">Examples</a></li> 
+				 <li><a href="tutorials.html">Tutorials</a></li> 
+				 <li><a href="demos.html">Demos</a></li> 
+				 <li><a href="qdeclarativeexamples.html">QML Examples</a></li> 
+			 </ul> 
+		 </li> 
+ </ul> 
+    </div>
+  </div>
+  <div class="wrapper">
+    <div class="hd">
+      <span></span>
+    </div>
+    <div class="bd group">
+      <div class="sidebar">
+        <div class="searchlabel">
+          Search index:</div>
+        <div class="search">
+          <form id="qtdocsearch" action="" onsubmit="return false;">
+            <fieldset>
+              <input type="text" name="searchstring" id="pageType" value="" />
+            </fieldset>
+          </form>
+        </div>
+        <div class="box first bottombar" id="lookup">
+          <h2 title="API Lookup"><span></span>
+            API Lookup</h2>
+          <div  id="list001" class="list">
+          <ul id="ul001" >
+              <li class="defaultLink"><a href="classes.html">Class index</a></li>
+              <li class="defaultLink"><a href="functions.html">Function index</a></li>
+              <li class="defaultLink"><a href="modules.html">Modules</a></li>
+              <li class="defaultLink"><a href="namespaces.html">Namespaces</a></li>
+              <li class="defaultLink"><a href="qtglobal.html">Global stuff</a></li>
+              <li class="defaultLink"><a href="qdeclarativeelements.html">QML elements</a></li>
+            </ul> 
+          </div>
+        </div>
+        <div class="box bottombar" id="topics">
+          <h2 title="Qt Topics"><span></span>
+            Qt Topics</h2>
+          <div id="list002" class="list">
+            <ul id="ul002" >
+              <li class="defaultLink"><a href="qt-basic-concepts.html">Basic Qt architecture</a></li>
+              <li class="defaultLink"><a href="qtquick.html">Device UI's &amp; Qt Quick</a></li>
+              <li class="defaultLink"><a href="qt-gui-concepts.html">Desktop UI components</a></li>
+              <li class="defaultLink"><a href="platform-specific.html">Platform-specific info</a></li>
+            </ul>  
+          </div>
+        </div>
+        <div class="box" id="examples">
+          <h2 title="Examples"><span></span>
+            Examples</h2>
+          <div id="list003" class="list">
+        <ul id="ul003">
+              <li class="defaultLink"><a href="all-examples.html">Examples</a></li>
+              <li class="defaultLink"><a href="tutorials.html">Tutorials</a></li>
+              <li class="defaultLink"><a href="demos.html">Demos</a></li>
+              <li class="defaultLink"><a href="qdeclarativeexamples.html">QML Examples</a></li>
+            </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="toolbar">
+          <div class="breadcrumb toolblock">
+            <ul>
+              <li class="first"><a href="index.html">Home</a></li>
+              <!--  Bread crumbs goes here -->
+              <li><a href="modules.html">Modules</a></li>              <li><a href="qtscript.html">QtScript</a></li>
+              <li>QScriptContext</li>
+            </ul>
+          </div>
+          <div class="toolbuttons toolblock">
+            <ul>
+              <li id="smallA" class="t_button">A</li>
+              <li id="medA" class="t_button active">A</li>
+              <li id="bigA" class="t_button">A</li>
+              <li id="print" class="t_button"><a href="javascript:this.print();">
+                <span>Print</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QScriptContext Class Reference</h1>
+<!-- $$$QScriptContext-brief -->
+<p>The QScriptContext class represents a Qt Script function invocation. <a href="#details">More...</a></p>
+<!-- @@@QScriptContext -->
+<pre class="highlightedCode brush: cpp"> #include &lt;QScriptContext&gt;</pre><p>This class was introduced in Qt 4.3.</p>
+<ul>
+<li><a href="qscriptcontext-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#Error-enum">Error</a></b> { ReferenceError, SyntaxError, TypeError, RangeError, URIError, UnknownError }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#ExecutionState-enum">ExecutionState</a></b> { NormalState, ExceptionState }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#dtor.QScriptContext">~QScriptContext</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#activationObject">activationObject</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argument">argument</a></b> ( int <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argumentCount">argumentCount</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argumentsObject">argumentsObject</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#backtrace">backtrace</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#callee">callee</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptEngine * </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#engine">engine</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#isCalledAsConstructor">isCalledAsConstructor</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptContext * </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#parentContext">parentContext</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#setActivationObject">setActivationObject</a></b> ( const QScriptValue &amp; <i>activation</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#setThisObject">setThisObject</a></b> ( const QScriptValue &amp; <i>thisObject</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> ExecutionState </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#state">state</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#thisObject">thisObject</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwError">throwError</a></b> ( Error <i>error</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwError-2">throwError</a></b> ( const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptValue </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwValue">throwValue</a></b> ( const QScriptValue &amp; <i>value</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#toString">toString</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptContext-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScriptContext class represents a Qt Script function invocation.</p>
+<p>A QScriptContext provides access to the `this' object and arguments passed to a script function. You typically want to access this information when you're writing a native (C++) function (see <a href="qscriptengine.html#newFunction">QScriptEngine::newFunction</a>()) that will be called from script code. For example, when the script code</p>
+<pre class="highlightedCode brush: cpp"> foo(20.5, &quot;hello&quot;, new Object())</pre>
+<p>is evaluated, a QScriptContext will be created, and the context will carry the arguments as QScriptValues; in this particular case, the arguments will be one <a href="qscriptvalue.html">QScriptValue</a> containing the number 20.5, a second <a href="qscriptvalue.html">QScriptValue</a> containing the string <tt>&quot;hello&quot;</tt>, and a third <a href="qscriptvalue.html">QScriptValue</a> containing a Qt Script object.</p>
+<p>Use <a href="qscriptcontext.html#argumentCount">argumentCount</a>() to get the number of arguments passed to the function, and <a href="qscriptcontext.html#argument">argument</a>() to get an argument at a certain index. The <a href="qscriptcontext.html#argumentsObject">argumentsObject</a>() function returns a Qt Script array object containing all the arguments; you can use the <a href="qscriptvalueiterator.html">QScriptValueIterator</a> to iterate over its elements, or pass the array on as arguments to another script function using <a href="qscriptvalue.html#call">QScriptValue::call</a>().</p>
+<p>Use <a href="qscriptcontext.html#thisObject">thisObject</a>() to get the `this' object associated with the function call, and <a href="qscriptcontext.html#setThisObject">setThisObject</a>() to set the `this' object. If you are implementing a native &quot;instance method&quot;, you typically fetch the <a href="qscriptcontext.html#thisObject">thisObject</a>() and access one or more of its properties:</p>
+<pre class="highlightedCode brush: cpp"> QScriptValue Person_prototype_fullName(QScriptContext *context, QScriptEngine *engine)
+ {
+     QScriptValue self = context-&gt;thisObject();
+     QString result;
+     result += self.property(&quot;firstName&quot;).toString();
+     result += QLatin1String(&quot; &quot;);
+     result += self.property(&quot;lastName&quot;).toString();
+     return result;
+ }</pre>
+<p>Use <a href="qscriptcontext.html#isCalledAsConstructor">isCalledAsConstructor</a>() to determine if the function was called as a constructor (e.g&#x2e; <tt>&quot;new foo()&quot;</tt> (as constructor) or just <tt>&quot;foo()&quot;</tt>). When a function is called as a constructor, the <a href="qscriptcontext.html#thisObject">thisObject</a>() contains the newly constructed object that the function is expected to initialize.</p>
+<p>Use <a href="qscriptcontext.html#throwValue">throwValue</a>() or <a href="qscriptcontext.html#throwError">throwError</a>() to throw an exception.</p>
+<p>Use <a href="qscriptcontext.html#callee">callee</a>() to obtain the <a href="qscriptvalue.html">QScriptValue</a> that represents the function being called. This can for example be used to call the function recursively.</p>
+<p>Use <a href="qscriptcontext.html#parentContext">parentContext</a>() to get a pointer to the context that precedes this context in the activation stack. This is mostly useful for debugging purposes (e.g&#x2e; when constructing some form of backtrace).</p>
+<p>The <a href="qscriptcontext.html#activationObject">activationObject</a>() function returns the object that is used to hold the local variables associated with this function call. You can replace the activation object by calling <a href="qscriptcontext.html#setActivationObject">setActivationObject</a>(). A typical usage of these functions is when you want script code to be evaluated in the context of the parent context, e.g&#x2e; to implement an include() function:</p>
+<pre class="highlightedCode brush: cpp"> QScriptValue myInclude(QScriptContext *ctx, QScriptEngine *eng)
+ {
+     QString fileName = ctx-&gt;argument(0).toString();
+     QString contents = readTheFile(fileName);
+     ctx-&gt;setActivationObject(ctx-&gt;parentContext()-&gt;activationObject());
+     ctx-&gt;setThisObject(ctx-&gt;parentContext()-&gt;thisObject());
+     return eng-&gt;evaluate(contents, fileName);
+ }</pre>
+<p>Use <a href="qscriptcontext.html#backtrace">backtrace</a>() to get a human-readable backtrace associated with this context. This can be useful for debugging purposes when implementing native functions. The <a href="qscriptcontext.html#toString">toString</a>() function provides a string representation of the context. (<a href="qscriptcontextinfo.html">QScriptContextInfo</a> provides more detailed debugging-related information about the QScriptContext.)</p>
+<p>Use <a href="qscriptcontext.html#engine">engine</a>() to obtain a pointer to the <a href="qscriptengine.html">QScriptEngine</a> that this context resides in.</p>
+</div>
+<p>See also <a href="qscriptcontextinfo.html">QScriptContextInfo</a>, <a href="qscriptengine.html#newFunction">QScriptEngine::newFunction</a>(), and <a href="qscriptable.html">QScriptable</a>.</p>
+<!-- @@@QScriptContext -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Error$$$UnknownError$$$ReferenceError$$$SyntaxError$$$TypeError$$$RangeError$$$URIError -->
+<h3 class="fn"><a name="Error-enum"></a>enum QScriptContext::Error</h3>
+<p>This enum specifies types of error.</p>
+<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::ReferenceError</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">A reference error.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::SyntaxError</tt></td><td class=" topAlign"><tt>2</tt></td><td  class="topAlign">A syntax error.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::TypeError</tt></td><td class=" topAlign"><tt>3</tt></td><td  class="topAlign">A type error.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::RangeError</tt></td><td class=" topAlign"><tt>4</tt></td><td  class="topAlign">A range error.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::URIError</tt></td><td class=" topAlign"><tt>5</tt></td><td  class="topAlign">A URI error.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::UnknownError</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">An unknown error.</td></tr>
+</table>
+<!-- @@@Error -->
+<!-- $$$ExecutionState$$$NormalState$$$ExceptionState -->
+<h3 class="fn"><a name="ExecutionState-enum"></a>enum QScriptContext::ExecutionState</h3>
+<p>This enum specifies the frameution state of the context.</p>
+<table class="valuelist"><tr class="odd"><tr><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::NormalState</tt></td><td class=" topAlign"><tt>0</tt></td><td  class="topAlign">The context is in a normal state.</td></tr>
+<tr><td  class="topAlign"><tt>QScriptContext::ExceptionState</tt></td><td class=" topAlign"><tt>1</tt></td><td  class="topAlign">The context is in an exceptional state.</td></tr>
+</table>
+<!-- @@@ExecutionState -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QScriptContext[overload1]$$$~QScriptContext -->
+<h3 class="fn"><a name="dtor.QScriptContext"></a>QScriptContext::~QScriptContext ()</h3>
+<p>Destroys this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<!-- @@@~QScriptContext -->
+<!-- $$$activationObject[overload1]$$$activationObject -->
+<h3 class="fn"><a name="activationObject"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::activationObject () const</h3>
+<p>Returns the activation object of this <a href="qscriptcontext.html">QScriptContext</a>. The activation object provides access to the local variables associated with this context.</p>
+<p>See also <a href="qscriptcontext.html#setActivationObject">setActivationObject</a>(), <a href="qscriptcontext.html#argument">argument</a>(), and <a href="qscriptcontext.html#argumentsObject">argumentsObject</a>().</p>
+<!-- @@@activationObject -->
+<!-- $$$argument[overload1]$$$argumentint -->
+<h3 class="fn"><a name="argument"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::argument ( int <i>index</i> ) const</h3>
+<p>Returns the function argument at the given <i>index</i>.</p>
+<p>If <i>index</i> &gt;= <a href="qscriptcontext.html#argumentCount">argumentCount</a>(), a <a href="qscriptvalue.html">QScriptValue</a> of the primitive type Undefined is returned.</p>
+<p>See also <a href="qscriptcontext.html#argumentCount">argumentCount</a>().</p>
+<!-- @@@argument -->
+<!-- $$$argumentCount[overload1]$$$argumentCount -->
+<h3 class="fn"><a name="argumentCount"></a>int QScriptContext::argumentCount () const</h3>
+<p>Returns the number of arguments passed to the function in this invocation.</p>
+<p>Note that the argument count can be different from the formal number of arguments (the <tt>length</tt> property of <a href="qscriptcontext.html#callee">callee</a>()).</p>
+<p>See also <a href="qscriptcontext.html#argument">argument</a>().</p>
+<!-- @@@argumentCount -->
+<!-- $$$argumentsObject[overload1]$$$argumentsObject -->
+<h3 class="fn"><a name="argumentsObject"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::argumentsObject () const</h3>
+<p>Returns the arguments object of this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<p>The arguments object has properties <tt>callee</tt> (equal to <a href="qscriptcontext.html#callee">callee</a>()) and <tt>length</tt> (equal to <a href="qscriptcontext.html#argumentCount">argumentCount</a>()), and properties <tt>0</tt>, <tt>1</tt>, ..&#x2e;, <a href="qscriptcontext.html#argumentCount">argumentCount</a>() - 1 that provide access to the argument values. Initially, property <tt>P</tt> (0 &lt;= <tt>P</tt> &lt; <a href="qscriptcontext.html#argumentCount">argumentCount</a>()) has the same value as argument(<tt>P</tt>). In the case when <tt>P</tt> is less than the number of formal parameters of the function, <tt>P</tt> shares its value with the corresponding property of the activation object (<a href="qscriptcontext.html#activationObject">activationObject</a>()). This means that changing this property changes the corresponding property of the activation object and vice versa.</p>
+<p>See also <a href="qscriptcontext.html#argument">argument</a>() and <a href="qscriptcontext.html#activationObject">activationObject</a>().</p>
+<!-- @@@argumentsObject -->
+<!-- $$$backtrace[overload1]$$$backtrace -->
+<h3 class="fn"><a name="backtrace"></a><a href="qstringlist.html">QStringList</a> QScriptContext::backtrace () const</h3>
+<p>Returns a human-readable backtrace of this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<p>Each line is of the form <tt>&lt;function-name&gt;(&lt;arguments&gt;)@&lt;file-name&gt;:&lt;line-number&gt;</tt>.</p>
+<p>To access individual pieces of debugging-related information (for example, to construct your own backtrace representation), use <a href="qscriptcontextinfo.html">QScriptContextInfo</a>.</p>
+<p>See also <a href="qscriptengine.html#uncaughtExceptionBacktrace">QScriptEngine::uncaughtExceptionBacktrace</a>(), <a href="qscriptcontextinfo.html">QScriptContextInfo</a>, and <a href="qscriptcontext.html#toString">toString</a>().</p>
+<!-- @@@backtrace -->
+<!-- $$$callee[overload1]$$$callee -->
+<h3 class="fn"><a name="callee"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::callee () const</h3>
+<p>Returns the callee. The callee is the function object that this <a href="qscriptcontext.html">QScriptContext</a> represents an invocation of.</p>
+<!-- @@@callee -->
+<!-- $$$engine[overload1]$$$engine -->
+<h3 class="fn"><a name="engine"></a><a href="qscriptengine.html">QScriptEngine</a> * QScriptContext::engine () const</h3>
+<p>Returns the <a href="qscriptengine.html">QScriptEngine</a> that this <a href="qscriptcontext.html">QScriptContext</a> belongs to.</p>
+<!-- @@@engine -->
+<!-- $$$isCalledAsConstructor[overload1]$$$isCalledAsConstructor -->
+<h3 class="fn"><a name="isCalledAsConstructor"></a>bool QScriptContext::isCalledAsConstructor () const</h3>
+<p>Returns true if the function was called as a constructor (e.g&#x2e; <tt>&quot;new foo()&quot;</tt>); otherwise returns false.</p>
+<p>When a function is called as constructor, the <a href="qscriptcontext.html#thisObject">thisObject</a>() contains the newly constructed object to be initialized.</p>
+<p><b>Note:</b> This function is only guaranteed to work for a context corresponding to native functions.</p>
+<!-- @@@isCalledAsConstructor -->
+<!-- $$$parentContext[overload1]$$$parentContext -->
+<h3 class="fn"><a name="parentContext"></a>QScriptContext * QScriptContext::parentContext () const</h3>
+<p>Returns the parent context of this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<!-- @@@parentContext -->
+<!-- $$$setActivationObject[overload1]$$$setActivationObjectconstQScriptValue& -->
+<h3 class="fn"><a name="setActivationObject"></a>void QScriptContext::setActivationObject ( const <a href="qscriptvalue.html">QScriptValue</a> &amp; <i>activation</i> )</h3>
+<p>Sets the activation object of this <a href="qscriptcontext.html">QScriptContext</a> to be the given <i>activation</i>.</p>
+<p>If <i>activation</i> is not an object, this function does nothing.</p>
+<p>See also <a href="qscriptcontext.html#activationObject">activationObject</a>().</p>
+<!-- @@@setActivationObject -->
+<!-- $$$setThisObject[overload1]$$$setThisObjectconstQScriptValue& -->
+<h3 class="fn"><a name="setThisObject"></a>void QScriptContext::setThisObject ( const <a href="qscriptvalue.html">QScriptValue</a> &amp; <i>thisObject</i> )</h3>
+<p>Sets the `this' object associated with this <a href="qscriptcontext.html">QScriptContext</a> to be <i>thisObject</i>.</p>
+<p>If <i>thisObject</i> is not an object, this function does nothing.</p>
+<p>See also <a href="qscriptcontext.html#thisObject">thisObject</a>().</p>
+<!-- @@@setThisObject -->
+<!-- $$$state[overload1]$$$state -->
+<h3 class="fn"><a name="state"></a><a href="qscriptcontext.html#ExecutionState-enum">ExecutionState</a> QScriptContext::state () const</h3>
+<p>Returns the frameution state of this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<!-- @@@state -->
+<!-- $$$thisObject[overload1]$$$thisObject -->
+<h3 class="fn"><a name="thisObject"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::thisObject () const</h3>
+<p>Returns the `this' object associated with this <a href="qscriptcontext.html">QScriptContext</a>.</p>
+<p>See also <a href="qscriptcontext.html#setThisObject">setThisObject</a>().</p>
+<!-- @@@thisObject -->
+<!-- $$$throwError[overload1]$$$throwErrorErrorconstQString& -->
+<h3 class="fn"><a name="throwError"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::throwError ( <a href="qscriptcontext.html#Error-enum">Error</a> <i>error</i>, const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>Throws an <i>error</i> with the given <i>text</i>. Returns the created error object.</p>
+<p>The <i>text</i> will be stored in the <tt>message</tt> property of the error object.</p>
+<p>The error object will be initialized to contain information about the location where the error occurred; specifically, it will have properties <tt>lineNumber</tt>, <tt>fileName</tt> and <tt>stack</tt>. These properties are described in <a href="scripting.html#qtscript-extensions-to-ecmascript">QtScript Extensions to ECMAScript</a>.</p>
+<p>See also <a href="qscriptcontext.html#throwValue">throwValue</a>() and <a href="qscriptcontext.html#state">state</a>().</p>
+<!-- @@@throwError -->
+<!-- $$$throwError$$$throwErrorconstQString& -->
+<h3 class="fn"><a name="throwError-2"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::throwError ( const <a href="qstring.html">QString</a> &amp; <i>text</i> )</h3>
+<p>This is an overloaded function.</p>
+<p>Throws an error with the given <i>text</i>. Returns the created error object.</p>
+<p>See also <a href="qscriptcontext.html#throwValue">throwValue</a>() and <a href="qscriptcontext.html#state">state</a>().</p>
+<!-- @@@throwError -->
+<!-- $$$throwValue[overload1]$$$throwValueconstQScriptValue& -->
+<h3 class="fn"><a name="throwValue"></a><a href="qscriptvalue.html">QScriptValue</a> QScriptContext::throwValue ( const <a href="qscriptvalue.html">QScriptValue</a> &amp; <i>value</i> )</h3>
+<p>Throws an exception with the given <i>value</i>. Returns the value thrown (the same as the argument).</p>
+<p>See also <a href="qscriptcontext.html#throwError">throwError</a>() and <a href="qscriptcontext.html#state">state</a>().</p>
+<!-- @@@throwValue -->
+<!-- $$$toString[overload1]$$$toString -->
+<h3 class="fn"><a name="toString"></a><a href="qstring.html">QString</a> QScriptContext::toString () const</h3>
+<p>Returns a string representation of this context. This is useful for debugging.</p>
+<p>This function was introduced in Qt 4.4.</p>
+<p>See also <a href="qscriptcontext.html#backtrace">backtrace</a>().</p>
+<!-- @@@toString -->
+</div>
+        <!-- /div -->
+        <div class="feedback t_button">
+          [+] Documentation Feedback</div>
+      </div>
+    </div>
+    <div class="ft">
+      <span></span>
+    </div>
+  </div> 
+  <div class="footer">
+    <p>
+      <acronym title="Copyright">&copy;</acronym> 2008-2010 Nokia Corporation and/or its
+      subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+      in Finland and/or other countries worldwide.</p>
+    <p>
+      All other trademarks are property of their respective owners. <a title="Privacy Policy"
+        href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  </div>
+  <div id="feedbackBox">
+      <div id="feedcloseX" class="feedclose t_button">X</div>
+    <form id="feedform" action="http://doc.qt.nokia.com/docFeedbck/feedback.php" method="get">
+      <p id="noteHead">Thank you for giving your feedback. <div class="note">Make sure it is related to this specific page. For more general bugs and 
+      requests, please use the <a href="http://bugreports.qt.nokia.com/secure/Dashboard.jspa">Qt Bug Tracker</a>.</div></p>
+      <p><textarea id="feedbox" name="feedText" rows="5" cols="40"></textarea></p>
+      <p><input id="feedsubmit" class="feedclose" type="submit" name="feedback" /></p>
+    </form>
+  </div>
+  <div id="blurpage">
+  </div>
+  <!--/div -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-4457116-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

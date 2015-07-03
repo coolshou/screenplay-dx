@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<!-- Author: Ken Zhao <ken_zhao@alphanetworks.com> -->
+<!-- Author: Charles Wang <cwang@alphanetworks.com> -->
+<page background="image/blank.jpg">
+  <ctrlgrp lbmask="l">
+    <string valkey="Saturation" value="Saturation-value" maxlen="3" title="$$: Saturation" focused_bg="image/textbox_highlight.gif" normal_bg="image/textbox.gif"/>
+    <linebreak/>
+    <string valkey="Brightness" value="Brightness-value" maxlen="3" title="$$: Brightness" focused_bg="image/textbox_highlight.gif" normal_bg="image/textbox.gif"/>
+    <linebreak/>
+    <string valkey="Contrast" value="Contrast-value" maxlen="3" title="$$: Contrast" focused_bg="image/textbox_highlight.gif" normal_bg="image/textbox.gif"/>
+    <linebreak/>
+    <button valkey="OK" focused_bg="image/button_blank-act.png" normal_bg="image/button_blank.png"/>
+    <button valkey="CANCEL" focused_bg="image/button_blank-act.png" normal_bg="image/button_blank.png"/>
+  </ctrlgrp>
+
+  <!--  <text id="headline" text="$$Setup" /> -->
+  <!--  <text id="subheadline" text="$$: Display Property" /> -->
+  <text text="$$Your current display properties:" x="100" y="115" w="600" h="35"/>
+  
+  <table x="150" y="180" w="150" h="150" rows="3" rowspacing="10" fontsize="20" align="right" textcolor="0xf0f0f0">
+    <text text="$$Saturation:"/>
+    <text text="$$Brightness:"/>
+    <text text="$$Contrast:"/>
+  </table>
+  
+  <table x="310" y="180" w="200" h="150" cols="1" rows="3" rowspacing="10" textcolor="0xf0f0f0">
+    <image image="@@bg-Saturation"/>
+    <image image="@@bg-Brightness"/>
+    <image image="@@bg-Contrast"/>
+  </table>
+  
+  <table x="310" y="180" w="220" h="150" cols="1" rows="3" rowspacing="10" wcol0="200" wcol1="30" textcolor="0x101010" selectedtextcolor="0xf0f0f0" activetextcolor="0xf0f0f0" fontsize="20">
+    <text text="@@Saturation-value"/>
+    <text text="@@Brightness-value"/>
+    <text text="@@Contrast-value"/>
+  </table>
+  
+  <table x="320" y="335" w="200" h="65" cols="2" rows="1" colspacing="0" align="hcenter" fontsize="18">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+  
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>
+  <include filename="./inc_headline_property_setup.xml"/>
+  <include filename="./inc_decoration.xml"/>
+</page>

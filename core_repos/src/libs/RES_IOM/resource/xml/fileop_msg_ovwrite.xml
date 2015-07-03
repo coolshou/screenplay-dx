@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2006, ALPHA Networks, inc. -->
+<page background="image/browse_bg.jpg" wait_seconds="300">
+    <ctrlgrp>
+	<button valkey="YES_TO_ONE" focused_bg="image/common_btn_f.png" normal_bg="image/common_btn_n.png"/>
+	<linebreak/>
+	<button valkey="YES_TO_ALL" focused_bg="image/common_btn_f.png" normal_bg="image/common_btn_n.png"/>
+	<linebreak/>
+	<button valkey="SKIP_ONE"   focused_bg="image/common_btn_f.png" normal_bg="image/common_btn_n.png"/>
+	<linebreak/>
+	<button valkey="CANCEL"     focused_bg="image/common_btn_f.png" normal_bg="image/common_btn_n.png"/>
+    </ctrlgrp>
+
+<!--
+    <include filename="./inc_setup_entry_basic_title.xml"/>
+-->
+
+    <table  x="221" y="187" w="843" h="151" textcolor="0xffffff" fontsize="26" rows="3" cols="1">
+	<text text="$$This folder already contains a file named:"  align="hcenter" numlines="1"/>
+	<text text="@@text-dest"  align="hcenter" numlines="1"/>
+	<text text="$$Would you like to overwrite it?"  align="hcenter" numlines="1"/>
+    </table>
+
+    <table x="486" y="348" w="300" h="200" rows="4" cols="1" align="hcenter" fontsize="20" actnoseltextcolor="0xffffff">
+	<imgbtn image="@@bg-YES_TO_ONE" text="$$Yes"        active="@@act-YES_TO_ONE"/>
+	<imgbtn image="@@bg-YES_TO_ALL" text="$$Yes to all" active="@@act-YES_TO_ALL"/>
+	<imgbtn image="@@bg-SKIP_ONE"   text="$$No"         active="@@act-SKIP_ONE"/>
+	<imgbtn image="@@bg-CANCEL"     text="$$Cancel"     active="@@act-CANCEL"/>
+    </table>
+  
+    <include filename="./inc_messagebox.xml" />
+    <include filename="./inc_decoration.xml"/>
+</page>

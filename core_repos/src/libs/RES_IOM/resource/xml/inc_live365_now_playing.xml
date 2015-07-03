@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<wrapper>
+  <wrapper disable="@@info_live365_now_playing_disable">	
+  <image image="@@info_trackicon" x="406" y="69" w="24" h="26"/>
+  <image image="@@info_artisticon" x="406" y="101" w="26" h="26"/>
+
+  <text text="@@info_trackname" x="451" y="68" w="360" h="22" fontsize="18" speed="1" delay="2" align="left" textcolor="0xffffff" auto_translate="1"/>
+  <text text="@@info_artist" x="451" y="95" w="360" h="22" align="left" fontsize="18" textcolor="0xffffff" speed="1" delay="2" auto_translate="1"/>
+  </wrapper>
+</wrapper>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<wrapper>
+    <image image="@@moreprev" x="626" y="150" w="29" h="21" bg="1"/>
+
+    <table x="185" y="188" w="913" h="343" rows="7" rowspacing="0">
+	<image image="@@browse_0_line2" bg="1"/>
+	<image image="@@browse_1_line2" bg="1"/>
+	<image image="@@browse_2_line2" bg="1"/>
+	<image image="@@browse_3_line2" bg="1"/>
+	<image image="@@browse_4_line2" bg="1"/>
+	<image image="@@browse_5_line2" bg="1"/>
+	<image image="@@browse_6_line2" bg="1"/>
+    </table>
+
+   <wrapper x="290" w="672" h="49" fontsize="22" selected_fontsize="30" textcolor="0xffffff" actnoseltextcolor="0x00ccff" cols="1" rows="7" colspacing="0" rowspacing="0">
+	  <text text="@@browselist_0_text" active="@@act-browselist-0" bg="1" y="188" speed="@@browse_0_speed" delay="2"/>
+  	<text text="@@browselist_1_text" active="@@act-browselist-1" bg="1" y="237" speed="@@browse_1_speed" delay="2"/>
+  	<text text="@@browselist_2_text" active="@@act-browselist-2" bg="1" y="286" speed="@@browse_2_speed" delay="2"/>
+  	<text text="@@browselist_3_text" active="@@act-browselist-3" bg="1" y="335" speed="@@browse_3_speed" delay="2"/>
+  	<text text="@@browselist_4_text" active="@@act-browselist-4" bg="1" y="384" speed="@@browse_4_speed" delay="2"/>
+  	<text text="@@browselist_5_text" active="@@act-browselist-5" bg="1" y="433" speed="@@browse_5_speed" delay="2"/>
+  	<text text="@@browselist_6_text" active="@@act-browselist-6" bg="1" y="482" speed="@@browse_6_speed" delay="2"/>
+   </wrapper>
+
+    <wrapper x="238" w="46" h="46" cols="1" rows="7" colspacing="0" rowspacing="0">
+	<image image="@@browse_0_icon" bg="1" y="188"/>
+	<image image="@@browse_1_icon" bg="1" y="237"/>
+	<image image="@@browse_2_icon" bg="1" y="286"/>
+	<image image="@@browse_3_icon" bg="1" y="335"/>
+	<image image="@@browse_4_icon" bg="1" y="384"/>
+	<image image="@@browse_5_icon" bg="1" y="433"/>
+	<image image="@@browse_6_icon" bg="1" y="482"/>
+    </wrapper>
+
+    <wrapper x="195" w="179" h="179" cols="1" rows="7" colspacing="0" rowspacing="0">
+	<image image="@@browse_0_checked" bg="1" y="188"/>
+	<image image="@@browse_1_checked" bg="1" y="237"/>
+	<image image="@@browse_2_checked" bg="1" y="286"/>
+	<image image="@@browse_3_checked" bg="1" y="335"/>
+	<image image="@@browse_4_checked" bg="1" y="384"/>
+	<image image="@@browse_5_checked" bg="1" y="433"/>
+	<image image="@@browse_6_checked" bg="1" y="482"/>
+    </wrapper>
+
+    <image image="@@morenext" x="626" y="551" w="29" h="21" bg="1"/>
+</wrapper>

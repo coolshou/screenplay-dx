@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page>
+	<ctrlgrp valkey="main">
+		<button valkey="ToHome"
+			normal_bg="image/blockbuster/bb_browse_home_n.png"
+			focused_bg="image/blockbuster/bb_browse_home_f.png"/>
+		<linebreak/>
+		<eventbox_keyboard valkey="keyboard" autoenter="1"/>
+		<linebreak/>
+		<button valkey="CANCEL" 
+			normal_bg="image/blockbuster/keyboard_funchion_cancel_btn_n.png" 
+			focused_bg="image/blockbuster/keyboard_funchion_cancel_btn_f.png" 
+			disabled_bg="image/blockbuster/keyboard_funchion_cancel_btn_d.png"
+			click_bg="image/blockbuster/keyboard_funchion_cancel_btn_c.png" click_effect="tp"/>
+		<button valkey="OK" 
+			normal_bg="image/blockbuster/keyboard_funchion_cancel_btn_n.png" 
+			focused_bg="image/blockbuster/keyboard_funchion_cancel_btn_f.png" 
+			disabled_bg="image/blockbuster/keyboard_funchion_cancel_btn_d.png"
+			click_bg="image/blockbuster/keyboard_funchion_cancel_btn_c.png" click_effect="tp"/>
+	</ctrlgrp>
+
+	<image image="image/blockbuster/keyboard_search_box.png" x="454" y="161" w="374" h="50" bg="1"/>
+	<texttail text="@@input_01_text" x="470" y="176" w="342" h="26"  textcolor="0xfff2f2f2" fontsize="24" align="hcenter" ignore_translate="1"/>
+
+	<widget_keyboard ctrlname="keyboard" x="454" y="214" w="374" h="350" cols="8" rows="7" align="hcenter" 
+		textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029" 
+		changed="@@keyboard_changed" extra_height="0" extra_index="0"/>
+
+	<wrapper textcolor="0xff727272" actoverlistcolor="0xff727272" activetextcolor="0xfff2f2f2" clicktextcolor="0xff4d4d4d" clickedtextcolor="0xfff54029" y="570" w="185" h="49" fontsize="20" align="hcenter">
+		<imgbtn x="454" text="$$Cancel" image="@@bg-CANCEL"
+			disable="@@disable-CANCEL" active="@@act-CANCEL" selected="@@sel-CANCEL" click="@@click-CANCEL"/>
+		<imgbtn x="643" text="$$Submit" image="@@bg-OK"
+			disable="@@disable-OK" active="@@act-OK" selected="@@sel-OK" click="@@click-OK"/>
+	</wrapper>
+
+	<image image="@@status_icon" x="794" y="304" w="113" h="113"/>
+	<include filename="./blockbuster_common.xml"/>
+</page>

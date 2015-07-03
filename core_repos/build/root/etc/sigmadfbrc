@@ -1,0 +1,25 @@
+#
+# Sample driver-specific (Sigma Designs) DirectFB configuration file
+#
+# The default values built in the Sigma Designs DirectFB driver are appropriate for a bare-bone
+# system based on the corresponding Sigma Designs SOC.
+#
+# This file can be used to customize the configuration for a specific system implementation
+# and/or application based on the corresponding Sigma Designs SOC.
+#
+# To enable the driver-specific configuration in this file, refer this file in the "driver-options" entry of
+# the generic DirectFB configuration file 'directfbrc'. Since it must be a fully qualified file name,
+# it is recommended to copy this file in the root directory of the DCC-HD SDK package, which is pointed to
+# by the DFB_CONFIG_DIR run-time environment variable.
+#
+
+
+# See the "DCC-HD DirectFB Driver Specification" document in the DCC-HD SDK for configuration options.
+#
+#
+
+#display-cmdline="-digital -f HDMI_1080i59 -cec_chip none -hdmi_chip SLi13 2  -component -f 1080i59 -analog -f NTSC_M"
+
+
+#-digital -f HDMI_1080i59 -cec_chip none -hdmi_chip SLi13 2  -component -f 1080i59 -analog -f NTSC_M"
+

@@ -1,0 +1,1 @@
+cmd_util-linux/lib.a := rm -f util-linux/lib.a; /opt/mips-4.3/bin//mipsel-linux-ar  rcs util-linux/lib.a util-linux/losetup.o util-linux/mdev.o util-linux/mount.o util-linux/pivot_root.o util-linux/switch_root.o util-linux/umount.o

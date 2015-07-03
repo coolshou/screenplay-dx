@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- Copyright (C) 2007, ALPHA Networks, inc. -->
+<page background="image/music_EPL_bg.jpg">  
+  <ctrlgrp lbmask="lu">
+     <string valkey="NEWPLAYLIST" maxlen="32"
+             value="value-NEWPLAYLIST" title="$$: New Playlist"
+             focused_bg="image/textbox_highlight.gif"
+             normal_bg="image/textbox.gif"/>
+     <linebreak />
+     <button valkey="OK"
+             focused_bg="image/button_blank-act.gif"
+             normal_bg="image/button_blank.gif"/>
+     <button valkey="CANCEL"
+             focused_bg="image/button_blank-act.gif"
+             normal_bg="image/button_blank.gif"/>
+  </ctrlgrp>
+  <text id="headline" text="New PlayList " />
+  <image image="@@bg-NEWPLAYLIST"
+         x="300" y="200" w="219" h="25"/>
+  <text text="@@NEWPLAYLIST" active="@@act-NEWPLAYLIST"
+        x="300" y="193" w="219" h="40"
+        textcolor="0xAAAAAA" activetextcolor="0xC0C000" fontsize="25"/>
+
+  <table x="320" y="250" w="200" h="67" cols="2" rows="1" rowspacing="0" fontsize="18" align="hcenter">
+    <imgbtn image="@@bg-OK" text="$$OK"/>
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel"/>
+  </table>
+
+  <include filename="./inc_pip.xml"/>
+  <!-- fixed -->
+  <include filename="./inc_nav.xml"/>
+  <include filename="./info.xml"/>  
+  <include filename="./inc_headline_property.xml"/>
+  <include filename="./decoration.xml"/>
+</page>

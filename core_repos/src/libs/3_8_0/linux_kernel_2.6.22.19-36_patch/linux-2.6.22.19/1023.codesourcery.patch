@@ -1,0 +1,54 @@
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/arch/mips/Makefile linux-2.6.22.19/arch/mips/Makefile
+--- linux-2.6.22.19.ref/arch/mips/Makefile	2009-01-05 14:29:46.000000000 -0800
++++ linux-2.6.22.19/arch/mips/Makefile	2009-01-05 14:32:05.000000000 -0800
+@@ -18,7 +18,8 @@
+ # Select the object file format to substitute into the linker script.
+ #
+ ifdef CONFIG_CPU_LITTLE_ENDIAN
+-32bit-tool-prefix	= mipsel-linux-
++#32bit-tool-prefix	= mipsel-linux-
++32bit-tool-prefix	= mips-linux-gnu-
+ 64bit-tool-prefix	= mips64el-linux-
+ 32bit-bfd		= elf32-tradlittlemips
+ 64bit-bfd		= elf64-tradlittlemips
+@@ -79,7 +80,7 @@
+ # crossformat linking we rely on the elf2ecoff tool for format conversion.
+ #
+ cflags-y			+= -G 0 -mno-abicalls -fno-pic -pipe
+-cflags-y			+= -msoft-float
++#cflags-y			+= -msoft-float
+ LDFLAGS_vmlinux			+= -G 0 -static -n -nostdlib
+ MODFLAGS			+= -mlong-calls
+ 
+@@ -698,7 +699,7 @@
+ #endif
+ cflags-$(CONFIG_TANGO3)		+= -DCPU_REMAP_SPACE=$(KERNEL_START_ADDRESS) 
+ cflags-$(CONFIG_TANGO3_865X)	+= -mtune=24kf
+-cflags-$(CONFIG_TANGO3_864X)	+= -mtune=24kf
++cflags-$(CONFIG_TANGO3_864X)	+= -mtune=74kf -mdsp
+ endif
+ endif
+ 
+diff -Naur --exclude=CVS --exclude='*.o' --exclude='*.a' --exclude='*.so' --exclude='*.elf' --exclude=System.map --exclude=Makefile.d --exclude='*log' --exclude='*log2' --exclude='*~' --exclude='.*~' --exclude='.#*' --exclude='*.bak' --exclude='*.orig' --exclude='*.rej' --exclude='core.[0-9]*' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=.depend --exclude='.*.o.flags' --exclude='*.gz' --exclude=vmlinux --exclude=vmlinux.bin --exclude=yamon-02.06-SIGMADESIGNS-01_el.bin linux-2.6.22.19.ref/README.1023.codesourcery.patch linux-2.6.22.19/README.1023.codesourcery.patch
+--- linux-2.6.22.19.ref/README.1023.codesourcery.patch	1969-12-31 16:00:00.000000000 -0800
++++ linux-2.6.22.19/README.1023.codesourcery.patch	2009-01-05 14:32:54.000000000 -0800
+@@ -0,0 +1,19 @@
++Feature:
++--------
++Supporting CodeSourcery's toolchain
++
++Prerequisite patch numbers:
++---------------------------
++0000
++1000
++
++Primary author:
++---------------
++YH Lin
++
++Related to which chip version SMP86xx xx=?
++-----------------------------------------
++all
++
++(linux patches) which CONFIG_... are provided:
++----------------------------------------------

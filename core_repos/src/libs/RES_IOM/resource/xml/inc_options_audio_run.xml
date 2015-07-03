@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="image/options_bg.png" x="0" y="0" w="1280" h="570" bg="1" disable="@@disable-options_bg"/>
+	<table x="600" y="170" h="78" w="80" cols="1" align="hcenter" disable="@@disable-options_bg">
+		<image image="@@bg-QML0"/>
+	</table>
+</wrapper>

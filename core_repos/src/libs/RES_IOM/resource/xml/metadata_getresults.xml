@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<page background="image/browse_bg.jpg" type="basic">
+	<ctrlgrp lbmask="ud">
+        <button valkey="CANCEL" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+        <button valkey="NONEED" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+        <button valkey="KEYBOARD" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+        <button valkey="SCRAPER" 
+				focused_bg="image/common_btn_f.png"
+				normal_bg="image/common_btn_n.png"
+				click_bg="image/common_btn_p.png"/>
+		<listbox valkey="browselist" autoenter="1" autoswitch="0" move="page" cols="1" rows="7" lbmask="lr" loop_scroll="1" turbo_trigger="10" turbo_multi="10"/>
+        <!--
+		<button valkey="CANCEL" focused_bg="image/global_cancel_bt_f.png" normal_bg="image/global_cancel_bt_n.png" click_bg="image/global_cancel_bt_n.png"/>
+		<linebreak/>
+		<button valkey="KEYBOARD" focused_bg="image/video_playback_metadata_keyboard_f.png" normal_bg="image/video_playback_metadata_keyboard_n.png" click_bg="image/video_playback_metadata_keyboard_n.png"/>
+		<linebreak/>
+		<button valkey="SCRAPER" focused_bg="image/video_playback_metadata_change_scraper_f.png" normal_bg="image/video_playback_metadata_change_scraper_n.png" click_bg="image/video_playback_metadata_change_scraper_n.png"/>
+        -->
+	</ctrlgrp>
+
+    <include filename="./inc_browse_basic_title.xml" />
+  	<image image="@@metadata_scanning_bg" x="227" y="270" w="830" h="112" align="hcenter" scale_type="fixratio" scale="100"/>
+	<text text="@@metadata_scanning_text" x="252" y="330" w="776" h="126" align="hcenter" fontsize="36" textcolor="0xffffff" numlines="3"/>
+	<progress_bar name="metadata_progress_bar" x="262" y="378" w="759" h="4" align="hcenter" pb_back_img="image/browse_list_playbar_bg.png" pb_front_img="image/browse_list_playbar_scale.png" pb_start_delay="0" pb_delay="500" disable="@@disable-PROGRESS"/>
+
+	<!--<image image="@@result_msg_bg" x="226" y="108" w="832" h="515" align="hcenter" scale_type="fixratio" scale="100"/>
+
+	<text text="@@browse_title_icon" x="254" y="139" w="778" h="38" align="left" fontsize="36" textcolor="0xffffff" />
+
+	<text text="@@result_prompt_msg" x="274" y="212" w="737" h="94" align="left" fontsize="30" textcolor="0xc1c1c1" numlines="2" speed="1" delay="2" use_ale_cache="0"/>
+	
+	<image image="@@result_divide" x="274" y="295" w="737" h="1"/>
+	<image image="@@result_divide2" x="274" y="310" w="737" h="1"/>-->
+
+        <table x="550" y="156" w="575" h="416"  selected_fontsize="28" 
+                        textcolor="0xffffff" actnoseltextcolor="0x00ccff" actoverlistcolor="0xC1C1C1" 
+                        activetextcolor="0x00ccff" selectedtextcolor="0x00ccff"
+                        cols="1" rows="8" colspacing="0" rowspacing="0" ymargin="0"
+                        lbimage="image/movie_poster_focus.png" fontsize="22"
+                        lightbar_hide_if_unfocused="1">
+                <text text="@@browse_0_text" lmargin="20" rmargin="20" speed="@@browse_0_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-0" active="@@act-browselist-0" selected="@@browse_0_select"/>
+                <text text="@@browse_1_text" lmargin="20" rmargin="20" speed="@@browse_1_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-1" active="@@act-browselist-1" selected="@@browse_1_select"/>
+                <text text="@@browse_2_text" lmargin="20" rmargin="20" speed="@@browse_2_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-2" active="@@act-browselist-2" selected="@@browse_2_select"/>
+                <text text="@@browse_3_text" lmargin="20" rmargin="20" speed="@@browse_3_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-3" active="@@act-browselist-3" selected="@@browse_3_select"/>
+                <text text="@@browse_4_text" lmargin="20" rmargin="20" speed="@@browse_4_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-4" active="@@act-browselist-4" selected="@@browse_4_select"/>
+                <text text="@@browse_5_text" lmargin="20" rmargin="20" speed="@@browse_5_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-5" active="@@act-browselist-5" selected="@@browse_5_select"/>
+                <text text="@@browse_6_text" lmargin="20" rmargin="20" speed="@@browse_6_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-6" active="@@act-browselist-6" selected="@@browse_6_select"/>
+                <text text="@@browse_7_text" lmargin="20" rmargin="20" speed="@@browse_7_speed" delay="2" 
+                                lightbar="@@lightbar-browselist-7" active="@@act-browselist-7" selected="@@browse_7_select"/>
+        </table>
+<!-- row line -->
+<wrapper x="550" w="578" h="1" bg="1">
+    <image image="@@browse_0_line" y="207"/>
+    <image image="@@browse_1_line" y="260"/>
+    <image image="@@browse_2_line" y="310"/>
+    <image image="@@browse_3_line" y="362"/>
+    <image image="@@browse_4_line" y="416"/>
+    <image image="@@browse_5_line" y="467"/>
+    <image image="@@browse_6_line" y="519"/>
+    <image image="@@browse_7_line" y="572"/>
+</wrapper>
+    <image image="@@movie_poster_bg" x="157" y="151" w="184" h="256" align="hcenter" scale_type="fixratio" scale="100"/>
+	<image image="@@movie_poster" x="166" y="161" w="165" h="236" align="hcenter" default_image="@@default_thumbnail_listpage" scale="100" scale_type="fixratio"/>
+	
+    <wrapper x="168" w="312" h="22" align="left" fontsize="18" textcolor="0xffffff">
+	<text text="@@movie_title" y="422" speed="1"/>
+	<text text="@@movie_year" y="459"/>
+<!--	<text text="@@movie_director" y="496"/>
+	<text text="@@movie_genre" y="533"/>-->
+    </wrapper>
+
+<wrapper x="149" w="322" h="1" bg="1">
+    <image image="@@metadata_seperator" y="448" bg="1"/>
+    <image image="@@metadata_seperator" y="485" bg="1"/>
+</wrapper>
+
+
+	<image image="@@music_cover" x="0" y="0" w="152" h="152" default_image="@@default_thumbnail_listpage" scale="100" scale_type="fixratio" attr_num="4" attr_cur="@@thumb_active" disable="1">
+		<attr x_offset="852" y_offset="362" disable="0" align="right,top"/>
+		<attr x_offset="852" y_offset="422" disable="0" align="right,top"/>
+		<attr x_offset="852" y_offset="272" disable="0" align="right,bottom"/>
+		<attr x_offset="852" y_offset="332" disable="0" align="right,bottom"/>
+	</image>
+
+    <text text="@@pagecounter" x="925" y="113" w="200" h="26" fontsize="20" align="right" textcolor="0xffffff" bg="1"/>
+	<image image="@@moreprev" x="823" y="120" w="29" h="21"/>
+	<image image="@@morenext" x="823" y="534" w="29" h="21"/>
+<!--
+	<imgbtn x="1098" y="182" w="116" h="116" image="@@bg-CANCEL" align="hcenter" active="@@act-CANCEL" disable="@@disable-CANCEL1-img"/>
+	<imgbtn x="1098" y="303" w="116" h="116" image="@@bg-CANCEL" align="hcenter" active="@@act-CANCEL" disable="@@disable-CANCEL2-img"/>
+	<imgbtn x="1098" y="303" w="116" h="116" image="@@bg-KEYBOARD" align="hcenter" active="@@act-KEYBOARD" disable="@@disable-KEYBOARD-img"/>
+	<imgbtn x="1098" y="424" w="116" h="116" image="@@bg-SCRAPER" align="hcenter" active="@@act-SCRAPER" disable="@@disable-SCRAPER-img"/>
+-->
+    <wrapper y="566" fontsize="26" w="300" h="40" align="hcenter">
+	<imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" x="480" disable="@@disable-CANCEL2-img"/>
+	<imgbtn image="@@bg-NONEED" text="@@text-NONEED" active="@@act-NONEED" x="488" disable="@@disable-NONEED"/>
+
+    <imgbtn image="@@bg-CANCEL" text="$$Cancel" active="@@act-CANCEL" x="137" disable="@@disable-CANCEL1-img"/>
+	<imgbtn image="@@bg-KEYBOARD" text="$$Manual" active="@@act-KEYBOARD" x_offset="@@keyboard-xoffset" disable="@@disable-KEYBOARD-img"/>
+
+    <imgbtn image="@@bg-SCRAPER" text="$$Scraper" active="@@act-SCRAPER" x="839" disable="@@disable-SCRAPER-img"/>
+    </wrapper>
+	<include filename="./inc_loading.xml"/>
+	<include filename="./inc_decoration.xml"/>
+</page>
+

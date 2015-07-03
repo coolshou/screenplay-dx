@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<wrapper>
+  <image image="@@volume_inforbar" x="345" y="570" w="590" h="60"/>
+  
+  <progress_bar name="volume_bar" x="506" y="595" w="339" h="14" pb_back_img="image/volume_bar_bg.png" pb_front_img="image/volume_bar.png" pb_delay="5" disable="@@volume_disable"/>
+
+  <text text="@@volume_title_text" x="382" y="589" w="114" h="26" fontsize="24" textcolor="0xffffff"  align="left"/>
+  <text text="@@volume_value_text" x="840" y="589" w="70" h="26" fontsize="24" textcolor="0xffffff"  align="right"/>
+  
+  <image image="@@volume_mute" x="1029" y="617" w="75" h="75"/>
+</wrapper>

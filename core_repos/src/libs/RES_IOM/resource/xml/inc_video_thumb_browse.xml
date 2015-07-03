@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<wrapper>
+    <text text="@@pageindex" x="824" y="110" h="26" w="250" fontsize="24" align="right" textcolor="0xffffff" bg="1"/>
+
+	<image  x="626" y="94" w="38" h="27" image="@@moreprev"/>
+	<image  x="626" y="560" w="38" h="27" image="@@morenext"/>
+    <wrapper y="175" w="111" h="159" scale="100" scale_type="fixratio"  align="hcenter">
+        <image name="th0" image="@@browse_0_thumbnail"  default_image="@@browse_0_default_image"  x="200"  bg="1"/>
+        <image name="th1" image="@@browse_1_thumbnail"  default_image="@@browse_1_default_image"  x="328"  bg="1"/>
+        <image name="th2" image="@@browse_2_thumbnail"  default_image="@@browse_2_default_image"  x="456"  bg="1"/>
+        <image name="th3" image="@@browse_3_thumbnail"  default_image="@@browse_3_default_image"  x="584"  bg="1"/>
+        <image name="th4" image="@@browse_4_thumbnail"  default_image="@@browse_4_default_image"  x="712"  bg="1"/>
+        <image name="th5" image="@@browse_5_thumbnail"  default_image="@@browse_5_default_image"  x="840"  bg="1"/>
+        <image name="th6" image="@@browse_6_thumbnail"  default_image="@@browse_6_default_image"  x="968"  bg="1"/>
+    </wrapper>
+
+    <wrapper y="351" w="111" h="159" scale="100" scale_type="fixratio"  align="hcenter">
+        <image name="th7"  image="@@browse_7_thumbnail"   default_image="@@browse_7_default_image"    x="200"  bg="1"/>
+        <image name="th8"  image="@@browse_8_thumbnail"   default_image="@@browse_8_default_image"    x="328"  bg="1"/>
+        <image name="th9"  image="@@browse_9_thumbnail"   default_image="@@browse_9_default_image"    x="456"  bg="1"/>
+        <image name="th10" image="@@browse_10_thumbnail"  default_image="@@browse_10_default_image"   x="584"  bg="1"/>
+        <image name="th11" image="@@browse_11_thumbnail"  default_image="@@browse_11_default_image"   x="712"  bg="1"/>
+        <image name="th12" image="@@browse_12_thumbnail"  default_image="@@browse_12_default_image"   x="840"  bg="1"/>
+        <image name="th13" image="@@browse_13_thumbnail"  default_image="@@browse_13_default_image"   x="968"  bg="1"/>
+    </wrapper>
+
+
+    <wrapper y="175" w="111" h="159" scale="100" scale_type="fixratio"  align="hcenter">
+        <image image="@@browse_0_decoration" x="200"  bg="1"/>
+        <image image="@@browse_1_decoration" x="328"  bg="1"/>
+        <image image="@@browse_2_decoration" x="456"  bg="1"/>
+        <image image="@@browse_3_decoration" x="584"  bg="1"/>
+        <image image="@@browse_4_decoration" x="712"  bg="1"/>
+        <image image="@@browse_5_decoration" x="840"  bg="1"/>
+        <image image="@@browse_6_decoration" x="968"  bg="1"/>
+    </wrapper>
+
+    <wrapper y="351" w="111" h="159" scale="100" scale_type="fixratio"  align="hcenter">
+        <image image="@@browse_7_decoration"  x="200"  bg="1"/>
+        <image image="@@browse_8_decoration"  x="328"  bg="1"/>
+        <image image="@@browse_9_decoration"  x="456"  bg="1"/>
+        <image image="@@browse_10_decoration" x="584"  bg="1"/>
+        <image image="@@browse_11_decoration" x="712"  bg="1"/>
+        <image image="@@browse_12_decoration" x="840"  bg="1"/>
+        <image image="@@browse_13_decoration" x="968"  bg="1"/>
+    </wrapper>
+
+
+    <wrapper y="174" w="113" h="161" scale="100" scale_type="fixratio"  align="hcenter">
+        <image image="@@browse_0_thumbnail_border"   x="199"  bg="1"/>
+        <image image="@@browse_1_thumbnail_border"   x="327"  bg="1"/>
+        <image image="@@browse_2_thumbnail_border"   x="455"  bg="1"/>
+        <image image="@@browse_3_thumbnail_border"   x="583"  bg="1"/>
+        <image image="@@browse_4_thumbnail_border"   x="711"  bg="1"/>
+        <image image="@@browse_5_thumbnail_border"   x="839"  bg="1"/>
+        <image image="@@browse_6_thumbnail_border"   x="967"  bg="1"/>        
+    </wrapper>
+
+    <wrapper y="350" w="113" h="161" scale="100" scale_type="fixratio"  align="hcenter">
+        <image image="@@browse_7_thumbnail_border"    x="199"  bg="1"/>
+        <image image="@@browse_8_thumbnail_border"    x="327"  bg="1"/>
+        <image image="@@browse_9_thumbnail_border"    x="455"  bg="1"/>
+        <image image="@@browse_10_thumbnail_border"   x="583"  bg="1"/>
+        <image image="@@browse_11_thumbnail_border"   x="711"  bg="1"/>
+        <image image="@@browse_12_thumbnail_border"   x="839"  bg="1"/>
+        <image image="@@browse_13_thumbnail_border"   x="967"  bg="1"/>        
+    </wrapper>
+                               
+    <wrapper y="174" w="111" h="159" scale="50" align="right,bottom">
+        <image image="thumb_folder_icon://th0" default_image="@@thumb_folder_0_default_image" x="200"  bg="1"/>
+        <image image="thumb_folder_icon://th1" default_image="@@thumb_folder_1_default_image" x="328"  bg="1"/>
+        <image image="thumb_folder_icon://th2" default_image="@@thumb_folder_2_default_image" x="456"  bg="1"/>
+        <image image="thumb_folder_icon://th3" default_image="@@thumb_folder_3_default_image" x="584"  bg="1"/>
+        <image image="thumb_folder_icon://th4" default_image="@@thumb_folder_4_default_image" x="712"  bg="1"/>
+        <image image="thumb_folder_icon://th5" default_image="@@thumb_folder_5_default_image" x="840"  bg="1"/>
+        <image image="thumb_folder_icon://th6" default_image="@@thumb_folder_6_default_image" x="968"  bg="1"/>        
+    </wrapper>
+
+    <wrapper y="350" w="111" h="159" scale="50" align="right,bottom">
+        <image image="thumb_folder_icon://th7"  default_image="@@thumb_folder_7_default_image"  x="200"  bg="1"/>
+        <image image="thumb_folder_icon://th8"  default_image="@@thumb_folder_8_default_image"  x="328"  bg="1"/>
+        <image image="thumb_folder_icon://th9"  default_image="@@thumb_folder_9_default_image"  x="456"  bg="1"/>
+        <image image="thumb_folder_icon://th10" default_image="@@thumb_folder_10_default_image" x="584"  bg="1"/>
+        <image image="thumb_folder_icon://th11" default_image="@@thumb_folder_11_default_image" x="712"  bg="1"/>
+        <image image="thumb_folder_icon://th12" default_image="@@thumb_folder_12_default_image" x="840"  bg="1"/>
+        <image image="thumb_folder_icon://th13" default_image="@@thumb_folder_13_default_image" x="968"  bg="1"/>        
+    </wrapper>
+
+	<image image="@@browse_thumb_focus_border" x="0" y="0" w="170" h="244" attr_num="14" attr_cur="@@thumb_focus_index" bg="1">
+		<attr x_offset="171" y_offset="134"/>
+		<attr x_offset="299" y_offset="134"/>
+		<attr x_offset="427" y_offset="134"/>
+		<attr x_offset="555" y_offset="134"/>
+		<attr x_offset="683" y_offset="134"/>
+		<attr x_offset="811" y_offset="134"/>
+		<attr x_offset="939" y_offset="134"/>
+
+
+		<attr x_offset="171" y_offset="309"/>
+		<attr x_offset="299" y_offset="309"/>
+		<attr x_offset="427" y_offset="309"/>
+		<attr x_offset="555" y_offset="309"/>
+		<attr x_offset="683" y_offset="309"/>
+		<attr x_offset="811" y_offset="309"/>
+		<attr x_offset="939" y_offset="309"/>
+	</image>
+
+	<image image="@@browse_thumbnail_focus" default_image="@@browse_thumbnail_focus_default_image" x="0" y="0" w="146" h="220" scale="100" scale_type="fixratio" align="hcenter" attr_num="14" attr_cur="@@thumb_focus_index" bg="1">
+		<attr x_offset="183" y_offset="146"/>
+		<attr x_offset="311" y_offset="146"/>
+		<attr x_offset="439" y_offset="146"/>
+		<attr x_offset="567" y_offset="146"/>
+		<attr x_offset="695" y_offset="146"/>
+		<attr x_offset="823" y_offset="146"/>
+		<attr x_offset="951" y_offset="146"/>
+
+
+		<attr x_offset="183" y_offset="321"/>
+		<attr x_offset="311" y_offset="321"/>
+		<attr x_offset="439" y_offset="321"/>
+		<attr x_offset="567" y_offset="321"/>
+		<attr x_offset="695" y_offset="321"/>
+		<attr x_offset="823" y_offset="321"/>
+		<attr x_offset="951" y_offset="321"/>
+	</image>
+
+  <text text="@@file_info" selected="@@file_info_selected" x="278" y="592" w="732" h="34" fontsize="26" textcolor="0xffffff" selectedtextcolor="0xffffff" align="hcenter" speed="1" delay="2" auto_translate="1"/>
+</wrapper>

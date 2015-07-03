@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<wrapper>
+	<image image="image/photo_browser_options_menu_bg_x1.png" x="336" y="0" w="101" h="174" bg="1" disable="@@disable-options_bg"/>
+	<image image="@@bg-QML0" x="355" y="59" h="74" w="101" align="hcenter" disable="@@disable-options_bg"/>
+	<image image="@@lightbar-QML0" x="355" y="0" h="158" w="101" disable="@@disable-options_bg"/>
+</wrapper>	

@@ -1,0 +1,36 @@
+Firmware building steps:
+
+1. get toolchain by
+	git clone https://github.com/coolshou/screenplay-dx_Toolchain.git
+
+2. Copy & Untar mips-4.3.tgz from toolchain directory to the /opt:
+    a) cp mips-4.3.tgz /opt
+    b) cd /opt
+    c) tar xvf mips-4.3.tgz
+
+3. get source by
+	git clone https://github.com/coolshou/screenplay-dx.git
+
+4. To make the firmware, please follow these steps in order:
+    a) cd core_repos
+    b) PATH=$PATH:$PWD/tools
+    c) cp config/default_config_IOM_X2 .config
+    d) export DIRECTFB_I=$PWD/src/libs/qt-everywhere-opensource-src/directfb/
+    e) make oldconfig
+    f) make distclean
+    g) make -j2 all install firmware
+    Note:
+	if you rebuilt or modify the toolchain (mips-4.3), you may also copy all libraries that application needs from :
+	- /mips-4.3/mips-linux-gnu/libc/el/lib
+	- /mips-4.3/mips-linux-gnu/libc/el/usr/lib
+	to core_repos/src/libs/2.8_by_mips_4_3_2/ (for which binaries you should copy to our code base, please refer to bellow script or you can copy them manually one by one), otherwise please skip this step. (To rebuild the toolchain, please refer to README inside the toolchain_source folder)
+	- you may also copy "ldconfig" from /mips-4.3/mips-linux-gnu/libc/el/sbin and put it in ./src/libs/rootfs_skeleton/platform_smp8654/mandatory/sbin/ directory
+
+5. If the processes is finished, it will generate 3 files inside "build" directory, those files are:
+    - iomx2.bin
+    - iomx2.fff
+    - iomx2.ver
+
+#note
+#1. system need genromfs (0.5.2-2build2) tool??
+#2. fuse 2.7.4 kernel module modify static kernel path

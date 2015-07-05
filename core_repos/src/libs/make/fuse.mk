@@ -78,7 +78,7 @@ fuse-configured:  fuse-config $(FUSE_DIR)/.fuse_configured
 
 $(FUSE_DIR)/.fuse_configured: $(FUSE_DIR)/.fuse_patched $(FUSE_CONFIG) $(TOP_CURRENT_SET)
 	@echo "Configuring $(FUSE) ..."
-	cd $(FUSE_SOURCE)/$(FUSE);./configure --prefix=$(LIBS_INSTALL_PATH)  --build=$(BUILD_HOST) --host=$(BUILD_TARGET) --target=$(BUILD_TARGET) --disable-util --disable-example --with-libiconv-prefix=$(LIBS_INSTALL_PATH)/lib PKG_CONFIG_PATH="$(LIBS_INSTALL_PATH)/lib/pkgconfig" --enable-shared=no
+	cd $(FUSE_SOURCE)/$(FUSE);./configure --prefix=$(LIBS_INSTALL_PATH)  --build=$(BUILD_HOST) --host=$(BUILD_TARGET) --target=$(BUILD_TARGET) --disable-util --disable-example --with-libiconv-prefix=$(LIBS_INSTALL_PATH)/lib PKG_CONFIG_PATH="$(LIBS_INSTALL_PATH)/lib/pkgconfig" --enable-shared=no --disable-kernel-module
 	@echo "Configuring $(FUSE) done"
 	@touch $@
 

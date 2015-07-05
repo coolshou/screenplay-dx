@@ -459,12 +459,15 @@ menu "External packages"
 					bool "openssl-0.9.8k"
 				config	OPENSSL_0_9_8_o
 					bool "openssl-0.9.8o"
+				config	OPENSSL_0_9_8_zg
+					bool "openssl-0.9.8zg"
 		endchoice	
 	config	OPENSSL_VERSION
 		string
 		default "0.9.8k" if OPENSSL_0_9_8_k
 		default "0.9.8o" if OPENSSL_0_9_8_o
-
+		default "0.9.8zg" if OPENSSL_0_9_8_zg
+		
 	config MATRIXSSL
 		depends on ENABLE_NETWORKING
 		default n

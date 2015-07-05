@@ -7,7 +7,8 @@ CFLAGS = -MMD -O2 -Wall -g
 endif
 
 # Include directories for CVS version
-CFLAGS += -I. -I../utils -I../hostapd -I../openssl-0.9.8o/openssl-0.9.8o/include
+#CFLAGS += -I. -I../utils -I../hostapd -I../openssl-0.9.8o/openssl-0.9.8o/include
+CFLAGS += -I. -I../utils -I../hostapd -I../openssl-0.9.8zg/openssl-0.9.8zg/include
 
 ALL=wpa_supplicant 
 

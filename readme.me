@@ -3,10 +3,8 @@ Firmware building steps:
 1. get toolchain by
 	git clone https://github.com/coolshou/screenplay-dx_Toolchain.git
 
-2. Copy & Untar mips-4.3.tgz from toolchain directory to the /opt:
-    a) cp mips-4.3.tgz /opt
-    b) cd /opt
-    c) tar xvf mips-4.3.tgz
+2. link mips-4.3 directory to the /opt:
+    a) ln -s mips-4.3 /opt
 
 3. get source by
 	git clone https://github.com/coolshou/screenplay-dx.git
@@ -18,7 +16,7 @@ Firmware building steps:
     d) export DIRECTFB_I=$PWD/src/libs/qt-everywhere-opensource-src/directfb/
     e) make oldconfig
     f) make distclean
-    g) make -j2 all install firmware
+    g) make all install firmware
     Note:
 	if you rebuilt or modify the toolchain (mips-4.3), you may also copy all libraries that application needs from :
 	- /mips-4.3/mips-linux-gnu/libc/el/lib
@@ -31,6 +29,6 @@ Firmware building steps:
     - iomx2.fff
     - iomx2.ver
 
-#note
+#note todo:
 #1. system need genromfs (0.5.2-2build2) tool??
-#2. fuse 2.7.4 kernel module modify static kernel path
+#2. fuse 2.7.4 kernel module modify static kernel path (current disable fuse kernel module)

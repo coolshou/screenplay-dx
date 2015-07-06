@@ -31,9 +31,10 @@ linux_kernel-unpacked: $(SIGMA_SDK_DIR)/.linux_kernel_unpacked
 
 $(SIGMA_SDK_DIR)/.linux_kernel_unpacked:
 	@echo "Unpacking linux kernel..." 
-	@rm -fr $(LINUX_KERNEL_SOURCE)
-	cd $(SIGMA_SDK_SOURCE); tar xzf ${LINUX_KERNEL_SOURCE_PACKAGE};
-	make -f $(SIGMA_SDK_SOURCE)/downloaded-unpacked-patched.mk linux_kernel-unpack
+	@echo "Jimmy: disable @rm -fr $(LINUX_KERNEL_SOURCE) because ${LINUX_KERNEL_SOURCE_PACKAGE} too big to upload to github" 
+	#@rm -fr $(LINUX_KERNEL_SOURCE)
+	#cd $(SIGMA_SDK_SOURCE); tar xzf ${LINUX_KERNEL_SOURCE_PACKAGE};
+	#make -f $(SIGMA_SDK_SOURCE)/downloaded-unpacked-patched.mk linux_kernel-unpack
 	@touch $@
 
 

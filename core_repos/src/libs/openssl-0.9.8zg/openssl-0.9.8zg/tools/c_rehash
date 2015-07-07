@@ -6,8 +6,8 @@
 
 my $openssl;
 
-my $dir = "/usr/local/ssl";
-my $prefix = "/usr/local/ssl";
+my $dir = "/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build/ssl";
+my $prefix = "/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build";
 
 if(defined $ENV{OPENSSL}) {
 	$openssl = $ENV{OPENSSL};

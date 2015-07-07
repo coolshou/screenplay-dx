@@ -11,11 +11,11 @@ SHLIB_VERSION_NUMBER=0.9.8
 SHLIB_VERSION_HISTORY=
 SHLIB_MAJOR=0
 SHLIB_MINOR=9.8
-SHLIB_EXT=
-PLATFORM=dist
-OPTIONS= no-camellia no-capieng no-cms no-gmp no-jpake no-krb5 no-mdc2 no-montasm no-rc5 no-rfc3779 no-seed no-shared no-zlib no-zlib-dynamic
-CONFIGURE_ARGS=dist
-SHLIB_TARGET=
+SHLIB_EXT=.so.$(SHLIB_MAJOR).$(SHLIB_MINOR)
+PLATFORM=linux-mipsel
+OPTIONS=--prefix=/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build/ enable-shared no-camellia no-capieng no-cms no-gmp no-jpake no-krb5 no-mdc2 no-montasm no-rc5 no-rfc3779 no-seed no-zlib no-zlib-dynamic
+CONFIGURE_ARGS=linux-mipsel --prefix=/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build/ shared
+SHLIB_TARGET=linux-shared
 
 # HERE indicates where this Makefile lives.  This can be used to indicate
 # where sub-Makefiles are expected to be.  Currently has very limited usage,
@@ -26,10 +26,10 @@ HERE=.
 # for, say, /usr/ and yet have everything installed to /tmp/somedir/usr/.
 # Normally it is left empty.
 INSTALL_PREFIX=
-INSTALLTOP=/usr/local/ssl
+INSTALLTOP=/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build
 
 # Do not edit this manually. Use Configure --openssldir=DIR do change this!
-OPENSSLDIR=/usr/local/ssl
+OPENSSLDIR=/home/coolshou/develop/embbed/Iomega/screenplay-dx/core_repos/src/libs/../../build/binary/third_party_build/ssl
 
 # NO_IDEA - Define to build without the IDEA algorithm
 # NO_RC4  - Define to build without the RC4 algorithm
@@ -59,16 +59,16 @@ OPENSSLDIR=/usr/local/ssl
 # equal 4.
 # PKCS1_CHECK - pkcs1 tests.
 
-CC= cc
-CFLAG= -O
+CC= /opt/mips-4.3/bin//mipsel-linux-gcc
+CFLAG= -fPIC -DOPENSSL_PIC -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -mabi=32 -DL_ENDIAN -DTERMIO -O3 -fPIC -g -Wall
 DEPFLAG= -DOPENSSL_NO_CAMELLIA -DOPENSSL_NO_CAPIENG -DOPENSSL_NO_CMS -DOPENSSL_NO_GMP -DOPENSSL_NO_JPAKE -DOPENSSL_NO_MDC2 -DOPENSSL_NO_RC5 -DOPENSSL_NO_RFC3779 -DOPENSSL_NO_SEED
 PEX_LIBS= 
-EX_LIBS= 
+EX_LIBS= -ldl
 EXE_EXT= 
 ARFLAGS= 
-AR= ar $(ARFLAGS) r
+AR= /opt/mips-4.3/bin//mipsel-linux-ar $(ARFLAGS) r
 ARD=ar $(ARFLAGS) d
-RANLIB= /usr/bin/ranlib
+RANLIB= /opt/mips-4.3/bin//mipsel-linux-ranlib
 PERL= /usr/bin/perl
 TAR= tar
 TARFLAGS= --no-recursion --record-size=10240
@@ -169,8 +169,8 @@ LIBS=   libcrypto.a libssl.a
 SHARED_CRYPTO=libcrypto$(SHLIB_EXT)
 SHARED_SSL=libssl$(SHLIB_EXT)
 SHARED_FIPS=
-SHARED_LIBS=
-SHARED_LIBS_LINK_EXTS=
+SHARED_LIBS=$(SHARED_FIPS) $(SHARED_CRYPTO) $(SHARED_SSL)
+SHARED_LIBS_LINK_EXTS=.so.$(SHLIB_MAJOR) .so
 SHARED_LDFLAGS=
 
 GENERAL=        Makefile

@@ -12,7 +12,7 @@ LINUX_KERNEL_SOURCE   		:= $(SIGMA_SDK_SOURCE)/linux_kernel_${CONF_LINUX_KERNEL_
 LINUX_KERNEL_PATCH_SOURCE	:= $(SIGMA_SDK_SOURCE)/linux_kernel_${CONF_LINUX_KERNEL_VERSION}-${CONF_LINUX_PATCH_VERSION}_patch#
 LINUX_KERNEL_SOURCE_PACKAGE	:= $(LINUX_KERNEL_SOURCE).tar.gz#
 LINUX_KERNEL_CONFIG 		:= $(TOP_CONFIG_DIR)/$(CONF_LINUX_KERNEL_CONFIG_FILE)
-
+LINUX_KERNEL_SOURCE_HTTP    := https://github.com/coolshou/screenplay-dx/releases/download/kernel_src/linux_kernel_2.6.22.19.tar.gz
 
 
 
@@ -31,10 +31,12 @@ linux_kernel-unpacked: $(SIGMA_SDK_DIR)/.linux_kernel_unpacked
 
 $(SIGMA_SDK_DIR)/.linux_kernel_unpacked:
 	@echo "Unpacking linux kernel..." 
-	@echo "Jimmy: disable @rm -fr $(LINUX_KERNEL_SOURCE) because ${LINUX_KERNEL_SOURCE_PACKAGE} too big to upload to github" 
-	#@rm -fr $(LINUX_KERNEL_SOURCE)
-	#cd $(SIGMA_SDK_SOURCE); tar xzf ${LINUX_KERNEL_SOURCE_PACKAGE};
-	#make -f $(SIGMA_SDK_SOURCE)/downloaded-unpacked-patched.mk linux_kernel-unpack
+	rm -fr $(LINUX_KERNEL_SOURCE); 
+	@if [ ! -e $(SIGMA_SDK_SOURCE)/linux_kernel_2.6.22.19.tar.gz ]; then \
+		wget -c $(LINUX_KERNEL_SOURCE_HTTP) -O $(SIGMA_SDK_SOURCE)/linux_kernel_2.6.22.19.tar.gz; \
+	fi
+	cd $(SIGMA_SDK_SOURCE);	tar xzf ${LINUX_KERNEL_SOURCE_PACKAGE}; 
+	make -f $(SIGMA_SDK_SOURCE)/downloaded-unpacked-patched.mk linux_kernel-unpack 
 	@touch $@
 
 
@@ -171,8 +173,9 @@ linux_kernel-clean:
 #
 .PHONY: linux_kernel-distclean
 
-linux_kernel-distclean:
-	@rm -f .linux*
+linux_kernel-distclean: linux_kernel-clean
+	@echo "Jimmy: disable linux_kernel-distclean, only do linux_kernel-clean"
+	#@rm -f .linux*
 
 #
 # Install

@@ -282,7 +282,8 @@ ifdef CONFIG_EAP_WSC
 # EAP-WSC Wireless Simple config files
 CFLAGS += -DEAP_WSC
 OBJS += eap_wsc.o UdpLib.o
-LIBS += -lssl -lcrypto -L../openssl-0.9.8o/openssl-0.9.8o/
+#LIBS += -lssl -lcrypto -L../openssl-0.9.8o/openssl-0.9.8o/
+LIBS += -lssl -lcrypto -L../openssl-0.9.8zg/openssl-0.9.8zg/
 CONFIG_IEEE8021X_EAPOL=y
 endif
 
@@ -489,7 +490,8 @@ wpa_gui: wpa_gui/Makefile
 TEST_SRC_MS_FUNCS = ms_funcs.c crypto.c sha1.c md5.c
 test-ms_funcs: $(TEST_SRC_MS_FUNCS)
 	$(CC) -o test-ms_funcs -Wall -Werror $(TEST_SRC_MS_FUNCS) \
-		-DTEST_MAIN_MS_FUNCS -lcrypto -I../hostapd -I. -L../openssl-0.9.8o/openssl-0.9.8o/
+		-DTEST_MAIN_MS_FUNCS -lcrypto -I../hostapd -I. -L../openssl-0.9.8zg/openssl-0.9.8zg/
+#		-DTEST_MAIN_MS_FUNCS -lcrypto -I../hostapd -I. -L../openssl-0.9.8o/openssl-0.9.8o/
 	./test-ms_funcs
 	rm test-ms_funcs
 

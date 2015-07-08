@@ -277,11 +277,14 @@ menu "External packages"
 			prompt	"zlib"
 				config	ZLIB_1_2_2
 					bool "zlib-1.2.2"
+				config	ZLIB_1_2_8
+					bool "zlib-1.2.8"
 		endchoice	
 	config	ZLIB_VERSION
 		string
 		default "1.2.2" if ZLIB_1_2_2
-
+		default "1.2.8" if ZLIB_1_2_8
+		
 	config	LIBCX	
 		bool 
 		default	y if WIRELESS_SUPPORT || OSSP

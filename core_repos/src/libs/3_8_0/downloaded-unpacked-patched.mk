@@ -171,7 +171,7 @@ sigma_zboot-patch:
 
 .PHONY: linux_kernel-unpack
 linux_kernel-unpack:
-	(cd $(SIGMA_SDK_SOURCE); ln -s linux_kernel_$(CONF_LINUX_KERNEL_VERSION) $(kernel_src_2_6_22_19_dir))
+	(cd $(SIGMA_SDK_SOURCE); ln -sf linux_kernel_$(CONF_LINUX_KERNEL_VERSION) $(kernel_src_2_6_22_19_dir))
 
 
 .PHONY: linux_kernel-patched

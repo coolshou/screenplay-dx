@@ -1,1 +1,0 @@
-#define CONFIG_APP_UDHCPC 1

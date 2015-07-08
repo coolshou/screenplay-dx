@@ -1,1 +1,0 @@
-cmd_networking/lib.a := rm -f networking/lib.a; /opt/mips-4.3/bin//mipsel-linux-ar  rcs networking/lib.a networking/ifconfig.o networking/interface.o networking/ping.o networking/tftp.o networking/traceroute.o

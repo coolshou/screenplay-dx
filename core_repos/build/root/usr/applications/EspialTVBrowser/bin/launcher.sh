@@ -14,8 +14,8 @@
 #export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/CS/favourites.html
 
 # CT
-#export LANGUAGE=CT
-#export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/CT/favourites.html
+export LANGUAGE=CT
+export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/CT/favourites.html
 
 # CZ
 #export LANGUAGE=CZ
@@ -26,8 +26,8 @@
 #export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/DN/favourites.html
 
 # E
-export LANGUAGE=E
-export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/E/EU/favourites.html
+#export LANGUAGE=E
+#export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/E/EU/favourites.html
 #export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/E/NA/favourites.html
 #export HOMEPAGE=file:///usr/applications/EspialTVBrowser/bin/HtmlUI/adobe.html
 #export HOMEPAGE=http://www.bing.com/videos/watch/video/tom-and-giseles-christmas-lights/1nw25vl
@@ -126,7 +126,8 @@ export LD_LIBRARY_PATH=../lib:/mnt/dcchd/dcchd/dcchd:/mnt/dcchd/dcchd/core:/mnt/
 ulimit -s 16384
 
 #export LC_ALL=
-export LANG=en_US
+#export LANG=en_US
+export LANG=zh_TW
 #export LANGUAGE=en_US
 
 export PANGO_RC_FILE=/usr/applications/EspialTVBrowser/etc/pangorc

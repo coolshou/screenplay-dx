@@ -76,6 +76,8 @@ MODULE_ALIAS_SCSI_DEVICE(TYPE_WORM);
 	 CDC_CD_R|CDC_CD_RW|CDC_DVD|CDC_DVD_R|CDC_DVD_RAM|CDC_GENERIC_PACKET| \
 	 CDC_MRW|CDC_MRW_W|CDC_RAM)
 
+#define DEFAULT_CAPACITY	0xffffffff
+
 static int sr_probe(struct device *);
 static int sr_remove(struct device *);
 static int sr_init_command(struct scsi_cmnd *);
@@ -574,7 +576,7 @@ static int sr_probe(struct device *dev)
 	cd->disk = disk;
 	cd->driver = &sr_template;
 	cd->disk = disk;
-	cd->capacity = 0x1fffff;
+	cd->capacity = DEFAULT_CAPACITY;
 	cd->device->changed = 1;	/* force recheck CD type */
 	cd->use = 1;
 	cd->readcd_known = 0;
@@ -646,19 +648,22 @@ static void get_sectorsize(struct scsi_cd *cd)
 
 
 	if (the_result) {
-		cd->capacity = 0x1fffff;
+		cd->capacity = DEFAULT_CAPACITY;
 		sector_size = 2048;	/* A guess, just in case */
 	} else {
-#if 0
-		if (cdrom_get_last_written(&cd->cdi,
-					   &cd->capacity))
-#endif
-			cd->capacity = 1 + ((buffer[0] << 24) |
+		cd->capacity = 1 + ((buffer[0] << 24) |
 						    (buffer[1] << 16) |
 						    (buffer[2] << 8) |
-						    buffer[3]);
+						     buffer[3]);
 		sector_size = (buffer[4] << 24) |
 		    (buffer[5] << 16) | (buffer[6] << 8) | buffer[7];
+
+		/* some drive cannot read capacity out from the disk
+		 * try the last session instead 
+		 */
+		if(cd->capacity == 1)
+			cdrom_get_last_written(&cd->cdi, &cd->capacity);
+
 		switch (sector_size) {
 			/*
 			 * HP 4020i CD-Recorder reports 2340 byte sectors
@@ -698,7 +703,7 @@ out:
 	return;
 
 Enomem:
-	cd->capacity = 0x1fffff;
+	cd->capacity = DEFAULT_CAPACITY;
 	cd->device->sector_size = 2048;	/* A guess, just in case */
 	goto out;
 }

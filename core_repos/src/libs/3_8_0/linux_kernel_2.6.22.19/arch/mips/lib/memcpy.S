@@ -20,7 +20,7 @@
  * end of memory on some systems.  It's also a seriously bad idea on non
  * dma-coherent systems.
  */
-#if !defined(CONFIG_DMA_COHERENT) || !defined(CONFIG_DMA_IP27)
+#ifdef CONFIG_DMA_NONCOHERENT
 #undef CONFIG_CPU_HAS_PREFETCH
 #endif
 #ifdef CONFIG_MIPS_MALTA
@@ -184,7 +184,11 @@
  * memcpy sets v0 to dst.
  */
 	.align	5
-LEAF(memcpy)					/* a0=dst a1=src a2=len */
+#ifdef CONFIG_TANGOX
+LEAF(memcpy_original)				/* a0=dst a1=src a2=len */
+#else
+LEAF(memcpy)				/* a0=dst a1=src a2=len */
+#endif
 	move	v0, dst				/* return value */
 __memcpy:
 FEXPORT(__copy_user)
@@ -222,10 +226,23 @@ both_aligned:
 	 SRL	t0, len, LOG_NBYTES+3    # +3 for 8 units/iter
 	beqz	t0, cleanup_both_aligned # len < 8*NBYTES
 	 and	rem, len, (8*NBYTES-1)	 # rem = len % (8*NBYTES)
-	PREF(	0, 3*32(src) )
-	PREF(	1, 3*32(dst) )
-	.align	4
+
+#ifndef CONFIG_TANGO3
+	PREF(   0, 3*32(src) )
+	PREF(   1, 3*32(dst) )
+	.align  4
+#else
+	# len>=32, but is it <64?
+	SUB	t0, len, 64
+	bltz	t0, 2f
+	SUB	len, 32
+#endif
+	
 1:
+#ifdef CONFIG_TANGO3
+	pref	0,  0x60(src)
+	pref	30, 0x20(dst) # we assume dst is 0x20-aligned, not sure
+#endif
 EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
 EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
 EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
@@ -245,10 +262,34 @@ EXC(	STORE	t4, UNIT(-4)(dst),	s_exc_p4u)
 EXC(	STORE	t7, UNIT(-3)(dst),	s_exc_p3u)
 EXC(	STORE	t0, UNIT(-2)(dst),	s_exc_p2u)
 EXC(	STORE	t1, UNIT(-1)(dst),	s_exc_p1u)
-	PREF(	0, 8*32(src) )
-	PREF(	1, 8*32(dst) )
+#ifndef CONFIG_TANGO3
+	PREF(   0, 8*32(src) )
+	PREF(   1, 8*32(dst) )
+#endif
 	bne	len, rem, 1b
 	 nop
+
+#ifdef CONFIG_TANGO3
+2:	
+EXC(	LOAD	t0, UNIT(0)(src),	l_exc)
+EXC(	LOAD	t1, UNIT(1)(src),	l_exc_copy)
+EXC(	LOAD	t2, UNIT(2)(src),	l_exc_copy)
+EXC(	LOAD	t3, UNIT(3)(src),	l_exc_copy)
+EXC(	LOAD	t4, UNIT(4)(src),	l_exc_copy)
+EXC(	LOAD	t7, UNIT(5)(src),	l_exc_copy)
+EXC(	STORE	t0, UNIT(0)(dst),	s_exc_p8u)
+EXC(	STORE	t1, UNIT(1)(dst),	s_exc_p7u)
+EXC(	LOAD	t0, UNIT(6)(src),	l_exc_copy)
+EXC(	LOAD	t1, UNIT(7)(src),	l_exc_copy)
+	ADD	src, src, 8*NBYTES
+	ADD	dst, dst, 8*NBYTES
+EXC(	STORE	t2, UNIT(-6)(dst),	s_exc_p6u)
+EXC(	STORE	t3, UNIT(-5)(dst),	s_exc_p5u)
+EXC(	STORE	t4, UNIT(-4)(dst),	s_exc_p4u)
+EXC(	STORE	t7, UNIT(-3)(dst),	s_exc_p3u)
+EXC(	STORE	t0, UNIT(-2)(dst),	s_exc_p2u)
+EXC(	STORE	t1, UNIT(-1)(dst),	s_exc_p1u)
+#endif
 
 	/*
 	 * len == rem == the number of bytes left to copy < 8*NBYTES
@@ -407,7 +448,11 @@ EXC(	 sb	t0, NBYTES-2(dst), s_exc_p1)
 done:
 	jr	ra
 	 nop
+#ifdef CONFIG_TANGOX
+	END(memcpy_original)
+#else
 	END(memcpy)
+#endif
 
 l_exc_copy:
 	/*

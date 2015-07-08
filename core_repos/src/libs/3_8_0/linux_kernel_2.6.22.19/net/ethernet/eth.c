@@ -333,3 +333,12 @@ struct net_device *alloc_etherdev(int sizeof_priv)
 	return alloc_netdev(sizeof_priv, "eth%d", ether_setup);
 }
 EXPORT_SYMBOL(alloc_etherdev);
+
+char *print_mac(char *buf, const u8 *addr)
+{
+	sprintf(buf, MAC_FMT,
+		addr[0], addr[1], addr[2], addr[3], addr[4], addr[5]);
+	return buf;
+}
+EXPORT_SYMBOL(print_mac);
+

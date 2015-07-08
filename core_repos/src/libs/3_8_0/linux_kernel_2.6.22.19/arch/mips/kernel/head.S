@@ -21,6 +21,7 @@
 #include <asm/irqflags.h>
 #include <asm/regdef.h>
 #include <asm/page.h>
+#include <asm/pgtable-bits.h>
 #include <asm/mipsregs.h>
 #include <asm/stackframe.h>
 
@@ -129,23 +130,47 @@
 #endif
 	.endm
 
-	/*
-	 * Reserved space for exception handlers.
-	 * Necessary for machines which link their kernels at KSEG0.
-	 */
-	.fill	0x400
-
-EXPORT(stext)					# used for profiling
-EXPORT(_stext)
-
-#ifdef CONFIG_MIPS_SIM
+#if defined(CONFIG_TANGOX) 
 	/*
 	 * Give us a fighting chance of running if execution beings at the
 	 * kernel load address.  This is needed because this platform does
 	 * not have a ELF loader yet.
 	 */
 	j	kernel_entry
+	nop
+
+	/*
+	 * Reserved space for exception handlers.
+	 * Necessary for machines which link their kernels at KSEG0.
+	 */
+	.fill	0x400-0x8
+#else
+	/*
+	 * Reserved space for exception handlers.
+	 * Necessary for machines which link their kernels at KSEG0.
+	 */
+	.fill	0x400
 #endif
+
+#if defined(CONFIG_TANGO3)
+	/* Creating some buffer for power management purpose */
+	/* Mark 16KB off the starting point */
+	.org	0x4000
+#endif
+
+EXPORT(stext)					# used for profiling
+EXPORT(_stext)
+
+#if defined(CONFIG_MIPS_SIM) 
+	/*
+	 * Give us a fighting chance of running if execution beings at the
+	 * kernel load address.  This is needed because this platform does
+	 * not have a ELF loader yet.
+	 */
+	j	kernel_entry
+	nop
+#endif
+
 	__INIT
 
 NESTED(kernel_entry, 16, sp)			# kernel entry point
@@ -189,19 +214,25 @@ NESTED(kernel_entry, 16, sp)			# kernel entry point
 
 	MTC0		zero, CP0_CONTEXT	# clear context register
 	PTR_LA		$28, init_thread_union
-	PTR_LI		sp, _THREAD_SIZE - 32
+	/* Set the SP after an empty pt_regs.  */
+	PTR_LI		sp, _THREAD_SIZE - 32 - PT_SIZE
 	PTR_ADDU	sp, $28
+	back_to_back_c0_hazard
 	set_saved_sp	sp, t0, t1
 	PTR_SUBU	sp, 4 * SZREG		# init stack pointer
 
 	j		start_kernel
 	END(kernel_entry)
+	__FINIT
 
 #ifdef CONFIG_QEMU
 	__INIT
 #endif
 
 #ifdef CONFIG_SMP
+#ifndef CONFIG_HOTPLUG_CPU
+	__INIT			/* no __CPUINIT; it's a 2.6.25 thing  */
+#endif
 /*
  * SMP slave cpus entry point.  Board specific code for bootstrap calls this
  * function after setting up the stack and gp registers.
@@ -230,4 +261,6 @@ NESTED(smp_bootstrap, 16, sp)
 	END(smp_bootstrap)
 #endif /* CONFIG_SMP */
 
+#ifndef CONFIG_HOTPLUG_CPU
 	__FINIT
+#endif

@@ -20,8 +20,10 @@
 #include <linux/genhd.h>
 #include <linux/kref.h>
 
+
 struct scsi_device;
 
+#define MAX_RETRIES	3
 /* The CDROM is fairly slow, so we need a little extra time */
 /* In fact, it is very slow if it has to spin up first */
 #define IOCTL_TIMEOUT 30*HZ
@@ -29,7 +31,7 @@ struct scsi_device;
 
 typedef struct scsi_cd {
 	struct scsi_driver *driver;
-	unsigned capacity;	/* size in blocks                       */
+	long capacity;	/* size in blocks                       */
 	struct scsi_device *device;
 	unsigned int vendor;	/* vendor code, see sr_vendor.c         */
 	unsigned long ms_offset;	/* for reading multisession-CD's        */

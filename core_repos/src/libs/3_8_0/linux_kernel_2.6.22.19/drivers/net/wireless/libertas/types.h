@@ -1,76 +1,12 @@
 /**
   * This header file contains definition for global types
   */
-#ifndef _WLAN_TYPES_
-#define _WLAN_TYPES_
+#ifndef _LBS_TYPES_H_
+#define _LBS_TYPES_H_
 
 #include <linux/if_ether.h>
 #include <asm/byteorder.h>
-
-/** IEEE type definitions  */
-enum ieeetypes_elementid {
-	SSID = 0,
-	SUPPORTED_RATES,
-	FH_PARAM_SET,
-	DS_PARAM_SET,
-	CF_PARAM_SET,
-	TIM,
-	IBSS_PARAM_SET,
-	COUNTRY_INFO = 7,
-
-	CHALLENGE_TEXT = 16,
-
-	EXTENDED_SUPPORTED_RATES = 50,
-
-	VENDOR_SPECIFIC_221 = 221,
-
-	WPA_IE = 221,
-	WPA2_IE = 48,
-
-	EXTRA_IE = 133,
-} __attribute__ ((packed));
-
-#ifdef __BIG_ENDIAN
-#define CAPINFO_MASK	(~(0xda00))
-#else
-#define CAPINFO_MASK	(~(0x00da))
-#endif
-
-struct ieeetypes_capinfo {
-#ifdef __BIG_ENDIAN_BITFIELD
-	u8 chanagility:1;
-	u8 pbcc:1;
-	u8 shortpreamble:1;
-	u8 privacy:1;
-	u8 cfpollrqst:1;
-	u8 cfpollable:1;
-	u8 ibss:1;
-	u8 ess:1;
-	u8 rsrvd1:2;
-	u8 dsssofdm:1;
-	u8 rsvrd2:1;
-	u8 apsd:1;
-	u8 shortslottime:1;
-	u8 rsrvd3:1;
-	u8 spectrummgmt:1;
-#else
-	u8 ess:1;
-	u8 ibss:1;
-	u8 cfpollable:1;
-	u8 cfpollrqst:1;
-	u8 privacy:1;
-	u8 shortpreamble:1;
-	u8 pbcc:1;
-	u8 chanagility:1;
-	u8 spectrummgmt:1;
-	u8 rsrvd3:1;
-	u8 shortslottime:1;
-	u8 apsd:1;
-	u8 rsvrd2:1;
-	u8 dsssofdm:1;
-	u8 rsrvd1:2;
-#endif
-} __attribute__ ((packed));
+#include <linux/wireless.h>
 
 struct ieeetypes_cfparamset {
 	u8 elementid;
@@ -114,7 +50,7 @@ union ieeetypes_phyparamset {
 } __attribute__ ((packed));
 
 struct ieeetypes_assocrsp {
-	struct ieeetypes_capinfo capability;
+	__le16 capability;
 	__le16 statuscode;
 	__le16 aid;
 	u8 iebuffer[1];
@@ -266,22 +202,11 @@ struct mrvlietypes_powercapability {
 	s8 maxpower;
 } __attribute__ ((packed));
 
-struct mrvlietypes_rssithreshold {
+/* used in CMD_802_11_SUBSCRIBE_EVENT for SNR, RSSI and Failure */
+struct mrvlietypes_thresholds {
 	struct mrvlietypesheader header;
-	u8 rssivalue;
-	u8 rssifreq;
-} __attribute__ ((packed));
-
-struct mrvlietypes_snrthreshold {
-	struct mrvlietypesheader header;
-	u8 snrvalue;
-	u8 snrfreq;
-} __attribute__ ((packed));
-
-struct mrvlietypes_failurecount {
-	struct mrvlietypesheader header;
-	u8 failvalue;
-	u8 Failfreq;
+	u8 value;
+	u8 freq;
 } __attribute__ ((packed));
 
 struct mrvlietypes_beaconsmissed {
@@ -315,4 +240,45 @@ struct mrvlietypes_ledgpio {
 	struct led_pin ledpin[1];
 } __attribute__ ((packed));
 
-#endif				/* _WLAN_TYPES_ */
+struct led_bhv {
+	uint8_t	firmwarestate;
+	uint8_t	led;
+	uint8_t	ledstate;
+	uint8_t	ledarg;
+} __attribute__ ((packed));
+
+
+struct mrvlietypes_ledbhv {
+	struct mrvlietypesheader header;
+	struct led_bhv ledbhv[1];
+} __attribute__ ((packed));
+
+/* Meant to be packed as the value member of a struct ieee80211_info_element.
+ * Note that the len member of the ieee80211_info_element varies depending on
+ * the mesh_id_len */
+struct mrvl_meshie_val {
+	uint8_t oui[3];
+	uint8_t type;
+	uint8_t subtype;
+	uint8_t version;
+	uint8_t active_protocol_id;
+	uint8_t active_metric_id;
+	uint8_t mesh_capability;
+	uint8_t mesh_id_len;
+	uint8_t mesh_id[IW_ESSID_MAX_SIZE];
+} __attribute__ ((packed));
+
+struct mrvl_meshie {
+	u8 id, len;
+	struct mrvl_meshie_val val;
+} __attribute__ ((packed));
+
+struct mrvl_mesh_defaults {
+	__le32 bootflag;
+	uint8_t boottime;
+	uint8_t reserved;
+	__le16 channel;
+	struct mrvl_meshie meshie;
+} __attribute__ ((packed));
+
+#endif

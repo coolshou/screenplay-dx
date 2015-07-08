@@ -1006,6 +1006,7 @@ void ieee80211_scan_completed(struct ieee80211_hw *hw);
 int  ieee80211_radar_status(struct ieee80211_hw *hw, int channel,
 			    int radar, int radar_type);
 
+#ifndef CONFIG_IEEE80211
 /* return a pointer to the source address (SA) */
 static inline u8 *ieee80211_get_SA(struct ieee80211_hdr *hdr)
 {
@@ -1031,6 +1032,7 @@ static inline u8 *ieee80211_get_DA(struct ieee80211_hdr *hdr)
 		return hdr->addr3;
 	return hdr->addr1;
 }
+#endif
 
 static inline int ieee80211_get_morefrag(struct ieee80211_hdr *hdr)
 {

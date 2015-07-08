@@ -636,7 +636,27 @@ static int setup_parent(struct device *dev, struct device *parent)
 		dev->kobj.parent = kobj;
 	return 0;
 }
+/**
+ * dev_set_name - set a device name
+ * @dev: device
+ * @fmt: format string for the device's name
+ */
+int dev_set_name(struct device *dev, const char *fmt, ...)
+{
+	va_list vargs;
+	char *s;
 
+	va_start(vargs, fmt);
+	vsnprintf(dev->bus_id, sizeof(dev->bus_id), fmt, vargs);
+	va_end(vargs);
+
+	/* ewww... some of these buggers have / in the name... */
+	while ((s = strchr(dev->bus_id, '/')))
+		*s = '!';
+
+	return 0;
+}
+EXPORT_SYMBOL_GPL(dev_set_name);
 /**
  *	device_add - add device to device hierarchy.
  *	@dev:	device.

@@ -107,7 +107,11 @@ MODULE_AUTHOR("Matthew Dharm <mdharm-usb@one-eyed-alien.net>");
 MODULE_DESCRIPTION("USB Mass Storage driver for Linux");
 MODULE_LICENSE("GPL");
 
+#ifdef CONFIG_USB_STORAGE_DELAY_USE
+static unsigned int delay_use = CONFIG_USB_STORAGE_DELAY_USE;
+#else
 static unsigned int delay_use = 5;
+#endif
 module_param(delay_use, uint, S_IRUGO | S_IWUSR);
 MODULE_PARM_DESC(delay_use, "seconds to delay before using a new device");
 
@@ -967,6 +971,10 @@ static int storage_probe(struct usb_interface *intf,
 		return -ENOMEM;
 	}
 
+	/*
+	 * Allow 16-byte CDBs and thus > 2TB
+	 */
+	host->max_cmd_len = 16;
 	us = host_to_us(host);
 	memset(us, 0, sizeof(struct us_data));
 	mutex_init(&(us->dev_mutex));

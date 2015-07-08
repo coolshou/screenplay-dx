@@ -35,158 +35,135 @@ struct rx80211packethdr {
 	void *eth80211_hdr;
 } __attribute__ ((packed));
 
-static int process_rxed_802_11_packet(wlan_private * priv, struct sk_buff *skb);
+static int process_rxed_802_11_packet(struct lbs_private *priv,
+	struct sk_buff *skb);
 
 /**
  *  @brief This function computes the avgSNR .
  *
- *  @param priv    A pointer to wlan_private structure
+ *  @param priv    A pointer to struct lbs_private structure
  *  @return 	   avgSNR
  */
-static u8 wlan_getavgsnr(wlan_private * priv)
+static u8 lbs_getavgsnr(struct lbs_private *priv)
 {
 	u8 i;
 	u16 temp = 0;
-	wlan_adapter *adapter = priv->adapter;
-	if (adapter->numSNRNF == 0)
+	if (priv->numSNRNF == 0)
 		return 0;
-	for (i = 0; i < adapter->numSNRNF; i++)
-		temp += adapter->rawSNR[i];
-	return (u8) (temp / adapter->numSNRNF);
+	for (i = 0; i < priv->numSNRNF; i++)
+		temp += priv->rawSNR[i];
+	return (u8) (temp / priv->numSNRNF);
 
 }
 
 /**
  *  @brief This function computes the AvgNF
  *
- *  @param priv    A pointer to wlan_private structure
+ *  @param priv    A pointer to struct lbs_private structure
  *  @return 	   AvgNF
  */
-static u8 wlan_getavgnf(wlan_private * priv)
+static u8 lbs_getavgnf(struct lbs_private *priv)
 {
 	u8 i;
 	u16 temp = 0;
-	wlan_adapter *adapter = priv->adapter;
-	if (adapter->numSNRNF == 0)
+	if (priv->numSNRNF == 0)
 		return 0;
-	for (i = 0; i < adapter->numSNRNF; i++)
-		temp += adapter->rawNF[i];
-	return (u8) (temp / adapter->numSNRNF);
+	for (i = 0; i < priv->numSNRNF; i++)
+		temp += priv->rawNF[i];
+	return (u8) (temp / priv->numSNRNF);
 
 }
 
 /**
  *  @brief This function save the raw SNR/NF to our internel buffer
  *
- *  @param priv    A pointer to wlan_private structure
+ *  @param priv    A pointer to struct lbs_private structure
  *  @param prxpd   A pointer to rxpd structure of received packet
  *  @return 	   n/a
  */
-static void wlan_save_rawSNRNF(wlan_private * priv, struct rxpd *p_rx_pd)
+static void lbs_save_rawSNRNF(struct lbs_private *priv, struct rxpd *p_rx_pd)
 {
-	wlan_adapter *adapter = priv->adapter;
-	if (adapter->numSNRNF < adapter->data_avg_factor)
-		adapter->numSNRNF++;
-	adapter->rawSNR[adapter->nextSNRNF] = p_rx_pd->snr;
-	adapter->rawNF[adapter->nextSNRNF] = p_rx_pd->nf;
-	adapter->nextSNRNF++;
-	if (adapter->nextSNRNF >= adapter->data_avg_factor)
-		adapter->nextSNRNF = 0;
+	if (priv->numSNRNF < DEFAULT_DATA_AVG_FACTOR)
+		priv->numSNRNF++;
+	priv->rawSNR[priv->nextSNRNF] = p_rx_pd->snr;
+	priv->rawNF[priv->nextSNRNF] = p_rx_pd->nf;
+	priv->nextSNRNF++;
+	if (priv->nextSNRNF >= DEFAULT_DATA_AVG_FACTOR)
+		priv->nextSNRNF = 0;
 	return;
 }
 
 /**
  *  @brief This function computes the RSSI in received packet.
  *
- *  @param priv    A pointer to wlan_private structure
+ *  @param priv    A pointer to struct lbs_private structure
  *  @param prxpd   A pointer to rxpd structure of received packet
  *  @return 	   n/a
  */
-static void wlan_compute_rssi(wlan_private * priv, struct rxpd *p_rx_pd)
+static void lbs_compute_rssi(struct lbs_private *priv, struct rxpd *p_rx_pd)
 {
-	wlan_adapter *adapter = priv->adapter;
 
 	lbs_deb_enter(LBS_DEB_RX);
 
 	lbs_deb_rx("rxpd: SNR %d, NF %d\n", p_rx_pd->snr, p_rx_pd->nf);
 	lbs_deb_rx("before computing SNR: SNR-avg = %d, NF-avg = %d\n",
-	       adapter->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
-	       adapter->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
+	       priv->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
+	       priv->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
 
-	adapter->SNR[TYPE_RXPD][TYPE_NOAVG] = p_rx_pd->snr;
-	adapter->NF[TYPE_RXPD][TYPE_NOAVG] = p_rx_pd->nf;
-	wlan_save_rawSNRNF(priv, p_rx_pd);
+	priv->SNR[TYPE_RXPD][TYPE_NOAVG] = p_rx_pd->snr;
+	priv->NF[TYPE_RXPD][TYPE_NOAVG] = p_rx_pd->nf;
+	lbs_save_rawSNRNF(priv, p_rx_pd);
 
-	adapter->rxpd_rate = p_rx_pd->rx_rate;
-
-	adapter->SNR[TYPE_RXPD][TYPE_AVG] = wlan_getavgsnr(priv) * AVG_SCALE;
-	adapter->NF[TYPE_RXPD][TYPE_AVG] = wlan_getavgnf(priv) * AVG_SCALE;
+	priv->SNR[TYPE_RXPD][TYPE_AVG] = lbs_getavgsnr(priv) * AVG_SCALE;
+	priv->NF[TYPE_RXPD][TYPE_AVG] = lbs_getavgnf(priv) * AVG_SCALE;
 	lbs_deb_rx("after computing SNR: SNR-avg = %d, NF-avg = %d\n",
-	       adapter->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
-	       adapter->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
+	       priv->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
+	       priv->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
 
-	adapter->RSSI[TYPE_RXPD][TYPE_NOAVG] =
-	    CAL_RSSI(adapter->SNR[TYPE_RXPD][TYPE_NOAVG],
-		     adapter->NF[TYPE_RXPD][TYPE_NOAVG]);
+	priv->RSSI[TYPE_RXPD][TYPE_NOAVG] =
+	    CAL_RSSI(priv->SNR[TYPE_RXPD][TYPE_NOAVG],
+		     priv->NF[TYPE_RXPD][TYPE_NOAVG]);
 
-	adapter->RSSI[TYPE_RXPD][TYPE_AVG] =
-	    CAL_RSSI(adapter->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
-		     adapter->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
+	priv->RSSI[TYPE_RXPD][TYPE_AVG] =
+	    CAL_RSSI(priv->SNR[TYPE_RXPD][TYPE_AVG] / AVG_SCALE,
+		     priv->NF[TYPE_RXPD][TYPE_AVG] / AVG_SCALE);
 
 	lbs_deb_leave(LBS_DEB_RX);
-}
-
-void libertas_upload_rx_packet(wlan_private * priv, struct sk_buff *skb)
-{
-	lbs_deb_rx("skb->data %p\n", skb->data);
-
-	if (priv->mesh_dev && IS_MESH_FRAME(skb))
-		skb->protocol = eth_type_trans(skb, priv->mesh_dev);
-	else
-		skb->protocol = eth_type_trans(skb, priv->dev);
-	skb->ip_summed = CHECKSUM_UNNECESSARY;
-
-	netif_rx(skb);
 }
 
 /**
  *  @brief This function processes received packet and forwards it
  *  to kernel/upper layer
  *
- *  @param priv    A pointer to wlan_private
+ *  @param priv    A pointer to struct lbs_private
  *  @param skb     A pointer to skb which includes the received packet
  *  @return 	   0 or -1
  */
-int libertas_process_rxed_packet(wlan_private * priv, struct sk_buff *skb)
+int lbs_process_rxed_packet(struct lbs_private *priv, struct sk_buff *skb)
 {
-	wlan_adapter *adapter = priv->adapter;
 	int ret = 0;
-
+	struct net_device *dev = priv->dev;
 	struct rxpackethdr *p_rx_pkt;
 	struct rxpd *p_rx_pd;
-
 	int hdrchop;
 	struct ethhdr *p_ethhdr;
-
 	const u8 rfc1042_eth_hdr[] = { 0xaa, 0xaa, 0x03, 0x00, 0x00, 0x00 };
 
 	lbs_deb_enter(LBS_DEB_RX);
 
-	if (priv->adapter->debugmode & MRVDRV_DEBUG_RX_PATH)
-		lbs_dbg_hex("RX packet: ", skb->data,
-			 min_t(unsigned int, skb->len, 100));
+	BUG_ON(!skb);
 
-	if (priv->adapter->linkmode == WLAN_LINKMODE_802_11)
+	skb->ip_summed = CHECKSUM_NONE;
+
+	if (priv->monitormode)
 		return process_rxed_802_11_packet(priv, skb);
 
 	p_rx_pkt = (struct rxpackethdr *) skb->data;
 	p_rx_pd = &p_rx_pkt->rx_pd;
-	if (p_rx_pd->rx_control & RxPD_MESH_FRAME)
-		SET_MESH_FRAME(skb);
-	else
-		UNSET_MESH_FRAME(skb);
+	if (priv->mesh_dev && (p_rx_pd->rx_control & RxPD_MESH_FRAME))
+		dev = priv->mesh_dev;
 
-	lbs_dbg_hex("RX Data: Before chop rxpd", skb->data,
+	lbs_deb_hex(LBS_DEB_RX, "RX Data: Before chop rxpd", skb->data,
 		 min_t(unsigned int, skb->len, 100));
 
 	if (skb->len < (ETH_HLEN + 8 + sizeof(struct rxpd))) {
@@ -210,9 +187,9 @@ int libertas_process_rxed_packet(wlan_private * priv, struct sk_buff *skb)
 	lbs_deb_rx("rx data: skb->len-sizeof(RxPd) = %d-%zd = %zd\n",
 	       skb->len, sizeof(struct rxpd), skb->len - sizeof(struct rxpd));
 
-	lbs_dbg_hex("RX Data: Dest", p_rx_pkt->eth803_hdr.dest_addr,
+	lbs_deb_hex(LBS_DEB_RX, "RX Data: Dest", p_rx_pkt->eth803_hdr.dest_addr,
 		sizeof(p_rx_pkt->eth803_hdr.dest_addr));
-	lbs_dbg_hex("RX Data: Src", p_rx_pkt->eth803_hdr.src_addr,
+	lbs_deb_hex(LBS_DEB_RX, "RX Data: Src", p_rx_pkt->eth803_hdr.src_addr,
 		sizeof(p_rx_pkt->eth803_hdr.src_addr));
 
 	if (memcmp(&p_rx_pkt->rfc1042_hdr,
@@ -244,7 +221,7 @@ int libertas_process_rxed_packet(wlan_private * priv, struct sk_buff *skb)
 		 */
 		hdrchop = (u8 *) p_ethhdr - (u8 *) p_rx_pkt;
 	} else {
-		lbs_dbg_hex("RX Data: LLC/SNAP",
+		lbs_deb_hex(LBS_DEB_RX, "RX Data: LLC/SNAP",
 			(u8 *) & p_rx_pkt->rfc1042_hdr,
 			sizeof(p_rx_pkt->rfc1042_hdr));
 
@@ -260,23 +237,27 @@ int libertas_process_rxed_packet(wlan_private * priv, struct sk_buff *skb)
 	/* Take the data rate from the rxpd structure
 	 * only if the rate is auto
 	 */
-	if (adapter->is_datarate_auto)
-		adapter->datarate = libertas_index_to_data_rate(p_rx_pd->rx_rate);
+	if (priv->enablehwauto)
+		priv->cur_rate = lbs_fw_index_to_data_rate(p_rx_pd->rx_rate);
 
-	wlan_compute_rssi(priv, p_rx_pd);
+	lbs_compute_rssi(priv, p_rx_pd);
 
 	lbs_deb_rx("rx data: size of actual packet %d\n", skb->len);
 	priv->stats.rx_bytes += skb->len;
 	priv->stats.rx_packets++;
 
-	libertas_upload_rx_packet(priv, skb);
+	skb->protocol = eth_type_trans(skb, dev);
+	if (in_interrupt())
+		netif_rx(skb);
+	else
+		netif_rx_ni(skb);
 
 	ret = 0;
 done:
 	lbs_deb_leave_args(LBS_DEB_RX, "ret %d", ret);
 	return ret;
 }
-EXPORT_SYMBOL_GPL(libertas_process_rxed_packet);
+EXPORT_SYMBOL_GPL(lbs_process_rxed_packet);
 
 /**
  *  @brief This function converts Tx/Rx rates from the Marvell WLAN format
@@ -296,21 +277,22 @@ static u8 convert_mv_rate_to_radiotap(u8 rate)
 		return 11;
 	case 3:		/*  11 Mbps */
 		return 22;
-	case 4:		/*   6 Mbps */
+	/* case 4: reserved */
+	case 5:		/*   6 Mbps */
 		return 12;
-	case 5:		/*   9 Mbps */
+	case 6:		/*   9 Mbps */
 		return 18;
-	case 6:		/*  12 Mbps */
+	case 7:		/*  12 Mbps */
 		return 24;
-	case 7:		/*  18 Mbps */
+	case 8:		/*  18 Mbps */
 		return 36;
-	case 8:		/*  24 Mbps */
+	case 9:		/*  24 Mbps */
 		return 48;
-	case 9:		/*  36 Mbps */
+	case 10:		/*  36 Mbps */
 		return 72;
-	case 10:		/*  48 Mbps */
+	case 11:		/*  48 Mbps */
 		return 96;
-	case 11:		/*  54 Mbps */
+	case 12:		/*  54 Mbps */
 		return 108;
 	}
 	lbs_pr_alert("Invalid Marvell WLAN rate %i\n", rate);
@@ -321,13 +303,13 @@ static u8 convert_mv_rate_to_radiotap(u8 rate)
  *  @brief This function processes a received 802.11 packet and forwards it
  *  to kernel/upper layer
  *
- *  @param priv    A pointer to wlan_private
+ *  @param priv    A pointer to struct lbs_private
  *  @param skb     A pointer to skb which includes the received packet
  *  @return 	   0 or -1
  */
-static int process_rxed_802_11_packet(wlan_private * priv, struct sk_buff *skb)
+static int process_rxed_802_11_packet(struct lbs_private *priv,
+	struct sk_buff *skb)
 {
-	wlan_adapter *adapter = priv->adapter;
 	int ret = 0;
 
 	struct rx80211packethdr *p_rx_pkt;
@@ -340,12 +322,13 @@ static int process_rxed_802_11_packet(wlan_private * priv, struct sk_buff *skb)
 	p_rx_pkt = (struct rx80211packethdr *) skb->data;
 	prxpd = &p_rx_pkt->rx_pd;
 
-	// lbs_dbg_hex("RX Data: Before chop rxpd", skb->data, min(skb->len, 100));
+	// lbs_deb_hex(LBS_DEB_RX, "RX Data: Before chop rxpd", skb->data, min(skb->len, 100));
 
 	if (skb->len < (ETH_HLEN + 8 + sizeof(struct rxpd))) {
-		lbs_deb_rx("rx err: frame received wit bad length\n");
+		lbs_deb_rx("rx err: frame received with bad length\n");
 		priv->stats.rx_length_errors++;
-		ret = 0;
+		ret = -EINVAL;
+		kfree_skb(skb);
 		goto done;
 	}
 
@@ -361,85 +344,60 @@ static int process_rxed_802_11_packet(wlan_private * priv, struct sk_buff *skb)
 	       skb->len, sizeof(struct rxpd), skb->len - sizeof(struct rxpd));
 
 	/* create the exported radio header */
-	switch (priv->adapter->radiomode) {
-	case WLAN_RADIOMODE_NONE:
-		/* no radio header */
-		/* chop the rxpd */
-		skb_pull(skb, sizeof(struct rxpd));
-		break;
 
-	case WLAN_RADIOMODE_RADIOTAP:
-		/* radiotap header */
-		radiotap_hdr.hdr.it_version = 0;
-		/* XXX must check this value for pad */
-		radiotap_hdr.hdr.it_pad = 0;
-		radiotap_hdr.hdr.it_len = sizeof(struct rx_radiotap_hdr);
-		radiotap_hdr.hdr.it_present = RX_RADIOTAP_PRESENT;
-		/* unknown values */
-		radiotap_hdr.flags = 0;
-		radiotap_hdr.chan_freq = 0;
-		radiotap_hdr.chan_flags = 0;
-		radiotap_hdr.antenna = 0;
-		/* known values */
-		radiotap_hdr.rate = convert_mv_rate_to_radiotap(prxpd->rx_rate);
-		/* XXX must check no carryout */
-		radiotap_hdr.antsignal = prxpd->snr + prxpd->nf;
-		radiotap_hdr.rx_flags = 0;
-		if (!(prxpd->status & cpu_to_le16(MRVDRV_RXPD_STATUS_OK)))
-			radiotap_hdr.rx_flags |= IEEE80211_RADIOTAP_F_RX_BADFCS;
-		//memset(radiotap_hdr.pad, 0x11, IEEE80211_RADIOTAP_HDRLEN - 18);
+	/* radiotap header */
+	radiotap_hdr.hdr.it_version = 0;
+	/* XXX must check this value for pad */
+	radiotap_hdr.hdr.it_pad = 0;
+	radiotap_hdr.hdr.it_len = cpu_to_le16 (sizeof(struct rx_radiotap_hdr));
+	radiotap_hdr.hdr.it_present = cpu_to_le32 (RX_RADIOTAP_PRESENT);
+	/* unknown values */
+	radiotap_hdr.flags = 0;
+	radiotap_hdr.chan_freq = 0;
+	radiotap_hdr.chan_flags = 0;
+	radiotap_hdr.antenna = 0;
+	/* known values */
+	radiotap_hdr.rate = convert_mv_rate_to_radiotap(prxpd->rx_rate);
+	/* XXX must check no carryout */
+	radiotap_hdr.antsignal = prxpd->snr + prxpd->nf;
+	radiotap_hdr.rx_flags = 0;
+	if (!(prxpd->status & cpu_to_le16(MRVDRV_RXPD_STATUS_OK)))
+		radiotap_hdr.rx_flags |= IEEE80211_RADIOTAP_F_RX_BADFCS;
+	//memset(radiotap_hdr.pad, 0x11, IEEE80211_RADIOTAP_HDRLEN - 18);
 
-		// lbs_dbg_hex1("RX radiomode packet BEF: ", skb->data, min(skb->len, 100));
+	/* chop the rxpd */
+	skb_pull(skb, sizeof(struct rxpd));
 
-		/* chop the rxpd */
-		skb_pull(skb, sizeof(struct rxpd));
-
-		/* add space for the new radio header */
-		if ((skb_headroom(skb) < sizeof(struct rx_radiotap_hdr)) &&
-		    pskb_expand_head(skb, sizeof(struct rx_radiotap_hdr), 0,
-				     GFP_ATOMIC)) {
-			lbs_pr_alert("%s: couldn't pskb_expand_head\n",
-			       __func__);
-		}
-
-		pradiotap_hdr =
-		    (struct rx_radiotap_hdr *)skb_push(skb,
-						     sizeof(struct
-							    rx_radiotap_hdr));
-		memcpy(pradiotap_hdr, &radiotap_hdr,
-		       sizeof(struct rx_radiotap_hdr));
-		//lbs_dbg_hex1("RX radiomode packet AFT: ", skb->data, min(skb->len, 100));
-		break;
-
-	default:
-		/* unknown header */
-		lbs_pr_alert("Unknown radiomode %i\n",
-		       priv->adapter->radiomode);
-		/* don't export any header */
-		/* chop the rxpd */
-		skb_pull(skb, sizeof(struct rxpd));
-		break;
+	/* add space for the new radio header */
+	if ((skb_headroom(skb) < sizeof(struct rx_radiotap_hdr)) &&
+	    pskb_expand_head(skb, sizeof(struct rx_radiotap_hdr), 0, GFP_ATOMIC)) {
+		lbs_pr_alert("%s: couldn't pskb_expand_head\n", __func__);
+		ret = -ENOMEM;
+		kfree_skb(skb);
+		goto done;
 	}
+
+	pradiotap_hdr = (void *)skb_push(skb, sizeof(struct rx_radiotap_hdr));
+	memcpy(pradiotap_hdr, &radiotap_hdr, sizeof(struct rx_radiotap_hdr));
 
 	/* Take the data rate from the rxpd structure
 	 * only if the rate is auto
 	 */
-	if (adapter->is_datarate_auto) {
-		adapter->datarate = libertas_index_to_data_rate(prxpd->rx_rate);
-	}
+	if (priv->enablehwauto)
+		priv->cur_rate = lbs_fw_index_to_data_rate(prxpd->rx_rate);
 
-	wlan_compute_rssi(priv, prxpd);
+	lbs_compute_rssi(priv, prxpd);
 
 	lbs_deb_rx("rx data: size of actual packet %d\n", skb->len);
 	priv->stats.rx_bytes += skb->len;
 	priv->stats.rx_packets++;
 
-	libertas_upload_rx_packet(priv, skb);
+	skb->protocol = eth_type_trans(skb, priv->rtap_net_dev);
+	netif_rx(skb);
 
 	ret = 0;
 
 done:
-	skb->protocol = __constant_htons(0x0019);	/* ETH_P_80211_RAW */
 	lbs_deb_leave_args(LBS_DEB_RX, "ret %d", ret);
 	return ret;
 }

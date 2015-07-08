@@ -46,7 +46,7 @@ extern int add_temporary_entry(unsigned long entrylo0, unsigned long entrylo1,
 #ifdef CONFIG_64BIT_PHYS_ADDR
 #define PGDIR_SHIFT	21
 #else
-#define PGDIR_SHIFT	22
+#define PGDIR_SHIFT	(2 * PAGE_SHIFT + PTE_ORDER - PTE_T_LOG2)
 #endif
 #define PGDIR_SIZE	(1UL << PGDIR_SHIFT)
 #define PGDIR_MASK	(~(PGDIR_SIZE-1))
@@ -67,7 +67,7 @@ extern int add_temporary_entry(unsigned long entrylo0, unsigned long entrylo1,
 #define PTE_ORDER	0
 #endif
 
-#define PTRS_PER_PGD	((PAGE_SIZE << PGD_ORDER) / sizeof(pgd_t))
+#define PTRS_PER_PGD	(USER_PTRS_PER_PGD * 2)
 #define PTRS_PER_PTE	((PAGE_SIZE << PTE_ORDER) / sizeof(pte_t))
 
 #define USER_PTRS_PER_PGD	(0x80000000UL/PGDIR_SIZE)

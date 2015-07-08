@@ -39,6 +39,7 @@ struct mmc_ios {
 
 #define MMC_BUS_WIDTH_1		0
 #define MMC_BUS_WIDTH_4		2
+#define MMC_BUS_WIDTH_8		3
 
 	unsigned char	timing;			/* timing specification used */
 
@@ -49,8 +50,31 @@ struct mmc_ios {
 
 struct mmc_host_ops {
 	void	(*request)(struct mmc_host *host, struct mmc_request *req);
+	/*
+	 * Avoid calling these three functions too often or in a "fast path",
+	 * since underlaying controller might implement them in an expensive
+	 * and/or slow way.
+	 *
+	 * Also note that these functions might sleep, so don't call them
+	 * in the atomic contexts!
+	 *
+	 * Return values for the get_ro callback should be:
+	 *   0 for a read/write card
+	 *   1 for a read-only card
+	 *   -ENOSYS when not supported (equal to NULL callback)
+	 *   or a negative errno value when something bad happened
+	 *
+	 * Return values for the get_cd callback should be:
+	 *   0 for a absent card
+	 *   1 for a present card
+	 *   -ENOSYS when not supported (equal to NULL callback)
+	 *   or a negative errno value when something bad happened
+	 */
 	void	(*set_ios)(struct mmc_host *host, struct mmc_ios *ios);
 	int	(*get_ro)(struct mmc_host *host);
+	int	(*get_cd)(struct mmc_host *host);
+
+	void	(*enable_sdio_irq)(struct mmc_host *host, int enable);
 };
 
 struct mmc_card;
@@ -88,8 +112,12 @@ struct mmc_host {
 #define MMC_CAP_4_BIT_DATA	(1 << 0)	/* Can the host do 4 bit transfers */
 #define MMC_CAP_MULTIWRITE	(1 << 1)	/* Can accurately report bytes sent to card on error */
 #define MMC_CAP_BYTEBLOCK	(1 << 2)	/* Can do non-log2 block sizes */
-#define MMC_CAP_MMC_HIGHSPEED	(1 << 3)	/* Can do MMC high-speed timing */
-#define MMC_CAP_SD_HIGHSPEED	(1 << 4)	/* Can do SD high-speed timing */
+#define MMC_CAP_MMC_HIGHSPEED	(1 << 1)	/* Can do MMC high-speed timing */
+#define MMC_CAP_SD_HIGHSPEED	(1 << 2)	/* Can do SD high-speed timing */
+#define MMC_CAP_SDIO_IRQ	(1 << 3)	/* Can signal pending SDIO IRQs */
+#define MMC_CAP_SPI		(1 << 4)	/* Talks only SPI protocols */
+#define MMC_CAP_NEEDS_POLL	(1 << 5)	/* Needs polling for card-detection */
+#define MMC_CAP_8_BIT_DATA	(1 << 6)	/* Can the host do 8 bit transfers */
 
 	/* host specific block data */
 	unsigned int		max_seg_size;	/* see blk_queue_max_segment_size */
@@ -106,6 +134,9 @@ struct mmc_host {
 	struct mmc_ios		ios;		/* current io bus settings */
 	u32			ocr;		/* the current OCR setting */
 
+	/* group bitfields together to minimize padding */
+	unsigned int		use_spi_crc:1;
+	unsigned int		claimed:1;	/* host exclusively claimed */
 	unsigned int		mode;		/* current card mode of host */
 #define MMC_MODE_MMC		0
 #define MMC_MODE_SD		1
@@ -113,7 +144,7 @@ struct mmc_host {
 	struct mmc_card		*card;		/* device attached to this host */
 
 	wait_queue_head_t	wq;
-	unsigned int		claimed:1;	/* host exclusively claimed */
+	//unsigned int		claimed:1;	/* host exclusively claimed */
 
 	struct delayed_work	detect;
 #ifdef CONFIG_MMC_DEBUG
@@ -123,6 +154,15 @@ struct mmc_host {
 	const struct mmc_bus_ops *bus_ops;	/* current bus driver */
 	unsigned int		bus_refs;	/* reference counter */
 	unsigned int		bus_dead:1;	/* bus has been released */
+	unsigned int		sdio_irqs;
+	struct task_struct	*sdio_irq_thread;
+	atomic_t		sdio_irq_thread_abort;
+
+#ifdef CONFIG_LEDS_TRIGGERS
+	struct led_trigger	*led;		/* activity led */
+#endif
+
+	struct dentry		*debugfs_root;
 
 	unsigned long		private[0] ____cacheline_aligned;
 };
@@ -136,7 +176,7 @@ static inline void *mmc_priv(struct mmc_host *host)
 {
 	return (void *)host->private;
 }
-
+#define mmc_host_is_spi(host)	((host)->caps & MMC_CAP_SPI)
 #define mmc_dev(x)	((x)->parent)
 #define mmc_classdev(x)	(&(x)->class_dev)
 #define mmc_hostname(x)	((x)->class_dev.bus_id)
@@ -146,6 +186,17 @@ extern int mmc_resume_host(struct mmc_host *);
 
 extern void mmc_detect_change(struct mmc_host *, unsigned long delay);
 extern void mmc_request_done(struct mmc_host *, struct mmc_request *);
+
+static inline void mmc_signal_sdio_irq(struct mmc_host *host)
+{
+	host->ops->enable_sdio_irq(host, 0);
+	wake_up_process(host->sdio_irq_thread);
+}
+
+struct regulator;
+
+int mmc_regulator_get_ocrmask(struct regulator *supply);
+int mmc_regulator_set_ocr(struct regulator *supply, unsigned short vdd_bit);
 
 #endif
 

@@ -429,6 +429,12 @@ extern int fat_sync_bhs(struct buffer_head **bhs, int nr_bhs);
 int fat_cache_init(void);
 void fat_cache_destroy(void);
 
+/* media of boot sector */
+static inline int fat_valid_media(u8 media)
+{
+	return 0xf8 <= media || media == 0xf0;
+}
+
 #endif /* __KERNEL__ */
 
 #endif

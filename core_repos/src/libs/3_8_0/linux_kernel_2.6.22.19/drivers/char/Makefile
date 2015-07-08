@@ -96,6 +96,11 @@ obj-$(CONFIG_CS5535_GPIO)	+= cs5535_gpio.o
 obj-$(CONFIG_GPIO_VR41XX)	+= vr41xx_giu.o
 obj-$(CONFIG_GPIO_TB0219)	+= tb0219.o
 obj-$(CONFIG_TELCLOCK)		+= tlclk.o
+obj-$(CONFIG_TANGOX_IR)		+= irkernel.o
+obj-y				+= iom554_proc.o
+obj-$(CONFIG_TANGOX_FIP) 	+= fipkernel.o
+obj-$(CONFIG_TANGOX_SCARD) 	+= sckernel.o
+obj-$(CONFIG_TANGOX_UIR) 	+= uirkernel.o
 
 obj-$(CONFIG_WATCHDOG)		+= watchdog/
 obj-$(CONFIG_MWAVE)		+= mwave/
@@ -103,6 +108,8 @@ obj-$(CONFIG_AGP)		+= agp/
 obj-$(CONFIG_DRM)		+= drm/
 obj-$(CONFIG_PCMCIA)		+= pcmcia/
 obj-$(CONFIG_IPMI_HANDLER)	+= ipmi/
+
+obj-$(CONFIG_FUSION_DEVICE)	+= fusion/
 
 obj-$(CONFIG_HANGCHECK_TIMER)	+= hangcheck-timer.o
 obj-$(CONFIG_TCG_TPM)		+= tpm/

@@ -91,13 +91,27 @@ FEXPORT(__bzero)
 	beqz		t1, memset_partial	/* no block to fill */
 	 andi		t0, a2, 0x40-LONGSIZE
 
+#ifdef CONFIG_TANGO3
+	subu	t1, 0x40 # distinguish one or >=2 blocks: pref 30 is destructive
+	beqz	t1, 2f	
+#endif
 	PTR_ADDU	t1, a0			/* end address */
+	
 	.set		reorder
 1:	PTR_ADDIU	a0, 64
+#ifdef CONFIG_TANGO3
+	pref 30, 0(a0) # we assume a0 is 0x20-aligned
+	pref 30, 32(a0)
+#endif
 	f_fill64 a0, -64, a1, fwd_fixup
 	bne		t1, a0, 1b
 	.set		noreorder
 
+#ifdef CONFIG_TANGO3
+2:	PTR_ADDIU	a0, 64
+	f_fill64 a0, -64, a1, fwd_fixup
+#endif
+	
 memset_partial:
 	PTR_LA		t1, 2f			/* where to start */
 #if LONGSIZE == 4

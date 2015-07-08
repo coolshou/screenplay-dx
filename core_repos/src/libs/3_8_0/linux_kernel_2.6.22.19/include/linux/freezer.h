@@ -130,4 +130,5 @@ static inline int try_to_freeze(void) { return 0; }
 static inline void freezer_do_not_count(void) {}
 static inline void freezer_count(void) {}
 static inline int freezer_should_skip(struct task_struct *p) { return 0; }
+static inline void set_freezable(void) {}
 #endif

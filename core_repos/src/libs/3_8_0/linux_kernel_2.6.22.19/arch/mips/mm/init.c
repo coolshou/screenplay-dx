@@ -26,6 +26,7 @@
 #include <linux/swap.h>
 #include <linux/proc_fs.h>
 #include <linux/pfn.h>
+#include <linux/hardirq.h>
 
 #include <asm/bootinfo.h>
 #include <asm/cachectl.h>
@@ -59,6 +60,13 @@
 #define EXIT_CRITICAL(flags) local_irq_restore(flags)
 
 #endif /* CONFIG_MIPS_MT_SMTC */
+
+#ifdef CONFIG_TANGO2
+#include <asm/tango2/hardware.h>
+#endif
+#ifdef CONFIG_TANGO3
+#include <asm/tango3/hardware.h>
+#endif
 
 DEFINE_PER_CPU(struct mmu_gather, mmu_gathers);
 
@@ -137,7 +145,10 @@ void *kmap_coherent(struct page *page, unsigned long addr)
 	inc_preempt_count();
 	idx = (addr >> PAGE_SHIFT) & (FIX_N_COLOURS - 1);
 #ifdef CONFIG_MIPS_MT_SMTC
-	idx += FIX_N_COLOURS * smp_processor_id();
+	idx += FIX_N_COLOURS * smp_processor_id() +
+		(in_interrupt() ? (FIX_N_COLOURS * NR_CPUS) : 0);
+#else
+	idx += in_interrupt() ? FIX_N_COLOURS : 0;
 #endif
 	vaddr = __fix_to_virt(FIX_CMAP_END - idx);
 	pte = mk_pte(page, PAGE_KERNEL);
@@ -354,6 +365,13 @@ void __init paging_init(void)
 	unsigned long zholes_size[MAX_NR_ZONES] = { 0, };
 	unsigned long i, j, pfn;
 #endif
+	unsigned long max_dma_pfn = MAX_DMA_PFN;
+
+#if defined(CONFIG_TANGOX) && defined(CONFIG_PCI)
+	extern unsigned long em8xxx_kmem_start;
+	extern unsigned long em8xxx_kmem_size;
+	extern int tangox_pci_host_enabled(void);
+#endif
 
 	pagetable_init();
 
@@ -362,11 +380,17 @@ void __init paging_init(void)
 #endif
 	kmap_coherent_init();
 
+#if defined(CONFIG_TANGOX) && defined(CONFIG_PCI)
+	/* If PCI is used, then limit DMA memory to MAX_PCIMEM_MAP_SIZE if kernel memory is > MAX_PCIMEM_MAP_SIZE */
+	if (tangox_pci_host_enabled() && (em8xxx_kmem_size>(MAX_PCIMEM_MAP_SIZE<<20)))
+		max_dma_pfn = PFN_DOWN(virt_to_phys((void *)((em8xxx_kmem_start+(MAX_PCIMEM_MAP_SIZE<<20))&0xfff00000)));
+#endif
+
 #ifdef CONFIG_ZONE_DMA
-	if (min_low_pfn < MAX_DMA_PFN && MAX_DMA_PFN <= max_low_pfn) {
-		zones_size[ZONE_DMA] = MAX_DMA_PFN - min_low_pfn;
-		zones_size[ZONE_NORMAL] = max_low_pfn - MAX_DMA_PFN;
-	} else if (max_low_pfn < MAX_DMA_PFN)
+	if (min_low_pfn < max_dma_pfn && max_dma_pfn <= max_low_pfn) {
+		zones_size[ZONE_DMA] = max_dma_pfn - min_low_pfn;
+		zones_size[ZONE_NORMAL] = max_low_pfn - max_dma_pfn;
+	} else if (max_low_pfn < max_dma_pfn)
 		zones_size[ZONE_DMA] = max_low_pfn - min_low_pfn;
 	else
 #endif

@@ -89,7 +89,7 @@ static inline void r4k_blast_dcache_page_dc32(unsigned long addr)
 	blast_dcache32_page(addr);
 }
 
-static void __init r4k_blast_dcache_page_setup(void)
+static void __cpuinit r4k_blast_dcache_page_setup(void)
 {
 	unsigned long  dc_lsize = cpu_dcache_line_size();
 
@@ -103,7 +103,7 @@ static void __init r4k_blast_dcache_page_setup(void)
 
 static void (* r4k_blast_dcache_page_indexed)(unsigned long addr);
 
-static void __init r4k_blast_dcache_page_indexed_setup(void)
+static void __cpuinit r4k_blast_dcache_page_indexed_setup(void)
 {
 	unsigned long dc_lsize = cpu_dcache_line_size();
 
@@ -117,7 +117,7 @@ static void __init r4k_blast_dcache_page_indexed_setup(void)
 
 static void (* r4k_blast_dcache)(void);
 
-static void __init r4k_blast_dcache_setup(void)
+static void __cpuinit r4k_blast_dcache_setup(void)
 {
 	unsigned long dc_lsize = cpu_dcache_line_size();
 
@@ -202,7 +202,7 @@ static inline void tx49_blast_icache32_page_indexed(unsigned long page)
 
 static void (* r4k_blast_icache_page)(unsigned long addr);
 
-static void __init r4k_blast_icache_page_setup(void)
+static void __cpuinit r4k_blast_icache_page_setup(void)
 {
 	unsigned long ic_lsize = cpu_icache_line_size();
 
@@ -219,7 +219,7 @@ static void __init r4k_blast_icache_page_setup(void)
 
 static void (* r4k_blast_icache_page_indexed)(unsigned long addr);
 
-static void __init r4k_blast_icache_page_indexed_setup(void)
+static void __cpuinit r4k_blast_icache_page_indexed_setup(void)
 {
 	unsigned long ic_lsize = cpu_icache_line_size();
 
@@ -243,7 +243,7 @@ static void __init r4k_blast_icache_page_indexed_setup(void)
 
 static void (* r4k_blast_icache)(void);
 
-static void __init r4k_blast_icache_setup(void)
+static void __cpuinit r4k_blast_icache_setup(void)
 {
 	unsigned long ic_lsize = cpu_icache_line_size();
 
@@ -264,7 +264,7 @@ static void __init r4k_blast_icache_setup(void)
 
 static void (* r4k_blast_scache_page)(unsigned long addr);
 
-static void __init r4k_blast_scache_page_setup(void)
+static void __cpuinit r4k_blast_scache_page_setup(void)
 {
 	unsigned long sc_lsize = cpu_scache_line_size();
 
@@ -282,7 +282,7 @@ static void __init r4k_blast_scache_page_setup(void)
 
 static void (* r4k_blast_scache_page_indexed)(unsigned long addr);
 
-static void __init r4k_blast_scache_page_indexed_setup(void)
+static void __cpuinit r4k_blast_scache_page_indexed_setup(void)
 {
 	unsigned long sc_lsize = cpu_scache_line_size();
 
@@ -300,7 +300,7 @@ static void __init r4k_blast_scache_page_indexed_setup(void)
 
 static void (* r4k_blast_scache)(void);
 
-static void __init r4k_blast_scache_setup(void)
+static void __cpuinit r4k_blast_scache_setup(void)
 {
 	unsigned long sc_lsize = cpu_scache_line_size();
 
@@ -500,6 +500,14 @@ static void r4k_flush_cache_page(struct vm_area_struct *vma,
 	r4k_on_each_cpu(local_r4k_flush_cache_page, &args, 1, 1);
 }
 
+#ifdef CONFIG_TANGOX
+static void r4k_flush_icache_range(unsigned long start, unsigned long end);
+static void r4k_flush_icache_page(struct vm_area_struct *vma, struct page *page)
+{
+	r4k_flush_icache_range((unsigned long)page_address(page), (unsigned long)page_address(page) + PAGE_SIZE);
+}
+#endif
+
 static inline void local_r4k_flush_data_cache_page(void * addr)
 {
 	r4k_blast_dcache_page((unsigned long) addr);
@@ -560,6 +568,8 @@ static void r4k_dma_cache_wback_inv(unsigned long addr, unsigned long size)
 {
 	/* Catch bad driver code */
 	BUG_ON(size == 0);
+
+	iob();
 
 	if (cpu_has_inclusive_pcaches) {
 		if (size >= scache_size)
@@ -692,11 +702,11 @@ static inline void rm7k_erratum31(void)
 	}
 }
 
-static char *way_string[] __initdata = { NULL, "direct mapped", "2-way",
+static char *way_string[] __cpuinitdata = { NULL, "direct mapped", "2-way",
 	"3-way", "4-way", "5-way", "6-way", "7-way", "8-way"
 };
 
-static void __init probe_pcache(void)
+static void __cpuinit probe_pcache(void)
 {
 	struct cpuinfo_mips *c = &current_cpu_data;
 	unsigned int config = read_c0_config();
@@ -934,9 +944,10 @@ static void __init probe_pcache(void)
 	case CPU_R14000:
 	case CPU_SB1:
 		break;
+	case CPU_74K:
+		c->dcache.flags |= MIPS_CACHE_VTAG;
 	case CPU_24K:
 	case CPU_34K:
-	case CPU_74K:
 		if ((read_c0_config7() & (1 << 16))) {
 			/* effectively physically indexed dcache,
 			   thus no virtual aliases. */
@@ -966,13 +977,16 @@ static void __init probe_pcache(void)
 		break;
 	}
 
-	printk("Primary instruction cache %ldkB, %s, %s, linesize %d bytes.\n",
-	       icache_size >> 10,
-	       cpu_has_vtag_icache ? "virtually tagged" : "physically tagged",
-	       way_string[c->icache.ways], c->icache.linesz);
-
-	printk("Primary data cache %ldkB, %s, linesize %d bytes.\n",
-	       dcache_size >> 10, way_string[c->dcache.ways], c->dcache.linesz);
+ 	printk("Primary instruction cache %ldkB, %s, %s tagged, linesize %d bytes.\n",
+ 	       icache_size >> 10, way_string[c->icache.ways],
+ 	       cpu_has_vtag_icache ? "virtually" : "physically",
+ 	       c->icache.linesz);
+ 
+ 	printk("Primary data cache %ldkB, %s, %s tagged, %s aliases, linesize %d bytes\n",
+ 	       dcache_size >> 10, way_string[c->dcache.ways],
+ 	       (c->dcache.flags & MIPS_CACHE_PINDEX) ? "physically" : "virtually",
+ 	       (c->dcache.flags & MIPS_CACHE_ALIASES) ? "cache" : "no",
+ 	       c->dcache.linesz);
 }
 
 /*
@@ -981,7 +995,7 @@ static void __init probe_pcache(void)
  * executes in KSEG1 space or else you will crash and burn badly.  You have
  * been warned.
  */
-static int __init probe_scache(void)
+static int __cpuinit probe_scache(void)
 {
 	extern unsigned long stext;
 	unsigned long flags, addr, begin, end, pow2;
@@ -1043,7 +1057,7 @@ extern int r5k_sc_init(void);
 extern int rm7k_sc_init(void);
 extern int mips_sc_init(void);
 
-static void __init setup_scache(void)
+static void __cpuinit setup_scache(void)
 {
 	struct cpuinfo_mips *c = &current_cpu_data;
 	unsigned int config = read_c0_config();
@@ -1148,7 +1162,7 @@ void au1x00_fixup_config_od(void)
 	}
 }
 
-static void __init coherency_setup(void)
+static void __cpuinit coherency_setup(void)
 {
 	change_c0_config(CONF_CM_CMASK, CONF_CM_DEFAULT);
 
@@ -1180,7 +1194,7 @@ static void __init coherency_setup(void)
 	}
 }
 
-void __init r4k_cache_init(void)
+void __cpuinit r4k_cache_init(void)
 {
 	extern void build_clear_page(void);
 	extern void build_copy_page(void);
@@ -1225,6 +1239,10 @@ void __init r4k_cache_init(void)
 	local_flush_data_cache_page	= local_r4k_flush_data_cache_page;
 	flush_data_cache_page	= r4k_flush_data_cache_page;
 	flush_icache_range	= r4k_flush_icache_range;
+
+#ifdef CONFIG_TANGOX
+	flush_icache_page	= r4k_flush_icache_page;
+#endif
 
 #ifdef CONFIG_DMA_NONCOHERENT
 	_dma_cache_wback_inv	= r4k_dma_cache_wback_inv;

@@ -168,6 +168,12 @@ static inline int cancel_delayed_work(struct delayed_work *work)
 
 extern void cancel_rearming_delayed_work(struct delayed_work *work);
 
+static inline int cancel_delayed_work_sync(struct delayed_work *work)
+{
+	cancel_rearming_delayed_work(work);
+	return 0;
+}
+
 /* Obsolete. use cancel_rearming_delayed_work() */
 static inline
 void cancel_rearming_delayed_workqueue(struct workqueue_struct *wq,

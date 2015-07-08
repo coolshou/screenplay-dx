@@ -1,1 +1,0 @@
-#define CONFIG_FEATURE_SUN_LABEL 1

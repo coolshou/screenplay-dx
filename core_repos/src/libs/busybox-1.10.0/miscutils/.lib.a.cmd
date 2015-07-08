@@ -1,1 +1,0 @@
-cmd_miscutils/lib.a := rm -f miscutils/lib.a; /opt/mips-4.3/bin//mipsel-linux-ar  rcs miscutils/lib.a miscutils/chrt.o miscutils/crond.o miscutils/crontab.o miscutils/eject.o miscutils/hdparm.o miscutils/last.o miscutils/less.o miscutils/makedevs.o miscutils/mountpoint.o miscutils/runlevel.o miscutils/strings.o miscutils/time.o miscutils/watchdog.o

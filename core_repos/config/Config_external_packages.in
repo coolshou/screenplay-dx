@@ -387,11 +387,14 @@ menu "External packages"
 		choice
 			depends on TIFF
 			prompt	"tiff"
+				config	TIFF_4_0_4
+					bool "tiff-4.0.4"
 				config	TIFF_3_7_1	
 					bool "tiff-3.7.1"
 		endchoice	
 	config	TIFF_VERSION
 		string
+		default "4.0.4" if TIFF_4_0_4		
 		default "3.7.1" if TIFF_3_7_1
 
 	config	TREMOR
@@ -587,6 +590,8 @@ menu "External packages"
 	choice
 		depends on NTFS_3G_SUPPORT
 		prompt "NTFS-3G version"
+		config NTFS_3G_2015_3_14
+			bool "2015.3.14"
 		config NTFS_3G_2009_4_4
 			bool "2009.4.4"
 		config NTFS_3G_2009_2_1
@@ -596,7 +601,7 @@ menu "External packages"
 		string
 		default "2009.2.1" if NTFS_3G_2009_2_1
 		default "2009.4.4" if NTFS_3G_2009_4_4
-
+		default "2015.3.14" if NTFS_3G_2015_3_14
 	choice
 		depends on NTFS_3G_COMMERCIAL_SUPPORT
 		prompt "NTFS-3G commercial version"

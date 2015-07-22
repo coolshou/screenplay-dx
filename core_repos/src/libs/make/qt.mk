@@ -9,7 +9,7 @@
 # Defines
 #
 ifndef  QT_VERSION 
-QT_VERSION := 4.7.0
+QT_VERSION := 4.7.4
 endif
 
 QT             := qt-everywhere-opensource-src#
@@ -18,6 +18,20 @@ QT_DIR         := $(TOP_LIBS_DIR)#
 QT_SOURCE      := $(TOP_LIBS_DIR)/$(QT)/$(QT)-$(QT_VERSION)
 QT_CONFIG      := 
 
+#DIRECTFB_INC := DIRECTFB_I=$(TOP_LIBS_DIR)/$(QT)/directfb;
+DIRECTFB_INC := DIRECTFB_I=$(LIBS_INSTALL_PATH)directfb
+#DIRECTFB_LIB := DIRECTFB_L=$(SYSLIB_PREFIX)
+DIRECTFB_LIB := DIRECTFB_L=$(LIBS_INSTALL_PATH)directfb
+QT_CONFIGURE := ./configure -prefix $(LIBS_INSTALL_PATH) \
+	-release -opensource -embedded mips -xplatform /qws/linux-mips-g++ \
+	-little-endian -webkit \
+	-no-nis -no-cups -no-dbus \
+	-qt-freetype \
+	-no-gfx-transformed -no-gfx-multiscreen -no-accessibility \
+	-no-xmlpatterns \
+	-nomake tools -nomake docs -nomake examples -nomake translations -nomake demos \
+	-fast -confirm-license  \
+	-qt-kbd-tty -qt-kbd-linuxinput -qt-mouse-pc -qt-mouse-linuxinput -qt-gfx-directfb -v
 
 #
 # Download  the source 
@@ -77,9 +91,9 @@ $(QT_DIR)/.qt_configured: $(QT_DIR)/.qt_patched
 	export AS LD CC CPP CXX AR NM STRIP OBJCOPY OBJDUMP RANLIB MAKELIB LINKER LD_LIBRARY_PATH;\
 	export CROSS=mips-linux-gnu- ;\
 	export CROSS_COMPILER_FLAGS=-EL ;\
-	export DIRECTFB_I=$(TOP_LIBS_DIR)/$(QT)/directfb;\
-	export DIRECTFB_L=$(SYSLIB_PREFIX);\
-	./configure -prefix $(LIBS_INSTALL_PATH) -release -opensource -embedded mips -xplatform /qws/linux-mips-g++ -little-endian -webkit -no-nis -no-cups -no-dbus -qt-freetype -no-gfx-transformed -no-gfx-multiscreen -no-accessibility -no-xmlpatterns -nomake tools -nomake docs -nomake examples -nomake translations -nomake demos -fast -confirm-license  -qt-kbd-tty -qt-kbd-linuxinput -qt-mouse-pc -qt-mouse-linuxinput -qt-gfx-directfb -v
+	export $(DIRECTFB_INC);\
+	export $(DIRECTFB_LIB);\
+	$(QT_CONFIGURE);
 	@echo "Configured $(QT) done"
 	@touch $@
 
@@ -99,8 +113,8 @@ $(QT_DIR)/.qt_compiled:
 	export AS LD CC CPP CXX AR NM STRIP OBJCOPY OBJDUMP RANLIB MAKELIB LINKER LD_LIBRARY_PATH;\
 	export CROSS=mips-linux-gnu- ;\
 	export CROSS_COMPILER_FLAGS=-EL ;\
-	export DIRECTFB_I=$(TOP_LIBS_DIR)/$(QT)/directfb;\
-	export DIRECTFB_L=$(SYSLIB_PREFIX);\
+	export $(DIRECTFB_INC);\
+	export $(DIRECTFB_LIB);\
 	make -C $(QT_SOURCE)
 	make -C $(QT_SOURCE) install
 	@echo "Compiling $(QT) done"

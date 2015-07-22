@@ -2,7 +2,7 @@
 # Defines
 #
 ifndef  CONF_PHP_VERSION 
-CONF_PHP_VERSION := 5.2.10#
+CONF_PHP_VERSION := 5.2.17
 endif
 
 PHP             := php-$(CONF_PHP_VERSION)#

@@ -521,59 +521,7 @@
 		disabled_bg="image/options_menu_rename_device_icon.png"
 		name="Rename"/>
 
-	<!-- start of Mediafly option menu -->
-	<button valkey="MEDIAFLY_OPTIONMENU_ADD_CH" 
-		name="Add to my channel"
-            	focused_bg="image/optionmenu/villa_options_menu_add_icon_f.png"
-		normal_bg="image/optionmenu/villa_options_menu_add_icon_n.png"
-		disabled_bg="image/optionmenu/villa_options_menu_add_icon_n.png"/>
-	<button valkey="MEDIAFLY_OPTIONMENU_RM_CH"
-		name="Remove from my channel"
-            	focused_bg="image/optionmenu/villa_options_menu_garage_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_garage_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_garage_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_RATE"
-		name="Rate/Favorite"
-            	focused_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_rate_favorite_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_SWITCH"
-		name="View episodes"
-            	focused_bg="image/optionmenu/villa_options_menu_episodes_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_episodes_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_episodes_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_INFO"
-		name="Show info"
-            	focused_bg="image/optionmenu/villa_options_menu_show_info_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_show_info_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_show_info_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_SIGNIN"
-		name="Manage users"
-            	focused_bg="image/optionmenu/villa_options_menu_user_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_user_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_user_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_DASHBOARD"
-		name="Dashboard"
-            	focused_bg="image/optionmenu/villa_options_menu_dashboard_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_dashboard_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_dashboard_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_RM_CONTENT"
-		name="Remove content source"
-            	focused_bg="image/optionmenu/villa_options_menu_garage_icon_f.png"
-            	normal_bg="image/optionmenu/villa_options_menu_garage_icon_n.png"
-            	disabled_bg="image/optionmenu/villa_options_menu_garage_icon_n.png" />
-	<button valkey="MEDIAFLY_OPTIONMENU_ADD_CONTENT"
-		name="Add content source"
-            	focused_bg="image/optionmenu/villa_options_menu_add_icon_f.png"
-		normal_bg="image/optionmenu/villa_options_menu_add_icon_n.png"
-		disabled_bg="image/optionmenu/villa_options_menu_add_icon_n.png"/>
-	<button valkey="MEDIAFLY_OPTIONMENU_SEARCH"
-		name="Search"
-            	focused_bg="image/mediafly/mediafly_option_menu_search_f.png"
-		normal_bg="image/mediafly/mediafly_option_menu_search_n.png"
-		disabled_bg="image/mediafly/mediafly_option_menu_search_n.png"/>
-	<!-- end of Mediafly option menu -->
-
+	<!-- start of villa option menu -->
 	<button valkey="ADD PRESET"
 		name="Add Preset"
 		focused_bg="image/optionmenu/villa_options_menu_my_presets_icon.png"

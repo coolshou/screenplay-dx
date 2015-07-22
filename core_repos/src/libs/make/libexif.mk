@@ -9,7 +9,7 @@
 # Defines
 #
 ifndef  CONF_LIBEXIF_VERSION 
-CONF_LIBEXIF_VERSION := 0.6.17# 
+CONF_LIBEXIF_VERSION := 0.6.21
 endif
 
 LIBEXIF             := libexif-$(CONF_LIBEXIF_VERSION)#

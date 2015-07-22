@@ -101,7 +101,7 @@ menu "External packages"
 			depends on FREETYPE
 			prompt "freetype"
 			default FREETYPE_2_1_3 if !SUPPORT_DCCHD
-			default FREETYPE_2_3_9 if SUPPORT_DCCHD
+			default FREETYPE_2_3_12 if SUPPORT_DCCHD
 			config	FREETYPE_1_3_1
 				bool "freetype-1.3.1"
 				depends on !SUPPORT_DCCHD
@@ -115,6 +115,9 @@ menu "External packages"
 				bool "freetype-2.3.7"
 			config	FREETYPE_2_3_9
 				bool "freetype-2.3.9"
+			config	FREETYPE_2_3_12
+				bool "freetype-2.3.12"
+
 		endchoice
 
 		config	FREETYPE_STATIC_LIB
@@ -129,7 +132,7 @@ menu "External packages"
 			default "2.1.8" if FREETYPE_2_1_8
 			default "2.3.7" if FREETYPE_2_3_7
 			default "2.3.9" if FREETYPE_2_3_9
-
+			default "2.3.12" if FREETYPE_2_3_12
 		choice
 			depends on FONTS
 			prompt "fonts"
@@ -206,11 +209,14 @@ menu "External packages"
 			prompt "flac"
 			config FLAC_1_2_1
 				bool "flac-1.2.1"
+			config FLAC_1_3_1
+				bool "flac-1.3.1"
 		endchoice
 	config FLAC_VERSION
 		string
 		default "1.2.1" if FLAC_1_2_1
-
+		default "1.3.1" if FLAC_1_3_1
+		
 	config	LIBICONV
 		bool "libiconv"
 		default y
@@ -243,6 +249,8 @@ menu "External packages"
 		choice
 			depends on LIBPNG
 			prompt	"libpng"
+				config	LIBPNG_1_2_52
+					bool "libpng-1.2.52"
 				config	LIBPNG_1_2_44
 					bool "libpng-1.2.44"
 				config	LIBPNG_1_2_43
@@ -252,6 +260,7 @@ menu "External packages"
 		endchoice
 	config	LIBPNG_VERSION
 		string
+		default "1.2.52" if LIBPNG_1_2_52
 		default "1.2.44" if LIBPNG_1_2_44
 		default "1.2.43" if LIBPNG_1_2_43
 		default "1.2.14" if LIBPNG_1_2_14
@@ -262,11 +271,14 @@ menu "External packages"
 		choice
 			depends on LIBUNGIF
 			prompt	"libungif"
+				config	LIBUNGIF_4_1_4
+					bool "libungif_4.1.4"
 				config	LIBUNGIF_4_1_3
 					bool "libungif_4.1.3"
 		endchoice	
 	config	LIBUNGIF_VERSION
 		string
+		default "4.1.4" if LIBUNGIF_4_1_4
 		default "4.1.3" if LIBUNGIF_4_1_3
 
 	config	ZLIB	
@@ -306,6 +318,13 @@ menu "External packages"
 		config DIRECTFB
 			bool "DirectFB"
 			depends on SUPPORT_DCCHD
+	endchoice	
+	choice
+		depends on DIRECTFB
+		prompt	"DirectFB"
+			depends on LIBPNG && TIFF && LIBJPEG && ZLIB
+			config	DIRECTFB_1_0_1
+			bool "DirectFB-1.0.1"
 	endchoice	
 	choice
 		depends on MICROWIN
@@ -415,11 +434,15 @@ menu "External packages"
 		choice
 			depends on DHCPCD
 			prompt "dhcpcd"
+				config DHCPCD_1_3_22_PL4
+					bool "1.3.22-pl4"
 				config DHCPCD_1_3_22_PL1
 					bool "1.3.22-pl1"
+
 		endchoice
 	config	DHCPCD_VERSION
 		string
+		default "1.3.22-pl4" if DHCPCD_1_3_22_PL4
 		default "1.3.22-pl1" if DHCPCD_1_3_22_PL1
 
 	config	CURL
@@ -473,7 +496,23 @@ menu "External packages"
 		default "0.9.8k" if OPENSSL_0_9_8_k
 		default "0.9.8o" if OPENSSL_0_9_8_o
 		default "0.9.8zg" if OPENSSL_0_9_8_zg
-		
+
+	config DROPBEAR
+		depends on ENABLE_NETWORKING
+		default y
+		bool "dropbear"
+		help
+			dropbear : dropbear SSH
+		choice
+			depends on DROPBEAR
+			prompt	"dropbear library"
+				config	DROPBEAR_2015_67
+					bool "dropbear-2015.67"
+		endchoice	
+	config	DROPBEAR_VERSION
+		string
+		default "2015.67" if DROPBEAR_2015_67
+				
 	config MATRIXSSL
 		depends on ENABLE_NETWORKING
 		default n
@@ -664,7 +703,7 @@ menu "External packages"
 		default "4.2.52" if BERKELEY_DB_4_2_52
 	config FLICKR
 		bool "library flickr curl"
-		depends on DMA_FLICKR
+		depends on DMA_FLICKR && CURL && XML2
 		default y
 	config XML2
 		bool "library xml2"

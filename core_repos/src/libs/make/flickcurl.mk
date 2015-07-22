@@ -9,7 +9,7 @@
 # Defines
 #
 ifndef  FLICKCURL_VERSION 
-FLICKCURL_VERSION := 1.2
+FLICKCURL_VERSION := 1.26
 endif
 
 FLICKCURL             := flickcurl-$(FLICKCURL_VERSION)#
@@ -97,7 +97,7 @@ flickcurl-configured:  flickcurl-config $(FLICKCURL_DIR)/.flickcurl_configured
 $(FLICKCURL_DIR)/.flickcurl_configured: $(FLICKCURL_DIR)/.flickcurl_patched $(FLICKCURL_CONFIG) $(TOP_CURRENT_SET)
 	@echo "Configuring $(FLICKCURL) ..."
 	chmod +x $(CURL_SOURCE)/$(CURL)/curl-config
-	cd $(FLICKCURL_SOURCE)/$(FLICKCURL);./configure --prefix=$(LIBS_INSTALL_PATH) --build=$(BUILD_HOST) --host=$(BUILD_TARGET) ac_cv_func_vsnprintf=no ac_cv_func_malloc_0_nonnull=yes enable_gtk_doc="no" --with-xml2-config="$(LIBXML2_SOURCE)/$(LIBXML2)/xml2-config" --with-curl-config="$(CURL_SOURCE)/$(CURL)/curl-config" --with-raptor=no --disable-shared LDFLAGS=""
+	cd $(FLICKCURL_SOURCE)/$(FLICKCURL);./configure --prefix=$(LIBS_INSTALL_PATH) --build=$(BUILD_HOST) --host=$(BUILD_TARGET) ac_cv_func_vsnprintf=no ac_cv_func_malloc_0_nonnull=yes enable_gtk_doc="no" --with-xml2-config="$(LIBXML2_SOURCE)/$(LIBXML2)/xml2-config" --with-curl-config="$(CURL_SOURCE)/$(CURL)/curl-config" --with-raptor=no --disable-shared LDFLAGS="" COMPILKIND=glibc
 	@echo "Configuring $(FLICKCURL) done"
 	@touch $@
 

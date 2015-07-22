@@ -19,6 +19,14 @@ NTFS-3G_DIR         := $(TOP_LIBS_DIR)#
 NTFS-3G_SOURCE      := $(NTFS-3G_DIR)/$(NTFS-3G)
 NTFS-3G_CONFIG      := 
 
+NTFS-3G_CONFIGURE   := CFLAGS=$(NTFS-3G_CFLAGS) LDFLAGS=$(NTFS-3G_LDFLAGS) \
+	./configure --prefix=$(LIBS_INSTALL_PATH) \
+	--build=$(BUILD_HOST) --host=$(BUILD_TARGET) --target=$(BUILD_TARGET) \
+	--enable-shared=$(ENABLE_SHLIB) --disable-library --disable-ldconfig 
+
+#--prefix=$(TOP_LIBS_DIR) \
+#	--exec-prefix=$(TOP_INSTALL_ROOTFS_DIR) \
+#	--program-prefix='' \
 
 #
 # Download  the source 
@@ -69,7 +77,7 @@ ntfs-3g-configured:  $(NTFS-3G_DIR)/.ntfs-3g_configured
 
 $(NTFS-3G_DIR)/.ntfs-3g_configured: $(NTFS-3G_DIR)/.ntfs-3g_patched $(TOP_CURRENT_SET)
 	@echo "Configuring $(NTFS-3G) ..."
-	cd $(NTFS-3G_SOURCE)/$(NTFS-3G);CFLAGS=$(NTFS-3G_CFLAGS) LDFLAGS=$(NTFS-3G_LDFLAGS)  ./configure --prefix=$(TOP_LIBS_DIR) --exec-prefix=$(TOP_INSTALL_ROOTFS_DIR) --program-prefix='' --build=$(BUILD_HOST) --host=$(BUILD_TARGET) --target=$(BUILD_TARGET) --enable-shared=$(ENABLE_SHLIB) --disable-library --disable-ldconfig 
+	cd $(NTFS-3G_SOURCE)/$(NTFS-3G);${NTFS-3G_CONFIGURE}
 	@echo "Configuring $(NTFS-3G) done"
 	@touch $@
 
@@ -133,7 +141,7 @@ ntfs-3g-distclean:
 
 ntfs-3g-install:
 	#-make -C $(NTFS-3G_SOURCE)/$(NTFS-3G)  CC=$(CC) CROSS_COMPILE="$(CROSS)" DESTDIR=$(TOP_INSTALL_ROOTFS_DIR) install
-	cp -f $(NTFS-3G_SOURCE)/$(NTFS-3G)/src/ntfs-3g $(TOP_INSTALL_ROOTFS_DIR)/bin
+	#cp -f $(NTFS-3G_SOURCE)/$(NTFS-3G)/src/ntfs-3g $(TOP_INSTALL_ROOTFS_DIR)/bin
 	cd $(TOP_INSTALL_ROOTFS_DIR)/bin; ln -fs ntfs-3g mount.ntfs-3g
 	#cp -f $(NTFS-3G_SOURCE)/$(NTFS-3G)/src/ntfs-3g.probe $(TOP_INSTALL_ROOTFS_DIR)/bin
 

@@ -9,7 +9,7 @@
 # Defines
 #
 ifndef  CONF_EXPAT_VERSION 
-CONF_EXPAT_VERSION := 2.0.1
+CONF_EXPAT_VERSION := 2.1.0
 endif
 
 EXPAT             := expat-$(CONF_EXPAT_VERSION)#

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: photoviewer.qml Example File (demos/declarative/photoviewer/photoviewer.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">photoviewer.qml Example File</h1>
+<span class="small-subtitle">demos/declarative/photoviewer/photoviewer.qml</span>
+<!-- $$$demos/declarative/photoviewer/photoviewer.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.0
+ import &quot;PhotoViewerCore&quot;
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">mainWindow</span>
+
+     property <span class="type">real</span> <span class="name">downloadProgress</span>: <span class="number">0</span>
+     property <span class="type">bool</span> <span class="name">imageLoading</span>: <span class="number">false</span>
+     property <span class="type">bool</span> <span class="name">editMode</span>: <span class="number">false</span>
+
+     <span class="name">width</span>: <span class="number">800</span>; <span class="name">height</span>: <span class="number">480</span>; <span class="name">color</span>: <span class="string">&quot;#d5d6d8&quot;</span>
+
+     <span class="type"><a href="qml-listmodel.html">ListModel</a></span> {
+         <span class="name">id</span>: <span class="name">photosModel</span>
+         <span class="type"><a href="qml-listelement.html">ListElement</a></span> { <span class="name">tag</span>: <span class="string">&quot;Flowers&quot;</span> }
+         <span class="type"><a href="qml-listelement.html">ListElement</a></span> { <span class="name">tag</span>: <span class="string">&quot;Wildlife&quot;</span> }
+         <span class="type"><a href="qml-listelement.html">ListElement</a></span> { <span class="name">tag</span>: <span class="string">&quot;Prague&quot;</span> }
+     }
+
+     <span class="type"><a href="qml-visualdatamodel.html">VisualDataModel</a></span> { <span class="name">id</span>: <span class="name">albumVisualModel</span>; <span class="name">model</span>: <span class="name">photosModel</span>; <span class="name">delegate</span>: <span class="name">AlbumDelegate</span> {} }
+
+     <span class="type"><a href="qml-gridview.html">GridView</a></span> {
+         <span class="name">id</span>: <span class="name">albumView</span>; <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>; <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>; <span class="name">cellWidth</span>: <span class="number">210</span>; <span class="name">cellHeight</span>: <span class="number">220</span>
+         <span class="name">model</span>: <span class="name">albumVisualModel</span>.<span class="name">parts</span>.<span class="name">album</span>; <span class="name">visible</span>: <span class="name">albumsShade</span>.<span class="name">opacity</span> <span class="operator">!=</span> <span class="number">1.0</span>
+     }
+
+     <span class="type"><a href="qml-column.html">Column</a></span> {
+         <span class="name">spacing</span>: <span class="number">20</span>; <span class="type">anchors</span> { <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>; <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>; <span class="name">rightMargin</span>: <span class="number">20</span>; <span class="name">bottomMargin</span>: <span class="number">20</span> }
+         <span class="type">Button</span> {
+             <span class="name">id</span>: <span class="name">newButton</span>; <span class="name">label</span>: <span class="name">qsTr</span>(<span class="string">&quot;Add&quot;</span>); <span class="name">rotation</span>: <span class="number">3</span>
+             <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+             <span class="name">onClicked</span>: {
+                 <span class="name">mainWindow</span>.<span class="name">editMode</span> <span class="operator">=</span> <span class="number">false</span>
+                 <span class="name">photosModel</span>.<span class="name">append</span>( { tag: <span class="string">&quot;&quot;</span> } )
+                 <span class="name">albumView</span>.<span class="name">positionViewAtIndex</span>(<span class="name">albumView</span>.<span class="name">count</span> <span class="operator">-</span> <span class="number">1</span>, <span class="name">GridView</span>.<span class="name">Contain</span>)
+             }
+         }
+         <span class="type">Button</span> {
+             <span class="name">id</span>: <span class="name">deleteButton</span>; <span class="name">label</span>: <span class="name">qsTr</span>(<span class="string">&quot;Edit&quot;</span>); <span class="name">rotation</span>: -<span class="number">2</span>;
+             <span class="name">onClicked</span>: <span class="name">mainWindow</span>.<span class="name">editMode</span> <span class="operator">=</span> !<span class="name">mainWindow</span>.<span class="name">editMode</span>
+             <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+         }
+         <span class="type">Button</span> {
+             <span class="name">id</span>: <span class="name">quitButton</span>; <span class="name">label</span>: <span class="name">qsTr</span>(<span class="string">&quot;Quit&quot;</span>); <span class="name">rotation</span>: -<span class="number">2</span>;
+             <span class="name">onClicked</span>: <span class="name">Qt</span>.<span class="name">quit</span>()
+             <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+         }
+     }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">albumsShade</span>; <span class="name">color</span>: <span class="name">mainWindow</span>.<span class="name">color</span>
+         <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>; <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>; <span class="name">opacity</span>: <span class="number">0.0</span>
+     }
+
+     <span class="type"><a href="qml-listview.html">ListView</a></span> { <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">model</span>: <span class="name">albumVisualModel</span>.<span class="name">parts</span>.<span class="name">browser</span>; <span class="name">interactive</span>: <span class="number">false</span> }
+
+     <span class="type">Button</span> { <span class="name">id</span>: <span class="name">backButton</span>; <span class="name">label</span>: <span class="name">qsTr</span>(<span class="string">&quot;Back&quot;</span>); <span class="name">rotation</span>: <span class="number">3</span>; <span class="name">x</span>: <span class="name">parent</span>.<span class="name">width</span> <span class="operator">-</span> <span class="name">backButton</span>.<span class="name">width</span> <span class="operator">-</span> <span class="number">6</span>; <span class="name">y</span>: -<span class="name">backButton</span>.<span class="name">height</span> <span class="operator">-</span> <span class="number">8</span> }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">id</span>: <span class="name">photosShade</span>; <span class="name">color</span>: <span class="string">'black'</span>; <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>; <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>; <span class="name">opacity</span>: <span class="number">0</span>; <span class="name">visible</span>: <span class="name">opacity</span> <span class="operator">!=</span> <span class="number">0.0</span> }
+
+     <span class="type"><a href="qml-listview.html">ListView</a></span> { <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">model</span>: <span class="name">albumVisualModel</span>.<span class="name">parts</span>.<span class="name">fullscreen</span>; <span class="name">interactive</span>: <span class="number">false</span> }
+
+     <span class="type"><a href="qml-item.html">Item</a></span> { <span class="name">id</span>: <span class="name">foreground</span>; <span class="name">anchors</span>.fill: <span class="name">parent</span> }
+
+     <span class="type">ProgressBar</span> {
+         <span class="name">progress</span>: <span class="name">mainWindow</span>.<span class="name">downloadProgress</span>; <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>; <span class="name">height</span>: <span class="number">4</span>
+         <span class="name">anchors</span>.bottom: <span class="name">parent</span>.<span class="name">bottom</span>; <span class="name">opacity</span>: <span class="name">mainWindow</span>.<span class="name">imageLoading</span>; <span class="name">visible</span>: <span class="name">opacity</span> <span class="operator">!=</span> <span class="number">0.0</span>
+     }
+ }</pre>
+</div>
+<!-- @@@demos/declarative/photoviewer/photoviewer.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

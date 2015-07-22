@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmap.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QMap</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QMap</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QMap</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qmap.html">QMap class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qmap-qt3.html#erase-2">erase</a></b> ( const Key &amp; <i>key</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qmap-qt3.html#insert-2">insert</a></b> ( const Key &amp; <i>key</i>, const T &amp; <i>value</i>, bool <i>overwrite</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qmap-qt3.html#remove-2">remove</a></b> ( iterator <i>it</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qmap-qt3.html#replace">replace</a></b> ( const Key &amp; <i>key</i>, const T &amp; <i>value</i> )</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$erase$$$eraseconstKey& -->
+<h3 class="fn"><a name="erase-2"></a><span class="type">void</span> QMap::<span class="name">erase</span> ( const <span class="type">Key</span> &amp; <i>key</i> )</h3>
+<p>Use remove(<i>key</i>) instead.</p>
+<!-- @@@erase -->
+<!-- $$$insert$$$insertconstKey&constT&bool -->
+<h3 class="fn"><a name="insert-2"></a><span class="type"><a href="qmap-iterator.html">iterator</a></span> QMap::<span class="name">insert</span> ( const <span class="type">Key</span> &amp; <i>key</i>, const <span class="type">T</span> &amp; <i>value</i>, <span class="type">bool</span> <i>overwrite</i> )</h3>
+<p>Use the two-argument <a href="qmap.html#insert">insert</a>() overload instead. If you don't want to overwrite, call <a href="qmap.html#contains">contains</a>() beforehand.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QMap&lt;QString, int&gt; map;
+ ..&#x2e;
+ map.insert(&quot;delay&quot;, 30000, false);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qmap.html">QMap</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> map;
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ <span class="keyword">if</span> (<span class="operator">!</span>map<span class="operator">.</span>contains(<span class="string">&quot;delay&quot;</span>))
+     map<span class="operator">.</span><a href="qmap.html#insert">insert</a>(<span class="string">&quot;delay&quot;</span><span class="operator">,</span> <span class="number">30000</span>);</pre>
+<!-- @@@insert -->
+<!-- $$$remove$$$removeiterator -->
+<h3 class="fn"><a name="remove-2"></a><span class="type"><a href="qmap-iterator.html">iterator</a></span> QMap::<span class="name">remove</span> ( <span class="type"><a href="qmap-iterator.html">iterator</a></span> <i>it</i> )</h3>
+<p>Use erase(<i>it</i>) instead.</p>
+<!-- @@@remove -->
+<!-- $$$replace[overload1]$$$replaceconstKey&constT& -->
+<h3 class="fn"><a name="replace"></a><span class="type"><a href="qmap-iterator.html">iterator</a></span> QMap::<span class="name">replace</span> ( const <span class="type">Key</span> &amp; <i>key</i>, const <span class="type">T</span> &amp; <i>value</i> )</h3>
+<p>Use <a href="qmap.html#remove">remove</a>() then <a href="qmap.html#insert">insert</a>().</p>
+<!-- @@@replace -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

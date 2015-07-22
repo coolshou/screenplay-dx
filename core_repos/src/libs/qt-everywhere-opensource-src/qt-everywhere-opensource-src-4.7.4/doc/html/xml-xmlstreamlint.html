@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- xmlstreamlint.qdoc -->
+  <title>Qt 4.7: XML Stream Lint Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>XML Stream Lint Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#basic-operation">Basic Operation</a></li>
+</ul>
+</div>
+<h1 class="title">XML Stream Lint Example</h1>
+<span class="subtitle"></span>
+<!-- $$$xml/xmlstreamlint-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="xml-xmlstreamlint-main-cpp.html">xml/xmlstreamlint/main.cpp</a></li>
+<li><a href="xml-xmlstreamlint-xmlstreamlint-pro.html">xml/xmlstreamlint/xmlstreamlint.pro</a></li>
+</ul>
+<p>The XML Stream Lint example provides a simple command line utility that accepts a file name as its single argument and writes it to the standard output file.</p>
+<p>The specified file is parsed using an <a href="qxmlstreamreader.html">QXmlStreamReader</a> object and written to the standard output file using an <a href="qxmlstreamwriter.html">QXmlStreamWriter</a> object. If the file does not contain a well-formed XML document or the use of namespaces in the document is incorrect, a description of the error is printed to the standard error file and will appear in the console.</p>
+<a name="basic-operation"></a>
+<h2>Basic Operation</h2>
+<p>The main function of the example opens the file specified by the user for input (<tt>inputFile</tt>), and it uses <a href="qfile.html">QFile</a> to access the standard output file.</p>
+<p>Reading XML is handled by an instance of the <a href="qxmlstreamreader.html">QXmlStreamReader</a> class, which operates on the input file object; writing is handled by an instance of <a href="qxmlstreamwriter.html">QXmlStreamWriter</a> operating on the output file object:</p>
+<pre class="cpp">     <span class="type"><a href="qxmlstreamreader.html">QXmlStreamReader</a></span> reader(<span class="operator">&amp;</span>inputFile);
+     <span class="type"><a href="qxmlstreamwriter.html">QXmlStreamWriter</a></span> writer(<span class="operator">&amp;</span>outputFile);</pre>
+<p>The work of parsing and rewriting the XML is done in a while loop, and is driven by input from the reader:</p>
+<pre class="cpp">     <span class="keyword">while</span> (<span class="operator">!</span>reader<span class="operator">.</span>atEnd())
+     {
+         reader<span class="operator">.</span>readNext();
+
+         <span class="keyword">if</span> (reader<span class="operator">.</span>error())
+         {
+             errorStream <span class="operator">&lt;</span><span class="operator">&lt;</span> XmlStreamLint<span class="operator">::</span>tr(
+                            <span class="string">&quot;Error: %1 in file %2 at line %3, column %4.\n&quot;</span>)<span class="operator">.</span>arg(
+                                reader<span class="operator">.</span>errorString()<span class="operator">,</span> inputFilePath<span class="operator">,</span>
+                                <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(reader<span class="operator">.</span>lineNumber())<span class="operator">,</span>
+                                <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(reader<span class="operator">.</span>columnNumber()));
+             <span class="keyword">return</span> ParseFailure;</pre>
+<p>If more input is available, the next token from the input file is read and parsed. If an error occurred, information is written to the standard error file via a stream, and the example exits by returning a non-zero value from the main function.</p>
+<pre class="cpp">         } <span class="keyword">else</span>
+             writer<span class="operator">.</span>writeCurrentToken(reader);
+     }</pre>
+<p>For valid input, the writer is fed the current token from the reader, and this is written to the output file that was specified when it was constructed.</p>
+<p>When there is no more input, the loop terminates, and the example can exit successfully.</p>
+</div>
+<!-- @@@xml/xmlstreamlint -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

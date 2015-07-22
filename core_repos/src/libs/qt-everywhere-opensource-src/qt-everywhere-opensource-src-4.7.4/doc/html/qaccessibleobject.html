@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qaccessibleobject.cpp -->
+  <title>Qt 4.7: QAccessibleObject Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QAccessibleObject</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAccessibleObject Class Reference</h1>
+<!-- $$$QAccessibleObject-brief -->
+<p>The QAccessibleObject class implements parts of the <a href="qaccessibleinterface.html">QAccessibleInterface</a> for <a href="qtwebkit-bridge.html#qobjects">QObjects</a>. <a href="#details">More...</a></p>
+<!-- @@@QAccessibleObject -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAccessibleObject&gt;</span></pre><p><b>Inherits: </b><a href="qaccessibleinterface.html">QAccessibleInterface</a>.</p>
+<p><b>Inherited by: </b><a href="qaccessiblewidget.html">QAccessibleWidget</a>.</p>
+<ul>
+<li><a href="qaccessibleobject-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#QAccessibleObject">QAccessibleObject</a></b> ( QObject * <i>object</i> )</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#actionText">actionText</a></b> ( int <i>action</i>, Text <i>t</i>, int <i>child</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#doAction">doAction</a></b> ( int <i>action</i>, int <i>child</i>, const QVariantList &amp; <i>params</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#isValid">isValid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QObject * </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#object">object</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QRect </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#rect">rect</a></b> ( int <i>child</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#setText">setText</a></b> ( Text <i>t</i>, int <i>child</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual int </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#userActionCount">userActionCount</a></b> ( int <i>child</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">17 public functions inherited from <a href="qaccessibleinterface.html#public-functions">QAccessibleInterface</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleobject.html#dtor.QAccessibleObject">~QAccessibleObject</a></b> ()</td></tr>
+</table>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">7 static public members inherited from <a href="qaccessible.html#static-public-members">QAccessible</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAccessibleObject-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAccessibleObject class implements parts of the <a href="qaccessibleinterface.html">QAccessibleInterface</a> for <a href="qtwebkit-bridge.html#qobjects">QObjects</a>.</p>
+<p>This class is mainly provided for convenience. All subclasses of the <a href="qaccessibleinterface.html">QAccessibleInterface</a> that provide implementations of non-widget objects should use this class as their base class.</p>
+</div>
+<p><b>See also </b><a href="qaccessible.html">QAccessible</a> and <a href="qaccessiblewidget.html">QAccessibleWidget</a>.</p>
+<!-- @@@QAccessibleObject -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAccessibleObject[overload1]$$$QAccessibleObjectQObject* -->
+<h3 class="fn"><a name="QAccessibleObject"></a>QAccessibleObject::<span class="name">QAccessibleObject</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>object</i> )</h3>
+<p>Creates a <a href="qaccessibleobject.html">QAccessibleObject</a> for <i>object</i>.</p>
+<!-- @@@QAccessibleObject -->
+<!-- $$$~QAccessibleObject[overload1]$$$~QAccessibleObject -->
+<h3 class="fn"><a name="dtor.QAccessibleObject"></a>QAccessibleObject::<span class="name">~QAccessibleObject</span> ()<tt> [virtual protected]</tt></h3>
+<p>Destroys the <a href="qaccessibleobject.html">QAccessibleObject</a>.</p>
+<p>This only happens when a call to release() decrements the internal reference counter to zero.</p>
+<!-- @@@~QAccessibleObject -->
+<!-- $$$actionText[overload1]$$$actionTextintTextint -->
+<h3 class="fn"><a name="actionText"></a><span class="type"><a href="qstring.html">QString</a></span> QAccessibleObject::<span class="name">actionText</span> ( <span class="type">int</span> <i>action</i>, <span class="type"><a href="qaccessible.html#Text-enum">Text</a></span> <i>t</i>, <span class="type">int</span> <i>child</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#actionText">QAccessibleInterface::actionText</a>().</p>
+<!-- @@@actionText -->
+<!-- $$$doAction[overload1]$$$doActionintintconstQVariantList& -->
+<h3 class="fn"><a name="doAction"></a><span class="type">bool</span> QAccessibleObject::<span class="name">doAction</span> ( <span class="type">int</span> <i>action</i>, <span class="type">int</span> <i>child</i>, const <span class="type"><a href="qvariant.html#QVariantList-typedef">QVariantList</a></span> &amp; <i>params</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#doAction">QAccessibleInterface::doAction</a>().</p>
+<!-- @@@doAction -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a><span class="type">bool</span> QAccessibleObject::<span class="name">isValid</span> () const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#isValid">QAccessibleInterface::isValid</a>().</p>
+<!-- @@@isValid -->
+<!-- $$$object[overload1]$$$object -->
+<h3 class="fn"><a name="object"></a><span class="type"><a href="qobject.html">QObject</a></span> * QAccessibleObject::<span class="name">object</span> () const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#object">QAccessibleInterface::object</a>().</p>
+<!-- @@@object -->
+<!-- $$$rect[overload1]$$$rectint -->
+<h3 class="fn"><a name="rect"></a><span class="type"><a href="qrect.html">QRect</a></span> QAccessibleObject::<span class="name">rect</span> ( <span class="type">int</span> <i>child</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#rect">QAccessibleInterface::rect</a>().</p>
+<!-- @@@rect -->
+<!-- $$$setText[overload1]$$$setTextTextintconstQString& -->
+<h3 class="fn"><a name="setText"></a><span class="type">void</span> QAccessibleObject::<span class="name">setText</span> ( <span class="type"><a href="qaccessible.html#Text-enum">Text</a></span> <i>t</i>, <span class="type">int</span> <i>child</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i> )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#setText">QAccessibleInterface::setText</a>().</p>
+<!-- @@@setText -->
+<!-- $$$userActionCount[overload1]$$$userActionCountint -->
+<h3 class="fn"><a name="userActionCount"></a><span class="type">int</span> QAccessibleObject::<span class="name">userActionCount</span> ( <span class="type">int</span> <i>child</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qaccessibleinterface.html#userActionCount">QAccessibleInterface::userActionCount</a>().</p>
+<!-- @@@userActionCount -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

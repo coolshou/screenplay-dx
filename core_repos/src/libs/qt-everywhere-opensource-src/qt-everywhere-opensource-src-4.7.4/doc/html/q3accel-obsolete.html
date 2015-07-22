@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3accel.cpp -->
+  <title>Qt 4.7: Obsolete Members for Q3Accel</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3Accel</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Obsolete Members for Q3Accel</h1>
+<p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<p><ul><li><a href="q3accel.html">Q3Accel class reference</a></li></ul></p>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="q3accel-obsolete.html#keyToString">keyToString</a></b> ( QKeySequence <i>k</i> )<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QKeySequence </td><td class="memItemRight bottomAlign"><b><a href="q3accel-obsolete.html#stringToKey">stringToKey</a></b> ( const QString &amp; <i>s</i> )<tt> (obsolete)</tt></td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$keyToString[overload1]$$$keyToStringQKeySequence -->
+<h3 class="fn"><a name="keyToString"></a><span class="type"><a href="qstring.html">QString</a></span> Q3Accel::<span class="name">keyToString</span> ( <span class="type"><a href="qkeysequence.html">QKeySequence</a></span> <i>k</i> )<tt> [static]</tt></h3>
+<p>Creates an accelerator string for the key <i>k</i>. For instance CTRL+Key_O gives &quot;Ctrl+O&quot;. The &quot;Ctrl&quot; etc. are translated (using <a href="qobject.html#tr">QObject::tr</a>()) in the &quot;<a href="q3accel.html" class="compat">Q3Accel</a>&quot; context.</p>
+<p>The function is superfluous. Cast the <a href="qkeysequence.html">QKeySequence</a> <i>k</i> to a <a href="qstring.html">QString</a> for the same effect.</p>
+<!-- @@@keyToString -->
+<!-- $$$stringToKey[overload1]$$$stringToKeyconstQString& -->
+<h3 class="fn"><a name="stringToKey"></a><span class="type"><a href="qkeysequence.html">QKeySequence</a></span> Q3Accel::<span class="name">stringToKey</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>s</i> )<tt> [static]</tt></h3>
+<p>Returns an accelerator code for the string <i>s</i>. For example &quot;Ctrl+O&quot; gives CTRL+UNICODE_ACCEL+'O'. The strings &quot;Ctrl&quot;, &quot;Shift&quot;, &quot;Alt&quot; are recognized, as well as their translated equivalents in the &quot;<a href="q3accel.html" class="compat">Q3Accel</a>&quot; context (using <a href="qobject.html#tr">QObject::tr</a>()). Returns 0 if <i>s</i> is not recognized.</p>
+<p>This function is typically used with <a href="qobject.html#tr">tr</a>(), so that accelerator keys can be replaced in translations:</p>
+<pre class="cpp"> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span> <span class="operator">*</span>file <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="q3popupmenu.html">Q3PopupMenu</a></span>(<span class="keyword">this</span>);
+ file<span class="operator">-</span><span class="operator">&gt;</span><a href="q3accel.html#insertItem">insertItem</a>(p1<span class="operator">,</span> tr(<span class="string">&quot;&amp;Open...&quot;</span>)<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(open())<span class="operator">,</span>
+                   <span class="type"><a href="q3accel.html">Q3Accel</a></span><span class="operator">::</span>stringToKey(tr(<span class="string">&quot;Ctrl+O&quot;</span><span class="operator">,</span> <span class="string">&quot;File|Open&quot;</span>)));</pre>
+<p>Notice the &quot;File|Open&quot; translator comment. It is by no means necessary, but it provides some context for the human translator.</p>
+<p>The function is superfluous. Construct a <a href="qkeysequence.html">QKeySequence</a> from the string <i>s</i> for the same effect.</p>
+<p><b>See also </b><a href="qobject.html#tr">QObject::tr</a>() and <a href="internationalization.html">Internationalization with Qt</a>.</p>
+<!-- @@@stringToKey -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

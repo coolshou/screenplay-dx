@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- emb-vnc.qdoc -->
+  <title>Qt 4.7: The VNC Protocol and Qt for Embedded Linux</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>The VNC Protocol and Qt for Embedded Linux</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#configuring-qt-with-vnc-capabilities">Configuring Qt with VNC Capabilities</a></li>
+<li class="level1"><a href="#running-a-server-application">Running a Server Application</a></li>
+<li class="level1"><a href="#running-client-applications">Running Client Applications</a></li>
+<li class="level1"><a href="#related-resources">Related Resources</a></li>
+</ul>
+</div>
+<h1 class="title">The VNC Protocol and Qt for Embedded Linux</h1>
+<span class="subtitle"></span>
+<!-- $$$qt-embedded-vnc.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>VNC (Virtual Network Computing) software makes it possible to view and interact with one computer (the &quot;server&quot;) from any other computer or mobile device (the &quot;viewer&quot;) anywhere on a network.</p>
+<p class="centerAlign"><img src="images/qt-embedded-vnc-screen.png" /></p><p>VNC clients are available for a vast array of display systems, including X11, Mac OS X and Windows.</p>
+<a name="configuring-qt-with-vnc-capabilities"></a>
+<h2>Configuring Qt with VNC Capabilities</h2>
+<p>To run a <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> application using the VNC protocol, the <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> library must be configured and compiled with the <tt>-qt-gfx-vnc</tt> option:</p>
+<pre class="cpp"> cd path/to/QtEmbedded
+ ./configure -qt-gfx-vnc
+ make</pre>
+<a name="running-a-server-application"></a>
+<h2>Running a Server Application</h2>
+<p>Start a server application by specifying the <tt>-qws</tt> command line option when running the application. (This can also be specified in the application's source code.) Use the <tt>-display</tt> command line option to specify the VNC server's driver and the virtual screen to use. For example:</p>
+<pre class="cpp"> cd path/to/QtEmbedded/examples/widgets/analogclock
+ ./analogclock -qws -display VNC:0</pre>
+<p>The application will act as a VNC server which can be accessed using an ordinary VNC client, either on the development machine or from a different machine on a network.</p>
+<p>For example, using the X11 VNC client to view the application from the same machine:</p>
+<pre class="cpp"> vncviewer localhost:0</pre>
+<p>To interact with the application from another machine on the network, run a VNC client pointing to the machine that is running the server application.</p>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> will create a 640 by 480 pixel display by default. Alternatively, the <tt>QWS_SIZE</tt> environment variable can be used to set another size; e.g&#x2e;, <tt>QWS_SIZE=240x320</tt>.</p>
+<a name="running-client-applications"></a>
+<h2>Running Client Applications</h2>
+<p>If you want to run more than one application on the same display, you only need to start the first one as a server application, using the <tt>-qws</tt> command line option to indicate that it will manage other windows.</p>
+<pre class="cpp"> analogclock -qws -display VNC:0</pre>
+<p>Subsequent client applications can be started <i>without</i> the <tt>-qws</tt> option, but will each require the same <tt>-display</tt> option and argument as those used for the server.</p>
+<pre class="cpp"> calculator -display VNC:0
+ scribble -display VNC:0
+ imageviewer -display VNC:0</pre>
+<p>However, for the clients, this option will not cause a new VNC server to be started, but only indicates that their windows will appear on the virtual screen managed by the server application.</p>
+<a name="related-resources"></a>
+<h2>Related Resources</h2>
+<p>It is not always necessary to specify the <tt>-qws</tt> command line option when running a server application as long as the <a href="qapplication.html">QApplication</a> object used by the application has been constructed with the <a href="qapplication.html#Type-enum">QApplication::GuiServer</a> flag.</p>
+<p>See the <a href="qt-embedded-running.html">running applications</a> documentation for more details about server and client applications.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><b>The Virtual Framebuffer</b><p>The <a href="qvfb.html">virtual framebuffer</a> is an alternative technique recommended for development and debugging purposes.</p>
+<p>The virtual framebuffer emulates a framebuffer using a shared memory region and the <tt>qvfb</tt> tool to display the framebuffer in a window.</p>
+<p>Its use of shared memory makes the virtual framebuffer much faster and smoother than using the VNC protocol, but it does not operate over a network.</p>
+</td><td ><img src="images/qt-embedded-virtualframebuffer.png" /></td></tr>
+</table>
+</div>
+<!-- @@@qt-embedded-vnc.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

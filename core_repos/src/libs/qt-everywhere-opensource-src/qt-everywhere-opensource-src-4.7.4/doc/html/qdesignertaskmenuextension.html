@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- taskmenu.qdoc -->
+  <title>Qt 4.7: QDesignerTaskMenuExtension Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdesigner.html">QtDesigner</a></li>
+<li>QDesignerTaskMenuExtension</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDesignerTaskMenuExtension Class Reference</h1>
+<!-- $$$QDesignerTaskMenuExtension-brief -->
+<p>The QDesignerTaskMenuExtension class allows you to add custom menu entries to Qt Designer's task menu. <a href="#details">More...</a></p>
+<!-- @@@QDesignerTaskMenuExtension -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDesignerTaskMenuExtension&gt;</span></pre><ul>
+<li><a href="qdesignertaskmenuextension-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qdesignertaskmenuextension.html#dtor.QDesignerTaskMenuExtension">~QDesignerTaskMenuExtension</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QAction * </td><td class="memItemRight bottomAlign"><b><a href="qdesignertaskmenuextension.html#preferredEditAction">preferredEditAction</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QList&lt;QAction *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qdesignertaskmenuextension.html#taskActions">taskActions</a></b> () const = 0</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QDesignerTaskMenuExtension-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDesignerTaskMenuExtension class allows you to add custom menu entries to Qt Designer's task menu.</p>
+<p>QDesignerTaskMenuExtension provides an interface for creating custom task menu extensions. It is typically used to create task menu entries that are specific to a plugin in <i>Qt Designer</i>.</p>
+<p><i>Qt Designer</i> uses the QDesignerTaskMenuExtension to feed its task menu. Whenever a task menu is requested, <i>Qt Designer</i> will query for the selected widget's task menu extension.</p>
+<p class="centerAlign"><img src="images/taskmenuextension-example-faded.png" /></p><p>A task menu extension is a collection of QActions. The actions appear as entries in the task menu when the plugin with the specified extension is selected. The image above shows the custom <b>Edit State..&#x2e;</b> action which appears in addition to <i>Qt Designer</i>'s default task menu entries: <b>Cut</b>, <b>Copy</b>, <b>Paste</b> etc.</p>
+<p>To create a custom task menu extension, your extension class must inherit from both <a href="qobject.html">QObject</a> and QDesignerTaskMenuExtension. For example:</p>
+<pre class="cpp"> <span class="keyword">class</span> MyTaskMenuExtension : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span>
+         <span class="keyword">public</span> <span class="type">QDesignerTaskMenuExtension</span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type">QDesignerTaskMenuExtension</span>)
+
+ <span class="keyword">public</span>:
+     MyTaskMenuExtension(MyCustomWidget <span class="operator">*</span>widget<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent);
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>preferredEditAction() <span class="keyword">const</span>;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span><span class="operator">&gt;</span> taskActions() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> mySlot();
+
+ <span class="keyword">private</span>:
+     MyCustomWidget <span class="operator">*</span>widget;
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>myAction;
+ };</pre>
+<p>Since we are implementing an interface, we must ensure that it is made known to the meta-object system using the <a href="qobject.html#Q_INTERFACES">Q_INTERFACES</a>() macro. This enables <i>Qt Designer</i> to use the <a href="qobject.html#qobject_cast">qobject_cast</a>() function to query for supported interfaces using nothing but a <a href="qobject.html">QObject</a> pointer.</p>
+<p>You must reimplement the <a href="qdesignertaskmenuextension.html#taskActions">taskActions</a>() function to return a list of actions that will be included in <i>Qt Designer</i> task menu. Optionally, you can reimplement the <a href="qdesignertaskmenuextension.html#preferredEditAction">preferredEditAction</a>() function to set the action that is invoked when selecting your plugin and pressing <b>F2</b>. The preferred edit action must be one of the actions returned by <a href="qdesignertaskmenuextension.html#taskActions">taskActions</a>() and, if it's not defined, pressing the <b>F2</b> key will simply be ignored.</p>
+<p>In <i>Qt Designer</i>, extensions are not created until they are required. A task menu extension, for example, is created when you click the right mouse button over a widget in <i>Qt Designer</i>'s workspace. For that reason you must also construct an extension factory, using either <a href="qextensionfactory.html">QExtensionFactory</a> or a subclass, and register it using <i>Qt Designer</i>'s <a href="qextensionmanager.html">extension manager</a>.</p>
+<p>When a task menu extension is required, <i>Qt Designer</i>'s <a href="qextensionmanager.html">extension manager</a> will run through all its registered factories calling <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() for each until it finds one that is able to create a task menu extension for the selected widget. This factory will then make an instance of the extension.</p>
+<p>There are four available types of extensions in <i>Qt Designer</i>: <a href="qdesignercontainerextension.html">QDesignerContainerExtension</a>, <a href="qdesignermembersheetextension.html">QDesignerMemberSheetExtension</a>, <a href="qdesignerpropertysheetextension.html">QDesignerPropertySheetExtension</a>, and QDesignerTaskMenuExtension. <i>Qt Designer</i>'s behavior is the same whether the requested extension is associated with a container, a member sheet, a property sheet or a task menu.</p>
+<p>The <a href="qextensionfactory.html">QExtensionFactory</a> class provides a standard extension factory, and can also be used as an interface for custom extension factories. You can either create a new <a href="qextensionfactory.html">QExtensionFactory</a> and reimplement the <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() function. For example:</p>
+<pre class="cpp"> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>ANewExtensionFactory<span class="operator">::</span>createExtension(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object<span class="operator">,</span>
+         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>iid<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent) <span class="keyword">const</span>
+ {
+     <span class="keyword">if</span> (iid <span class="operator">!</span><span class="operator">=</span> Q_TYPEID(<span class="type">QDesignerTaskMenuExtension</span>))
+         <span class="keyword">return</span> <span class="number">0</span>;
+
+     <span class="keyword">if</span> (MyCustomWidget <span class="operator">*</span>widget <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>MyCustomWidget<span class="operator">*</span><span class="operator">&gt;</span>(object))
+         <span class="keyword">return</span> <span class="keyword">new</span> MyTaskMenuExtension(widget<span class="operator">,</span> parent);
+
+     <span class="keyword">return</span> <span class="number">0</span>;
+ }</pre>
+<p>Or you can use an existing factory, expanding the <a href="qextensionfactory.html#createExtension">QExtensionFactory::createExtension</a>() function to make the factory able to create a task menu extension as well. For example:</p>
+<pre class="cpp"> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>AGeneralExtensionFactory<span class="operator">::</span>createExtension(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object<span class="operator">,</span>
+         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>iid<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent) <span class="keyword">const</span>
+ {
+     MyCustomWidget <span class="operator">*</span>widget <span class="operator">=</span> qobject_cast<span class="operator">&lt;</span>MyCustomWidget<span class="operator">*</span><span class="operator">&gt;</span>(object);
+
+     <span class="keyword">if</span> (widget <span class="operator">&amp;</span><span class="operator">&amp;</span> (iid <span class="operator">=</span><span class="operator">=</span> Q_TYPEID(<span class="type"><a href="qdesignercontainerextension.html">QDesignerContainerExtension</a></span>))) {
+         <span class="keyword">return</span> <span class="keyword">new</span> MyContainerExtension(widget<span class="operator">,</span> parent);
+
+     } <span class="keyword">else</span> <span class="keyword">if</span> (widget <span class="operator">&amp;</span><span class="operator">&amp;</span> (iid <span class="operator">=</span><span class="operator">=</span> Q_TYPEID(<span class="type">QDesignerTaskMenuExtension</span>))) {
+         <span class="keyword">return</span> <span class="keyword">new</span> MyTaskMenuExtension(widget<span class="operator">,</span> parent);
+
+     } <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="number">0</span>;
+     }
+ }</pre>
+<p>For a complete example using the QDesignerTaskMenuExtension class, see the <a href="designer-taskmenuextension.html">Task Menu Extension example</a>. The example shows how to create a custom widget plugin for <i>Qt Designer</i>, and how to to use the QDesignerTaskMenuExtension class to add custom items to <i>Qt Designer</i>'s task menu.</p>
+</div>
+<p><b>See also </b><a href="qextensionfactory.html">QExtensionFactory</a>, <a href="qextensionmanager.html">QExtensionManager</a>, and <a href="designer-creating-custom-widgets-extensions.html">Creating Custom Widget Extensions</a>.</p>
+<!-- @@@QDesignerTaskMenuExtension -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QDesignerTaskMenuExtension[overload1]$$$~QDesignerTaskMenuExtension -->
+<h3 class="fn"><a name="dtor.QDesignerTaskMenuExtension"></a>QDesignerTaskMenuExtension::<span class="name">~QDesignerTaskMenuExtension</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the task menu extension.</p>
+<!-- @@@~QDesignerTaskMenuExtension -->
+<!-- $$$preferredEditAction[overload1]$$$preferredEditAction -->
+<h3 class="fn"><a name="preferredEditAction"></a><span class="type"><a href="qaction.html">QAction</a></span> * QDesignerTaskMenuExtension::<span class="name">preferredEditAction</span> () const<tt> [virtual]</tt></h3>
+<p>Returns the action that is invoked when selecting a plugin with the specified extension and pressing <b>F2</b>.</p>
+<p>The action must be one of the actions returned by <a href="qdesignertaskmenuextension.html#taskActions">taskActions</a>().</p>
+<!-- @@@preferredEditAction -->
+<!-- $$$taskActions[overload1]$$$taskActions -->
+<h3 class="fn"><a name="taskActions"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qaction.html">QAction</a></span> *&gt; QDesignerTaskMenuExtension::<span class="name">taskActions</span> () const<tt> [pure virtual]</tt></h3>
+<p>Returns the task menu extension as a list of actions which will be included in <i>Qt Designer</i>'s task menu when a plugin with the specified extension is selected.</p>
+<p>The function must be reimplemented to add actions to the list.</p>
+<!-- @@@taskActions -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

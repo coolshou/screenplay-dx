@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- emb-displaymanagement.qdoc -->
+  <title>Qt 4.7: Qt for Embedded Linux Display Management</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Qt for Embedded Linux Display Management</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#available-drivers">Available Drivers</a></li>
+<li class="level1"><a href="#specifying-a-driver">Specifying a Driver</a></li>
+<li class="level1"><a href="#subdrivers-and-multiple-drivers">Subdrivers and Multiple Drivers</a></li>
+</ul>
+</div>
+<h1 class="title">Qt for Embedded Linux Display Management</h1>
+<span class="subtitle"></span>
+<!-- $$$qt-embedded-displaymanagement.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>When rendering, the default behavior for each Qt for Embedded Linux client is to render its widgets into memory, while the server is responsible for putting the contents of the memory onto the screen. The server uses the screen driver to copy the content of the memory to the display.</p>
+<p>The screen driver is loaded by the server application when it starts running, using Qt's <a href="plugins-howto.html">plugin system</a>.</p>
+<p>Contents:</p>
+<a name="available-drivers"></a>
+<h2>Available Drivers</h2>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> provides drivers for the Linux framebuffer, the virtual framebuffer, transformed screens, VNC servers and multi screens. Run the <tt>configure</tt> script to list the available drivers:</p>
+<pre class="cpp"> ./configure -help</pre>
+<p>In the default Qt configuration, only an unaccelerated Linux framebuffer driver (<tt>/dev/fb0</tt>) is enabled. The various drivers can be enabled and disabled using the <tt>configure</tt> script. For example:</p>
+<pre class="cpp"> ./configure -qt-gfx-transformed</pre>
+<p>Custom screen drivers can be implemented by subclassing the <a href="qscreen.html">QScreen</a> class and creating a screen driver plugin (derived from the <a href="qscreendriverplugin.html">QScreenDriverPlugin</a> class). The default implementation of the <a href="qscreendriverfactory.html">QScreenDriverFactory</a> class will automatically detect the plugin, loading the driver into the server application at run-time.</p>
+<a name="specifying-a-driver"></a>
+<h2>Specifying a Driver</h2>
+<p>To specify which driver to use, set the <a href="qt-embedded-envvars.html#qws-display">QWS_DISPLAY</a> environment variable. For example (if the current shell is bash, ksh, zsh or sh):</p>
+<pre class="cpp"> export QWS_DISPLAY=&quot;&lt;driver&gt;[:&lt;driver specific options&gt;]...
+          [:&lt;display num&gt;]&quot;</pre>
+<p>The valid values for the <tt>&lt;driver&gt;</tt> argument are <tt>LinuxFb</tt>, <tt>QVFb</tt>, <tt>VNC</tt>, <tt>Transformed</tt>, <tt>Multi</tt> and <a href="qscreendriverplugin.html#keys">keys</a> identifying custom drivers, and the <tt>&lt;display num&gt;</tt> argument is used to separate screens that are using the same screen driver and to enable multiple displays (see the <a href="qt-embedded-running.html">Running Qt for Embedded Linux Applications</a> documentation for more details). The driver specific options are described in the table below.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Driver Specific Option</th><th >Available For</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td ><tt>tty=&lt;device&gt;</tt></td><td >LinuxFb</td><td >Passes the device file to the console the application is running on.</td></tr>
+<tr valign="top" class="even"><td ><tt>nographicsmodeswitch</tt></td><td >LinuxFb</td><td >Ensures that the application is not in graphics mode.</td></tr>
+<tr valign="top" class="odd"><td ><tt>littleendian</tt></td><td >LinuxFb</td><td >Tells the driver it must handle a little-endian frame buffer in a big-endian system.</td></tr>
+<tr valign="top" class="even"><td ><tt>mmWidth=&lt;value&gt;</tt> <a name="mmwidth"></a></td><td >LinuxFb, QVFb</td><td >The screen's physical width (used to calculate DPI).</td></tr>
+<tr valign="top" class="odd"><td ><tt>mmHeight=&lt;value&gt;</tt> <a name="mmheight"></a></td><td >LinuxFb, QVFb</td><td >The screen's physical height (used to calculate DPI).</td></tr>
+<tr valign="top" class="even"><td ><tt>&lt;device&gt;</tt></td><td >LinuxFb</td><td ></td></tr>
+<tr valign="top" class="odd"><td ><tt>&lt;subdriver&gt;</tt></td><td >VNC, Transformed, Multi</td><td >Specifies a subdriver.</td></tr>
+<tr valign="top" class="even"><td ><tt>&lt;RotX&gt;</tt></td><td >Transformed</td><td >Specifies the rotation of the screen. The valid values of <tt>X</tt> are 90, 180 and 270.</td></tr>
+<tr valign="top" class="odd"><td ><tt>offset=&lt;x,y&gt;</tt></td><td >Multi</td><td >Specifies the coordinates of a subscreen's top-left corner (by default 0,0).</td></tr>
+</table>
+<p>The <a href="qt-embedded-envvars.html#qws-display">QWS_DISPLAY</a> environment variable can also be set using the <tt>-display</tt> option when running an application. For example:</p>
+<pre class="cpp"> myApplication -display &quot;&lt;driver&gt;[:&lt;driver specific options&gt;]...
+          [:&lt;display num&gt;]&quot;</pre>
+<a name="subdrivers-and-multiple-drivers"></a>
+<h2>Subdrivers and Multiple Drivers</h2>
+<p>The VNC, Transformed and Multi screen drivers depend on subdrivers. The general syntax for specifying a driver is as follows:</p>
+<pre class="cpp"> export QWS_DISPLAY=&quot;&lt;driver&gt;[:&lt;subdriver&gt;][:&lt;subdriver options&gt;]...
+         [ :&lt;display num&gt;]&quot;</pre>
+<p>In the case of subdrivers, it is important to add a space between each subdriver and before the display number to separate the various drivers and displays. Note that <tt>Multi</tt> screen drivers can have several subdrivers. For example:</p>
+<pre class="cpp"> export QWS_DISPLAY=&quot;Multi: QVFb:0 QVFb:offset=640,0:1 :2&quot;</pre>
+<p>Note also that the VNC screen driver defaults to a virtual screen driver if no subdriver is specified. In this case the VNC driver accepts a few additional (optional) arguments specifying the size and depth of the default virtual screen:</p>
+<ul>
+<li><tt>size=&lt;width x height&gt;</tt></li>
+<li><tt>depth=&lt;value&gt;</tt></li>
+<li><tt>mmHeight=&lt;physical height in millimeters&gt;</tt></li>
+<li><tt>mmWidth=&lt;physical width in millimeters&gt;</tt></li>
+</ul>
+<p>Example running the VNC screen driver with a virtual screen of size 720x480 with 32 bits per pixel:</p>
+<pre class="cpp"> export QWS_DISPLAY=&quot;VNC:size=720x480:depth=32&quot;</pre>
+<p>Example running the VNC screen driver on top of the Linux framebuffer driver:</p>
+<pre class="cpp"> export QWS_DISPLAY=&quot;VNC:LinuxFb&quot;</pre>
+<p>In this last example, Qt is using two screen drivers simultaneously, displaying output on both the device's screen and across a network on VNC client displays.</p>
+</div>
+<!-- @@@qt-embedded-displaymanagement.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

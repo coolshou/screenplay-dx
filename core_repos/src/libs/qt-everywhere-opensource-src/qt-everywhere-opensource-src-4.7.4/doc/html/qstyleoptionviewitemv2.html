@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qstyleoption.cpp -->
+  <title>Qt 4.7: QStyleOptionViewItemV2 Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QStyleOptionViewItemV2</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-variables">Public Variables</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QStyleOptionViewItemV2 Class Reference</h1>
+<!-- $$$QStyleOptionViewItemV2-brief -->
+<p>The QStyleOptionViewItemV2 class is used to describe the parameters necessary for drawing a frame in Qt 4.2 or above. <a href="#details">More...</a></p>
+<!-- @@@QStyleOptionViewItemV2 -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QStyleOptionViewItemV2&gt;</span></pre><p><b>Inherits: </b><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a>.</p>
+<p><b>Inherited by: </b><a href="qstyleoptionviewitemv3.html">QStyleOptionViewItemV3</a>.</p>
+<p>This class was introduced in Qt 4.2.</p>
+<ul>
+<li><a href="qstyleoptionviewitemv2-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#StyleOptionVersion-enum">StyleOptionVersion</a></b> { Version }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a></b> { None, WrapText, Alternate, HasCheckIndicator, HasDisplay, HasDecoration }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeatures</a></b></td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#QStyleOptionViewItemV2">QStyleOptionViewItemV2</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#QStyleOptionViewItemV2-2">QStyleOptionViewItemV2</a></b> ( const QStyleOptionViewItemV2 &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#QStyleOptionViewItemV2-3">QStyleOptionViewItemV2</a></b> ( const QStyleOptionViewItem &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStyleOptionViewItemV2 &amp; </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#operator-eq">operator=</a></b> ( const QStyleOptionViewItem &amp; <i>other</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">2 public functions inherited from <a href="qstyleoption.html#public-functions">QStyleOption</a></li>
+</ul>
+<a name="public-variables"></a>
+<h2>Public Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> ViewItemFeatures </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionviewitemv2.html#features-var">features</a></b></td></tr>
+</table>
+<ul>
+<li class="fn">7 public variables inherited from <a href="qstyleoptionviewitem.html#public-variables">QStyleOptionViewItem</a></li>
+<li class="fn">7 public variables inherited from <a href="qstyleoption.html#public-variables">QStyleOption</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QStyleOptionViewItemV2-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QStyleOptionViewItemV2 class is used to describe the parameters necessary for drawing a frame in Qt 4.2 or above.</p>
+<p>QStyleOptionViewItemV2 inherits <a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a>.</p>
+<p>An instance of the QStyleOptionViewItemV2 class has <a href="qstyleoption.html#type-var">type</a> <a href="qstyleoption.html#OptionType-enum">SO_ViewItem</a> and <a href="qstyleoption.html#version-var">version</a> 2. The type is used internally by <a href="qstyleoption.html">QStyleOption</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstyleoption.html">QStyleOption</a> subclass and your own styles. The version is used by <a href="qstyleoption.html">QStyleOption</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
+<p>See <a href="qstyleoptionframev2.html">QStyleOptionFrameV2</a>'s detailed description for a discussion of how to handle &quot;V2&quot; classes.</p>
+</div>
+<p><b>See also </b><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> and <a href="qstyleoption.html">QStyleOption</a>.</p>
+<!-- @@@QStyleOptionViewItemV2 -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$StyleOptionVersion$$$Version -->
+<h3 class="fn"><a name="StyleOptionVersion-enum"></a>enum QStyleOptionViewItemV2::<span class="name">StyleOptionVersion</span></h3>
+<p>This enum is used to hold information about the version of the style option, and is defined for each <a href="qstyleoption.html">QStyleOption</a> subclass.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::Version</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">2</td></tr>
+</table>
+<p>The version is used by <a href="qstyleoption.html">QStyleOption</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
+<p><b>See also </b><a href="qstyleoptionviewitem.html#StyleOptionType-enum">StyleOptionType</a>.</p>
+<!-- @@@StyleOptionVersion -->
+<!-- $$$ViewItemFeature$$$None$$$WrapText$$$Alternate$$$HasCheckIndicator$$$HasDisplay$$$HasDecoration -->
+<h3 class="flags"><a name="ViewItemFeature-enum"></a>enum QStyleOptionViewItemV2::<span class="name">ViewItemFeature</span><br/>flags QStyleOptionViewItemV2::<span class="name">ViewItemFeatures</span></h3>
+<p>This enum describes the different types of features an item can have.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::None</tt></td><td class="topAlign"><tt>0x00</tt></td><td class="topAlign">Indicates a normal item.</td></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::WrapText</tt></td><td class="topAlign"><tt>0x01</tt></td><td class="topAlign">Indicates an item with wrapped text.</td></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::Alternate</tt></td><td class="topAlign"><tt>0x02</tt></td><td class="topAlign">Indicates that the item's background is rendered using alternateBase.</td></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::HasCheckIndicator</tt></td><td class="topAlign"><tt>0x04</tt></td><td class="topAlign">Indicates that the item has a check state indicator.</td></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::HasDisplay</tt></td><td class="topAlign"><tt>0x08</tt></td><td class="topAlign">Indicates that the item has a display role.</td></tr>
+<tr><td class="topAlign"><tt>QStyleOptionViewItemV2::HasDecoration</tt></td><td class="topAlign"><tt>0x10</tt></td><td class="topAlign">Indicates that the item has a decoration role.</td></tr>
+</table>
+<p>The ViewItemFeatures type is a typedef for <a href="qflags.html">QFlags</a>&lt;ViewItemFeature&gt;. It stores an OR combination of ViewItemFeature values.</p>
+<!-- @@@ViewItemFeature -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QStyleOptionViewItemV2[overload1]$$$QStyleOptionViewItemV2 -->
+<h3 class="fn"><a name="QStyleOptionViewItemV2"></a>QStyleOptionViewItemV2::<span class="name">QStyleOptionViewItemV2</span> ()</h3>
+<p>Constructs a <a href="qstyleoptionviewitemv2.html">QStyleOptionViewItemV2</a> object.</p>
+<!-- @@@QStyleOptionViewItemV2 -->
+<!-- $$$QStyleOptionViewItemV2$$$QStyleOptionViewItemV2constQStyleOptionViewItemV2& -->
+<h3 class="fn"><a name="QStyleOptionViewItemV2-2"></a>QStyleOptionViewItemV2::<span class="name">QStyleOptionViewItemV2</span> ( const <span class="type">QStyleOptionViewItemV2</span> &amp; <i>other</i> )</h3>
+<p>Constructs a copy of <i>other</i>.</p>
+<!-- @@@QStyleOptionViewItemV2 -->
+<!-- $$$QStyleOptionViewItemV2$$$QStyleOptionViewItemV2constQStyleOptionViewItem& -->
+<h3 class="fn"><a name="QStyleOptionViewItemV2-3"></a>QStyleOptionViewItemV2::<span class="name">QStyleOptionViewItemV2</span> ( const <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> &amp; <i>other</i> )</h3>
+<p>Constructs a <a href="qstyleoptionviewitemv2.html">QStyleOptionViewItemV2</a> copy of the <i>other</i> style option which can be either of the <a href="qstyleoptionviewitemv2.html">QStyleOptionViewItemV2</a> or <a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> types.</p>
+<p>If the <i>other</i> style option's version is 1, the new style option's <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a> value is set to <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">QStyleOptionViewItemV2::None</a>. If its version is 2, its <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a> value is simply copied to the new style option.</p>
+<p><b>See also </b><a href="qstyleoption.html#version-var">version</a>.</p>
+<!-- @@@QStyleOptionViewItemV2 -->
+<!-- $$$operator=[overload1]$$$operator=constQStyleOptionViewItem& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QStyleOptionViewItemV2</span> &amp; QStyleOptionViewItemV2::<span class="name">operator=</span> ( const <span class="type"><a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a></span> &amp; <i>other</i> )</h3>
+<p>Assigns the <i>other</i> style option to this style option. The <i>other</i> style option can be either of the <a href="qstyleoptionviewitemv2.html">QStyleOptionViewItemV2</a> or <a href="qstyleoptionviewitem.html">QStyleOptionViewItem</a> types.</p>
+<p>If the <i>other</i> style option's version is 1, this style option's <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a> value is set to <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">QStyleOptionViewItemV2::None</a>. If its version is 2, its <a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a> value is simply copied to this style option.</p>
+<!-- @@@operator= -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$features -->
+<h3 class="fn"><a name="features-var"></a><span class="type"><a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeatures</a></span> QStyleOptionViewItemV2::<span class="name">features</span></h3>
+<p>This variable holds a bitwise OR of the features that describe this view item.</p>
+<p><b>See also </b><a href="qstyleoptionviewitemv2.html#ViewItemFeature-enum">ViewItemFeature</a>.</p>
+<!-- @@@features -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

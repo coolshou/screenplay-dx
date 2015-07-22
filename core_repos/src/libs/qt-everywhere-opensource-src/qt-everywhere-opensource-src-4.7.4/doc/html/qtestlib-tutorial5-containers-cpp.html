@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: containers.cpp Example File (qtestlib/tutorial5/containers.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">containers.cpp Example File</h1>
+<span class="small-subtitle">qtestlib/tutorial5/containers.cpp</span>
+<!-- $$$qtestlib/tutorial5/containers.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the test suite of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+ <span class="comment">// This file contains benchmarks for comparing QVector against std::vector</span>
+
+ <span class="preprocessor">#include &lt;QtCore&gt;</span>
+ <span class="preprocessor">#include &lt;QVector&gt;</span>
+ <span class="preprocessor">#include &lt;vector&gt;</span>
+
+ <span class="preprocessor">#include &lt;qtest.h&gt;</span>
+
+ <span class="keyword">template</span> <span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span> <span class="comment">// T is the item type</span>
+ <span class="keyword">class</span> UseCases {
+ <span class="keyword">public</span>:
+     <span class="keyword">virtual</span> <span class="operator">~</span>UseCases() {}
+
+     <span class="comment">// Use case: Insert \a size items into the vector.</span>
+     <span class="keyword">virtual</span> <span class="type">void</span> insert(<span class="type">int</span> size) <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="comment">// Use case: Lookup \a size items from the vector.</span>
+     <span class="keyword">virtual</span> <span class="type">void</span> lookup(<span class="type">int</span> size) <span class="operator">=</span> <span class="number">0</span>;
+ };
+
+ <span class="keyword">template</span> <span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ T <span class="operator">*</span> f(T <span class="operator">*</span>ts) <span class="comment">// dummy function to prevent code from being optimized away by the compiler</span>
+ {
+     <span class="keyword">return</span> ts;
+ }
+
+ <span class="comment">// This subclass implements the use cases using QVector as efficiently as possible.</span>
+ <span class="keyword">template</span> <span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ <span class="keyword">class</span> UseCases_QVector : <span class="keyword">public</span> UseCases<span class="operator">&lt;</span>T<span class="operator">&gt;</span>
+ {
+     <span class="type">void</span> insert(<span class="type">int</span> size)
+     {
+         <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span> v;
+         T t;
+         QBENCHMARK {
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+                 v<span class="operator">.</span>append(t);
+         }
+     }
+
+     <span class="type">void</span> lookup(<span class="type">int</span> size)
+     {
+         <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span>T<span class="operator">&gt;</span> v;
+
+         T t;
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+             v<span class="operator">.</span>append(t);
+
+         T <span class="operator">*</span>ts <span class="operator">=</span> <span class="keyword">new</span> T<span class="operator">[</span>size<span class="operator">]</span>;
+         QBENCHMARK {
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+                 ts<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> v<span class="operator">.</span>value(i);
+         }
+         f<span class="operator">&lt;</span>T<span class="operator">&gt;</span>(ts);
+         <span class="keyword">delete</span><span class="operator">[</span><span class="operator">]</span> ts;
+     }
+ };
+
+ <span class="comment">// This subclass implements the use cases using std::vector as efficiently as possible.</span>
+ <span class="keyword">template</span> <span class="operator">&lt;</span><span class="keyword">typename</span> T<span class="operator">&gt;</span>
+ <span class="keyword">class</span> UseCases_stdvector : <span class="keyword">public</span> UseCases<span class="operator">&lt;</span>T<span class="operator">&gt;</span>
+ {
+     <span class="type">void</span> insert(<span class="type">int</span> size)
+     {
+         std<span class="operator">::</span>vector<span class="operator">&lt;</span>T<span class="operator">&gt;</span> v;
+         T t;
+         QBENCHMARK {
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+                 v<span class="operator">.</span>push_back(t);
+         }
+     }
+
+     <span class="type">void</span> lookup(<span class="type">int</span> size)
+     {
+         std<span class="operator">::</span>vector<span class="operator">&lt;</span>T<span class="operator">&gt;</span> v;
+
+         T t;
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+             v<span class="operator">.</span>push_back(t);
+
+         T <span class="operator">*</span>ts <span class="operator">=</span> <span class="keyword">new</span> T<span class="operator">[</span>size<span class="operator">]</span>;
+         QBENCHMARK {
+             <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> size; <span class="operator">+</span><span class="operator">+</span>i)
+                 ts<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> v<span class="operator">[</span>i<span class="operator">]</span>;
+         }
+         f<span class="operator">&lt;</span>T<span class="operator">&gt;</span>(ts);
+         <span class="keyword">delete</span><span class="operator">[</span><span class="operator">]</span> ts;
+     }
+ };
+
+ <span class="keyword">struct</span> Large { <span class="comment">// A &quot;large&quot; item type</span>
+     <span class="type">int</span> x<span class="operator">[</span><span class="number">1000</span><span class="operator">]</span>;
+ };
+
+ <span class="comment">// Symbian devices typically have limited memory</span>
+ <span class="preprocessor">#ifdef Q_OS_SYMBIAN</span>
+ <span class="preprocessor">#  define LARGE_MAX_SIZE 2000</span>
+ <span class="preprocessor">#else</span>
+ <span class="preprocessor">#  define LARGE_MAX_SIZE 20000</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">class</span> tst_vector_vs_std : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     tst_vector_vs_std()
+     {
+         useCases_QVector_int <span class="operator">=</span> <span class="keyword">new</span> UseCases_QVector<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>;
+         useCases_stdvector_int <span class="operator">=</span> <span class="keyword">new</span> UseCases_stdvector<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>;
+
+         useCases_QVector_Large <span class="operator">=</span> <span class="keyword">new</span> UseCases_QVector<span class="operator">&lt;</span>Large<span class="operator">&gt;</span>;
+         useCases_stdvector_Large <span class="operator">=</span> <span class="keyword">new</span> UseCases_stdvector<span class="operator">&lt;</span>Large<span class="operator">&gt;</span>;
+     }
+
+ <span class="keyword">private</span>:
+     UseCases<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">*</span>useCases_QVector_int;
+     UseCases<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span> <span class="operator">*</span>useCases_stdvector_int;
+     UseCases<span class="operator">&lt;</span>Large<span class="operator">&gt;</span> <span class="operator">*</span>useCases_QVector_Large;
+     UseCases<span class="operator">&lt;</span>Large<span class="operator">&gt;</span> <span class="operator">*</span>useCases_stdvector_Large;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> insert_int_data();
+     <span class="type">void</span> insert_int();
+     <span class="type">void</span> insert_Large_data();
+     <span class="type">void</span> insert_Large();
+     <span class="type">void</span> lookup_int_data();
+     <span class="type">void</span> lookup_int();
+     <span class="type">void</span> lookup_Large_data();
+     <span class="type">void</span> lookup_Large();
+ };
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>insert_int_data()
+ {
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">bool</span><span class="operator">&gt;</span>(<span class="string">&quot;useStd&quot;</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>(<span class="string">&quot;size&quot;</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> size <span class="operator">=</span> <span class="number">10</span>; size <span class="operator">&lt;</span> <span class="number">20000</span>; size <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+         <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> sizeString <span class="operator">=</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>number(size);
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;std::vector-int--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">true</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;QVector-int--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">false</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+     }
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>insert_int()
+ {
+     QFETCH(<span class="type">bool</span><span class="operator">,</span> useStd);
+     QFETCH(<span class="type">int</span><span class="operator">,</span> size);
+
+     <span class="keyword">if</span> (useStd)
+         useCases_stdvector_int<span class="operator">-</span><span class="operator">&gt;</span>insert(size);
+     <span class="keyword">else</span>
+         useCases_QVector_int<span class="operator">-</span><span class="operator">&gt;</span>insert(size);
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>insert_Large_data()
+ {
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">bool</span><span class="operator">&gt;</span>(<span class="string">&quot;useStd&quot;</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>(<span class="string">&quot;size&quot;</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> size <span class="operator">=</span> <span class="number">10</span>; size <span class="operator">&lt;</span> LARGE_MAX_SIZE; size <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+         <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> sizeString <span class="operator">=</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>number(size);
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;std::vector-Large--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">true</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;QVector-Large--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">false</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+     }
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>insert_Large()
+ {
+     QFETCH(<span class="type">bool</span><span class="operator">,</span> useStd);
+     QFETCH(<span class="type">int</span><span class="operator">,</span> size);
+
+     <span class="keyword">if</span> (useStd)
+         useCases_stdvector_Large<span class="operator">-</span><span class="operator">&gt;</span>insert(size);
+     <span class="keyword">else</span>
+         useCases_QVector_Large<span class="operator">-</span><span class="operator">&gt;</span>insert(size);
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>lookup_int_data()
+ {
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">bool</span><span class="operator">&gt;</span>(<span class="string">&quot;useStd&quot;</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>(<span class="string">&quot;size&quot;</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> size <span class="operator">=</span> <span class="number">10</span>; size <span class="operator">&lt;</span> <span class="number">20000</span>; size <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+         <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> sizeString <span class="operator">=</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>number(size);
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;std::vector-int--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">true</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;QVector-int--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">false</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+     }
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>lookup_int()
+ {
+     QFETCH(<span class="type">bool</span><span class="operator">,</span> useStd);
+     QFETCH(<span class="type">int</span><span class="operator">,</span> size);
+
+     <span class="keyword">if</span> (useStd)
+         useCases_stdvector_int<span class="operator">-</span><span class="operator">&gt;</span>lookup(size); <span class="comment">// Create a std::vector and run the benchmark.</span>
+     <span class="keyword">else</span>
+         useCases_QVector_int<span class="operator">-</span><span class="operator">&gt;</span>lookup(size); <span class="comment">// Create a QVector and run the benchmark.</span>
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>lookup_Large_data()
+ {
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">bool</span><span class="operator">&gt;</span>(<span class="string">&quot;useStd&quot;</span>);
+     <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>addColumn<span class="operator">&lt;</span><span class="type">int</span><span class="operator">&gt;</span>(<span class="string">&quot;size&quot;</span>);
+
+     <span class="keyword">for</span> (<span class="type">int</span> size <span class="operator">=</span> <span class="number">10</span>; size <span class="operator">&lt;</span> LARGE_MAX_SIZE; size <span class="operator">+</span><span class="operator">=</span> <span class="number">100</span>) {
+         <span class="keyword">const</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span> sizeString <span class="operator">=</span> <span class="type"><a href="qbytearray.html">QByteArray</a></span><span class="operator">::</span>number(size);
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;std::vector-Large--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">true</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+         <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>newRow((<span class="string">&quot;QVector-Large--&quot;</span> <span class="operator">+</span> sizeString)<span class="operator">.</span>constData()) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="keyword">false</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> size;
+     }
+ }
+
+ <span class="type">void</span> tst_vector_vs_std<span class="operator">::</span>lookup_Large()
+ {
+     QFETCH(<span class="type">bool</span><span class="operator">,</span> useStd);
+     QFETCH(<span class="type">int</span><span class="operator">,</span> size);
+
+     <span class="keyword">if</span> (useStd)
+         useCases_stdvector_Large<span class="operator">-</span><span class="operator">&gt;</span>lookup(size);
+     <span class="keyword">else</span>
+         useCases_QVector_Large<span class="operator">-</span><span class="operator">&gt;</span>lookup(size);
+ }
+
+ <a href="qtest.html#QTEST_MAIN">QTEST_MAIN</a>(tst_vector_vs_std)
+ <span class="preprocessor">#include &quot;main.moc&quot;</span></pre>
+</div>
+<!-- @@@qtestlib/tutorial5/containers.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

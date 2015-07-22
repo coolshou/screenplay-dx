@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- calculatorbuilder.qdoc -->
+  <title>Qt 4.7: Calculator Builder Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Calculator Builder Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#preparation">Preparation</a></li>
+<li class="level1"><a href="#calculatorform-class-definition">CalculatorForm Class Definition</a></li>
+<li class="level1"><a href="#calculatorform-class-implementation">CalculatorForm Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Calculator Builder Example</h1>
+<span class="subtitle"></span>
+<!-- $$$designer/calculatorbuilder-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="designer-calculatorbuilder-calculatorform-cpp.html">designer/calculatorbuilder/calculatorform.cpp</a></li>
+<li><a href="designer-calculatorbuilder-calculatorform-h.html">designer/calculatorbuilder/calculatorform.h</a></li>
+<li><a href="designer-calculatorbuilder-calculatorform-ui.html">designer/calculatorbuilder/calculatorform.ui</a></li>
+<li><a href="designer-calculatorbuilder-main-cpp.html">designer/calculatorbuilder/main.cpp</a></li>
+<li><a href="designer-calculatorbuilder-calculatorbuilder-pro.html">designer/calculatorbuilder/calculatorbuilder.pro</a></li>
+<li><a href="designer-calculatorbuilder-calculatorbuilder-qrc.html">designer/calculatorbuilder/calculatorbuilder.qrc</a></li>
+</ul>
+<p>The Calculator Builder example shows how to create a user interface from a <i>Qt Designer</i> form at run-time, using the <a href="quiloader.html">QUiLoader</a> class.</p>
+<p class="centerAlign"><img src="images/calculatorbuilder-example.png" /></p><p>We use the form created in the <a href="designer-calculatorform.html">Calculator Form</a> example to show that the same user interface can be generated when the application is executed or defined when the application is built.</p>
+<a name="preparation"></a>
+<h2>Preparation</h2>
+<p>The <a href="designer-calculatorform.html">Calculator Form</a> example defines a user interface that we can use without modification. In this example, we use a <a href="resources.html">resource file</a> to contain the <tt>calculatorform.ui</tt> file created in the previous example, but it could be stored on disk instead.</p>
+<p>To generate a form at run time, we need to link the example against the <tt>QtUiTools</tt> module library. The project file we use contains all the necessary information to do this:</p>
+<pre class="cpp"> CONFIG      += uitools
+
+ HEADERS     = calculatorform.h
+ RESOURCES   = calculatorbuilder.qrc
+ SOURCES     = calculatorform.cpp \
+               main.cpp</pre>
+<p>All the other necessary files are declared as usual.</p>
+<a name="calculatorform-class-definition"></a>
+<h2>CalculatorForm Class Definition</h2>
+<p>The <tt>CalculatorForm</tt> class defines the widget used to host the form's user interface:</p>
+<pre class="cpp"> <span class="keyword">class</span> CalculatorForm : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     CalculatorForm(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> on_inputSpinBox1_valueChanged(<span class="type">int</span> value);
+     <span class="type">void</span> on_inputSpinBox2_valueChanged(<span class="type">int</span> value);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>ui_inputSpinBox1;
+     <span class="type"><a href="qspinbox.html">QSpinBox</a></span> <span class="operator">*</span>ui_inputSpinBox2;
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>ui_outputWidget;
+ };</pre>
+<p>Note that we do not need to include a header file to describe the user interface. We only define two public slots, using the auto-connection naming convention required by <tt>uic</tt>, and declare private variables that we will use to access widgets provided by the form after they are constructed.</p>
+<a name="calculatorform-class-implementation"></a>
+<h2>CalculatorForm Class Implementation</h2>
+<p>We will need to use the <a href="quiloader.html">QUiLoader</a> class that is provided by the <tt>libQtUiTools</tt> library, so we first ensure that we include the header file for the module:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtUiTools&gt;</span></pre>
+<p>The constructor uses a form loader object to construct the user interface that we retrieve, via a <a href="qfile.html">QFile</a> object, from the example's resources:</p>
+<pre class="cpp"> CalculatorForm<span class="operator">::</span>CalculatorForm(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     <span class="type"><a href="quiloader.html">QUiLoader</a></span> loader;
+
+     <span class="type"><a href="qfile.html">QFile</a></span> file(<span class="string">&quot;:/forms/calculatorform.ui&quot;</span>);
+     file<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>ReadOnly);
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>formWidget <span class="operator">=</span> loader<span class="operator">.</span>load(<span class="operator">&amp;</span>file<span class="operator">,</span> <span class="keyword">this</span>);
+     file<span class="operator">.</span>close();</pre>
+<p>By including the user interface in the example's resources, we ensure that it will be present when the example is run. The <tt>loader.load()</tt> function takes the user interface description contained in the file and constructs the form widget as a child widget of the <tt>CalculatorForm</tt>.</p>
+<p>We are interested in three widgets in the generated user interface: two spin boxes and a label. For convenience, we retrieve pointers to these widgets from the widget that was constructed by the <tt>FormBuilder</tt>, and we record them for later use. The <tt>qFindChild()</tt> template function allows us to query widgets in order to find named child widgets.</p>
+<pre class="cpp">     ui_inputSpinBox1 <span class="operator">=</span> <a href="qobject.html#qFindChild">qFindChild</a><span class="operator">&lt;</span><span class="type"><a href="qspinbox.html">QSpinBox</a></span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;inputSpinBox1&quot;</span>);
+     ui_inputSpinBox2 <span class="operator">=</span> <a href="qobject.html#qFindChild">qFindChild</a><span class="operator">&lt;</span><span class="type"><a href="qspinbox.html">QSpinBox</a></span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;inputSpinBox2&quot;</span>);
+     ui_outputWidget <span class="operator">=</span> <a href="qobject.html#qFindChild">qFindChild</a><span class="operator">&lt;</span><span class="type"><a href="qlabel.html">QLabel</a></span><span class="operator">*</span><span class="operator">&gt;</span>(<span class="keyword">this</span><span class="operator">,</span> <span class="string">&quot;outputWidget&quot;</span>);</pre>
+<p>The widgets created by the form loader need to be connected to the specially-named slots in the <tt>CalculatorForm</tt> object. We use Qt's meta-object system to enable these connections:</p>
+<pre class="cpp">     <span class="type"><a href="qmetaobject.html">QMetaObject</a></span><span class="operator">::</span>connectSlotsByName(<span class="keyword">this</span>);</pre>
+<p>The form widget is added to a layout, and the window title is set:</p>
+<pre class="cpp">     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(formWidget);
+     setLayout(layout);
+
+     setWindowTitle(tr(<span class="string">&quot;Calculator Builder&quot;</span>));
+ }</pre>
+<p>The two slots that modify widgets provided by the form are defined in a similar way to those in the <a href="designer-calculatorform.html">Calculator Form</a> example, except that we read the values from the spin boxes and write the result to the output widget via the pointers we recorded in the constructor:</p>
+<pre class="cpp"> <span class="type">void</span> CalculatorForm<span class="operator">::</span>on_inputSpinBox1_valueChanged(<span class="type">int</span> value)
+ {
+     ui_outputWidget<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(value <span class="operator">+</span> ui_inputSpinBox2<span class="operator">-</span><span class="operator">&gt;</span>value()));
+ }
+
+ <span class="type">void</span> CalculatorForm<span class="operator">::</span>on_inputSpinBox2_valueChanged(<span class="type">int</span> value)
+ {
+     ui_outputWidget<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>number(value <span class="operator">+</span> ui_inputSpinBox1<span class="operator">-</span><span class="operator">&gt;</span>value()));
+ }</pre>
+<p>The advantage of this approach is that we can replace the form when the application is run, but we can still manipulate the widgets it contains as long as they are given appropriate names.</p>
+</div>
+<!-- @@@designer/calculatorbuilder -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

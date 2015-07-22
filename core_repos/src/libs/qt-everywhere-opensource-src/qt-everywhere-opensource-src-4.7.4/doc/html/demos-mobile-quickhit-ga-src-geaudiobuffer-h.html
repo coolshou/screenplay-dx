@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: GEAudioBuffer.h Example File (demos/mobile/quickhit/ga_src/GEAudioBuffer.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">GEAudioBuffer.h Example File</h1>
+<span class="small-subtitle">demos/mobile/quickhit/ga_src/GEAudioBuffer.h</span>
+<!-- $$$demos/mobile/quickhit/ga_src/GEAudioBuffer.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef __GE_IGA_AUDIOBUFFER__</span>
+ <span class="preprocessor">#define __GE_IGA_AUDIOBUFFER__</span>
+
+ <span class="preprocessor">#include &lt;QFile&gt;</span>
+ <span class="preprocessor">#include &quot;GEInterfaces.h&quot;</span>
+
+ <span class="keyword">namespace</span> GE {
+
+     <span class="keyword">class</span> CAudioBufferPlayInstance;
+     <span class="keyword">class</span> CAudioBuffer;         <span class="comment">// forward declaration</span>
+     <span class="keyword">typedef</span> AUDIO_SAMPLE_TYPE(<span class="operator">*</span>SAMPLE_FUNCTION_TYPE)(CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel);
+
+     <span class="keyword">class</span> CAudioBuffer {            <span class="comment">// container for a sound</span>
+     <span class="keyword">public</span>:
+         CAudioBuffer();
+         <span class="keyword">virtual</span> <span class="operator">~</span>CAudioBuffer();
+
+         <span class="keyword">static</span> CAudioBuffer<span class="operator">*</span> loadWav( <span class="type"><a href="qstring.html">QString</a></span> fileName );
+         <span class="keyword">static</span> CAudioBuffer<span class="operator">*</span> loadWav( FILE <span class="operator">*</span>wavFile );          <span class="comment">// support for stdio</span>
+         <span class="type">void</span> reallocate( <span class="type">int</span> length );
+
+         <span class="keyword">inline</span> <span class="type">void</span><span class="operator">*</span> getRawData() { <span class="keyword">return</span> m_data; }
+         <span class="keyword">inline</span> <span class="type">int</span> getDataLength() { <span class="keyword">return</span> m_dataLength; }
+
+         <span class="keyword">inline</span> <span class="type">int</span> getBytesPerSample() { <span class="keyword">return</span> (m_bitsPerSample<span class="operator">&gt;</span><span class="operator">&gt;</span><span class="number">3</span>); }
+         <span class="keyword">inline</span> <span class="type">int</span> getBitsPerSample() { <span class="keyword">return</span> m_bitsPerSample; }
+         <span class="keyword">inline</span> <span class="type">int</span> getSamplesPerSec() { <span class="keyword">return</span> m_samplesPerSec; }
+         <span class="keyword">inline</span> <span class="type">short</span> getNofChannels() { <span class="keyword">return</span> m_nofChannels; }
+         <span class="keyword">inline</span> SAMPLE_FUNCTION_TYPE getSampleFunction() { <span class="keyword">return</span> m_sampleFunction; }
+
+         <span class="comment">// static implementations of sample functions</span>
+         <span class="keyword">static</span> AUDIO_SAMPLE_TYPE sampleFunction8bitMono( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel );
+         <span class="keyword">static</span> AUDIO_SAMPLE_TYPE sampleFunction16bitMono( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel );
+         <span class="keyword">static</span> AUDIO_SAMPLE_TYPE sampleFunction8bitStereo( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel );
+         <span class="keyword">static</span> AUDIO_SAMPLE_TYPE sampleFunction16bitStereo( CAudioBuffer <span class="operator">*</span>abuffer<span class="operator">,</span> <span class="type">int</span> pos<span class="operator">,</span> <span class="type">int</span> channel );
+
+         CAudioBufferPlayInstance <span class="operator">*</span>playWithMixer( GE<span class="operator">::</span>CAudioMixer <span class="operator">&amp;</span>mixer );
+
+     <span class="keyword">protected</span>:
+         SAMPLE_FUNCTION_TYPE m_sampleFunction;
+         <span class="type">short</span> m_nofChannels;
+         <span class="type">void</span> <span class="operator">*</span>m_data;
+         <span class="type">int</span> m_dataLength;                <span class="comment">// in bytes</span>
+         <span class="type">short</span> m_bitsPerSample;
+         <span class="type">bool</span> m_signedData;
+         <span class="type">int</span> m_samplesPerSec;
+     };
+
+     <span class="keyword">class</span> CAudioBufferPlayInstance : <span class="keyword">public</span> IAudioSource {
+     <span class="keyword">public</span>:
+         CAudioBufferPlayInstance();
+         CAudioBufferPlayInstance( CAudioBuffer <span class="operator">*</span>start_playing );
+         <span class="keyword">virtual</span> <span class="operator">~</span>CAudioBufferPlayInstance();
+         <span class="type">void</span> playBuffer( CAudioBuffer <span class="operator">*</span>startPlaying<span class="operator">,</span> <span class="type">float</span> volume<span class="operator">,</span> <span class="type">float</span> fixedSpeed<span class="operator">,</span> <span class="type">int</span> loopTimes <span class="operator">=</span> <span class="number">0</span> );            <span class="comment">// looptimes -1 = loop forever</span>
+
+         <span class="type">void</span> setSpeed( <span class="type">float</span> speed );
+         <span class="type">void</span> setLeftVolume( <span class="type">float</span> lvol );
+         <span class="type">void</span> setRightVolume( <span class="type">float</span> rvol );
+
+         <span class="keyword">inline</span> <span class="type">void</span> setLoopTimes( <span class="type">int</span> ltimes ) { m_loopTimes <span class="operator">=</span> ltimes; }
+         <span class="type">void</span> stop();
+
+         <span class="type">int</span> pullAudio( AUDIO_SAMPLE_TYPE <span class="operator">*</span>target<span class="operator">,</span> <span class="type">int</span> bufferLength );
+         <span class="type">bool</span> canBeDestroyed();
+
+         <span class="type">bool</span> isPlaying() { <span class="keyword">if</span> (m_buffer) <span class="keyword">return</span> <span class="keyword">true</span>; <span class="keyword">else</span> <span class="keyword">return</span> <span class="keyword">false</span>; }
+         <span class="keyword">inline</span> <span class="type">bool</span> isFinished() { <span class="keyword">return</span> m_finished; }
+         <span class="keyword">inline</span> <span class="type">bool</span> destroyWhenFinished() { <span class="keyword">return</span> m_destroyWhenFinished; }
+         <span class="keyword">inline</span> <span class="type">void</span> setDestroyWhenFinished( <span class="type">bool</span> set ) { m_destroyWhenFinished <span class="operator">=</span> set; }
+
+     <span class="keyword">protected</span>:
+         <span class="type">int</span> mixBlock( AUDIO_SAMPLE_TYPE <span class="operator">*</span>target<span class="operator">,</span> <span class="type">int</span> bufferLength );
+         <span class="type">bool</span> m_finished;
+         <span class="type">bool</span> m_destroyWhenFinished;
+         <span class="type">int</span> m_fixedPos;
+         <span class="type">int</span> m_fixedInc;
+
+         <span class="type">int</span> m_fixedLeftVolume;
+         <span class="type">int</span> m_fixedRightVolume;
+         <span class="type">int</span> m_fixedCenter;
+         <span class="type">int</span> m_loopTimes;
+         CAudioBuffer <span class="operator">*</span>m_buffer;
+     };
+
+ };
+
+ <span class="preprocessor">#endif</span></pre>
+</div>
+<!-- @@@demos/mobile/quickhit/ga_src/GEAudioBuffer.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

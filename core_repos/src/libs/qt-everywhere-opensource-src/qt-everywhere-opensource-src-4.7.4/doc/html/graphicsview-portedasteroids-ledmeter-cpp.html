@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: ledmeter.cpp Example File (graphicsview/portedasteroids/ledmeter.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">ledmeter.cpp Example File</h1>
+<span class="small-subtitle">graphicsview/portedasteroids/ledmeter.cpp</span>
+<!-- $$$graphicsview/portedasteroids/ledmeter.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="comment">/*
+  * KAsteroids - Copyright (c) Martin R. Jones 1997
+  *
+  * Part of the KDE project
+  */</span>
+
+ <span class="preprocessor">#include &lt;qpainter.h&gt;</span>
+ <span class="comment">//Added by qt3to4:</span>
+ <span class="preprocessor">#include &lt;QResizeEvent&gt;</span>
+ <span class="preprocessor">#include &lt;Q3Frame&gt;</span>
+ <span class="preprocessor">#include &quot;ledmeter.h&quot;</span>
+
+ KALedMeter<span class="operator">::</span>KALedMeter( <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent ) : <span class="type"><a href="q3frame.html">Q3Frame</a></span>( parent )
+ {
+     mCRanges<span class="operator">.</span>setAutoDelete( TRUE );
+     mRange <span class="operator">=</span> <span class="number">100</span>;
+     mCount <span class="operator">=</span> <span class="number">20</span>;
+     mCurrentCount <span class="operator">=</span> <span class="number">0</span>;
+     mValue <span class="operator">=</span> <span class="number">0</span>;
+     setMinimumWidth( mCount <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> frameWidth() );
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setRange( <span class="type">int</span> r )
+ {
+     mRange <span class="operator">=</span> r;
+     <span class="keyword">if</span> ( mRange <span class="operator">&lt;</span> <span class="number">1</span> )
+         mRange <span class="operator">=</span> <span class="number">1</span>;
+     setValue( mValue );
+     update();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setCount( <span class="type">int</span> c )
+ {
+     mCount <span class="operator">=</span> c;
+     <span class="keyword">if</span> ( mCount <span class="operator">&lt;</span> <span class="number">1</span> )
+         mCount <span class="operator">=</span> <span class="number">1</span>;
+     setMinimumWidth( mCount <span class="operator">*</span> <span class="number">2</span> <span class="operator">+</span> frameWidth() );
+     calcColorRanges();
+     setValue( mValue );
+     update();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>setValue( <span class="type">int</span> v )
+ {
+     mValue <span class="operator">=</span> v;
+     <span class="keyword">if</span> ( mValue <span class="operator">&gt;</span> mRange )
+         mValue <span class="operator">=</span> mRange;
+     <span class="keyword">else</span> <span class="keyword">if</span> ( mValue <span class="operator">&lt;</span> <span class="number">0</span> )
+         mValue <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> c <span class="operator">=</span> ( mValue <span class="operator">+</span> mRange <span class="operator">/</span> mCount <span class="operator">-</span> <span class="number">1</span> ) <span class="operator">*</span> mCount <span class="operator">/</span> mRange;
+     <span class="keyword">if</span> ( c <span class="operator">!</span><span class="operator">=</span> mCurrentCount )
+     {
+         mCurrentCount <span class="operator">=</span> c;
+         update();
+     }
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>addColorRange( <span class="type">int</span> pc<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>c )
+ {
+     ColorRange <span class="operator">*</span>cr <span class="operator">=</span> <span class="keyword">new</span> ColorRange;
+     cr<span class="operator">-</span><span class="operator">&gt;</span>mPc <span class="operator">=</span> pc;
+     cr<span class="operator">-</span><span class="operator">&gt;</span>mColor <span class="operator">=</span> c;
+     mCRanges<span class="operator">.</span>append( cr );
+     calcColorRanges();
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>resizeEvent( <span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>e )
+ {
+     <span class="type"><a href="q3frame.html">Q3Frame</a></span><span class="operator">::</span>resizeEvent( e );
+     <span class="type">int</span> w <span class="operator">=</span> ( width() <span class="operator">-</span> frameWidth() <span class="operator">-</span> <span class="number">2</span> ) <span class="operator">/</span> mCount <span class="operator">*</span> mCount;
+     w <span class="operator">+</span><span class="operator">=</span> frameWidth() <span class="operator">+</span> <span class="number">2</span>;
+     setFrameRect( <span class="type"><a href="qrect.html">QRect</a></span>( <span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> w<span class="operator">,</span> height() ) );
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>drawContents( <span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>p )
+ {
+     <span class="type"><a href="qrect.html">QRect</a></span> b <span class="operator">=</span> contentsRect();
+
+     <span class="type">unsigned</span> cidx <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> ncol <span class="operator">=</span> mCount;
+     <span class="type"><a href="qcolor.html">QColor</a></span> col <span class="operator">=</span> colorGroup()<span class="operator">.</span>foreground();
+
+     <span class="keyword">if</span> ( <span class="operator">!</span>mCRanges<span class="operator">.</span>isEmpty() )
+     {
+         col <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mColor;
+         ncol <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+     }
+     p<span class="operator">-</span><span class="operator">&gt;</span>setBrush( col );
+     p<span class="operator">-</span><span class="operator">&gt;</span>setPen( col );
+
+     <span class="type">int</span> lw <span class="operator">=</span> b<span class="operator">.</span>width() <span class="operator">/</span> mCount;
+     <span class="type">int</span> lx <span class="operator">=</span> b<span class="operator">.</span>left() <span class="operator">+</span> <span class="number">1</span>;
+     <span class="keyword">for</span> ( <span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> mCurrentCount; i<span class="operator">+</span><span class="operator">+</span><span class="operator">,</span> lx <span class="operator">+</span><span class="operator">=</span> lw )
+     {
+         <span class="keyword">if</span> ( i <span class="operator">&gt;</span> ncol )
+         {
+             <span class="keyword">if</span> ( <span class="operator">+</span><span class="operator">+</span>cidx <span class="operator">&lt;</span> mCRanges<span class="operator">.</span>count() )
+             {
+                 col <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mColor;
+                 ncol <span class="operator">=</span> mCRanges<span class="operator">.</span>at( cidx )<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+                 p<span class="operator">-</span><span class="operator">&gt;</span>setBrush( col );
+                 p<span class="operator">-</span><span class="operator">&gt;</span>setPen( col );
+             }
+         }
+
+         p<span class="operator">-</span><span class="operator">&gt;</span>drawRect( lx<span class="operator">,</span> b<span class="operator">.</span>top() <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> lw <span class="operator">-</span> <span class="number">1</span><span class="operator">,</span> b<span class="operator">.</span>height() <span class="operator">-</span> <span class="number">2</span> );
+     }
+ }
+
+ <span class="type">void</span> KALedMeter<span class="operator">::</span>calcColorRanges()
+ {
+     <span class="type">int</span> prev <span class="operator">=</span> <span class="number">0</span>;
+     ColorRange <span class="operator">*</span>cr;
+     <span class="keyword">for</span> ( cr <span class="operator">=</span> mCRanges<span class="operator">.</span>first(); cr; cr <span class="operator">=</span> mCRanges<span class="operator">.</span>next() )
+     {
+         cr<span class="operator">-</span><span class="operator">&gt;</span>mValue <span class="operator">=</span> prev <span class="operator">+</span> cr<span class="operator">-</span><span class="operator">&gt;</span>mPc <span class="operator">*</span> mCount <span class="operator">/</span> <span class="number">100</span>;
+         prev <span class="operator">=</span> cr<span class="operator">-</span><span class="operator">&gt;</span>mValue;
+     }
+ }</pre>
+</div>
+<!-- @@@graphicsview/portedasteroids/ledmeter.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

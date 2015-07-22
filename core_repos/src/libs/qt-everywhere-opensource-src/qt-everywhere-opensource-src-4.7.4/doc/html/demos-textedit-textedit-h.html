@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: textedit.h Example File (demos/textedit/textedit.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">textedit.h Example File</h1>
+<span class="small-subtitle">demos/textedit/textedit.h</span>
+<!-- $$$demos/textedit/textedit.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef TEXTEDIT_H</span>
+ <span class="preprocessor">#define TEXTEDIT_H</span>
+
+ <span class="preprocessor">#include &lt;QMainWindow&gt;</span>
+ <span class="preprocessor">#include &lt;QMap&gt;</span>
+ <span class="preprocessor">#include &lt;QPointer&gt;</span>
+
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qaction.html">QAction</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qcombobox.html">QComboBox</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qfontcombobox.html">QFontComboBox</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qtextedit.html">QTextEdit</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qmenu.html">QMenu</a></span>)
+
+ <span class="keyword">class</span> TextEdit : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     TextEdit(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="keyword">virtual</span> <span class="type">void</span> closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>e);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> setupFileActions();
+     <span class="type">void</span> setupEditActions();
+     <span class="type">void</span> setupTextActions();
+     <span class="type">bool</span> load(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>f);
+     <span class="type">bool</span> maybeSave();
+     <span class="type">void</span> setCurrentFileName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName);
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> fileNew();
+     <span class="type">void</span> fileOpen();
+     <span class="type">bool</span> fileSave();
+     <span class="type">bool</span> fileSaveAs();
+     <span class="type">void</span> filePrint();
+     <span class="type">void</span> filePrintPreview();
+     <span class="type">void</span> filePrintPdf();
+
+     <span class="type">void</span> textBold();
+     <span class="type">void</span> textUnderline();
+     <span class="type">void</span> textItalic();
+     <span class="type">void</span> textFamily(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>f);
+     <span class="type">void</span> textSize(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>p);
+     <span class="type">void</span> textStyle(<span class="type">int</span> styleIndex);
+     <span class="type">void</span> textColor();
+     <span class="type">void</span> textAlign(<span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>a);
+
+     <span class="type">void</span> currentCharFormatChanged(<span class="keyword">const</span> <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> <span class="operator">&amp;</span>format);
+     <span class="type">void</span> cursorPositionChanged();
+
+     <span class="type">void</span> clipboardDataChanged();
+     <span class="type">void</span> about();
+     <span class="type">void</span> printPreview(<span class="type"><a href="qprinter.html">QPrinter</a></span> <span class="operator">*</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> mergeFormatOnWordOrSelection(<span class="keyword">const</span> <span class="type"><a href="qtextcharformat.html">QTextCharFormat</a></span> <span class="operator">&amp;</span>format);
+     <span class="type">void</span> fontChanged(<span class="keyword">const</span> <span class="type"><a href="qfont.html">QFont</a></span> <span class="operator">&amp;</span>f);
+     <span class="type">void</span> colorChanged(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>c);
+     <span class="type">void</span> alignmentChanged(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Alignment a);
+
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>actionSave<span class="operator">,</span>
+         <span class="operator">*</span>actionTextBold<span class="operator">,</span>
+         <span class="operator">*</span>actionTextUnderline<span class="operator">,</span>
+         <span class="operator">*</span>actionTextItalic<span class="operator">,</span>
+         <span class="operator">*</span>actionTextColor<span class="operator">,</span>
+         <span class="operator">*</span>actionAlignLeft<span class="operator">,</span>
+         <span class="operator">*</span>actionAlignCenter<span class="operator">,</span>
+         <span class="operator">*</span>actionAlignRight<span class="operator">,</span>
+         <span class="operator">*</span>actionAlignJustify<span class="operator">,</span>
+         <span class="operator">*</span>actionUndo<span class="operator">,</span>
+         <span class="operator">*</span>actionRedo<span class="operator">,</span>
+         <span class="operator">*</span>actionCut<span class="operator">,</span>
+         <span class="operator">*</span>actionCopy<span class="operator">,</span>
+         <span class="operator">*</span>actionPaste;
+
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>comboStyle;
+     <span class="type"><a href="qfontcombobox.html">QFontComboBox</a></span> <span class="operator">*</span>comboFont;
+     <span class="type"><a href="qcombobox.html">QComboBox</a></span> <span class="operator">*</span>comboSize;
+
+     <span class="type"><a href="qtoolbar.html">QToolBar</a></span> <span class="operator">*</span>tb;
+     <span class="type"><a href="qstring.html">QString</a></span> fileName;
+     <span class="type"><a href="qtextedit.html">QTextEdit</a></span> <span class="operator">*</span>textEdit;
+ };
+
+ <span class="preprocessor">#endif</span></pre>
+</div>
+<!-- @@@demos/textedit/textedit.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

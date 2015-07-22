@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeconnections.cpp -->
+  <title>Qt 4.7: QML Connections Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML Connections Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML Connections Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Connections-brief -->
+<p>A Connections element describes generalized connections to signals. <a href="#details">More...</a></p>
+<!-- @@@Connections -->
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-connections-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-connections.html#ignoreUnknownSignals-prop">ignoreUnknownSignals</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-connections.html#target-prop">target</a></b></b> : Object</li>
+</ul>
+<!-- $$$Connections-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>A Connections object creates a connection to a QML signal.</p>
+<p>When connecting to signals in QML, the usual way is to create an &quot;on&lt;Signal&gt;&quot; handler that reacts when a signal is received, like this:</p>
+<pre class="qml"> <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+     <span class="name">onClicked</span>: { <span class="name">foo</span>(<span class="name">parameters</span>) }
+ }</pre>
+<p>However, it is not possible to connect to a signal in this way in some cases, such as when:</p>
+<ul>
+<li>Multiple connections to the same signal are required</li>
+<li>Creating connections outside the scope of the signal sender</li>
+<li>Connecting to targets not defined in QML</li>
+</ul>
+<p>When any of these are needed, the Connections element can be used instead.</p>
+<p>For example, the above code can be changed to use a Connections object, like this:</p>
+<pre class="qml"> <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+     <span class="type">Connections</span> {
+         <span class="name">onClicked</span>: <span class="name">foo</span>(<span class="name">parameters</span>)
+     }
+ }</pre>
+<p>More generally, the Connections object can be a child of some object other than the sender of the signal:</p>
+<pre class="qml"> <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+     <span class="name">id</span>: <span class="name">area</span>
+ }
+ <span class="comment">// ...</span></pre>
+<pre class="qml"> <span class="type">Connections</span> {
+     <span class="name">target</span>: <span class="name">area</span>
+     <span class="name">onClicked</span>: <span class="name">foo</span>(<span class="name">parameters</span>)
+ }</pre>
+<p><b>See also </b><a href="qtdeclarative.html">QtDeclarative</a>.</p>
+<!-- @@@Connections -->
+<h2>Property Documentation</h2>
+<!-- $$$ignoreUnknownSignals -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="ignoreUnknownSignals-prop"></a><span class="name">ignoreUnknownSignals</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Normally, a connection to a non-existent signal produces runtime errors.</p>
+<p>If this property is set to <tt>true</tt>, such errors are ignored. This is useful if you intend to connect to different types of objects, handling a different set of signals for each object.</p>
+</div></div><!-- @@@ignoreUnknownSignals -->
+<br/>
+<!-- $$$target -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="target-prop"></a><span class="name">target</span> : <span class="type">Object</span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the object that sends the signal.</p>
+<p>If this property is not set, the <tt>target</tt> defaults to the parent of the Connection.</p>
+<p>If set to null, no connection is made and any signal handlers are ignored until the target is not null.</p>
+</div></div><!-- @@@target -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

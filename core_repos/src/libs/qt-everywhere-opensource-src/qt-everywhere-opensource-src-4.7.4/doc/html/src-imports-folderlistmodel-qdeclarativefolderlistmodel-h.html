@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: qdeclarativefolderlistmodel.h Example File (src/imports/folderlistmodel/qdeclarativefolderlistmodel.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">qdeclarativefolderlistmodel.h Example File</h1>
+<span class="small-subtitle">src/imports/folderlistmodel/qdeclarativefolderlistmodel.h</span>
+<!-- $$$src/imports/folderlistmodel/qdeclarativefolderlistmodel.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef QDECLARATIVEFOLDERLISTMODEL_H</span>
+ <span class="preprocessor">#define QDECLARATIVEFOLDERLISTMODEL_H</span>
+
+ <span class="preprocessor">#include &lt;qdeclarative.h&gt;</span>
+ <span class="preprocessor">#include &lt;QStringList&gt;</span>
+ <span class="preprocessor">#include &lt;QUrl&gt;</span>
+ <span class="preprocessor">#include &lt;QAbstractListModel&gt;</span>
+
+ <span class="preprocessor">#ifndef QT_NO_DIRMODEL</span>
+
+ QT_BEGIN_HEADER
+
+ QT_MODULE(Declarative)
+
+ <span class="keyword">class</span> <span class="type"><a href="qdeclarativecontext.html">QDeclarativeContext</a></span>;
+ <span class="keyword">class</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span>;
+
+ <span class="keyword">class</span> <span class="type">QDeclarativeFolderListModelPrivate</span>;
+
+ <span class="keyword">class</span> <span class="type">QDeclarativeFolderListModel</span> : <span class="keyword">public</span> <span class="type"><a href="qabstractlistmodel.html">QAbstractListModel</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type"><a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a></span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type"><a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a></span>)
+
+     Q_PROPERTY(<span class="type"><a href="qurl.html">QUrl</a></span> folder READ folder WRITE setFolder NOTIFY folderChanged)
+     Q_PROPERTY(<span class="type"><a href="qurl.html">QUrl</a></span> parentFolder READ parentFolder NOTIFY folderChanged)
+     Q_PROPERTY(<span class="type"><a href="qstringlist.html">QStringList</a></span> nameFilters READ nameFilters WRITE setNameFilters)
+     Q_PROPERTY(SortField sortField READ sortField WRITE setSortField)
+     Q_PROPERTY(<span class="type">bool</span> sortReversed READ sortReversed WRITE setSortReversed)
+     Q_PROPERTY(<span class="type">bool</span> showDirs READ showDirs WRITE setShowDirs)
+     Q_PROPERTY(<span class="type">bool</span> showDotAndDotDot READ showDotAndDotDot WRITE setShowDotAndDotDot)
+     Q_PROPERTY(<span class="type">bool</span> showOnlyReadable READ showOnlyReadable WRITE setShowOnlyReadable)
+     Q_PROPERTY(<span class="type">int</span> count READ count)
+
+ <span class="keyword">public</span>:
+     <span class="type">QDeclarativeFolderListModel</span>(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span><span class="type">QDeclarativeFolderListModel</span>();
+
+     <span class="keyword">enum</span> Roles { FileNameRole <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole<span class="operator">+</span><span class="number">1</span><span class="operator">,</span> FilePathRole <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>UserRole<span class="operator">+</span><span class="number">2</span> };
+
+     <span class="type">int</span> rowCount(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>parent) <span class="keyword">const</span>;
+     <span class="type"><a href="qvariant.html">QVariant</a></span> data(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> role) <span class="keyword">const</span>;
+
+     <span class="type">int</span> count() <span class="keyword">const</span> { <span class="keyword">return</span> rowCount(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>()); }
+
+     <span class="type"><a href="qurl.html">QUrl</a></span> folder() <span class="keyword">const</span>;
+     <span class="type">void</span> setFolder(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>folder);
+
+     <span class="type"><a href="qurl.html">QUrl</a></span> parentFolder() <span class="keyword">const</span>;
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> nameFilters() <span class="keyword">const</span>;
+     <span class="type">void</span> setNameFilters(<span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="operator">&amp;</span>filters);
+
+     <span class="keyword">enum</span> SortField { Unsorted<span class="operator">,</span> Name<span class="operator">,</span> Time<span class="operator">,</span> Size<span class="operator">,</span> Type };
+     SortField sortField() <span class="keyword">const</span>;
+     <span class="type">void</span> setSortField(SortField field);
+     Q_ENUMS(SortField)
+
+     <span class="type">bool</span> sortReversed() <span class="keyword">const</span>;
+     <span class="type">void</span> setSortReversed(<span class="type">bool</span> rev);
+
+     <span class="type">bool</span> showDirs() <span class="keyword">const</span>;
+     <span class="type">void</span>  setShowDirs(<span class="type">bool</span>);
+     <span class="type">bool</span> showDotAndDotDot() <span class="keyword">const</span>;
+     <span class="type">void</span>  setShowDotAndDotDot(<span class="type">bool</span>);
+     <span class="type">bool</span> showOnlyReadable() <span class="keyword">const</span>;
+     <span class="type">void</span>  setShowOnlyReadable(<span class="type">bool</span>);
+
+     Q_INVOKABLE <span class="type">bool</span> isFolder(<span class="type">int</span> index) <span class="keyword">const</span>;
+
+     <span class="keyword">virtual</span> <span class="type">void</span> classBegin();
+     <span class="keyword">virtual</span> <span class="type">void</span> componentComplete();
+
+ Q_SIGNALS:
+     <span class="type">void</span> folderChanged();
+
+ <span class="keyword">private</span> Q_SLOTS:
+     <span class="type">void</span> refresh();
+     <span class="type">void</span> inserted(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end);
+     <span class="type">void</span> removed(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>index<span class="operator">,</span> <span class="type">int</span> start<span class="operator">,</span> <span class="type">int</span> end);
+     <span class="type">void</span> handleDataChanged(<span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>start<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> <span class="operator">&amp;</span>end);
+
+ <span class="keyword">private</span>:
+     Q_DISABLE_COPY(<span class="type">QDeclarativeFolderListModel</span>)
+     <span class="type">QDeclarativeFolderListModelPrivate</span> <span class="operator">*</span>d;
+ };
+
+
+ <a href="qdeclarativeengine.html#QML_DECLARE_TYPE">QML_DECLARE_TYPE</a>(<span class="type">QDeclarativeFolderListModel</span>)
+
+ QT_END_HEADER
+
+ <span class="preprocessor">#endif // QT_NO_DIRMODEL</span>
+
+ <span class="preprocessor">#endif // QDECLARATIVEFOLDERLISTMODEL_H</span></pre>
+</div>
+<!-- @@@src/imports/folderlistmodel/qdeclarativefolderlistmodel.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending-tutorial.qdoc -->
+  <title>Qt 4.7: Chapter 6: Writing an Extension Plugin</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QML Examples &amp; Demos</li>
+<li>Chapter 6: Writing an Extension Plugin</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Chapter 6: Writing an Extension Plugin</h1>
+<span class="subtitle"></span>
+<!-- $$$declarative/tutorials/extending/chapter6-plugins-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-app-qml.html">declarative/tutorials/extending/chapter6-plugins/app.qml</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-chartsplugin-cpp.html">declarative/tutorials/extending/chapter6-plugins/chartsplugin.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-chartsplugin-h.html">declarative/tutorials/extending/chapter6-plugins/chartsplugin.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-piechart-cpp.html">declarative/tutorials/extending/chapter6-plugins/piechart.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-piechart-h.html">declarative/tutorials/extending/chapter6-plugins/piechart.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-pieslice-cpp.html">declarative/tutorials/extending/chapter6-plugins/pieslice.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-pieslice-h.html">declarative/tutorials/extending/chapter6-plugins/pieslice.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-chapter6-plugins-pro.html">declarative/tutorials/extending/chapter6-plugins/chapter6-plugins.pro</a></li>
+<li><a href="declarative-tutorials-extending-chapter6-plugins-qmldir.html">declarative/tutorials/extending/chapter6-plugins/qmldir</a></li>
+</ul>
+<p>Currently the <tt>PieChart</tt> and <tt>PieSlice</tt> types are used by <tt>app.qml</tt>, which is displayed using a <a href="qdeclarativeview.html">QDeclarativeView</a> in a C++ application. An alternative way to use our QML extension is to create a plugin library to make it available to the QML engine. This allows <tt>app.qml</tt> to be loaded with the <a href="qmlviewer.html">QML Viewer</a> (or some other QML <a href="qmlruntime.html">runtime</a> application) instead of writing a <tt>main.cpp</tt> file and loading our own C++ application.</p>
+<p>To create a plugin library, we need:</p>
+<ul>
+<li>A plugin class that registers our QML types</li>
+<li>A project file that describes the plugin</li>
+<li>A <a href="qdeclarativemodules.html#writing-a-qmldir-file">qmldir</a> file that tells the QML engine to load the plugin</li>
+</ul>
+<p>First, we create a plugin class named <tt>ChartsPlugin</tt>. It subclasses <a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a> and registers our QML types in the inherited <a href="qdeclarativeextensionplugin.html#registerTypes">registerTypes()</a> method. It also calls <a href="qtplugin.html#Q_EXPORT_PLUGIN2#q-export-plugin2">Q_EXPORT_PLUGIN2</a> for Qt's <a href="plugins-howto.html">plugin system</a>.</p>
+<p>Here is the <tt>ChartsPlugin</tt> definition in <tt>chartsplugin.h</tt>:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDeclarativeExtensionPlugin&gt;</span>
+
+ <span class="keyword">class</span> ChartsPlugin : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     <span class="type">void</span> registerTypes(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri);
+ };</pre>
+<p>And its implementation in <tt>chartsplugin.cpp</tt>:</p>
+<pre class="cpp"> <span class="preprocessor">#include &quot;piechart.h&quot;</span>
+ <span class="preprocessor">#include &quot;pieslice.h&quot;</span>
+ <span class="preprocessor">#include &lt;qdeclarative.h&gt;</span>
+
+ <span class="type">void</span> ChartsPlugin<span class="operator">::</span>registerTypes(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>uri)
+ {
+     qmlRegisterType<span class="operator">&lt;</span>PieChart<span class="operator">&gt;</span>(uri<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;PieChart&quot;</span>);
+     qmlRegisterType<span class="operator">&lt;</span>PieSlice<span class="operator">&gt;</span>(uri<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;PieSlice&quot;</span>);
+ }
+
+ <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(chartsplugin<span class="operator">,</span> ChartsPlugin);</pre>
+<p>Then, we write a <tt>.pro</tt> project file that defines the project as a plugin library and specifies with DESTDIR that library files should be built into a &quot;lib&quot; subdirectory:</p>
+<pre class="cpp"> TEMPLATE = lib
+ CONFIG += qt plugin
+ QT += declarative
+
+ DESTDIR = lib
+ OBJECTS_DIR = tmp
+ MOC_DIR = tmp
+
+ HEADERS += piechart.h \
+            pieslice.h \
+            chartsplugin.h
+
+ SOURCES += piechart.cpp \
+            pieslice.cpp \
+            chartsplugin.cpp
+
+ symbian {
+     include($$QT_SOURCE_TREE/examples/symbianpkgrules.pri)
+     TARGET.EPOCALLOWDLLDATA = 1
+ }</pre>
+<p>Finally, we add a <a href="qdeclarativemodules.html#writing-a-qmldir-file">qmldir</a> file that is automatically parsed by the QML engine. In this file, we specify that a plugin named &quot;chapter6-plugin&quot; (the name of the example project) can be found in the &quot;lib&quot; subdirectory:</p>
+<pre class="cpp"> plugin chapter6<span class="operator">-</span>plugins lib</pre>
+<p>Now we have a plugin, and instead of having a main.cpp and an executable, we can build the project and then load the QML file in the <a href="qmlviewer.html">QML Viewer</a>:</p>
+<pre class="cpp"> qmlviewer app<span class="operator">.</span>qml</pre>
+<p>(On Mac OS X, you can launch the &quot;QMLViewer&quot; application instead.)</p>
+<p>Notice the &quot;import Charts 1.0&quot; statement has disappeared from <tt>app.qml</tt>. This is because the <tt>qmldir</tt> file is in the same directory as <tt>app.qml</tt>: this is equivalent to having PieChart.qml and PieSlice.qml files inside the project directory, which could both be used by <tt>app.qml</tt> without import statements.</p>
+</div>
+<!-- @@@declarative/tutorials/extending/chapter6-plugins -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

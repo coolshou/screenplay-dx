@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qlabel.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QLabel</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QLabel</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QLabel</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qlabel.html">QLabel class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlabel-qt3.html#QLabel-3">QLabel</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlabel-qt3.html#QLabel-4">QLabel</a></b> ( const QString &amp; <i>text</i>, QWidget * <i>parent</i>, const char * <i>name</i>, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlabel-qt3.html#QLabel-5">QLabel</a></b> ( QWidget * <i>buddy</i>, const QString &amp; <i>text</i>, QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0, Qt::WindowFlags <i>f</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlabel-qt3.html#setAlignment-2">setAlignment</a></b> ( int <i>alignment</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$QLabel$$$QLabelQWidget*constchar*Qt::WindowFlags -->
+<h3 class="fn"><a name="QLabel-3"></a>QLabel::<span class="name">QLabel</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i>, <span class="type"><a href="qt.html#WindowType-enum">Qt::WindowFlags</a></span> <i>f</i> = 0 )</h3>
+<p>Constructs an empty label.</p>
+<p>The <i>parent</i>, <i>name</i> and widget flag <i>f</i>, arguments are passed to the <a href="qframe.html">QFrame</a> constructor.</p>
+<p><b>See also </b><a href="qlabel.html#alignment-prop">setAlignment</a>(), <a href="qframe.html#setFrameStyle">setFrameStyle</a>(), and <a href="qlabel.html#indent-prop">setIndent</a>().</p>
+<!-- @@@QLabel -->
+<!-- $$$QLabel$$$QLabelconstQString&QWidget*constchar*Qt::WindowFlags -->
+<h3 class="fn"><a name="QLabel-4"></a>QLabel::<span class="name">QLabel</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i>, <span class="type"><a href="qt.html#WindowType-enum">Qt::WindowFlags</a></span> <i>f</i> = 0 )</h3>
+<p>Constructs a label that displays the text, <i>text</i>.</p>
+<p>The <i>parent</i>, <i>name</i> and widget flag <i>f</i>, arguments are passed to the <a href="qframe.html">QFrame</a> constructor.</p>
+<p><b>See also </b><a href="qlabel.html#text-prop">setText</a>(), <a href="qlabel.html#alignment-prop">setAlignment</a>(), <a href="qframe.html#setFrameStyle">setFrameStyle</a>(), and <a href="qlabel.html#indent-prop">setIndent</a>().</p>
+<!-- @@@QLabel -->
+<!-- $$$QLabel$$$QLabelQWidget*constQString&QWidget*constchar*Qt::WindowFlags -->
+<h3 class="fn"><a name="QLabel-5"></a>QLabel::<span class="name">QLabel</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>buddy</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i> = 0, const <span class="type">char</span> * <i>name</i> = 0, <span class="type"><a href="qt.html#WindowType-enum">Qt::WindowFlags</a></span> <i>f</i> = 0 )</h3>
+<p>Constructs a label that displays the text <i>text</i>. The label has a buddy widget, <i>buddy</i>.</p>
+<p>If the <i>text</i> contains an underlined letter (a letter preceded by an ampersand, &amp;), when the user presses Alt+ the underlined letter, focus is passed to the buddy widget.</p>
+<p>The <i>parent</i>, <i>name</i> and widget flag, <i>f</i>, arguments are passed to the <a href="qframe.html">QFrame</a> constructor.</p>
+<p><b>See also </b><a href="qlabel.html#text-prop">setText</a>(), <a href="qlabel.html#setBuddy">setBuddy</a>(), <a href="qlabel.html#alignment-prop">setAlignment</a>(), <a href="qframe.html#setFrameStyle">setFrameStyle</a>(), and <a href="qlabel.html#indent-prop">setIndent</a>().</p>
+<!-- @@@QLabel -->
+<!-- $$$setAlignment$$$setAlignmentint -->
+<h3 class="fn"><a name="setAlignment-2"></a><span class="type">void</span> QLabel::<span class="name">setAlignment</span> ( <span class="type">int</span> <i>alignment</i> )</h3>
+<p>Use setAlignment(<a href="qt.html#AlignmentFlag-enum">Qt::Alignment</a>) instead.</p>
+<p>If <i>alignment</i> specifies text flags as well, use <a href="qlabel.html#textFormat-prop">setTextFormat</a>() to set those.</p>
+<!-- @@@setAlignment -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

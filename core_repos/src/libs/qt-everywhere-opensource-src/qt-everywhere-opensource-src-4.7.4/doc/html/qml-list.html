@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- basictypes.qdoc -->
+  <title>Qt 4.7: QML Basic Type: list</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">QML Basic Type: list</h1>
+<span class="subtitle"></span>
+<!-- $$$list-description -->
+<div class="descr"> <a name="details"></a>
+<p>A list type contains a list of objects. While not technically a basic type, QML supports lists of object types. When used from QML, the engine automatically appends each value to the list. Items in the list can be accessed by index using the usual <tt>listName[index]</tt> syntax.</p>
+<p>For example, the <a href="qml-item.html">Item</a> class contains a list property named children that can be used like this:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">children</span>: [
+         <span class="type"><a href="qml-item.html">Item</a></span> { <span class="name">id</span>: <span class="name">child1</span> },
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">id</span>: <span class="name">child2</span>; <span class="name">width</span>: <span class="number">200</span> },
+         <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">id</span>: <span class="name">child3</span> }
+     ]
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Width of child rectangle:&quot;</span>, <span class="name">children</span>[<span class="number">1</span>].<span class="name">width</span>)
+     }
+ }</pre>
+<p><tt>child1</tt>, <tt>child2</tt> and <tt>child3</tt> will be added to the children list in the order in which they appear.</p>
+<p>List <a href="propertybinding.html">properties</a> can be created as a <tt>variant</tt> type, or as a <tt>list&lt;Type&gt;</tt> type, where <tt>Type</tt> is the type of the object in the list:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     property list&lt;<span class="type"><a href="qml-rectangle.html">Rectangle</a></span>&gt; <span class="name">rects</span>: [
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>},
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>}
+     ]
+ }</pre>
+<p>A list property can only contain values that match (or are derived from) the specified <tt>Type</tt>.</p>
+<p>While the <tt>rects</tt> property can be reassigned to a different list value (including an empty list), its individual values cannot be modified. See the <a href="qml-variant.html">variant</a> type documentation for details.</p>
+</div>
+<p><b>See also </b><a href="qdeclarativebasictypes.html">QML Basic Types</a>.</p>
+<!-- @@@list -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

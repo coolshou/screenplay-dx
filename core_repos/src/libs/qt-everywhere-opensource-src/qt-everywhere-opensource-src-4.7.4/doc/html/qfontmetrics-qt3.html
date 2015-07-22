@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qfontmetrics.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QFontMetrics</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QFontMetrics</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QFontMetrics</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qfontmetrics.html">QFontMetrics class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qfontmetrics-qt3.html#boundingRect-3">boundingRect</a></b> ( const QString &amp; <i>text</i>, int <i>len</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qfontmetrics-qt3.html#boundingRect-4">boundingRect</a></b> ( int <i>x</i>, int <i>y</i>, int <i>w</i>, int <i>h</i>, int <i>flags</i>, const QString &amp; <i>text</i>, int <i>len</i>, int <i>tabStops</i> = 0, int * <i>tabArray</i> = 0 ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QSize </td><td class="memItemRight bottomAlign"><b><a href="qfontmetrics-qt3.html#size-2">size</a></b> ( int <i>flags</i>, const QString &amp; <i>text</i>, int <i>len</i>, int <i>tabStops</i> = 0, int * <i>tabArray</i> = 0 ) const</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$boundingRect$$$boundingRectconstQString&int -->
+<h3 class="fn"><a name="boundingRect-3"></a><span class="type"><a href="qrect.html">QRect</a></span> QFontMetrics::<span class="name">boundingRect</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type">int</span> <i>len</i> ) const</h3>
+<p>Use the <a href="qfontmetrics.html#boundingRect">boundingRect</a>() function in combination with <a href="qstring.html#left">QString::left</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QRect rect = boundingRect(text, len);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> <a href="qfontmetrics.html#boundingRect">boundingRect</a>(text<span class="operator">.</span>left(len));</pre>
+<!-- @@@boundingRect -->
+<!-- $$$boundingRect$$$boundingRectintintintintintconstQString&intintint* -->
+<h3 class="fn"><a name="boundingRect-4"></a><span class="type"><a href="qrect.html">QRect</a></span> QFontMetrics::<span class="name">boundingRect</span> ( <span class="type">int</span> <i>x</i>, <span class="type">int</span> <i>y</i>, <span class="type">int</span> <i>w</i>, <span class="type">int</span> <i>h</i>, <span class="type">int</span> <i>flags</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type">int</span> <i>len</i>, <span class="type">int</span> <i>tabStops</i> = 0, <span class="type">int</span> * <i>tabArray</i> = 0 ) const</h3>
+<p>Use the <a href="qfontmetrics.html#boundingRect">boundingRect</a>() function in combination with <a href="qstring.html#left">QString::left</a>() and a <a href="qrect.html">QRect</a> constructor instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QRect rect = boundingRect(x, y, w, h , flags, text, len,
+                           tabStops, tabArray);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qrect.html">QRect</a></span> rect <span class="operator">=</span> <a href="qfontmetrics.html#boundingRect">boundingRect</a>(<span class="type"><a href="qrect.html">QRect</a></span>(x<span class="operator">,</span> y<span class="operator">,</span> w<span class="operator">,</span> h)<span class="operator">,</span> flags<span class="operator">,</span> text<span class="operator">.</span>left(len)<span class="operator">,</span>
+                           tabstops<span class="operator">,</span> tabarray);</pre>
+<!-- @@@boundingRect -->
+<!-- $$$size$$$sizeintconstQString&intintint* -->
+<h3 class="fn"><a name="size-2"></a><span class="type"><a href="qsize.html">QSize</a></span> QFontMetrics::<span class="name">size</span> ( <span class="type">int</span> <i>flags</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type">int</span> <i>len</i>, <span class="type">int</span> <i>tabStops</i> = 0, <span class="type">int</span> * <i>tabArray</i> = 0 ) const</h3>
+<p>Use the <a href="qfontmetrics.html#size">size</a>() function in combination with <a href="qstring.html#left">QString::left</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QSize size = size(flags, str, len, tabstops, tabarray);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qsize.html">QSize</a></span> size <span class="operator">=</span> <a href="qfontmetrics.html#size">size</a>(flags<span class="operator">,</span> str<span class="operator">.</span>left(len)<span class="operator">,</span> tabstops<span class="operator">,</span> tabarray);</pre>
+<!-- @@@size -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

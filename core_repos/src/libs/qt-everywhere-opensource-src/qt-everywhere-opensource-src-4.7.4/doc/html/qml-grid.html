@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativepositioners.cpp -->
+  <title>Qt 4.7: QML Grid Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML Grid Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#example-usage">Example Usage</a></li>
+<li class="level2"><a href="#using-transitions">Using Transitions</a></li>
+<li class="level2"><a href="#limitations">Limitations</a></li>
+</ul>
+</div>
+<h1 class="title">QML Grid Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Grid-brief -->
+<p>The Grid item positions its children in a grid. <a href="#details">More...</a></p>
+<!-- @@@Grid -->
+<p>Inherits <a href="qml-item.html">Item</a></p>
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-grid-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-grid.html#add-prop">add</a></b></b> : Transition</li>
+<li class="fn"><b><b><a href="qml-grid.html#columns-prop">columns</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-grid.html#flow-prop">flow</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-grid.html#layoutDirection-prop">layoutDirection</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-grid.html#move-prop">move</a></b></b> : Transition</li>
+<li class="fn"><b><b><a href="qml-grid.html#rows-prop">rows</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-grid.html#spacing-prop">spacing</a></b></b> : int</li>
+</ul>
+<!-- $$$Grid-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The Grid item positions its child items so that they are aligned in a grid and are not overlapping.</p>
+<p>The grid positioner calculates a grid of rectangular cells of sufficient size to hold all items, placing the items in the cells, from left to right and top to bottom. Each item is positioned in the top-left corner of its cell with position (0, 0).</p>
+<p>A Grid defaults to four columns, and as many rows as are necessary to fit all child items. The number of rows and columns can be constrained by setting the <a href="qml-grid.html#rows-prop">rows</a> and <a href="qml-grid.html#columns-prop">columns</a> properties.</p>
+<p>Spacing can be added between child items by setting the <a href="qml-grid.html#spacing-prop">spacing</a> property. The amount of spacing applied will be the same in the horizontal and vertical directions.</p>
+<p>See <a href="qml-positioners.html">Using QML Positioner and Repeater Items</a> for more details about this item and other related items.</p>
+<a name="example-usage"></a>
+<h2>Example Usage</h2>
+<p>The following example demonstrates this.</p>
+<p class="centerAlign"><img src="images/gridLayout_example.png" /></p><pre class="qml"> import QtQuick 1.0
+
+ <span class="type">Grid</span> {
+     <span class="name">columns</span>: <span class="number">3</span>
+     <span class="name">spacing</span>: <span class="number">2</span>
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">color</span>: <span class="string">&quot;red&quot;</span>; <span class="name">width</span>: <span class="number">50</span>; <span class="name">height</span>: <span class="number">50</span> }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">color</span>: <span class="string">&quot;green&quot;</span>; <span class="name">width</span>: <span class="number">20</span>; <span class="name">height</span>: <span class="number">50</span> }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>; <span class="name">width</span>: <span class="number">50</span>; <span class="name">height</span>: <span class="number">20</span> }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">color</span>: <span class="string">&quot;cyan&quot;</span>; <span class="name">width</span>: <span class="number">50</span>; <span class="name">height</span>: <span class="number">50</span> }
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">color</span>: <span class="string">&quot;magenta&quot;</span>; <span class="name">width</span>: <span class="number">10</span>; <span class="name">height</span>: <span class="number">10</span> }
+ }</pre>
+<a name="using-transitions"></a>
+<h2>Using Transitions</h2>
+<p>Transitions can be used to animate items that are added to, moved within, or removed from a Grid item. The <a href="qml-grid.html#add-prop">add</a> and <a href="qml-grid.html#move-prop">move</a> properties can be set to the transitions that will be applied when items are added to, removed from, or re-positioned within a Grid item.</p>
+<a name="limitations"></a>
+<h2>Limitations</h2>
+<p>Note that the positioner assumes that the x and y positions of its children will not change. If you manually change the x or y properties in script, bind the x or y properties, use anchors on a child of a positioner, or have the width or height of a child depend on the position of a child, then the positioner may exhibit strange behaviour. If you need to perform any of these actions, consider positioning the items without the use of a Grid.</p>
+<p>Items with a width or height of 0 will not be positioned.</p>
+<p><b>See also </b><a href="qml-flow.html">Flow</a>, <a href="qml-row.html">Row</a>, <a href="qml-column.html">Column</a>, and <a href="declarative-positioners.html">Positioners example</a>.</p>
+<!-- @@@Grid -->
+<h2>Property Documentation</h2>
+<!-- $$$add -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="add-prop"></a><span class="name">add</span> : <span class="type"><a href="qml-transition.html">Transition</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when adding an item to the positioner. The transition will only be applied to the added item(s). Positioner transitions will only affect the position (x, y) of items.</p>
+<p>For a positioner, adding an item can mean that either the object has been created or reparented, and thus is now a child or the positioner, or that the object has had its opacity increased from zero, and thus is now visible.</p>
+<p><b>See also </b><a href="qml-grid.html#move-prop">move</a>.</p>
+</div></div><!-- @@@add -->
+<br/>
+<!-- $$$columns -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="columns-prop"></a><span class="name">columns</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of columns in the grid. The default number of columns is 4.</p>
+<p>If the grid does not have enough items to fill the specified number of columns, some columns will be of zero width.</p>
+</div></div><!-- @@@columns -->
+<br/>
+<!-- $$$flow -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="flow-prop"></a><span class="name">flow</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the flow of the layout.</p>
+<p>Possible values are:</p>
+<ul>
+<li>Grid.LeftToRight (default) - Items are positioned next to each other in the <a href="qml-grid.html#layoutDirection-prop">layoutDirection</a>, then wrapped to the next line.</li>
+<li>Grid.TopToBottom - Items are positioned next to each other from top to bottom, then wrapped to the next column.</li>
+</ul>
+</div></div><!-- @@@flow -->
+<br/>
+<!-- $$$layoutDirection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="layoutDirection-prop"></a><span class="name">layoutDirection</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the layout direction of the layout.</p>
+<p>Possible values are:</p>
+<ul>
+<li>Qt.LeftToRight (default) - Items are positioned from the top to bottom, and left to right. The flow direction is dependent on the <a href="qml-grid.html#flow-prop">Grid::flow</a> property.</li>
+<li>Qt.RightToLeft - Items are positioned from the top to bottom, and right to left. The flow direction is dependent on the <a href="qml-grid.html#flow-prop">Grid::flow</a> property.</li>
+</ul>
+<p>When using the attached property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a> for locale layouts, the visual layout direction of the grid positioner will be mirrored. However, the property <tt>layoutDirection</tt> will remain unchanged. You can use the property <a href="qml-layoutmirroring.html#enabled-prop">LayoutMirroring::enabled</a> to determine whether the direction has been mirrored.</p>
+<p>This property group was introduced in  QtQuick 1.1.</p>
+<p><b>See also </b><a href="qml-flow.html#layoutDirection-prop">Flow::layoutDirection</a>, <a href="qml-row.html#layoutDirection-prop">Row::layoutDirection</a>, <a href="declarative-righttoleft-layoutdirection.html">Layout directions example</a>, and <a href="qml-layoutmirroring.html">LayoutMirroring</a>.</p>
+</div></div><!-- @@@layoutDirection -->
+<br/>
+<!-- $$$move -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="move-prop"></a><span class="name">move</span> : <span class="type"><a href="qml-transition.html">Transition</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the transition to be applied when moving an item within the positioner. Positioner transitions will only affect the position (x, y) of items.</p>
+<p>This transition can be performed when other items are added or removed from the positioner, or when items resize themselves.</p>
+<pre class="qml"> <span class="type"><a href="qml-grid.html">Grid</a></span> {
+     <span class="name">move</span>: <span class="name">Transition</span> {
+         <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> {
+             <span class="name">properties</span>: <span class="string">&quot;x,y&quot;</span>
+             <span class="name">ease</span>: <span class="string">&quot;easeOutBounce&quot;</span>
+         }
+     }
+ }</pre>
+<p><b>See also </b><a href="qml-grid.html#add-prop">add</a> and <a href="declarative-positioners.html">Positioners example</a>.</p>
+</div></div><!-- @@@move -->
+<br/>
+<!-- $$$rows -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="rows-prop"></a><span class="name">rows</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of rows in the grid.</p>
+<p>If the grid does not have enough items to fill the specified number of rows, some rows will be of zero width.</p>
+</div></div><!-- @@@rows -->
+<br/>
+<!-- $$$spacing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="spacing-prop"></a><span class="name">spacing</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The spacing is the amount in pixels left empty between adjacent items. The default spacing is 0.</p>
+<p>The below example places a Grid containing a red, a blue and a green rectangle on a gray background. The area the grid positioner occupies is colored white. The positioner on the left has the no spacing (the default), and the positioner on the right has a spacing of 6.</p>
+<p><img src="images/qml-grid-no-spacing.png" /> <img src="images/qml-grid-spacing.png" /></p>
+<p><b>See also </b><a href="qml-grid.html#rows-prop">rows</a> and <a href="qml-grid.html#columns-prop">columns</a>.</p>
+</div></div><!-- @@@spacing -->
+<br/>
+<p class="naviNextPrevious footerNavi">
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

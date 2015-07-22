@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativetypeloader.cpp -->
+  <title>Qt 4.7: QDeclarativeTypeLoader Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>QDeclarativeTypeLoader</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDeclarativeTypeLoader Class Reference</h1>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDeclarativeTypeLoader&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="qdeclarativetypeloader-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#Option-enum">Option</a></b> { None, PreserveParser }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#Option-enum">Options</a></b></td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#QDeclarativeTypeLoader">QDeclarativeTypeLoader</a></b> ( QDeclarativeEngine * )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#dtor.QDeclarativeTypeLoader">~QDeclarativeTypeLoader</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#clearCache">clearCache</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeTypeData * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#get">get</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeTypeData * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#get-2">get</a></b> ( const QByteArray &amp; <i>data</i>, const QUrl &amp; <i>url</i>, Options <i>options</i> = None )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeQmldirData * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#getQmldir">getQmldir</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeScriptData * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativetypeloader.html#getScript">getScript</a></b> ( const QUrl &amp; <i>url</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QDeclarativeTypeLoader-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QDeclarativeTypeLoader -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Option$$$None$$$PreserveParser -->
+<h3 class="flags"><a name="Option-enum"></a>enum QDeclarativeTypeLoader::<span class="name">Option</span><br/>flags QDeclarativeTypeLoader::<span class="name">Options</span></h3>
+<p>This enum defines the options that control the way type data is handled.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QDeclarativeTypeLoader::None</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The default value, indicating that no other options are enabled.</td></tr>
+<tr><td class="topAlign"><tt>QDeclarativeTypeLoader::PreserveParser</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The parser used to handle the type data is preserved after the data has been parsed.</td></tr>
+</table>
+<p>The Options type is a typedef for <a href="qflags.html">QFlags</a>&lt;Option&gt;. It stores an OR combination of Option values.</p>
+<!-- @@@Option -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QDeclarativeTypeLoader[overload1]$$$QDeclarativeTypeLoaderQDeclarativeEngine* -->
+<h3 class="fn"><a name="QDeclarativeTypeLoader"></a>QDeclarativeTypeLoader::<span class="name">QDeclarativeTypeLoader</span> ( <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> * )</h3>
+<!-- @@@QDeclarativeTypeLoader -->
+<!-- $$$~QDeclarativeTypeLoader[overload1]$$$~QDeclarativeTypeLoader -->
+<h3 class="fn"><a name="dtor.QDeclarativeTypeLoader"></a>QDeclarativeTypeLoader::<span class="name">~QDeclarativeTypeLoader</span> ()</h3>
+<!-- @@@~QDeclarativeTypeLoader -->
+<!-- $$$clearCache[overload1]$$$clearCache -->
+<h3 class="fn"><a name="clearCache"></a><span class="type">void</span> QDeclarativeTypeLoader::<span class="name">clearCache</span> ()</h3>
+<!-- @@@clearCache -->
+<!-- $$$get[overload1]$$$getconstQUrl& -->
+<h3 class="fn"><a name="get"></a><span class="type">QDeclarativeTypeData</span> * QDeclarativeTypeLoader::<span class="name">get</span> ( const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i> )</h3>
+<p>Returns a QDeclarativeTypeData for the specified <i>url</i>. The QDeclarativeTypeData may be cached.</p>
+<!-- @@@get -->
+<!-- $$$get$$$getconstQByteArray&constQUrl&Options -->
+<h3 class="fn"><a name="get-2"></a><span class="type">QDeclarativeTypeData</span> * QDeclarativeTypeLoader::<span class="name">get</span> ( const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp; <i>data</i>, const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i>, <span class="type"><a href="qdeclarativetypeloader.html#Option-enum">Options</a></span> <i>options</i> = None )</h3>
+<p>Returns a QDeclarativeTypeData for the given <i>data</i> with the provided base <i>url</i>. The QDeclarativeTypeData will not be cached.</p>
+<p>The specified <i>options</i> control how the loader handles type data.</p>
+<!-- @@@get -->
+<!-- $$$getQmldir[overload1]$$$getQmldirconstQUrl& -->
+<h3 class="fn"><a name="getQmldir"></a><span class="type">QDeclarativeQmldirData</span> * QDeclarativeTypeLoader::<span class="name">getQmldir</span> ( const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i> )</h3>
+<p>Return a QDeclarativeQmldirData for <i>url</i>. The QDeclarativeQmldirData may be cached.</p>
+<!-- @@@getQmldir -->
+<!-- $$$getScript[overload1]$$$getScriptconstQUrl& -->
+<h3 class="fn"><a name="getScript"></a><span class="type">QDeclarativeScriptData</span> * QDeclarativeTypeLoader::<span class="name">getScript</span> ( const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i> )</h3>
+<p>Return a QDeclarativeScriptData for <i>url</i>. The QDeclarativeScriptData may be cached.</p>
+<!-- @@@getScript -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

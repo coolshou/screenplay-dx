@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- modules.qdoc -->
+  <title>Qt 4.7: QtHelp Module</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>QtHelp</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#classes">Classes</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#license-information">License Information</a></li>
+</ul>
+</div>
+<h1 class="title">QtHelp Module</h1>
+<span class="subtitle"></span>
+<!-- $$$QtHelp-brief -->
+<p>The QtHelp module provides classes for integrating online documentation in applications. <a href="#details">More...</a></p>
+<!-- @@@QtHelp -->
+<a name="classes"></a>
+<h2>Classes</h2>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpcontentitem.html">QHelpContentItem</a></p></td><td class="tblDescr"><p>Item for use with QHelpContentModel</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qhelpcontentmodel.html">QHelpContentModel</a></p></td><td class="tblDescr"><p>Model that supplies content to views</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpcontentwidget.html">QHelpContentWidget</a></p></td><td class="tblDescr"><p>Tree view for displaying help content model items</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qhelpengine.html">QHelpEngine</a></p></td><td class="tblDescr"><p>Access to contents and indices of the help engine</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpenginecore.html">QHelpEngineCore</a></p></td><td class="tblDescr"><p>The core functionality of the help system</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qhelpindexmodel.html">QHelpIndexModel</a></p></td><td class="tblDescr"><p>Model that supplies index keywords to views</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpindexwidget.html">QHelpIndexWidget</a></p></td><td class="tblDescr"><p>List view displaying the QHelpIndexModel</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qhelpsearchengine.html">QHelpSearchEngine</a></p></td><td class="tblDescr"><p>Access to widgets reusable to integrate fulltext search as well as to index and search documentation</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpsearchquery.html">QHelpSearchQuery</a></p></td><td class="tblDescr"><p>Contains the field name and the associated search term</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qhelpsearchquerywidget.html">QHelpSearchQueryWidget</a></p></td><td class="tblDescr"><p>Simple line edit or an advanced widget to enable the user to input a search term in a standardized input mask</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qhelpsearchresultwidget.html">QHelpSearchResultWidget</a></p></td><td class="tblDescr"><p>Either a tree widget or a text browser depending on the used search engine to display the hits found by the search</p></td></tr>
+</table>
+<!-- $$$QtHelp-description -->
+<a name="details"></a>
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The classes and tools supplied with Qt to enable developers to include online help and documentation in their applications are described in more detail in <a href="qthelp-framework.html">The Qt Help Framework</a> overview document.</p>
+<p>To include the definitions of the module's classes, use the following directive:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtHelp&gt;</span></pre>
+<p>To link against the module, add this line to your <a href="qmake-manual.html#qmake">qmake</a> <tt>.pro</tt> file:</p>
+<pre class="cpp"> CONFIG += help</pre>
+<a name="license-information"></a>
+<h2>License Information</h2>
+<p>The QtHelp module uses the CLucene indexing library to provide full-text searching capabilities for Qt Assistant and applications that use the features of QtHelp.</p>
+<p>Qt Commercial Edition licensees that wish to distribute applications that use these features of the QtHelp module need to be aware of their obligations under the GNU Lesser General Public License (LGPL).</p>
+<p>Developers using the Open Source Edition can choose to redistribute the module under the appropriate version of the GNU LGPL; version 2.1 for applications and libraries licensed under the GNU GPL version 2, or version 3 for applications and libraries licensed under the GNU GPL version 3.</p>
+<div class="LegaleseLeft"><p>Copyright (C) 2003-2006 Ben van Klinken and the CLucene Team <br /> Changes are Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).</p>
+<p>This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.</p>
+<p>This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.</p>
+<p>You should have received a copy of the GNU Lesser General Public License along with this library; if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA</p>
+</div></div>
+<p><b>See also </b><a href="qthelp-framework.html">The Qt Help Framework</a>.</p>
+<!-- @@@QtHelp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

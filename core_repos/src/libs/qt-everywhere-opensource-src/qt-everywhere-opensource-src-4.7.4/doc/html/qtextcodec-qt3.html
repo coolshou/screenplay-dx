@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtextcodec.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QTextCodec</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QTextCodec</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QTextCodec</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qtextcodec.html">QTextCodec class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#fromUnicode-3">fromUnicode</a></b> ( const QString &amp; <i>uc</i>, int &amp; <i>lenInOut</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#mimeName">mimeName</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#toUnicode-3">toUnicode</a></b> ( const QByteArray &amp; <i>a</i>, int <i>len</i> ) const</td></tr>
+</table>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QTextCodec * </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#codecForContent">codecForContent</a></b> ( const char * <i>str</i>, int <i>size</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QTextCodec * </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#codecForIndex">codecForIndex</a></b> ( int <i>i</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QTextCodec * </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#codecForName-3">codecForName</a></b> ( const char * <i>hint</i>, int <i>accuracy</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const char * </td><td class="memItemRight bottomAlign"><b><a href="qtextcodec-qt3.html#locale">locale</a></b> ()</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$codecForContent[overload1]$$$codecForContentconstchar*int -->
+<h3 class="fn"><a name="codecForContent"></a><span class="type">QTextCodec</span> * QTextCodec::<span class="name">codecForContent</span> ( const <span class="type">char</span> * <i>str</i>, <span class="type">int</span> <i>size</i> )<tt> [static]</tt></h3>
+<p>This functionality is no longer provided by Qt. This compatibility function always returns a null pointer.</p>
+<!-- @@@codecForContent -->
+<!-- $$$codecForIndex[overload1]$$$codecForIndexint -->
+<h3 class="fn"><a name="codecForIndex"></a><span class="type">QTextCodec</span> * QTextCodec::<span class="name">codecForIndex</span> ( <span class="type">int</span> <i>i</i> )<tt> [static]</tt></h3>
+<p>Use <a href="qtextcodec.html#availableCodecs">availableCodecs</a>() or <a href="qtextcodec.html#availableMibs">availableMibs</a>() instead and iterate through the resulting list.</p>
+<!-- @@@codecForIndex -->
+<!-- $$$codecForName$$$codecForNameconstchar*int -->
+<h3 class="fn"><a name="codecForName-3"></a><span class="type">QTextCodec</span> * QTextCodec::<span class="name">codecForName</span> ( const <span class="type">char</span> * <i>hint</i>, <span class="type">int</span> <i>accuracy</i> )<tt> [static]</tt></h3>
+<p>Use the codecForName(const <a href="qbytearray.html">QByteArray</a> &amp;) overload instead.</p>
+<!-- @@@codecForName -->
+<!-- $$$fromUnicode$$$fromUnicodeconstQString&int& -->
+<h3 class="fn"><a name="fromUnicode-3"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> QTextCodec::<span class="name">fromUnicode</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>uc</i>, <span class="type">int</span> &amp; <i>lenInOut</i> ) const</h3>
+<p>This is an overloaded function.</p>
+<!-- @@@fromUnicode -->
+<!-- $$$locale[overload1]$$$locale -->
+<h3 class="fn"><a name="locale"></a>const <span class="type">char</span> * QTextCodec::<span class="name">locale</span> ()<tt> [static]</tt></h3>
+<p>Returns a string representing the current language and sublanguage, e.g&#x2e; &quot;pt&quot; for Portuguese, or &quot;pt_br&quot; for Portuguese/Brazil.</p>
+<p><b>See also </b><a href="qlocale.html">QLocale</a>.</p>
+<!-- @@@locale -->
+<!-- $$$mimeName[overload1]$$$mimeName -->
+<h3 class="fn"><a name="mimeName"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> QTextCodec::<span class="name">mimeName</span> () const</h3>
+<p>Use <a href="qtextcodec.html#name">name</a>() instead.</p>
+<!-- @@@mimeName -->
+<!-- $$$toUnicode$$$toUnicodeconstQByteArray&int -->
+<h3 class="fn"><a name="toUnicode-3"></a><span class="type"><a href="qstring.html">QString</a></span> QTextCodec::<span class="name">toUnicode</span> ( const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp; <i>a</i>, <span class="type">int</span> <i>len</i> ) const</h3>
+<p>This is an overloaded function.</p>
+<p><i>a</i> contains the source characters; <i>len</i> contains the number of characters in <i>a</i> to use.</p>
+<!-- @@@toUnicode -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

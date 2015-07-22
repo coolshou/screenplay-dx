@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qobject.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QObject</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QObject</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QObject</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qobject.html">QObject class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#QObject-3">QObject</a></b> ( QObject * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QObject * </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#child">child</a></b> ( const char * <i>objName</i>, const char * <i>inheritsClass</i> = 0, bool <i>recursiveSearch</i> = true ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const char * </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#className">className</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#insertChild">insertChild</a></b> ( QObject * <i>object</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#isA">isA</a></b> ( const char * <i>className</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const char * </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#name">name</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const char * </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#name-2">name</a></b> ( const char * <i>defaultName</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#removeChild">removeChild</a></b> ( QObject * <i>object</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#setName">setName</a></b> ( const char * <i>name</i> )</td></tr>
+</table>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#checkConnectArgs">checkConnectArgs</a></b> ( const char * <i>signal</i>, const QObject * <i>object</i>, const char * <i>method</i> )</td></tr>
+</table>
+<h2>Static Protected Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qobject-qt3.html#normalizeSignalSlot">normalizeSignalSlot</a></b> ( const char * <i>signalSlot</i> )</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$QObject$$$QObjectQObject*constchar* -->
+<h3 class="fn"><a name="QObject-3"></a>QObject::<span class="name">QObject</span> ( <span class="type">QObject</span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>This function overloads <a href="qobject.html#QObject">QObject</a>().</p>
+<p>Creates a new <a href="qobject.html">QObject</a> with the given <i>parent</i> and object <i>name</i>.</p>
+<!-- @@@QObject -->
+<!-- $$$checkConnectArgs[overload1]$$$checkConnectArgsconstchar*constQObject*constchar* -->
+<h3 class="fn"><a name="checkConnectArgs"></a><span class="type">bool</span> QObject::<span class="name">checkConnectArgs</span> ( const <span class="type">char</span> * <i>signal</i>, const <span class="type">QObject</span> * <i>object</i>, const <span class="type">char</span> * <i>method</i> )<tt> [protected]</tt></h3>
+<p>Use <a href="qmetaobject.html#checkConnectArgs">QMetaObject::checkConnectArgs</a>() instead.</p>
+<!-- @@@checkConnectArgs -->
+<!-- $$$child[overload1]$$$childconstchar*constchar*bool -->
+<h3 class="fn"><a name="child"></a><span class="type">QObject</span> * QObject::<span class="name">child</span> ( const <span class="type">char</span> * <i>objName</i>, const <span class="type">char</span> * <i>inheritsClass</i> = 0, <span class="type">bool</span> <i>recursiveSearch</i> = true ) const</h3>
+<p>Searches the children and optionally grandchildren of this object, and returns a child that is called <i>objName</i> that inherits <i>inheritsClass</i>. If <i>inheritsClass</i> is 0 (the default), any class matches.</p>
+<p>If <i>recursiveSearch</i> is true (the default), child() performs a depth-first search of the object's children.</p>
+<p>If there is no such object, this function returns 0. If there are more than one, the first one found is returned.</p>
+<!-- @@@child -->
+<!-- $$$className[overload1]$$$className -->
+<h3 class="fn"><a name="className"></a>const <span class="type">char</span> * QObject::<span class="name">className</span> () const</h3>
+<p>Use <a href="qobject.html#metaObject">metaObject</a>()-&gt;className() instead.</p>
+<!-- @@@className -->
+<!-- $$$insertChild[overload1]$$$insertChildQObject* -->
+<h3 class="fn"><a name="insertChild"></a><span class="type">void</span> QObject::<span class="name">insertChild</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
+<p>Use <a href="qobject.html#setParent">setParent</a>() instead, i.e&#x2e;, call object-&gt;setParent(this).</p>
+<!-- @@@insertChild -->
+<!-- $$$isA[overload1]$$$isAconstchar* -->
+<h3 class="fn"><a name="isA"></a><span class="type">bool</span> QObject::<span class="name">isA</span> ( const <span class="type">char</span> * <i>className</i> ) const</h3>
+<p>Compare <i>className</i> with the object's <a href="qobject.html#metaObject">metaObject</a>()-&gt;<a href="qobject-qt3.html#className">className</a>() instead.</p>
+<!-- @@@isA -->
+<!-- $$$name[overload1]$$$name -->
+<h3 class="fn"><a name="name"></a>const <span class="type">char</span> * QObject::<span class="name">name</span> () const</h3>
+<p>Use <a href="qobject.html#objectName-prop">objectName</a>() instead.</p>
+<p><b>See also </b><a href="qobject-qt3.html#setName">setName</a>().</p>
+<!-- @@@name -->
+<!-- $$$name$$$nameconstchar* -->
+<h3 class="fn"><a name="name-2"></a>const <span class="type">char</span> * QObject::<span class="name">name</span> ( const <span class="type">char</span> * <i>defaultName</i> ) const</h3>
+<p>Use <a href="qobject.html#objectName-prop">objectName</a>() instead.</p>
+<!-- @@@name -->
+<!-- $$$normalizeSignalSlot[overload1]$$$normalizeSignalSlotconstchar* -->
+<h3 class="fn"><a name="normalizeSignalSlot"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> QObject::<span class="name">normalizeSignalSlot</span> ( const <span class="type">char</span> * <i>signalSlot</i> )<tt> [static protected]</tt></h3>
+<p>Use <a href="qmetaobject.html#normalizedSignature">QMetaObject::normalizedSignature</a>() instead.</p>
+<!-- @@@normalizeSignalSlot -->
+<!-- $$$removeChild[overload1]$$$removeChildQObject* -->
+<h3 class="fn"><a name="removeChild"></a><span class="type">void</span> QObject::<span class="name">removeChild</span> ( <span class="type">QObject</span> * <i>object</i> )</h3>
+<p>Use <a href="qobject.html#setParent">setParent</a>() instead, i.e&#x2e;, call object-&gt;setParent(0).</p>
+<!-- @@@removeChild -->
+<!-- $$$setName[overload1]$$$setNameconstchar* -->
+<h3 class="fn"><a name="setName"></a><span class="type">void</span> QObject::<span class="name">setName</span> ( const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Use <a href="qobject.html#objectName-prop">setObjectName</a>() instead.</p>
+<p><b>See also </b><a href="qobject-qt3.html#name">name</a>().</p>
+<!-- @@@setName -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

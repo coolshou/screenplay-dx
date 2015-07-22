@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qsslcertificate.cpp -->
+  <title>Qt 4.7: List of All Members for QSslCertificate</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtnetwork.html">QtNetwork</a></li>
+<li>QSslCertificate</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QSslCertificate</h1>
+<p>This is the complete list of members for <a href="qsslcertificate.html">QSslCertificate</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">enum <span class="name"><b><a href="qsslcertificate.html#SubjectInfo-enum">SubjectInfo</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#QSslCertificate">QSslCertificate</a></b></span> ( QIODevice *, QSsl::EncodingFormat )</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#QSslCertificate-2">QSslCertificate</a></b></span> ( const QByteArray &amp;, QSsl::EncodingFormat )</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#QSslCertificate-3">QSslCertificate</a></b></span> ( const QSslCertificate &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#dtor.QSslCertificate">~QSslCertificate</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#alternateSubjectNames">alternateSubjectNames</a></b></span> () const : QMultiMap&lt;QSsl::AlternateNameEntryType, QString&gt;</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#clear">clear</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#digest">digest</a></b></span> ( QCryptographicHash::Algorithm ) const : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#effectiveDate">effectiveDate</a></b></span> () const : QDateTime</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#expiryDate">expiryDate</a></b></span> () const : QDateTime</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#fromData">fromData</a></b></span> ( const QByteArray &amp;, QSsl::EncodingFormat ) : QList&lt;QSslCertificate&gt;</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#fromDevice">fromDevice</a></b></span> ( QIODevice *, QSsl::EncodingFormat ) : QList&lt;QSslCertificate&gt;</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#fromPath">fromPath</a></b></span> ( const QString &amp;, QSsl::EncodingFormat, QRegExp::PatternSyntax ) : QList&lt;QSslCertificate&gt;</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#handle">handle</a></b></span> () const : Qt::HANDLE</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#isNull">isNull</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#isValid">isValid</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#issuerInfo">issuerInfo</a></b></span> ( SubjectInfo ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#issuerInfo-2">issuerInfo</a></b></span> ( const QByteArray &amp; ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#publicKey">publicKey</a></b></span> () const : QSslKey</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#serialNumber">serialNumber</a></b></span> () const : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#subjectInfo">subjectInfo</a></b></span> ( SubjectInfo ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#subjectInfo-2">subjectInfo</a></b></span> ( const QByteArray &amp; ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#toDer">toDer</a></b></span> () const : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#toPem">toPem</a></b></span> () const : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#version">version</a></b></span> () const : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#operator-not-eq">operator!=</a></b></span> ( const QSslCertificate &amp; ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#operator-eq">operator=</a></b></span> ( const QSslCertificate &amp; ) : QSslCertificate &amp;</li>
+<li class="fn"><span class="name"><b><a href="qsslcertificate.html#operator-eq-eq">operator==</a></b></span> ( const QSslCertificate &amp; ) const : bool</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

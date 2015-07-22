@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebpluginfactory.cpp -->
+  <title>Qt 4.7: QWebPluginFactory Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtwebkit.html">QtWebKit</a></li>
+<li>QWebPluginFactory</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWebPluginFactory Class Reference</h1>
+<!-- $$$QWebPluginFactory-brief -->
+<p>The QWebPluginFactory class is used to embed custom data types in web pages. <a href="#details">More...</a></p>
+<!-- @@@QWebPluginFactory -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QWebPluginFactory&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qwebpluginfactory-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory-mimetype.html">MimeType</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory-plugin.html">Plugin</a></b></td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory.html#QWebPluginFactory">QWebPluginFactory</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory.html#dtor.QWebPluginFactory">~QWebPluginFactory</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QObject * </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory.html#create">create</a></b> ( const QString &amp; <i>mimeType</i>, const QUrl &amp; <i>url</i>, const QStringList &amp; <i>argumentNames</i>, const QStringList &amp; <i>argumentValues</i> ) const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QList&lt;Plugin&gt; </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory.html#plugins">plugins</a></b> () const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qwebpluginfactory.html#refreshPlugins">refreshPlugins</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QWebPluginFactory-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWebPluginFactory class is used to embed custom data types in web pages.</p>
+<p>The HTML <tt>&lt;object&gt;</tt> tag is used to embed arbitrary content into a web page, for example:</p>
+<pre class="cpp"> <span class="operator">&lt;</span>object type<span class="operator">=</span><span class="string">&quot;application/x-pdf&quot;</span> data<span class="operator">=</span><span class="string">&quot;http://qt.nokia.com/document.pdf&quot;</span> width<span class="operator">=</span><span class="string">&quot;500&quot;</span> height<span class="operator">=</span><span class="string">&quot;400&quot;</span><span class="operator">&gt;</span><span class="operator">&lt;</span><span class="operator">/</span>object<span class="operator">&gt;</span></pre>
+<p>QtWebkit will natively handle the most basic data types like <tt>text/html</tt> and <tt>image/jpeg</tt>, but for any advanced or custom data types you will need to provide a handler yourself.</p>
+<p>QWebPluginFactory is a factory for creating plugins for <a href="qwebpage.html">QWebPage</a>, where each plugin provides support for one or more data types. A plugin factory can be installed on a <a href="qwebpage.html">QWebPage</a> using <a href="qwebpage.html#setPluginFactory">QWebPage::setPluginFactory</a>().</p>
+<p><b>Note:</b> The plugin factory is only used if plugins are enabled through <a href="qwebsettings.html">QWebSettings</a>.</p>
+<p>You provide a QWebPluginFactory by implementing the <a href="qwebpluginfactory.html#plugins">plugins</a>() and the <a href="qwebpluginfactory.html#create">create</a>() methods. For <a href="qwebpluginfactory.html#plugins">plugins</a>() it is necessary to describe the plugins the factory can create, including a description and the supported MIME types. The MIME types each plugin can handle should match the ones specified in in the HTML <tt>&lt;object&gt;</tt> tag of your content.</p>
+<p>The <a href="qwebpluginfactory.html#create">create</a>() method is called if the requested MIME type is supported. The implementation has to return a new instance of the plugin requested for the given MIME type and the specified URL.</p>
+<p>The plugins themselves are subclasses of <a href="qobject.html">QObject</a>, but currently only plugins based on either <a href="qwidget.html">QWidget</a> or <a href="qgraphicswidget.html">QGraphicsWidget</a> are supported.</p>
+</div>
+<!-- @@@QWebPluginFactory -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWebPluginFactory[overload1]$$$QWebPluginFactoryQObject* -->
+<h3 class="fn"><a name="QWebPluginFactory"></a>QWebPluginFactory::<span class="name">QWebPluginFactory</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a <a href="qwebpluginfactory.html">QWebPluginFactory</a> with parent <i>parent</i>.</p>
+<!-- @@@QWebPluginFactory -->
+<!-- $$$~QWebPluginFactory[overload1]$$$~QWebPluginFactory -->
+<h3 class="fn"><a name="dtor.QWebPluginFactory"></a>QWebPluginFactory::<span class="name">~QWebPluginFactory</span> ()<tt> [virtual]</tt></h3>
+<p>Destructor.</p>
+<!-- @@@~QWebPluginFactory -->
+<!-- $$$create[overload1]$$$createconstQString&constQUrl&constQStringList&constQStringList& -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qobject.html">QObject</a></span> * QWebPluginFactory::<span class="name">create</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>mimeType</i>, const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>url</i>, const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>argumentNames</i>, const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>argumentValues</i> ) const<tt> [pure virtual]</tt></h3>
+<p>Implemented in subclasses to create a new plugin that can display content of the MIME type given by <i>mimeType</i>. The URL of the content is provided in <i>url</i>. The returned object should be a <a href="qwidget.html">QWidget</a>.</p>
+<p>The HTML object element can provide parameters through the <tt>&lt;param&gt;</tt> tag. The name and the value attributes of these tags are specified by the <i>argumentNames</i> and <i>argumentValues</i> string lists.</p>
+<p>For example:</p>
+<pre class="cpp"> <span class="operator">&lt;</span>object type<span class="operator">=</span><span class="string">&quot;application/x-pdf&quot;</span> data<span class="operator">=</span><span class="string">&quot;http://qt.nokia.com/document.pdf&quot;</span> width<span class="operator">=</span><span class="string">&quot;500&quot;</span> height<span class="operator">=</span><span class="string">&quot;400&quot;</span><span class="operator">&gt;</span>
+     <span class="operator">&lt;</span>param name<span class="operator">=</span><span class="string">&quot;showTableOfContents&quot;</span> value<span class="operator">=</span><span class="string">&quot;true&quot;</span> <span class="operator">/</span><span class="operator">&gt;</span>
+     <span class="operator">&lt;</span>param name<span class="operator">=</span><span class="string">&quot;hideThumbnails&quot;</span> value<span class="operator">=</span><span class="string">&quot;false&quot;</span> <span class="operator">/</span><span class="operator">&gt;</span>
+ <span class="operator">&lt;</span><span class="operator">/</span>object<span class="operator">&gt;</span></pre>
+<p>The above object element will result in a call to create() with the following arguments:</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Parameter</th><th >Value</th></tr></thead>
+<tr valign="top" class="odd"><td >mimeType</td><td >&quot;application/x-pdf&quot;</td></tr>
+<tr valign="top" class="even"><td >url</td><td >&quot;http://qt.nokia.com/document.pdf&quot;</td></tr>
+<tr valign="top" class="odd"><td >argumentNames</td><td >&quot;showTableOfContents&quot; &quot;hideThumbnails&quot;</td></tr>
+<tr valign="top" class="even"><td >argumentVaues</td><td >&quot;true&quot; &quot;false&quot;</td></tr>
+</table>
+<p><b>Note:</b> Ownership of the returned object will be transferred to the caller.</p>
+<!-- @@@create -->
+<!-- $$$plugins[overload1]$$$plugins -->
+<h3 class="fn"><a name="plugins"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qwebpluginfactory-plugin.html">Plugin</a></span>&gt; QWebPluginFactory::<span class="name">plugins</span> () const<tt> [pure virtual]</tt></h3>
+<p>This function is reimplemented in subclasses to return a list of supported plugins the factory can create.</p>
+<p><b>Note:</b> Currently, this function is only called when JavaScript programs access the global <tt>plugins</tt> or <tt>mimetypes</tt> objects.</p>
+<!-- @@@plugins -->
+<!-- $$$refreshPlugins[overload1]$$$refreshPlugins -->
+<h3 class="fn"><a name="refreshPlugins"></a><span class="type">void</span> QWebPluginFactory::<span class="name">refreshPlugins</span> ()<tt> [virtual]</tt></h3>
+<p>This function is called to refresh the list of supported plugins. It may be called after a new plugin has been installed in the system.</p>
+<!-- @@@refreshPlugins -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: statisticsInHTML.xq Example File (xmlpatterns/qobjectxmlmodel/queries/statisticsInHTML.xq)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">statisticsInHTML.xq Example File</h1>
+<span class="small-subtitle">xmlpatterns/qobjectxmlmodel/queries/statisticsInHTML.xq</span>
+<!-- $$$xmlpatterns/qobjectxmlmodel/queries/statisticsInHTML.xq-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> &lt;html&gt;
+   &lt;head&gt;
+     &lt;title&gt;&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+     &lt;p&gt;In total the tree has {count($root//QObject)} QObject instances.&lt;/p&gt;
+     &lt;p&gt;Order by occurrence, the QObjects are:&lt;/p&gt;
+
+     &lt;ol&gt;
+     {
+       for $i in $root/preceding-sibling::metaObjects/metaObject
+       let $count := count($root//QObject[@className eq $i/@className])
+       stable order by $count descending
+       return if($count &gt; 1)
+              then &lt;li&gt;{string($i/@className), $count} occurrences&lt;/li&gt;
+              else ()
+     }
+     &lt;/ol&gt;
+
+     &lt;h1&gt;Properties&lt;/h1&gt;
+     {
+       (: For each QObject, we create a table listing
+        : the properties of that object. :)
+       for $object in $root//QObject
+         return (&lt;h2&gt;{let $name := string($object/@objectName)
+                      return if(string-length($name))
+                             then $name
+                             else &quot;[no name]&quot;,
+                      '(', string($object/@className), ')'}&lt;/h2&gt;,
+                 &lt;table border=&quot;1&quot;&gt;
+                   &lt;thead&gt;
+                     &lt;tr&gt;
+                       &lt;td&gt;Property Name&lt;/td&gt;
+                       &lt;td&gt;Value&lt;/td&gt;
+                     &lt;/tr&gt;
+                   &lt;/thead&gt;
+                   &lt;tbody&gt;
+                   {
+                     $object/@*/&lt;tr&gt;
+                                  &lt;td&gt;
+                                  {
+                                    name()
+                                  }
+                                  &lt;/td&gt;
+                                  &lt;td&gt;
+                                  {
+                                    if(data(.))
+                                    then string(.)
+                                    else &quot;N/A&quot;
+                                  }
+                                  &lt;/td&gt;
+                                &lt;/tr&gt;
+                   }
+                   &lt;/tbody&gt;
+                 &lt;/table&gt;)
+     }
+   &lt;/body&gt;
+ &lt;/html&gt;</pre>
+</div>
+<!-- @@@xmlpatterns/qobjectxmlmodel/queries/statisticsInHTML.xq -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

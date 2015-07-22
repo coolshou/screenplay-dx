@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- platform-notes.qdoc -->
+  <title>Qt 4.7: Platform and Compiler Notes - Windows</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Platform and Compiler Notes - Windows</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#windows-vista">Windows Vista</a></li>
+<li class="level1"><a href="#windows-xp-windows-2000-and-windows-nt">Windows XP, Windows 2000 and Windows NT</a></li>
+<li class="level2"><a href="#installation-location">Installation location</a></li>
+<li class="level2"><a href="#possible-gl-conflict">Possible GL conflict</a></li>
+<li class="level2"><a href="#gcc-mingw">GCC (MinGW)</a></li>
+<li class="level2"><a href="#intel-c-compiler-windows-altix">Intel C++ Compiler (Windows, Altix)</a></li>
+<li class="level2"><a href="#visual-studio-windows">Visual Studio (Windows)</a></li>
+</ul>
+</div>
+<h1 class="title">Platform and Compiler Notes - Windows</h1>
+<span class="subtitle"></span>
+<!-- $$$platform-notes-windows.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This page contains information about the Windows platforms Qt is currently known to run on, with links to platform-specific notes. More information about the combinations of platforms and compilers supported by Qt can be found on the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
+<a name="windows-vista"></a>
+<h2>Windows Vista</h2>
+<p>At the time Qt 4.7&#x2e;4 was released, there were no known Vista-specific issues.</p>
+<a name="windows-nt"></a><a name="windows-xp-windows-2000-and-windows-nt"></a>
+<h2>Windows XP, Windows 2000 and Windows NT</h2>
+<a name="installation-location"></a>
+<h3>Installation location</h3>
+<p>Installing Qt into a directory with spaces, e.g&#x2e; C:\Program Files, may cause linker errors like the following:</p>
+<pre class="cpp"> c:\program.obj not found</pre>
+<p>Install Qt into a subdirectory without spaces to avoid this problem.</p>
+<a name="possible-gl-conflict"></a>
+<h3>Possible GL conflict</h3>
+<p>There is a known issue with running Microsoft NetMeeting, Lotus SameTime and other applications that require screen grabbing while direct rendering is enabled. Other GL-applications may not work as expected, unless direct rendering is disabled.</p>
+<a name="gcc-mingw"></a>
+<h3>GCC (MinGW)</h3>
+<p>We have tested Qt with this compiler on Windows XP. The minimal version of MinGW supported is GCC 4.4&#x2e;</p>
+<p><b>Note:</b> For users of the MinGW binary package: This package is now based on MinGW 4.4&#x2e; The installer no longer offers to download MinGW for you, but rather offers to use a version of MinGW that you already have installed on your machine. You just tell the installer which directory MinGW is installed in. If you don't already have MinGW 4.4 installed, you can download a .zip archive from our <a href="ftp://ftp.trolltech.com/misc/MinGW-gcc440_1.zip">FTP site</a>. This archive provides fixes to MinGW and support for missing API, See the _patches directory in the archive for details.</p>
+<p><b>Note:</b> A MinGW installation is only needed to build against the binary package, not to run the pre-compiled binaries that are in the package.</p>
+<a name="intel-c-compiler-windows-altix"></a>
+<h3>Intel C++ Compiler (Windows, Altix)</h3>
+<p>Qt 4 has been tested successfully with:</p>
+<ul>
+<li>Windows - Intel(R) C++ Compiler for 32-bit applications, Version 9.1&#x2e;040.</li>
+<li>Altix - Intel(R) C++ Itanium(R) Compiler for Itanium(R)-based applications Version 8.1 Build 20050406 Package ID: l_cc_pc_8.1.030</li>
+</ul>
+<p>We currently only test the Intel compiler on 32-bit Windows versions.</p>
+<a name="visual-studio-windows"></a>
+<h3>Visual Studio (Windows)</h3>
+<p>We do most of our Windows development on Windows XP, using Microsoft Visual Studio .NET 2005 and Visual Studio 2008 (both the 32- and 64-bit versions).</p>
+<p>Qt works with the Standard Edition, the Professional Edition and Team System Edition of Visual Studio 2005.</p>
+<p>In order to use Qt with the Visual Studio 2005/2008 Express Edition you need to download and install the platform SDK. Due to limitations in the Express Edition it is not possible for us to install the Qt Visual Studio Integration. You will need to use our command line tools to build Qt applications with this edition.</p>
+<p>The Visual C++ Linker doesn't understand filenames with spaces (as in <tt>C:\Program files\Qt\</tt>) so you will have to move it to another place, or explicitly set the path yourself; for example:</p>
+<pre class="cpp"> QTDIR=C:\Progra~1\Qt</pre>
+<p>If you are experiencing strange problems with using special flags that modify the alignment of structure and union members (such as <tt>/Zp2</tt>) then you will need to recompile Qt with the flags set for the application as well.</p>
+<p>If you're using Visual Studio .NET (2002) Standard Edition, you should be using the Qt binary package provided, and not the source package. As the Standard Edition does not optimize compiled code, your compiled version of Qt would perform suboptimally with respect to speed.</p>
+<p>With Visual Studio 2005 Service Pack 1 a bug was introduced which causes Qt not to compile, this has been fixed with a hotfix available from Microsoft. See this <a href="http://qt.nokia.com/developer/faqs/faq.2006-12-18.3281869860">Knowledge Base entry</a> for more information.</p>
+<p>There currently is a problem when compiling Qt with Visual Studio 2010 for 64-bit. Its optimizer causes trouble and generates code that crashes for the release builds. To avoid the crashes, You need to apply the hotfix in the following article http://support.microsoft.com/kb/2280741.</p>
+</div>
+<!-- @@@platform-notes-windows.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

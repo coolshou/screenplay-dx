@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qml-extending.qdoc -->
+  <title>Qt 4.7: Extending QML - Adding Types Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QML Examples &amp; Demos</li>
+<li>Extending QML - Adding Types Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#declare-the-person-class">Declare the Person class</a></li>
+<li class="level1"><a href="#define-the-person-class">Define the Person class</a></li>
+<li class="level1"><a href="#running-the-example">Running the example</a></li>
+</ul>
+</div>
+<h1 class="title">Extending QML - Adding Types Example</h1>
+<span class="subtitle"></span>
+<!-- $$$declarative/cppextensions/referenceexamples/adding-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="declarative-cppextensions-referenceexamples-adding-example-qml.html">declarative/cppextensions/referenceexamples/adding/example.qml</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding-person-cpp.html">declarative/cppextensions/referenceexamples/adding/person.cpp</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding-person-h.html">declarative/cppextensions/referenceexamples/adding/person.h</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding-main-cpp.html">declarative/cppextensions/referenceexamples/adding/main.cpp</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding-adding-pro.html">declarative/cppextensions/referenceexamples/adding/adding.pro</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding-adding-qrc.html">declarative/cppextensions/referenceexamples/adding/adding.qrc</a></li>
+</ul>
+<p>The Adding Types Example shows how to add a new element type, <tt>Person</tt>, to QML. The <tt>Person</tt> type can be used from QML like this:</p>
+<pre class="qml"> import People 1.0
+
+ <span class="type">Person</span> {
+     <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+     <span class="name">shoeSize</span>: <span class="number">12</span>
+ }</pre>
+<a name="declare-the-person-class"></a>
+<h2>Declare the Person class</h2>
+<p>All QML elements map to C++ types. Here we declare a basic C++ Person class with the two properties we want accessible on the QML type - name and shoeSize. Although in this example we use the same name for the C++ class as the QML element, the C++ class can be named differently, or appear in a namespace.</p>
+<pre class="cpp"> <span class="keyword">class</span> Person : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> name READ name WRITE setName)
+     Q_PROPERTY(<span class="type">int</span> shoeSize READ shoeSize WRITE setShoeSize)
+ <span class="keyword">public</span>:
+     Person(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qstring.html">QString</a></span> name() <span class="keyword">const</span>;
+     <span class="type">void</span> setName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>);
+
+     <span class="type">int</span> shoeSize() <span class="keyword">const</span>;
+     <span class="type">void</span> setShoeSize(<span class="type">int</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qstring.html">QString</a></span> m_name;
+     <span class="type">int</span> m_shoeSize;
+ };</pre>
+<a name="define-the-person-class"></a>
+<h2>Define the Person class</h2>
+<pre class="cpp"> Person<span class="operator">::</span>Person(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+ : <span class="type"><a href="qobject.html">QObject</a></span>(parent)<span class="operator">,</span> m_shoeSize(<span class="number">0</span>)
+ {
+ }
+
+ <span class="type"><a href="qstring.html">QString</a></span> Person<span class="operator">::</span>name() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_name;
+ }
+
+ <span class="type">void</span> Person<span class="operator">::</span>setName(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>n)
+ {
+     m_name <span class="operator">=</span> n;
+ }
+
+ <span class="type">int</span> Person<span class="operator">::</span>shoeSize() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_shoeSize;
+ }
+
+ <span class="type">void</span> Person<span class="operator">::</span>setShoeSize(<span class="type">int</span> s)
+ {
+     m_shoeSize <span class="operator">=</span> s;
+ }</pre>
+<p>The Person class implementation is quite basic. The property accessors simply return members of the object instance.</p>
+<p>The <tt>main.cpp</tt> file also calls the <tt>qmlRegisterType()</tt> function to register the <tt>Person</tt> type with QML as a type in the People library version 1.0, and defines the mapping between the C++ and QML class names.</p>
+<a name="running-the-example"></a>
+<h2>Running the example</h2>
+<p>The main.cpp file in the example includes a simple shell application that loads and runs the QML snippet shown at the beginning of this page.</p>
+</div>
+<!-- @@@declarative/cppextensions/referenceexamples/adding -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

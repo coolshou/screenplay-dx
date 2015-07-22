@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- emb-kmap2qmap.qdoc -->
+  <title>Qt 4.7: kmap2qmap</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>kmap2qmap</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">kmap2qmap</h1>
+<span class="subtitle"></span>
+<!-- $$$qt-embedded-kmap2qmap.html-description -->
+<div class="descr"> <a name="details"></a>
+<p><tt>kmap2qmap</tt> is a tool to generate keymaps for use on Embedded Linux. The source files have to be in standard Linux <tt>kmap</tt> format that is e.g&#x2e; understood by the kernel's <tt>loadkeys</tt> command. This means you can use the following sources to generate <tt>qmap</tt> files:</p>
+<ul>
+<li>The <a href="http://lct.sourceforge.net/">Linux Console Tools (LCT)</a> project.</li>
+<li><a href="http://www.x.org/">Xorg</a> X11 keymaps can be converted to the <tt>kmap</tt> format with the <tt>ckbcomp</tt> utility.</li>
+<li>Since <tt>kmap</tt> files are plain text files, they can also be hand crafted.</li>
+</ul>
+<p>The generated <tt>qmap</tt> files are size optimized binary files.</p>
+<p><tt>kmap2qmap</tt> is a command line program, that needs at least 2 files as parameters. The last one will be the generated <tt>.qmap</tt> file, while all the others will be parsed as input <tt>.kmap</tt> files. For example:</p>
+<pre class="cpp"> kmap2qmap i386<span class="operator">/</span>qwertz<span class="operator">/</span>de<span class="operator">-</span>latin1<span class="operator">-</span>nodeadkeys<span class="operator">.</span>kmap <span class="keyword">include</span><span class="operator">/</span>compose<span class="operator">.</span>latin1<span class="operator">.</span>inc de<span class="operator">-</span>latin1<span class="operator">-</span>nodeadkeys<span class="operator">.</span>qmap</pre>
+<p><tt>kmap2qmap</tt> does not support all the (pseudo) symbols that the Linux kernel supports. If you are converting a standard keymap you will get a lot of warnings for things like <tt>Show_Registers</tt>, <tt>Hex_A</tt>, etc.: you can safely ignore those.</p>
+<p>It also doesn't support numeric symbols (e.g&#x2e; <tt>keycode 1 = 4242</tt>, instead of <tt>keycode 1 = colon</tt>), since these are deprecated and can change from one kernel version to the other.</p>
+<p>On the other hand, <tt>kmap2qmap</tt> supports one additional, Qt specific, symbol: <tt>QtZap</tt>. The built-in US keymap has that symbol mapped tp <tt>Ctrl+Alt+Backspace</tt> and it serves as a shortcut to kill your QWS server (similiar to the X11 server).</p>
+<p>See also <a href="qt-embedded-charinput.html">Qt for Embedded Linux Character Input</a></p>
+</div>
+<!-- @@@qt-embedded-kmap2qmap.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

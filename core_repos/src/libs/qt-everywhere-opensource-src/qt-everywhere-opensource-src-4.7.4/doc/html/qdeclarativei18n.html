@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativei18n.qdoc -->
+  <title>Qt 4.7: QML Internationalization</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>QML Internationalization</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="qdeclarativenetwork.html" />
+  <link rel="next" href="qml-features.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qdeclarativenetwork.html">Loading Resources in QML</a>]
+[Next: <a href="qml-features.html">QML Features</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#example">Example</a></li>
+</ul>
+</div>
+<h1 class="title">QML Internationalization</h1>
+<span class="subtitle"></span>
+<!-- $$$qdeclarativei18n.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Strings in QML can be marked for translation using the qsTr(), qsTranslate(), <a href="qtglobal.html#QT_TR_NOOP">QT_TR_NOOP</a>(), and <a href="qtglobal.html#QT_TRANSLATE_NOOP">QT_TRANSLATE_NOOP</a>() functions.</p>
+<p>For example:</p>
+<pre class="qml"> <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="name">qsTr</span>(<span class="string">&quot;Pictures&quot;</span>) }</pre>
+<p>These functions are standard <a href="qtscript.html">QtScript</a> functions; for more details see <a href="qscriptengine.html#installTranslatorFunctions">QScriptEngine::installTranslatorFunctions</a>().</p>
+<p>QML relies on the core internationalization capabilities provided by Qt. These capabilities are described more fully in:</p>
+<ul>
+<li><a href="internationalization.html">Internationalization with Qt</a></li>
+<li><a href="linguist-manual.html">Qt Linguist Manual</a></li>
+</ul>
+<p>You can test a translation with the <a href="qmlviewer.html">QML Viewer</a> using the -translation option.</p>
+<a name="example"></a>
+<h2>Example</h2>
+<p>First we create a simple QML file with text to be translated. The string that needs to be translated is enclosed in a call to <tt>qsTr()</tt>.</p>
+<p>hello.qml:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="type"><a href="qml-text.html">Text</a></span> { <span class="name">text</span>: <span class="name">qsTr</span>(<span class="string">&quot;Hello&quot;</span>); <span class="name">anchors</span>.centerIn: <span class="name">parent</span> }
+ }</pre>
+<p>Next we create a translation source file using lupdate:</p>
+<pre class="cpp"> lupdate hello<span class="operator">.</span>qml <span class="operator">-</span>ts hello<span class="operator">.</span>ts</pre>
+<p>Then we open <tt>hello.ts</tt> in <a href="linguist-manual.html">Linguist</a>, provide a translation and create the release file <tt>hello.qm</tt>.</p>
+<p>Finally, we can test the translation:</p>
+<pre class="cpp"> qmlviewer <span class="operator">-</span>translation hello<span class="operator">.</span>qm hello<span class="operator">.</span>qml</pre>
+<p>You can see a complete example and source code in the <a href="declarative-i18n.html">QML Internationalization example</a>.</p>
+</div>
+<!-- @@@qdeclarativei18n.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="qdeclarativenetwork.html">Loading Resources in QML</a>]
+[Next: <a href="qml-features.html">QML Features</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

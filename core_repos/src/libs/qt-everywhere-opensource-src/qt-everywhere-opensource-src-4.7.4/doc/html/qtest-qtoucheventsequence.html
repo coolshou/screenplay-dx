@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtestcase.cpp -->
+  <title>Qt 4.7: QTouchEventSequence Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qttest.html">QtTest</a></li>
+<li>QTouchEventSequence</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QTouchEventSequence Class Reference</h1>
+<span class="small-subtitle">(QTest::QTouchEventSequence)<br/></span>
+<!-- $$$QTouchEventSequence-brief -->
+<p>The QTouchEventSequence class is used to simulate a sequence of touch events. <a href="#details">More...</a></p>
+<!-- @@@QTouchEventSequence -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;<a href="qtest.html">QTest</a>&gt;</span></pre><p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qtest-qtoucheventsequence-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtest-qtoucheventsequence.html#dtor.QTouchEventSequence">~QTouchEventSequence</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTouchEventSequence &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtest-qtoucheventsequence.html#move">move</a></b> ( int <i>touchId</i>, const QPoint &amp; <i>pt</i>, QWidget * <i>widget</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTouchEventSequence &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtest-qtoucheventsequence.html#press">press</a></b> ( int <i>touchId</i>, const QPoint &amp; <i>pt</i>, QWidget * <i>widget</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTouchEventSequence &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtest-qtoucheventsequence.html#release">release</a></b> ( int <i>touchId</i>, const QPoint &amp; <i>pt</i>, QWidget * <i>widget</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QTouchEventSequence &amp; </td><td class="memItemRight bottomAlign"><b><a href="qtest-qtoucheventsequence.html#stationary">stationary</a></b> ( int <i>touchId</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QTouchEventSequence-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QTouchEventSequence class is used to simulate a sequence of touch events.</p>
+<p>To simulate a sequence of touch events on a specific device for a widget, call QTest::touchEvent to create a QTouchEventSequence instance. Add touch events to the sequence by calling <a href="qtest-qtoucheventsequence.html#press">press</a>(), <a href="qtest-qtoucheventsequence.html#move">move</a>(), <a href="qtest-qtoucheventsequence.html#release">release</a>() and <a href="qtest-qtoucheventsequence.html#stationary">stationary</a>(), and let the instance run out of scope to commit the sequence to the event system.</p>
+<p>Example:</p>
+<pre class="cpp"> <span class="type"><a href="qwidget.html">QWidget</a></span> widget;
+
+ <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>touchEvent(<span class="operator">&amp;</span>widget)
+     <span class="operator">.</span>press(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">10</span><span class="operator">,</span> <span class="number">10</span>));
+ <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>touchEvent(<span class="operator">&amp;</span>widget)
+     <span class="operator">.</span>stationary(<span class="number">0</span>)
+     <span class="operator">.</span>press(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">40</span><span class="operator">,</span> <span class="number">10</span>));
+ <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>touchEvent(<span class="operator">&amp;</span>widget)
+     <span class="operator">.</span>move(<span class="number">0</span><span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">12</span><span class="operator">,</span> <span class="number">12</span>))
+     <span class="operator">.</span>move(<span class="number">1</span><span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">45</span><span class="operator">,</span> <span class="number">5</span>));
+ <span class="type"><a href="qtest.html">QTest</a></span><span class="operator">::</span>touchEvent(<span class="operator">&amp;</span>widget)
+     <span class="operator">.</span>release(<span class="number">0</span>)
+     <span class="operator">.</span>release(<span class="number">1</span>);</pre>
+</div>
+<!-- @@@QTouchEventSequence -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QTouchEventSequence[overload1]$$$~QTouchEventSequence -->
+<h3 class="fn"><a name="dtor.QTouchEventSequence"></a>QTouchEventSequence::<span class="name">~QTouchEventSequence</span> ()</h3>
+<p>Commits this sequence of touch events and frees allocated resources.</p>
+<!-- @@@~QTouchEventSequence -->
+<!-- $$$move[overload1]$$$moveintconstQPoint&QWidget* -->
+<h3 class="fn"><a name="move"></a><span class="type">QTouchEventSequence</span> &amp; QTouchEventSequence::<span class="name">move</span> ( <span class="type">int</span> <i>touchId</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pt</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> = 0 )</h3>
+<p>Adds a move event for touchpoint <i>touchId</i> at position <i>pt</i> to this sequence and returns a reference to this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>The position <i>pt</i> is interpreted as relative to <i>widget</i>. If <i>widget</i> is the null pointer, then <i>pt</i> is interpreted as relative to the widget provided when instantiating this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>Simulates that the user moved the finger identified by <i>touchId</i>.</p>
+<!-- @@@move -->
+<!-- $$$press[overload1]$$$pressintconstQPoint&QWidget* -->
+<h3 class="fn"><a name="press"></a><span class="type">QTouchEventSequence</span> &amp; QTouchEventSequence::<span class="name">press</span> ( <span class="type">int</span> <i>touchId</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pt</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> = 0 )</h3>
+<p>Adds a press event for touchpoint <i>touchId</i> at position <i>pt</i> to this sequence and returns a reference to this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>The position <i>pt</i> is interpreted as relative to <i>widget</i>. If <i>widget</i> is the null pointer, then <i>pt</i> is interpreted as relative to the widget provided when instantiating this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>Simulates that the user pressed the touch screen or pad with the finger identified by <i>touchId</i>.</p>
+<!-- @@@press -->
+<!-- $$$release[overload1]$$$releaseintconstQPoint&QWidget* -->
+<h3 class="fn"><a name="release"></a><span class="type">QTouchEventSequence</span> &amp; QTouchEventSequence::<span class="name">release</span> ( <span class="type">int</span> <i>touchId</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pt</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> = 0 )</h3>
+<p>Adds a release event for touchpoint <i>touchId</i> at position <i>pt</i> to this sequence and returns a reference to this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>The position <i>pt</i> is interpreted as relative to <i>widget</i>. If <i>widget</i> is the null pointer, then <i>pt</i> is interpreted as relative to the widget provided when instantiating this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>Simulates that the user lifted the finger identified by <i>touchId</i>.</p>
+<!-- @@@release -->
+<!-- $$$stationary[overload1]$$$stationaryint -->
+<h3 class="fn"><a name="stationary"></a><span class="type">QTouchEventSequence</span> &amp; QTouchEventSequence::<span class="name">stationary</span> ( <span class="type">int</span> <i>touchId</i> )</h3>
+<p>Adds a stationary event for touchpoint <i>touchId</i> to this sequence and returns a reference to this <a href="qtest-qtoucheventsequence.html">QTouchEventSequence</a>.</p>
+<p>Simulates that the user did not move the finger identified by <i>touchId</i>.</p>
+<!-- @@@stationary -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

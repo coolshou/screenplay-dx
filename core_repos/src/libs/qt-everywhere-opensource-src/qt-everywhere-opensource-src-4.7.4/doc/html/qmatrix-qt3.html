@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmatrix.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QMatrix</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QMatrix</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QMatrix</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qmatrix.html">QMatrix class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qmatrix-qt3.html#det">det</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QMatrix </td><td class="memItemRight bottomAlign"><b><a href="qmatrix-qt3.html#invert">invert</a></b> ( bool * <i>invertible</i> = 0 ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRect </td><td class="memItemRight bottomAlign"><b><a href="qmatrix-qt3.html#map-2">map</a></b> ( const QRect &amp; <i>rect</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QRegion </td><td class="memItemRight bottomAlign"><b><a href="qmatrix-qt3.html#mapToRegion">mapToRegion</a></b> ( const QRect &amp; <i>rectangle</i> ) const</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$det[overload1]$$$det -->
+<h3 class="fn"><a name="det"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> QMatrix::<span class="name">det</span> () const</h3>
+<p>Returns the matrix's determinant.</p>
+<p><b>See also </b><a href="qmatrix.html#determinant">determinant</a>().</p>
+<!-- @@@det -->
+<!-- $$$invert[overload1]$$$invertbool* -->
+<h3 class="fn"><a name="invert"></a><span class="type">QMatrix</span> QMatrix::<span class="name">invert</span> ( <span class="type">bool</span> * <i>invertible</i> = 0 ) const</h3>
+<p>Returns an inverted copy of this matrix.</p>
+<p>Use the <a href="qmatrix.html#inverted">inverted</a>() function instead.</p>
+<!-- @@@invert -->
+<!-- $$$map$$$mapconstQRect& -->
+<h3 class="fn"><a name="map-2"></a><span class="type"><a href="qrect.html">QRect</a></span> QMatrix::<span class="name">map</span> ( const <span class="type"><a href="qrect.html">QRect</a></span> &amp; <i>rect</i> ) const</h3>
+<p>Creates and returns a <a href="qrect.html">QRect</a> object that is a copy of the given rectangle, mapped into the coordinate system defined by this matrix.</p>
+<p>Use the <a href="qmatrix.html#mapRect">mapRect</a>() function instead.</p>
+<!-- @@@map -->
+<!-- $$$mapToRegion[overload1]$$$mapToRegionconstQRect& -->
+<h3 class="fn"><a name="mapToRegion"></a><span class="type"><a href="qregion.html">QRegion</a></span> QMatrix::<span class="name">mapToRegion</span> ( const <span class="type"><a href="qrect.html">QRect</a></span> &amp; <i>rectangle</i> ) const</h3>
+<p>Returns the transformed rectangle <i>rectangle</i> as a <a href="qregion.html">QRegion</a> object. A rectangle which has been rotated or sheared may result in a non-rectangular region being returned.</p>
+<p>Use the <a href="qmatrix.html#mapToPolygon">mapToPolygon</a>() or <a href="qmatrix.html#map">map</a>() function instead.</p>
+<!-- @@@mapToRegion -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

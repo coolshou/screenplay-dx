@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwindowsystem_qws.cpp -->
+  <title>Qt 4.7: QWSClient Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QWSClient</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWSClient Class Reference</h1>
+<!-- $$$QWSClient-brief -->
+<p>The QWSClient class encapsulates a client process in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QWSClient -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QWSClient&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="qwsclient-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qwsclient.html#clientId">clientId</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qwsclient.html#identity">identity</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QWSClient-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWSClient class encapsulates a client process in Qt for Embedded Linux.</p>
+<p>When you run a <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> application, it either runs as a server or connects to an existing server. The server and client processes have different responsibilities: The client process performs all application specific operations. The server process is responsible for managing the clients as well as taking care of the pointer handling, character input, and screen output. In addition, the server provides functionality to handle input methods.</p>
+<p>As applications add and remove windows, the server process maintains information about each window. In <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>, top-level windows are encapsulated as <a href="qwswindow.html">QWSWindow</a> objects. A list of the current windows can be retrieved using the <a href="qwsserver.html#clientWindows">QWSServer::clientWindows</a>() function, and each window can tell which client that owns it through its <a href="qwswindow.html#client">QWSWindow::client</a>() function.</p>
+<p>A QWSClient object has an unique ID that can be retrieved using its <a href="qwsclient.html#clientId">clientId</a>() function. QWSClient also provides the <a href="qwsclient.html#identity">identity</a>() function which typically returns the name of this client's running application.</p>
+</div>
+<p><b>See also </b><a href="qwsserver.html">QWSServer</a>, <a href="qwswindow.html">QWSWindow</a>, and <a href="qt-embedded-architecture.html">Qt for Embedded Linux Architecture</a>.</p>
+<!-- @@@QWSClient -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$clientId[overload1]$$$clientId -->
+<h3 class="fn"><a name="clientId"></a><span class="type">int</span> QWSClient::<span class="name">clientId</span> () const</h3>
+<p>Returns an integer uniquely identfying this client.</p>
+<!-- @@@clientId -->
+<!-- $$$identity[overload1]$$$identity -->
+<h3 class="fn"><a name="identity"></a><span class="type"><a href="qstring.html">QString</a></span> QWSClient::<span class="name">identity</span> () const</h3>
+<p>Returns the name of this client's running application.</p>
+<!-- @@@identity -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

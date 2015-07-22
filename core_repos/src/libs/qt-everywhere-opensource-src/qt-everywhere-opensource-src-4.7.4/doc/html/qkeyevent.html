@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qevent.cpp -->
+  <title>Qt 4.7: QKeyEvent Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QKeyEvent</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QKeyEvent Class Reference</h1>
+<!-- $$$QKeyEvent-brief -->
+<p>The QKeyEvent class describes a key event. <a href="#details">More...</a></p>
+<!-- @@@QKeyEvent -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QKeyEvent&gt;</span></pre><p><b>Inherits: </b><a href="qinputevent.html">QInputEvent</a>.</p>
+<ul>
+<li><a href="qkeyevent-members.html">List of all members, including inherited members</a></li>
+<li><a href="qkeyevent-qt3.html">Qt 3 support members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#QKeyEvent">QKeyEvent</a></b> ( Type <i>type</i>, int <i>key</i>, Qt::KeyboardModifiers <i>modifiers</i>, const QString &amp; <i>text</i> = QString(), bool <i>autorep</i> = false, ushort <i>count</i> = 1 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#count">count</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#isAutoRepeat">isAutoRepeat</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#key">key</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#matches">matches</a></b> ( QKeySequence::StandardKey <i>key</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::KeyboardModifiers </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#modifiers">modifiers</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> quint32 </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#nativeModifiers">nativeModifiers</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> quint32 </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#nativeScanCode">nativeScanCode</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> quint32 </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#nativeVirtualKey">nativeVirtualKey</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#text">text</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">1 public function inherited from <a href="qinputevent.html#public-functions">QInputEvent</a></li>
+<li class="fn">6 public functions inherited from <a href="qevent.html#public-functions">QEvent</a></li>
+</ul>
+<a name="related-non-members"></a>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-70">operator==</a></b> ( QKeyEvent * <i>e</i>, QKeySequence::StandardKey <i>key</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qkeyevent.html#operator-eq-eq-71">operator==</a></b> ( QKeySequence::StandardKey <i>key</i>, QKeyEvent * <i>e</i> )</td></tr>
+</table>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qevent.html#properties">QEvent</a></li>
+<li class="fn">1 static public member inherited from <a href="qevent.html#static-public-members">QEvent</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QKeyEvent-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QKeyEvent class describes a key event.</p>
+<p>Key events are sent to the widget with keyboard input focus when keys are pressed or released.</p>
+<p>A key event contains a special accept flag that indicates whether the receiver will handle the key event. You should call <a href="qevent.html#ignore">ignore</a>() if the key press or release event is not handled by your widget. A key event is propagated up the parent widget chain until a widget accepts it with <a href="qevent.html#accept">accept</a>() or an event filter consumes it. Key events for multimedia keys are ignored by default. You should call <a href="qevent.html#accept">accept</a>() if your widget handles those events.</p>
+<p>The QWidget::setEnable() function can be used to enable or disable mouse and keyboard events for a widget.</p>
+<p>The event handlers <a href="qwidget.html#keyPressEvent">QWidget::keyPressEvent</a>(), <a href="qwidget.html#keyReleaseEvent">QWidget::keyReleaseEvent</a>(), <a href="qgraphicsitem.html#keyPressEvent">QGraphicsItem::keyPressEvent</a>() and <a href="qgraphicsitem.html#keyReleaseEvent">QGraphicsItem::keyReleaseEvent</a>() receive key events.</p>
+</div>
+<p><b>See also </b><a href="qfocusevent.html">QFocusEvent</a> and <a href="qwidget.html#grabKeyboard">QWidget::grabKeyboard</a>().</p>
+<!-- @@@QKeyEvent -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QKeyEvent[overload1]$$$QKeyEventTypeintQt::KeyboardModifiersconstQString&boolushort -->
+<h3 class="fn"><a name="QKeyEvent"></a>QKeyEvent::<span class="name">QKeyEvent</span> ( <span class="type"><a href="qevent.html#Type-enum">Type</a></span> <i>type</i>, <span class="type">int</span> <i>key</i>, <span class="type"><a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a></span> <i>modifiers</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i> = QString(), <span class="type">bool</span> <i>autorep</i> = false, <span class="type"><a href="qtglobal.html#ushort-typedef">ushort</a></span> <i>count</i> = 1 )</h3>
+<p>Constructs a key event object.</p>
+<p>The <i>type</i> parameter must be <a href="qevent.html#Type-enum">QEvent::KeyPress</a>, <a href="qevent.html#Type-enum">QEvent::KeyRelease</a>, or <a href="qevent.html#Type-enum">QEvent::ShortcutOverride</a>.</p>
+<p>Int <i>key</i> is the code for the <a href="qt.html#Key-enum">Qt::Key</a> that the event loop should listen for. If <i>key</i> is 0, the event is not a result of a known key; for example, it may be the result of a compose sequence or keyboard macro. The <i>modifiers</i> holds the keyboard modifiers, and the given <i>text</i> is the Unicode text that the key generated. If <i>autorep</i> is true, <a href="qkeyevent.html#isAutoRepeat">isAutoRepeat</a>() will be true. <i>count</i> is the number of keys involved in the event.</p>
+<!-- @@@QKeyEvent -->
+<!-- $$$count[overload1]$$$count -->
+<h3 class="fn"><a name="count"></a><span class="type">int</span> QKeyEvent::<span class="name">count</span> () const</h3>
+<p>Returns the number of keys involved in this event. If <a href="qkeyevent.html#text">text</a>() is not empty, this is simply the length of the string.</p>
+<p><b>See also </b><a href="qt.html#WidgetAttribute-enum">Qt::WA_KeyCompression</a>.</p>
+<!-- @@@count -->
+<!-- $$$isAutoRepeat[overload1]$$$isAutoRepeat -->
+<h3 class="fn"><a name="isAutoRepeat"></a><span class="type">bool</span> QKeyEvent::<span class="name">isAutoRepeat</span> () const</h3>
+<p>Returns true if this event comes from an auto-repeating key; returns false if it comes from an initial key press.</p>
+<p>Note that if the event is a multiple-key compressed event that is partly due to auto-repeat, this function could return either true or false indeterminately.</p>
+<!-- @@@isAutoRepeat -->
+<!-- $$$key[overload1]$$$key -->
+<h3 class="fn"><a name="key"></a><span class="type">int</span> QKeyEvent::<span class="name">key</span> () const</h3>
+<p>Returns the code of the key that was pressed or released.</p>
+<p>See <a href="qt.html#Key-enum">Qt::Key</a> for the list of keyboard codes. These codes are independent of the underlying window system. Note that this function does not distinguish between capital and non-capital letters, use the <a href="qkeyevent.html#text">text</a>() function (returning the Unicode text the key generated) for this purpose.</p>
+<p>A value of either 0 or <a href="qt.html#Key-enum">Qt::Key_unknown</a> means that the event is not the result of a known key; for example, it may be the result of a compose sequence, a keyboard macro, or due to key event compression.</p>
+<p><b>See also </b><a href="qt.html#WidgetAttribute-enum">Qt::WA_KeyCompression</a>.</p>
+<!-- @@@key -->
+<!-- $$$matches[overload1]$$$matchesQKeySequence::StandardKey -->
+<h3 class="fn"><a name="matches"></a><span class="type">bool</span> QKeyEvent::<span class="name">matches</span> ( <span class="type"><a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a></span> <i>key</i> ) const</h3>
+<p>Returns true if the key event matches the given standard <i>key</i>; otherwise returns false.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<!-- @@@matches -->
+<!-- $$$modifiers[overload1]$$$modifiers -->
+<h3 class="fn"><a name="modifiers"></a><span class="type"><a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a></span> QKeyEvent::<span class="name">modifiers</span> () const</h3>
+<p>Returns the keyboard modifier flags that existed immediately after the event occurred.</p>
+<p><b>Warning:</b> This function cannot always be trusted. The user can confuse it by pressing both <b>Shift</b> keys simultaneously and releasing one of them, for example.</p>
+<p><b>See also </b><a href="qapplication.html#keyboardModifiers">QApplication::keyboardModifiers</a>().</p>
+<!-- @@@modifiers -->
+<!-- $$$nativeModifiers[overload1]$$$nativeModifiers -->
+<h3 class="fn"><a name="nativeModifiers"></a><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span> QKeyEvent::<span class="name">nativeModifiers</span> () const</h3>
+<p>Returns the native modifiers of a key event. If the key event does not contain this data 0 is returned.</p>
+<p>Note: The native modifiers may be 0, even if the key event contains extended information.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<!-- @@@nativeModifiers -->
+<!-- $$$nativeScanCode[overload1]$$$nativeScanCode -->
+<h3 class="fn"><a name="nativeScanCode"></a><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span> QKeyEvent::<span class="name">nativeScanCode</span> () const</h3>
+<p>Returns the native scan code of the key event. If the key event does not contain this data 0 is returned.</p>
+<p>Note: The native scan code may be 0, even if the key event contains extended information.</p>
+<p>Note: On Mac OS/X, this function is not useful, because there is no way to get the scan code from Carbon or Cocoa. The function always returns 1 (or 0 in the case explained above).</p>
+<p>This function was introduced in Qt 4.2.</p>
+<!-- @@@nativeScanCode -->
+<!-- $$$nativeVirtualKey[overload1]$$$nativeVirtualKey -->
+<h3 class="fn"><a name="nativeVirtualKey"></a><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span> QKeyEvent::<span class="name">nativeVirtualKey</span> () const</h3>
+<p>Returns the native virtual key, or key sym of the key event. If the key event does not contain this data 0 is returned.</p>
+<p>Note: The native virtual key may be 0, even if the key event contains extended information.</p>
+<p>This function was introduced in Qt 4.2.</p>
+<!-- @@@nativeVirtualKey -->
+<!-- $$$text[overload1]$$$text -->
+<h3 class="fn"><a name="text"></a><span class="type"><a href="qstring.html">QString</a></span> QKeyEvent::<span class="name">text</span> () const</h3>
+<p>Returns the Unicode text that this key generated. The text returned can be an empty string in cases where modifier keys, such as Shift, Control, Alt, and Meta, are being pressed or released. In such cases <a href="qkeyevent.html#key">key</a>() will contain a valid value.</p>
+<p><b>See also </b><a href="qt.html#WidgetAttribute-enum">Qt::WA_KeyCompression</a>.</p>
+<!-- @@@text -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$operator==$$$operator==QKeyEvent*QKeySequence::StandardKey -->
+<h3 class="fn"><a name="operator-eq-eq-70"></a><span class="type">bool</span> <span class="name">operator==</span> ( <span class="type">QKeyEvent</span> * <i>e</i>, <span class="type"><a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a></span> <i>key</i> )</h3>
+<p>Returns true if <i>key</i> is currently bound to the key combination specified by <i>e</i>.</p>
+<p>Equivalent to <tt>e-&gt;matches(key)</tt>.</p>
+<!-- @@@operator== -->
+<!-- $$$operator==$$$operator==QKeySequence::StandardKeyQKeyEvent* -->
+<h3 class="fn"><a name="operator-eq-eq-71"></a><span class="type">bool</span> <span class="name">operator==</span> ( <span class="type"><a href="qkeysequence.html#StandardKey-enum">QKeySequence::StandardKey</a></span> <i>key</i>, <span class="type">QKeyEvent</span> * <i>e</i> )</h3>
+<p>Returns true if <i>key</i> is currently bound to the key combination specified by <i>e</i>.</p>
+<p>Equivalent to <tt>e-&gt;matches(key)</tt>.</p>
+<!-- @@@operator== -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

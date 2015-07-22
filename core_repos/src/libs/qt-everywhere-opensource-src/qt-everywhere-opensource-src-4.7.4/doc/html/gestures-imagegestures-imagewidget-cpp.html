@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: imagewidget.cpp Example File (gestures/imagegestures/imagewidget.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">imagewidget.cpp Example File</h1>
+<span class="small-subtitle">gestures/imagegestures/imagewidget.cpp</span>
+<!-- $$$gestures/imagegestures/imagewidget.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;imagewidget.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ ImageWidget<span class="operator">::</span>ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span>
+     position(<span class="number">0</span>)<span class="operator">,</span>
+     horizontalOffset(<span class="number">0</span>)<span class="operator">,</span>
+     verticalOffset(<span class="number">0</span>)<span class="operator">,</span>
+     rotationAngle(<span class="number">0</span>)<span class="operator">,</span>
+     scaleFactor(<span class="number">1</span>)<span class="operator">,</span>
+     currentStepScaleFactor(<span class="number">1</span>)
+
+ {
+     setMinimumSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">100</span><span class="operator">,</span><span class="number">100</span>));
+
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture);
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture);
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture);
+ }
+
+ <span class="type">bool</span> ImageWidget<span class="operator">::</span>event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>Gesture)
+         <span class="keyword">return</span> gestureEvent(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qgestureevent.html">QGestureEvent</a></span><span class="operator">*</span><span class="operator">&gt;</span>(event));
+     <span class="keyword">return</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>event(event);
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span><span class="operator">*</span>)
+ {
+     <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
+
+     <span class="type">float</span> iw <span class="operator">=</span> currentImage<span class="operator">.</span>width();
+     <span class="type">float</span> ih <span class="operator">=</span> currentImage<span class="operator">.</span>height();
+     <span class="type">float</span> wh <span class="operator">=</span> height();
+     <span class="type">float</span> ww <span class="operator">=</span> width();
+
+     p<span class="operator">.</span>translate(ww<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> wh<span class="operator">/</span><span class="number">2</span>);
+     p<span class="operator">.</span>translate(horizontalOffset<span class="operator">,</span> verticalOffset);
+     p<span class="operator">.</span>rotate(rotationAngle);
+     p<span class="operator">.</span>scale(currentStepScaleFactor <span class="operator">*</span> scaleFactor<span class="operator">,</span> currentStepScaleFactor <span class="operator">*</span> scaleFactor);
+     p<span class="operator">.</span>translate(<span class="operator">-</span>iw<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="operator">-</span>ih<span class="operator">/</span><span class="number">2</span>);
+     p<span class="operator">.</span>drawImage(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> currentImage);
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>mouseDoubleClickEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>)
+ {
+     rotationAngle <span class="operator">=</span> <span class="number">0</span>;
+     scaleFactor <span class="operator">=</span> <span class="number">1</span>;
+     currentStepScaleFactor <span class="operator">=</span> <span class="number">1</span>;
+     verticalOffset <span class="operator">=</span> <span class="number">0</span>;
+     horizontalOffset <span class="operator">=</span> <span class="number">0</span>;
+     update();
+ }
+
+ <span class="type">bool</span> ImageWidget<span class="operator">::</span>gestureEvent(<span class="type"><a href="qgestureevent.html">QGestureEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>swipe <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture))
+         swipeTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(swipe));
+     <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pan <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture))
+         panTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qpangesture.html">QPanGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(pan));
+     <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pinch <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture))
+         pinchTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(pinch));
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>panTriggered(<span class="type"><a href="qpangesture.html">QPanGesture</a></span> <span class="operator">*</span>gesture)
+ {
+ <span class="preprocessor">#ifndef QT_NO_CURSOR</span>
+     <span class="keyword">switch</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state()) {
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureStarted:
+         <span class="keyword">case</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureUpdated:
+             setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SizeAllCursor);
+             <span class="keyword">break</span>;
+         <span class="keyword">default</span>:
+             setCursor(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ArrowCursor);
+     }
+ <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qpointf.html">QPointF</a></span> delta <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>delta();
+     horizontalOffset <span class="operator">+</span><span class="operator">=</span> delta<span class="operator">.</span>x();
+     verticalOffset <span class="operator">+</span><span class="operator">=</span> delta<span class="operator">.</span>y();
+     update();
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>pinchTriggered(<span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span> <span class="operator">*</span>gesture)
+ {
+     <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>ChangeFlags changeFlags <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>changeFlags();
+     <span class="keyword">if</span> (changeFlags <span class="operator">&amp;</span> <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>RotationAngleChanged) {
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;rotationAngle&quot;</span>)<span class="operator">.</span>toReal();
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> lastValue <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;lastRotationAngle&quot;</span>)<span class="operator">.</span>toReal();
+         rotationAngle <span class="operator">+</span><span class="operator">=</span> value <span class="operator">-</span> lastValue;
+     }
+     <span class="keyword">if</span> (changeFlags <span class="operator">&amp;</span> <span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">::</span>ScaleFactorChanged) {
+         <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> value <span class="operator">=</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>property(<span class="string">&quot;scaleFactor&quot;</span>)<span class="operator">.</span>toReal();
+         currentStepScaleFactor <span class="operator">=</span> value;
+     }
+     <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
+         scaleFactor <span class="operator">*</span><span class="operator">=</span> currentStepScaleFactor;
+         currentStepScaleFactor <span class="operator">=</span> <span class="number">1</span>;
+     }
+     update();
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>swipeTriggered(<span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span>gesture)
+ {
+     <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
+         <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>horizontalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Left
+             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up)
+             goPrevImage();
+         <span class="keyword">else</span>
+             goNextImage();
+         update();
+     }
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span><span class="operator">*</span>)
+ {
+     update();
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>openDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>path)
+ {
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>path <span class="operator">=</span> path;
+     <span class="type"><a href="qdir.html">QDir</a></span> dir(path);
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> nameFilters;
+     nameFilters <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;*.jpg&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;*.png&quot;</span>;
+     files <span class="operator">=</span> dir<span class="operator">.</span>entryList(nameFilters<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Files<span class="operator">|</span><span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Readable<span class="operator">,</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>Name);
+
+     position <span class="operator">=</span> <span class="number">0</span>;
+     goToImage(<span class="number">0</span>);
+     update();
+ }
+
+ <span class="type"><a href="qimage.html">QImage</a></span> ImageWidget<span class="operator">::</span>loadImage(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>fileName)
+ {
+     <span class="type"><a href="qimagereader.html">QImageReader</a></span> reader(fileName);
+     <span class="keyword">if</span> (<span class="operator">!</span>reader<span class="operator">.</span>canRead()) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: can't load image&quot;</span>;
+         <span class="keyword">return</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     }
+
+     <span class="type"><a href="qimage.html">QImage</a></span> image;
+     <span class="keyword">if</span> (<span class="operator">!</span>reader<span class="operator">.</span>read(<span class="operator">&amp;</span>image)) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> fileName <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;: corrupted image&quot;</span>;
+         <span class="keyword">return</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     }
+     <span class="keyword">return</span> image;
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>goNextImage()
+ {
+     <span class="keyword">if</span> (files<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (position <span class="operator">&lt;</span> files<span class="operator">.</span>size()<span class="operator">-</span><span class="number">1</span>) {
+         <span class="operator">+</span><span class="operator">+</span>position;
+         prevImage <span class="operator">=</span> currentImage;
+         currentImage <span class="operator">=</span> nextImage;
+         <span class="keyword">if</span> (position<span class="operator">+</span><span class="number">1</span> <span class="operator">&lt;</span> files<span class="operator">.</span>size())
+             nextImage <span class="operator">=</span> loadImage(path<span class="operator">+</span>QLatin1String(<span class="string">&quot;/&quot;</span>)<span class="operator">+</span>files<span class="operator">.</span>at(position<span class="operator">+</span><span class="number">1</span>));
+         <span class="keyword">else</span>
+             nextImage <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     }
+     update();
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>goPrevImage()
+ {
+     <span class="keyword">if</span> (files<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (position <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="operator">-</span><span class="operator">-</span>position;
+         nextImage <span class="operator">=</span> currentImage;
+         currentImage <span class="operator">=</span> prevImage;
+         <span class="keyword">if</span> (position <span class="operator">&gt;</span> <span class="number">0</span>)
+             prevImage <span class="operator">=</span> loadImage(path<span class="operator">+</span>QLatin1String(<span class="string">&quot;/&quot;</span>)<span class="operator">+</span>files<span class="operator">.</span>at(position<span class="operator">-</span><span class="number">1</span>));
+         <span class="keyword">else</span>
+             prevImage <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     }
+     update();
+ }
+
+ <span class="type">void</span> ImageWidget<span class="operator">::</span>goToImage(<span class="type">int</span> index)
+ {
+     <span class="keyword">if</span> (files<span class="operator">.</span>isEmpty())
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (index <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> index <span class="operator">&gt;</span><span class="operator">=</span> files<span class="operator">.</span>size()) {
+         <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;goToImage: invalid index: &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> index;
+         <span class="keyword">return</span>;
+     }
+
+     <span class="keyword">if</span> (index <span class="operator">=</span><span class="operator">=</span> position<span class="operator">+</span><span class="number">1</span>) {
+         goNextImage();
+         <span class="keyword">return</span>;
+     }
+
+     <span class="keyword">if</span> (position <span class="operator">&gt;</span> <span class="number">0</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> index <span class="operator">=</span><span class="operator">=</span> position<span class="operator">-</span><span class="number">1</span>) {
+         goPrevImage();
+         <span class="keyword">return</span>;
+     }
+
+     position <span class="operator">=</span> index;
+
+     <span class="keyword">if</span> (index <span class="operator">&gt;</span> <span class="number">0</span>)
+         prevImage <span class="operator">=</span> loadImage(path<span class="operator">+</span>QLatin1String(<span class="string">&quot;/&quot;</span>)<span class="operator">+</span>files<span class="operator">.</span>at(position<span class="operator">-</span><span class="number">1</span>));
+     <span class="keyword">else</span>
+         prevImage <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     currentImage <span class="operator">=</span> loadImage(path<span class="operator">+</span>QLatin1String(<span class="string">&quot;/&quot;</span>)<span class="operator">+</span>files<span class="operator">.</span>at(position));
+     <span class="keyword">if</span> (position<span class="operator">+</span><span class="number">1</span> <span class="operator">&lt;</span> files<span class="operator">.</span>size())
+         nextImage <span class="operator">=</span> loadImage(path<span class="operator">+</span>QLatin1String(<span class="string">&quot;/&quot;</span>)<span class="operator">+</span>files<span class="operator">.</span>at(position<span class="operator">+</span><span class="number">1</span>));
+     <span class="keyword">else</span>
+         nextImage <span class="operator">=</span> <span class="type"><a href="qimage.html">QImage</a></span>();
+     update();
+ }</pre>
+</div>
+<!-- @@@gestures/imagegestures/imagewidget.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

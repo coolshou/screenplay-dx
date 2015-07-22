@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- emb-porting.qdoc -->
+  <title>Qt 4.7: Porting Qt for Embedded Linux to a New Architecture</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Porting Qt for Embedded Linux to a New Architecture</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#hardware-drivers">Hardware Drivers</a></li>
+<li class="level1"><a href="#atomic-operations">Atomic Operations</a></li>
+</ul>
+</div>
+<h1 class="title">Porting Qt for Embedded Linux to a New Architecture</h1>
+<span class="subtitle"></span>
+<!-- $$$qt-embedded-porting-device.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>When porting <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> to a new architecture there are several issues to be aware of: You must provide suitable hardware drivers, and you must ensure to implement platform dependent atomic operations to enable multithreading on the new architecture.</p>
+<a name="hardware-drivers"></a>
+<h2>Hardware Drivers</h2>
+<p>When running a <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> application, it either runs as a server or connects to an existing server. All system generated events, including keyboard and mouse events, are passed to the server application which then propagates the event to the appropriate client. When rendering, the default behavior is for each client to render its widgets into memory while the server is responsible for putting the contents of the memory onto the screen.</p>
+<p>The various hardware drivers are loaded by the server application when it starts running, using Qt's <a href="plugins-howto.html">plugin system</a>.</p>
+<p>Derive from the <a href="qwsmousehandler.html">QWSMouseHandler</a>, <a href="qwskeyboardhandler.html">QWSKeyboardHandler</a> and <a href="qscreen.html">QScreen</a> classes to create a custom mouse, keyboard and screen driver respectively. To load the drivers into the server application at runtime, you must also create corresponding plugins. See the following documentation for more details:</p>
+<ul>
+<li><a href="qt-embedded-pointer.html">Pointer Handling</a></li>
+<li><a href="qt-embedded-charinput.html">Character Input</a></li>
+<li><a href="qt-embedded-displaymanagement.html">Display Management</a></li>
+</ul>
+<a name="atomic-operations"></a>
+<h2>Atomic Operations</h2>
+<p>Qt uses an optimization called <a href="shared.html">implicit sharing</a> for many of its value classes; implicitly shared classes can safely be copied across threads. This technology is implemented using atomic operations; i.e&#x2e;, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> requires that platform-specific atomic operations are implemented to support Linux.</p>
+<p>When porting <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> to a new architecture, it is important to ensure that the platform-specific atomic operations are implemented in a corresponding header file, and that this file is located in Qt's <tt>src/corelib/arch</tt> directory.</p>
+<p>See the <a href="atomic-operations.html">atomic operations</a> documentation for more details.</p>
+</div>
+<!-- @@@qt-embedded-porting-device.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

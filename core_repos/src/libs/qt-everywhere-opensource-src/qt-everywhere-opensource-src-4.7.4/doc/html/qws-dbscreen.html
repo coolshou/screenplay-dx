@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- dbscreen.qdoc -->
+  <title>Qt 4.7: Double Buffered Graphics Driver Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Double Buffered Graphics Driver Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#step-1-creating-a-custom-graphics-driver">Step 1: Creating a Custom Graphics Driver</a></li>
+<li class="level1"><a href="#step-2-implementing-the-back-buffer">Step 2: Implementing the Back Buffer</a></li>
+<li class="level2"><a href="#device-initializing-and-shutdown">Device initializing and shutdown</a></li>
+<li class="level2"><a href="#drawing-to-the-back-buffer">Drawing to the back buffer</a></li>
+<li class="level2"><a href="#displaying-the-buffer-on-the-screen">Displaying the buffer on the screen</a></li>
+<li class="level1"><a href="#step-3-creating-the-driver-plugin">Step 3: Creating the Driver Plugin</a></li>
+</ul>
+</div>
+<h1 class="title">Double Buffered Graphics Driver Example</h1>
+<span class="subtitle"></span>
+<!-- $$$qws/dbscreen-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="qws-dbscreen-dbscreen-cpp.html">qws/dbscreen/dbscreen.cpp</a></li>
+<li><a href="qws-dbscreen-dbscreen-h.html">qws/dbscreen/dbscreen.h</a></li>
+<li><a href="qws-dbscreen-dbscreendriverplugin-cpp.html">qws/dbscreen/dbscreendriverplugin.cpp</a></li>
+<li><a href="qws-dbscreen-dbscreen-pro.html">qws/dbscreen/dbscreen.pro</a></li>
+</ul>
+<p>The Double Buffered Graphics Driver example shows how to write your own double buffered graphics driver and add it to Qt for Embedded Linux.</p>
+<p>Similar to the <a href="qws-svgalib.html">Accelerated Graphics Driver Example</a>, there are three steps to writing and implementing this graphics driver:</p>
+<ol class="1">
+<li><a href="#step-1-creating-a-custom-graphics-driver">Creating a Custom Graphics Driver</a></li>
+<li><a href="#step-2-implementing-the-back-buffer">Implementing the Back Buffer</a></li>
+<li><a href="#step-3-creating-the-driver-plugin">Creating the Driver Plugin</a></li>
+</ol>
+<p>After compiling the example code, install the graphics driver plugin with the command <tt>make install</tt>. To start an application using the graphics driver, you can either set the environment variable <a href="qt-embedded-envvars.html#qws-display">QWS_DISPLAY</a> and then run the application, or you can just run the application using the <tt>-display</tt> switch.</p>
+<p>Note that this is a minimal example and this driver will not work well with widgets painting themself directly to the screen (e.g&#x2e; widgets with the <a href="qt.html#WidgetAttribute-enum">Qt::WA_PaintOnScreen</a> window attribute set). Also, the example requires the Linux framebuffer to be set up correctly and with the correct device permissions. For further information, refer to <a href="qt-embedded-testingframebuffer.html">Testing the Linux Framebuffer</a>.</p>
+<a name="step-1-creating-a-custom-graphics-driver"></a>
+<h2>Step 1: Creating a Custom Graphics Driver</h2>
+<p>Usually, a custom graphics driver is created by subclassing the <a href="qscreen.html">QScreen</a> class, the base class for implementing screen or graphics drivers in Qt for Embedded Linux. In this example, however, we subclass the QLinuxFbScreen class instead, to ensure that our driver uses the Linux framebuffer.</p>
+<p>For our graphics driver, the <tt>DBScreen</tt> class, we reimplement five functions belonging to <a href="qscreen.html">QScreen</a>:</p>
+<ul>
+<li><a href="qscreen.html#initDevice">initDevice()</a>,</li>
+<li><a href="qscreen.html#shutdownDevice">shutdownDevice()</a>,</li>
+<li><a href="qscreen.html#blit">blit()</a>,</li>
+<li><a href="qscreen.html#solidFill">solidFill()</a>, and</li>
+<li><a href="qscreen.html#exposeRegion">exposeRegion()</a>.</li>
+</ul>
+<pre class="cpp"> <span class="keyword">class</span> DBScreen : <span class="keyword">public</span> <span class="type">QLinuxFbScreen</span>
+ {
+ <span class="keyword">public</span>:
+     DBScreen(<span class="type">int</span> displayId) : <span class="type">QLinuxFbScreen</span>(displayId) {};
+     <span class="operator">~</span>DBScreen() {}
+     <span class="type">bool</span> initDevice();
+     <span class="type">void</span> shutdownDevice();
+     <span class="type">void</span> blit(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>topLeft<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qregion.html">QRegion</a></span> <span class="operator">&amp;</span>region);
+     <span class="type">void</span> solidFill(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qregion.html">QRegion</a></span> <span class="operator">&amp;</span>region);
+     <span class="type">void</span> exposeRegion(<span class="type"><a href="qregion.html">QRegion</a></span> region<span class="operator">,</span> <span class="type">int</span> changing);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter;
+     <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">*</span>image;
+ };</pre>
+<p>In addition to the abovementioned functions, there is a private instance of <a href="qpainter.html">QPainter</a> and <a href="qimage.html">QImage</a> - <tt>painter</tt>, used for drawing operations on the back buffer, and <tt>image</tt>, the back buffer itself.</p>
+<a name="step-2-implementing-the-back-buffer"></a>
+<h2>Step 2: Implementing the Back Buffer</h2>
+<p>The graphics driver must carry out three main functions:</p>
+<ol class="1">
+<li>Allocate the back buffer on startup and deallocate it on shutdown.</li>
+<li>Draw to the back buffer instead of directly to the screen (which is what QLinuxFbScreen does).</li>
+<li>Copy the back buffer to the screen whenever a screen update is done.</li>
+</ol>
+<a name="device-initializing-and-shutdown"></a>
+<h3>Device initializing and shutdown</h3>
+<p>We first reimplement <tt>initDevice()</tt> and <tt>shutdownDevice()</tt>.</p>
+<p>The <tt>initDevice()</tt> function initializes the framebuffer. We reimplement this function to enable accelerated drivers to set up the graphic card. For this example, we first call the super class' implementation to set up the Linux framebuffer. If this call returns <tt>false</tt>, we return <tt>false</tt>. Otherwise, we initialize the screen cursor with <a href="qscreencursor.html#initSoftwareCursor">QScreenCursor::initSoftwareCursor</a>() as well as instantiate <tt>image</tt> and <tt>painter</tt>. Then, we return <tt>true</tt>.</p>
+<pre class="cpp"> <span class="type">bool</span> DBScreen<span class="operator">::</span>initDevice()
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type">QLinuxFbScreen</span><span class="operator">::</span>initDevice())
+         <span class="keyword">return</span> <span class="keyword">false</span>;
+
+     <span class="type"><a href="qscreencursor.html">QScreenCursor</a></span><span class="operator">::</span>initSoftwareCursor();
+     image <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qimage.html">QImage</a></span>(deviceWidth()<span class="operator">,</span> deviceHeight()<span class="operator">,</span> pixelFormat());
+     painter <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpainter.html">QPainter</a></span>(image);
+
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>The <tt>shutdownDevice()</tt> function's default implementation only hides the mouse cursor. Hence, we reimplement it to carry out the necessary cleanup before the Qt for Embedded Linux server exits.</p>
+<pre class="cpp"> <span class="type">void</span> DBScreen<span class="operator">::</span>shutdownDevice()
+ {
+     <span class="type">QLinuxFbScreen</span><span class="operator">::</span>shutdownDevice();
+     <span class="keyword">delete</span> painter;
+     <span class="keyword">delete</span> image;
+ }</pre>
+<p>Again, we call the super class implementation to shutdown the Linux framebuffer prior to deleting <tt>image</tt> and <tt>painter</tt>.</p>
+<a name="drawing-to-the-back-buffer"></a>
+<h3>Drawing to the back buffer</h3>
+<p>We move on to the drawing functions - <tt>solidFill()</tt> and <tt>blit()</tt>. In QLinuxFbScreen, these functions draw directly to the Linux framebuffer; but in our driver we reimplement them to draw to the back buffer instead.</p>
+<pre class="cpp"> <span class="type">void</span> DBScreen<span class="operator">::</span>solidFill(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qregion.html">QRegion</a></span> <span class="operator">&amp;</span>region)
+ {
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qrect.html">QRect</a></span><span class="operator">&gt;</span> rects <span class="operator">=</span> region<span class="operator">.</span>rects();
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i  <span class="operator">&lt;</span> rects<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>)
+         painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(rects<span class="operator">.</span>at(i)<span class="operator">,</span> color);
+ }</pre>
+<p>The <tt>solidFill()</tt> function is called from <tt>exposeRegion()</tt> to fill the given <tt>region</tt> of the screen with the specified <tt>color</tt>. In this example, we use <tt>painter</tt> to fill rectangles in <tt>image</tt>, the back buffer, according to the given region.</p>
+<pre class="cpp"> <span class="type">void</span> DBScreen<span class="operator">::</span>blit(<span class="keyword">const</span> <span class="type"><a href="qimage.html">QImage</a></span> <span class="operator">&amp;</span>image<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>topLeft<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qregion.html">QRegion</a></span> <span class="operator">&amp;</span>region)
+ {
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qrect.html">QRect</a></span><span class="operator">&gt;</span> rects <span class="operator">=</span> region<span class="operator">.</span>rects();
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> rects<span class="operator">.</span>size(); i<span class="operator">+</span><span class="operator">+</span>) {
+         <span class="type"><a href="qrect.html">QRect</a></span> destRect <span class="operator">=</span> rects<span class="operator">.</span>at(i);
+         <span class="type"><a href="qrect.html">QRect</a></span> srcRect(destRect<span class="operator">.</span>x()<span class="operator">-</span>topLeft<span class="operator">.</span>x()<span class="operator">,</span> destRect<span class="operator">.</span>y()<span class="operator">-</span>topLeft<span class="operator">.</span>y()<span class="operator">,</span> destRect<span class="operator">.</span>width()<span class="operator">,</span> destRect<span class="operator">.</span>height());
+         painter<span class="operator">-</span><span class="operator">&gt;</span>drawImage(destRect<span class="operator">.</span>topLeft()<span class="operator">,</span> image<span class="operator">,</span> srcRect);
+     }
+ }</pre>
+<p>The <tt>blit()</tt> function is also called from <tt>exposeRegion()</tt> to copy the given <a href="qregion.html">QRegion</a> object, <tt>region</tt>, in the given <a href="qimage.html">QImage</a> object, <tt>image</tt>, to the <a href="qpoint.html">QPoint</a> object specified by <tt>topLeft</tt>. Once again we use <tt>painter</tt> to draw in the back buffer, <tt>image</tt>.</p>
+<a name="displaying-the-buffer-on-the-screen"></a>
+<h3>Displaying the buffer on the screen</h3>
+<p>The <tt>exposeRegion()</tt> function is called by the Qt for Embedded Linux server whenever a screen update is required. The given <tt>region</tt> is the screen region that needs to be updated and <tt>changing</tt> is is the index into <a href="qwsserver.html#clientWindows">QWSServer::clientWindows</a>() of the window that caused the update.</p>
+<pre class="cpp"> <span class="type">void</span> DBScreen<span class="operator">::</span>exposeRegion(<span class="type"><a href="qregion.html">QRegion</a></span> region<span class="operator">,</span> <span class="type">int</span> changing)
+ {
+     <span class="type">QLinuxFbScreen</span><span class="operator">::</span>exposeRegion(region<span class="operator">,</span> changing);
+     <span class="type">QLinuxFbScreen</span><span class="operator">::</span>blit(<span class="operator">*</span>image<span class="operator">,</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span>)<span class="operator">,</span> region);
+ }</pre>
+<p>In our implementation, we first call the super class implementation to ensure that <tt>solidFill()</tt> and <tt>blit()</tt> will be called correctly. This causes the changed areas to be updated in the back buffer. We then call the super class' implementation of <tt>blit()</tt> to copy the updated region from the back buffer into the Linux framebuffer.</p>
+<a name="step-3-creating-the-driver-plugin"></a>
+<h2>Step 3: Creating the Driver Plugin</h2>
+<p>Qt provides a high level API for writing Qt extentions. One of the plugin base classes provided is <a href="qscreendriverplugin.html">QScreenDriverPlugin</a>, which we use in this example to create our screen driver plugin.</p>
+<pre class="cpp"> <span class="keyword">class</span> DBScreenDriverPlugin : <span class="keyword">public</span> <span class="type"><a href="qscreendriverplugin.html">QScreenDriverPlugin</a></span>
+ {
+ <span class="keyword">public</span>:
+     DBScreenDriverPlugin();
+     <span class="type"><a href="qscreen.html">QScreen</a></span><span class="operator">*</span> create(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span> key<span class="operator">,</span> <span class="type">int</span> displayId);
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> keys () <span class="keyword">const</span>;
+ };</pre>
+<p>There are only two functions to reimplement:</p>
+<ul>
+<li><a href="qscreendriverplugin.html#create">create()</a> - creates a driver matching the given key</li>
+<li><a href="qscreendriverplugin.html#create">keys()</a> - returns a list of valid keys representing the drivers supported by the plugin</li>
+</ul>
+<pre class="cpp"> <span class="type"><a href="qscreen.html">QScreen</a></span><span class="operator">*</span> DBScreenDriverPlugin<span class="operator">::</span>create(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">&amp;</span> key<span class="operator">,</span> <span class="type">int</span> displayId)
+ {
+     <span class="keyword">if</span> (key<span class="operator">.</span>toLower() <span class="operator">!</span><span class="operator">=</span> <span class="string">&quot;dbscreen&quot;</span>)
+         <span class="keyword">return</span> <span class="number">0</span>;
+
+     <span class="keyword">return</span> <span class="keyword">new</span> DBScreen(displayId);
+ }
+
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> DBScreenDriverPlugin<span class="operator">::</span>keys() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> <span class="type"><a href="qstringlist.html">QStringList</a></span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;dbscreen&quot;</span>;
+ }</pre>
+<p>Our plugin will only support one driver, <tt>dbscreen</tt>.</p>
+<p>Lastly, we export the plugin.</p>
+<pre class="cpp"> <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(dbscreen<span class="operator">,</span> DBScreenDriverPlugin)</pre>
+<p>For detailed information about the Qt plugin system see <a href="plugins-howto.html">How to Create Qt Plugins.</a></p>
+</div>
+<!-- @@@qws/dbscreen -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

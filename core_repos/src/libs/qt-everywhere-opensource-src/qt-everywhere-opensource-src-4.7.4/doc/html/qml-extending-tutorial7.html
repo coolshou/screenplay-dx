@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending-tutorial.qdoc -->
+  <title>Qt 4.7: Chapter 7: In Summary</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Chapter 7: In Summary</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Chapter 7: In Summary</h1>
+<span class="subtitle"></span>
+<!-- $$$qml-extending-tutorial7.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>In this tutorial, we've shown the basic steps for creating a QML extension:</p>
+<ul>
+<li>Define new QML types by subclassing <a href="qobject.html">QObject</a> and registering them with <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>()</li>
+<li>Add callable methods using <a href="qobject.html#Q_INVOKABLE">Q_INVOKABLE</a> or Qt slots, and connect to Qt signals with an <tt>onSignal</tt> syntax</li>
+<li>Add property bindings by defining <a href="properties.html#qt-s-property-system">NOTIFY</a> signals</li>
+<li>Define custom property types if the built-in types are not sufficient</li>
+<li>Define list property types using <a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a></li>
+<li>Create a plugin library by defining a Qt plugin and writing a <tt>qmldir</tt> file</li>
+</ul>
+<p>The <a href="qml-extending.html">Extending QML Functionalities using C++</a> reference documentation shows other useful features that can be added to QML extensions. For example, we could use <a href="qml-extending.html#default-property">default properties</a> to allow slices to be added without using the <tt>slices</tt> property:</p>
+<pre class="cpp"> PieChart {
+     PieSlice { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
+     PieSlice { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
+     PieSlice { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> }
+ }</pre>
+<p>Or randomly add and remove slices from time to time using <a href="qml-extending.html#property-value-sources">property value sources</a>:</p>
+<pre class="cpp"> PieChart {
+     PieSliceRandomizer on slices {}
+ }</pre>
+<p>See the <a href="qml-extending.html">Extending QML Functionalities using C++</a> reference documentation for more information.</p>
+</div>
+<!-- @@@qml-extending-tutorial7.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: code.js Example File (script/defaultprototypes/code.js)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">code.js Example File</h1>
+<span class="small-subtitle">script/defaultprototypes/code.js</span>
+<!-- $$$script/defaultprototypes/code.js-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="js"> <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Red&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Blue&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Green&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Cyan&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Yellow&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItem</span>(<span class="string">&quot;Purple&quot;</span>);
+ <span class="name">listWidget</span>.<span class="name">addItems</span>([<span class="string">&quot;Orange&quot;</span>, <span class="string">&quot;Gray&quot;</span>]);
+
+ <span class="name">listWidget</span>.<span class="name">currentItemChanged</span>.<span class="name">connect</span>(
+     <span class="keyword">function</span>(<span class="name">item</span>)
+     {
+         <span class="name">listWidget</span>.<span class="name">setBackgroundColor</span>(<span class="name">item</span>.<span class="name">text</span>);
+     }
+ );
+
+ <span class="name">listWidget</span>.<span class="name">show</span>();</pre>
+</div>
+<!-- @@@script/defaultprototypes/code.js -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

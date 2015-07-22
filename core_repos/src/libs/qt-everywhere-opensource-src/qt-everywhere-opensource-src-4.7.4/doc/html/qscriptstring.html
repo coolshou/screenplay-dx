@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptstring.cpp -->
+  <title>Qt 4.7: QScriptString Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtscript.html">QtScript</a></li>
+<li>QScriptString</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QScriptString Class Reference</h1>
+<!-- $$$QScriptString-brief -->
+<p>The QScriptString class acts as a handle to &quot;interned&quot; strings in a <a href="qscriptengine.html">QScriptEngine</a>. <a href="#details">More...</a></p>
+<!-- @@@QScriptString -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QScriptString&gt;</span></pre><p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qscriptstring-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#QScriptString">QScriptString</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#QScriptString-2">QScriptString</a></b> ( const QScriptString &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#dtor.QScriptString">~QScriptString</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#isValid">isValid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> quint32 </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#toArrayIndex">toArrayIndex</a></b> ( bool * <i>ok</i> = 0 ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#toString">toString</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#operator-QString">operator QString</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#operator-not-eq">operator!=</a></b> ( const QScriptString &amp; <i>other</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptString &amp; </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#operator-eq">operator=</a></b> ( const QScriptString &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptstring.html#operator-eq-eq">operator==</a></b> ( const QScriptString &amp; <i>other</i> ) const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptString-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScriptString class acts as a handle to &quot;interned&quot; strings in a <a href="qscriptengine.html">QScriptEngine</a>.</p>
+<p>QScriptString can be used to achieve faster (repeated) property getting/setting, and comparison of property names, of script objects.</p>
+<p>To get a QScriptString representation of a string, pass the string to <a href="qscriptengine.html#toStringHandle">QScriptEngine::toStringHandle</a>(). The typical usage pattern is to register one or more pre-defined strings when setting up your script environment, then subsequently use the relevant QScriptString as argument to e.g&#x2e; <a href="qscriptvalue.html#property">QScriptValue::property</a>().</p>
+<p>Call the <a href="qscriptstring.html#toString">toString</a>() function to obtain the string that a QScriptString represents.</p>
+<p>Call the <a href="qscriptstring.html#toArrayIndex">toArrayIndex</a>() function to convert a QScriptString to an array index. This is useful when using <a href="qscriptclass.html">QScriptClass</a> to implement array-like objects.</p>
+</div>
+<!-- @@@QScriptString -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptString[overload1]$$$QScriptString -->
+<h3 class="fn"><a name="QScriptString"></a>QScriptString::<span class="name">QScriptString</span> ()</h3>
+<p>Constructs an invalid <a href="qscriptstring.html">QScriptString</a>.</p>
+<!-- @@@QScriptString -->
+<!-- $$$QScriptString$$$QScriptStringconstQScriptString& -->
+<h3 class="fn"><a name="QScriptString-2"></a>QScriptString::<span class="name">QScriptString</span> ( const <span class="type">QScriptString</span> &amp; <i>other</i> )</h3>
+<p>Constructs a new <a href="qscriptstring.html">QScriptString</a> that is a copy of <i>other</i>.</p>
+<!-- @@@QScriptString -->
+<!-- $$$~QScriptString[overload1]$$$~QScriptString -->
+<h3 class="fn"><a name="dtor.QScriptString"></a>QScriptString::<span class="name">~QScriptString</span> ()</h3>
+<p>Destroys this <a href="qscriptstring.html">QScriptString</a>.</p>
+<!-- @@@~QScriptString -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a><span class="type">bool</span> QScriptString::<span class="name">isValid</span> () const</h3>
+<p>Returns true if this <a href="qscriptstring.html">QScriptString</a> is valid; otherwise returns false.</p>
+<!-- @@@isValid -->
+<!-- $$$toArrayIndex[overload1]$$$toArrayIndexbool* -->
+<h3 class="fn"><a name="toArrayIndex"></a><span class="type"><a href="qtglobal.html#quint32-typedef">quint32</a></span> QScriptString::<span class="name">toArrayIndex</span> ( <span class="type">bool</span> * <i>ok</i> = 0 ) const</h3>
+<p>Attempts to convert this <a href="qscriptstring.html">QScriptString</a> to a <a href="qtscript.html">QtScript</a> array index, and returns the result.</p>
+<p>If a conversion error occurs, *<i>ok</i> is set to false; otherwise *<i>ok</i> is set to true.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<!-- @@@toArrayIndex -->
+<!-- $$$toString[overload1]$$$toString -->
+<h3 class="fn"><a name="toString"></a><span class="type"><a href="qstring.html">QString</a></span> QScriptString::<span class="name">toString</span> () const</h3>
+<p>Returns the string that this <a href="qscriptstring.html">QScriptString</a> represents, or a null string if this <a href="qscriptstring.html">QScriptString</a> is not valid.</p>
+<p><b>See also </b><a href="qscriptstring.html#isValid">isValid</a>().</p>
+<!-- @@@toString -->
+<!-- $$$operator QString[overload1]$$$operator QString -->
+<h3 class="fn"><a name="operator-QString"></a>QScriptString::<span class="name">operator QString</span> () const</h3>
+<p>Returns the string that this <a href="qscriptstring.html">QScriptString</a> represents, or a null string if this <a href="qscriptstring.html">QScriptString</a> is not valid.</p>
+<p><b>See also </b><a href="qscriptstring.html#toString">toString</a>().</p>
+<!-- @@@operator QString -->
+<!-- $$$operator!=[overload1]$$$operator!=constQScriptString& -->
+<h3 class="fn"><a name="operator-not-eq"></a><span class="type">bool</span> QScriptString::<span class="name">operator!=</span> ( const <span class="type">QScriptString</span> &amp; <i>other</i> ) const</h3>
+<p>Returns true if this <a href="qscriptstring.html">QScriptString</a> is not equal to <i>other</i>; otherwise returns false.</p>
+<!-- @@@operator!= -->
+<!-- $$$operator=[overload1]$$$operator=constQScriptString& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QScriptString</span> &amp; QScriptString::<span class="name">operator=</span> ( const <span class="type">QScriptString</span> &amp; <i>other</i> )</h3>
+<p>Assigns the <i>other</i> value to this <a href="qscriptstring.html">QScriptString</a>.</p>
+<!-- @@@operator= -->
+<!-- $$$operator==[overload1]$$$operator==constQScriptString& -->
+<h3 class="fn"><a name="operator-eq-eq"></a><span class="type">bool</span> QScriptString::<span class="name">operator==</span> ( const <span class="type">QScriptString</span> &amp; <i>other</i> ) const</h3>
+<p>Returns true if this <a href="qscriptstring.html">QScriptString</a> is equal to <i>other</i>; otherwise returns false.</p>
+<!-- @@@operator== -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

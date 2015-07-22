@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: imagescaling.cpp Example File (qtconcurrent/imagescaling/imagescaling.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">imagescaling.cpp Example File</h1>
+<span class="small-subtitle">qtconcurrent/imagescaling/imagescaling.cpp</span>
+<!-- $$$qtconcurrent/imagescaling/imagescaling.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+ <span class="preprocessor">#include &quot;imagescaling.h&quot;</span>
+ <span class="preprocessor">#include &quot;math.h&quot;</span>
+
+ <span class="preprocessor">#ifndef QT_NO_CONCURRENT</span>
+
+ <span class="keyword">const</span> <span class="type">int</span> imageSize <span class="operator">=</span> <span class="number">100</span>;
+
+ <span class="type"><a href="qimage.html">QImage</a></span> scale(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>imageFileName)
+ {
+     <span class="type"><a href="qimage.html">QImage</a></span> image(imageFileName);
+     <span class="keyword">return</span> image<span class="operator">.</span>scaled(<span class="type"><a href="qsize.html">QSize</a></span>(imageSize<span class="operator">,</span> imageSize)<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>IgnoreAspectRatio<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SmoothTransformation);
+ }
+
+ Images<span class="operator">::</span>Images(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+ : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+ {
+     setWindowTitle(tr(<span class="string">&quot;Image loading and scaling example&quot;</span>));
+     resize(<span class="number">800</span><span class="operator">,</span> <span class="number">600</span>);
+
+     imageScaling <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qfuturewatcher.html">QFutureWatcher</a></span><span class="operator">&lt;</span><span class="type"><a href="qimage.html">QImage</a></span><span class="operator">&gt;</span>(<span class="keyword">this</span>);
+     connect(imageScaling<span class="operator">,</span> SIGNAL(resultReadyAt(<span class="type">int</span>))<span class="operator">,</span> SLOT(showImage(<span class="type">int</span>)));
+     connect(imageScaling<span class="operator">,</span> SIGNAL(finished())<span class="operator">,</span> SLOT(finished()));
+
+     openButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Open Images&quot;</span>));
+     connect(openButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> SLOT(open()));
+
+     cancelButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Cancel&quot;</span>));
+     cancelButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     connect(cancelButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> imageScaling<span class="operator">,</span> SLOT(cancel()));
+
+     pauseButton <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(tr(<span class="string">&quot;Pause/Resume&quot;</span>));
+     pauseButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     connect(pauseButton<span class="operator">,</span> SIGNAL(clicked())<span class="operator">,</span> imageScaling<span class="operator">,</span> SLOT(togglePaused()));
+
+     <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span> <span class="operator">*</span>buttonLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qhboxlayout.html">QHBoxLayout</a></span>();
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(openButton);
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(cancelButton);
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(pauseButton);
+     buttonLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
+
+     imagesLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>();
+
+     mainLayout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>();
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(buttonLayout);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addLayout(imagesLayout);
+     mainLayout<span class="operator">-</span><span class="operator">&gt;</span>addStretch();
+     setLayout(mainLayout);
+ }
+
+ Images<span class="operator">::</span><span class="operator">~</span>Images()
+ {
+     imageScaling<span class="operator">-</span><span class="operator">&gt;</span>cancel();
+     imageScaling<span class="operator">-</span><span class="operator">&gt;</span>waitForFinished();
+ }
+
+ <span class="type">void</span> Images<span class="operator">::</span>open()
+ {
+     <span class="comment">// Cancel and wait if we are already loading images.</span>
+     <span class="keyword">if</span> (imageScaling<span class="operator">-</span><span class="operator">&gt;</span>isRunning()) {
+         imageScaling<span class="operator">-</span><span class="operator">&gt;</span>cancel();
+         imageScaling<span class="operator">-</span><span class="operator">&gt;</span>waitForFinished();
+     }
+
+     <span class="comment">// Show a file open dialog at QDesktopServices::PicturesLocation.</span>
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> files <span class="operator">=</span> <span class="type"><a href="qfiledialog.html">QFileDialog</a></span><span class="operator">::</span>getOpenFileNames(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Select Images&quot;</span>)<span class="operator">,</span>
+                             <span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>storageLocation(<span class="type"><a href="qdesktopservices.html">QDesktopServices</a></span><span class="operator">::</span>PicturesLocation)<span class="operator">,</span>
+                             <span class="string">&quot;*.jpg *.png&quot;</span>);
+
+     <span class="keyword">if</span> (files<span class="operator">.</span>count() <span class="operator">=</span><span class="operator">=</span> <span class="number">0</span>)
+         <span class="keyword">return</span>;
+
+     <span class="comment">// Do a simple layout.</span>
+     <a href="qtalgorithms.html#qDeleteAll">qDeleteAll</a>(labels);
+     labels<span class="operator">.</span>clear();
+
+     <span class="type">int</span> dim <span class="operator">=</span> sqrt(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span>(files<span class="operator">.</span>count())) <span class="operator">+</span> <span class="number">1</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> dim; <span class="operator">+</span><span class="operator">+</span>i) {
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> dim; <span class="operator">+</span><span class="operator">+</span>j) {
+             <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>imageLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>;
+             imageLabel<span class="operator">-</span><span class="operator">&gt;</span>setFixedSize(imageSize<span class="operator">,</span>imageSize);
+             imagesLayout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(imageLabel<span class="operator">,</span>i<span class="operator">,</span>j);
+             labels<span class="operator">.</span>append(imageLabel);
+         }
+     }
+
+     <span class="comment">// Use mapped to run the thread safe scale function on the files.</span>
+     imageScaling<span class="operator">-</span><span class="operator">&gt;</span>setFuture(<span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>mapped(files<span class="operator">,</span> scale));
+
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     cancelButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     pauseButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> Images<span class="operator">::</span>showImage(<span class="type">int</span> num)
+ {
+     labels<span class="operator">[</span>num<span class="operator">]</span><span class="operator">-</span><span class="operator">&gt;</span>setPixmap(<span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">::</span>fromImage(imageScaling<span class="operator">-</span><span class="operator">&gt;</span>resultAt(num)));
+ }
+
+ <span class="type">void</span> Images<span class="operator">::</span>finished()
+ {
+     openButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     cancelButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     pauseButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ }
+
+ <span class="preprocessor">#endif // QT_NO_CONCURRENT</span></pre>
+</div>
+<!-- @@@qtconcurrent/imagescaling/imagescaling.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

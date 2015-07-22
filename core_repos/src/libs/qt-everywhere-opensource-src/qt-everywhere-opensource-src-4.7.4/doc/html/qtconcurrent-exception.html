@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtconcurrentexception.cpp -->
+  <title>Qt 4.7: Exception Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>Exception</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Exception Class Reference</h1>
+<span class="small-subtitle">(QtConcurrent::Exception)<br/></span>
+<!-- $$$Exception-brief -->
+<p>The Exception class provides a base class for exceptions that can transferred across threads. <a href="#details">More...</a></p>
+<!-- @@@Exception -->
+<p><b>Inherited by: </b><a href="qtconcurrent-unhandledexception.html">QtConcurrent::UnhandledException</a>.</p>
+<p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qtconcurrent-exception-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual Exception * </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrent-exception.html#clone">clone</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qtconcurrent-exception.html#raise">raise</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$Exception-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Exception class provides a base class for exceptions that can transferred across threads.</p>
+<p>Qt Concurrent supports throwing and catching exceptions across thread boundaries, provided that the exception inherit from QtConcurrent::Exception and implement two helper functions:</p>
+<pre class="cpp"> <span class="keyword">class</span> MyException : <span class="keyword">public</span> <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>Exception
+ {
+ <span class="keyword">public</span>:
+     <span class="type">void</span> raise() <span class="keyword">const</span> { <span class="keyword">throw</span> <span class="operator">*</span><span class="keyword">this</span>; }
+     Exception <span class="operator">*</span>clone() <span class="keyword">const</span> { <span class="keyword">return</span> <span class="keyword">new</span> MyException(<span class="operator">*</span><span class="keyword">this</span>); }
+ };</pre>
+<p>QtConcurrent::Exception subclasses must be thrown by value and caught by reference:</p>
+<pre class="cpp"> <span class="keyword">try</span>  {
+     <span class="type"><a href="qtconcurrent.html">QtConcurrent</a></span><span class="operator">::</span>blockingMap(list<span class="operator">,</span> throwFunction); <span class="comment">// throwFunction throws MyException</span>
+ } <span class="keyword">catch</span> (MyException <span class="operator">&amp;</span>e) {
+     <span class="comment">// handle exception</span>
+ }</pre>
+<p>If you throw an exception that is not a subclass of QtConcurrent::Exception, the Qt Concurrent functions will throw a <a href="qtconcurrent-unhandledexception.html">QtConcurrent::UnhandledException</a> in the receiver thread.</p>
+<p>When using <a href="qfuture.html">QFuture</a>, transferred exceptions will be thrown when calling the following functions:</p>
+<ul>
+<li><a href="qfuture.html#waitForFinished">QFuture::waitForFinished</a>()</li>
+<li><a href="qfuture.html#result">QFuture::result</a>()</li>
+<li><a href="qfuture.html#resultAt">QFuture::resultAt</a>()</li>
+<li><a href="qfuture.html#results">QFuture::results</a>()</li>
+</ul>
+</div>
+<!-- @@@Exception -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$clone[overload1]$$$clone -->
+<h3 class="fn"><a name="clone"></a><span class="type">Exception</span> * Exception::<span class="name">clone</span> () const<tt> [virtual]</tt></h3>
+<p>In your <a href="qtconcurrent-exception.html">QtConcurrent::Exception</a> subclass, reimplement clone() like this:</p>
+<pre class="cpp"> MyException <span class="operator">*</span>MyException<span class="operator">::</span>clone() <span class="keyword">const</span> { <span class="keyword">return</span> <span class="keyword">new</span> MyException(<span class="operator">*</span><span class="keyword">this</span>); }</pre>
+<!-- @@@clone -->
+<!-- $$$raise[overload1]$$$raise -->
+<h3 class="fn"><a name="raise"></a><span class="type">void</span> Exception::<span class="name">raise</span> () const<tt> [virtual]</tt></h3>
+<p>In your <a href="qtconcurrent-exception.html">QtConcurrent::Exception</a> subclass, reimplement raise() like this:</p>
+<pre class="cpp"> <span class="type">void</span> MyException<span class="operator">::</span>raise() <span class="keyword">const</span> { <span class="keyword">throw</span> <span class="operator">*</span><span class="keyword">this</span>; }</pre>
+<!-- @@@raise -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

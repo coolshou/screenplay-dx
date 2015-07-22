@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractfileengine.cpp -->
+  <title>Qt 4.7: List of All Members for QAbstractFileEngine</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QAbstractFileEngine</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QAbstractFileEngine</h1>
+<p>This is the complete list of members for <a href="qabstractfileengine.html">QAbstractFileEngine</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">class <span class="name"><b><a href="qabstractfileengine-extensionoption.html">ExtensionOption</a></b></span></li>
+<li class="fn">class <span class="name"><b><a href="qabstractfileengine-extensionreturn.html">ExtensionReturn</a></b></span></li>
+<li class="fn">class <span class="name"><b><a href="qabstractfileengine-mapextensionoption.html">MapExtensionOption</a></b></span></li>
+<li class="fn">class <span class="name"><b><a href="qabstractfileengine-mapextensionreturn.html">MapExtensionReturn</a></b></span></li>
+<li class="fn">class <span class="name"><b><a href="qabstractfileengine-unmapextensionoption.html">UnMapExtensionOption</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qabstractfileengine.html#Extension-enum">Extension</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qabstractfileengine.html#FileFlag-enum">FileFlag</a></b></span></li>
+<li class="fn">flags <span class="name"><b><a href="qabstractfileengine.html#FileFlag-enum">FileFlags</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qabstractfileengine.html#FileName-enum">FileName</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qabstractfileengine.html#FileOwner-enum">FileOwner</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qabstractfileengine.html#FileTime-enum">FileTime</a></b></span></li>
+<li class="fn">typedef <span class="name"><b><a href="qabstractfileengine.html#Iterator-typedef">Iterator</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#QAbstractFileEngine">QAbstractFileEngine</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#dtor.QAbstractFileEngine">~QAbstractFileEngine</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#atEnd">atEnd</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#beginEntryList">beginEntryList</a></b></span> ( QDir::Filters, const QStringList &amp; ) : Iterator *</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#caseSensitive">caseSensitive</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#close">close</a></b></span> () : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#copy">copy</a></b></span> ( const QString &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#create">create</a></b></span> ( const QString &amp; ) : QAbstractFileEngine *</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#d_ptr-var">d_ptr</a></b></span> : QScopedPointer&lt;QAbstractFileEnginePrivate&gt;</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#entryList">entryList</a></b></span> ( QDir::Filters, const QStringList &amp; ) const : QStringList</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#error">error</a></b></span> () const : QFile::FileError</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#errorString">errorString</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#extension">extension</a></b></span> ( Extension, const ExtensionOption *, ExtensionReturn * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#fileFlags">fileFlags</a></b></span> ( FileFlags ) const : FileFlags</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#fileName">fileName</a></b></span> ( FileName ) const : QString</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#fileTime">fileTime</a></b></span> ( FileTime ) const : QDateTime</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#flush">flush</a></b></span> () : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#handle">handle</a></b></span> () const : int</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#isRelativePath">isRelativePath</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#isSequential">isSequential</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#link">link</a></b></span> ( const QString &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#map">map</a></b></span> ( qint64, qint64, QFile::MemoryMapFlags ) : uchar *</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#mkdir">mkdir</a></b></span> ( const QString &amp;, bool ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#open">open</a></b></span> ( QIODevice::OpenMode ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#owner">owner</a></b></span> ( FileOwner ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#ownerId">ownerId</a></b></span> ( FileOwner ) const : uint</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#pos">pos</a></b></span> () const : qint64</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#read">read</a></b></span> ( char *, qint64 ) : qint64</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#readLine">readLine</a></b></span> ( char *, qint64 ) : qint64</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#remove">remove</a></b></span> () : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#rename">rename</a></b></span> ( const QString &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#rmdir">rmdir</a></b></span> ( const QString &amp;, bool ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#seek">seek</a></b></span> ( qint64 ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#setError">setError</a></b></span> ( QFile::FileError, const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#setFileName">setFileName</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#setPermissions">setPermissions</a></b></span> ( uint ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#setSize">setSize</a></b></span> ( qint64 ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#size">size</a></b></span> () const : qint64</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#supportsExtension">supportsExtension</a></b></span> ( Extension ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#unmap">unmap</a></b></span> ( uchar * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstractfileengine.html#write">write</a></b></span> ( const char *, qint64 ) : qint64</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

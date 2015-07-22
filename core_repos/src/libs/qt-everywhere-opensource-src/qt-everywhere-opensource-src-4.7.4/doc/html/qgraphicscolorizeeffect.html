@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgraphicseffect.cpp -->
+  <title>Qt 4.7: QGraphicsColorizeEffect Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QGraphicsColorizeEffect</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QGraphicsColorizeEffect Class Reference</h1>
+<!-- $$$QGraphicsColorizeEffect-brief -->
+<p>The QGraphicsColorizeEffect class provides a colorize effect. <a href="#details">More...</a></p>
+<!-- @@@QGraphicsColorizeEffect -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QGraphicsColorizeEffect&gt;</span></pre><p><b>Inherits: </b><a href="qgraphicseffect.html">QGraphicsEffect</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qgraphicscolorizeeffect-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qgraphicscolorizeeffect.html#color-prop">color</a></b> : QColor</li>
+<li class="fn"><b><a href="qgraphicscolorizeeffect.html#strength-prop">strength</a></b> : qreal</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="qgraphicseffect.html#properties">QGraphicsEffect</a></li>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#QGraphicsColorizeEffect">QGraphicsColorizeEffect</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#dtor.QGraphicsColorizeEffect">~QGraphicsColorizeEffect</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QColor </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#color-prop">color</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#strength-prop">strength</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">3 public functions inherited from <a href="qgraphicseffect.html#public-functions">QGraphicsEffect</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#color-prop">setColor</a></b> ( const QColor &amp; <i>c</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#strength-prop">setStrength</a></b> ( qreal <i>strength</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">2 public slots inherited from <a href="qgraphicseffect.html#public-slots">QGraphicsEffect</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#colorChanged">colorChanged</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#strengthChanged">strengthChanged</a></b> ( qreal <i>strength</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 signal inherited from <a href="qgraphicseffect.html#signals">QGraphicsEffect</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<a name="reimplemented-protected-functions"></a>
+<h2>Reimplemented Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicscolorizeeffect.html#draw">draw</a></b> ( QPainter * <i>painter</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">7 protected functions inherited from <a href="qgraphicseffect.html#protected-functions">QGraphicsEffect</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qgraphicseffect.html#protected-functions">QGraphicsEffect</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QGraphicsColorizeEffect-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QGraphicsColorizeEffect class provides a colorize effect.</p>
+<p>A colorize effect renders the source with a tint of its <a href="qgraphicscolorizeeffect.html#color-prop">color</a>(). The color can be modified using the <a href="qgraphicscolorizeeffect.html#color-prop">setColor</a>() function.</p>
+<p>By default, the color is light blue (<a href="qcolor.html">QColor</a>(0, 0, 192)).</p>
+<p class="centerAlign"><img src="images/graphicseffect-colorize.png" /></p></div>
+<p><b>See also </b><a href="qgraphicsdropshadoweffect.html">QGraphicsDropShadowEffect</a>, <a href="qgraphicsblureffect.html">QGraphicsBlurEffect</a>, and <a href="qgraphicsopacityeffect.html">QGraphicsOpacityEffect</a>.</p>
+<!-- @@@QGraphicsColorizeEffect -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$color-prop$$$color$$$setColorconstQColor&$$$colorChangedconstQColor& -->
+<h3 class="fn"><a name="color-prop"></a><span class="name">color</span> : <span class="type"><a href="qcolor.html">QColor</a></span></h3>
+<p>This property holds the color of the effect.</p>
+<p>By default, the color is light blue (<a href="qcolor.html">QColor</a>(0, 0, 192)).</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QColor </td><td class="memItemRight bottomAlign"><span class="name"><b>color</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setColor</b></span> ( const QColor &amp; <i>c</i> )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicscolorizeeffect.html#colorChanged">colorChanged</a></b></span> ( const QColor &amp; <i>color</i> )</td></tr>
+</table>
+<!-- @@@color -->
+<!-- $$$strength-prop$$$strength$$$setStrengthqreal$$$strengthChangedqreal -->
+<h3 class="fn"><a name="strength-prop"></a><span class="name">strength</span> : <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span></h3>
+<p>This property holds the strength of the effect.</p>
+<p>By default, the strength is 1.0&#x2e; A strength 0.0 equals to no effect, while 1.0 means full colorization.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><span class="name"><b>strength</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setStrength</b></span> ( qreal <i>strength</i> )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicscolorizeeffect.html#strengthChanged">strengthChanged</a></b></span> ( qreal <i>strength</i> )</td></tr>
+</table>
+<!-- @@@strength -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QGraphicsColorizeEffect[overload1]$$$QGraphicsColorizeEffectQObject* -->
+<h3 class="fn"><a name="QGraphicsColorizeEffect"></a>QGraphicsColorizeEffect::<span class="name">QGraphicsColorizeEffect</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a new <a href="qgraphicscolorizeeffect.html">QGraphicsColorizeEffect</a> instance. The <i>parent</i> parameter is passed to <a href="qgraphicseffect.html">QGraphicsEffect</a>'s constructor.</p>
+<!-- @@@QGraphicsColorizeEffect -->
+<!-- $$$~QGraphicsColorizeEffect[overload1]$$$~QGraphicsColorizeEffect -->
+<h3 class="fn"><a name="dtor.QGraphicsColorizeEffect"></a>QGraphicsColorizeEffect::<span class="name">~QGraphicsColorizeEffect</span> ()</h3>
+<p>Destroys the effect.</p>
+<!-- @@@~QGraphicsColorizeEffect -->
+<!-- $$$colorChanged[overload1]$$$colorChangedconstQColor& -->
+<h3 class="fn"><a name="colorChanged"></a><span class="type">void</span> QGraphicsColorizeEffect::<span class="name">colorChanged</span> ( const <span class="type"><a href="qcolor.html">QColor</a></span> &amp; <i>color</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the effect's color changes. The <i>color</i> parameter holds the effect's new color.</p>
+<!-- @@@colorChanged -->
+<!-- $$$draw[overload1]$$$drawQPainter* -->
+<h3 class="fn"><a name="draw"></a><span class="type">void</span> QGraphicsColorizeEffect::<span class="name">draw</span> ( <span class="type"><a href="qpainter.html">QPainter</a></span> * <i>painter</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>().</p>
+<!-- @@@draw -->
+<!-- $$$strengthChanged[overload1]$$$strengthChangedqreal -->
+<h3 class="fn"><a name="strengthChanged"></a><span class="type">void</span> QGraphicsColorizeEffect::<span class="name">strengthChanged</span> ( <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>strength</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever <a href="qgraphicscolorizeeffect.html#strength-prop">setStrength</a>() changes the colorize strength property. <i>strength</i> contains the new strength value of the colorize effect.</p>
+<!-- @@@strengthChanged -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

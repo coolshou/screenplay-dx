@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- shadereffectsource.cpp -->
+  <title>Qt 4.7: QML ShaderEffectSource Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML ShaderEffectSource Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#methods">Methods</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML ShaderEffectSource Element</h1>
+<span class="subtitle"></span>
+<!-- $$$ShaderEffectSource-brief -->
+<p>The ShaderEffectSource object encapsulates the source content for the <a href="qml-shadereffectitem.html">ShaderEffectItem</a>. <a href="#details">More...</a></p>
+<!-- @@@ShaderEffectSource -->
+<ul>
+<li><a href="qml-shadereffectsource-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#hideSource-prop">hideSource</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#live-prop">live</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#sourceItem-prop">sourceItem</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#sourceRect-prop">sourceRect</a></b></b> : QRectF</li>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#textureSize-prop">textureSize</a></b></b> : QSize</li>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#wrapMode-prop">wrapMode</a></b></b> : enumeration</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-shadereffectsource.html#grab-method">grab</a></b></b></li>
+</ul>
+<!-- $$$ShaderEffectSource-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>ShaderEffectSource is available in the <b>Qt.labs.shaders 1.0</b> module. <i>Elements in the Qt.labs module are not guaranteed to remain compatible in future versions.</i></p>
+<p>This element provides preliminary support for OpenGL shaders in QML, and may be heavily changed or removed in later versions.</p>
+<p>Requirement for the ability to use of shaders is that the application is either using opengl graphicssystem or has set <a href="qglwidget.html">QGLWidget</a> as the viewport to <a href="qdeclarativeview.html">QDeclarativeView</a> (recommended way).</p>
+<p>ShaderEffectSource object encapsulates the source content so that it can be utilized in <a href="qml-shadereffectitem.html">ShaderEffectItem</a>. Source content can be a live QML object tree, or a snapshot of QML object tree.</p>
+<!-- @@@ShaderEffectSource -->
+<h2>Property Documentation</h2>
+<!-- $$$hideSource -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="hideSource-prop"></a><span class="name">hideSource</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the flag to define whether the original source item is hidden when the effect item is drawn.</p>
+<p>The default value is false.</p>
+</div></div><!-- @@@hideSource -->
+<br/>
+<!-- $$$live -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="live-prop"></a><span class="name">live</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the optimization flag to define whether the source item content is changing or static.</p>
+<p>If value true is assigned to this property, source item content is re-rendered into a texture for every frame. Setting the value to false improves the performance as it skips rendering the source item (and its chidleren) and instead immediately passes the previously rendered and cached texture to the shaders.</p>
+<p>The default value is true.</p>
+</div></div><!-- @@@live -->
+<br/>
+<!-- $$$sourceItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="sourceItem-prop"></a><span class="name">sourceItem</span> : <span class="type"><a href="qml-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the Item which is used as the source for the shader effect. If the item has children, those are included as well.</p>
+<p><b>Note:</b> When source item content is passed to the <a href="qml-shadereffectitem.html">ShaderEffectItem</a>(s), it is always clipped to the boundingrect of the sourceItem regardless of its clipping property.</p>
+</div></div><!-- @@@sourceItem -->
+<br/>
+<!-- $$$sourceRect -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="sourceRect-prop"></a><span class="name">sourceRect</span> : <span class="type"><a href="qrectf.html">QRectF</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property can be used to specify margins for the source content.</p>
+<p>If other value than Qt.rect(0,0,0,0) is assigned to this property, it is interpreted as specifying a relative source rectangle for the source content.</p>
+<p>For example, setting Qt.rect(-10.0, -10.0, 120.0, 120.0) for a source that has width and height of 100 pixels would produce 10 pixels margins to each side of the source.</p>
+<p>Margins are useful when the original content is wanted to be spread outside the original source area, like when creating a dropshadow with the shader or in other similar effects.</p>
+<p>The default value is Qt.rect(0,0,0,0).</p>
+</div></div><!-- @@@sourceRect -->
+<br/>
+<!-- $$$textureSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="textureSize-prop"></a><span class="name">textureSize</span> : <span class="type"><a href="qsize.html">QSize</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the size for the texture containing the source content.</p>
+<p>If value <a href="qsize.html">QSize</a>(0,0) is assigned to this property, texture is resized according to the source size. Otherwise source content is scaled to the given size.</p>
+<p>The default value is <a href="qsize.html">QSize</a>(0,0).</p>
+</div></div><!-- @@@textureSize -->
+<br/>
+<!-- $$$wrapMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="wrapMode-prop"></a><span class="name">wrapMode</span> : <span class="type"><a href="qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property defines the wrap parameter for the source after it has been mapped as a texture.</p>
+<ul>
+<li><a href="qml-shadereffectsource.html">ShaderEffectSource</a>.ClampToEdge - Causes texturecoordinates to be clamped to the range [ 1/2*N , 1 - 1/2*N ], where N is the texture width.</li>
+<li><a href="qml-shadereffectsource.html">ShaderEffectSource</a>.RepeatHorizontally - Causes the integer part of the horizontal texturecoordinate to be ignored; the GL uses only the fractional part, thereby creating a horizontal repeating pattern.</li>
+<li><a href="qml-shadereffectsource.html">ShaderEffectSource</a>.RepeatVertically - Causes the integer part of the vertical texturecoordinate to be ignored; the GL uses only the fractional part, thereby creating a vertical repeating pattern.</li>
+<li><a href="qml-shadereffectsource.html">ShaderEffectSource</a>.Repeat - Causes the integer part of both the horizontal and vertical texturecoordinates to be ignored; the GL uses only the fractional part, thereby creating a repeating pattern.</li>
+</ul>
+<p>The default value is ClampToEdge.</p>
+</div></div><!-- @@@wrapMode -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$grab -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="grab-method"></a>ShaderEffectSource::<span class="name">grab</span> ()</p></td></tr></table></div><div class="qmldoc"><p>Repaints the source item content into the texture.</p>
+<p>This method is useful when <a href="qml-shadereffectsource.html#live-prop">ShaderEffectSource::live</a> has been set to false and the changes in the source item content is desired to be made visible for the shaders.</p>
+</div></div><!-- @@@grab -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

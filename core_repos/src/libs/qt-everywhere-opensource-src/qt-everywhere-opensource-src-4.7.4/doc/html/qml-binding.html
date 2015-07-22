@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativebind.cpp -->
+  <title>Qt 4.7: QML Binding Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML Binding Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML Binding Element</h1>
+<span class="subtitle"></span>
+<!-- $$$Binding-brief -->
+<p>The Binding element allows arbitrary property bindings to be created. <a href="#details">More...</a></p>
+<!-- @@@Binding -->
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-binding-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-binding.html#property-prop">property</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-binding.html#target-prop">target</a></b></b> : Object</li>
+<li class="fn"><b><b><a href="qml-binding.html#value-prop">value</a></b></b> : any</li>
+<li class="fn"><b><b><a href="qml-binding.html#when-prop">when</a></b></b> : bool</li>
+</ul>
+<!-- $$$Binding-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Sometimes it is necessary to bind to a property of an object that wasn't directly instantiated by QML - generally a property of a class exported to QML by C++. In these cases, regular property binding doesn't work. Binding allows you to bind any value to any property.</p>
+<p>For example, imagine a C++ application that maps an &quot;app.enteredText&quot; property into QML. You could use Binding to update the enteredText property like this.</p>
+<pre class="cpp"> TextEdit { id: myTextField; text: <span class="string">&quot;Please type here...&quot;</span> }
+ Binding { target: app; property: <span class="string">&quot;enteredText&quot;</span>; value: myTextField<span class="operator">.</span>text }</pre>
+<p>Whenever the text in the <a href="qml-textedit.html">TextEdit</a> is updated, the C++ property will be updated also.</p>
+<p>If the binding target or binding property is changed, the bound value is immediately pushed onto the new target.</p>
+<p><b>See also </b><a href="qtdeclarative.html">QtDeclarative</a>.</p>
+<!-- @@@Binding -->
+<h2>Property Documentation</h2>
+<!-- $$$property -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="property-prop"></a><span class="name">property</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property to be updated.</p>
+</div></div><!-- @@@property -->
+<br/>
+<!-- $$$target -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="target-prop"></a><span class="name">target</span> : <span class="type">Object</span></p></td></tr></table></div><div class="qmldoc"><p>The object to be updated.</p>
+</div></div><!-- @@@target -->
+<br/>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a><span class="name">value</span> : <span class="type">any</span></p></td></tr></table></div><div class="qmldoc"><p>The value to be set on the target object and property. This can be a constant (which isn't very useful), or a bound expression.</p>
+</div></div><!-- @@@value -->
+<br/>
+<!-- $$$when -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="when-prop"></a><span class="name">when</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds when the binding is active. This should be set to an expression that evaluates to true when you want the binding to be active.</p>
+<pre class="cpp"> Binding {
+     target: contactName; property: <span class="char">'text'</span>
+     value: name; when: list<span class="operator">.</span>ListView<span class="operator">.</span>isCurrentItem
+ }</pre>
+</div></div><!-- @@@when -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

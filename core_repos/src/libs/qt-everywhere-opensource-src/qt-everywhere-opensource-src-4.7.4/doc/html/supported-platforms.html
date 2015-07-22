@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- supported-platforms.qdoc -->
+  <title>Qt 4.7: Supported Platforms</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Supported Platforms</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#qt-is-available-for-the-following-platforms">Qt is Available for the Following Platforms</a></li>
+<li class="level1"><a href="#supported-platform-details">Supported Platform Details</a></li>
+<li class="level1"><a href="#tier-1-platforms">Tier 1 Platforms</a></li>
+<li class="level1"><a href="#tier-2-platforms">Tier 2 Platforms</a></li>
+<li class="level1"><a href="#tier-3-platforms-not-supported-by-nokia">Tier 3 Platforms (Not Supported by Nokia)</a></li>
+<li class="level1"><a href="#general-legal-disclaimer">General Legal Disclaimer</a></li>
+<li class="level1"><a href="#planned-changes-for-qt-4-8">Planned Changes for Qt 4.8</a></li>
+</ul>
+</div>
+<h1 class="title">Supported Platforms</h1>
+<span class="subtitle"></span>
+<!-- $$$supported-platforms.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qt is a cross-platform application and UI framework. Using Qt, you can write GUI applications once and deploy them across desktop, mobile and embedded operating systems without rewriting the source code.</p>
+<a name="qt-is-available-for-the-following-platforms"></a>
+<h2>Qt is Available for the Following Platforms</h2>
+<table class="generic">
+<thead><tr class="qt-style"><th  colspan="2">Qt Cross Platform Support</th></tr>
+<tr class="qt-style"><th >Desktop</th><th >Mobile/Embedded</th></tr></thead>
+<tr valign="top" class="odd"><td ><a href="windows-support.html">Windows</a></td><td ><a href="windowsce-mobile-support.html">Windows CE and Windows Mobile</a></td></tr>
+<tr valign="top" class="even"><td ><a href="linuxx11-support.html">Linux/X11</a></td><td ><a href="embeddedlinux-support.html">Embedded Linux</a></td></tr>
+<tr valign="top" class="odd"><td ><a href="mac-support.html">Mac OS X</a></td><td ><a href="symbian-support.html">Symbian</a></td></tr>
+<tr valign="top" class="even"><td ><a href="meego-support.html">MeeGo</a></td><td ><a href="maemo-support.html">Maemo</a></td></tr>
+</table>
+<a name="supported-platform-details"></a>
+<h2>Supported Platform Details</h2>
+<p>The Qt team strives to provide support for the platforms most frequently used by Qt users. We have designed our internal testing procedure to divide platforms into three test categories (Tier 1, Tier 2 and Tier 3) in order to prioritize internal testing and development resources so that the most frequently used platforms are subjected to our most rigorous testing processes.</p>
+<p>Qt is supported on a variety of 32-bit and 64-bit platforms, and can usually be built on each platform with GCC, a vendor-supplied compiler, or a third party compiler. Although Qt may be built on a range of platform-compiler combinations, only a subset of these are actively supported by Nokia.</p>
+<p>Information about the specific platforms Qt runs on, and the compilers used on each platform, can be found on the <a href="platform-notes.html">Platform and Compiler Notes</a> page.</p>
+<a name="tier-1-platforms"></a>
+<h2>Tier 1 Platforms</h2>
+<p>All Tier 1 platforms are subjected to our unit test suite and other internal testing tools on a frequent basis (prior to new version releases, source tree branching, and at other significant period points in the development process). Errors or bugs discovered in these platforms are prioritized for correction by the development team. Significant errors discovered in Tier 1 platforms can impact release dates and Qt Development Frameworks strives to resolve all known high priority errors in Tier 1 platforms prior to new version releases.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Platform</th><th >Compilers</th></tr></thead>
+<tr valign="top" class="odd"><td >Linux (32 and 64-bit)</td><td >gcc 4.2</td></tr>
+<tr valign="top" class="even"><td >Microsoft Windows XP</td><td >gcc 4.4 (MinGW) (32-bit), MSVC 2005 (32 and 64-bit)</td></tr>
+<tr valign="top" class="odd"><td >Microsoft Windows Vista</td><td >MSVC 2005, 2008</td></tr>
+<tr valign="top" class="even"><td >Microsoft Windows Vista 64bit</td><td >MSVC 2008</td></tr>
+<tr valign="top" class="odd"><td >Microsoft Windows 7</td><td >MSVC 2008</td></tr>
+<tr valign="top" class="even"><td >Apple Mac OS X 10.6 &quot;Snow Leopard&quot;</td><td >As provided by Apple</td></tr>
+<tr valign="top" class="odd"><td >Apple Mac OS X 10.5 &quot;Leopard&quot; x86_64 (Cocoa 32 and 64bit)</td><td >As provided by Apple</td></tr>
+<tr valign="top" class="even"><td >Embedded Linux QWS (ARM)</td><td >gcc (<a href="http://www.codesourcery.com/">Codesourcery version)</a></td></tr>
+<tr valign="top" class="odd"><td >Windows CE 5.0 (ARMv4i, x86, MIPS)</td><td >MSVC 2005 WinCE 5.0 Standard (x86, pocket, smart, mipsii)</td></tr>
+<tr valign="top" class="even"><td >Maemo 5(Linux, ARM, X11)</td><td >gcc (<a href="http://www.scratchbox.org/">Scratchbox)</a></td></tr>
+<tr valign="top" class="odd"><td >MeeGo (Linux, ARM, X11)</td><td >gcc (<a href="http://www.scratchbox.org/">Scratchbox)</a></td></tr>
+<tr valign="top" class="even"><td >Symbian (Symbian/S60 5.0)</td><td >RVCT 2.2 [build 686 or later], WINSCW 3.2&#x2e;5 [build 482 or later], GCCE (for applications)</td></tr>
+</table>
+<a name="tier-2-platforms"></a>
+<h2>Tier 2 Platforms</h2>
+<p>Tier 2 platforms are subject to ad hoc and internal testing. However, Qt users should note that errors may be present in released product versions for Tier 2 platforms and, subject to resource availability, known errors in Tier 2 platforms may or may not be corrected prior to new version releases.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Platform</th><th >Compilers</th></tr></thead>
+<tr valign="top" class="odd"><td >Windows 7</td><td >MSVC 2010</td></tr>
+<tr valign="top" class="even"><td >Apple Mac OS X 10.4 &quot;Tiger&quot; (Carbon)</td><td >As provided by Apple</td></tr>
+<tr valign="top" class="odd"><td >Apple Mac OS X 10.5 &quot;Leopard&quot; (Carbon)</td><td >As provided by Apple</td></tr>
+<tr valign="top" class="even"><td >HPUXi 11.23</td><td >aCC 6.10</td></tr>
+<tr valign="top" class="odd"><td >Solaris 10 UltraSparc</td><td >Sun Studio 12</td></tr>
+<tr valign="top" class="even"><td >AIX 6</td><td >Power5 xlC 7</td></tr>
+<tr valign="top" class="odd"><td >Microsoft Windows XP</td><td >Intel Compiler</td></tr>
+<tr valign="top" class="even"><td >Linux</td><td >Intel Compiler</td></tr>
+<tr valign="top" class="odd"><td >Embedded Linux QWS (Mips, PowerPC)</td><td >gcc (<a href="http://www.codesourcery.com/">Codesourcery version)</a></td></tr>
+<tr valign="top" class="even"><td >Embedded Linux X11 (ARM)</td><td >gcc (<a href="http://www.scratchbox.org/">Scratchbox)</a></td></tr>
+<tr valign="top" class="odd"><td >Windows CE 5.0 (ARMv4i, x86, MIPS)</td><td >MSVC 2005 WinCE 5.0 Standard (x86, pocket, smart, mipsii)</td></tr>
+<tr valign="top" class="even"><td >Windows Embedded CE 6.0 (ARMv4i, x86, MIPS)</td><td >MSVC 2008 WinCE Embedded 6.0 Professional</td></tr>
+<tr valign="top" class="odd"><td >Symbian (Symbian/S60 3.1, 3.2)</td><td >RVCT 2.2 [build 686 or later], WINSCW 3.2&#x2e;5 [build 482 or later], GCCE (for applications)</td></tr>
+</table>
+<p><b>Note:</b> The PPC architecture on Mac has been downgraded from tier 1 to tier 2 for 4.7&#x2e;</p>
+<a name="tier-3-platforms-not-supported-by-nokia"></a>
+<h2>Tier 3 Platforms (Not Supported by Nokia)</h2>
+<p>All platforms not specifically listed above are not supported by Nokia. Nokia does not run its unit test suite or perform any other internal tests on platforms not listed above.</p>
+<p>Even though some Tier 3 platforms are available under the Qt Commercial License, technical support is not included in that license. However, <a href="http://qt.nokia.com/about/contact-us">contact our sales team</a> to find out about the availability of other services for those platforms.</p>
+<p>Qt users should note, however, that there may be various open source projects, community users and/or Qt partners who are able to provide assistance with platforms not supported by Nokia.</p>
+<a name="general-legal-disclaimer"></a>
+<h2>General Legal Disclaimer</h2>
+<p>Please note that Qt is offered on an &quot;as is&quot; basis without warranty of any kind and that our products are not error or bug free. To the maximum extent permitted by applicable law, Nokia on behalf of itself and its suppliers, disclaims all warranties and conditions, either express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, title and non-infringement with regard to the Licensed Software.</p>
+<a name="planned-changes-for-qt-4-8"></a>
+<h2>Planned Changes for Qt 4.8</h2>
+<p>The following changes to the list of supported platforms are at time of publishing planned for Qt 4.8:</p>
+<ul>
+<li>Plans not yet released</li>
+</ul>
+</div>
+<!-- @@@supported-platforms.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

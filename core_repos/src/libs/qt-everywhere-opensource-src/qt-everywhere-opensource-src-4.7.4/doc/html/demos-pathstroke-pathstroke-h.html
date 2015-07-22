@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: pathstroke.h Example File (demos/pathstroke/pathstroke.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">pathstroke.h Example File</h1>
+<span class="small-subtitle">demos/pathstroke/pathstroke.h</span>
+<!-- $$$demos/pathstroke/pathstroke.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef PATHSTROKE_H</span>
+ <span class="preprocessor">#define PATHSTROKE_H</span>
+
+ <span class="preprocessor">#include &quot;arthurwidgets.h&quot;</span>
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="keyword">class</span> PathStrokeRenderer : <span class="keyword">public</span> ArthurFrame
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type">bool</span> animation READ animation WRITE setAnimation)
+     Q_PROPERTY(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> penWidth READ realPenWidth WRITE setRealPenWidth)
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> PathMode { CurveMode<span class="operator">,</span> LineMode };
+
+     PathStrokeRenderer(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="type">bool</span> smallScreen <span class="operator">=</span> <span class="keyword">false</span>);
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">void</span> timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">bool</span> event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>e);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span> { <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">500</span><span class="operator">,</span> <span class="number">500</span>); }
+
+     <span class="type">bool</span> animation() <span class="keyword">const</span> { <span class="keyword">return</span> m_timer<span class="operator">.</span>isActive(); }
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> realPenWidth() <span class="keyword">const</span> { <span class="keyword">return</span> m_penWidth; }
+     <span class="type">void</span> setRealPenWidth(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> penWidth) { m_penWidth <span class="operator">=</span> penWidth; update(); }
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> clicked();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setPenWidth(<span class="type">int</span> penWidth) { m_penWidth <span class="operator">=</span> penWidth <span class="operator">/</span> <span class="number">10.0</span>; update(); }
+     <span class="type">void</span> setAnimation(<span class="type">bool</span> animation);
+
+     <span class="type">void</span> setFlatCap() { m_capStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>FlatCap; update(); }
+     <span class="type">void</span> setSquareCap() { m_capStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SquareCap; update(); }
+     <span class="type">void</span> setRoundCap() { m_capStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundCap; update(); }
+
+     <span class="type">void</span> setBevelJoin() { m_joinStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>BevelJoin; update(); }
+     <span class="type">void</span> setMiterJoin() { m_joinStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>MiterJoin; update(); }
+     <span class="type">void</span> setRoundJoin() { m_joinStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>RoundJoin; update(); }
+
+     <span class="type">void</span> setCurveMode() { m_pathMode <span class="operator">=</span> CurveMode; update(); }
+     <span class="type">void</span> setLineMode() { m_pathMode <span class="operator">=</span> LineMode; update(); }
+
+     <span class="type">void</span> setSolidLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SolidLine; update(); }
+     <span class="type">void</span> setDashLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashLine; update(); }
+     <span class="type">void</span> setDotLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DotLine; update(); }
+     <span class="type">void</span> setDashDotLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashDotLine; update(); }
+     <span class="type">void</span> setDashDotDotLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>DashDotDotLine; update(); }
+     <span class="type">void</span> setCustomDashLine() { m_penStyle <span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen; update(); }
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> initializePoints();
+     <span class="type">void</span> updatePoints();
+
+     <span class="type"><a href="qbasictimer.html">QBasicTimer</a></span> m_timer;
+
+     PathMode m_pathMode;
+
+     <span class="type">bool</span> m_wasAnimated;
+
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> m_penWidth;
+     <span class="type">int</span> m_pointCount;
+     <span class="type">int</span> m_pointSize;
+     <span class="type">int</span> m_activePoint;
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qpointf.html">QPointF</a></span><span class="operator">&gt;</span> m_points;
+     <span class="type"><a href="qvector.html">QVector</a></span><span class="operator">&lt;</span><span class="type"><a href="qpointf.html">QPointF</a></span><span class="operator">&gt;</span> m_vectors;
+
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenJoinStyle m_joinStyle;
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenCapStyle m_capStyle;
+
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PenStyle m_penStyle;
+
+     <span class="type">bool</span> m_smallScreen;
+     <span class="type"><a href="qpoint.html">QPoint</a></span> m_mousePress;
+     <span class="type">bool</span> m_mouseDrag;
+
+     <span class="type"><a href="qhash.html">QHash</a></span><span class="operator">&lt;</span><span class="type">int</span><span class="operator">,</span> <span class="type">int</span><span class="operator">&gt;</span> m_fingerPointMapping;
+ };
+
+ <span class="keyword">class</span> PathStrokeControls : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     PathStrokeControls(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> parent<span class="operator">,</span> PathStrokeRenderer<span class="operator">*</span> renderer<span class="operator">,</span> <span class="type">bool</span> smallScreen);
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> okPressed();
+     <span class="type">void</span> quitPressed();
+
+ <span class="keyword">private</span>:
+     PathStrokeRenderer<span class="operator">*</span> m_renderer;
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>m_capGroup;
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>m_joinGroup;
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>m_styleGroup;
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span>m_pathModeGroup;
+
+     <span class="type">void</span> createCommonControls(<span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">*</span> parent);
+     <span class="type">void</span> layoutForDesktop();
+     <span class="type">void</span> layoutForSmallScreens();
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> emitQuitSignal();
+     <span class="type">void</span> emitOkSignal();
+
+ };
+
+ <span class="keyword">class</span> PathStrokeWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     PathStrokeWidget(<span class="type">bool</span> smallScreen);
+     <span class="type">void</span> setStyle ( <span class="type"><a href="qstyle.html">QStyle</a></span> <span class="operator">*</span> style );
+
+ <span class="keyword">private</span>:
+     PathStrokeRenderer <span class="operator">*</span>m_renderer;
+     PathStrokeControls <span class="operator">*</span>m_controls;
+
+ <span class="keyword">private</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> showControls();
+     <span class="type">void</span> hideControls();
+
+ };
+
+ <span class="preprocessor">#endif // PATHSTROKE_H</span></pre>
+</div>
+<!-- @@@demos/pathstroke/pathstroke.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

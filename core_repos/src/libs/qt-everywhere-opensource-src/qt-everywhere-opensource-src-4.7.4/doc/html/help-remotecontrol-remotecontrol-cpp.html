@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: remotecontrol.cpp Example File (help/remotecontrol/remotecontrol.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">remotecontrol.cpp Example File</h1>
+<span class="small-subtitle">help/remotecontrol/remotecontrol.cpp</span>
+<!-- $$$help/remotecontrol/remotecontrol.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtCore/QDir&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QProcess&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QTextStream&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QLibraryInfo&gt;</span>
+
+ <span class="preprocessor">#include &lt;QtGui/QMessageBox&gt;</span>
+
+ <span class="preprocessor">#include &quot;remotecontrol.h&quot;</span>
+
+ RemoteControl<span class="operator">::</span>RemoteControl(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WFlags flags)
+         : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent<span class="operator">,</span> flags)
+ {
+     ui<span class="operator">.</span>setupUi(<span class="keyword">this</span>);
+     connect(ui<span class="operator">.</span>indexLineEdit<span class="operator">,</span> SIGNAL(returnPressed())<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(on_indexButton_clicked()));
+     connect(ui<span class="operator">.</span>identifierLineEdit<span class="operator">,</span> SIGNAL(returnPressed())<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(on_identifierButton_clicked()));
+     connect(ui<span class="operator">.</span>urlLineEdit<span class="operator">,</span> SIGNAL(returnPressed())<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(on_urlButton_clicked()));
+
+     <span class="type"><a href="qstring.html">QString</a></span> rc;
+     <span class="type"><a href="qtextstream.html">QTextStream</a></span>(<span class="operator">&amp;</span>rc) <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1String(<span class="string">&quot;qthelp://com.trolltech.qt.&quot;</span>)
+                      <span class="operator">&lt;</span><span class="operator">&lt;</span> (QT_VERSION <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">16</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> ((QT_VERSION <span class="operator">&gt;</span><span class="operator">&gt;</span> <span class="number">8</span>) <span class="operator">&amp;</span> <span class="number">0xFF</span>)
+                      <span class="operator">&lt;</span><span class="operator">&lt;</span> (QT_VERSION <span class="operator">&amp;</span> <span class="number">0xFF</span>)
+                      <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1String(<span class="string">&quot;/qdoc/index.html&quot;</span>);
+
+     ui<span class="operator">.</span>startUrlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(rc);
+
+     process <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qprocess.html">QProcess</a></span>(<span class="keyword">this</span>);
+     connect(process<span class="operator">,</span> SIGNAL(finished(<span class="type">int</span><span class="operator">,</span><span class="type"><a href="qprocess.html">QProcess</a></span><span class="operator">::</span>ExitStatus))<span class="operator">,</span>
+         <span class="keyword">this</span><span class="operator">,</span> SLOT(helpViewerClosed()));
+ }
+
+ RemoteControl<span class="operator">::</span><span class="operator">~</span>RemoteControl()
+ {
+     <span class="keyword">if</span> (process<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qprocess.html">QProcess</a></span><span class="operator">::</span>Running) {
+         process<span class="operator">-</span><span class="operator">&gt;</span>terminate();
+         process<span class="operator">-</span><span class="operator">&gt;</span>waitForFinished(<span class="number">3000</span>);
+     }
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_actionQuit_triggered()
+ {
+     close();
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_launchButton_clicked()
+ {
+     <span class="keyword">if</span> (process<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qprocess.html">QProcess</a></span><span class="operator">::</span>Running)
+         <span class="keyword">return</span>;
+
+     <span class="type"><a href="qstring.html">QString</a></span> app <span class="operator">=</span> <span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>location(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>BinariesPath) <span class="operator">+</span> <span class="type"><a href="qdir.html">QDir</a></span><span class="operator">::</span>separator();
+ <span class="preprocessor">#if !defined(Q_OS_MAC)</span>
+     app <span class="operator">+</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;assistant&quot;</span>);
+ <span class="preprocessor">#else</span>
+     app <span class="operator">+</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;Assistant.app/Contents/MacOS/Assistant&quot;</span>);
+ <span class="preprocessor">#endif</span>
+
+     ui<span class="operator">.</span>contentsCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     ui<span class="operator">.</span>indexCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     ui<span class="operator">.</span>bookmarksCheckBox<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> args;
+     args <span class="operator">&lt;</span><span class="operator">&lt;</span> QLatin1String(<span class="string">&quot;-enableRemoteControl&quot;</span>);
+     process<span class="operator">-</span><span class="operator">&gt;</span>start(app<span class="operator">,</span> args);
+     <span class="keyword">if</span> (<span class="operator">!</span>process<span class="operator">-</span><span class="operator">&gt;</span>waitForStarted()) {
+         <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>critical(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;Remote Control&quot;</span>)<span class="operator">,</span>
+             tr(<span class="string">&quot;Could not start Qt Assistant from %1.&quot;</span>)<span class="operator">.</span>arg(app));
+         <span class="keyword">return</span>;
+     }
+
+     <span class="keyword">if</span> (<span class="operator">!</span>ui<span class="operator">.</span>startUrlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>isEmpty())
+         sendCommand(QLatin1String(<span class="string">&quot;SetSource &quot;</span>)
+             <span class="operator">+</span> ui<span class="operator">.</span>startUrlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text());
+
+     ui<span class="operator">.</span>launchButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     ui<span class="operator">.</span>startUrlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+     ui<span class="operator">.</span>actionGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>sendCommand(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>cmd)
+ {
+     <span class="keyword">if</span> (process<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">!</span><span class="operator">=</span> <span class="type"><a href="qprocess.html">QProcess</a></span><span class="operator">::</span>Running)
+         <span class="keyword">return</span>;
+     process<span class="operator">-</span><span class="operator">&gt;</span>write(cmd<span class="operator">.</span>toLocal8Bit() <span class="operator">+</span> <span class="char">'\n'</span>);
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_indexButton_clicked()
+ {
+     sendCommand(QLatin1String(<span class="string">&quot;ActivateKeyword &quot;</span>)
+         <span class="operator">+</span> ui<span class="operator">.</span>indexLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text());
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_identifierButton_clicked()
+ {
+     sendCommand(QLatin1String(<span class="string">&quot;ActivateIdentifier &quot;</span>)
+         <span class="operator">+</span> ui<span class="operator">.</span>identifierLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text());
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_urlButton_clicked()
+ {
+     sendCommand(QLatin1String(<span class="string">&quot;SetSource &quot;</span>)
+         <span class="operator">+</span> ui<span class="operator">.</span>urlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text());
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_syncContentsButton_clicked()
+ {
+     sendCommand(QLatin1String(<span class="string">&quot;SyncContents&quot;</span>));
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_contentsCheckBox_toggled(<span class="type">bool</span> checked)
+ {
+     sendCommand(checked <span class="operator">?</span>
+         QLatin1String(<span class="string">&quot;Show Contents&quot;</span>) : QLatin1String(<span class="string">&quot;Hide Contents&quot;</span>));
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_indexCheckBox_toggled(<span class="type">bool</span> checked)
+ {
+     sendCommand(checked <span class="operator">?</span>
+         QLatin1String(<span class="string">&quot;Show Index&quot;</span>) : QLatin1String(<span class="string">&quot;Hide Index&quot;</span>));
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>on_bookmarksCheckBox_toggled(<span class="type">bool</span> checked)
+ {
+     sendCommand(checked <span class="operator">?</span>
+         QLatin1String(<span class="string">&quot;Show Bookmarks&quot;</span>) : QLatin1String(<span class="string">&quot;Hide Bookmarks&quot;</span>));
+ }
+
+ <span class="type">void</span> RemoteControl<span class="operator">::</span>helpViewerClosed()
+ {
+     ui<span class="operator">.</span>launchButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     ui<span class="operator">.</span>startUrlLineEdit<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">true</span>);
+     ui<span class="operator">.</span>actionGroupBox<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+ }</pre>
+</div>
+<!-- @@@help/remotecontrol/remotecontrol.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractproxymodel.cpp -->
+  <title>Qt 4.7: QAbstractProxyModel Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QAbstractProxyModel</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAbstractProxyModel Class Reference</h1>
+<!-- $$$QAbstractProxyModel-brief -->
+<p>The QAbstractProxyModel class provides a base class for proxy item models that can do sorting, filtering or other data processing tasks. <a href="#details">More...</a></p>
+<!-- @@@QAbstractProxyModel -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAbstractProxyModel&gt;</span></pre><p><b>Inherits: </b><a href="qabstractitemmodel.html">QAbstractItemModel</a>.</p>
+<p><b>Inherited by: </b><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>.</p>
+<p>This class was introduced in Qt 4.1.</p>
+<ul>
+<li><a href="qabstractproxymodel-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#QAbstractProxyModel">QAbstractProxyModel</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#dtor.QAbstractProxyModel">~QAbstractProxyModel</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#mapFromSource">mapFromSource</a></b> ( const QModelIndex &amp; <i>sourceIndex</i> ) const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QItemSelection </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#mapSelectionFromSource">mapSelectionFromSource</a></b> ( const QItemSelection &amp; <i>sourceSelection</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QItemSelection </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#mapSelectionToSource">mapSelectionToSource</a></b> ( const QItemSelection &amp; <i>proxySelection</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QModelIndex </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#mapToSource">mapToSource</a></b> ( const QModelIndex &amp; <i>proxyIndex</i> ) const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#setSourceModel">setSourceModel</a></b> ( QAbstractItemModel * <i>sourceModel</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QAbstractItemModel * </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#sourceModel">sourceModel</a></b> () const</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QVariant </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#data">data</a></b> ( const QModelIndex &amp; <i>proxyIndex</i>, int <i>role</i> = Qt::DisplayRole ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual Qt::ItemFlags </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#flags">flags</a></b> ( const QModelIndex &amp; <i>index</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QVariant </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#headerData">headerData</a></b> ( int <i>section</i>, Qt::Orientation <i>orientation</i>, int <i>role</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QMap&lt;int, QVariant&gt; </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#itemData">itemData</a></b> ( const QModelIndex &amp; <i>proxyIndex</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#revert">revert</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#setData">setData</a></b> ( const QModelIndex &amp; <i>index</i>, const QVariant &amp; <i>value</i>, int <i>role</i> = Qt::EditRole )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#setHeaderData">setHeaderData</a></b> ( int <i>section</i>, Qt::Orientation <i>orientation</i>, const QVariant &amp; <i>value</i>, int <i>role</i> = Qt::EditRole )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qabstractproxymodel.html#submit">submit</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">35 public functions inherited from <a href="qabstractitemmodel.html#public-functions">QAbstractItemModel</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">2 public slots inherited from <a href="qabstractitemmodel.html#public-slots">QAbstractItemModel</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">18 signals inherited from <a href="qabstractitemmodel.html#signals">QAbstractItemModel</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">21 protected functions inherited from <a href="qabstractitemmodel.html#protected-functions">QAbstractItemModel</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAbstractProxyModel-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAbstractProxyModel class provides a base class for proxy item models that can do sorting, filtering or other data processing tasks.</p>
+<p>This class defines the standard interface that proxy models must use to be able to interoperate correctly with other model/view components. It is not supposed to be instantiated directly.</p>
+<p>All standard proxy models are derived from the QAbstractProxyModel class. If you need to create a new proxy model class, it is usually better to subclass an existing class that provides the closest behavior to the one you want to provide.</p>
+<p>Proxy models that filter or sort items of data from a source model should be created by using or subclassing <a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>.</p>
+<p>To subclass QAbstractProxyModel, you need to implement <a href="qabstractproxymodel.html#mapFromSource">mapFromSource</a>() and <a href="qabstractproxymodel.html#mapToSource">mapToSource</a>(). The <a href="qabstractproxymodel.html#mapSelectionFromSource">mapSelectionFromSource</a>() and <a href="qabstractproxymodel.html#mapSelectionToSource">mapSelectionToSource</a>() functions only need to be reimplemented if you need a behavior different from the default behavior.</p>
+<p><b>Note:</b> If the source model is deleted or no source model is specified, the proxy model operates on a empty placeholder model.</p>
+</div>
+<p><b>See also </b><a href="qsortfilterproxymodel.html">QSortFilterProxyModel</a>, <a href="qabstractitemmodel.html">QAbstractItemModel</a>, and <a href="model-view-programming.html">Model/View Programming</a>.</p>
+<!-- @@@QAbstractProxyModel -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAbstractProxyModel[overload1]$$$QAbstractProxyModelQObject* -->
+<h3 class="fn"><a name="QAbstractProxyModel"></a>QAbstractProxyModel::<span class="name">QAbstractProxyModel</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a proxy model with the given <i>parent</i>.</p>
+<!-- @@@QAbstractProxyModel -->
+<!-- $$$~QAbstractProxyModel[overload1]$$$~QAbstractProxyModel -->
+<h3 class="fn"><a name="dtor.QAbstractProxyModel"></a>QAbstractProxyModel::<span class="name">~QAbstractProxyModel</span> ()</h3>
+<p>Destroys the proxy model.</p>
+<!-- @@@~QAbstractProxyModel -->
+<!-- $$$data[overload1]$$$dataconstQModelIndex&int -->
+<h3 class="fn"><a name="data"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QAbstractProxyModel::<span class="name">data</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>proxyIndex</i>, <span class="type">int</span> <i>role</i> = Qt::DisplayRole ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#data">QAbstractItemModel::data</a>().</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#setData">setData</a>().</p>
+<!-- @@@data -->
+<!-- $$$flags[overload1]$$$flagsconstQModelIndex& -->
+<h3 class="fn"><a name="flags"></a><span class="type"><a href="qt.html#ItemFlag-enum">Qt::ItemFlags</a></span> QAbstractProxyModel::<span class="name">flags</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>index</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#flags">QAbstractItemModel::flags</a>().</p>
+<!-- @@@flags -->
+<!-- $$$headerData[overload1]$$$headerDataintQt::Orientationint -->
+<h3 class="fn"><a name="headerData"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QAbstractProxyModel::<span class="name">headerData</span> ( <span class="type">int</span> <i>section</i>, <span class="type"><a href="qt.html#Orientation-enum">Qt::Orientation</a></span> <i>orientation</i>, <span class="type">int</span> <i>role</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#headerData">QAbstractItemModel::headerData</a>().</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#setHeaderData">setHeaderData</a>().</p>
+<!-- @@@headerData -->
+<!-- $$$itemData[overload1]$$$itemDataconstQModelIndex& -->
+<h3 class="fn"><a name="itemData"></a><span class="type"><a href="qmap.html">QMap</a></span>&lt;<span class="type">int</span>, <span class="type"><a href="qvariant.html">QVariant</a></span>&gt; QAbstractProxyModel::<span class="name">itemData</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>proxyIndex</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#itemData">QAbstractItemModel::itemData</a>().</p>
+<!-- @@@itemData -->
+<!-- $$$mapFromSource[overload1]$$$mapFromSourceconstQModelIndex& -->
+<h3 class="fn"><a name="mapFromSource"></a><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QAbstractProxyModel::<span class="name">mapFromSource</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>sourceIndex</i> ) const<tt> [pure virtual]</tt></h3>
+<p>Reimplement this function to return the model index in the proxy model that corresponds to the <i>sourceIndex</i> from the source model.</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#mapToSource">mapToSource</a>().</p>
+<!-- @@@mapFromSource -->
+<!-- $$$mapSelectionFromSource[overload1]$$$mapSelectionFromSourceconstQItemSelection& -->
+<h3 class="fn"><a name="mapSelectionFromSource"></a><span class="type"><a href="qitemselection.html">QItemSelection</a></span> QAbstractProxyModel::<span class="name">mapSelectionFromSource</span> ( const <span class="type"><a href="qitemselection.html">QItemSelection</a></span> &amp; <i>sourceSelection</i> ) const<tt> [virtual]</tt></h3>
+<p>Returns a proxy selection mapped from the specified <i>sourceSelection</i>.</p>
+<p>Reimplement this method to map source selections to proxy selections.</p>
+<!-- @@@mapSelectionFromSource -->
+<!-- $$$mapSelectionToSource[overload1]$$$mapSelectionToSourceconstQItemSelection& -->
+<h3 class="fn"><a name="mapSelectionToSource"></a><span class="type"><a href="qitemselection.html">QItemSelection</a></span> QAbstractProxyModel::<span class="name">mapSelectionToSource</span> ( const <span class="type"><a href="qitemselection.html">QItemSelection</a></span> &amp; <i>proxySelection</i> ) const<tt> [virtual]</tt></h3>
+<p>Returns a source selection mapped from the specified <i>proxySelection</i>.</p>
+<p>Reimplement this method to map proxy selections to source selections.</p>
+<!-- @@@mapSelectionToSource -->
+<!-- $$$mapToSource[overload1]$$$mapToSourceconstQModelIndex& -->
+<h3 class="fn"><a name="mapToSource"></a><span class="type"><a href="qmodelindex.html">QModelIndex</a></span> QAbstractProxyModel::<span class="name">mapToSource</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>proxyIndex</i> ) const<tt> [pure virtual]</tt></h3>
+<p>Reimplement this function to return the model index in the source model that corresponds to the <i>proxyIndex</i> in the proxy model.</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#mapFromSource">mapFromSource</a>().</p>
+<!-- @@@mapToSource -->
+<!-- $$$revert[overload1]$$$revert -->
+<h3 class="fn"><a name="revert"></a><span class="type">void</span> QAbstractProxyModel::<span class="name">revert</span> ()<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#revert">QAbstractItemModel::revert</a>().</p>
+<!-- @@@revert -->
+<!-- $$$setData[overload1]$$$setDataconstQModelIndex&constQVariant&int -->
+<h3 class="fn"><a name="setData"></a><span class="type">bool</span> QAbstractProxyModel::<span class="name">setData</span> ( const <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> &amp; <i>index</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#setData">QAbstractItemModel::setData</a>().</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#data">data</a>().</p>
+<!-- @@@setData -->
+<!-- $$$setHeaderData[overload1]$$$setHeaderDataintQt::OrientationconstQVariant&int -->
+<h3 class="fn"><a name="setHeaderData"></a><span class="type">bool</span> QAbstractProxyModel::<span class="name">setHeaderData</span> ( <span class="type">int</span> <i>section</i>, <span class="type"><a href="qt.html#Orientation-enum">Qt::Orientation</a></span> <i>orientation</i>, const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>value</i>, <span class="type">int</span> <i>role</i> = Qt::EditRole )<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#setHeaderData">QAbstractItemModel::setHeaderData</a>().</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#headerData">headerData</a>().</p>
+<!-- @@@setHeaderData -->
+<!-- $$$setSourceModel[overload1]$$$setSourceModelQAbstractItemModel* -->
+<h3 class="fn"><a name="setSourceModel"></a><span class="type">void</span> QAbstractProxyModel::<span class="name">setSourceModel</span> ( <span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> * <i>sourceModel</i> )<tt> [virtual]</tt></h3>
+<p>Sets the given <i>sourceModel</i> to be processed by the proxy model.</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#sourceModel">sourceModel</a>().</p>
+<!-- @@@setSourceModel -->
+<!-- $$$sourceModel[overload1]$$$sourceModel -->
+<h3 class="fn"><a name="sourceModel"></a><span class="type"><a href="qabstractitemmodel.html">QAbstractItemModel</a></span> * QAbstractProxyModel::<span class="name">sourceModel</span> () const</h3>
+<p>Returns the model that contains the data that is available through the proxy model.</p>
+<p><b>See also </b><a href="qabstractproxymodel.html#setSourceModel">setSourceModel</a>().</p>
+<!-- @@@sourceModel -->
+<!-- $$$submit[overload1]$$$submit -->
+<h3 class="fn"><a name="submit"></a><span class="type">bool</span> QAbstractProxyModel::<span class="name">submit</span> ()<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qabstractitemmodel.html#submit">QAbstractItemModel::submit</a>().</p>
+<!-- @@@submit -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

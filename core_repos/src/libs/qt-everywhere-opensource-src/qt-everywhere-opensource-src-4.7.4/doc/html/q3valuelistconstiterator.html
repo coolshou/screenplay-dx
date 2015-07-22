@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3valuelist.qdoc -->
+  <title>Qt 4.7: Q3ValueListConstIterator Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3ValueListConstIterator</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3ValueListConstIterator Class Reference</h1>
+<!-- $$$Q3ValueListConstIterator-brief -->
+<p>The Q3ValueListConstIterator class provides a const iterator for <a href="q3valuelist.html">Q3ValueList</a>. <a href="#details">More...</a></p>
+<!-- @@@Q3ValueListConstIterator -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3ValueListConstIterator&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="qlinkedlist-const-iterator.html">QLinkedList&lt;T&gt;::const_iterator</a>.</p>
+<ul>
+<li><a href="q3valuelistconstiterator-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistconstiterator.html#Q3ValueListConstIterator">Q3ValueListConstIterator</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistconstiterator.html#Q3ValueListConstIterator-2">Q3ValueListConstIterator</a></b> ( const Q3ValueListConstIterator &amp; <i>o</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistconstiterator.html#Q3ValueListConstIterator-3">Q3ValueListConstIterator</a></b> ( const QLinkedList&lt;T&gt;::const_iterator &amp; <i>o</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistconstiterator.html#Q3ValueListConstIterator-4">Q3ValueListConstIterator</a></b> ( const QLinkedList&lt;T&gt;::iterator &amp; <i>o</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">13 public functions inherited from <a href="qlinkedlist-const-iterator.html#public-functions">QLinkedList::const_iterator</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3ValueListConstIterator-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3ValueListConstIterator class provides a const iterator for <a href="q3valuelist.html">Q3ValueList</a>.</p>
+<p>In contrast to <a href="q3valuelistiterator.html">Q3ValueListIterator</a>, this class is used to iterate over a const list. It does not allow modification of the values of the list since that would break const semantics.</p>
+<p>You can create the appropriate const iterator type by using the <tt>const_iterator</tt> typedef provided by <a href="q3valuelist.html">Q3ValueList</a>.</p>
+<p>For more information on <a href="q3valuelist.html">Q3ValueList</a> iterators, see <a href="q3valuelistiterator.html">Q3ValueListIterator</a>.</p>
+</div>
+<p><b>See also </b><a href="q3valuelistiterator.html">Q3ValueListIterator</a> and <a href="q3valuelist.html">Q3ValueList</a>.</p>
+<!-- @@@Q3ValueListConstIterator -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3ValueListConstIterator[overload1]$$$Q3ValueListConstIterator -->
+<h3 class="fn"><a name="Q3ValueListConstIterator"></a>Q3ValueListConstIterator::<span class="name">Q3ValueListConstIterator</span> ()</h3>
+<p>Constructs an unitialized iterator.</p>
+<!-- @@@Q3ValueListConstIterator -->
+<!-- $$$Q3ValueListConstIterator$$$Q3ValueListConstIteratorconstQ3ValueListConstIterator& -->
+<h3 class="fn"><a name="Q3ValueListConstIterator-2"></a>Q3ValueListConstIterator::<span class="name">Q3ValueListConstIterator</span> ( const <span class="type">Q3ValueListConstIterator</span> &amp; <i>o</i> )</h3>
+<p>Constructs a copy of iterator <i>o</i>.</p>
+<!-- @@@Q3ValueListConstIterator -->
+<!-- $$$Q3ValueListConstIterator$$$Q3ValueListConstIteratorconstQLinkedList<T>::const_iterator& -->
+<h3 class="fn"><a name="Q3ValueListConstIterator-3"></a>Q3ValueListConstIterator::<span class="name">Q3ValueListConstIterator</span> ( const <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span>&lt;<span class="type">T</span>&gt;<span class="type">::const_iterator</span> &amp; <i>o</i> )</h3>
+<p>Constructs a copy of iterator <i>o</i>.</p>
+<!-- @@@Q3ValueListConstIterator -->
+<!-- $$$Q3ValueListConstIterator$$$Q3ValueListConstIteratorconstQLinkedList<T>::iterator& -->
+<h3 class="fn"><a name="Q3ValueListConstIterator-4"></a>Q3ValueListConstIterator::<span class="name">Q3ValueListConstIterator</span> ( const <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span>&lt;<span class="type">T</span>&gt;<span class="type">::iterator</span> &amp; <i>o</i> )</h3>
+<p>Constructs a copy of iterator <i>o</i>.</p>
+<!-- @@@Q3ValueListConstIterator -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmessagebox.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QMessageBox</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QMessageBox</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QMessageBox</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qmessagebox.html">QMessageBox class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmessagebox-qt3.html#QMessageBox-4">QMessageBox</a></b> ( const QString &amp; <i>title</i>, const QString &amp; <i>text</i>, Icon <i>icon</i>, int <i>button0</i>, int <i>button1</i>, int <i>button2</i>, QWidget * <i>parent</i>, const char * <i>name</i>, bool <i>modal</i>, Qt::WindowFlags <i>f</i> = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmessagebox-qt3.html#QMessageBox-5">QMessageBox</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qmessagebox-qt3.html#message">message</a></b> ( const QString &amp; <i>title</i>, const QString &amp; <i>text</i>, const QString &amp; <i>buttonText</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qmessagebox-qt3.html#query">query</a></b> ( const QString &amp; <i>caption</i>, const QString &amp; <i>text</i>, const QString &amp; <i>yesButtonText</i> = QString(), const QString &amp; <i>noButtonText</i> = QString(), QWidget * <i>parent</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QPixmap </td><td class="memItemRight bottomAlign"><b><a href="qmessagebox-qt3.html#standardIcon">standardIcon</a></b> ( Icon <i>icon</i>, Qt::GUIStyle <i>style</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 static public member inherited from <a href="qwidget.html#static-public-members">QWidget</a></li>
+<li class="fn">13 static public members inherited from <a href="qpaintdevice.html#static-public-members">QPaintDevice</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$QMessageBox$$$QMessageBoxconstQString&constQString&IconintintintQWidget*constchar*boolQt::WindowFlags -->
+<h3 class="fn"><a name="QMessageBox-4"></a>QMessageBox::<span class="name">QMessageBox</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>title</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, <span class="type"><a href="qmessagebox.html#Icon-enum">Icon</a></span> <i>icon</i>, <span class="type">int</span> <i>button0</i>, <span class="type">int</span> <i>button1</i>, <span class="type">int</span> <i>button2</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i>, <span class="type">bool</span> <i>modal</i>, <span class="type"><a href="qt.html#WindowType-enum">Qt::WindowFlags</a></span> <i>f</i> = Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint )</h3>
+<p>Constructs a message box with the given <i>parent</i>, <i>name</i>, and window flags, <i>f</i>. The window title is specified by <i>title</i>, and the message box displays message text and an icon specified by <i>text</i> and <i>icon</i>.</p>
+<p>The buttons that the user can access to respond to the message are defined by <i>button0</i>, <i>button1</i>, and <i>button2</i>.</p>
+<!-- @@@QMessageBox -->
+<!-- $$$QMessageBox$$$QMessageBoxQWidget*constchar* -->
+<h3 class="fn"><a name="QMessageBox-5"></a>QMessageBox::<span class="name">QMessageBox</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Constructs a message box with the given <i>parent</i> and <i>name</i>.</p>
+<!-- @@@QMessageBox -->
+<!-- $$$message[overload1]$$$messageconstQString&constQString&constQString&QWidget*constchar* -->
+<h3 class="fn"><a name="message"></a><span class="type">int</span> QMessageBox::<span class="name">message</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>title</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>buttonText</i> = QString(), <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i> = 0, const <span class="type">char</span> * <i>name</i> = 0 )<tt> [static]</tt></h3>
+<p>Opens a modal message box with the given <i>title</i> and showing the given <i>text</i>. The message box has a single button which has the given <i>buttonText</i> (or tr(&quot;OK&quot;)). The message box is centred over its <i>parent</i> and is called <i>name</i>.</p>
+<p>Use <a href="qmessagebox.html#information">information</a>(), <a href="qmessagebox.html#warning">warning</a>(), <a href="qmessagebox.html#question">question</a>(), or <a href="qmessagebox.html#critical">critical</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QMessageBox::message(tr(&quot;My App&quot;), tr(&quot;All occurrences replaced.&quot;),
+                      tr(&quot;Close&quot;), this);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span><a href="qmessagebox.html#information">information</a>(<span class="keyword">this</span><span class="operator">,</span> tr(<span class="string">&quot;My App&quot;</span>)<span class="operator">,</span>
+                          tr(<span class="string">&quot;All occurrences replaced.&quot;</span>)<span class="operator">,</span>
+                          <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>Close);</pre>
+<!-- @@@message -->
+<!-- $$$query[overload1]$$$queryconstQString&constQString&constQString&constQString&QWidget*constchar* -->
+<h3 class="fn"><a name="query"></a><span class="type">bool</span> QMessageBox::<span class="name">query</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>caption</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>yesButtonText</i> = QString(), const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>noButtonText</i> = QString(), <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i> = 0, const <span class="type">char</span> * <i>name</i> = 0 )<tt> [static]</tt></h3>
+<p>Queries the user using a modal message box with up to two buttons. The message box has the given <i>caption</i> (although some window managers don't show it), and shows the given <i>text</i>. The left button has the <i>yesButtonText</i> (or tr(&quot;OK&quot;)), and the right button has the <i>noButtonText</i> (or isn't shown). The message box is centred over its <i>parent</i> and is called <i>name</i>.</p>
+<p>Use <a href="qmessagebox.html#information">information</a>(), <a href="qmessagebox.html#question">question</a>(), <a href="qmessagebox.html#warning">warning</a>(), or <a href="qmessagebox.html#critical">critical</a>() instead.</p>
+<!-- @@@query -->
+<!-- $$$standardIcon[overload1]$$$standardIconIconQt::GUIStyle -->
+<h3 class="fn"><a name="standardIcon"></a><span class="type"><a href="qpixmap.html">QPixmap</a></span> QMessageBox::<span class="name">standardIcon</span> ( <span class="type"><a href="qmessagebox.html#Icon-enum">Icon</a></span> <i>icon</i>, <span class="type"><a href="qt-qt3.html#GUIStyle-enum">Qt::GUIStyle</a></span> <i>style</i> )<tt> [static]</tt></h3>
+<p>Returns the pixmap used for a standard icon. This allows the pixmaps to be used in more complex message boxes. <i>icon</i> specifies the required icon, e.g&#x2e; <a href="qmessagebox.html#Icon-enum">QMessageBox::Information</a>, <a href="qmessagebox.html#Icon-enum">QMessageBox::Warning</a> or <a href="qmessagebox.html#Icon-enum">QMessageBox::Critical</a>.</p>
+<p><i>style</i> is unused.</p>
+<!-- @@@standardIcon -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

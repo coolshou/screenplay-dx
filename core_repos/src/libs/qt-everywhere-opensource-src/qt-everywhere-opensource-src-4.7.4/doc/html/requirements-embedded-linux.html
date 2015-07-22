@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- installation.qdoc -->
+  <title>Qt 4.7: Qt for Embedded Linux Requirements</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Qt for Embedded Linux Requirements</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="requirements.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="requirements.html">General Qt Requirements</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#building-qt-for-embedded-linux-with-uclibc">Building Qt for Embedded Linux with uclibc</a></li>
+<li class="level1"><a href="#memory-requirements">Memory Requirements</a></li>
+<li class="level1"><a href="#additional-x11-libraries-for-qvfb">Additional X11 Libraries for QVFb</a></li>
+</ul>
+</div>
+<h1 class="title">Qt for Embedded Linux Requirements</h1>
+<span class="subtitle"></span>
+<!-- $$$requirements-embedded-linux.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="building-qt-for-embedded-linux-with-uclibc"></a>
+<h2>Building Qt for Embedded Linux with uclibc</h2>
+<p>If you intend to include the <a href="qtwebkit.html">QtWebKit</a> module in your Qt build then you should use version <b>uClibc 0.9&#x2e;29 or greater</b> as that is the earliest version with sufficient pthread support.</p>
+<a name="memory-requirements"></a>
+<h2>Memory Requirements</h2>
+<p>The memory and storage requirements for Qt for Embedded Linux depend on a an variety of different factors, including the target architecture and the features enabled in the Qt build.</p>
+<p>The following table shows typical library sizes for the most common Qt libraries on different architectures, built in release mode with different feature profiles.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th  rowspan="2">Architecture</th><th  rowspan="2">Compiler</th><th  colspan="2"><a href="qtcore.html">QtCore</a></th><th  colspan="2"><a href="qtgui.html">QtGui</a></th><th  colspan="2"><a href="qtnetwork.html">QtNetwork</a></th><th  colspan="2"><a href="qtwebkit.html">QtWebKit</a></th></tr>
+<tr class="qt-style"><th >Minimal</th><th >Normal</th><th >Minimal</th><th >Normal</th><th >Minimal</th><th >Normal</th><th >Minimal</th><th >Normal</th></tr></thead>
+<tr valign="top" class="odd"><td >linux-x86-g++</td><td >GCC 4.2&#x2e;4</td><td >1.7M</td><td >2.7M</td><td >3.3M</td><td >9.9M</td><td >653K</td><td >1.1M</td><td >N/A</td><td >17M</td></tr>
+<tr valign="top" class="even"><td >linux-arm-g++</td><td >GCC 4.1&#x2e;1</td><td >1.9M</td><td >3.2M</td><td >4.1M</td><td >11M</td><td >507K</td><td >1.0M</td><td >N/A</td><td >17M</td></tr>
+<tr valign="top" class="odd"><td >linux-mips-g++ (MIPS32)</td><td >GCC 4.2&#x2e;4</td><td >2.0M</td><td >3.2M</td><td >4.5M</td><td >12M</td><td >505K</td><td >1003K</td><td >N/A</td><td >21M</td></tr>
+</table>
+<p>Library sizes are given in the following units: K = 1024 bytes; M = 1024K. <a href="qtwebkit.html">QtWebKit</a> is excluded from the minimal configuration.</p>
+<p>The <a href="fine-tuning-features.html">Fine-Tuning Features in Qt</a> document covers the process of configuring Qt builds to avoid the inclusion of unnecessary features.</p>
+<a name="additional-x11-libraries-for-qvfb"></a>
+<h2>Additional X11 Libraries for QVFb</h2>
+<p>The Virtual Framebuffer (QVFb) application requires the <tt>libxtst</tt> library in addition to the libraries used to build Qt for X11. This library enables the use of the Record extension to the X protocol to be used in applications.</p>
+</div>
+<p><b>See also </b><a href="known-issues.html">Known Issues</a>.</p>
+<!-- @@@requirements-embedded-linux.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="requirements.html">General Qt Requirements</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

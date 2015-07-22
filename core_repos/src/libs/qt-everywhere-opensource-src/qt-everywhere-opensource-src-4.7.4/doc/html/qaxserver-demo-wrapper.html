@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- wrapper.qdoc -->
+  <title>Qt 4.7: Standard Qt widgets in an HTML page</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Standard Qt widgets in an HTML page</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Standard Qt widgets in an HTML page</h1>
+<span class="subtitle"></span>
+<!-- $$$qaxserver-demo-wrapper.html-description -->
+<div class="descr"> <a name="details"></a>
+//! [0]
+<SCRIPT LANGUAGE="VBScript">
+Sub ToolButton_Clicked()
+    RadioButton.text = InputBox( "Enter something", "Wrapper Demo" )
+End Sub
+
+Sub PushButton_clicked()
+    MsgBox( "Thank you!" )
+End Sub
+
+Sub CheckBox_toggled( state )
+    if state = 0 then
+        CheckBox.text = "Check me!"
+    else
+        CheckBox.text = "Uncheck me!"
+    end if
+End Sub
+</SCRIPT>
+<p />
+A QPushButton:<br />
+<object ID="PushButton" CLASSID="CLSID:2B262458-A4B6-468B-B7D4-CF5FEE0A7092"
+CODEBASE="http://qt.nokia.com/demos/wrapperax.cab">
+    <PARAM NAME="text" VALUE="Click me!" />
+[Object not available! Did you forget to build and register the server?]
+</object><br />
+
+<p />
+A QCheckBox:<br />
+<object ID="CheckBox" CLASSID="CLSID:6E795de9-872d-43cf-a831-496ef9d86c68"
+CODEBASE="http://qt.nokia.com/demos/wrapperax.cab">
+    <PARAM NAME="text" VALUE="Check me!" />
+[Object not available! Did you forget to build and register the server?]
+</object><br />
+
+<p />
+A QToolButton:<br />
+<object ID="ToolButton" CLASSID="CLSID:7c0ffe7a-60c3-4666-bde2-5cf2b54390a1"
+CODEBASE="http://qt.nokia.com/demos/wrapperax.cab">
+[Object not available! Did you forget to build and register the server?]
+</object><br />
+
+<p />
+A QRadioButton:<br />
+<object ID="RadioButton" CLASSID="CLSID:afcf78c8-446c-409a-93b3-ba2959039189"
+CODEBASE="http://qt.nokia.com/demos/wrapperax.cab">
+    <PARAM NAME="text" VALUE="Tune me!" />
+[Object not available! Did you forget to build and register the server?]
+</object><br />
+//! [0]
+</div>
+<!-- @@@qaxserver-demo-wrapper.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

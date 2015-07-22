@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: HighScoreModel.qml Example File (demos/declarative/snake/content/HighScoreModel.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">HighScoreModel.qml Example File</h1>
+<span class="small-subtitle">demos/declarative/snake/content/HighScoreModel.qml</span>
+<!-- $$$demos/declarative/snake/content/HighScoreModel.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.0
+
+ <span class="comment">// Models a high score table.</span>
+ //
+ <span class="comment">// Use this component like this:</span>
+ //
+ <span class="comment">//  HighScoreModel {</span>
+ <span class="comment">//      id: highScores</span>
+ <span class="comment">//      game: &quot;MyCoolGame&quot;</span>
+ <span class="comment">//  }</span>
+ //
+ <span class="comment">// Then use either use the top-score properties:</span>
+ //
+ <span class="comment">//  Text { text: &quot;HI: &quot; + highScores.topScore }</span>
+ //
+ <span class="comment">// or, use the model in a view:</span>
+ //
+ <span class="comment">//  ListView {</span>
+ <span class="comment">//      model: highScore</span>
+ <span class="comment">//      delegate: Component {</span>
+ <span class="comment">//                    ... player ... score ...</span>
+ <span class="comment">//                }</span>
+ <span class="comment">//  }</span>
+ //
+ <span class="comment">// Add new scores via:</span>
+ //
+ <span class="comment">//  saveScore(newScore)</span>
+ //
+ <span class="comment">// or:</span>
+ //
+ <span class="comment">//  savePlayerScore(playerName,newScore)</span>
+ //
+ <span class="comment">// The best maxScore scores added by this method will be retained in an SQL database,</span>
+ <span class="comment">// and presented in the model and in the topScore/topPlayer properties.</span>
+ //
+
+ <span class="type"><a href="qml-listmodel.html">ListModel</a></span> {
+     <span class="name">id</span>: <span class="name">model</span>
+     property <span class="type">string</span> <span class="name">game</span>: <span class="string">&quot;&quot;</span>
+     property <span class="type">int</span> <span class="name">topScore</span>: <span class="number">0</span>
+     property <span class="type">string</span> <span class="name">topPlayer</span>: <span class="string">&quot;&quot;</span>
+     property <span class="type">int</span> <span class="name">maxScores</span>: <span class="number">10</span>
+
+     <span class="keyword">function</span> <span class="name">__db</span>()
+     {
+         <span class="keyword">return</span> <span class="name">openDatabaseSync</span>(<span class="string">&quot;HighScoreModel&quot;</span>, <span class="string">&quot;1.0&quot;</span>, <span class="string">&quot;Generic High Score Functionality for QML&quot;</span>, <span class="number">1000000</span>);
+     }
+     <span class="keyword">function</span> <span class="name">__ensureTables</span>(<span class="name">tx</span>)
+     {
+         <span class="name">tx</span>.<span class="name">executeSql</span>(<span class="string">'CREATE TABLE IF NOT EXISTS HighScores(game TEXT, score INT, player TEXT)'</span>, []);
+     }
+
+     <span class="keyword">function</span> <span class="name">fillModel</span>() {
+         <span class="name">__db</span>().<span class="name">transaction</span>(
+             <span class="keyword">function</span>(<span class="name">tx</span>) {
+                 <span class="name">__ensureTables</span>(<span class="name">tx</span>);
+                 var <span class="name">rs</span> = <span class="name">tx</span>.<span class="name">executeSql</span>(<span class="string">&quot;SELECT score,player FROM HighScores WHERE game=? ORDER BY score DESC&quot;</span>, [<span class="name">game</span>]);
+                 <span class="name">model</span>.<span class="name">clear</span>();
+                 <span class="keyword">if</span> (<span class="name">rs</span>.<span class="name">rows</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="number">0</span>) {
+                     <span class="name">topScore</span> <span class="operator">=</span> <span class="name">rs</span>.<span class="name">rows</span>.<span class="name">item</span>(<span class="number">0</span>).<span class="name">score</span>
+                     <span class="name">topPlayer</span> <span class="operator">=</span> <span class="name">rs</span>.<span class="name">rows</span>.<span class="name">item</span>(<span class="number">0</span>).<span class="name">player</span>
+                     <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">i</span>=<span class="number">0</span>; <span class="name">i</span><span class="operator">&lt;</span><span class="name">rs</span>.<span class="name">rows</span>.<span class="name">length</span>; ++<span class="name">i</span>) {
+                         <span class="keyword">if</span> (<span class="name">i</span> <span class="operator">&lt;</span> <span class="name">maxScores</span>)
+                             <span class="name">model</span>.<span class="name">append</span>(<span class="name">rs</span>.<span class="name">rows</span>.<span class="name">item</span>(<span class="name">i</span>))
+                     }
+                     <span class="keyword">if</span> (<span class="name">rs</span>.<span class="name">rows</span>.<span class="name">length</span> <span class="operator">&gt;</span> <span class="name">maxScores</span>)
+                         <span class="name">tx</span>.<span class="name">executeSql</span>(<span class="string">&quot;DELETE FROM HighScores WHERE game=? AND score &lt;= ?&quot;</span>,
+                                             [<span class="name">game</span>, <span class="name">rs</span>.<span class="name">rows</span>.<span class="name">item</span>(<span class="name">maxScores</span>).<span class="name">score</span>]);
+                 }
+             }
+         )
+     }
+
+     <span class="keyword">function</span> <span class="name">savePlayerScore</span>(<span class="name">player</span>,score) {
+         <span class="name">__db</span>().<span class="name">transaction</span>(
+             <span class="keyword">function</span>(<span class="name">tx</span>) {
+                 <span class="name">__ensureTables</span>(<span class="name">tx</span>);
+                 <span class="name">tx</span>.<span class="name">executeSql</span>(<span class="string">&quot;INSERT INTO HighScores VALUES(?,?,?)&quot;</span>, [<span class="name">game</span>,<span class="name">score</span>,<span class="name">player</span>]);
+                 <span class="name">fillModel</span>();
+             }
+         )
+     }
+
+     <span class="keyword">function</span> <span class="name">saveScore</span>(<span class="name">score</span>) {
+         <span class="name">savePlayerScore</span>(<span class="string">&quot;player&quot;</span>,<span class="name">score</span>);
+     }
+
+     <span class="keyword">function</span> <span class="name">clearScores</span>() {
+         <span class="name">__db</span>().<span class="name">transaction</span>(
+             <span class="keyword">function</span>(<span class="name">tx</span>) {
+                 <span class="name">tx</span>.<span class="name">executeSql</span>(<span class="string">&quot;DELETE FROM HighScores WHERE game=?&quot;</span>, [<span class="name">game</span>]);
+                 <span class="name">fillModel</span>();
+             }
+         )
+     }
+
+     <span class="name">Component</span>.onCompleted: { <span class="name">fillModel</span>() }
+ }</pre>
+</div>
+<!-- @@@demos/declarative/snake/content/HighScoreModel.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgl.cpp -->
+  <title>Qt 4.7: Obsolete Members for QGLWidget</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtopengl.html">QtOpenGL</a></li>
+<li>QGLWidget</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Obsolete Members for QGLWidget</h1>
+<p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<p><ul><li><a href="qglwidget.html">QGLWidget class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglwidget-obsolete.html#setFormat">setFormat</a></b> ( const QGLFormat &amp; <i>format</i> )<tt> (obsolete)</tt></td></tr>
+</table>
+<ul>
+<li class="fn">3 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+</ul>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qglwidget-obsolete.html#fontDisplayListBase">fontDisplayListBase</a></b> ( const QFont &amp; <i>font</i>, int <i>listBase</i> = 2000 )<tt> (obsolete)</tt></td></tr>
+</table>
+<ul>
+<li class="fn">2 protected functions inherited from <a href="qwidget.html#protected-functions">QWidget</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$fontDisplayListBase[overload1]$$$fontDisplayListBaseconstQFont&int -->
+<h3 class="fn"><a name="fontDisplayListBase"></a><span class="type">int</span> QGLWidget::<span class="name">fontDisplayListBase</span> ( const <span class="type"><a href="qfont.html">QFont</a></span> &amp; <i>font</i>, <span class="type">int</span> <i>listBase</i> = 2000 )<tt> [protected]</tt></h3>
+<p>Returns the value of the first display list that is generated for the characters in the given <i>font</i>. <i>listBase</i> indicates the base value used when generating the display lists for the font. The default value is 2000.</p>
+<p><b>Note:</b> This function is not supported on OpenGL/ES systems.</p>
+<!-- @@@fontDisplayListBase -->
+<!-- $$$setFormat[overload1]$$$setFormatconstQGLFormat& -->
+<h3 class="fn"><a name="setFormat"></a><span class="type">void</span> QGLWidget::<span class="name">setFormat</span> ( const <span class="type"><a href="qglformat.html">QGLFormat</a></span> &amp; <i>format</i> )</h3>
+<p>Sets a new format for this widget.</p>
+<p>If the underlying OpenGL/Window system cannot satisfy all the features requested in <i>format</i>, the nearest subset of features will be used. After creation, the <a href="qglwidget.html#format">format</a>() method will return the actual rendering context format obtained.</p>
+<p>The widget will be assigned a new <a href="qglcontext.html">QGLContext</a>, and the <a href="qglwidget.html#initializeGL">initializeGL</a>() function will be executed for this new context before the first <a href="qglwidget.html#resizeGL">resizeGL</a>() or <a href="qglwidget.html#paintGL">paintGL</a>().</p>
+<p>This method will try to keep display list and texture object sharing in effect with other <a href="qglwidget.html">QGLWidget</a> objects, but changing the format might make sharing impossible. Use <a href="qglwidget.html#isSharing">isSharing</a>() to see if sharing is still in effect.</p>
+<p><b>See also </b><a href="qglwidget.html#format">format</a>(), <a href="qglwidget.html#isSharing">isSharing</a>(), and <a href="qglwidget.html#isValid">isValid</a>().</p>
+<!-- @@@setFormat -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

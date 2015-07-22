@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwindowsystem_qws.cpp -->
+  <title>Qt 4.7: QWSScreenSaver Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QWSScreenSaver</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWSScreenSaver Class Reference</h1>
+<!-- $$$QWSScreenSaver-brief -->
+<p>The QWSScreenSaver class is a base class for screensavers in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QWSScreenSaver -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QWSScreenSaver&gt;</span></pre><ul>
+<li><a href="qwsscreensaver-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwsscreensaver.html#dtor.QWSScreenSaver">~QWSScreenSaver</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qwsscreensaver.html#restore">restore</a></b> () = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qwsscreensaver.html#save">save</a></b> ( int <i>level</i> ) = 0</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWSScreenSaver-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWSScreenSaver class is a base class for screensavers in Qt for Embedded Linux.</p>
+<p>When running <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> applications, it is the server application that installs and controls the screensaver. <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> supports multilevel screen saving; i.e&#x2e;, it is possible to specify several different levels of screen responsiveness. For example, you can choose to first turn off the light before you fully activate the screensaver.</p>
+<p>Note that there exists no default screensaver implementation.</p>
+<p>To create a custom screensaver, derive from this class and reimplement the <a href="qwsscreensaver.html#restore">restore</a>() and <a href="qwsscreensaver.html#save">save</a>() functions. These functions are called whenever the screensaver is activated or deactivated, respectively. Once an instance of your custom screensaver is created, you can use the <a href="qwsserver.html#setScreenSaver">QWSServer::setScreenSaver</a>() function to install it.</p>
+</div>
+<p><b>See also </b><a href="qwsserver.html">QWSServer</a>, <a href="qscreen.html">QScreen</a>, and <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.</p>
+<!-- @@@QWSScreenSaver -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QWSScreenSaver[overload1]$$$~QWSScreenSaver -->
+<h3 class="fn"><a name="dtor.QWSScreenSaver"></a>QWSScreenSaver::<span class="name">~QWSScreenSaver</span> ()<tt> [virtual]</tt></h3>
+<p>Reimplement this function to destroy the screensaver.</p>
+<!-- @@@~QWSScreenSaver -->
+<!-- $$$restore[overload1]$$$restore -->
+<h3 class="fn"><a name="restore"></a><span class="type">void</span> QWSScreenSaver::<span class="name">restore</span> ()<tt> [pure virtual]</tt></h3>
+<p>Implement this function to deactivate the screensaver, restoring the previously saved screen.</p>
+<p><b>See also </b><a href="qwsscreensaver.html#save">save</a>() and <a href="qwsserver.html#screenSaverActivate">QWSServer::screenSaverActivate</a>().</p>
+<!-- @@@restore -->
+<!-- $$$save[overload1]$$$saveint -->
+<h3 class="fn"><a name="save"></a><span class="type">bool</span> QWSScreenSaver::<span class="name">save</span> ( <span class="type">int</span> <i>level</i> )<tt> [pure virtual]</tt></h3>
+<p>Implement this function to activate the screensaver, saving the current screen.</p>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> supports multilevel screen saving; i.e&#x2e;, it is possible to specify several different levels of screen responsiveness. For example, you can choose to first turn off the light before you fully activate the screensaver. Use the <a href="qwsserver.html#setScreenSaverIntervals">QWSServer::setScreenSaverIntervals</a>() to specify the time intervals between the different levels.</p>
+<p>This function should return true if the screensaver successfully enters the given <i>level</i>; otherwise it should return false.</p>
+<p><b>See also </b><a href="qwsscreensaver.html#restore">restore</a>() and <a href="qwsserver.html#screenSaverActivate">QWSServer::screenSaverActivate</a>().</p>
+<!-- @@@save -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

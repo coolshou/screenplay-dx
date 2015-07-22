@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwidget.cpp -->
+  <title>Qt 4.7: Obsolete Members for QWidget</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QWidget</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Obsolete Members for QWidget</h1>
+<p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<p><ul><li><a href="qwidget.html">QWidget class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-obsolete.html#isEnabledToTLW">isEnabledToTLW</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qwidget-obsolete.html#isTopLevel">isTopLevel</a></b> () const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QWidget * </td><td class="memItemRight bottomAlign"><b><a href="qwidget-obsolete.html#topLevelWidget">topLevelWidget</a></b> () const<tt> (obsolete)</tt></td></tr>
+</table>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-obsolete.html#languageChange">languageChange</a></b> ()<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwidget-obsolete.html#resetInputContext">resetInputContext</a></b> ()<tt> (obsolete)</tt></td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$isEnabledToTLW[overload1]$$$isEnabledToTLW -->
+<h3 class="fn"><a name="isEnabledToTLW"></a><span class="type">bool</span> QWidget::<span class="name">isEnabledToTLW</span> () const</h3>
+<p>This function is deprecated. It is equivalent to <a href="qwidget.html#enabled-prop">isEnabled</a>()</p>
+<!-- @@@isEnabledToTLW -->
+<!-- $$$isTopLevel[overload1]$$$isTopLevel -->
+<h3 class="fn"><a name="isTopLevel"></a><span class="type">bool</span> QWidget::<span class="name">isTopLevel</span> () const</h3>
+<p>Use <a href="qwidget.html#isWindow">isWindow</a>() instead.</p>
+<!-- @@@isTopLevel -->
+<!-- $$$languageChange[overload1]$$$languageChange -->
+<h3 class="fn"><a name="languageChange"></a><span class="type">void</span> QWidget::<span class="name">languageChange</span> ()<tt> [virtual protected]</tt></h3>
+<!-- @@@languageChange -->
+<!-- $$$resetInputContext[overload1]$$$resetInputContext -->
+<h3 class="fn"><a name="resetInputContext"></a><span class="type">void</span> QWidget::<span class="name">resetInputContext</span> ()<tt> [protected]</tt></h3>
+<p>This function can be called on the widget that currently has focus to reset the input method operating on it.</p>
+<p>This function is providing for convenience, instead you should use <a href="qinputcontext.html#reset">reset()</a> on the input context that was returned by <a href="qwidget.html#inputContext">inputContext</a>().</p>
+<p><b>See also </b><a href="qinputcontext.html">QInputContext</a>, <a href="qwidget.html#inputContext">inputContext</a>(), and <a href="qinputcontext.html#reset">QInputContext::reset</a>().</p>
+<!-- @@@resetInputContext -->
+<!-- $$$topLevelWidget[overload1]$$$topLevelWidget -->
+<h3 class="fn"><a name="topLevelWidget"></a><span class="type">QWidget</span> * QWidget::<span class="name">topLevelWidget</span> () const</h3>
+<p>Use <a href="qwidget.html#window">window</a>() instead.</p>
+<!-- @@@topLevelWidget -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

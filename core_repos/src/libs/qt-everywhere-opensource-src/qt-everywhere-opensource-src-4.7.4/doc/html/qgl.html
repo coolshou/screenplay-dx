@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgl.cpp -->
+  <title>Qt 4.7: QGL Namespace</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="namespaces.html">Namespaces</a></li>
+<li>QGL Namespace</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#types">Types</a></li>
+<li class="level1"><a href="#functions">Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QGL Namespace</h1>
+<!-- $$$QGL-brief -->
+<p>The QGL namespace specifies miscellaneous identifiers used in the Qt OpenGL module. <a href="#details">More...</a></p>
+<!-- @@@QGL -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QGL&gt;</span></pre><ul>
+</ul>
+<a name="types"></a>
+<h2>Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qgl.html#FormatOption-enum">FormatOption</a></b> { DoubleBuffer, DepthBuffer, Rgba, AlphaChannel, ..., NoDeprecatedFunctions }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qgl.html#FormatOption-enum">FormatOptions</a></b></td></tr>
+</table>
+<a name="functions"></a>
+<h2>Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgl.html#setPreferredPaintEngine">setPreferredPaintEngine</a></b> ( QPaintEngine::Type <i>engineType</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QGL-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QGL namespace specifies miscellaneous identifiers used in the Qt OpenGL module.</p>
+</div>
+<!-- @@@QGL -->
+<div class="types">
+<h2>Type Documentation</h2>
+<!-- $$$FormatOption$$$DoubleBuffer$$$DepthBuffer$$$Rgba$$$AlphaChannel$$$AccumBuffer$$$StencilBuffer$$$StereoBuffers$$$DirectRendering$$$HasOverlay$$$SampleBuffers$$$DeprecatedFunctions$$$SingleBuffer$$$NoDepthBuffer$$$ColorIndex$$$NoAlphaChannel$$$NoAccumBuffer$$$NoStencilBuffer$$$NoStereoBuffers$$$IndirectRendering$$$NoOverlay$$$NoSampleBuffers$$$NoDeprecatedFunctions -->
+<h3 class="flags"><a name="FormatOption-enum"></a>enum QGL::<span class="name">FormatOption</span><br/>flags QGL::<span class="name">FormatOptions</span></h3>
+<p>This enum specifies the format options that can be used to configure an OpenGL context. These are set using <a href="qglformat.html#setOption">QGLFormat::setOption</a>().</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QGL::DoubleBuffer</tt></td><td class="topAlign"><tt>0x0001</tt></td><td class="topAlign">Specifies the use of double buffering.</td></tr>
+<tr><td class="topAlign"><tt>QGL::DepthBuffer</tt></td><td class="topAlign"><tt>0x0002</tt></td><td class="topAlign">Enables the use of a depth buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::Rgba</tt></td><td class="topAlign"><tt>0x0004</tt></td><td class="topAlign">Specifies that the context should use RGBA as its pixel format.</td></tr>
+<tr><td class="topAlign"><tt>QGL::AlphaChannel</tt></td><td class="topAlign"><tt>0x0008</tt></td><td class="topAlign">Enables the use of an alpha channel.</td></tr>
+<tr><td class="topAlign"><tt>QGL::AccumBuffer</tt></td><td class="topAlign"><tt>0x0010</tt></td><td class="topAlign">Enables the use of an accumulation buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::StencilBuffer</tt></td><td class="topAlign"><tt>0x0020</tt></td><td class="topAlign">Enables the use of a stencil buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::StereoBuffers</tt></td><td class="topAlign"><tt>0x0040</tt></td><td class="topAlign">Enables the use of a stereo buffers for use with visualization hardware.</td></tr>
+<tr><td class="topAlign"><tt>QGL::DirectRendering</tt></td><td class="topAlign"><tt>0x0080</tt></td><td class="topAlign">Specifies that the context is used for direct rendering to a display.</td></tr>
+<tr><td class="topAlign"><tt>QGL::HasOverlay</tt></td><td class="topAlign"><tt>0x0100</tt></td><td class="topAlign">Enables the use of an overlay.</td></tr>
+<tr><td class="topAlign"><tt>QGL::SampleBuffers</tt></td><td class="topAlign"><tt>0x0200</tt></td><td class="topAlign">Enables the use of sample buffers.</td></tr>
+<tr><td class="topAlign"><tt>QGL::DeprecatedFunctions</tt></td><td class="topAlign"><tt>0x0400</tt></td><td class="topAlign">Enables the use of deprecated functionality for OpenGL 3.x contexts. A context with deprecated functionality enabled is called a full context in the OpenGL specification.</td></tr>
+<tr><td class="topAlign"><tt>QGL::SingleBuffer</tt></td><td class="topAlign"><tt>DoubleBuffer&lt;&lt;16</tt></td><td class="topAlign">Specifies the use of a single buffer, as opposed to double buffers.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoDepthBuffer</tt></td><td class="topAlign"><tt>DepthBuffer&lt;&lt;16</tt></td><td class="topAlign">Disables the use of a depth buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::ColorIndex</tt></td><td class="topAlign"><tt>Rgba&lt;&lt;16</tt></td><td class="topAlign">Specifies that the context should use a color index as its pixel format.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoAlphaChannel</tt></td><td class="topAlign"><tt>AlphaChannel&lt;&lt;16</tt></td><td class="topAlign">Disables the use of an alpha channel.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoAccumBuffer</tt></td><td class="topAlign"><tt>AccumBuffer&lt;&lt;16</tt></td><td class="topAlign">Disables the use of an accumulation buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoStencilBuffer</tt></td><td class="topAlign"><tt>StencilBuffer&lt;&lt;16</tt></td><td class="topAlign">Disables the use of a stencil buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoStereoBuffers</tt></td><td class="topAlign"><tt>StereoBuffers&lt;&lt;16</tt></td><td class="topAlign">Disables the use of stereo buffers.</td></tr>
+<tr><td class="topAlign"><tt>QGL::IndirectRendering</tt></td><td class="topAlign"><tt>DirectRendering&lt;&lt;16</tt></td><td class="topAlign">Specifies that the context is used for indirect rendering to a buffer.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoOverlay</tt></td><td class="topAlign"><tt>HasOverlay&lt;&lt;16</tt></td><td class="topAlign">Disables the use of an overlay.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoSampleBuffers</tt></td><td class="topAlign"><tt>SampleBuffers&lt;&lt;16</tt></td><td class="topAlign">Disables the use of sample buffers.</td></tr>
+<tr><td class="topAlign"><tt>QGL::NoDeprecatedFunctions</tt></td><td class="topAlign"><tt>DeprecatedFunctions&lt;&lt;16</tt></td><td class="topAlign">Disables the use of deprecated functionality for OpenGL 3.x contexts. A context with deprecated functionality disabled is called a forward compatible context in the OpenGL specification.</td></tr>
+</table>
+<p>The FormatOptions type is a typedef for <a href="qflags.html">QFlags</a>&lt;FormatOption&gt;. It stores an OR combination of FormatOption values.</p>
+<p><b>See also </b><a href="opengl-samplebuffers.html">Sample Buffers Example</a>.</p>
+<!-- @@@FormatOption -->
+</div>
+<div class="func">
+<h2>Function Documentation</h2>
+<!-- $$$setPreferredPaintEngine[overload1]$$$setPreferredPaintEngineQPaintEngine::Type -->
+<h3 class="fn"><a name="setPreferredPaintEngine"></a><span class="type">void</span> QGL::<span class="name">setPreferredPaintEngine</span> ( <span class="type"><a href="qpaintengine.html#Type-enum">QPaintEngine::Type</a></span> <i>engineType</i> )</h3>
+<p>Sets the preferred OpenGL paint engine that is used to draw onto <a href="qglwidget.html">QGLWidget</a>, <a href="qglpixelbuffer.html">QGLPixelBuffer</a> and <a href="qglframebufferobject.html">QGLFramebufferObject</a> targets with <a href="qpainter.html">QPainter</a> in Qt.</p>
+<p>The <i>engineType</i> parameter specifies which of the GL engines to use. Only <tt>QPaintEngine::OpenGL</tt> and <tt>QPaintEngine::OpenGL2</tt> are valid parameters to this function. All other values are ignored.</p>
+<p>By default, the <tt>QPaintEngine::OpenGL2</tt> engine is used if GL/GLES version 2.0 is available, otherwise <tt>QPaintEngine::OpenGL</tt> is used.</p>
+<p><b>Warning:</b> This function must be called before the <a href="qapplication.html">QApplication</a> constructor is called.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<!-- @@@setPreferredPaintEngine -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

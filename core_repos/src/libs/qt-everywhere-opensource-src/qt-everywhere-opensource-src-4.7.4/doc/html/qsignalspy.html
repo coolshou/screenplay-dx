@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qsignalspy.qdoc -->
+  <title>Qt 4.7: QSignalSpy Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qttest.html">QtTest</a></li>
+<li>QSignalSpy</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QSignalSpy Class Reference</h1>
+<!-- $$$QSignalSpy-brief -->
+<p>The QSignalSpy class enables introspection of signal emission. <a href="#details">More...</a></p>
+<!-- @@@QSignalSpy -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QSignalSpy&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a> and <a href="qlist.html">QList&lt;QList&lt;QVariant&gt; &gt;</a>.</p>
+<ul>
+<li><a href="qsignalspy-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qsignalspy.html#QSignalSpy">QSignalSpy</a></b> ( QObject * <i>object</i>, const char * <i>signal</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsignalspy.html#isValid">isValid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qsignalspy.html#signal">signal</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">66 public functions inherited from <a href="qlist.html#public-functions">QList</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">3 static public members inherited from <a href="qlist.html#static-public-members">QList</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QSignalSpy-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QSignalSpy class enables introspection of signal emission.</p>
+<p>QSignalSpy can connect to any signal of any object and records its emission. QSignalSpy itself is a list of <a href="qvariant.html">QVariant</a> lists. Each emission of the signal will append one item to the list, containing the arguments of the signal.</p>
+<p>The following example records all signal emissions for the <tt>clicked()</tt> signal of a <a href="qcheckbox.html">QCheckBox</a>:</p>
+<pre class="cpp"> <span class="type"><a href="qcheckbox.html">QCheckBox</a></span> <span class="operator">*</span>box <span class="operator">=</span> <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>;
+ <span class="type">QSignalSpy</span> spy(box<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>)));
+
+ <span class="comment">// do something that triggers the signal</span>
+ box<span class="operator">-</span><span class="operator">&gt;</span>animateClick();
+
+ <a href="qtest.html#QCOMPARE">QCOMPARE</a>(spy<span class="operator">.</span>count()<span class="operator">,</span> <span class="number">1</span>); <span class="comment">// make sure the signal was emitted exactly one time</span>
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> arguments <span class="operator">=</span> spy<span class="operator">.</span><a href="qlist.html#takeFirst">takeFirst</a>(); <span class="comment">// take the first signal</span>
+
+ <a href="qtest.html#QVERIFY">QVERIFY</a>(arguments<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">.</span>toBool() <span class="operator">=</span><span class="operator">=</span> <span class="keyword">true</span>); <span class="comment">// verify the first argument</span></pre>
+<p><tt>spy.takeFirst()</tt> returns the arguments for the first emitted signal, as a list of <a href="qvariant.html">QVariant</a> objects. The <tt>clicked()</tt> signal has a single bool argument, which is stored as the first entry in the list of arguments.</p>
+<p>The example below catches a signal from a custom object:</p>
+<pre class="cpp"> <span class="type">QSignalSpy</span> spy(myCustomObject<span class="operator">,</span> SIGNAL(mySignal(<span class="type">int</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> <span class="type">double</span>)));
+
+ myCustomObject<span class="operator">-</span><span class="operator">&gt;</span>doSomething(); <span class="comment">// trigger emission of the signal</span>
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> arguments <span class="operator">=</span> spy<span class="operator">.</span><a href="qlist.html#takeFirst">takeFirst</a>();
+ <a href="qtest.html#QVERIFY">QVERIFY</a>(arguments<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>Int);
+ <a href="qtest.html#QVERIFY">QVERIFY</a>(arguments<span class="operator">.</span>at(<span class="number">1</span>)<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span><span class="type"><a href="qstring.html">QString</a></span>);
+ <a href="qtest.html#QVERIFY">QVERIFY</a>(arguments<span class="operator">.</span>at(<span class="number">2</span>)<span class="operator">.</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span><span class="type">double</span>);</pre>
+<p><b>Note:</b> Non-standard data types need to be registered, using the <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a>() function, before you can create a QSignalSpy. For example:</p>
+<pre class="cpp"> <a href="qmetatype.html#qRegisterMetaType">qRegisterMetaType</a><span class="operator">&lt;</span><span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&gt;</span>(<span class="string">&quot;QModelIndex&quot;</span>);
+ <span class="type">QSignalSpy</span> spy(<span class="operator">&amp;</span>model<span class="operator">,</span> SIGNAL(whatever(<span class="type"><a href="qmodelindex.html">QModelIndex</a></span>)));</pre>
+<p>To retrieve the <tt>QModelIndex</tt>, you can use qvariant_cast:</p>
+<pre class="cpp"> <span class="comment">// get the first argument from the first received signal:</span>
+ <span class="type"><a href="qmodelindex.html">QModelIndex</a></span> result <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span><span class="type"><a href="qmodelindex.html">QModelIndex</a></span><span class="operator">&gt;</span>(spy<span class="operator">.</span>at(<span class="number">0</span>)<span class="operator">.</span>at(<span class="number">0</span>));</pre>
+</div>
+<!-- @@@QSignalSpy -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QSignalSpy[overload1]$$$QSignalSpyQObject*constchar* -->
+<h3 class="fn"><a name="QSignalSpy"></a>QSignalSpy::<span class="name">QSignalSpy</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>object</i>, const <span class="type">char</span> * <i>signal</i> )</h3>
+<p>Constructs a new <a href="qsignalspy.html">QSignalSpy</a> that listens for emissions of the <i>signal</i> from the <a href="qobject.html">QObject</a> <i>object</i>. Neither <i>signal</i> nor <i>object</i> can be null.</p>
+<p>Example:</p>
+<pre class="cpp"> <span class="type"><a href="qsignalspy.html">QSignalSpy</a></span> spy(myPushButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>)));</pre>
+<!-- @@@QSignalSpy -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a><span class="type">bool</span> QSignalSpy::<span class="name">isValid</span> () const</h3>
+<p>Returns true if the signal spy listens to a valid signal, otherwise false.</p>
+<!-- @@@isValid -->
+<!-- $$$signal[overload1]$$$signal -->
+<h3 class="fn"><a name="signal"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> QSignalSpy::<span class="name">signal</span> () const</h3>
+<p>Returns the normalized signal the spy is currently listening to.</p>
+<!-- @@@signal -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

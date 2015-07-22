@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- worldtimeclockbuilder.qdoc -->
+  <title>Qt 4.7: World Time Clock Builder Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>World Time Clock Builder Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#preparation">Preparation</a></li>
+<li class="level1"><a href="#loading-and-building-the-form">Loading and Building the Form</a></li>
+</ul>
+</div>
+<h1 class="title">World Time Clock Builder Example</h1>
+<span class="subtitle"></span>
+<!-- $$$designer/worldtimeclockbuilder-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="designer-worldtimeclockbuilder-form-ui.html">designer/worldtimeclockbuilder/form.ui</a></li>
+<li><a href="designer-worldtimeclockbuilder-main-cpp.html">designer/worldtimeclockbuilder/main.cpp</a></li>
+<li><a href="designer-worldtimeclockbuilder-worldtimeclockbuilder-pro.html">designer/worldtimeclockbuilder/worldtimeclockbuilder.pro</a></li>
+<li><a href="designer-worldtimeclockbuilder-worldtimeclockbuilder-qrc.html">designer/worldtimeclockbuilder/worldtimeclockbuilder.qrc</a></li>
+</ul>
+<p>The World Time Clock Builder example shows how forms created with Qt Designer that contain custom widgets can be dynamically generated at run-time.</p>
+<p class="centerAlign"><img src="images/worldtimeclockbuilder-example.png" /></p><p>This example uses a form containing the custom widget plugin described in the <a href="designer-worldtimeclockplugin.html">World Time Clock Plugin</a> example, and dynamically generates a user interface using the <a href="quiloader.html">QUiLoader</a> class, part of the <a href="qtuitools.html">QtUiTools</a> module.</p>
+<a name="preparation"></a>
+<h2>Preparation</h2>
+<p>As with the <a href="designer-calculatorbuilder.html">Calculator Builder</a> example, the project file for this example needs to include the appropriate definitions to ensure that it is built against the required Qt modules.</p>
+<pre class="cpp"> CONFIG      += uitools
+ SOURCES     = main.cpp
+ RESOURCES   = worldtimeclockbuilder.qrc</pre>
+<p>By appending <tt>form</tt> to the <tt>CONFIG</tt> declaration, we instruct <tt>qmake</tt> to generate a dependency on the <tt>libQtUiTools</tt> library containing the <a href="qtuitools.html">QtUiTools</a> classes.</p>
+<p>Note that we do not inform <tt>qmake</tt> about any UI files, and so none will be processed and built into the application. The resource file contains an entry for the particular form that we wish to use:</p>
+<pre class="cpp"> &lt;!DOCTYPE RCC&gt;&lt;RCC version=&quot;1.0&quot;&gt;
+ &lt;qresource prefix=&quot;/forms&quot;&gt;
+    &lt;file&gt;form.ui&lt;/file&gt;
+ &lt;/qresource&gt;
+ &lt;/RCC&gt;</pre>
+<p>Forms do not need to be included with the application in this way. We only include a form in the application's resources for convenience, and to keep the example short.</p>
+<a name="loading-and-building-the-form"></a>
+<h2>Loading and Building the Form</h2>
+<p>Since this example only loads and displays a pre-prepared form, all of the work can be done in the main() function. We are using a class from the <a href="qtuitools.html">QtUiTools</a> library so, in addition to any other Qt classes that are normally required to write an application, we must include the appropriate header file:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtUiTools&gt;</span></pre>
+<p>The main function initializes the resource system with the <a href="qdir.html#Q_INIT_RESOURCE">Q_INIT_RESOURCE</a>() macro and constructs an <a href="qapplication.html">QApplication</a> instance in the usual way:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     Q_INIT_RESOURCE(worldtimeclockbuilder);
+
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="quiloader.html">QUiLoader</a></span> loader;</pre>
+<p>We construct a <a href="quiloader.html">QUiLoader</a> object to handle the form we want to use.</p>
+<p>The form itself is obtained from the resource file system using the path defined in the resource file. We use the form loader to load and construct the form:</p>
+<pre class="cpp">     <span class="type"><a href="qfile.html">QFile</a></span> file(<span class="string">&quot;:/forms/form.ui&quot;</span>);
+     file<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>ReadOnly);
+
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> loader<span class="operator">.</span>load(<span class="operator">&amp;</span>file);
+
+     file<span class="operator">.</span>close();
+     widget<span class="operator">-</span><span class="operator">&gt;</span>show();</pre>
+<p>Once the form has been loaded, the resource file can be closed and the widget is shown.</p>
+<pre class="cpp">     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>The form loader ensures that all the signal and slot connections between objects in the form are set up correctly when the form is loaded. As a result, the time is updated by the World Time Clock widget, and the time zone spin box can be used to change the position of the hour hand.</p>
+</div>
+<!-- @@@designer/worldtimeclockbuilder -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

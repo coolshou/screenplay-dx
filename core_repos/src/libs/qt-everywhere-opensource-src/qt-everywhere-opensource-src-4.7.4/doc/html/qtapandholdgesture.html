@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgesture.cpp -->
+  <title>Qt 4.7: QTapAndHoldGesture Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QTapAndHoldGesture</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QTapAndHoldGesture Class Reference</h1>
+<!-- $$$QTapAndHoldGesture-brief -->
+<p>The QTapAndHoldGesture class describes a tap-and-hold (aka LongTap) gesture made by the user. <a href="#details">More...</a></p>
+<!-- @@@QTapAndHoldGesture -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QTapAndHoldGesture&gt;</span></pre><p><b>Inherits: </b><a href="qgesture.html">QGesture</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qtapandholdgesture-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qtapandholdgesture.html#position-prop">position</a></b> : QPointF</li>
+</ul>
+<ul>
+<li class="fn">5 properties inherited from <a href="qgesture.html#properties">QGesture</a></li>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qtapandholdgesture.html#position-prop">position</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtapandholdgesture.html#position-prop">setPosition</a></b> ( const QPointF &amp; <i>pos</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">8 public functions inherited from <a href="qgesture.html#public-functions">QGesture</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtapandholdgesture.html#setTimeout">setTimeout</a></b> ( int <i>msecs</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtapandholdgesture.html#timeout">timeout</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QTapAndHoldGesture-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QTapAndHoldGesture class describes a tap-and-hold (aka LongTap) gesture made by the user.</p>
+<p>For an overview of gesture handling in Qt and information on using gestures in your applications, see the <a href="gestures-overview.html">Gestures Programming</a> document.</p>
+</div>
+<p><b>See also </b><a href="qpangesture.html">QPanGesture</a> and <a href="qpinchgesture.html">QPinchGesture</a>.</p>
+<!-- @@@QTapAndHoldGesture -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$position-prop$$$position$$$setPositionconstQPointF& -->
+<h3 class="fn"><a name="position-prop"></a><span class="name">position</span> : <span class="type"><a href="qpointf.html">QPointF</a></span></h3>
+<p>This property holds the position of the tap.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QPointF </td><td class="memItemRight bottomAlign"><span class="name"><b>position</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setPosition</b></span> ( const QPointF &amp; <i>pos</i> )</td></tr>
+</table>
+<!-- @@@position -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$setTimeout[overload1]$$$setTimeoutint -->
+<h3 class="fn"><a name="setTimeout"></a><span class="type">void</span> QTapAndHoldGesture::<span class="name">setTimeout</span> ( <span class="type">int</span> <i>msecs</i> )<tt> [static]</tt></h3>
+<p>Set the timeout, in milliseconds, before the gesture triggers.</p>
+<p>The recognizer will detect a touch down and and if <i>msecs</i> later the touch is still down, it will trigger the <a href="qtapandholdgesture.html">QTapAndHoldGesture</a>. The default value is 700 milliseconds.</p>
+<p><b>See also </b><a href="qtapandholdgesture.html#timeout">timeout</a>().</p>
+<!-- @@@setTimeout -->
+<!-- $$$timeout[overload1]$$$timeout -->
+<h3 class="fn"><a name="timeout"></a><span class="type">int</span> QTapAndHoldGesture::<span class="name">timeout</span> ()<tt> [static]</tt></h3>
+<p>Gets the timeout, in milliseconds, before the gesture triggers.</p>
+<p>The recognizer will detect a touch down and and if timeout() later the touch is still down, it will trigger the <a href="qtapandholdgesture.html">QTapAndHoldGesture</a>. The default value is 700 milliseconds.</p>
+<p><b>See also </b><a href="qtapandholdgesture.html#setTimeout">setTimeout</a>().</p>
+<!-- @@@timeout -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

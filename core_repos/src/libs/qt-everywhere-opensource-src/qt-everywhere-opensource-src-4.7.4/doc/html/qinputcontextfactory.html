@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qinputcontextfactory.cpp -->
+  <title>Qt 4.7: QInputContextFactory Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QInputContextFactory</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QInputContextFactory Class Reference</h1>
+<!-- $$$QInputContextFactory-brief -->
+<p>The QInputContextFactory class creates <a href="qinputcontext.html">QInputContext</a> objects. <a href="#details">More...</a></p>
+<!-- @@@QInputContextFactory -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QInputContextFactory&gt;</span></pre><ul>
+<li><a href="qinputcontextfactory-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QInputContext * </td><td class="memItemRight bottomAlign"><b><a href="qinputcontextfactory.html#create">create</a></b> ( const QString &amp; <i>key</i>, QObject * <i>parent</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qinputcontextfactory.html#description">description</a></b> ( const QString &amp; <i>key</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qinputcontextfactory.html#displayName">displayName</a></b> ( const QString &amp; <i>key</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qinputcontextfactory.html#keys">keys</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qinputcontextfactory.html#languages">languages</a></b> ( const QString &amp; <i>key</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QInputContextFactory-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QInputContextFactory class creates <a href="qinputcontext.html">QInputContext</a> objects.</p>
+<p>The input context factory creates a <a href="qinputcontext.html">QInputContext</a> object for a given key with <a href="qinputcontextfactory.html#create">QInputContextFactory::create</a>().</p>
+<p>The input contexts are either built-in or dynamically loaded from an input context plugin (see <a href="qinputcontextplugin.html">QInputContextPlugin</a>).</p>
+<p><a href="qinputcontextfactory.html#keys">keys</a>() returns a list of valid keys. The keys are the names used, for example, to identify and specify input methods for the input method switching mechanism. The names have to be consistent with <a href="qinputcontext.html#identifierName">QInputContext::identifierName</a>(), and may only contain ASCII characters.</p>
+<p>A key can be used to retrieve the associated input context's supported languages using <a href="qinputcontextfactory.html#languages">languages</a>(). You can retrieve the input context's description using <a href="qinputcontextfactory.html#description">description</a>() and finally you can get a user friendly internationalized name of the <a href="qinputcontext.html">QInputContext</a> object specified by the key using <a href="qinputcontextfactory.html#displayName">displayName</a>().</p>
+<div class="LegaleseLeft"><p>Copyright (C) 2003-2004 immodule for Qt Project. All rights reserved.</p>
+<p>This file is written to contribute to Nokia Corporation and/or its subsidiary(-ies) under their own license. You may use this file under your Qt license. Following description is copied from their original file headers. Contact immodule-qt@freedesktop.org if any conditions of this licensing are not clear to you.</p>
+</div></div>
+<p><b>See also </b><a href="qinputcontext.html">QInputContext</a> and <a href="qinputcontextplugin.html">QInputContextPlugin</a>.</p>
+<!-- @@@QInputContextFactory -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$create[overload1]$$$createconstQString&QObject* -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qinputcontext.html">QInputContext</a></span> * QInputContextFactory::<span class="name">create</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i>, <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> )<tt> [static]</tt></h3>
+<p>Creates and returns a <a href="qinputcontext.html">QInputContext</a> object for the input context specified by <i>key</i> with the given <i>parent</i>. Keys are case sensitive.</p>
+<p><b>See also </b><a href="qinputcontextfactory.html#keys">keys</a>().</p>
+<!-- @@@create -->
+<!-- $$$description[overload1]$$$descriptionconstQString& -->
+<h3 class="fn"><a name="description"></a><span class="type"><a href="qstring.html">QString</a></span> QInputContextFactory::<span class="name">description</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i> )<tt> [static]</tt></h3>
+<p>Returns an internationalized brief description of the <a href="qinputcontext.html">QInputContext</a> object specified by <i>key</i>. You can, for example, use this description in a user interface.</p>
+<p><b>See also </b><a href="qinputcontextfactory.html#keys">keys</a>() and <a href="qinputcontextfactory.html#displayName">displayName</a>().</p>
+<!-- @@@description -->
+<!-- $$$displayName[overload1]$$$displayNameconstQString& -->
+<h3 class="fn"><a name="displayName"></a><span class="type"><a href="qstring.html">QString</a></span> QInputContextFactory::<span class="name">displayName</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i> )<tt> [static]</tt></h3>
+<p>Returns a user friendly internationalized name of the <a href="qinputcontext.html">QInputContext</a> object specified by <i>key</i>. You can, for example, use this name in a menu.</p>
+<p><b>See also </b><a href="qinputcontextfactory.html#keys">keys</a>() and <a href="qinputcontext.html#identifierName">QInputContext::identifierName</a>().</p>
+<!-- @@@displayName -->
+<!-- $$$keys[overload1]$$$keys -->
+<h3 class="fn"><a name="keys"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QInputContextFactory::<span class="name">keys</span> ()<tt> [static]</tt></h3>
+<p>Returns the list of keys this factory can create input contexts for.</p>
+<p>The keys are the names used, for example, to identify and specify input methods for the input method switching mechanism. The names have to be consistent with <a href="qinputcontext.html#identifierName">QInputContext::identifierName</a>(), and may only contain ASCII characters.</p>
+<p><b>See also </b><a href="qinputcontextfactory.html#create">create</a>(), <a href="qinputcontextfactory.html#displayName">displayName</a>(), and <a href="qinputcontext.html#identifierName">QInputContext::identifierName</a>().</p>
+<!-- @@@keys -->
+<!-- $$$languages[overload1]$$$languagesconstQString& -->
+<h3 class="fn"><a name="languages"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QInputContextFactory::<span class="name">languages</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i> )<tt> [static]</tt></h3>
+<p>Returns the languages supported by the <a href="qinputcontext.html">QInputContext</a> object specified by <i>key</i>.</p>
+<p>The languages are expressed as language code (e.g&#x2e; &quot;zh_CN&quot;, &quot;zh_TW&quot;, &quot;zh_HK&quot;, &quot;ja&quot;, &quot;ko&quot;, ..&#x2e;)&#x2e; An input context that supports multiple languages can return all supported languages as a <a href="qstringlist.html">QStringList</a>. The name has to be consistent with <a href="qinputcontext.html#language">QInputContext::language</a>().</p>
+<p>This information may be used to optimize a user interface.</p>
+<p><b>See also </b><a href="qinputcontextfactory.html#keys">keys</a>(), <a href="qinputcontext.html#language">QInputContext::language</a>(), and <a href="qlocale.html">QLocale</a>.</p>
+<!-- @@@languages -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

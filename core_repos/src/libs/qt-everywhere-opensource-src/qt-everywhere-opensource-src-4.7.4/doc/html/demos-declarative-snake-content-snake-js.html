@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: snake.js Example File (demos/declarative/snake/content/snake.js)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">snake.js Example File</h1>
+<span class="small-subtitle">demos/declarative/snake/content/snake.js</span>
+<!-- $$$demos/declarative/snake/content/snake.js-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="js"> var <span class="name">snake</span> = new <span class="name">Array</span>;
+ var <span class="name">board</span> = new <span class="name">Array</span>;
+ var <span class="name">links</span> = new <span class="name">Array</span>;
+ var <span class="name">scheduledDirections</span> = new <span class="name">Array</span>;
+ var <span class="name">numRows</span> = <span class="number">1</span>;
+ var <span class="name">numColumns</span> = <span class="number">1</span>;
+ var <span class="name">linkComponent</span> = <span class="name">Qt</span>.<span class="name">createComponent</span>(<span class="string">&quot;content/Link.qml&quot;</span>); <span class="comment">// XXX should resolve relative to script, not component</span>
+ var <span class="name">cookieComponent</span> = <span class="name">Qt</span>.<span class="name">createComponent</span>(<span class="string">&quot;content/Cookie.qml&quot;</span>);
+ var <span class="name">cookie</span>;
+ var <span class="name">linksToGrow</span> = <span class="number">0</span>;
+ var <span class="name">linksToDie</span> = <span class="number">0</span>;
+ var <span class="name">waitForCookie</span> = <span class="number">0</span>;
+ var <span class="name">growType</span> = <span class="number">0</span>;
+ var <span class="name">skullMovementsBeforeDirectionChange</span> = <span class="number">0</span>;
+
+ <span class="keyword">function</span> <span class="name">rand</span>(<span class="name">n</span>)
+ {
+   <span class="keyword">return</span> (<span class="name">Math</span>.<span class="name">floor</span>(<span class="name">Math</span>.<span class="name">random</span>() <span class="operator">*</span> <span class="name">n</span>));
+ }
+
+ <span class="keyword">function</span> <span class="name">scheduleDirection</span>(<span class="name">dir</span>)
+ {
+     <span class="name">direction</span> <span class="operator">=</span> <span class="name">dir</span>;
+     <span class="keyword">if</span>(<span class="name">scheduledDirections</span>[<span class="name">scheduledDirections</span>.<span class="name">length</span><span class="operator">-</span><span class="number">1</span>]<span class="operator">!=</span><span class="name">direction</span>)
+         <span class="name">scheduledDirections</span>.<span class="name">push</span>(<span class="name">direction</span>);
+ }
+
+ <span class="keyword">function</span> <span class="name">startNewGame</span>()
+ {
+     <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span>)
+         <span class="keyword">return</span>;
+
+     <span class="keyword">if</span> (<span class="name">activeGame</span>) {
+         <span class="name">endGame</span>();
+         <span class="name">startNewGameTimer</span>.<span class="name">running</span> <span class="operator">=</span> <span class="number">true</span>;
+         <span class="name">state</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;
+         <span class="keyword">return</span>;
+     }
+
+     <span class="name">state</span> <span class="operator">=</span> <span class="string">&quot;starting&quot;</span>;
+
+     <span class="name">numRows</span> <span class="operator">=</span> <span class="name">numRowsAvailable</span>;
+     <span class="name">numColumns</span> <span class="operator">=</span> <span class="name">numColumnsAvailable</span>;
+     <span class="name">board</span> <span class="operator">=</span> new <span class="name">Array</span>(<span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span>);
+     <span class="name">snake</span> <span class="operator">=</span> new <span class="name">Array</span>;
+     <span class="name">scheduledDirections</span> <span class="operator">=</span> new <span class="name">Array</span>;
+     <span class="name">growType</span> <span class="operator">=</span> <span class="number">0</span>;
+
+     <span class="name">skull</span>.<span class="name">z</span> <span class="operator">=</span> <span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="number">1</span>;
+
+     <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">i</span> = <span class="number">0</span>; <span class="name">i</span> <span class="operator">&lt;</span> <span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span>; ++<span class="name">i</span>) {
+         <span class="keyword">if</span> (<span class="name">i</span> <span class="operator">&lt;</span> <span class="name">links</span>.<span class="name">length</span>) {
+             var <span class="name">link</span> = <span class="name">links</span>[<span class="name">i</span>];
+             <span class="name">link</span>.<span class="name">spawned</span> <span class="operator">=</span> <span class="number">false</span>;
+             <span class="name">link</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">false</span>;
+         } else {
+             <span class="keyword">if</span>(<span class="name">linkComponent</span>.<span class="name">status</span> <span class="operator">!=</span> <span class="name">Component</span>.<span class="name">Ready</span>) {
+                 <span class="keyword">if</span>(<span class="name">linkComponent</span>.<span class="name">status</span> <span class="operator">==</span> <span class="name">Component</span>.<span class="name">Error</span>)
+                     <span class="name">console</span>.<span class="name">log</span>(<span class="name">linkComponent</span>.<span class="name">errorString</span>());
+                 else
+                     <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Still loading linkComponent&quot;</span>);
+                 <span class="keyword">continue</span>;<span class="comment">//TODO: Better error handling?</span>
+             }
+             var <span class="name">link</span> = <span class="name">linkComponent</span>.<span class="name">createObject</span>(<span class="name">playfield</span>);
+             <span class="name">link</span>.<span class="name">z</span> <span class="operator">=</span> <span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="number">1</span> <span class="operator">-</span> <span class="name">i</span>;
+             <span class="name">link</span>.<span class="name">type</span> <span class="operator">=</span> <span class="name">i</span> <span class="operator">==</span> <span class="number">0</span> ? <span class="number">2</span> : <span class="number">0</span>;
+             <span class="name">link</span>.<span class="name">spawned</span> <span class="operator">=</span> <span class="number">false</span>;
+             <span class="name">link</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">false</span>;
+             <span class="name">links</span>.<span class="name">push</span>(<span class="name">link</span>);
+         }
+     }
+
+     <span class="name">head</span> <span class="operator">=</span> <span class="name">links</span>[<span class="number">0</span>];
+     <span class="name">snake</span>.<span class="name">push</span>(<span class="name">head</span>);
+     <span class="name">head</span>.<span class="name">row</span> <span class="operator">=</span> <span class="name">numRows</span><span class="operator">/</span><span class="number">2</span> <span class="operator">-</span><span class="number">1</span>;
+     <span class="name">head</span>.<span class="name">column</span> <span class="operator">=</span> <span class="name">numColumns</span><span class="operator">/</span><span class="number">2</span> <span class="operator">-</span><span class="number">1</span>;
+     <span class="name">head</span>.<span class="name">spawned</span> <span class="operator">=</span> <span class="number">true</span>;
+
+     <span class="name">linksToGrow</span> <span class="operator">=</span> <span class="number">5</span>;
+     <span class="name">linksToDie</span> <span class="operator">=</span> <span class="number">0</span>;
+     <span class="name">waitForCookie</span> <span class="operator">=</span> <span class="number">5</span>;
+     <span class="name">score</span> <span class="operator">=</span> <span class="number">0</span>;
+     <span class="name">startHeartbeatTimer</span>.<span class="name">running</span> <span class="operator">=</span> <span class="number">true</span>;
+ }
+
+ <span class="keyword">function</span> <span class="name">endGame</span>()
+ {
+     <span class="name">activeGame</span> <span class="operator">=</span> <span class="number">false</span>;
+     <span class="keyword">for</span>(<span class="keyword">var</span> <span class="name">i</span> in <span class="name">snake</span>)
+         <span class="name">snake</span>[<span class="name">i</span>].<span class="name">dying</span> <span class="operator">=</span> <span class="number">true</span>;
+     <span class="keyword">if</span> (<span class="name">cookie</span>) {
+         <span class="name">cookie</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">true</span>;
+         <span class="name">cookie</span> <span class="operator">=</span> <span class="number">0</span>;
+     }
+     <span class="name">lastScore</span> <span class="operator">=</span> <span class="name">score</span>;
+     <span class="name">highScores</span>.<span class="name">saveScore</span>(<span class="name">lastScore</span>);
+     <span class="name">state</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;
+ }
+
+ <span class="keyword">function</span> <span class="name">move</span>() {
+
+     <span class="keyword">if</span> (!<span class="name">head</span>)
+         <span class="keyword">return</span>;
+
+     var <span class="name">dir</span> = <span class="name">direction</span>;
+
+     <span class="keyword">if</span> (<span class="name">scheduledDirections</span>.<span class="name">length</span>) {
+         <span class="name">dir</span> <span class="operator">=</span> <span class="name">scheduledDirections</span>.<span class="name">shift</span>();
+     }
+
+     <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span>) {
+         var <span class="name">turn</span> = (<span class="name">dir</span> <span class="operator">-</span> <span class="name">headDirection</span>);
+         <span class="name">head</span>.<span class="name">rotation</span> <span class="operator">+=</span> <span class="name">turn</span> <span class="operator">==</span> -<span class="number">3</span> ? <span class="number">1</span> : (<span class="name">turn</span> <span class="operator">==</span> <span class="number">3</span> ? -<span class="number">1</span> : <span class="name">turn</span> );
+         <span class="name">headDirection</span> <span class="operator">=</span> <span class="name">dir</span>;
+         <span class="keyword">return</span>;
+     }
+
+     var <span class="name">row</span> = <span class="name">head</span>.<span class="name">row</span>;
+     var <span class="name">column</span> = <span class="name">head</span>.<span class="name">column</span>;
+
+     <span class="keyword">if</span> (<span class="name">dir</span> <span class="operator">==</span> <span class="number">0</span>) {
+         <span class="name">row</span> <span class="operator">=</span> <span class="name">row</span> <span class="operator">-</span> <span class="number">1</span>;
+     } else <span class="keyword">if</span> (<span class="name">dir</span> <span class="operator">==</span> <span class="number">1</span>) {
+         <span class="name">column</span> <span class="operator">=</span> <span class="name">column</span> <span class="operator">+</span> <span class="number">1</span>
+     } else <span class="keyword">if</span> (<span class="name">dir</span> <span class="operator">==</span> <span class="number">2</span>) {
+         <span class="name">row</span> <span class="operator">=</span> <span class="name">row</span> <span class="operator">+</span> <span class="number">1</span>;
+     } else <span class="keyword">if</span> (<span class="name">dir</span> <span class="operator">==</span> <span class="number">3</span>) {
+         <span class="name">column</span> <span class="operator">=</span> <span class="name">column</span> <span class="operator">-</span> <span class="number">1</span>;
+     }
+
+     <span class="comment">//validate the new position</span>
+     <span class="keyword">if</span> (<span class="name">row</span> <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">row</span> <span class="operator">&gt;=</span> <span class="name">numRows</span>
+         <span class="operator">||</span> <span class="name">column</span> <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">column</span> <span class="operator">&gt;=</span> <span class="name">numColumns</span>
+         <span class="operator">||</span> (<span class="name">row</span> <span class="operator">==</span> <span class="name">skull</span>.<span class="name">row</span> <span class="operator">&amp;&amp;</span> <span class="name">column</span> <span class="operator">==</span> <span class="name">skull</span>.<span class="name">column</span>)
+         <span class="operator">||</span> !<span class="name">isFree</span>(<span class="name">row</span>, <span class="name">column</span>)) {
+         var <span class="name">turn</span> = (<span class="name">dir</span> <span class="operator">-</span> <span class="name">headDirection</span>);
+         <span class="name">head</span>.<span class="name">rotation</span> <span class="operator">+=</span> <span class="name">turn</span> <span class="operator">==</span> -<span class="number">3</span> ? <span class="number">1</span> : (<span class="name">turn</span> <span class="operator">==</span> <span class="number">3</span> ? -<span class="number">1</span> : <span class="name">turn</span> );
+         <span class="name">headDirection</span> <span class="operator">=</span> <span class="name">dir</span>;
+         <span class="name">endGame</span>();
+         <span class="keyword">return</span>;
+     }
+
+     var <span class="name">newLink</span>;
+     <span class="keyword">if</span> (<span class="name">linksToGrow</span> <span class="operator">&gt;</span> <span class="number">0</span>) {
+         --<span class="name">linksToGrow</span>;
+         <span class="name">newLink</span> <span class="operator">=</span> <span class="name">links</span>[<span class="name">snake</span>.<span class="name">length</span>];
+         <span class="name">newLink</span>.<span class="name">spawned</span> <span class="operator">=</span> <span class="number">false</span>;
+         <span class="name">newLink</span>.<span class="name">rotation</span> <span class="operator">=</span> <span class="name">snake</span>[<span class="name">snake</span>.<span class="name">length</span><span class="operator">-</span><span class="number">1</span>].<span class="name">rotation</span>;
+         <span class="name">newLink</span>.<span class="name">type</span> <span class="operator">=</span> <span class="name">growType</span>;
+         <span class="name">newLink</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">false</span>;
+         <span class="name">snake</span>.<span class="name">push</span>(<span class="name">newLink</span>);
+     } else {
+         var <span class="name">lastLink</span> = <span class="name">snake</span>[<span class="name">snake</span>.<span class="name">length</span><span class="operator">-</span><span class="number">1</span>];
+         <span class="name">board</span>[<span class="name">lastLink</span>.<span class="name">row</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="name">lastLink</span>.<span class="name">column</span>] <span class="operator">=</span> <span class="name">undefined</span>;
+     }
+
+     <span class="keyword">if</span> (<span class="name">waitForCookie</span> <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="keyword">if</span> (--<span class="name">waitForCookie</span> <span class="operator">==</span> <span class="number">0</span>)
+             <span class="name">createCookie</span>(<span class="name">cookie</span>? (<span class="name">cookie</span>.<span class="name">value</span><span class="operator">+</span><span class="number">1</span>) : <span class="number">1</span>);
+     }
+
+     <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">i</span> = <span class="name">snake</span>.<span class="name">length</span><span class="operator">-</span><span class="number">1</span>; <span class="name">i</span> <span class="operator">&gt;</span> <span class="number">0</span>; --<span class="name">i</span>) {
+         <span class="name">snake</span>[<span class="name">i</span>].<span class="name">row</span> <span class="operator">=</span> <span class="name">snake</span>[<span class="name">i</span><span class="operator">-</span><span class="number">1</span>].<span class="name">row</span>;
+         <span class="name">snake</span>[<span class="name">i</span>].<span class="name">column</span> <span class="operator">=</span> <span class="name">snake</span>[<span class="name">i</span><span class="operator">-</span><span class="number">1</span>].<span class="name">column</span>;
+         <span class="name">snake</span>[<span class="name">i</span>].<span class="name">rotation</span> <span class="operator">=</span> <span class="name">snake</span>[<span class="name">i</span><span class="operator">-</span><span class="number">1</span>].<span class="name">rotation</span>;
+     }
+
+     <span class="keyword">if</span> (<span class="name">newLink</span>) {
+         <span class="name">newLink</span>.<span class="name">spawned</span> <span class="operator">=</span> <span class="number">true</span>;
+     }
+
+     <span class="comment">// move the head</span>
+     <span class="name">head</span>.<span class="name">row</span> <span class="operator">=</span> <span class="name">row</span>;
+     <span class="name">head</span>.<span class="name">column</span> <span class="operator">=</span> <span class="name">column</span>;
+     <span class="name">board</span>[<span class="name">row</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="name">column</span>] <span class="operator">=</span> <span class="name">head</span>;
+
+     var <span class="name">turn</span> = (<span class="name">dir</span> <span class="operator">-</span> <span class="name">headDirection</span>);
+     <span class="name">head</span>.<span class="name">rotation</span> <span class="operator">+=</span> <span class="name">turn</span> <span class="operator">==</span> -<span class="number">3</span> ? <span class="number">1</span> : (<span class="name">turn</span> <span class="operator">==</span> <span class="number">3</span> ? -<span class="number">1</span> : <span class="name">turn</span> );
+     <span class="name">headDirection</span> <span class="operator">=</span> <span class="name">dir</span>;
+
+     var <span class="name">value</span> = <span class="name">testCookie</span>(<span class="name">row</span>, <span class="name">column</span>);
+     <span class="keyword">if</span> (<span class="name">value</span> <span class="operator">&gt;</span> <span class="number">0</span>) {
+         <span class="name">linksToGrow</span> <span class="operator">+=</span> <span class="name">value</span>;
+         <span class="name">score</span> <span class="operator">+=</span> <span class="name">value</span>;
+     }
+ }
+
+ <span class="keyword">function</span> <span class="name">isFree</span>(<span class="name">row</span>, column)
+ {
+     <span class="keyword">return</span> <span class="name">board</span>[<span class="name">row</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="name">column</span>] <span class="operator">==</span> <span class="name">undefined</span>;
+ }
+
+ <span class="keyword">function</span> <span class="name">isHead</span>(<span class="name">row</span>, column)
+ {
+     <span class="keyword">return</span> <span class="name">head</span>.<span class="name">column</span> <span class="operator">==</span> <span class="name">column</span> <span class="operator">&amp;&amp;</span> <span class="name">head</span>.<span class="name">row</span> <span class="operator">==</span> <span class="name">row</span>;
+ }
+
+ <span class="keyword">function</span> <span class="name">testCookie</span>(<span class="name">row</span>, column)
+ {
+     <span class="keyword">if</span> (<span class="name">cookie</span> <span class="operator">&amp;&amp;</span> !<span class="name">cookie</span>.<span class="name">dying</span> <span class="operator">&amp;&amp;</span> <span class="name">cookie</span>.<span class="name">row</span> <span class="operator">==</span> <span class="name">row</span> <span class="operator">&amp;&amp;</span> <span class="name">cookie</span>.<span class="name">column</span> <span class="operator">==</span> <span class="name">column</span>) {
+         var <span class="name">value</span> = <span class="name">cookie</span>.<span class="name">value</span>;
+         <span class="name">waitForCookie</span> <span class="operator">=</span> <span class="name">value</span>;
+         <span class="name">growType</span> <span class="operator">=</span> <span class="name">snake</span>[<span class="name">snake</span>.<span class="name">length</span><span class="operator">-</span><span class="number">1</span>].<span class="name">type</span> <span class="operator">==</span> <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>;
+         <span class="name">cookie</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">true</span>;
+         <span class="name">cookie</span>.<span class="name">z</span> <span class="operator">=</span> <span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="number">2</span>;
+         <span class="keyword">return</span> <span class="name">value</span>;
+     }
+     <span class="keyword">return</span> <span class="number">0</span>;
+ }
+
+ <span class="keyword">function</span> <span class="name">moveSkull</span>()
+ {
+
+     <span class="keyword">if</span> (<span class="name">linksToDie</span> <span class="operator">&gt;</span> <span class="number">0</span>) {
+         --<span class="name">linksToDie</span>;
+         var <span class="name">link</span> = <span class="name">snake</span>.<span class="name">pop</span>();
+         <span class="name">link</span>.<span class="name">dying</span> <span class="operator">=</span> <span class="number">true</span>;
+         <span class="name">board</span>[<span class="name">link</span>.<span class="name">row</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">+</span> <span class="name">link</span>.<span class="name">column</span>] <span class="operator">=</span> <span class="name">undefined</span>;
+         <span class="keyword">if</span> (<span class="name">score</span> <span class="operator">&gt;</span> <span class="number">0</span>)
+             --<span class="name">score</span>;
+         <span class="keyword">if</span> (<span class="name">snake</span>.<span class="name">length</span> <span class="operator">==</span> <span class="number">0</span>) {
+             <span class="name">endGame</span>();
+             <span class="keyword">return</span>;
+         }
+     }
+
+     var <span class="name">row</span> = <span class="name">skull</span>.<span class="name">row</span>;
+     var <span class="name">column</span> = <span class="name">skull</span>.<span class="name">column</span>;
+     <span class="keyword">if</span> (<span class="name">isHead</span>(<span class="name">row</span>, <span class="name">column</span>)) {
+         <span class="name">endGame</span>();
+         <span class="keyword">return</span>;
+     }
+     <span class="name">row</span> <span class="operator">+=</span>  <span class="name">skull</span>.<span class="name">verticalMovement</span>;
+     <span class="name">column</span> <span class="operator">+=</span> <span class="name">skull</span>.<span class="name">horizontalMovement</span>;
+
+     var <span class="name">attempts</span> = <span class="number">4</span>;
+
+     <span class="keyword">while</span> (<span class="name">skullMovementsBeforeDirectionChange</span> <span class="operator">==</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">row</span> <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">row</span> <span class="operator">&gt;=</span> <span class="name">numRows</span>
+         <span class="operator">||</span> <span class="name">column</span> <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">column</span> <span class="operator">&gt;=</span> <span class="name">numColumns</span>
+         <span class="operator">||</span> (!<span class="name">isFree</span>(<span class="name">row</span>, <span class="name">column</span>) <span class="operator">&amp;&amp;</span> !<span class="name">isHead</span>(<span class="name">row</span>, <span class="name">column</span>))) {
+         var <span class="name">d</span> = <span class="name">rand</span>(<span class="number">8</span>);
+         <span class="name">skull</span>.<span class="name">verticalMovement</span> <span class="operator">=</span> <span class="number">0</span>;
+         <span class="name">skull</span>.<span class="name">horizontalMovement</span> <span class="operator">=</span> <span class="number">0</span>;
+         <span class="name">skullMovementsBeforeDirectionChange</span> <span class="operator">=</span> <span class="name">rand</span>(<span class="number">20</span>)<span class="operator">+</span><span class="number">1</span>;
+         <span class="keyword">if</span> (<span class="name">d</span> <span class="operator">==</span> <span class="number">0</span>) {
+             <span class="name">skull</span>.<span class="name">verticalMovement</span> <span class="operator">=</span> -<span class="number">1</span>
+         } else <span class="keyword">if</span> (<span class="name">d</span> <span class="operator">==</span> <span class="number">1</span>) {
+             <span class="name">skull</span>.<span class="name">horizontalMovement</span> <span class="operator">=</span> -<span class="number">1</span>;
+         } else <span class="keyword">if</span> (<span class="name">d</span> <span class="operator">==</span> <span class="number">2</span>) {
+             <span class="name">skull</span>.<span class="name">verticalMovement</span> <span class="operator">=</span> <span class="number">1</span>
+         } else <span class="keyword">if</span> (<span class="name">d</span> <span class="operator">==</span> <span class="number">3</span>){
+             <span class="name">skull</span>.<span class="name">horizontalMovement</span> <span class="operator">=</span> <span class="number">1</span>;
+         } else <span class="keyword">if</span> (<span class="name">cookie</span>) {
+             var <span class="name">rd</span> = <span class="name">cookie</span>.<span class="name">row</span> <span class="operator">-</span> <span class="name">skull</span>.<span class="name">row</span>;
+             var <span class="name">rc</span> = <span class="name">cookie</span>.<span class="name">column</span> <span class="operator">-</span> <span class="name">skull</span>.<span class="name">column</span>;
+             <span class="keyword">if</span> (<span class="name">Math</span>.<span class="name">abs</span>(<span class="name">rd</span>) <span class="operator">&gt;</span> <span class="name">Math</span>.<span class="name">abs</span>(<span class="name">rc</span>)) {
+                 <span class="name">skull</span>.<span class="name">verticalMovement</span> <span class="operator">=</span> <span class="name">rd</span> <span class="operator">&gt;</span> <span class="number">0</span> ? <span class="number">1</span> : -<span class="number">1</span>;
+                 <span class="name">skullMovementsBeforeDirectionChange</span> <span class="operator">=</span> <span class="name">Math</span>.<span class="name">abs</span>(<span class="name">rd</span>);
+             } else {
+                 <span class="name">skull</span>.<span class="name">horizontalMovement</span><span class="operator">=</span> <span class="name">rc</span> <span class="operator">&gt;</span> <span class="number">0</span> ? <span class="number">1</span> : -<span class="number">1</span>;
+                 <span class="name">skullMovementsBeforeDirectionChange</span> <span class="operator">=</span> <span class="name">Math</span>.<span class="name">abs</span>(<span class="name">rc</span>);
+             }
+         }
+         <span class="name">row</span> <span class="operator">=</span> <span class="name">skull</span>.<span class="name">row</span> <span class="operator">+</span> <span class="name">skull</span>.<span class="name">verticalMovement</span>;
+         <span class="name">column</span> <span class="operator">=</span> <span class="name">skull</span>.<span class="name">column</span> <span class="operator">+</span> <span class="name">skull</span>.<span class="name">horizontalMovement</span>;
+         <span class="keyword">if</span> (--<span class="name">attempts</span> <span class="operator">==</span> <span class="number">0</span>)
+             <span class="keyword">return</span>;
+     }
+
+     <span class="name">skull</span>.<span class="name">row</span> <span class="operator">=</span> <span class="name">row</span>;
+     <span class="name">skull</span>.<span class="name">column</span> <span class="operator">=</span> <span class="name">column</span>;
+     --<span class="name">skullMovementsBeforeDirectionChange</span>;
+     var <span class="name">value</span> = <span class="name">testCookie</span>(<span class="name">row</span>, <span class="name">column</span>);
+     <span class="keyword">if</span> (<span class="name">value</span> <span class="operator">&gt;</span> <span class="number">0</span>)
+         <span class="name">linksToDie</span> <span class="operator">+=</span> <span class="name">value</span><span class="operator">/</span><span class="number">2</span>;
+
+     <span class="keyword">if</span> (<span class="name">isHead</span>(<span class="name">row</span>, <span class="name">column</span>))
+         <span class="name">endGame</span>();
+ }
+
+ <span class="keyword">function</span> <span class="name">createCookie</span>(<span class="name">value</span>) {
+     <span class="keyword">if</span> (<span class="name">numRows</span> <span class="operator">*</span> <span class="name">numColumns</span> <span class="operator">-</span> <span class="name">snake</span>.<span class="name">length</span> <span class="operator">&lt;</span> <span class="number">10</span>)
+         <span class="keyword">return</span>;
+
+     var <span class="name">column</span> = <span class="name">rand</span>(<span class="name">numColumns</span>);
+     var <span class="name">row</span> = <span class="name">rand</span>(<span class="name">numRows</span>);
+     <span class="keyword">while</span> (!<span class="name">isFree</span>(<span class="name">row</span>, <span class="name">column</span>)) {
+         column++;
+         <span class="keyword">if</span> (<span class="name">column</span> <span class="operator">==</span> <span class="name">numColumns</span>) {
+             <span class="name">column</span> <span class="operator">=</span> <span class="number">0</span>;
+             row++;
+             <span class="keyword">if</span> (<span class="name">row</span> <span class="operator">==</span> <span class="name">numRows</span>)
+                 <span class="name">row</span> <span class="operator">=</span> <span class="number">0</span>;
+         }
+     }
+
+     <span class="keyword">if</span>(<span class="name">cookieComponent</span>.<span class="name">status</span> <span class="operator">!=</span> <span class="name">Component</span>.<span class="name">Ready</span>) {
+         <span class="keyword">if</span>(<span class="name">cookieComponent</span>.<span class="name">status</span> <span class="operator">==</span> <span class="name">Component</span>.<span class="name">Error</span>)
+             <span class="name">console</span>.<span class="name">log</span>(<span class="name">cookieComponent</span>.<span class="name">errorString</span>());
+         else
+             <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;Still loading cookieComponent&quot;</span>);
+         <span class="keyword">return</span>;<span class="comment">//TODO: Better error handling?</span>
+     }
+     <span class="name">cookie</span> <span class="operator">=</span> <span class="name">cookieComponent</span>.<span class="name">createObject</span>(<span class="name">head</span>.<span class="name">parent</span>);
+     <span class="name">cookie</span>.<span class="name">value</span> <span class="operator">=</span> <span class="name">value</span>;
+     <span class="name">cookie</span>.<span class="name">row</span> <span class="operator">=</span> <span class="name">row</span>;
+     <span class="name">cookie</span>.<span class="name">column</span> <span class="operator">=</span> <span class="name">column</span>;
+ }</pre>
+</div>
+<!-- @@@demos/declarative/snake/content/snake.js -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

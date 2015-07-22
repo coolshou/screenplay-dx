@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qplugin.qdoc -->
+  <title>Qt 4.7: &lt;QtPlugin&gt; - Macros for Defining Plugins</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">&lt;QtPlugin&gt; - Macros for Defining Plugins</h1>
+<span class="subtitle"></span>
+<!-- $$$<QtPlugin>-brief -->
+<p>The &lt;<a href="qmake-variable-reference.html#qtplugin">QtPlugin</a>&gt; header files defines macros for defining plugins. <a href="#details">More...</a></p>
+<!-- @@@<QtPlugin> -->
+<ul>
+<li><a href="qtplugin-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="Macrosx"></a>
+<h2>Macros</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtplugin.html#Q_DECLARE_INTERFACE">Q_DECLARE_INTERFACE</a></b> (  <i>ClassName</i>,  <i>Identifier</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a></b> (  <i>PluginName</i>,  <i>ClassName</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtplugin.html#Q_IMPORT_PLUGIN">Q_IMPORT_PLUGIN</a></b> (  <i>PluginName</i> )</td></tr>
+</table>
+<!-- $$$<QtPlugin>-description -->
+<div class="descr"> <a name="details"></a>
+</div>
+<p><b>See also </b><a href="plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<!-- @@@<QtPlugin> -->
+<h2>Macro Documentation</h2>
+<!-- $$$Q_DECLARE_INTERFACE[overload1]$$$Q_DECLARE_INTERFACE -->
+<h3 class="fn"><a name="Q_DECLARE_INTERFACE"></a><span class="name">Q_DECLARE_INTERFACE</span> (  <i>ClassName</i>,  <i>Identifier</i> )</h3>
+<p>This macro associates the given <i>Identifier</i> (a string literal) to the interface class called <i>ClassName</i>. The <i>Identifier</i> must be unique. For example:</p>
+<pre class="cpp"> Q_DECLARE_INTERFACE(BrushInterface<span class="operator">,</span>
+                     <span class="string">&quot;com.trolltech.PlugAndPaint.BrushInterface/1.0&quot;</span>)</pre>
+<p>This macro is normally used right after the class definition for <i>ClassName</i>, in a header file. See the <a href="tools-plugandpaint.html">Plug &amp; Paint</a> example for details.</p>
+<p>If you want to use Q_DECLARE_INTERFACE with interface classes declared in a namespace then you have to make sure the Q_DECLARE_INTERFACE is not inside a namespace though. For example:</p>
+<pre class="cpp"> <span class="keyword">namespace</span> Foo
+ {
+     <span class="keyword">struct</span> MyInterface { <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span> };
+ }
+
+ Q_DECLARE_INTERFACE(Foo<span class="operator">::</span>MyInterface<span class="operator">,</span> <span class="string">&quot;org.examples.MyInterface&quot;</span>)</pre>
+<p><b>See also </b><a href="qobject.html#Q_INTERFACES">Q_INTERFACES</a>(), <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(), and <a href="plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<!-- @@@Q_DECLARE_INTERFACE -->
+<!-- $$$Q_EXPORT_PLUGIN2[overload1]$$$Q_EXPORT_PLUGIN2 -->
+<h3 class="fn"><a name="Q_EXPORT_PLUGIN2"></a><span class="name">Q_EXPORT_PLUGIN2</span> (  <i>PluginName</i>,  <i>ClassName</i> )</h3>
+<a name="q-export-plugin2"></a><p>This macro exports the plugin class <i>ClassName</i> for the plugin specified by <i>PluginName</i>. The value of <i>PluginName</i> should correspond to the <a href="qmake-variable-reference.html#target">TARGET</a> specified in the plugin's project file.</p>
+<p>There should be exactly one occurrence of this macro in the source code for a Qt plugin, and it should be used where the implementation is written rather than in a header file.</p>
+<p>Example:</p>
+<pre class="cpp"> Q_EXPORT_PLUGIN2(pnp_extrafilters<span class="operator">,</span> ExtraFiltersPlugin)</pre>
+<p>See the <a href="tools-plugandpaint.html">Plug &amp; Paint</a> example for details.</p>
+<p>This function was introduced in Qt 4.1.</p>
+<p><b>See also </b><a href="qtplugin.html#Q_DECLARE_INTERFACE">Q_DECLARE_INTERFACE</a>() and <a href="plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<!-- @@@Q_EXPORT_PLUGIN2 -->
+<!-- $$$Q_IMPORT_PLUGIN[overload1]$$$Q_IMPORT_PLUGIN -->
+<h3 class="fn"><a name="Q_IMPORT_PLUGIN"></a><span class="name">Q_IMPORT_PLUGIN</span> (  <i>PluginName</i> )</h3>
+<p>This macro imports the plugin named <i>PluginName</i>, corresponding to the <a href="qmake-variable-reference.html#target">TARGET</a> specified in the plugin's project file.</p>
+<p>Inserting this macro into your application's source code will allow you to make use of a static plugin.</p>
+<p>Example:</p>
+<pre class="cpp"> Q_IMPORT_PLUGIN(qjpeg)</pre>
+<p>Static plugins must also be included by the linker when your application is built. For Qt's predefined plugins, you can use the <tt>QTPLUGIN</tt> to add the required plugins to your build. For example:</p>
+<pre class="cpp"> TEMPLATE      = app
+ QTPLUGIN     += qjpeg qgif qmng    # image formats</pre>
+<p><b>See also </b><a href="plugins-howto.html#static-plugins">Static Plugins</a>, <a href="plugins-howto.html">How to Create Qt Plugins</a>, and <a href="qmake-using.html">Using qmake</a>.</p>
+<!-- @@@Q_IMPORT_PLUGIN -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

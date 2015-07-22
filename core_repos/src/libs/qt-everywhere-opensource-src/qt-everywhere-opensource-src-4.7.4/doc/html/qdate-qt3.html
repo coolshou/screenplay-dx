@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdatetime.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QDate</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QDate</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QDate</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qdate.html">QDate class reference</a></li></ul></p>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QDate </td><td class="memItemRight bottomAlign"><b><a href="qdate-qt3.html#currentDate-2">currentDate</a></b> ( Qt::TimeSpec <i>spec</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdate-qt3.html#dayName">dayName</a></b> ( int <i>weekday</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdate-qt3.html#leapYear">leapYear</a></b> ( int <i>year</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdate-qt3.html#monthName">monthName</a></b> ( int <i>month</i> )</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$currentDate$$$currentDateQt::TimeSpec -->
+<h3 class="fn"><a name="currentDate-2"></a><span class="type">QDate</span> QDate::<span class="name">currentDate</span> ( <span class="type"><a href="qt.html#TimeSpec-enum">Qt::TimeSpec</a></span> <i>spec</i> )<tt> [static]</tt></h3>
+<p>If <i>spec</i> is <a href="qt.html#TimeSpec-enum">Qt::LocalTime</a>, use the <a href="qdate.html#currentDate">currentDate</a>() overload that takes no parameters instead; otherwise, use <a href="qdatetime.html#currentDateTime">QDateTime::currentDateTime</a>().</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QDate localDate = QDate::currentDate(Qt::LocalTime);
+ QDate utcDate = QDate::currentDate(Qt::UTC);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qdate.html">QDate</a></span> localDate <span class="operator">=</span> <span class="type"><a href="qdate.html">QDate</a></span><span class="operator">::</span><a href="qdate.html#currentDate">currentDate</a>();
+ <span class="type"><a href="qdate.html">QDate</a></span> utcDate <span class="operator">=</span> <span class="type"><a href="qdatetime.html">QDateTime</a></span><span class="operator">::</span>currentDateTime()<span class="operator">.</span>toUTC()<span class="operator">.</span>date();</pre>
+<p><b>See also </b><a href="qdatetime.html#toUTC">QDateTime::toUTC</a>().</p>
+<!-- @@@currentDate -->
+<!-- $$$dayName[overload1]$$$dayNameint -->
+<h3 class="fn"><a name="dayName"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">dayName</span> ( <span class="type">int</span> <i>weekday</i> )<tt> [static]</tt></h3>
+<p>Use <a href="qdate.html#shortDayName">shortDayName</a>() instead.</p>
+<!-- @@@dayName -->
+<!-- $$$leapYear[overload1]$$$leapYearint -->
+<h3 class="fn"><a name="leapYear"></a><span class="type">bool</span> QDate::<span class="name">leapYear</span> ( <span class="type">int</span> <i>year</i> )<tt> [static]</tt></h3>
+<p>Use <a href="qdate.html#isLeapYear">isLeapYear</a>() instead.</p>
+<!-- @@@leapYear -->
+<!-- $$$monthName[overload1]$$$monthNameint -->
+<h3 class="fn"><a name="monthName"></a><span class="type"><a href="qstring.html">QString</a></span> QDate::<span class="name">monthName</span> ( <span class="type">int</span> <i>month</i> )<tt> [static]</tt></h3>
+<p>Use <a href="qdate.html#shortMonthName">shortMonthName</a>() instead.</p>
+<!-- @@@monthName -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

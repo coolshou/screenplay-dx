@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstracttextdocumentlayout.cpp -->
+  <title>Qt 4.7: PaintContext Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>PaintContext</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-variables">Public Variables</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">PaintContext Class Reference</h1>
+<span class="small-subtitle">(QAbstractTextDocumentLayout::PaintContext)<br/></span>
+<!-- $$$PaintContext-brief -->
+<p>The QAbstractTextDocumentLayout::PaintContext class is a convenience class defining the parameters used when painting a document's layout. <a href="#details">More...</a></p>
+<!-- @@@PaintContext -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;<a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a>&gt;</span></pre><ul>
+<li><a href="qabstracttextdocumentlayout-paintcontext-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-variables"></a>
+<h2>Public Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QRectF </td><td class="memItemRight bottomAlign"><b><a href="qabstracttextdocumentlayout-paintcontext.html#clip-var">clip</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var">cursorPosition</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPalette </td><td class="memItemRight bottomAlign"><b><a href="qabstracttextdocumentlayout-paintcontext.html#palette-var">palette</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVector&lt;Selection&gt; </td><td class="memItemRight bottomAlign"><b><a href="qabstracttextdocumentlayout-paintcontext.html#selections-var">selections</a></b></td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$PaintContext-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAbstractTextDocumentLayout::PaintContext class is a convenience class defining the parameters used when painting a document's layout.</p>
+<p>A paint context is used when rendering custom layouts for QTextDocuments with the <a href="qabstracttextdocumentlayout.html#draw">QAbstractTextDocumentLayout::draw</a>() function. It is specified by a <a href="qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var">cursor position</a>, <a href="qabstracttextdocumentlayout-paintcontext.html#palette-var">default text color</a>, <a href="qabstracttextdocumentlayout-paintcontext.html#clip-var">clip</a> rectangle and a collection of <a href="qabstracttextdocumentlayout-paintcontext.html#selections-var">selections</a>.</p>
+</div>
+<p><b>See also </b><a href="qabstracttextdocumentlayout.html">QAbstractTextDocumentLayout</a>.</p>
+<!-- @@@PaintContext -->
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$clip -->
+<h3 class="fn"><a name="clip-var"></a><span class="type"><a href="qrectf.html">QRectF</a></span> PaintContext::<span class="name">clip</span></h3>
+<p>This variable holds a hint to the layout specifying the area around paragraphs, frames or text require painting.</p>
+<p>Everything outside of this rectangle does not need to be painted.</p>
+<p>Specifying a clip rectangle can speed up drawing of large documents significantly. Note that the clip rectangle is in document coordinates (not in viewport coordinates). It is not a substitute for a clip region set on the painter but merely a hint.</p>
+<p>The default value is a null rectangle indicating everything needs to be painted.</p>
+<!-- @@@clip -->
+<!-- $$$cursorPosition -->
+<h3 class="fn"><a name="cursorPosition-var"></a><span class="type">int</span> PaintContext::<span class="name">cursorPosition</span></h3>
+<p>This variable holds the position within the document, where the cursor line should be drawn.</p>
+<p>The default value is -1.</p>
+<!-- @@@cursorPosition -->
+<!-- $$$palette -->
+<h3 class="fn"><a name="palette-var"></a><span class="type"><a href="qpalette.html">QPalette</a></span> PaintContext::<span class="name">palette</span></h3>
+<p>This variable holds the default color that is used for the text, when no color is specified.</p>
+<p>The default value is the application's default palette.</p>
+<!-- @@@palette -->
+<!-- $$$selections -->
+<h3 class="fn"><a name="selections-var"></a><span class="type"><a href="qvector.html">QVector</a></span>&lt;<span class="type"><a href="qabstracttextdocumentlayout-selection.html">Selection</a></span>&gt; PaintContext::<span class="name">selections</span></h3>
+<p>This variable holds the collection of selections that will be rendered when passing this paint context to QAbstractTextDocumentLayout's draw() function.</p>
+<p>The default value is an empty vector indicating no selection.</p>
+<!-- @@@selections -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

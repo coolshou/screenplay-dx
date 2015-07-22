@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3sqlrecordinfo.qdoc -->
+  <title>Qt 4.7: Q3SqlRecordInfo Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qt3support.html">Qt3Support</a></li>
+<li>Q3SqlRecordInfo</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3SqlRecordInfo Class Reference</h1>
+<!-- $$$Q3SqlRecordInfo-brief -->
+<p>The Q3SqlRecordInfo class encapsulates a set of database field meta data. <a href="#details">More...</a></p>
+<!-- @@@Q3SqlRecordInfo -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3SqlRecordInfo&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html#qsqlrecordinfo">Porting to Qt 4</a> for more information.</p>
+<ul>
+<li><a href="q3sqlrecordinfo-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#Q3SqlRecordInfo">Q3SqlRecordInfo</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#Q3SqlRecordInfo-2">Q3SqlRecordInfo</a></b> ( const Q3SqlFieldInfoList &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#Q3SqlRecordInfo-3">Q3SqlRecordInfo</a></b> ( const QSqlRecord &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> size_type </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#contains">contains</a></b> ( const QString &amp; <i>fieldName</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Q3SqlFieldInfo </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#find">find</a></b> ( const QString &amp; <i>fieldName</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QSqlRecord </td><td class="memItemRight bottomAlign"><b><a href="q3sqlrecordinfo.html#toRecord">toRecord</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$Q3SqlRecordInfo-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3SqlRecordInfo class encapsulates a set of database field meta data.</p>
+<p>This class is a list that holds a set of database field meta data. Use <a href="q3sqlrecordinfo.html#contains">contains</a>() to see if a given field name exists in the record, and use <a href="q3sqlrecordinfo.html#find">find</a>() to get a <a href="porting4.html#qsqlfieldinfo">QSqlFieldInfo</a> record for a named field.</p>
+</div>
+<p><b>See also </b><a href="q3sqlfieldinfo.html">Q3SqlFieldInfo</a>.</p>
+<!-- @@@Q3SqlRecordInfo -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3SqlRecordInfo[overload1]$$$Q3SqlRecordInfo -->
+<h3 class="fn"><a name="Q3SqlRecordInfo"></a>Q3SqlRecordInfo::<span class="name">Q3SqlRecordInfo</span> ()</h3>
+<p>Constructs an empty record info object.</p>
+<!-- @@@Q3SqlRecordInfo -->
+<!-- $$$Q3SqlRecordInfo$$$Q3SqlRecordInfoconstQ3SqlFieldInfoList& -->
+<h3 class="fn"><a name="Q3SqlRecordInfo-2"></a>Q3SqlRecordInfo::<span class="name">Q3SqlRecordInfo</span> ( const <span class="type">Q3SqlFieldInfoList</span> &amp; <i>other</i> )</h3>
+<p>Constructs a copy of <i>other</i>.</p>
+<!-- @@@Q3SqlRecordInfo -->
+<!-- $$$Q3SqlRecordInfo$$$Q3SqlRecordInfoconstQSqlRecord& -->
+<h3 class="fn"><a name="Q3SqlRecordInfo-3"></a>Q3SqlRecordInfo::<span class="name">Q3SqlRecordInfo</span> ( const <span class="type"><a href="qsqlrecord.html">QSqlRecord</a></span> &amp; <i>other</i> )</h3>
+<p>Constructs a copy of <i>other</i>.</p>
+<!-- @@@Q3SqlRecordInfo -->
+<!-- $$$contains[overload1]$$$containsconstQString& -->
+<h3 class="fn"><a name="contains"></a><span class="type">size_type</span> Q3SqlRecordInfo::<span class="name">contains</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>fieldName</i> ) const</h3>
+<p>Returns the number of times a field called <i>fieldName</i> occurs in the record. Returns 0 if no field by that name could be found.</p>
+<!-- @@@contains -->
+<!-- $$$find[overload1]$$$findconstQString& -->
+<h3 class="fn"><a name="find"></a><span class="type"><a href="q3sqlfieldinfo.html">Q3SqlFieldInfo</a></span> Q3SqlRecordInfo::<span class="name">find</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>fieldName</i> ) const</h3>
+<p>Returns a <a href="porting4.html#qsqlfieldinfo">QSqlFieldInfo</a> object for the first field in the record which has the field name <i>fieldName</i>. If no matching field is found then an empty <a href="porting4.html#qsqlfieldinfo">QSqlFieldInfo</a> object is returned.</p>
+<!-- @@@find -->
+<!-- $$$toRecord[overload1]$$$toRecord -->
+<h3 class="fn"><a name="toRecord"></a><span class="type"><a href="qsqlrecord.html">QSqlRecord</a></span> Q3SqlRecordInfo::<span class="name">toRecord</span> () const</h3>
+<p>Returns an empty <a href="qsqlrecord.html">QSqlRecord</a> based on the field information in this <a href="q3sqlrecordinfo.html" class="compat">Q3SqlRecordInfo</a>.</p>
+<!-- @@@toRecord -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

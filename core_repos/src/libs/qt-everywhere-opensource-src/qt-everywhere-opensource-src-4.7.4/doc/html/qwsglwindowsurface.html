@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qglwindowsurface_qws.cpp -->
+  <title>Qt 4.7: QWSGLWindowSurface Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtopengl.html">QtOpenGL</a></li>
+<li>QWSGLWindowSurface</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWSGLWindowSurface Class Reference</h1>
+<!-- $$$QWSGLWindowSurface-brief -->
+<p>The QWSGLWindowSurface class provides the drawing area for top-level windows with Qt for Embedded Linux on EGL/OpenGL ES. It also provides the drawing area for <a href="qglwidget.html">QGLWidget</a>s whether they are top-level windows or children of another <a href="qwidget.html">QWidget</a>. <a href="#details">More...</a></p>
+<!-- @@@QWSGLWindowSurface -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QWSGLWindowSurface&gt;</span></pre><p><b>This class is under development and is subject to change.</b></p>
+<p>This class was introduced in Qt 4.3.</p>
+<ul>
+<li><a href="qwsglwindowsurface-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwsglwindowsurface.html#QWSGLWindowSurface">QWSGLWindowSurface</a></b> ( QWidget * <i>window</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwsglwindowsurface.html#QWSGLWindowSurface-2">QWSGLWindowSurface</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwsglwindowsurface.html#dtor.QWSGLWindowSurface">~QWSGLWindowSurface</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QGLContext * </td><td class="memItemRight bottomAlign"><b><a href="qwsglwindowsurface.html#context">context</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwsglwindowsurface.html#setContext">setContext</a></b> ( QGLContext * <i>context</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWSGLWindowSurface-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWSGLWindowSurface class provides the drawing area for top-level windows with Qt for Embedded Linux on EGL/OpenGL ES. It also provides the drawing area for <a href="qglwidget.html">QGLWidget</a>s whether they are top-level windows or children of another <a href="qwidget.html">QWidget</a>.</p>
+<p>Note that this class is only available in Qt for Embedded Linux and only available if Qt is configured with OpenGL support.</p>
+</div>
+<!-- @@@QWSGLWindowSurface -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWSGLWindowSurface[overload1]$$$QWSGLWindowSurfaceQWidget* -->
+<h3 class="fn"><a name="QWSGLWindowSurface"></a>QWSGLWindowSurface::<span class="name">QWSGLWindowSurface</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>window</i> )</h3>
+<p>Constructs an empty <a href="qwsglwindowsurface.html">QWSGLWindowSurface</a> for the given top-level <i>window</i>. The window surface is later initialized from chooseContext() and resources for it is typically allocated in setGeometry().</p>
+<!-- @@@QWSGLWindowSurface -->
+<!-- $$$QWSGLWindowSurface$$$QWSGLWindowSurface -->
+<h3 class="fn"><a name="QWSGLWindowSurface-2"></a>QWSGLWindowSurface::<span class="name">QWSGLWindowSurface</span> ()</h3>
+<p>Constructs an empty <a href="qwsglwindowsurface.html">QWSGLWindowSurface</a>.</p>
+<!-- @@@QWSGLWindowSurface -->
+<!-- $$$~QWSGLWindowSurface[overload1]$$$~QWSGLWindowSurface -->
+<h3 class="fn"><a name="dtor.QWSGLWindowSurface"></a>QWSGLWindowSurface::<span class="name">~QWSGLWindowSurface</span> ()</h3>
+<p>Destroys the <a href="qwsglwindowsurface.html">QWSGLWindowSurface</a> object and frees any allocated resources.</p>
+<!-- @@@~QWSGLWindowSurface -->
+<!-- $$$context[overload1]$$$context -->
+<h3 class="fn"><a name="context"></a><span class="type"><a href="qglcontext.html">QGLContext</a></span> * QWSGLWindowSurface::<span class="name">context</span> () const</h3>
+<p>Returns the <a href="qglcontext.html">QGLContext</a> of the window surface.</p>
+<p><b>See also </b><a href="qwsglwindowsurface.html#setContext">setContext</a>().</p>
+<!-- @@@context -->
+<!-- $$$setContext[overload1]$$$setContextQGLContext* -->
+<h3 class="fn"><a name="setContext"></a><span class="type">void</span> QWSGLWindowSurface::<span class="name">setContext</span> ( <span class="type"><a href="qglcontext.html">QGLContext</a></span> * <i>context</i> )</h3>
+<p>Sets the <a href="qglcontext.html">QGLContext</a> for this window surface to <i>context</i>.</p>
+<p><b>See also </b><a href="qwsglwindowsurface.html#context">context</a>().</p>
+<!-- @@@setContext -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

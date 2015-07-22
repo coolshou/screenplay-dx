@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtquick-intro.qdoc -->
+  <title>Qt 4.7: Introduction to Qt Quick</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Introduction to Qt Quick</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#the-qml-language">The QML Language</a></li>
+<li class="level1"><a href="#qtdeclarative-module">QtDeclarative Module</a></li>
+<li class="level1"><a href="#creator-tools">Creator Tools</a></li>
+<li class="level1"><a href="#where-to-go-from-here">Where to Go from Here</a></li>
+<li class="level1"><a href="#license-information">License Information</a></li>
+</ul>
+</div>
+<h1 class="title">Introduction to Qt Quick</h1>
+<span class="subtitle"></span>
+<!-- $$$qml-intro.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qt Quick is a collection of technologies that are designed to help developers create the kind of intuitive, modern, and fluid user interfaces that are increasingly used on mobile phones, media players, set-top boxes, and other portable devices. Qt Quick consists of a rich set of user interface <a href="qdeclarativeelements.html">elements</a>, a <a href="qmlsyntax.html">declarative</a> language for describing user interfaces, and a language <a href="#qtdeclarative-module">runtime</a>. A collection of C++ APIs is used to integrate these high level features with classic Qt applications. Version 2.1 of the Qt Creator integrated development environment (IDE) introduces tools for developing Qt Quick applications.</p>
+<p class="centerAlign"><img src="images/qml-clocks-example.png" /></p><a name="the-qml-language"></a>
+<h2>The QML Language</h2>
+<p>QML is a high level, scripted language. Its commands, more correctly <i>elements</i>, leverage the power and efficiency of the Qt libraries to make easy to use commands that perform intuitive functions. Drawing a rectangle, displaying an image, and application events -- all are possible with declarative programming.</p>
+<p>The language also allows more flexibility of these commands by using <a href="https://developer.mozilla.org/en/JavaScript/About_JavaScript">JavaScript</a> to implement the high level user interface logic.</p>
+<p>A QML element usually has various <i>properties</i> that help define the element. For example, if we created an element called Circle then the radius of the circle would be a property. Building user interfaces by importing these elements is one of the great feature of QML and Qt Quick.</p>
+<p class="centerAlign"><img src="images/qml-texteditor5_newfile.png" /></p><a name="qtdeclarative-module"></a>
+<h2>QtDeclarative Module</h2>
+<p>To make Qt Quick possible, Qt introduces the <a href="qtdeclarative.html">QtDeclarative</a> module. The module creates a JavaScript runtime that QML runs under with a Qt based backend. Because <a href="qtdeclarative.html">QtDeclarative</a> and QML are built upon Qt, they inherit many of Qt's technology, namely the <a href="signalsandslots.html#signals-and-slots">signals and slots</a> mechanism and the <a href="metaobjects.html">meta-object</a> system. Data created using C++ are directly accessible from QML and QML objects are also accessible from C++ code.</p>
+<p>In conjunction with the QML language, the <a href="qtdeclarative.html">QtDeclarative</a> module separates the interface logic in QML from the application logic in C++.</p>
+<a name="creator-tools"></a>
+<h2>Creator Tools</h2>
+<p>Qt Creator is a complete integrated development environment (IDE) for creating applications with Qt Quick and the Qt application framework.</p>
+<p class="centerAlign"><img src="images/qmldesigner-visual-editor.png" /></p><p>The main goal for Qt Creator is meeting the development needs of Qt Quick developers who are looking for simplicity, usability, productivity, extendibility and openness, while aiming to lower the barrier of entry for newcomers to Qt Quick and Qt. The key features of Qt Creator allow UI designers and developers to accomplish the following tasks:</p>
+<ul>
+<li>Get started with Qt Quick application development quickly and easily with examples, tutorials, and project wizards.</li>
+<li>Design application user interface with the integrated editor, Qt Quick Designer, or use graphics software to design the user interface and use scripts to export the design to Qt Quick Designer.</li>
+<li>Develop applications with the advanced code editor that provides new powerful features for completing code snippets, refactoring code, and viewing the element hierarchy of QML files.</li>
+<li>Build and deploy Qt Quick applications that target multiple desktop and mobile platforms, such as Microsoft Windows, Mac OS X, Linux, Symbian, and Maemo.</li>
+<li>Debug JavaScript functions and execute JavaScript expressions in the current context, and inspect QML at runtime to explore the object structure, debug animations, and inspect colors.</li>
+<li>Deploy applications to mobile devices and create application installation packages for Symbian and Maemo devices that can be published in the Ovi Store and other channels.</li>
+<li>Easily access information with the integrated context-sensitive Qt Help system.</li>
+</ul>
+<p class="centerAlign"><img src="images/qtcreator-target-selector.png" /></p><a name="where-to-go-from-here"></a>
+<h2>Where to Go from Here</h2>
+<p>The <a href="qtquick.html">Qt Quick</a> page has links to various Qt Quick topics such as QML features, addons, and tools.</p>
+<p>The <a href="qdeclarativeexamples.html">QML Examples and Demos</a> page has a gallery of QML applications.</p>
+<a name="license-information"></a>
+<h2>License Information</h2>
+<ul>
+<li><a href="qtquicklicense.html">Qt Quick Licensing Information</a></li>
+</ul>
+</div>
+<!-- @@@qml-intro.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

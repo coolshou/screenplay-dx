@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: states.h Example File (demos/sub-attaq/states.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">states.h Example File</h1>
+<span class="small-subtitle">demos/sub-attaq/states.h</span>
+<!-- $$$demos/sub-attaq/states.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtCore module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef STATES_H</span>
+ <span class="preprocessor">#define STATES_H</span>
+
+ <span class="comment">//Qt</span>
+ <span class="preprocessor">#include &lt;QtCore/QState&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QSignalTransition&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QPropertyAnimation&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui/QKeyEventTransition&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QSet&gt;</span>
+
+ <span class="keyword">class</span> GraphicsScene;
+ <span class="keyword">class</span> Boat;
+ <span class="keyword">class</span> SubMarine;
+ <span class="keyword">class</span> <span class="type"><a href="qstatemachine.html">QStateMachine</a></span>;
+
+ <span class="keyword">class</span> PlayState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     PlayState(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="operator">~</span>PlayState();
+
+  <span class="keyword">protected</span>:
+     <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+
+ <span class="keyword">private</span> :
+     GraphicsScene <span class="operator">*</span>scene;
+     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> <span class="operator">*</span>machine;
+     <span class="type">int</span> currentLevel;
+     <span class="type">int</span> score;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parallelChild;
+
+     <span class="keyword">friend</span> <span class="keyword">class</span> UpdateScoreState;
+     <span class="keyword">friend</span> <span class="keyword">class</span> UpdateScoreTransition;
+     <span class="keyword">friend</span> <span class="keyword">class</span> WinTransition;
+     <span class="keyword">friend</span> <span class="keyword">class</span> CustomSpaceTransition;
+     <span class="keyword">friend</span> <span class="keyword">class</span> WinState;
+     <span class="keyword">friend</span> <span class="keyword">class</span> LostState;
+     <span class="keyword">friend</span> <span class="keyword">class</span> LevelState;
+ };
+
+ <span class="keyword">class</span> LevelState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     LevelState(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+ <span class="keyword">private</span> :
+     <span class="type">void</span> initializeLevel();
+     GraphicsScene <span class="operator">*</span>scene;
+     PlayState <span class="operator">*</span>game;
+ };
+
+ <span class="keyword">class</span> PauseState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     PauseState(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> onExit(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+ <span class="keyword">private</span> :
+     GraphicsScene <span class="operator">*</span>scene;
+     Boat <span class="operator">*</span>boat;
+ };
+
+ <span class="keyword">class</span> LostState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     LostState(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> onExit(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+ <span class="keyword">private</span> :
+     GraphicsScene <span class="operator">*</span>scene;
+     PlayState <span class="operator">*</span>game;
+ };
+
+ <span class="keyword">class</span> WinState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     WinState(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> onExit(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>);
+ <span class="keyword">private</span> :
+     GraphicsScene <span class="operator">*</span>scene;
+     PlayState <span class="operator">*</span>game;
+ };
+
+ <span class="keyword">class</span> UpdateScoreState : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+ <span class="keyword">public</span>:
+     UpdateScoreState(PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent);
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>scoreAnimation;
+     PlayState <span class="operator">*</span>game;
+ };
+
+ <span class="comment">//These transtion is used to update the score</span>
+ <span class="keyword">class</span> UpdateScoreTransition : <span class="keyword">public</span> <span class="type"><a href="qsignaltransition.html">QSignalTransition</a></span>
+ {
+ <span class="keyword">public</span>:
+     UpdateScoreTransition(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qabstractstate.html">QAbstractState</a></span> <span class="operator">*</span>target);
+ <span class="keyword">protected</span>:
+     <span class="keyword">virtual</span> <span class="type">bool</span> eventTest(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
+ <span class="keyword">private</span>:
+     PlayState <span class="operator">*</span> game;
+     GraphicsScene <span class="operator">*</span>scene;
+ };
+
+ <span class="comment">//These transtion test if we have won the game</span>
+ <span class="keyword">class</span> WinTransition : <span class="keyword">public</span> <span class="type"><a href="qsignaltransition.html">QSignalTransition</a></span>
+ {
+ <span class="keyword">public</span>:
+     WinTransition(GraphicsScene <span class="operator">*</span>scene<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qabstractstate.html">QAbstractState</a></span> <span class="operator">*</span>target);
+ <span class="keyword">protected</span>:
+     <span class="keyword">virtual</span> <span class="type">bool</span> eventTest(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
+ <span class="keyword">private</span>:
+     PlayState <span class="operator">*</span> game;
+     GraphicsScene <span class="operator">*</span>scene;
+ };
+
+ <span class="comment">//These transtion is true if one level has been completed and the player want to continue</span>
+  <span class="keyword">class</span> CustomSpaceTransition : <span class="keyword">public</span> <span class="type"><a href="qkeyeventtransition.html">QKeyEventTransition</a></span>
+ {
+ <span class="keyword">public</span>:
+     CustomSpaceTransition(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget<span class="operator">,</span> PlayState <span class="operator">*</span>game<span class="operator">,</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>Type type<span class="operator">,</span> <span class="type">int</span> key);
+ <span class="keyword">protected</span>:
+     <span class="keyword">virtual</span> <span class="type">bool</span> eventTest(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
+ <span class="keyword">private</span>:
+     PlayState <span class="operator">*</span>game;
+     <span class="type">int</span> key;
+ };
+
+ <span class="preprocessor">#endif // STATES_H</span></pre>
+</div>
+<!-- @@@demos/sub-attaq/states.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeevents.cpp -->
+  <title>Qt 4.7: QML KeyEvent Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML KeyEvent Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML KeyEvent Element</h1>
+<span class="subtitle"></span>
+<!-- $$$KeyEvent-brief -->
+<p>The KeyEvent object provides information about a key event. <a href="#details">More...</a></p>
+<!-- @@@KeyEvent -->
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-keyevent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-keyevent.html#accepted-prop">accepted</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-keyevent.html#count-prop">count</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-keyevent.html#isAutoRepeat-prop">isAutoRepeat</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-keyevent.html#key-prop">key</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-keyevent.html#modifiers-prop">modifiers</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-keyevent.html#text-prop">text</a></b></b> : string</li>
+</ul>
+<!-- $$$KeyEvent-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>For example, the following changes the Item's state property when the Enter key is pressed:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">focus</span>: <span class="number">true</span>
+     <span class="name">Keys</span>.onPressed: { <span class="keyword">if</span> (<span class="name">event</span>.<span class="name">key</span> <span class="operator">==</span> <span class="name">Qt</span>.<span class="name">Key_Enter</span>) <span class="name">state</span> <span class="operator">=</span> <span class="string">'ShowDetails'</span>; }
+ }</pre>
+<!-- @@@KeyEvent -->
+<h2>Property Documentation</h2>
+<!-- $$$accepted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="accepted-prop"></a><span class="name">accepted</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Setting <i>accepted</i> to true prevents the key event from being propagated to the item's parent.</p>
+<p>Generally, if the item acts on the key event then it should be accepted so that ancestor items do not also respond to the same event.</p>
+</div></div><!-- @@@accepted -->
+<br/>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span><span class="name">count</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the number of keys involved in this event. If <a href="qml-keyevent.html#text-prop">KeyEvent::text</a> is not empty, this is simply the length of the string.</p>
+</div></div><!-- @@@count -->
+<br/>
+<!-- $$$isAutoRepeat -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="isAutoRepeat-prop"></a><span class="qmlreadonly">read-only</span><span class="name">isAutoRepeat</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether this event comes from an auto-repeating key.</p>
+</div></div><!-- @@@isAutoRepeat -->
+<br/>
+<!-- $$$key -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="key-prop"></a><span class="qmlreadonly">read-only</span><span class="name">key</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the code of the key that was pressed or released.</p>
+<p>See <a href="qt.html#Key-enum">Qt.Key</a> for the list of keyboard codes. These codes are independent of the underlying window system. Note that this function does not distinguish between capital and non-capital letters, use the text() function (returning the Unicode text the key generated) for this purpose.</p>
+<p>A value of either 0 or <a href="qt.html#Key-enum">Qt.Key_Unknown</a> means that the event is not the result of a known key; for example, it may be the result of a compose sequence, a keyboard macro, or due to key event compression.</p>
+</div></div><!-- @@@key -->
+<br/>
+<!-- $$$modifiers -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="modifiers-prop"></a><span class="qmlreadonly">read-only</span><span class="name">modifiers</span> : <span class="type"><a href="qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the keyboard modifier flags that existed immediately before the event occurred.</p>
+<p>It contains a bitwise combination of:</p>
+<ul>
+<li>Qt.NoModifier - No modifier key is pressed.</li>
+<li>Qt.ShiftModifier - A Shift key on the keyboard is pressed.</li>
+<li>Qt.ControlModifier - A Ctrl key on the keyboard is pressed.</li>
+<li>Qt.AltModifier - An Alt key on the keyboard is pressed.</li>
+<li>Qt.MetaModifier - A Meta key on the keyboard is pressed.</li>
+<li>Qt.KeypadModifier - A keypad button is pressed.</li>
+</ul>
+<p>For example, to react to a Shift key + Enter key combination:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">focus</span>: <span class="number">true</span>
+     <span class="name">Keys</span>.onPressed: {
+         <span class="keyword">if</span> ((<span class="name">event</span>.<span class="name">key</span> <span class="operator">==</span> <span class="name">Qt</span>.<span class="name">Key_Enter</span>) <span class="operator">&amp;&amp;</span> (<span class="name">event</span>.<span class="name">modifiers</span> <span class="operator">&amp;</span> <span class="name">Qt</span>.<span class="name">ShiftModifier</span>))
+             <span class="name">doSomething</span>();
+     }
+ }</pre>
+</div></div><!-- @@@modifiers -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="qmlreadonly">read-only</span><span class="name">text</span> : <span class="type"><a href="qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the Unicode text that the key generated. The text returned can be an empty string in cases where modifier keys, such as Shift, Control, Alt, and Meta, are being pressed or released. In such cases <tt>key</tt> will contain a valid value</p>
+</div></div><!-- @@@text -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

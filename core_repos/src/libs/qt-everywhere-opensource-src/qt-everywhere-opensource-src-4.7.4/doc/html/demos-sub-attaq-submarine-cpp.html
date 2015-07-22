@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: submarine.cpp Example File (demos/sub-attaq/submarine.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">submarine.cpp Example File</h1>
+<span class="small-subtitle">demos/sub-attaq/submarine.cpp</span>
+<!-- $$$demos/sub-attaq/submarine.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtCore module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="comment">//Own</span>
+ <span class="preprocessor">#include &quot;submarine.h&quot;</span>
+ <span class="preprocessor">#include &quot;submarine_p.h&quot;</span>
+ <span class="preprocessor">#include &quot;torpedo.h&quot;</span>
+ <span class="preprocessor">#include &quot;pixmapitem.h&quot;</span>
+ <span class="preprocessor">#include &quot;graphicsscene.h&quot;</span>
+ <span class="preprocessor">#include &quot;animationmanager.h&quot;</span>
+ <span class="preprocessor">#include &quot;qanimationstate.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QtCore/QPropertyAnimation&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QStateMachine&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QFinalState&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/QSequentialAnimationGroup&gt;</span>
+
+ <span class="keyword">static</span> <span class="type"><a href="qabstractanimation.html">QAbstractAnimation</a></span> <span class="operator">*</span>setupDestroyAnimation(SubMarine <span class="operator">*</span>sub)
+ {
+     <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span> <span class="operator">*</span>group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span>(sub);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">1</span>; i <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">4</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+         PixmapItem <span class="operator">*</span>step <span class="operator">=</span> <span class="keyword">new</span> PixmapItem(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>fromLatin1(<span class="string">&quot;explosion/submarine/step%1&quot;</span>)<span class="operator">.</span>arg(i)<span class="operator">,</span> GraphicsScene<span class="operator">::</span>Big<span class="operator">,</span> sub);
+         step<span class="operator">-</span><span class="operator">&gt;</span>setZValue(<span class="number">6</span>);
+         step<span class="operator">-</span><span class="operator">&gt;</span>setOpacity(<span class="number">0</span>);
+         <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>anim <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(step<span class="operator">,</span> <span class="string">&quot;opacity&quot;</span><span class="operator">,</span> group);
+         anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">100</span>);
+         anim<span class="operator">-</span><span class="operator">&gt;</span>setEndValue(<span class="number">1</span>);
+     }
+     AnimationManager<span class="operator">::</span>self()<span class="operator">-</span><span class="operator">&gt;</span>registerAnimation(group);
+     <span class="keyword">return</span> group;
+ }
+
+ SubMarine<span class="operator">::</span>SubMarine(<span class="type">int</span> type<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name<span class="operator">,</span> <span class="type">int</span> points) : PixmapItem(<span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;submarine&quot;</span>)<span class="operator">,</span> GraphicsScene<span class="operator">::</span>Big)<span class="operator">,</span>
+     subType(type)<span class="operator">,</span> subName(name)<span class="operator">,</span> subPoints(points)<span class="operator">,</span> speed(<span class="number">0</span>)<span class="operator">,</span> direction(SubMarine<span class="operator">::</span>None)
+ {
+     setZValue(<span class="number">5</span>);
+     setTransformOriginPoint(boundingRect()<span class="operator">.</span>center());
+
+     graphicsRotation <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgraphicsrotation.html">QGraphicsRotation</a></span>(<span class="keyword">this</span>);
+     graphicsRotation<span class="operator">-</span><span class="operator">&gt;</span>setAxis(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>YAxis);
+     graphicsRotation<span class="operator">-</span><span class="operator">&gt;</span>setOrigin(QVector3D(size()<span class="operator">.</span>width()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> size()<span class="operator">.</span>height()<span class="operator">/</span><span class="number">2</span><span class="operator">,</span> <span class="number">0</span>));
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qgraphicstransform.html">QGraphicsTransform</a></span> <span class="operator">*</span><span class="operator">&gt;</span> r;
+     r<span class="operator">.</span>append(graphicsRotation);
+     setTransformations(r);
+
+     <span class="comment">//We setup the state machine of the submarine</span>
+     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> <span class="operator">*</span>machine <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstatemachine.html">QStateMachine</a></span>(<span class="keyword">this</span>);
+
+     <span class="comment">//This state is when the boat is moving/rotating</span>
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>moving <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>(machine);
+
+     <span class="comment">//This state is when the boat is moving from left to right</span>
+     MovementState <span class="operator">*</span>movement <span class="operator">=</span> <span class="keyword">new</span> MovementState(<span class="keyword">this</span><span class="operator">,</span> moving);
+
+     <span class="comment">//This state is when the boat is moving from left to right</span>
+     ReturnState <span class="operator">*</span>rotation <span class="operator">=</span> <span class="keyword">new</span> ReturnState(<span class="keyword">this</span><span class="operator">,</span> moving);
+
+     <span class="comment">//This is the initial state of the moving root state</span>
+     moving<span class="operator">-</span><span class="operator">&gt;</span>setInitialState(movement);
+
+     movement<span class="operator">-</span><span class="operator">&gt;</span>addTransition(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(subMarineStateChanged())<span class="operator">,</span> moving);
+
+     <span class="comment">//This is the initial state of the machine</span>
+     machine<span class="operator">-</span><span class="operator">&gt;</span>setInitialState(moving);
+
+     <span class="comment">//End</span>
+     <span class="type"><a href="qfinalstate.html">QFinalState</a></span> <span class="operator">*</span>final <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qfinalstate.html">QFinalState</a></span>(machine);
+
+     <span class="comment">//If the moving animation is finished we move to the return state</span>
+     movement<span class="operator">-</span><span class="operator">&gt;</span>addTransition(movement<span class="operator">,</span> SIGNAL(animationFinished())<span class="operator">,</span> rotation);
+
+     <span class="comment">//If the return animation is finished we move to the moving state</span>
+     rotation<span class="operator">-</span><span class="operator">&gt;</span>addTransition(rotation<span class="operator">,</span> SIGNAL(animationFinished())<span class="operator">,</span> movement);
+
+     <span class="comment">//This state play the destroyed animation</span>
+     <span class="type">QAnimationState</span> <span class="operator">*</span>destroyedState <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QAnimationState</span>(machine);
+     destroyedState<span class="operator">-</span><span class="operator">&gt;</span>setAnimation(setupDestroyAnimation(<span class="keyword">this</span>));
+
+     <span class="comment">//Play a nice animation when the submarine is destroyed</span>
+     moving<span class="operator">-</span><span class="operator">&gt;</span>addTransition(<span class="keyword">this</span><span class="operator">,</span> SIGNAL(subMarineDestroyed())<span class="operator">,</span> destroyedState);
+
+     <span class="comment">//Transition to final state when the destroyed animation is finished</span>
+     destroyedState<span class="operator">-</span><span class="operator">&gt;</span>addTransition(destroyedState<span class="operator">,</span> SIGNAL(animationFinished())<span class="operator">,</span> final);
+
+     <span class="comment">//The machine has finished to be executed, then the submarine is dead</span>
+     connect(machine<span class="operator">,</span>SIGNAL(finished())<span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span> SIGNAL(subMarineExecutionFinished()));
+
+     machine<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }
+
+ <span class="type">int</span> SubMarine<span class="operator">::</span>points() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> subPoints;
+ }
+
+ <span class="type">void</span> SubMarine<span class="operator">::</span>setCurrentDirection(SubMarine<span class="operator">::</span>Movement direction)
+ {
+     <span class="keyword">if</span> (<span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>direction <span class="operator">=</span><span class="operator">=</span> direction)
+         <span class="keyword">return</span>;
+     <span class="keyword">if</span> (direction <span class="operator">=</span><span class="operator">=</span> SubMarine<span class="operator">::</span>Right <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>direction <span class="operator">=</span><span class="operator">=</span> SubMarine<span class="operator">::</span>None) {
+           graphicsRotation<span class="operator">-</span><span class="operator">&gt;</span>setAngle(<span class="number">180</span>);
+     }
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>direction <span class="operator">=</span> direction;
+ }
+
+ <span class="keyword">enum</span> SubMarine<span class="operator">::</span>Movement SubMarine<span class="operator">::</span>currentDirection() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> direction;
+ }
+
+ <span class="type">void</span> SubMarine<span class="operator">::</span>setCurrentSpeed(<span class="type">int</span> speed)
+ {
+     <span class="keyword">if</span> (speed <span class="operator">&lt;</span> <span class="number">0</span> <span class="operator">|</span><span class="operator">|</span> speed <span class="operator">&gt;</span> <span class="number">3</span>) {
+         <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;SubMarine::setCurrentSpeed : The speed is invalid&quot;</span>);
+     }
+     <span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>speed <span class="operator">=</span> speed;
+     <span class="keyword">emit</span> subMarineStateChanged();
+ }
+
+ <span class="type">int</span> SubMarine<span class="operator">::</span>currentSpeed() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> speed;
+ }
+
+ <span class="type">void</span> SubMarine<span class="operator">::</span>launchTorpedo(<span class="type">int</span> speed)
+ {
+     Torpedo <span class="operator">*</span> torp <span class="operator">=</span> <span class="keyword">new</span> Torpedo();
+     GraphicsScene <span class="operator">*</span>scene <span class="operator">=</span> <span class="keyword">static_cast</span><span class="operator">&lt;</span>GraphicsScene <span class="operator">*</span><span class="operator">&gt;</span>(<span class="keyword">this</span><span class="operator">-</span><span class="operator">&gt;</span>scene());
+     scene<span class="operator">-</span><span class="operator">&gt;</span>addItem(torp);
+     torp<span class="operator">-</span><span class="operator">&gt;</span>setPos(pos());
+     torp<span class="operator">-</span><span class="operator">&gt;</span>setCurrentSpeed(speed);
+     torp<span class="operator">-</span><span class="operator">&gt;</span>launch();
+ }
+
+ <span class="type">void</span> SubMarine<span class="operator">::</span>destroy()
+ {
+     <span class="keyword">emit</span> subMarineDestroyed();
+ }
+
+ <span class="type">int</span> SubMarine<span class="operator">::</span>type() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> Type;
+ }</pre>
+</div>
+<!-- @@@demos/sub-attaq/submarine.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

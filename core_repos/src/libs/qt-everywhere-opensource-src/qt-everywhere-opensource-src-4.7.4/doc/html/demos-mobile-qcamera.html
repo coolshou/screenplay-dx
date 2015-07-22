@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qcamera.qdoc -->
+  <title>Qt 4.7: QCamera Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QCamera Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#required-capabilities">Required capabilities</a></li>
+<li class="level1"><a href="#compatibility">Compatibility</a></li>
+</ul>
+</div>
+<h1 class="title">QCamera Example</h1>
+<span class="subtitle"></span>
+<!-- $$$demos/mobile/qcamera-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="demos-mobile-qcamera-businesscardhandling-cpp.html">demos/mobile/qcamera/businesscardhandling.cpp</a></li>
+<li><a href="demos-mobile-qcamera-businesscardhandling-h.html">demos/mobile/qcamera/businesscardhandling.h</a></li>
+<li><a href="demos-mobile-qcamera-button-cpp.html">demos/mobile/qcamera/button.cpp</a></li>
+<li><a href="demos-mobile-qcamera-button-h.html">demos/mobile/qcamera/button.h</a></li>
+<li><a href="demos-mobile-qcamera-cameraexample-cpp.html">demos/mobile/qcamera/cameraexample.cpp</a></li>
+<li><a href="demos-mobile-qcamera-cameraexample-h.html">demos/mobile/qcamera/cameraexample.h</a></li>
+<li><a href="demos-mobile-qcamera-contactsdlg-cpp.html">demos/mobile/qcamera/contactsdlg.cpp</a></li>
+<li><a href="demos-mobile-qcamera-contactsdlg-h.html">demos/mobile/qcamera/contactsdlg.h</a></li>
+<li><a href="demos-mobile-qcamera-messagehandling-cpp.html">demos/mobile/qcamera/messagehandling.cpp</a></li>
+<li><a href="demos-mobile-qcamera-messagehandling-h.html">demos/mobile/qcamera/messagehandling.h</a></li>
+<li><a href="demos-mobile-qcamera-icons-cameramms-icon-svg.html">demos/mobile/qcamera/icons/cameramms_icon.svg</a></li>
+<li><a href="demos-mobile-qcamera-main-cpp.html">demos/mobile/qcamera/main.cpp</a></li>
+<li><a href="demos-mobile-qcamera-qcamera-pro.html">demos/mobile/qcamera/qcamera.pro</a></li>
+<li><a href="demos-mobile-qcamera-resources-qrc.html">demos/mobile/qcamera/resources.qrc</a></li>
+</ul>
+<p>This Qt C++ application demonstrates how to use Multimedia, Messaging and Contacts modules from <a href="http://doc.qt.nokia.com/qtmobility/index.html">Qt Mobility</a>.</p>
+<p class="centerAlign"><img src="images/qcameraexample.png" /></p><p>The application shows the viewfinder picture from the device camera and allows the user to capture images. Captured images are stored into the gallery and can be sent as an MMS message to a friend. Application listens for incoming MMS messages in the Inbox folder. If the MMS message contains a picture, the application asks the user whether he or she wants to add the picture as an avatar of the sender. The person's general contact information has to exist in the device phonebook in order to store the avatar in it.</p>
+<p>The application uses own MyVideoSurface video surface derived from <a href="qabstractvideosurface.html">QAbstractVideoSurface</a> for showing camera view finder pictures. A video surface presents a continuous stream of identically formatted frames.</p>
+<pre class="cpp"> <span class="type">QMediaService</span><span class="operator">*</span> ms <span class="operator">=</span> m_camera<span class="operator">-</span><span class="operator">&gt;</span>service();
+ <span class="type">QVideoRendererControl</span><span class="operator">*</span> vrc <span class="operator">=</span> ms<span class="operator">-</span><span class="operator">&gt;</span>requestControl<span class="operator">&lt;</span><span class="type">QVideoRendererControl</span><span class="operator">*</span><span class="operator">&gt;</span>();
+ m_myVideoSurface <span class="operator">=</span> <span class="keyword">new</span> MyVideoSurface(<span class="keyword">this</span><span class="operator">,</span><span class="keyword">this</span><span class="operator">,</span><span class="keyword">this</span>);
+ vrc<span class="operator">-</span><span class="operator">&gt;</span>setSurface(m_myVideoSurface);</pre>
+<p>The application handles Graphics Out Of Memory (GOOM) events in it's <a href="qapplication.html#symbianEventFilter">QApplication::symbianEventFilter</a>() method.</p>
+<pre class="cpp">   <span class="type">bool</span> symbianEventFilter( <span class="keyword">const</span> <span class="type"><a href="qsymbianevent.html">QSymbianEvent</a></span><span class="operator">*</span> symbianEvent )
+   {
+     <span class="keyword">const</span> TWsEvent <span class="operator">*</span>event <span class="operator">=</span> symbianEvent<span class="operator">-</span><span class="operator">&gt;</span>windowServerEvent();
+     <span class="keyword">if</span> ( <span class="operator">!</span>event ) {
+       <span class="keyword">return</span> <span class="keyword">false</span>;
+     }
+     <span class="keyword">switch</span> ( event<span class="operator">-</span><span class="operator">&gt;</span>Type() ) {
+       <span class="comment">// GOOM handling enabled</span>
+       <span class="comment">// http://wiki.forum.nokia.com/index.php/Graphics_memory_handling</span>
+       <span class="keyword">case</span> EEventUser: {
+         TApaSystemEvent<span class="operator">*</span> eventData <span class="operator">=</span> <span class="keyword">reinterpret_cast</span><span class="operator">&lt;</span>TApaSystemEvent<span class="operator">*</span><span class="operator">&gt;</span>(event<span class="operator">-</span><span class="operator">&gt;</span>EventData());
+         <span class="keyword">if</span> ((<span class="operator">*</span>eventData) <span class="operator">=</span><span class="operator">=</span> EApaSystemEventShutdown) {
+             eventData<span class="operator">+</span><span class="operator">+</span>;
+             <span class="keyword">if</span> ((<span class="operator">*</span>eventData) <span class="operator">=</span><span class="operator">=</span> KGoomMemoryLowEvent) {
+              <span class="keyword">return</span> <span class="keyword">true</span>;
+             }
+         }
+         <span class="keyword">break</span>;
+       }
+       <span class="keyword">default</span>:
+         <span class="keyword">break</span>;
+     };
+
+     <span class="comment">// Always return false so we don't stop</span>
+     <span class="comment">// the event from being processed</span>
+     <span class="keyword">return</span> <span class="keyword">false</span>;
+   }</pre>
+<a name="required-capabilities"></a>
+<h2>Required capabilities</h2>
+<p>Application can be self-signed.</p>
+<p>After enabling Qt Mobility Messaging module (MESSAGING_ENABLED flag in .pro file) from the project file is ReadDeviceData WriteDeviceData capabilities also needed and application have to be Developer Signed. Enabling Messaging adds MMS sending feature for the application.</p>
+<a name="compatibility"></a>
+<h2>Compatibility</h2>
+<p>Qt SDK 1.1</p>
+<p>Qt 4.7&#x2e;2 for Symbian</p>
+<p>QtMobility 1.1&#x2e;1</p>
+<p>Tested on: Nokia N8, Nokia E7</p>
+<p>Developed with: Qt SDK 1.1</p>
+</div>
+<!-- @@@demos/mobile/qcamera -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

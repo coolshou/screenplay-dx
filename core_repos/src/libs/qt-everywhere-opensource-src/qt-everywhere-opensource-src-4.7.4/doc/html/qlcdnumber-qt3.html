@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qlcdnumber.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QLCDNumber</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QLCDNumber</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QLCDNumber</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qlcdnumber.html">QLCDNumber class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#QLCDNumber-3">QLCDNumber</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#QLCDNumber-4">QLCDNumber</a></b> ( uint <i>numDigits</i>, QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#margin">margin</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#numDigits-prop">numDigits</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#setMargin">setMargin</a></b> ( int <i>margin</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qlcdnumber-qt3.html#numDigits-prop">setNumDigits</a></b> ( int <i>nDigits</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$QLCDNumber$$$QLCDNumberQWidget*constchar* -->
+<h3 class="fn"><a name="QLCDNumber-3"></a>QLCDNumber::<span class="name">QLCDNumber</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Constructs an LCD number, sets the number of digits to 5, the base to decimal, the decimal point mode to 'small' and the frame style to a raised box. The <a href="qlcdnumber.html#segmentStyle-prop">segmentStyle</a>() is set to <tt>Outline</tt>.</p>
+<p>The <i>parent</i> and <i>name</i> arguments are passed to the <a href="qframe.html">QFrame</a> constructor.</p>
+<p><b>See also </b><a href="qlcdnumber.html#digitCount-prop">setDigitCount</a>() and <a href="qlcdnumber.html#smallDecimalPoint-prop">setSmallDecimalPoint</a>().</p>
+<!-- @@@QLCDNumber -->
+<!-- $$$QLCDNumber$$$QLCDNumberuintQWidget*constchar* -->
+<h3 class="fn"><a name="QLCDNumber-4"></a>QLCDNumber::<span class="name">QLCDNumber</span> ( <span class="type"><a href="qtglobal.html#uint-typedef">uint</a></span> <i>numDigits</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Constructs an LCD number, sets the number of digits to <i>numDigits</i>, the base to decimal, the decimal point mode to 'small' and the frame style to a raised box. The <a href="qlcdnumber.html#segmentStyle-prop">segmentStyle</a>() is set to <tt>Outline</tt>.</p>
+<p>The <i>parent</i> and <i>name</i> arguments are passed to the <a href="qframe.html">QFrame</a> constructor.</p>
+<p><b>See also </b><a href="qlcdnumber.html#digitCount-prop">setDigitCount</a>() and <a href="qlcdnumber.html#smallDecimalPoint-prop">setSmallDecimalPoint</a>().</p>
+<!-- @@@QLCDNumber -->
+<!-- $$$margin[overload1]$$$margin -->
+<h3 class="fn"><a name="margin"></a><span class="type">int</span> QLCDNumber::<span class="name">margin</span> () const</h3>
+<p>Returns the width of the margin around the contents of the widget.</p>
+<p>Use <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>() instead.</p>
+<p><b>See also </b><a href="qlcdnumber-qt3.html#setMargin">setMargin</a>() and <a href="qwidget.html#getContentsMargins">QWidget::getContentsMargins</a>().</p>
+<!-- @@@margin -->
+<!-- $$$setMargin[overload1]$$$setMarginint -->
+<h3 class="fn"><a name="setMargin"></a><span class="type">void</span> QLCDNumber::<span class="name">setMargin</span> ( <span class="type">int</span> <i>margin</i> )</h3>
+<p>Sets the width of the margin around the contents of the widget to <i>margin</i>.</p>
+<p>Use <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>() instead.</p>
+<p><b>See also </b><a href="qlcdnumber-qt3.html#margin">margin</a>() and <a href="qwidget.html#setContentsMargins">QWidget::setContentsMargins</a>().</p>
+<!-- @@@setMargin -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

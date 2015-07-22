@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: anim_accord.css Example File (webkit/webkit-guide/css/anim_accord.css)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">anim_accord.css Example File</h1>
+<span class="small-subtitle">webkit/webkit-guide/css/anim_accord.css</span>
+<!-- $$$webkit/webkit-guide/css/anim_accord.css-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> /****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the Qt WebKit module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/
+ body {
+     background          : #aaaaaa;
+     font-family         : sans-serif;
+     width               : 100;
+ }
+
+ body &gt; section {
+     border-radius       : 1em;
+     background          : #ffffff;
+     border-radius       : 1em;
+     padding             : 1em;
+     background          : #ffffff;
+     min-height          : 70%;
+ }
+
+ .hidden {
+     display             : none;
+ }
+
+ .active {
+     color               : blue;
+     cursor              : pointer;
+     text-decoration     : none;
+ }
+
+ .nav &gt; a {
+     display             : inline-block;
+     width               : 48px;
+     height              : 48px;
+ }
+
+ h1, h2, h3, h4 {
+     margin-top          : 0.0em;
+     font-size           : smaller;
+     padding-top         : 1em;
+ }
+
+ body &gt; section.main {
+     position            : absolute;
+     left                : 1em;
+     right               : 1em;
+     top                 : 1em;
+     min-height          : 50%;
+     border-radius       : 0.5em;
+     background          : #aaaaaa;
+     padding             : 0;
+ }
+
+ section.main &gt; article {
+     background          : #ffffff;
+     padding             : 1em;
+     margin-bottom       : 10em;
+     border-radius       : 0.5em;
+ }
+
+ #accordion,
+ #accordion &gt; dt,
+ #accordion &gt; dd,
+ {
+     display             : block;
+ }
+
+ #accordion &gt; dt {
+     border-top          : thin solid #777777;
+ }
+
+ #accordion &gt; dd {
+     border-bottom       : thin solid #777777;
+ }
+
+ #accordion &gt; dd {
+     background-image    : -webkit-gradient(linear,center top,center bottom,from(#aaaaaa),to(#ffffff));
+ }
+
+ #accordion.collapsed {
+     background-size     : auto;
+     background-image    : url(../img/icon_expand-nav.png);
+     background-repeat   : no-repeat;
+     background-position : 0.25em 0.25em;
+ }
+
+ #accordion {
+     position        : absolute;;
+     right           : 2em;
+     top             : 0em;
+     overflow        : hidden;
+     background      : #ffffff;
+     cursor          : pointer;
+     z-index         : 100;
+     font-weight     : bold;
+ }
+
+ #accordion.expanded {
+     border          : thin solid #206ead;
+     width           : 80%;
+     height          : 90%;
+     -webkit-transition:
+         width 0.5s ease-in-out 0.0s,
+         height 0.5s ease-in-out 0.5s
+     ;
+ }
+
+ #accordion.collapsed {
+     width       : 15%;
+     height      : 9%;
+     -webkit-transition:
+         height 0.5s ease-in-out 0.0s,
+         width 0.5s ease-in-out 0.5s
+     ;
+ }
+
+ #accordion.collapsed &gt; dt,
+ #accordion.collapsed &gt; dd {
+     -webkit-transform       : translate(100%);
+     -webkit-transition      : -webkit-transform 0.5s ease-in-out 0.5s;
+ }
+
+ #accordion.expanded &gt; dt,
+ #accordion.expanded &gt; dd {
+     -webkit-transform       : translate(0%);
+     -webkit-transition      : -webkit-transform 0.5s ease-in-out 0.0s;
+ }
+
+ #accordion &gt; dt &gt; a {
+     margin-left             : 0.5em;
+ }
+
+ #accordion &gt; dt ,
+ #accordion &gt; dd {
+     padding                 : 0.5em;
+ }
+
+ #accordion &gt; dt ~ dd {
+     margin                  : 0;
+ }
+
+ #accordion &gt; dd &gt; ul,
+ #accordion &gt; dd &gt; ul &gt; li
+ {
+     padding                 : 0;
+     margin                  : 0;
+ }
+
+ #accordion a,
+ #accordion a:active,
+ #accordion a:hover,
+ #accordion a:visited
+ {
+     text-decoration     : none;
+     color               : #000000;
+ }
+
+ #accordion &gt; dt.expanded:before {
+     content                 : url(../img/icon_head-expanded_x13.png);
+ }
+
+ #accordion &gt; dt.collapsed:before {
+     content                 : url(../img/icon_head-collapsed_x13.png);
+ }
+
+ #accordion &gt; dt.expanded {
+     background-image        : -webkit-gradient(linear, center top, center bottom, from(#aaaaaa), to(#ffffff));
+ }
+
+ #accordion &gt; dt.collapsed {
+     background-image        : -webkit-gradient(linear, center top, center bottom, from(#aaaaaa), to(#ffffff));
+ }
+
+ #accordion &gt; dt + dd {
+     background              : #ffffff;
+     display                 : block;
+ }
+
+ #accordion dd {
+     overflow                : none;
+ }
+
+ #accordion &gt; dt.collapsed + dd {
+     max-height              : 0%;
+     opacity                 : 0;
+     -webkit-transform       : scaleY(0);
+     -webkit-transition      : all 0.5s ease-in-out;
+ }
+
+ #accordion &gt; dt.expanded + dd {
+     max-height              : 50%;
+     opacity                 : 1;
+     -webkit-transform       : scaleY(1);
+     -webkit-transition      : all 0.5s ease-in-out;
+ }
+
+ #accordion &gt; dd  {
+     margin                  : 0;
+     padding                 : 0;
+ }
+
+ #accordion &gt; dd &gt; ul &gt; li {
+     padding-top             : 0.25em;
+     padding-bottom          : 0.5em;
+     padding-left            : 1.0em;
+     padding-right           : 1.0em;
+ }
+
+ #accordion&gt; dt.collapsed:last-of-type {
+     border-bottom           : thin solid #aaaaaa;
+ }</pre>
+</div>
+<!-- @@@webkit/webkit-guide/css/anim_accord.css -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

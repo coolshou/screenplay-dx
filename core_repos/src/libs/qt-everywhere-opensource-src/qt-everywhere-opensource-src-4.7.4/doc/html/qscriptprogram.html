@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptprogram.cpp -->
+  <title>Qt 4.7: QScriptProgram Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtscript.html">QtScript</a></li>
+<li>QScriptProgram</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QScriptProgram Class Reference</h1>
+<!-- $$$QScriptProgram-brief -->
+<p>The QScriptProgram class encapsulates a Qt Script program. <a href="#details">More...</a></p>
+<!-- @@@QScriptProgram -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QScriptProgram&gt;</span></pre><p>This class was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qscriptprogram-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#QScriptProgram">QScriptProgram</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#QScriptProgram-2">QScriptProgram</a></b> ( const QString &amp; <i>sourceCode</i>, const QString <i>fileName</i> = QString(), int <i>firstLineNumber</i> = 1 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#QScriptProgram-3">QScriptProgram</a></b> ( const QScriptProgram &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#dtor.QScriptProgram">~QScriptProgram</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#fileName">fileName</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#firstLineNumber">firstLineNumber</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#isNull">isNull</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#sourceCode">sourceCode</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#operator-not-eq">operator!=</a></b> ( const QScriptProgram &amp; <i>other</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptProgram &amp; </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#operator-eq">operator=</a></b> ( const QScriptProgram &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qscriptprogram.html#operator-eq-eq">operator==</a></b> ( const QScriptProgram &amp; <i>other</i> ) const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptProgram-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScriptProgram class encapsulates a Qt Script program.</p>
+<p>QScriptProgram retains the compiled representation of the script if possible. Thus, QScriptProgram can be used to evaluate the same script multiple times more efficiently.</p>
+<pre class="cpp"> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> engine;
+ <span class="type">QScriptProgram</span> program(<span class="string">&quot;1 + 2&quot;</span>);
+ <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> result <span class="operator">=</span> engine<span class="operator">.</span>evaluate(program);</pre>
+</div>
+<!-- @@@QScriptProgram -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptProgram[overload1]$$$QScriptProgram -->
+<h3 class="fn"><a name="QScriptProgram"></a>QScriptProgram::<span class="name">QScriptProgram</span> ()</h3>
+<p>Constructs a null <a href="qscriptprogram.html">QScriptProgram</a>.</p>
+<!-- @@@QScriptProgram -->
+<!-- $$$QScriptProgram$$$QScriptProgramconstQString&constQStringint -->
+<h3 class="fn"><a name="QScriptProgram-2"></a>QScriptProgram::<span class="name">QScriptProgram</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>sourceCode</i>, const <span class="type"><a href="qstring.html">QString</a></span> <i>fileName</i> = QString(), <span class="type">int</span> <i>firstLineNumber</i> = 1 )</h3>
+<p>Constructs a new <a href="qscriptprogram.html">QScriptProgram</a> with the given <i>sourceCode</i>, <i>fileName</i> and <i>firstLineNumber</i>.</p>
+<!-- @@@QScriptProgram -->
+<!-- $$$QScriptProgram$$$QScriptProgramconstQScriptProgram& -->
+<h3 class="fn"><a name="QScriptProgram-3"></a>QScriptProgram::<span class="name">QScriptProgram</span> ( const <span class="type">QScriptProgram</span> &amp; <i>other</i> )</h3>
+<p>Constructs a new <a href="qscriptprogram.html">QScriptProgram</a> that is a copy of <i>other</i>.</p>
+<!-- @@@QScriptProgram -->
+<!-- $$$~QScriptProgram[overload1]$$$~QScriptProgram -->
+<h3 class="fn"><a name="dtor.QScriptProgram"></a>QScriptProgram::<span class="name">~QScriptProgram</span> ()</h3>
+<p>Destroys this <a href="qscriptprogram.html">QScriptProgram</a>.</p>
+<!-- @@@~QScriptProgram -->
+<!-- $$$fileName[overload1]$$$fileName -->
+<h3 class="fn"><a name="fileName"></a><span class="type"><a href="qstring.html">QString</a></span> QScriptProgram::<span class="name">fileName</span> () const</h3>
+<p>Returns the filename associated with this program.</p>
+<!-- @@@fileName -->
+<!-- $$$firstLineNumber[overload1]$$$firstLineNumber -->
+<h3 class="fn"><a name="firstLineNumber"></a><span class="type">int</span> QScriptProgram::<span class="name">firstLineNumber</span> () const</h3>
+<p>Returns the line number associated with this program.</p>
+<!-- @@@firstLineNumber -->
+<!-- $$$isNull[overload1]$$$isNull -->
+<h3 class="fn"><a name="isNull"></a><span class="type">bool</span> QScriptProgram::<span class="name">isNull</span> () const</h3>
+<p>Returns true if this <a href="qscriptprogram.html">QScriptProgram</a> is null; otherwise returns false.</p>
+<!-- @@@isNull -->
+<!-- $$$sourceCode[overload1]$$$sourceCode -->
+<h3 class="fn"><a name="sourceCode"></a><span class="type"><a href="qstring.html">QString</a></span> QScriptProgram::<span class="name">sourceCode</span> () const</h3>
+<p>Returns the source code of this program.</p>
+<!-- @@@sourceCode -->
+<!-- $$$operator!=[overload1]$$$operator!=constQScriptProgram& -->
+<h3 class="fn"><a name="operator-not-eq"></a><span class="type">bool</span> QScriptProgram::<span class="name">operator!=</span> ( const <span class="type">QScriptProgram</span> &amp; <i>other</i> ) const</h3>
+<p>Returns true if this <a href="qscriptprogram.html">QScriptProgram</a> is not equal to <i>other</i>; otherwise returns false.</p>
+<!-- @@@operator!= -->
+<!-- $$$operator=[overload1]$$$operator=constQScriptProgram& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QScriptProgram</span> &amp; QScriptProgram::<span class="name">operator=</span> ( const <span class="type">QScriptProgram</span> &amp; <i>other</i> )</h3>
+<p>Assigns the <i>other</i> value to this <a href="qscriptprogram.html">QScriptProgram</a>.</p>
+<!-- @@@operator= -->
+<!-- $$$operator==[overload1]$$$operator==constQScriptProgram& -->
+<h3 class="fn"><a name="operator-eq-eq"></a><span class="type">bool</span> QScriptProgram::<span class="name">operator==</span> ( const <span class="type">QScriptProgram</span> &amp; <i>other</i> ) const</h3>
+<p>Returns true if this <a href="qscriptprogram.html">QScriptProgram</a> is equal to <i>other</i>; otherwise returns false.</p>
+<!-- @@@operator== -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativescriptstring.cpp -->
+  <title>Qt 4.7: QDeclarativeScriptString Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdeclarative.html">QtDeclarative</a></li>
+<li>QDeclarativeScriptString</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDeclarativeScriptString Class Reference</h1>
+<!-- $$$QDeclarativeScriptString-brief -->
+<p>The QDeclarativeScriptString class encapsulates a script and its context. <a href="#details">More...</a></p>
+<!-- @@@QDeclarativeScriptString -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDeclarativeScriptString&gt;</span></pre><p>This class was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qdeclarativescriptstring-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#QDeclarativeScriptString">QDeclarativeScriptString</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#QDeclarativeScriptString-2">QDeclarativeScriptString</a></b> ( const QDeclarativeScriptString &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeContext * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#context">context</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QObject * </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#scopeObject">scopeObject</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#script">script</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#setContext">setContext</a></b> ( QDeclarativeContext * <i>context</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#setScopeObject">setScopeObject</a></b> ( QObject * <i>object</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#setScript">setScript</a></b> ( const QString &amp; <i>script</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDeclarativeScriptString &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdeclarativescriptstring.html#operator-eq">operator=</a></b> ( const QDeclarativeScriptString &amp; <i>other</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QDeclarativeScriptString-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDeclarativeScriptString class encapsulates a script and its context.</p>
+<p>QDeclarativeScriptString is used to create <a href="qobject.html">QObject</a> properties that accept a script &quot;assignment&quot; from QML.</p>
+<p>Normally, the following QML would result in a binding being established for the <tt>script</tt> property; i.e&#x2e; <tt>script</tt> would be assigned the value obtained from running <tt>myObj.value = Math.max(myValue, 100)</tt></p>
+<pre class="qml"> <span class="type">MyType</span> {
+     <span class="name">script</span>: <span class="name">myObj</span>.<span class="name">value</span> <span class="operator">=</span> <span class="name">Math</span>.<span class="name">max</span>(<span class="name">myValue</span>, <span class="number">100</span>)
+ }</pre>
+<p>If instead the property had a type of QDeclarativeScriptString, the script itself -- <i>myObj.value = Math.max(myValue, 100)</i> -- would be passed to the <tt>script</tt> property and the class could choose how to handle it. Typically, the class will evaluate the script at some later time using a <a href="qdeclarativeexpression.html">QDeclarativeExpression</a>.</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeexpression.html">QDeclarativeExpression</a></span> expr(scriptString<span class="operator">.</span>context()<span class="operator">,</span> scriptString<span class="operator">.</span>script()<span class="operator">,</span> scriptStr<span class="operator">.</span>scopeObject());
+ expr<span class="operator">.</span>value();</pre>
+</div>
+<p><b>See also </b><a href="qdeclarativeexpression.html">QDeclarativeExpression</a>.</p>
+<!-- @@@QDeclarativeScriptString -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QDeclarativeScriptString[overload1]$$$QDeclarativeScriptString -->
+<h3 class="fn"><a name="QDeclarativeScriptString"></a>QDeclarativeScriptString::<span class="name">QDeclarativeScriptString</span> ()</h3>
+<p>Constructs an empty instance.</p>
+<!-- @@@QDeclarativeScriptString -->
+<!-- $$$QDeclarativeScriptString$$$QDeclarativeScriptStringconstQDeclarativeScriptString& -->
+<h3 class="fn"><a name="QDeclarativeScriptString-2"></a>QDeclarativeScriptString::<span class="name">QDeclarativeScriptString</span> ( const <span class="type">QDeclarativeScriptString</span> &amp; <i>other</i> )</h3>
+<p>Copies <i>other</i>.</p>
+<!-- @@@QDeclarativeScriptString -->
+<!-- $$$context[overload1]$$$context -->
+<h3 class="fn"><a name="context"></a><span class="type"><a href="qdeclarativecontext.html">QDeclarativeContext</a></span> * QDeclarativeScriptString::<span class="name">context</span> () const</h3>
+<p>Returns the context for the script.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#setContext">setContext</a>().</p>
+<!-- @@@context -->
+<!-- $$$scopeObject[overload1]$$$scopeObject -->
+<h3 class="fn"><a name="scopeObject"></a><span class="type"><a href="qobject.html">QObject</a></span> * QDeclarativeScriptString::<span class="name">scopeObject</span> () const</h3>
+<p>Returns the scope object for the script.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#setScopeObject">setScopeObject</a>().</p>
+<!-- @@@scopeObject -->
+<!-- $$$script[overload1]$$$script -->
+<h3 class="fn"><a name="script"></a><span class="type"><a href="qstring.html">QString</a></span> QDeclarativeScriptString::<span class="name">script</span> () const</h3>
+<p>Returns the script text.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#setScript">setScript</a>().</p>
+<!-- @@@script -->
+<!-- $$$setContext[overload1]$$$setContextQDeclarativeContext* -->
+<h3 class="fn"><a name="setContext"></a><span class="type">void</span> QDeclarativeScriptString::<span class="name">setContext</span> ( <span class="type"><a href="qdeclarativecontext.html">QDeclarativeContext</a></span> * <i>context</i> )</h3>
+<p>Sets the <i>context</i> for the script.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#context">context</a>().</p>
+<!-- @@@setContext -->
+<!-- $$$setScopeObject[overload1]$$$setScopeObjectQObject* -->
+<h3 class="fn"><a name="setScopeObject"></a><span class="type">void</span> QDeclarativeScriptString::<span class="name">setScopeObject</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>object</i> )</h3>
+<p>Sets the scope <i>object</i> for the script.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#scopeObject">scopeObject</a>().</p>
+<!-- @@@setScopeObject -->
+<!-- $$$setScript[overload1]$$$setScriptconstQString& -->
+<h3 class="fn"><a name="setScript"></a><span class="type">void</span> QDeclarativeScriptString::<span class="name">setScript</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>script</i> )</h3>
+<p>Sets the <i>script</i> text.</p>
+<p><b>See also </b><a href="qdeclarativescriptstring.html#script">script</a>().</p>
+<!-- @@@setScript -->
+<!-- $$$operator=[overload1]$$$operator=constQDeclarativeScriptString& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QDeclarativeScriptString</span> &amp; QDeclarativeScriptString::<span class="name">operator=</span> ( const <span class="type">QDeclarativeScriptString</span> &amp; <i>other</i> )</h3>
+<p>Assigns <i>other</i> to this.</p>
+<!-- @@@operator= -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

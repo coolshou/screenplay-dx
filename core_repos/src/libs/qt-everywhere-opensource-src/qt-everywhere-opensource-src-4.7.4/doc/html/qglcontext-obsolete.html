@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgl.cpp -->
+  <title>Qt 4.7: Obsolete Members for QGLContext</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtopengl.html">QtOpenGL</a></li>
+<li>QGLContext</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Obsolete Members for QGLContext</h1>
+<p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<p><ul><li><a href="qglcontext.html">QGLContext class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qglcontext-obsolete.html#QGLContext-2">QGLContext</a></b> ( const QGLFormat &amp; <i>format</i>, QPaintDevice * <i>device</i> )<tt> (obsolete)</tt></td></tr>
+</table>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qglcontext-obsolete.html#generateFontDisplayLists">generateFontDisplayLists</a></b> ( const QFont &amp; <i>font</i>, int <i>listBase</i> )<tt> (obsolete)</tt></td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$QGLContext$$$QGLContextconstQGLFormat&QPaintDevice* -->
+<h3 class="fn"><a name="QGLContext-2"></a>QGLContext::<span class="name">QGLContext</span> ( const <span class="type"><a href="qglformat.html">QGLFormat</a></span> &amp; <i>format</i>, <span class="type"><a href="qpaintdevice.html">QPaintDevice</a></span> * <i>device</i> )</h3>
+<p>Constructs an OpenGL context for the given paint <i>device</i>, which can be a widget or a pixmap. The <i>format</i> specifies several display options for the context.</p>
+<p>If the underlying OpenGL/Window system cannot satisfy all the features requested in <i>format</i>, the nearest subset of features will be used. After creation, the <a href="qglcontext.html#format">format</a>() method will return the actual format obtained.</p>
+<p>Note that after a <a href="qglcontext.html">QGLContext</a> object has been constructed, <a href="qglcontext.html#create">create</a>() must be called explicitly to create the actual OpenGL context. The context will be <a href="qglcontext.html#isValid">invalid</a> if it was not possible to obtain a GL context at all.</p>
+<!-- @@@QGLContext -->
+<!-- $$$generateFontDisplayLists[overload1]$$$generateFontDisplayListsconstQFont&int -->
+<h3 class="fn"><a name="generateFontDisplayLists"></a><span class="type">void</span> QGLContext::<span class="name">generateFontDisplayLists</span> ( const <span class="type"><a href="qfont.html">QFont</a></span> &amp; <i>font</i>, <span class="type">int</span> <i>listBase</i> )<tt> [protected]</tt></h3>
+<p>Generates a set of 256 display lists for the 256 first characters in the font <i>font</i>. The first list will start at index <i>listBase</i>.</p>
+<p><b>See also </b><a href="qglwidget.html#renderText">QGLWidget::renderText</a>().</p>
+<!-- @@@generateFontDisplayLists -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

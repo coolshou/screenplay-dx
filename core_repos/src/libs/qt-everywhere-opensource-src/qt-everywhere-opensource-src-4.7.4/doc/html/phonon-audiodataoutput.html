@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- phonon-api.qdoc -->
+  <title>Qt 4.7: AudioDataOutput Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="phonon.html">Phonon</a></li>
+<li>AudioDataOutput</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">AudioDataOutput Class Reference</h1>
+<span class="small-subtitle">(Phonon::AudioDataOutput)<br/></span>
+<!-- $$$AudioDataOutput-brief -->
+<p>The AudioDataOutput class provides access to audio data. <a href="#details">More...</a></p>
+<!-- @@@AudioDataOutput -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;<a href="phonon.html">Phonon</a>&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a> and <a href="phonon-medianode.html">MediaNode</a>.</p>
+<p>This class was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="phonon-audiodataoutput-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#Channel-enum">Channel</a></b> { LeftChannel, RightChannel, CenterChannel, LeftSurroundChannel, RightSurroundChannel, SubwooferChannel }</td></tr>
+</table>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="phonon-audiodataoutput.html#dataSize-prop">dataSize</a></b> : int</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#dataSize-prop">dataSize</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#sampleRate">sampleRate</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">3 public functions inherited from <a href="phonon-medianode.html#public-functions">Phonon::MediaNode</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#dataSize-prop">setDataSize</a></b> ( int <i>size</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#dataReady">dataReady</a></b> ( const QMap&lt;Phonon::AudioDataOutput::Channel, QVector&lt;qint16&gt; &gt; &amp; <i>data</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="phonon-audiodataoutput.html#endOfMedia">endOfMedia</a></b> ( int <i>remainingSamples</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$AudioDataOutput-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The AudioDataOutput class provides access to audio data.</p>
+<p>This class is used to obtain audio data, typically for the purpose of visualizing it.</p>
+<p>Although it is not designed for realtime performance, the latencies associated with accessing the data should be low enough for applications that provide visualizations of the data. This class can also be used to save the audio data for further processing.</p>
+</div>
+<!-- @@@AudioDataOutput -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Channel$$$LeftChannel$$$RightChannel$$$CenterChannel$$$LeftSurroundChannel$$$RightSurroundChannel$$$SubwooferChannel -->
+<h3 class="fn"><a name="Channel-enum"></a>enum AudioDataOutput::<span class="name">Channel</span></h3>
+<p>This enum describes the channel audio data belongs to.</p>
+<table class="valuelist"><tr><th class="tblConst">Constant</th><th class="tblVal">Value</th></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::LeftChannel</tt></td><td class="topAlign"><tt>0</tt></td></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::RightChannel</tt></td><td class="topAlign"><tt>1</tt></td></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::CenterChannel</tt></td><td class="topAlign"><tt>2</tt></td></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::LeftSurroundChannel</tt></td><td class="topAlign"><tt>3</tt></td></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::RightSurroundChannel</tt></td><td class="topAlign"><tt>4</tt></td></tr>
+<tr><td class="topAlign"><tt>Phonon::AudioDataOutput::SubwooferChannel</tt></td><td class="topAlign"><tt>5</tt></td></tr>
+</table>
+<!-- @@@Channel -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$dataSize-prop$$$dataSize$$$setDataSizeint -->
+<h3 class="fn"><a name="dataSize-prop"></a><span class="name">dataSize</span> : <span class="type">int</span></h3>
+<p>This property holds the number of samples passed via the dataReady() signal.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><span class="name"><b>dataSize</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setDataSize</b></span> ( int <i>size</i> )</td></tr>
+</table>
+<!-- @@@dataSize -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$dataReady[overload1]$$$dataReadyconstQMap<Phonon::AudioDataOutput::Channel,QVector<qint16>>& -->
+<h3 class="fn"><a name="dataReady"></a><span class="type">void</span> AudioDataOutput::<span class="name">dataReady</span> ( const <span class="type"><a href="qmap.html">QMap</a></span>&lt;<span class="type"><a href="phonon-audiodataoutput.html#Channel-enum">Phonon::AudioDataOutput::Channel</a></span>, <span class="type"><a href="qvector.html">QVector</a></span>&lt;<span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span>&gt; &gt; &amp; <i>data</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever there is data available to read. The <i>data</i> sent by the signal is supplied in the form of a map that holds the data for different output channels.</p>
+<!-- @@@dataReady -->
+<!-- $$$endOfMedia[overload1]$$$endOfMediaint -->
+<h3 class="fn"><a name="endOfMedia"></a><span class="type">void</span> AudioDataOutput::<span class="name">endOfMedia</span> ( <span class="type">int</span> <i>remainingSamples</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted before the final <a href="phonon-audiodataoutput.html#dataReady">dataReady</a>() signal is emitted for a media. The <i>remainingSamples</i> value sent by the signal contains the number of samples that will be sent in the final <a href="phonon-audiodataoutput.html#dataReady">dataReady</a>() signal for the media.</p>
+<!-- @@@endOfMedia -->
+<!-- $$$sampleRate[overload1]$$$sampleRate -->
+<h3 class="fn"><a name="sampleRate"></a><span class="type">int</span> AudioDataOutput::<span class="name">sampleRate</span> () const</h3>
+<p>Returns the sample rate measured in Hertz, as reported by the backend. If the backend is unavailable -1 is returned.</p>
+<!-- @@@sampleRate -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

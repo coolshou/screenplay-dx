@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qftp.cpp -->
+  <title>Qt 4.7: List of All Members for QFtp</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtnetwork.html">QtNetwork</a></li>
+<li>QFtp</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QFtp</h1>
+<p>This is the complete list of members for <a href="qftp.html">QFtp</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">enum <span class="name"><b><a href="qftp.html#Command-enum">Command</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qftp.html#Error-enum">Error</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qftp.html#State-enum">State</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qftp.html#TransferMode-enum">TransferMode</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qftp.html#TransferType-enum">TransferType</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qftp.html#QFtp">QFtp</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#dtor.QFtp">~QFtp</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#abort">abort</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#blockSignals">blockSignals</a></b></span> ( bool ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#bytesAvailable">bytesAvailable</a></b></span> () const : qint64</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#cd">cd</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#childEvent">childEvent</a></b></span> ( QChildEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#children">children</a></b></span> () const : const QObjectList &amp;</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#clearPendingCommands">clearPendingCommands</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#close">close</a></b></span> () : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#commandFinished">commandFinished</a></b></span> ( int, bool )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#commandStarted">commandStarted</a></b></span> ( int )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connect">connect</a></b></span> ( const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connect-2">connect</a></b></span> ( const QObject *, const char *, const char *, Qt::ConnectionType ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connectNotify">connectNotify</a></b></span> ( const char * )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#connectToHost">connectToHost</a></b></span> ( const QString &amp;, quint16 ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#currentCommand">currentCommand</a></b></span> () const : Command</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#currentDevice">currentDevice</a></b></span> () const : QIODevice *</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#currentId">currentId</a></b></span> () const : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#customEvent">customEvent</a></b></span> ( QEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#d_ptr-var">d_ptr</a></b></span> : QScopedPointer&lt;QObjectData&gt;</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#dataTransferProgress">dataTransferProgress</a></b></span> ( qint64, qint64 )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#deleteLater">deleteLater</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#destroyed">destroyed</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect">disconnect</a></b></span> ( const QObject *, const char *, const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect-2">disconnect</a></b></span> ( const char *, const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect-3">disconnect</a></b></span> ( const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnectNotify">disconnectNotify</a></b></span> ( const char * )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#done">done</a></b></span> ( bool )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dumpObjectInfo">dumpObjectInfo</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dumpObjectTree">dumpObjectTree</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dynamicPropertyNames">dynamicPropertyNames</a></b></span> () const : QList&lt;QByteArray&gt;</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#error">error</a></b></span> () const : Error</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#errorString">errorString</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#event">event</a></b></span> ( QEvent * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#eventFilter">eventFilter</a></b></span> ( QObject *, QEvent * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChild">findChild</a></b></span> ( const QString &amp; ) const : T</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChildren">findChildren</a></b></span> ( const QString &amp; ) const : QList&lt;T&gt;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChildren-2">findChildren</a></b></span> ( const QRegExp &amp; ) const : QList&lt;T&gt;</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qftp.html#get">get</a></b></span> ( const QString &amp;, QIODevice *, TransferType ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#hasPendingCommands">hasPendingCommands</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#inherits">inherits</a></b></span> ( const char * ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#installEventFilter">installEventFilter</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#isWidgetType">isWidgetType</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#killTimer">killTimer</a></b></span> ( int )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#list">list</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#listInfo">listInfo</a></b></span> ( const QUrlInfo &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#login">login</a></b></span> ( const QString &amp;, const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#metaObject">metaObject</a></b></span> () const : const QMetaObject *</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#mkdir">mkdir</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#moveToThread">moveToThread</a></b></span> ( QThread * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#objectName-prop">objectName</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#parent">parent</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#property">property</a></b></span> ( const char * ) const : QVariant</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#put">put</a></b></span> ( QIODevice *, const QString &amp;, TransferType ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#put-2">put</a></b></span> ( const QByteArray &amp;, const QString &amp;, TransferType ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#rawCommand">rawCommand</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#rawCommandReply">rawCommandReply</a></b></span> ( int, const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#read">read</a></b></span> ( char *, qint64 ) : qint64</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#readAll">readAll</a></b></span> () : QByteArray</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#readyRead">readyRead</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#receivers">receivers</a></b></span> ( const char * ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#remove">remove</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#removeEventFilter">removeEventFilter</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#rename">rename</a></b></span> ( const QString &amp;, const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#rmdir">rmdir</a></b></span> ( const QString &amp; ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#sender">sender</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#objectName-prop">setObjectName</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#setParent">setParent</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#setProperty">setProperty</a></b></span> ( const char *, const QVariant &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#setProxy">setProxy</a></b></span> ( const QString &amp;, quint16 ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#setTransferMode">setTransferMode</a></b></span> ( TransferMode ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#signalsBlocked">signalsBlocked</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#startTimer">startTimer</a></b></span> ( int ) : int</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#state">state</a></b></span> () const : State</li>
+<li class="fn"><span class="name"><b><a href="qftp.html#stateChanged">stateChanged</a></b></span> ( int )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#staticMetaObject-var">staticMetaObject</a></b></span> : const QMetaObject</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#staticQtMetaObject-var">staticQtMetaObject</a></b></span> : const QMetaObject</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#thread">thread</a></b></span> () const : QThread *</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#timerEvent">timerEvent</a></b></span> ( QTimerEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#tr">tr</a></b></span> ( const char *, const char *, int ) : QString</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#trUtf8">trUtf8</a></b></span> ( const char *, const char *, int ) : QString</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: mainwindow.cpp Example File (opengl/hellogl_es/mainwindow.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">mainwindow.cpp Example File</h1>
+<span class="small-subtitle">opengl/hellogl_es/mainwindow.cpp</span>
+<!-- $$$opengl/hellogl_es/mainwindow.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;mainwindow.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QMenuBar&gt;</span>
+ <span class="preprocessor">#include &lt;QGroupBox&gt;</span>
+ <span class="preprocessor">#include &lt;QGridLayout&gt;</span>
+ <span class="preprocessor">#include &lt;QSlider&gt;</span>
+ <span class="preprocessor">#include &lt;QLabel&gt;</span>
+ <span class="preprocessor">#include &lt;QTimer&gt;</span>
+
+ <span class="preprocessor">#include &quot;glwidget.h&quot;</span>
+
+ MainWindow<span class="operator">::</span>MainWindow()
+ {
+     GLWidget <span class="operator">*</span>glwidget <span class="operator">=</span> <span class="keyword">new</span> GLWidget();
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="keyword">this</span>);
+     <span class="type"><a href="qtimer.html">QTimer</a></span> <span class="operator">*</span>timer <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtimer.html">QTimer</a></span>(<span class="keyword">this</span>);
+     <span class="type"><a href="qslider.html">QSlider</a></span> <span class="operator">*</span>slider <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qslider.html">QSlider</a></span>(<span class="keyword">this</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setOrientation(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Horizontal);
+
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setRange(<span class="number">0</span><span class="operator">,</span> <span class="number">100</span>);
+     slider<span class="operator">-</span><span class="operator">&gt;</span>setSliderPosition(<span class="number">50</span>);
+     timer<span class="operator">-</span><span class="operator">&gt;</span>setInterval(<span class="number">10</span>);
+     label<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="string">&quot;A QGlWidget with OpenGl ES&quot;</span>);
+     label<span class="operator">-</span><span class="operator">&gt;</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignHCenter);
+
+     <span class="type"><a href="qgroupbox.html">QGroupBox</a></span> <span class="operator">*</span> groupBox <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgroupbox.html">QGroupBox</a></span>(<span class="keyword">this</span>);
+     setCentralWidget(groupBox);
+     groupBox<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;OpenGL ES Example&quot;</span>);
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>(groupBox);
+
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(glwidget<span class="operator">,</span><span class="number">1</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">8</span><span class="operator">,</span><span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(label<span class="operator">,</span><span class="number">9</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">1</span><span class="operator">,</span><span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(slider<span class="operator">,</span> <span class="number">11</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">1</span><span class="operator">,</span><span class="number">1</span>);
+
+     groupBox<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>fileMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="string">&quot;File&quot;</span>);
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>helpMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="string">&quot;Help&quot;</span>);
+     <span class="type"><a href="qmenu.html">QMenu</a></span> <span class="operator">*</span>showMenu <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qmenu.html">QMenu</a></span>(<span class="string">&quot;Show&quot;</span>);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(fileMenu);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(showMenu);
+     menuBar()<span class="operator">-</span><span class="operator">&gt;</span>addMenu(helpMenu);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>exit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="string">&quot;Exit&quot;</span><span class="operator">,</span> fileMenu);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>aboutQt <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="string">&quot;AboutQt&quot;</span><span class="operator">,</span> helpMenu);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>showLogo <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="string">&quot;Show 3D Logo&quot;</span><span class="operator">,</span> showMenu);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>showTexture <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="string">&quot;Show 2D Texture&quot;</span><span class="operator">,</span> showMenu);
+     <span class="type"><a href="qaction.html">QAction</a></span> <span class="operator">*</span>showBubbles <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qaction.html">QAction</a></span>(<span class="string">&quot;Show bubbles&quot;</span><span class="operator">,</span> showMenu);
+     showBubbles<span class="operator">-</span><span class="operator">&gt;</span>setCheckable(<span class="keyword">true</span>);
+     showBubbles<span class="operator">-</span><span class="operator">&gt;</span>setChecked(<span class="keyword">true</span>);
+     fileMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(exit);
+     helpMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(aboutQt);
+     showMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(showLogo);
+     showMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(showTexture);
+     showMenu<span class="operator">-</span><span class="operator">&gt;</span>addAction(showBubbles);
+
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> glwidget<span class="operator">,</span> SLOT(updateGL()));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(exit<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(close()));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(aboutQt<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(aboutQt()));
+
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(showLogo<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> glwidget<span class="operator">,</span> SLOT(setLogo()));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(showTexture<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> glwidget<span class="operator">,</span> SLOT(setTexture()));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(showBubbles<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> glwidget<span class="operator">,</span> SLOT(showBubbles(<span class="type">bool</span>)));
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(slider<span class="operator">,</span> SIGNAL(valueChanged(<span class="type">int</span>))<span class="operator">,</span> glwidget<span class="operator">,</span> SLOT(setScaling(<span class="type">int</span>)));
+     timer<span class="operator">-</span><span class="operator">&gt;</span>start();
+ }</pre>
+</div>
+<!-- @@@opengl/hellogl_es/mainwindow.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

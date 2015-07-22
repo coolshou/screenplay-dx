@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- modules.qdoc -->
+  <title>Qt 4.7: QtOpenVG Module</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>QtOpenVG</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QtOpenVG Module</h1>
+<span class="subtitle"></span>
+<!-- $$$QtOpenVG-brief -->
+<p>The QtOpenVG module is a plugin that provides support for OpenVG painting. <a href="#details">More...</a></p>
+<!-- @@@QtOpenVG -->
+<p>This documentation was introduced in Qt 4.6.</p>
+<!-- $$$QtOpenVG-description -->
+<a name="details"></a>
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>OpenVG is a standard API from the <a href="http://www.khronos.org/openvg">Khronos Group</a> for accelerated 2D vector graphics that is appearing in an increasing number of embedded devices.</p>
+<p>OpenVG support can be enabled by passing the <tt>-openvg</tt> option to configure. It is assumed that the following qmake variables are set to appropriate values in the qmake.conf file for your platform:</p>
+<ul>
+<li><a href="qmake-variable-reference.html#qmake-incdir-openvg">QMAKE_INCDIR_OPENVG</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libdir-openvg">QMAKE_LIBDIR_OPENVG</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libs-openvg">QMAKE_LIBS_OPENVG</a></li>
+</ul>
+<p>Most OpenVG implementations are based on EGL, so the following variables may also need to be set:</p>
+<ul>
+<li><a href="qmake-variable-reference.html#qmake-incdir-egl">QMAKE_INCDIR_EGL</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libdir-egl">QMAKE_LIBDIR_EGL</a></li>
+<li><a href="qmake-variable-reference.html#qmake-libs-egl">QMAKE_LIBS_EGL</a></li>
+</ul>
+<p>See <a href="qmake-variable-reference.html">qmake Variable Reference</a> for more information on these variables.</p>
+<p>Two kinds of OpenVG engines are currently supported: EGL based, and engines built on top of OpenGL such as <a href="http://sourceforge.net/projects/shivavg">ShivaVG</a>. EGL based engines are preferred.</p>
+<p>Once the graphics system plugin has been built and installed, applications can be run as follows to use the plugin:</p>
+<pre class="cpp"> app <span class="operator">-</span>graphicssystem OpenVG</pre>
+<p>If ShivaVG is being used, then substitute <tt>ShivaVG</tt> instead of <tt>OpenVG</tt> in the line above.</p>
+</div>
+<!-- @@@QtOpenVG -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

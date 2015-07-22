@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qstatusbar.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QStatusBar</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QStatusBar</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QStatusBar</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qstatusbar.html">QStatusBar class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstatusbar-qt3.html#QStatusBar-2">QStatusBar</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qstatusbar-qt3.html#addWidget-2">addWidget</a></b> ( QWidget * <i>widget</i>, int <i>stretch</i>, bool <i>permanent</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qstatusbar-qt3.html#clear">clear</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qstatusbar-qt3.html#message">message</a></b> ( const QString &amp; <i>message</i>, int <i>timeout</i> = 0 )</td></tr>
+</table>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qwidget.html#public-slots">QWidget</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$QStatusBar$$$QStatusBarQWidget*constchar* -->
+<h3 class="fn"><a name="QStatusBar-2"></a>QStatusBar::<span class="name">QStatusBar</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Constructs a status bar with a size grip and the given <i>parent</i> and object <i>name</i>.</p>
+<p>Use the <a href="qstatusbar.html#QStatusBar">QStatusBar</a>() constructor and the <a href="qobject.html#objectName-prop">QObject::setObjectName</a>() function instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QStatusBar *myStatusBar = new QStatusBar(parent, name);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qstatusbar.html">QStatusBar</a></span> <span class="operator">*</span>myStatusBar <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstatusbar.html">QStatusBar</a></span>(parent);
+ myStatusBar<span class="operator">-</span><span class="operator">&gt;</span><a href="qobject.html#objectName-prop">setObjectName</a>(name);</pre>
+<!-- @@@QStatusBar -->
+<!-- $$$addWidget$$$addWidgetQWidget*intbool -->
+<h3 class="fn"><a name="addWidget-2"></a><span class="type">void</span> QStatusBar::<span class="name">addWidget</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i>, <span class="type">int</span> <i>stretch</i>, <span class="type">bool</span> <i>permanent</i> )</h3>
+<p>Use <a href="qstatusbar.html#addWidget">addWidget</a>() or <a href="qstatusbar.html#addPermanentWidget">addPermanentWidget</a>() instead, depending on the value of the <i>permanent</i> parameter.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QStatusBar *myStatusBar;
+ myStatusBar-&gt;addWidget(widget, stretch, permanent);  // permanent == true</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qstatusbar.html">QStatusBar</a></span> <span class="operator">*</span>myStatusBar;
+ myStatusBar<span class="operator">-</span><span class="operator">&gt;</span><a href="qstatusbar.html#addPermanentWidget">addPermanentWidget</a>(widget<span class="operator">,</span> stretch);</pre>
+<!-- @@@addWidget -->
+<!-- $$$clear[overload1]$$$clear -->
+<h3 class="fn"><a name="clear"></a><span class="type">void</span> QStatusBar::<span class="name">clear</span> ()<tt> [slot]</tt></h3>
+<p>Use the <a href="qstatusbar.html#clearMessage">clearMessage</a>() function instead.</p>
+<!-- @@@clear -->
+<!-- $$$message[overload1]$$$messageconstQString&int -->
+<h3 class="fn"><a name="message"></a><span class="type">void</span> QStatusBar::<span class="name">message</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>message</i>, <span class="type">int</span> <i>timeout</i> = 0 )<tt> [slot]</tt></h3>
+<p>Use the <a href="qstatusbar.html#showMessage">showMessage</a>() function instead.</p>
+<!-- @@@message -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

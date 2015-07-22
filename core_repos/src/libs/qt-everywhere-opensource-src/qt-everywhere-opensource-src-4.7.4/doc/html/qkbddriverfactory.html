@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qkbddriverfactory_qws.cpp -->
+  <title>Qt 4.7: QKbdDriverFactory Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QKbdDriverFactory</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QKbdDriverFactory Class Reference</h1>
+<!-- $$$QKbdDriverFactory-brief -->
+<p>The QKbdDriverFactory class creates keyboard drivers in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QKbdDriverFactory -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QKbdDriverFactory&gt;</span></pre><ul>
+<li><a href="qkbddriverfactory-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QWSKeyboardHandler * </td><td class="memItemRight bottomAlign"><b><a href="qkbddriverfactory.html#create">create</a></b> ( const QString &amp; <i>key</i>, const QString &amp; <i>device</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qkbddriverfactory.html#keys">keys</a></b> ()</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QKbdDriverFactory-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QKbdDriverFactory class creates keyboard drivers in Qt for Embedded Linux.</p>
+<p>Note that this class is only available in <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.</p>
+<p>QKbdDriverFactory is used to detect and instantiate the available keyboard drivers, allowing <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> to load the preferred driver into the server application at runtime. The <a href="qkbddriverfactory.html#create">create</a>() function returns a <a href="qwskeyboardhandler.html">QWSKeyboardHandler</a> object representing the keyboard driver identified by a given key. The valid keys (i.e&#x2e; the supported drivers) can be retrieved using the <a href="qkbddriverfactory.html#keys">keys</a>() function.</p>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> provides several built-in keyboard drivers. In addition, custom keyboard drivers can be added using Qt's plugin mechanism, i.e&#x2e; by subclassing the <a href="qwskeyboardhandler.html">QWSKeyboardHandler</a> class and creating a keyboard driver plugin (<a href="qkbddriverplugin.html">QKbdDriverPlugin</a>). See the <a href="qt-embedded-charinput.html">character input</a> documentation for details.</p>
+</div>
+<p><b>See also </b><a href="qwskeyboardhandler.html">QWSKeyboardHandler</a> and <a href="qkbddriverplugin.html">QKbdDriverPlugin</a>.</p>
+<!-- @@@QKbdDriverFactory -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$create[overload1]$$$createconstQString&constQString& -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qwskeyboardhandler.html">QWSKeyboardHandler</a></span> * QKbdDriverFactory::<span class="name">create</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>device</i> )<tt> [static]</tt></h3>
+<p>Creates the keyboard driver specified by the given <i>key</i>, using the display specified by the given <i>device</i>.</p>
+<p>Note that the keys are case-insensitive.</p>
+<p><b>See also </b><a href="qkbddriverfactory.html#keys">keys</a>().</p>
+<!-- @@@create -->
+<!-- $$$keys[overload1]$$$keys -->
+<h3 class="fn"><a name="keys"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QKbdDriverFactory::<span class="name">keys</span> ()<tt> [static]</tt></h3>
+<p>Returns the list of valid keys, i.e&#x2e; the available keyboard drivers.</p>
+<p><b>See also </b><a href="qkbddriverfactory.html#create">create</a>().</p>
+<!-- @@@keys -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

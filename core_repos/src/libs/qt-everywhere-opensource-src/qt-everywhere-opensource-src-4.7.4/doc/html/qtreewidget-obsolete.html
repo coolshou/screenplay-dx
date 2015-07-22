@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtreewidget.cpp -->
+  <title>Qt 4.7: Obsolete Members for QTreeWidget</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QTreeWidget</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Obsolete Members for QTreeWidget</h1>
+<p><b>The following class members are obsolete.</b> They are provided to keep old source code working. We strongly advise against using them in new code.</p>
+<p><ul><li><a href="qtreewidget.html">QTreeWidget class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#isItemExpanded">isItemExpanded</a></b> ( const QTreeWidgetItem * <i>item</i> ) const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#isItemHidden">isItemHidden</a></b> ( const QTreeWidgetItem * <i>item</i> ) const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#isItemSelected">isItemSelected</a></b> ( const QTreeWidgetItem * <i>item</i> ) const<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#setItemExpanded">setItemExpanded</a></b> ( const QTreeWidgetItem * <i>item</i>, bool <i>expand</i> )<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#setItemHidden">setItemHidden</a></b> ( const QTreeWidgetItem * <i>item</i>, bool <i>hide</i> )<tt> (obsolete)</tt></td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#setItemSelected">setItemSelected</a></b> ( const QTreeWidgetItem * <i>item</i>, bool <i>select</i> )<tt> (obsolete)</tt></td></tr>
+</table>
+<ul>
+<li class="fn">3 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+</ul>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QList&lt;QTreeWidgetItem *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qtreewidget-obsolete.html#items">items</a></b> ( const QMimeData * <i>data</i> ) const<tt> (obsolete)</tt></td></tr>
+</table>
+<ul>
+<li class="fn">4 protected functions inherited from <a href="qabstractitemview.html#protected-functions">QAbstractItemView</a></li>
+<li class="fn">2 protected functions inherited from <a href="qwidget.html#protected-functions">QWidget</a></li>
+</ul>
+<h2>Member Function Documentation</h2>
+<!-- $$$isItemExpanded[overload1]$$$isItemExpandedconstQTreeWidgetItem* -->
+<h3 class="fn"><a name="isItemExpanded"></a><span class="type">bool</span> QTreeWidget::<span class="name">isItemExpanded</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i> ) const</h3>
+<p>Returns true if the given <i>item</i> is open; otherwise returns false.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#isExpanded">QTreeWidgetItem::isExpanded</a>() instead.</p>
+<p><b>See also </b><a href="qtreewidget.html#itemExpanded">itemExpanded</a>().</p>
+<!-- @@@isItemExpanded -->
+<!-- $$$isItemHidden[overload1]$$$isItemHiddenconstQTreeWidgetItem* -->
+<h3 class="fn"><a name="isItemHidden"></a><span class="type">bool</span> QTreeWidget::<span class="name">isItemHidden</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i> ) const</h3>
+<p>Returns true if the <i>item</i> is explicitly hidden, otherwise returns false.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#isHidden">QTreeWidgetItem::isHidden</a>() instead.</p>
+<!-- @@@isItemHidden -->
+<!-- $$$isItemSelected[overload1]$$$isItemSelectedconstQTreeWidgetItem* -->
+<h3 class="fn"><a name="isItemSelected"></a><span class="type">bool</span> QTreeWidget::<span class="name">isItemSelected</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i> ) const</h3>
+<p>Returns true if the <i>item</i> is selected; otherwise returns false.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#isSelected">QTreeWidgetItem::isSelected</a>() instead.</p>
+<p><b>See also </b><a href="qtreewidget.html#itemSelectionChanged">itemSelectionChanged</a>().</p>
+<!-- @@@isItemSelected -->
+<!-- $$$items[overload1]$$$itemsconstQMimeData* -->
+<h3 class="fn"><a name="items"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> *&gt; QTreeWidget::<span class="name">items</span> ( const <span class="type"><a href="qmimedata.html">QMimeData</a></span> * <i>data</i> ) const<tt> [protected]</tt></h3>
+<p>Returns an empty list</p>
+<p><b>See also </b><a href="qtreewidget.html#mimeData">mimeData</a>().</p>
+<!-- @@@items -->
+<!-- $$$setItemExpanded[overload1]$$$setItemExpandedconstQTreeWidgetItem*bool -->
+<h3 class="fn"><a name="setItemExpanded"></a><span class="type">void</span> QTreeWidget::<span class="name">setItemExpanded</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i>, <span class="type">bool</span> <i>expand</i> )</h3>
+<p>Sets the item referred to by <i>item</i> to either closed or opened, depending on the value of <i>expand</i>.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#setExpanded">QTreeWidgetItem::setExpanded</a>() instead.</p>
+<p><b>See also </b><a href="qtreewidget.html#expandItem">expandItem</a>(), <a href="qtreewidget.html#collapseItem">collapseItem</a>(), and <a href="qtreewidget.html#itemExpanded">itemExpanded</a>().</p>
+<!-- @@@setItemExpanded -->
+<!-- $$$setItemHidden[overload1]$$$setItemHiddenconstQTreeWidgetItem*bool -->
+<h3 class="fn"><a name="setItemHidden"></a><span class="type">void</span> QTreeWidget::<span class="name">setItemHidden</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i>, <span class="type">bool</span> <i>hide</i> )</h3>
+<p>Hides the given <i>item</i> if <i>hide</i> is true; otherwise shows the item.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#setHidden">QTreeWidgetItem::setHidden</a>() instead.</p>
+<p><b>See also </b><a href="qtreewidget-obsolete.html#isItemHidden">isItemHidden</a>() and <a href="qtreewidget.html#itemChanged">itemChanged</a>().</p>
+<!-- @@@setItemHidden -->
+<!-- $$$setItemSelected[overload1]$$$setItemSelectedconstQTreeWidgetItem*bool -->
+<h3 class="fn"><a name="setItemSelected"></a><span class="type">void</span> QTreeWidget::<span class="name">setItemSelected</span> ( const <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> * <i>item</i>, <span class="type">bool</span> <i>select</i> )</h3>
+<p>If <i>select</i> is true, the given <i>item</i> is selected; otherwise it is deselected.</p>
+<p>This function is deprecated. Use <a href="qtreewidgetitem.html#setSelected">QTreeWidgetItem::setSelected</a>() instead.</p>
+<p><b>See also </b><a href="qtreewidget-obsolete.html#isItemSelected">isItemSelected</a>() and <a href="qtreewidget.html#itemSelectionChanged">itemSelectionChanged</a>().</p>
+<!-- @@@setItemSelected -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

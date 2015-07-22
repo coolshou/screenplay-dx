@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: main.cpp Example File (demos/embedded/flickable/main.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">main.cpp Example File</h1>
+<span class="small-subtitle">demos/embedded/flickable/main.cpp</span>
+<!-- $$$demos/embedded/flickable/main.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtCore&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="preprocessor">#include &quot;flickable.h&quot;</span>
+
+ <span class="comment">// Returns a list of two-word color names</span>
+ <span class="keyword">static</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> colorPairs(<span class="type">int</span> max)
+ {
+     <span class="comment">// capitalize the first letter</span>
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> colors <span class="operator">=</span> <span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">::</span>colorNames();
+     colors<span class="operator">.</span>removeAll(<span class="string">&quot;transparent&quot;</span>);
+     <span class="type">int</span> num <span class="operator">=</span> colors<span class="operator">.</span>count();
+     <span class="keyword">for</span> (<span class="type">int</span> c <span class="operator">=</span> <span class="number">0</span>; c <span class="operator">&lt;</span> num; <span class="operator">+</span><span class="operator">+</span>c)
+         colors<span class="operator">[</span>c<span class="operator">]</span> <span class="operator">=</span> colors<span class="operator">[</span>c<span class="operator">]</span><span class="operator">[</span><span class="number">0</span><span class="operator">]</span><span class="operator">.</span>toUpper() <span class="operator">+</span> colors<span class="operator">[</span>c<span class="operator">]</span><span class="operator">.</span>mid(<span class="number">1</span>);
+
+     <span class="comment">// combine two colors, e.g. &quot;lime skyblue&quot;</span>
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> combinedColors;
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> num; <span class="operator">+</span><span class="operator">+</span>i)
+         <span class="keyword">for</span> (<span class="type">int</span> j <span class="operator">=</span> <span class="number">0</span>; j <span class="operator">&lt;</span> num; <span class="operator">+</span><span class="operator">+</span>j)
+             combinedColors <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;%1 %2&quot;</span>)<span class="operator">.</span>arg(colors<span class="operator">[</span>i<span class="operator">]</span>)<span class="operator">.</span>arg(colors<span class="operator">[</span>j<span class="operator">]</span>);
+
+     <span class="comment">// randomize it</span>
+     colors<span class="operator">.</span>clear();
+     <span class="keyword">while</span> (combinedColors<span class="operator">.</span>count()) {
+         <span class="type">int</span> i <span class="operator">=</span> qrand() <span class="operator">%</span> combinedColors<span class="operator">.</span>count();
+         colors <span class="operator">&lt;</span><span class="operator">&lt;</span> combinedColors<span class="operator">[</span>i<span class="operator">]</span>;
+         combinedColors<span class="operator">.</span>removeAt(i);
+         <span class="keyword">if</span> (colors<span class="operator">.</span>count() <span class="operator">=</span><span class="operator">=</span> max)
+             <span class="keyword">break</span>;
+     }
+
+     <span class="keyword">return</span> colors;
+ }
+
+ <span class="keyword">class</span> ColorList : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">,</span> <span class="keyword">public</span> Flickable
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     ColorList(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>)
+             : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent) {
+         m_offset <span class="operator">=</span> <span class="number">0</span>;
+         m_height <span class="operator">=</span> <span class="type"><a href="qfontmetrics.html">QFontMetrics</a></span>(font())<span class="operator">.</span>height() <span class="operator">+</span> <span class="number">5</span>;
+         m_highlight <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+         m_selected <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+
+         <span class="type"><a href="qstringlist.html">QStringList</a></span> colors <span class="operator">=</span> colorPairs(<span class="number">999</span>);
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> colors<span class="operator">.</span>count(); <span class="operator">+</span><span class="operator">+</span>i) {
+             <span class="type"><a href="qstring.html">QString</a></span> c <span class="operator">=</span> colors<span class="operator">[</span>i<span class="operator">]</span>;
+             <span class="type"><a href="qstring.html">QString</a></span> str;
+             str<span class="operator">.</span>sprintf(<span class="string">&quot;%4d&quot;</span><span class="operator">,</span> i <span class="operator">+</span> <span class="number">1</span>);
+             m_colorNames <span class="operator">&lt;</span><span class="operator">&lt;</span> (str <span class="operator">+</span> <span class="string">&quot;   &quot;</span> <span class="operator">+</span> c);
+
+             <span class="type"><a href="qstringlist.html">QStringList</a></span> duet <span class="operator">=</span> c<span class="operator">.</span>split(<span class="char">' '</span>);
+             m_firstColor <span class="operator">&lt;</span><span class="operator">&lt;</span> duet<span class="operator">[</span><span class="number">0</span><span class="operator">]</span>;
+             m_secondColor <span class="operator">&lt;</span><span class="operator">&lt;</span> duet<span class="operator">[</span><span class="number">1</span><span class="operator">]</span>;
+         }
+
+         setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_OpaquePaintEvent<span class="operator">,</span> <span class="keyword">true</span>);
+         setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_NoSystemBackground<span class="operator">,</span> <span class="keyword">true</span>);
+
+         setMouseTracking(<span class="keyword">true</span>);
+         Flickable<span class="operator">::</span>setAcceptMouseClick(<span class="keyword">this</span>);
+     }
+
+ <span class="keyword">protected</span>:
+     <span class="comment">// reimplement from Flickable</span>
+     <span class="keyword">virtual</span> <span class="type"><a href="qpoint.html">QPoint</a></span> scrollOffset() <span class="keyword">const</span> {
+         <span class="keyword">return</span> <span class="type"><a href="qpoint.html">QPoint</a></span>(<span class="number">0</span><span class="operator">,</span> m_offset);
+     }
+
+     <span class="comment">// reimplement from Flickable</span>
+     <span class="keyword">virtual</span> <span class="type">void</span> setScrollOffset(<span class="keyword">const</span> <span class="type"><a href="qpoint.html">QPoint</a></span> <span class="operator">&amp;</span>offset) {
+         <span class="type">int</span> yy <span class="operator">=</span> offset<span class="operator">.</span>y();
+         <span class="keyword">if</span> (yy <span class="operator">!</span><span class="operator">=</span> m_offset) {
+             m_offset <span class="operator">=</span> <a href="qtglobal.html#qBound">qBound</a>(<span class="number">0</span><span class="operator">,</span> yy<span class="operator">,</span> m_height <span class="operator">*</span> m_colorNames<span class="operator">.</span>count() <span class="operator">-</span> height());
+             update();
+         }
+     }
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event) {
+         <span class="type"><a href="qpainter.html">QPainter</a></span> p(<span class="keyword">this</span>);
+         p<span class="operator">.</span>fillRect(event<span class="operator">-</span><span class="operator">&gt;</span>rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+         <span class="type">int</span> start <span class="operator">=</span> m_offset <span class="operator">/</span> m_height;
+         <span class="type">int</span> y <span class="operator">=</span> start <span class="operator">*</span> m_height <span class="operator">-</span> m_offset;
+         <span class="keyword">if</span> (m_offset <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>) {
+             start <span class="operator">=</span> <span class="number">0</span>;
+             y <span class="operator">=</span> <span class="operator">-</span>m_offset;
+         }
+         <span class="type">int</span> end <span class="operator">=</span> start <span class="operator">+</span> height() <span class="operator">/</span> m_height <span class="operator">+</span> <span class="number">1</span>;
+         <span class="keyword">if</span> (end <span class="operator">&gt;</span> m_colorNames<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>)
+             end <span class="operator">=</span> m_colorNames<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>;
+         <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> start; i <span class="operator">&lt;</span><span class="operator">=</span> end; <span class="operator">+</span><span class="operator">+</span>i<span class="operator">,</span> y <span class="operator">+</span><span class="operator">=</span> m_height) {
+
+             p<span class="operator">.</span>setBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoBrush);
+             p<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+             <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> m_highlight) {
+                 p<span class="operator">.</span>fillRect(<span class="number">0</span><span class="operator">,</span> y<span class="operator">,</span> width()<span class="operator">,</span> m_height<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">64</span><span class="operator">,</span> <span class="number">128</span>));
+                 p<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+             }
+             <span class="keyword">if</span> (i <span class="operator">=</span><span class="operator">=</span> m_selected) {
+                 p<span class="operator">.</span>fillRect(<span class="number">0</span><span class="operator">,</span> y<span class="operator">,</span> width()<span class="operator">,</span> m_height<span class="operator">,</span> <span class="type"><a href="qcolor.html">QColor</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">128</span><span class="operator">,</span> <span class="number">240</span>));
+                 p<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+             }
+
+             p<span class="operator">.</span>drawText(m_height <span class="operator">+</span> <span class="number">2</span><span class="operator">,</span> y<span class="operator">,</span> width()<span class="operator">,</span> m_height<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignVCenter<span class="operator">,</span> m_colorNames<span class="operator">[</span>i<span class="operator">]</span>);
+
+             p<span class="operator">.</span>setPen(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>NoPen);
+             p<span class="operator">.</span>setBrush(m_firstColor<span class="operator">[</span>i<span class="operator">]</span>);
+             p<span class="operator">.</span>drawRect(<span class="number">1</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">1</span><span class="operator">,</span> m_height <span class="operator">-</span> <span class="number">2</span><span class="operator">,</span> m_height <span class="operator">-</span> <span class="number">2</span>);
+             p<span class="operator">.</span>setBrush(m_secondColor<span class="operator">[</span>i<span class="operator">]</span>);
+             p<span class="operator">.</span>drawRect(<span class="number">5</span><span class="operator">,</span> y <span class="operator">+</span> <span class="number">5</span><span class="operator">,</span> m_height <span class="operator">-</span> <span class="number">11</span><span class="operator">,</span> m_height <span class="operator">-</span> <span class="number">11</span>);
+         }
+         p<span class="operator">.</span>end();
+     }
+
+     <span class="type">void</span> keyReleaseEvent(<span class="type"><a href="qkeyevent.html">QKeyEvent</a></span> <span class="operator">*</span>event) {
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Down) {
+             m_offset <span class="operator">+</span><span class="operator">=</span> <span class="number">20</span>;
+             event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+             update();
+             <span class="keyword">return</span>;
+         }
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>key() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>Key_Up) {
+             m_offset <span class="operator">-</span><span class="operator">=</span> <span class="number">20</span>;
+             event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+             update();
+             <span class="keyword">return</span>;
+         }
+     }
+
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event) {
+         Flickable<span class="operator">::</span>handleMousePress(event);
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted())
+             <span class="keyword">return</span>;
+
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+             <span class="type">int</span> y <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>pos()<span class="operator">.</span>y() <span class="operator">+</span> m_offset;
+             <span class="type">int</span> i <span class="operator">=</span> y <span class="operator">/</span> m_height;
+             <span class="keyword">if</span> (i <span class="operator">!</span><span class="operator">=</span> m_highlight) {
+                 m_highlight <span class="operator">=</span> i;
+                 m_selected <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;
+                 update();
+             }
+             event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+         }
+     }
+
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event) {
+         Flickable<span class="operator">::</span>handleMouseMove(event);
+     }
+
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event) {
+         Flickable<span class="operator">::</span>handleMouseRelease(event);
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>isAccepted())
+             <span class="keyword">return</span>;
+
+         <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>button() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>LeftButton) {
+             m_selected <span class="operator">=</span> m_highlight;
+             event<span class="operator">-</span><span class="operator">&gt;</span>accept();
+             update();
+         }
+     }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> m_offset;
+     <span class="type">int</span> m_height;
+     <span class="type">int</span> m_highlight;
+     <span class="type">int</span> m_selected;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> m_colorNames;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span> m_firstColor;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qcolor.html">QColor</a></span><span class="operator">&gt;</span> m_secondColor;
+ };
+
+ <span class="preprocessor">#include &quot;main.moc&quot;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     ColorList list;
+     list<span class="operator">.</span>setWindowTitle(<span class="string">&quot;Kinetic Scrolling&quot;</span>);
+ <span class="preprocessor">#if defined(Q_OS_SYMBIAN) || defined(Q_OS_WINCE_WM)</span>
+     list<span class="operator">.</span>showMaximized();
+ <span class="preprocessor">#else</span>
+     list<span class="operator">.</span>resize(<span class="number">320</span><span class="operator">,</span> <span class="number">320</span>);
+     list<span class="operator">.</span>show();
+ <span class="preprocessor">#endif</span>
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</div>
+<!-- @@@demos/embedded/flickable/main.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

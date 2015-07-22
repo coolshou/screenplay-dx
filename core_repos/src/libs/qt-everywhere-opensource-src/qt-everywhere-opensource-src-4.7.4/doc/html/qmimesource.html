@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmime.cpp -->
+  <title>Qt 4.7: QMimeSource Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QMimeSource</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QMimeSource Class Reference</h1>
+<!-- $$$QMimeSource-brief -->
+<p>The QMimeSource class is an abstraction of objects that provided formatted data of a certain MIME type. <a href="#details">More...</a></p>
+<!-- @@@QMimeSource -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QMimeSource&gt;</span></pre><p><b>This class is obsolete.</b> It is provided to keep old source code working. We strongly advise against using it in new code.</p>
+<p><b>Inherited by: </b><a href="q3dragobject.html" class="compat">Q3DragObject</a> and <a href="qdropevent.html">QDropEvent</a>.</p>
+<ul>
+<li><a href="qmimesource-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qmimesource.html#dtor.QMimeSource">~QMimeSource</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QByteArray </td><td class="memItemRight bottomAlign"><b><a href="qmimesource.html#encodedData">encodedData</a></b> ( const char * <i>format</i> ) const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual const char * </td><td class="memItemRight bottomAlign"><b><a href="qmimesource.html#format">format</a></b> ( int <i>i</i> = 0 ) const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qmimesource.html#provides">provides</a></b> ( const char * <i>mimeType</i> ) const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QMimeSource-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QMimeSource class is an abstraction of objects that provided formatted data of a certain MIME type.</p>
+<p>The preferred approach to drag and drop is to use <a href="qdrag.html">QDrag</a> in conjunction with <a href="qmimedata.html">QMimeData</a>. See <a href="dnd.html">Drag and Drop</a> for details.</p>
+</div>
+<p><b>See also </b><a href="qmimedata.html">QMimeData</a> and <a href="qdrag.html">QDrag</a>.</p>
+<!-- @@@QMimeSource -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QMimeSource[overload1]$$$~QMimeSource -->
+<h3 class="fn"><a name="dtor.QMimeSource"></a>QMimeSource::<span class="name">~QMimeSource</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the MIME source.</p>
+<!-- @@@~QMimeSource -->
+<!-- $$$encodedData[overload1]$$$encodedDataconstchar* -->
+<h3 class="fn"><a name="encodedData"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> QMimeSource::<span class="name">encodedData</span> ( const <span class="type">char</span> * <i>format</i> ) const<tt> [pure virtual]</tt></h3>
+<p>Returns the encoded data of this object in the specified MIME <i>format</i>.</p>
+<!-- @@@encodedData -->
+<!-- $$$format[overload1]$$$formatint -->
+<h3 class="fn"><a name="format"></a>const <span class="type">char</span> * QMimeSource::<span class="name">format</span> ( <span class="type">int</span> <i>i</i> = 0 ) const<tt> [pure virtual]</tt></h3>
+<p>Returns the (<i>i</i> - 1)-th supported MIME format, or 0.</p>
+<!-- @@@format -->
+<!-- $$$provides[overload1]$$$providesconstchar* -->
+<h3 class="fn"><a name="provides"></a><span class="type">bool</span> QMimeSource::<span class="name">provides</span> ( const <span class="type">char</span> * <i>mimeType</i> ) const<tt> [virtual]</tt></h3>
+<p>Returns true if the object can provide the data in format <i>mimeType</i>; otherwise returns false.</p>
+<p>If you inherit from <a href="qmimesource.html" class="obsolete">QMimeSource</a>, for consistency reasons it is better to implement the more abstract canDecode() functions such as QTextDrag::canDecode() and QImageDrag::canDecode().</p>
+<!-- @@@provides -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

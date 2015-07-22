@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- modules.qdoc -->
+  <title>Qt 4.7: Phonon Module</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Phonon Module</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#qt-backends">Qt Backends</a></li>
+<li class="level1"><a href="#license-information">License Information</a></li>
+</ul>
+</div>
+<h1 class="title">Phonon Module</h1>
+<span class="subtitle"></span>
+<!-- $$$phonon-module.html-description -->
+<div class="descr"> <a name="details"></a>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-audiodataoutput.html">Phonon::AudioDataOutput</a></p></td><td class="tblDescr"><p>Access to audio data</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-audiooutput.html">Phonon::AudioOutput</a></p></td><td class="tblDescr"><p>Used to send data to audio output devices</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-effect.html">Phonon::Effect</a></p></td><td class="tblDescr"><p>Used to transform audio streams</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-effectparameter.html">Phonon::EffectParameter</a></p></td><td class="tblDescr"><p>Describes one parameter of an effect</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-effectwidget.html">Phonon::EffectWidget</a></p></td><td class="tblDescr"><p>Widget to control the parameters of an Effect</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-mediacontroller.html">Phonon::MediaController</a></p></td><td class="tblDescr"><p>Controls optional features of a media file/device</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-medianode.html">Phonon::MediaNode</a></p></td><td class="tblDescr"><p>The base class for all nodes in a media graph</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-mediaobject.html">Phonon::MediaObject</a></p></td><td class="tblDescr"><p>Interface for media playback</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-mediasource.html">Phonon::MediaSource</a></p></td><td class="tblDescr"><p>Multimedia data for media objects</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-backendcapabilities-notifier.html">Phonon::BackendCapabilities::Notifier</a></p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-objectdescription.html">Phonon::ObjectDescription</a></p></td><td class="tblDescr"><p>Information about Phonon objects</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-path.html">Phonon::Path</a></p></td><td class="tblDescr"><p>Describes connections between media nodes</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-seekslider.html">Phonon::SeekSlider</a></p></td><td class="tblDescr"><p>Slider for seeking to positions in media streams</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-videoplayer.html">Phonon::VideoPlayer</a></p></td><td class="tblDescr"><p>Used to perform playback of video</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-videowidget.html">Phonon::VideoWidget</a></p></td><td class="tblDescr"><p>Widget that is used to display video</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="phonon-videowidgetinterface44.html">Phonon::VideoWidgetInterface44</a></p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="phonon-volumeslider.html">Phonon::VolumeSlider</a></p></td><td class="tblDescr"><p>Slider that is used to control the volume of an audio output device</p></td></tr>
+</table>
+<p>Phonon is a cross-platform multimedia framework that enables the use of audio and video content in Qt applications. The <a href="phonon-overview.html#phonon-overview">Phonon Overview</a> document provides an introduction to the architecture and features included in Phonon. The <a href="phonon.html">Phonon</a> namespace contains a list of all classes, functions and namespaces provided by the module.</p>
+<p>Applications that use Phonon's classes need to be configured to be built against the Phonon module. The following declaration in a <tt>qmake</tt> project file ensures that an application is compiled and linked appropriately:</p>
+<pre class="cpp"> QT += phonon</pre>
+<a name="qt-backends"></a>
+<h2>Qt Backends</h2>
+<p>Qt Backends are currently developed for Phonon version 4.1&#x2e; The Phonon project has moved on and introduced new features that the Qt Backends do not implement. We have chosen not to document the part of Phonon that we do not support. Any class or function not appearing in our documentation can be considered unsupported.</p>
+<a name="license-information"></a>
+<h2>License Information</h2>
+<p>Qt Commercial Edition licensees that wish to distribute applications that use the Phonon module need to be aware of their obligations under the GNU Lesser General Public License (LGPL).</p>
+<p>Developers using the Open Source Edition can choose to redistribute the module under the appropriate version of the GNU LGPL; version 2.1 for applications and libraries licensed under the GNU GPL version 2, or version 3 for applications and libraries licensed under the GNU GPL version 3.</p>
+<div class="LegaleseLeft"><p>This file is part of the KDE project</p>
+<p>Copyright (C) 2004-2009 Matthias Kretz &lt;kretz@kde.org&gt; <br /> Copyright (C) 2008 Ian Monroe &lt;ian@monroe.nu&gt; <br /> Copyright (C) 2007-2008 Trolltech ASA <br /> Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies). <br /> Contact: Nokia Corporation (qt-info@nokia.com)</p>
+<p>This library is free software; you can redistribute it and/or modify it under the terms of the GNU Library General Public License version 2 as published by the Free Software Foundation.</p>
+<p>This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library General Public License for more details.</p>
+<p>You should have received a copy of the GNU Library General Public License along with this library; see the file COPYING.LIB. If not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.</p>
+</div></div>
+<!-- @@@phonon-module.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

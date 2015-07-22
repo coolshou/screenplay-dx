@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmouse_qws.cpp -->
+  <title>Qt 4.7: QWSPointerCalibrationData Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QWSPointerCalibrationData</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-variables">Public Variables</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QWSPointerCalibrationData Class Reference</h1>
+<!-- $$$QWSPointerCalibrationData-brief -->
+<p>The QWSPointerCalibrationData class is a container for mouse calibration data in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QWSPointerCalibrationData -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QWSPointerCalibrationData&gt;</span></pre><ul>
+<li><a href="qwspointercalibrationdata-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwspointercalibrationdata.html#Location-enum">Location</a></b> { TopLeft, BottomLeft, BottomRight, TopRight, Center, LastLocation }</td></tr>
+</table>
+<a name="public-variables"></a>
+<h2>Public Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qwspointercalibrationdata.html#devPoints-var">devPoints</a></b>[5]</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a></b>[5]</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWSPointerCalibrationData-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QWSPointerCalibrationData class is a container for mouse calibration data in Qt for Embedded Linux.</p>
+<p>Note that this class is only available in <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.</p>
+<p>QWSPointerCalibrationData stores device and screen coordinates in the <a href="qwspointercalibrationdata.html#devPoints-var">devPoints</a> and <a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a> variables, respectively.</p>
+<p>A calibration program should create a QWSPointerCalibrationData object, fill the <a href="qwspointercalibrationdata.html#devPoints-var">devPoints</a> and <a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a> variables with its device and screen coordinates, and pass the object to the mouse driver using the <a href="qwsmousehandler.html#calibrate">QWSMouseHandler::calibrate</a>() function.</p>
+</div>
+<p><b>See also </b><a href="qwscalibratedmousehandler.html">QWSCalibratedMouseHandler</a> and <a href="qws-mousecalibration.html">Mouse Calibration Example</a>.</p>
+<!-- @@@QWSPointerCalibrationData -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Location$$$TopLeft$$$BottomLeft$$$BottomRight$$$TopRight$$$Center$$$LastLocation -->
+<h3 class="fn"><a name="Location-enum"></a>enum QWSPointerCalibrationData::<span class="name">Location</span></h3>
+<p>This enum describes the various logical positions that can be specified by the <a href="qwspointercalibrationdata.html#devPoints-var">devPoints</a> and <a href="qwspointercalibrationdata.html#screenPoints-var">screenPoints</a> variables.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::TopLeft</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">Index of the top left corner of the screen.</td></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::BottomLeft</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">Index of the bottom left corner of the screen.</td></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::BottomRight</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">Index of the bottom right corner of the screen.</td></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::TopRight</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">Index of the top right corner of the screen.</td></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::Center</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign">Index of the center of the screen.</td></tr>
+<tr><td class="topAlign"><tt>QWSPointerCalibrationData::LastLocation</tt></td><td class="topAlign"><tt>Center</tt></td><td class="topAlign">Last index in the pointer arrays.</td></tr>
+</table>
+<!-- @@@Location -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$devPoints -->
+<h3 class="fn"><a name="devPoints-var"></a><span class="type"><a href="qpoint.html">QPoint</a></span> QWSPointerCalibrationData::<span class="name">devPoints</span>[5]</h3>
+<p>This variable holds the raw device coordinates for each value of the Location enum.</p>
+<!-- @@@devPoints -->
+<!-- $$$screenPoints -->
+<h3 class="fn"><a name="screenPoints-var"></a><span class="type"><a href="qpoint.html">QPoint</a></span> QWSPointerCalibrationData::<span class="name">screenPoints</span>[5]</h3>
+<p>This variable holds the logical screen coordinates for each value of the Location enum.</p>
+<!-- @@@screenPoints -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

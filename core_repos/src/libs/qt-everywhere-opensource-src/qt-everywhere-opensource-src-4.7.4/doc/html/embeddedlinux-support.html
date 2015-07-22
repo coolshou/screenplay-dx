@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- supported-platforms.qdoc -->
+  <title>Qt 4.7: Support for Embedded Linux</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Support for Embedded Linux</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#qt-on-embedded-linux">Qt on Embedded Linux</a></li>
+<li class="level1"><a href="#getting-started-on-embedded-linux">Getting Started on Embedded Linux</a></li>
+<li class="level1"><a href="#key-features-for-embedded-linux-development">Key Features for Embedded Linux Development</a></li>
+<li class="level2"><a href="#compact-and-efficient-windowing-system-qws">Compact and Efficient Windowing System <a href="qws.html">QWS</a></a></li>
+<li class="level2"><a href="#virtual-frame-buffer-qvfb">Virtual Frame Buffer (QVFb)</a></li>
+<li class="level2"><a href="#inter-process-communication-ipc">Inter-Process Communication (IPC)</a></li>
+<li class="level2"><a href="#extended-font-format">Extended Font Format</a></li>
+</ul>
+</div>
+<h1 class="title">Support for Embedded Linux</h1>
+<span class="subtitle"></span>
+<!-- $$$embeddedLinux-support.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="qt-on-embedded-linux"></a>
+<h2>Qt on Embedded Linux</h2>
+<p>Qt is the leading application and UI framework for devices powered by embedded Linux. You can use Qt to create highly memory efficient devices and applications that have completely unique user experiences.</p>
+<p>Qt runs anywhere Linux runs. Qt's intuitive API means fewer lines of code and higher level functionality in less time. Use the code from one single code-base and rebuild for all <a href="supported-platforms.html">supported platforms</a>.</p>
+<a name="getting-started-on-embedded-linux"></a>
+<h2>Getting Started on Embedded Linux</h2>
+<ul>
+<li><a href="supported-platforms.html">Supported Linux platforms</a> - Qt supports a wide range of Linux platform variants.</li>
+<li><a href="requirements-embedded-linux.html">Qt for Embedded Linux Requirements</a> - Software required to run Qt on Embedded Linux.</li>
+<li><a href="qt-embedded-install.html">Installing Qt for Embedded Linux</a> - Build Qt for development on Embedded Linux.</li>
+<li><a href="platform-notes-embedded-linux.html">Platform and Compiler Notes - Embedded Linux</a> - Platform specific notes.</li>
+<li><a href="gettingstarted.html">Getting started</a></li>
+</ul>
+<a name="key-features-for-embedded-linux-development"></a>
+<h2>Key Features for Embedded Linux Development</h2>
+<p>On top of all the tools and API and class libraries that Qt offers, such as WebKit, Qt for Embedded Linux provides you with key components for an optimized embedded development environment.</p>
+<a name="compact-and-efficient-windowing-system-qws"></a>
+<h3>Compact and Efficient Windowing System <a href="qws.html">QWS</a></h3>
+<p>Qt builds on the standard API for embedded Linux devices with its own compact window system. Qt-based applications write directly to the Linux framebuffer, eliminating the need for the X11 windowing system.</p>
+<a name="virtual-frame-buffer-qvfb"></a>
+<h3>Virtual Frame Buffer (QVFb)</h3>
+<p>Qt for Embedded Linux provides a <a href="qvfb.html">virtual frame buffer</a> that will match the physical device display, pixel for pixel. This gives the developer a realistic testing infrastructure testing on the desktop where the frame buffer simulates the physical device display's width, height and color depth.</p>
+<a name="inter-process-communication-ipc"></a>
+<h3>Inter-Process Communication (IPC)</h3>
+<p>IPC allows for creation of rich multi-application user experiences. Two main concepts define inter-process communication: channels and messages.</p>
+<a name="extended-font-format"></a>
+<h3>Extended Font Format</h3>
+<p>Qt supports a wide range of font formats on embedded Linux including: TrueType, Postscript Type1 and Qt pre-rendered fonts. Qt has extended Unicode support including automatic data extraction at build time and automatic update at runtime.</p>
+<p>Plug-ins for custom font formats are also available allowing new font engines to be easily added at runtime. Font sharing capabilities between applications allow for increased memory efficiency.</p>
+<p>Applications created with Qt for Embedded Linux can be ported to Windows CE and any other OS that Qt supports.</p>
+<p>Additional <a href="developing-with-qt.html">Cross-Platform and Platform-Specific Development</a> information.</p>
+</div>
+<!-- @@@embeddedLinux-support.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

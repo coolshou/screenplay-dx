@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qaudio.cpp -->
+  <title>Qt 4.7: QAudio Namespace</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="namespaces.html">Namespaces</a></li>
+<li>QAudio Namespace</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#types">Types</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAudio Namespace</h1>
+<!-- $$$QAudio-brief -->
+<p>The QAudio namespace contains enums used by the audio classes. <a href="#details">More...</a></p>
+<!-- @@@QAudio -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAudio&gt;</span></pre><p>This namespace was introduced in Qt 4.6.</p>
+<ul>
+</ul>
+<a name="types"></a>
+<h2>Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qaudio.html#Error-enum">Error</a></b> { NoError, OpenError, IOError, UnderrunError, FatalError }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qaudio.html#Mode-enum">Mode</a></b> { AudioOutput, AudioInput }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qaudio.html#State-enum">State</a></b> { ActiveState, SuspendedState, StoppedState, IdleState }</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QAudio-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAudio namespace contains enums used by the audio classes.</p>
+</div>
+<!-- @@@QAudio -->
+<div class="types">
+<h2>Type Documentation</h2>
+<!-- $$$Error$$$NoError$$$OpenError$$$IOError$$$UnderrunError$$$FatalError -->
+<h3 class="fn"><a name="Error-enum"></a>enum QAudio::<span class="name">Error</span></h3>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QAudio::NoError</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">No errors have occurred</td></tr>
+<tr><td class="topAlign"><tt>QAudio::OpenError</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">An error opening the audio device</td></tr>
+<tr><td class="topAlign"><tt>QAudio::IOError</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">An error occurred during read/write of audio device</td></tr>
+<tr><td class="topAlign"><tt>QAudio::UnderrunError</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">Audio data is not being fed to the audio device at a fast enough rate</td></tr>
+<tr><td class="topAlign"><tt>QAudio::FatalError</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign">A non-recoverable error has occurred, the audio device is not usable at this time.</td></tr>
+</table>
+<!-- @@@Error -->
+<!-- $$$Mode$$$AudioInput$$$AudioOutput -->
+<h3 class="fn"><a name="Mode-enum"></a>enum QAudio::<span class="name">Mode</span></h3>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QAudio::AudioOutput</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">audio output device</td></tr>
+<tr><td class="topAlign"><tt>QAudio::AudioInput</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">audio input device</td></tr>
+</table>
+<!-- @@@Mode -->
+<!-- $$$State$$$ActiveState$$$SuspendedState$$$StoppedState$$$IdleState -->
+<h3 class="fn"><a name="State-enum"></a>enum QAudio::<span class="name">State</span></h3>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QAudio::ActiveState</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">Audio data is being processed, this state is set after start() is called and while audio data is available to be processed.</td></tr>
+<tr><td class="topAlign"><tt>QAudio::SuspendedState</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The audio device is in a suspended state, this state will only be entered after suspend() is called.</td></tr>
+<tr><td class="topAlign"><tt>QAudio::StoppedState</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">The audio device is closed, not processing any audio data</td></tr>
+<tr><td class="topAlign"><tt>QAudio::IdleState</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">The <a href="qiodevice.html">QIODevice</a> passed in has no data and audio system's buffer is empty, this state is set after start() is called and while no audio data is available to be processed.</td></tr>
+</table>
+<!-- @@@State -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

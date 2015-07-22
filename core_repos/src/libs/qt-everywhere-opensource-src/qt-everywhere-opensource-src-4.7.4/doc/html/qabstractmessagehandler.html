@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractmessagehandler.cpp -->
+  <title>Qt 4.7: QAbstractMessageHandler Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtxmlpatterns.html">QtXmlPatterns</a></li>
+<li>QAbstractMessageHandler</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAbstractMessageHandler Class Reference</h1>
+<!-- $$$QAbstractMessageHandler-brief -->
+<p>The QAbstractMessageHandler class provides a callback interface for handling messages. <a href="#details">More...</a></p>
+<!-- @@@QAbstractMessageHandler -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAbstractMessageHandler&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<p><b>Inherited by: </b></p>
+<p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qabstractmessagehandler-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractmessagehandler.html#QAbstractMessageHandler">QAbstractMessageHandler</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qabstractmessagehandler.html#dtor.QAbstractMessageHandler">~QAbstractMessageHandler</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractmessagehandler.html#message">message</a></b> ( QtMsgType <i>type</i>, const QString &amp; <i>description</i>, const QUrl &amp; <i>identifier</i> = QUrl(), const QSourceLocation &amp; <i>sourceLocation</i> = QSourceLocation() )</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractmessagehandler.html#handleMessage">handleMessage</a></b> ( QtMsgType <i>type</i>, const QString &amp; <i>description</i>, const QUrl &amp; <i>identifier</i>, const QSourceLocation &amp; <i>sourceLocation</i> ) = 0</td></tr>
+</table>
+<ul>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAbstractMessageHandler-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAbstractMessageHandler class provides a callback interface for handling messages.</p>
+<p>QAbstractMessageHandler is an abstract base class that provides a callback interface for handling messages. For example, class <a href="qxmlquery.html">QXmlQuery</a> parses and runs an <a href="xmlprocessing.html">XQuery</a>. When it detects a compile or runtime error, it generates an appropriate error message, but rather than output the message itself, it passes the message to the <a href="qabstractmessagehandler.html#message">message</a>() function of its QAbstractMessageHandler. See <a href="qxmlquery.html#setMessageHandler">QXmlQuery::setMessageHandler</a>().</p>
+<p>You create a message handler by subclassing QAbstractMessageHandler and implementing <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(). You then pass a pointer to an instance of your subclass to any classes that must generate messages. The messages are sent to the message handler via the <a href="qabstractmessagehandler.html#message">message</a>() function, which forwards them to your handleMessge(). The effect is to serialize the handling of all messages, which means your QAbstractMessageHandler subclass is thread safe.</p>
+<p>A single instance of QAbstractMessageHandler can be called on to handle messages from multiple sources. Hence, the content of a message, which is the <i>description</i> parameter passed to <a href="qabstractmessagehandler.html#message">message</a>() and <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(), must be interpreted in light of the context that required the message to be sent. That context is specified by the <i>identifier</i> and <i>sourceLocation</i> parameters to <a href="qabstractmessagehandler.html#message">message</a>() <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>().</p>
+</div>
+<!-- @@@QAbstractMessageHandler -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAbstractMessageHandler[overload1]$$$QAbstractMessageHandlerQObject* -->
+<h3 class="fn"><a name="QAbstractMessageHandler"></a>QAbstractMessageHandler::<span class="name">QAbstractMessageHandler</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a>. The <i>parent</i> is passed to the <a href="qobject.html">QObject</a> base class constructor.</p>
+<!-- @@@QAbstractMessageHandler -->
+<!-- $$$~QAbstractMessageHandler[overload1]$$$~QAbstractMessageHandler -->
+<h3 class="fn"><a name="dtor.QAbstractMessageHandler"></a>QAbstractMessageHandler::<span class="name">~QAbstractMessageHandler</span> ()<tt> [virtual]</tt></h3>
+<p>Destructs this <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a>.</p>
+<!-- @@@~QAbstractMessageHandler -->
+<!-- $$$handleMessage[overload1]$$$handleMessageQtMsgTypeconstQString&constQUrl&constQSourceLocation& -->
+<h3 class="fn"><a name="handleMessage"></a><span class="type">void</span> QAbstractMessageHandler::<span class="name">handleMessage</span> ( <span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> <i>type</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>description</i>, const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>identifier</i>, const <span class="type"><a href="qsourcelocation.html">QSourceLocation</a></span> &amp; <i>sourceLocation</i> )<tt> [pure virtual protected]</tt></h3>
+<p>This function must be implemented by the sub-class. <a href="qabstractmessagehandler.html#message">message</a>() will call this function, passing in its parameters, <i>type</i>, <i>description</i>, <i>identifier</i> and <i>sourceLocation</i> unmodified.</p>
+<!-- @@@handleMessage -->
+<!-- $$$message[overload1]$$$messageQtMsgTypeconstQString&constQUrl&constQSourceLocation& -->
+<h3 class="fn"><a name="message"></a><span class="type">void</span> QAbstractMessageHandler::<span class="name">message</span> ( <span class="type"><a href="qtglobal.html#QtMsgType-enum">QtMsgType</a></span> <i>type</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>description</i>, const <span class="type"><a href="qurl.html">QUrl</a></span> &amp; <i>identifier</i> = QUrl(), const <span class="type"><a href="qsourcelocation.html">QSourceLocation</a></span> &amp; <i>sourceLocation</i> = QSourceLocation() )</h3>
+<p>Sends a message to this message handler. <i>type</i> is the kind of message being sent. <i>description</i> is the message content. The <i>identifier</i> is a URI that identifies the message and is the key to interpreting the other arguments.</p>
+<p>Typically, this class is used for reporting errors, as is the case for <a href="qxmlquery.html">QXmlQuery</a>, which uses a <a href="qabstractmessagehandler.html">QAbstractMessageHandler</a> to report compile and runtime <a href="xmlprocessing.html">XQuery</a> errors. Hence, using a <a href="qurl.html">QUrl</a> as the message <i>identifier</i> is was inspired by the explanation of <a href="http://www.w3.org/TR/xquery/#errors">error handling in the XQuery language</a>. Because the <i>identifier</i> is composed of a namespace URI and a local part, identifiers with the same local part are unique. The caller is responsible for ensuring that <i>identifier</i> is either a valid <a href="qurl.html">QUrl</a> or a default constructed <a href="qurl.html">QUrl</a>.</p>
+<p><i>sourceLocation</i> identifies a location in a resource (i.e&#x2e;, file or document) where the need for reporting a message was detected.</p>
+<p>This function unconditionally calls <a href="qabstractmessagehandler.html#handleMessage">handleMessage</a>(), passing all its parameters unmodified.</p>
+<p><b>See also </b><a href="http://www.w3.org/TR/xquery/#errors">http://www.w3.org/TR/xquery/#errors</a>.</p>
+<!-- @@@message -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

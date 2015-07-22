@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: xform.h Example File (demos/affine/xform.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">xform.h Example File</h1>
+<span class="small-subtitle">demos/affine/xform.h</span>
+<!-- $$$demos/affine/xform.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef XFORM_H</span>
+ <span class="preprocessor">#define XFORM_H</span>
+
+ <span class="preprocessor">#include &quot;arthurwidgets.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QBasicTimer&gt;</span>
+ <span class="preprocessor">#include &lt;QPolygonF&gt;</span>
+
+ <span class="keyword">class</span> HoverPoints;
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qlineedit.html">QLineEdit</a></span>)
+
+ <span class="keyword">class</span> XFormView : <span class="keyword">public</span> ArthurFrame
+ {
+ <span class="keyword">public</span>:
+     Q_OBJECT
+
+     Q_PROPERTY(XFormType type READ type WRITE setType)
+     Q_PROPERTY(<span class="type">bool</span> animation READ animation WRITE setAnimation)
+     Q_PROPERTY(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> shear READ shear WRITE setShear)
+     Q_PROPERTY(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rotation READ rotation WRITE setRotation)
+     Q_PROPERTY(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scale READ scale WRITE setScale)
+     Q_PROPERTY(<span class="type"><a href="qstring.html">QString</a></span> text READ text WRITE setText)
+     Q_PROPERTY(<span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap READ pixmap WRITE setPixmap)
+     Q_ENUMS(XFormType)
+
+ <span class="keyword">public</span>:
+     <span class="keyword">enum</span> XFormType { VectorType<span class="operator">,</span> PixmapType<span class="operator">,</span> TextType };
+
+     XFormView(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> drawVectorType(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter);
+     <span class="type">void</span> drawPixmapType(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter);
+     <span class="type">void</span> drawTextType(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter);
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span> { <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">500</span><span class="operator">,</span> <span class="number">500</span>); }
+
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">void</span> resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>e);
+     HoverPoints <span class="operator">*</span>hoverPoints() { <span class="keyword">return</span> pts; }
+
+     <span class="type">bool</span> animation() <span class="keyword">const</span> { <span class="keyword">return</span> timer<span class="operator">.</span>isActive(); }
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> shear() <span class="keyword">const</span> { <span class="keyword">return</span> m_shear; }
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> scale() <span class="keyword">const</span> { <span class="keyword">return</span> m_scale; }
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> rotation() <span class="keyword">const</span> { <span class="keyword">return</span> m_rotation; }
+     <span class="type">void</span> setShear(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> s);
+     <span class="type">void</span> setScale(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> s);
+     <span class="type">void</span> setRotation(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> r);
+
+     XFormType type() <span class="keyword">const</span>;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> pixmap() <span class="keyword">const</span>;
+     <span class="type"><a href="qstring.html">QString</a></span> text() <span class="keyword">const</span>;
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setAnimation(<span class="type">bool</span> animate);
+     <span class="type">void</span> updateCtrlPoints(<span class="keyword">const</span> <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> <span class="operator">&amp;</span>);
+     <span class="type">void</span> changeRotation(<span class="type">int</span> rotation);
+     <span class="type">void</span> changeScale(<span class="type">int</span> scale);
+     <span class="type">void</span> changeShear(<span class="type">int</span> shear);
+
+     <span class="type">void</span> setText(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>);
+     <span class="type">void</span> setPixmap(<span class="keyword">const</span> <span class="type"><a href="qpixmap.html">QPixmap</a></span> <span class="operator">&amp;</span>);
+     <span class="type">void</span> setType(XFormType t);
+
+     <span class="type">void</span> setVectorType();
+     <span class="type">void</span> setPixmapType();
+     <span class="type">void</span> setTextType();
+     <span class="type">void</span> reset();
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> rotationChanged(<span class="type">int</span> rotation);
+     <span class="type">void</span> scaleChanged(<span class="type">int</span> scale);
+     <span class="type">void</span> shearChanged(<span class="type">int</span> shear);
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>e);
+     <span class="type">void</span> wheelEvent(<span class="type"><a href="qwheelevent.html">QWheelEvent</a></span> <span class="operator">*</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qpolygonf.html">QPolygonF</a></span> ctrlPoints;
+     HoverPoints <span class="operator">*</span>pts;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> m_rotation;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> m_scale;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> m_shear;
+     XFormType m_type;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> m_pixmap;
+     <span class="type"><a href="qstring.html">QString</a></span> m_text;
+     <span class="type"><a href="qbasictimer.html">QBasicTimer</a></span> timer;
+ };
+
+ <span class="keyword">class</span> XFormWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     XFormWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+ <span class="keyword">private</span>:
+     XFormView <span class="operator">*</span>view;
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>textEditor;
+ };
+
+ <span class="preprocessor">#endif // XFORM_H</span></pre>
+</div>
+<!-- @@@demos/affine/xform.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

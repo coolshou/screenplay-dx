@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- guitartuner.qdoc -->
+  <title>Qt 4.7: Guitar Tuner Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Guitar Tuner Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Guitar Tuner Example</h1>
+<span class="subtitle"></span>
+<!-- $$$demos/mobile/guitartuner-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="demos-mobile-guitartuner-images-guitartab-svg.html">demos/mobile/guitartuner/images/guitartab.svg</a></li>
+<li><a href="demos-mobile-guitartuner-images-guitartuner-icon-svg.html">demos/mobile/guitartuner/images/guitartuner_icon.svg</a></li>
+<li><a href="demos-mobile-guitartuner-images-inputmode-svg.html">demos/mobile/guitartuner/images/inputMode.svg</a></li>
+<li><a href="demos-mobile-guitartuner-images-note-svg.html">demos/mobile/guitartuner/images/note.svg</a></li>
+<li><a href="demos-mobile-guitartuner-images-noteno-svg.html">demos/mobile/guitartuner/images/noteNo.svg</a></li>
+<li><a href="demos-mobile-guitartuner-src-application-qml.html">demos/mobile/guitartuner/src/application.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-constants-h.html">demos/mobile/guitartuner/src/constants.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-fastfouriertransformer-cpp.html">demos/mobile/guitartuner/src/fastfouriertransformer.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-src-fastfouriertransformer-h.html">demos/mobile/guitartuner/src/fastfouriertransformer.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartuner-cpp.html">demos/mobile/guitartuner/src/guitartuner.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartuner-h.html">demos/mobile/guitartuner/src/guitartuner.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartuner-ui.html">demos/mobile/guitartuner/src/guitartuner.ui</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartunerui-cpp.html">demos/mobile/guitartuner/src/guitartunerui.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartunerui-h.html">demos/mobile/guitartuner/src/guitartunerui.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-guitartunerui-ui.html">demos/mobile/guitartuner/src/guitartunerui.ui</a></li>
+<li><a href="demos-mobile-guitartuner-src-voiceanalyzer-cpp.html">demos/mobile/guitartuner/src/voiceanalyzer.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-src-voiceanalyzer-h.html">demos/mobile/guitartuner/src/voiceanalyzer.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-voicegenerator-cpp.html">demos/mobile/guitartuner/src/voicegenerator.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-src-voicegenerator-h.html">demos/mobile/guitartuner/src/voicegenerator.h</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-adjuster-qml.html">demos/mobile/guitartuner/src/mycomponents/Adjuster.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-meter-qml.html">demos/mobile/guitartuner/src/mycomponents/Meter.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-notebuttonview-qml.html">demos/mobile/guitartuner/src/mycomponents/NoteButtonView.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-notesmodel-qml.html">demos/mobile/guitartuner/src/mycomponents/NotesModel.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-togglebutton-qml.html">demos/mobile/guitartuner/src/mycomponents/ToggleButton.qml</a></li>
+<li><a href="demos-mobile-guitartuner-src-mycomponents-adjustbars-js.html">demos/mobile/guitartuner/src/mycomponents/adjustbars.js</a></li>
+<li><a href="demos-mobile-guitartuner-src-main-cpp.html">demos/mobile/guitartuner/src/main.cpp</a></li>
+<li><a href="demos-mobile-guitartuner-guitartuner-pro.html">demos/mobile/guitartuner/guitartuner.pro</a></li>
+<li><a href="demos-mobile-guitartuner-guitartuner-qrc.html">demos/mobile/guitartuner/guitartuner.qrc</a></li>
+</ul>
+<p>The Guitar Tuner application can be used to tune guitar strings by analyzing the audio recorded by the device microphone. Guitar Tuner can be also used in the listening mode. It will then play the audio by the corresponding frequency, and the user can tune the guitar by ear. The application demonstrates the audio-in and the audio-out interfaces of <a href="http://doc.qt.nokia.com/qtmobility/multimedia.html">Qt Mobility Multimedia</a> and integrating Qt code to the Qt Quick UI.</p>
+<p>The example is hosted in Projects Forum Nokia: https://projects.forum.nokia.com/guitartuner</p>
+<p><b>Note:</b> This demonstration requires QtMobility libraries.</p>
+<p class="centerAlign"><img src="images/qml-guitartuner-example.png" /></p></div>
+<!-- @@@demos/mobile/guitartuner -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

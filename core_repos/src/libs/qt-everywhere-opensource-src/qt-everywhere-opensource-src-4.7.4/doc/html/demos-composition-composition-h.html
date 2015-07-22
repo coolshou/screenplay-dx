@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: composition.h Example File (demos/composition/composition.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">composition.h Example File</h1>
+<span class="small-subtitle">demos/composition/composition.h</span>
+<!-- $$$demos/composition/composition.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demonstration applications of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef COMPOSITION_H</span>
+ <span class="preprocessor">#define COMPOSITION_H</span>
+
+ <span class="preprocessor">#include &quot;arthurwidgets.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QPainter&gt;</span>
+ <span class="preprocessor">#include &lt;QEvent&gt;</span>
+
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qpushbutton.html">QPushButton</a></span>)
+ QT_FORWARD_DECLARE_CLASS(<span class="type"><a href="qradiobutton.html">QRadioButton</a></span>)
+
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+ <span class="preprocessor">#include &lt;QtOpenGL&gt;</span>
+ <span class="preprocessor">#endif</span>
+
+ <span class="keyword">class</span> CompositionWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     CompositionWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+ <span class="type">void</span> nextMode();
+
+ <span class="keyword">private</span>:
+     <span class="type">bool</span> m_cycle_enabled;
+
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbClear;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSource;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDest;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSourceOver;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDestOver;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSourceIn;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDestIn;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSourceOut;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDestOut;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSourceAtop;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDestAtop;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbXor;
+
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbPlus;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbMultiply;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbScreen;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbOverlay;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDarken;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbLighten;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbColorDodge;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbColorBurn;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbHardLight;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbSoftLight;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbDifference;
+     <span class="type"><a href="qradiobutton.html">QRadioButton</a></span> <span class="operator">*</span>rbExclusion;
+ };
+
+ <span class="keyword">class</span> CompositionRenderer : <span class="keyword">public</span> ArthurFrame
+ {
+     Q_OBJECT
+
+     <span class="keyword">enum</span> ObjectType { NoObject<span class="operator">,</span> Circle<span class="operator">,</span> Rectangle<span class="operator">,</span> Image };
+
+     Q_PROPERTY(<span class="type">int</span> circleColor READ circleColor WRITE setCircleColor)
+     Q_PROPERTY(<span class="type">int</span> circleAlpha READ circleAlpha WRITE setCircleAlpha)
+     Q_PROPERTY(<span class="type">bool</span> animation READ animationEnabled WRITE setAnimationEnabled)
+
+ <span class="keyword">public</span>:
+     CompositionRenderer(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent);
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>);
+
+     <span class="type">void</span> setCirclePos(<span class="keyword">const</span> <span class="type"><a href="qpointf.html">QPointF</a></span> <span class="operator">&amp;</span>pos);
+
+     <span class="type"><a href="qsize.html">QSize</a></span> sizeHint() <span class="keyword">const</span> { <span class="keyword">return</span> <span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">500</span><span class="operator">,</span> <span class="number">400</span>); }
+
+     <span class="type">bool</span> animationEnabled() <span class="keyword">const</span> { <span class="keyword">return</span> m_animation_enabled; }
+     <span class="type">int</span> circleColor() <span class="keyword">const</span> { <span class="keyword">return</span> m_circle_hue; }
+     <span class="type">int</span> circleAlpha() <span class="keyword">const</span> { <span class="keyword">return</span> m_circle_alpha; }
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> mousePressEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> mouseMoveEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> mouseReleaseEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>);
+     <span class="type">void</span> timerEvent(<span class="type"><a href="qtimerevent.html">QTimerEvent</a></span> <span class="operator">*</span>);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setClearMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Clear; update(); }
+     <span class="type">void</span> setSourceMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Source; update(); }
+     <span class="type">void</span> setDestMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Destination; update(); }
+     <span class="type">void</span> setSourceOverMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_SourceOver; update(); }
+     <span class="type">void</span> setDestOverMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_DestinationOver; update(); }
+     <span class="type">void</span> setSourceInMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_SourceIn; update(); }
+     <span class="type">void</span> setDestInMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_DestinationIn; update(); }
+     <span class="type">void</span> setSourceOutMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_SourceOut; update(); }
+     <span class="type">void</span> setDestOutMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_DestinationOut; update(); }
+     <span class="type">void</span> setSourceAtopMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_SourceAtop; update(); }
+     <span class="type">void</span> setDestAtopMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_DestinationAtop; update(); }
+     <span class="type">void</span> setXorMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Xor; update(); }
+
+     <span class="type">void</span> setPlusMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Plus; update(); }
+     <span class="type">void</span> setMultiplyMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Multiply; update(); }
+     <span class="type">void</span> setScreenMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Screen; update(); }
+     <span class="type">void</span> setOverlayMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Overlay; update(); }
+     <span class="type">void</span> setDarkenMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Darken; update(); }
+     <span class="type">void</span> setLightenMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Lighten; update(); }
+     <span class="type">void</span> setColorDodgeMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_ColorDodge; update(); }
+     <span class="type">void</span> setColorBurnMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_ColorBurn; update(); }
+     <span class="type">void</span> setHardLightMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_HardLight; update(); }
+     <span class="type">void</span> setSoftLightMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_SoftLight; update(); }
+     <span class="type">void</span> setDifferenceMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Difference; update(); }
+     <span class="type">void</span> setExclusionMode() { m_composition_mode <span class="operator">=</span> <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode_Exclusion; update(); }
+
+     <span class="type">void</span> setCircleAlpha(<span class="type">int</span> alpha) { m_circle_alpha <span class="operator">=</span> alpha; update(); }
+     <span class="type">void</span> setCircleColor(<span class="type">int</span> hue) { m_circle_hue <span class="operator">=</span> hue; update(); }
+     <span class="type">void</span> setAnimationEnabled(<span class="type">bool</span> enabled);
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> updateCirclePos();
+     <span class="type">void</span> drawBase(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">&amp;</span>p);
+     <span class="type">void</span> drawSource(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">&amp;</span>p);
+
+     <span class="type"><a href="qpainter.html">QPainter</a></span><span class="operator">::</span>CompositionMode m_composition_mode;
+
+ <span class="preprocessor">#ifdef Q_WS_QWS</span>
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> m_image;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> m_buffer;
+     <span class="type"><a href="qpixmap.html">QPixmap</a></span> m_base_buffer;
+ <span class="preprocessor">#else</span>
+     <span class="type"><a href="qimage.html">QImage</a></span> m_image;
+     <span class="type"><a href="qimage.html">QImage</a></span> m_buffer;
+     <span class="type"><a href="qimage.html">QImage</a></span> m_base_buffer;
+ <span class="preprocessor">#endif</span>
+
+     <span class="type">int</span> m_circle_alpha;
+     <span class="type">int</span> m_circle_hue;
+
+     <span class="type"><a href="qpointf.html">QPointF</a></span> m_circle_pos;
+     <span class="type"><a href="qpointf.html">QPointF</a></span> m_offset;
+
+     ObjectType m_current_object;
+     <span class="type">bool</span> m_animation_enabled;
+     <span class="type">int</span> m_animationTimer;
+
+ <span class="preprocessor">#ifdef QT_OPENGL_SUPPORT</span>
+     <span class="type"><a href="qglpixelbuffer.html">QGLPixelBuffer</a></span> <span class="operator">*</span>m_pbuffer;
+     GLuint m_base_tex;
+     GLuint m_compositing_tex;
+     <span class="type">int</span> m_pbuffer_size; <span class="comment">// width==height==size of pbuffer</span>
+     <span class="type"><a href="qsize.html">QSize</a></span> m_previous_size;
+ <span class="preprocessor">#endif</span>
+ };
+
+ <span class="preprocessor">#endif // COMPOSITION_H</span></pre>
+</div>
+<!-- @@@demos/composition/composition.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

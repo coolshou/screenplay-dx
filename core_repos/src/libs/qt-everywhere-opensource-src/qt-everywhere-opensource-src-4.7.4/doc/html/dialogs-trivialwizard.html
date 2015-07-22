@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- trivialwizard.qdoc -->
+  <title>Qt 4.7: Trivial Wizard Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Trivial Wizard Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#introduction-page">Introduction Page</a></li>
+<li class="level1"><a href="#registration-page">Registration Page</a></li>
+<li class="level1"><a href="#conclusion-page">Conclusion Page</a></li>
+<li class="level1"><a href="#function"><tt>main()</tt> Function</a></li>
+</ul>
+</div>
+<h1 class="title">Trivial Wizard Example</h1>
+<span class="subtitle"></span>
+<!-- $$$dialogs/trivialwizard-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="dialogs-trivialwizard-trivialwizard-cpp.html">dialogs/trivialwizard/trivialwizard.cpp</a></li>
+<li><a href="dialogs-trivialwizard-trivialwizard-pro.html">dialogs/trivialwizard/trivialwizard.pro</a></li>
+</ul>
+<p>The Trivial Wizard example illustrates how to create a linear three-page registration wizard using three instances of <a href="qwizardpage.html">QWizardPage</a> and one instance of <a href="qwizard.html">QWizard</a>.</p>
+<p class="centerAlign"><img src="images/trivialwizard-example-flow.png" /></p><a name="introduction-page"></a>
+<h2>Introduction Page</h2>
+<p class="centerAlign"><img src="images/trivialwizard-example-introduction.png" /></p><p>The introduction page is created with the <tt>createIntroPage()</tt> function where a <a href="qwizardpage.html">QWizardPage</a> is created and its title is set to &quot;Introduction&quot;. A <a href="qlabel.html">QLabel</a> is used to hold the description of <tt>page</tt>. A <a href="qvboxlayout.html">QVBoxLayout</a> is used to hold the <tt>label</tt>. This <tt>page</tt> is returned when the <tt>createIntroPage()</tt> function is called.</p>
+<pre class="cpp"> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>createIntroPage()
+ {
+     <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>page <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span>;
+     page<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Introduction&quot;</span>);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;This wizard will help you register your copy &quot;</span>
+                                <span class="string">&quot;of Super Product Two.&quot;</span>);
+     label<span class="operator">-</span><span class="operator">&gt;</span>setWordWrap(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(label);
+     page<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="keyword">return</span> page;
+ }</pre>
+<a name="registration-page"></a>
+<h2>Registration Page</h2>
+<p class="centerAlign"><img src="images/trivialwizard-example-registration.png" /></p><p>The registration page is created with the <tt>createRegistrationPage()</tt> function. <a href="qlineedit.html">QLineEdit</a> objects are used to allow the user to input a name and an e-mail address. A <a href="qgridlayout.html">QGridLayout</a> is used to hold the <a href="qlabel.html">QLabel</a> and <a href="qlineedit.html">QLineEdit</a> objects.</p>
+<pre class="cpp"> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>createRegistrationPage()
+ {
+     <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>page <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span>;
+     page<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Registration&quot;</span>);
+     page<span class="operator">-</span><span class="operator">&gt;</span>setSubTitle(<span class="string">&quot;Please fill both fields.&quot;</span>);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>nameLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;Name:&quot;</span>);
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>nameLineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>emailLabel <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;Email address:&quot;</span>);
+     <span class="type"><a href="qlineedit.html">QLineEdit</a></span> <span class="operator">*</span>emailLineEdit <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlineedit.html">QLineEdit</a></span>;
+
+     <span class="type"><a href="qgridlayout.html">QGridLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qgridlayout.html">QGridLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLabel<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(nameLineEdit<span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(emailLabel<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span>);
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(emailLineEdit<span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">1</span>);
+     page<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="keyword">return</span> page;
+ }</pre>
+<a name="conclusion-page"></a>
+<h2>Conclusion Page</h2>
+<p class="centerAlign"><img src="images/trivialwizard-example-conclusion.png" /></p><p>The conclusion page is created in the <tt>createConclusionPage()</tt> function. This function's content is similar to <tt>createIntroPage()</tt>. A <a href="qlabel.html">QLabel</a> is used to inform the user that the registration process has completed successfully.</p>
+<pre class="cpp"> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>createConclusionPage()
+ {
+     <span class="type"><a href="qwizardpage.html">QWizardPage</a></span> <span class="operator">*</span>page <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qwizardpage.html">QWizardPage</a></span>;
+     page<span class="operator">-</span><span class="operator">&gt;</span>setTitle(<span class="string">&quot;Conclusion&quot;</span>);
+
+     <span class="type"><a href="qlabel.html">QLabel</a></span> <span class="operator">*</span>label <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qlabel.html">QLabel</a></span>(<span class="string">&quot;You are now successfully registered. Have a &quot;</span>
+                                <span class="string">&quot;nice day!&quot;</span>);
+     label<span class="operator">-</span><span class="operator">&gt;</span>setWordWrap(<span class="keyword">true</span>);
+
+     <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+     layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(label);
+     page<span class="operator">-</span><span class="operator">&gt;</span>setLayout(layout);
+
+     <span class="keyword">return</span> page;
+ }</pre>
+<a name="function"></a>
+<h2><tt>main()</tt> Function</h2>
+<p>The <tt>main()</tt> function instantiates a <a href="qwizard.html">QWizard</a> object, <tt>wizard</tt>, and adds all three <a href="qwizardpage.html">QWizardPage</a> objects to it. The <tt>wizard</tt> window title is set to &quot;Trivial Wizard&quot; and its <tt>show()</tt> function is invoked to display it.</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qstring.html">QString</a></span> translatorFileName <span class="operator">=</span> QLatin1String(<span class="string">&quot;qt_&quot;</span>);
+     translatorFileName <span class="operator">+</span><span class="operator">=</span> <span class="type"><a href="qlocale.html">QLocale</a></span><span class="operator">::</span>system()<span class="operator">.</span>name();
+     <span class="type"><a href="qtranslator.html">QTranslator</a></span> <span class="operator">*</span>translator <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtranslator.html">QTranslator</a></span>(<span class="operator">&amp;</span>app);
+     <span class="keyword">if</span> (translator<span class="operator">-</span><span class="operator">&gt;</span>load(translatorFileName<span class="operator">,</span> <span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>location(<span class="type"><a href="qlibraryinfo.html">QLibraryInfo</a></span><span class="operator">::</span>TranslationsPath)))
+         app<span class="operator">.</span>installTranslator(translator);
+
+     <span class="type"><a href="qwizard.html">QWizard</a></span> wizard;
+     wizard<span class="operator">.</span>addPage(createIntroPage());
+     wizard<span class="operator">.</span>addPage(createRegistrationPage());
+     wizard<span class="operator">.</span>addPage(createConclusionPage());
+
+     wizard<span class="operator">.</span>setWindowTitle(<span class="string">&quot;Trivial Wizard&quot;</span>);
+     wizard<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</div>
+<p><b>See also </b><a href="qwizard.html">QWizard</a>, <a href="dialogs-classwizard.html">Class Wizard Example</a>, and <a href="dialogs-licensewizard.html">License Wizard Example</a>.</p>
+<!-- @@@dialogs/trivialwizard -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

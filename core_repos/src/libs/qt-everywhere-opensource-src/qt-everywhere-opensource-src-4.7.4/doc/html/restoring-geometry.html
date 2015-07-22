@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- restoring-geometry.qdoc -->
+  <title>Qt 4.7: Restoring a Window's Geometry</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Restoring a Window's Geometry</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Restoring a Window's Geometry</h1>
+<span class="subtitle"></span>
+<!-- $$$restoring-geometry.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This document describes how to save and restore a <a href="application-windows.html#window-geometry">window's geometry</a> using the geometry properties. On Windows, this is basically storing the result of <a href="qwidget.html#geometry-prop">QWidget::geometry</a>() and calling <a href="qwidget.html#geometry-prop">QWidget::setGeometry</a>() in the next session before calling <a href="qwidget.html#show">show()</a>.</p>
+<p>On X11, this might not work because an invisible window does not have a frame yet. The window manager will decorate the window later. When this happens, the window shifts towards the bottom/right corner of the screen depending on the size of the decoration frame. Although X provides a way to avoid this shift, some window managers fail to implement this feature.</p>
+<p>Since version 4.2, Qt provides functions that saves and restores a window's geometry and state for you. <a href="qwidget.html#saveGeometry">QWidget::saveGeometry</a>() saves the window geometry and maximized/fullscreen state, while <a href="qwidget.html#restoreGeometry">QWidget::restoreGeometry</a>() restores it. The restore function also checks if the restored geometry is outside the available screen geometry, and modifies it as appropriate if it is:</p>
+<pre class="cpp"> <span class="type">void</span> MyMainWindow<span class="operator">::</span>closeEvent(<span class="type"><a href="qcloseevent.html">QCloseEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qsettings.html">QSettings</a></span> settings(<span class="string">&quot;MyCompany&quot;</span><span class="operator">,</span> <span class="string">&quot;MyApp&quot;</span>);
+     settings<span class="operator">.</span>setValue(<span class="string">&quot;geometry&quot;</span><span class="operator">,</span> saveGeometry());
+     settings<span class="operator">.</span>setValue(<span class="string">&quot;windowState&quot;</span><span class="operator">,</span> saveState());
+     <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">::</span>closeEvent(event);
+ }
+ <span class="type">void</span> MainWindow<span class="operator">::</span>readSettings()
+ {
+     <span class="type"><a href="qsettings.html">QSettings</a></span> settings(<span class="string">&quot;MyCompany&quot;</span><span class="operator">,</span> <span class="string">&quot;MyApp&quot;</span>);
+     restoreGeometry(settings<span class="operator">.</span>value(<span class="string">&quot;myWidget/geometry&quot;</span>)<span class="operator">.</span>toByteArray());
+     restoreState(settings<span class="operator">.</span>value(<span class="string">&quot;myWidget/windowState&quot;</span>)<span class="operator">.</span>toByteArray());
+ }</pre>
+<p>If those functions are not available or cannot be used, then a workaround is to call <a href="qwidget.html#geometry-prop">setGeometry()</a> after <a href="qwidget.html#show">show()</a>. This has the two disadvantages that the widget appears at a wrong place for a millisecond (results in flashing) and that currently only every second window manager gets it right. A safer solution is to store both <a href="qwidget.html#pos-prop">pos()</a> and <a href="qwidget.html#size-prop">size()</a> and to restore the geometry using <a href="qwidget.html#size-prop">QWidget::resize</a>() and <a href="qwidget.html#pos-prop">move()</a> before calling <a href="qwidget.html#show">show()</a>, as demonstrated in the <a href="mainwindows-application.html">Application</a> example.</p>
+</div>
+<!-- @@@restoring-geometry.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativepath.cpp -->
+  <title>Qt 4.7: QML PathPercent Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML PathPercent Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML PathPercent Element</h1>
+<span class="subtitle"></span>
+<!-- $$$PathPercent-brief -->
+<p>The PathPercent manipulates the way a path is interpreted. <a href="#details">More...</a></p>
+<!-- @@@PathPercent -->
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-pathpercent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-pathpercent.html#value-prop">value</a></b></b> : real</li>
+</ul>
+<!-- $$$PathPercent-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>PathPercent allows you to manipulate the spacing between items on a <a href="qml-pathview.html">PathView</a>'s path. You can use it to bunch together items on part of the path, and spread them out on other parts of the path.</p>
+<p>The examples below show the normal distrubution of items along a path compared to a distribution which places 50% of the items along the <a href="qml-pathline.html">PathLine</a> section of the path.</p>
+<table class="generic">
+<tr valign="top" class="odd"><td ><p class="centerAlign"><img src="images/declarative-nopercent.png" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-pathview.html">PathView</a></span> {
+     <span class="comment">// ...</span>
+     <span class="type"><a href="qml-path.html">Path</a></span> {
+         <span class="name">startX</span>: <span class="number">20</span>; <span class="name">startY</span>: <span class="number">0</span>
+         <span class="type"><a href="qml-pathquad.html">PathQuad</a></span> { <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">80</span>; <span class="name">controlX</span>: <span class="number">0</span>; <span class="name">controlY</span>: <span class="number">80</span> }
+         <span class="type"><a href="qml-pathline.html">PathLine</a></span> { <span class="name">x</span>: <span class="number">150</span>; <span class="name">y</span>: <span class="number">80</span> }
+         <span class="type"><a href="qml-pathquad.html">PathQuad</a></span> { <span class="name">x</span>: <span class="number">180</span>; <span class="name">y</span>: <span class="number">0</span>; <span class="name">controlX</span>: <span class="number">200</span>; <span class="name">controlY</span>: <span class="number">80</span> }
+     }
+ }</pre>
+</td></tr>
+<tr valign="top" class="even"><td ><p class="centerAlign"><img src="images/declarative-percent.png" /></p></td><td ><pre class="qml"> <span class="type"><a href="qml-pathview.html">PathView</a></span> {
+     <span class="comment">// ...</span>
+     <span class="type"><a href="qml-path.html">Path</a></span> {
+         <span class="name">startX</span>: <span class="number">20</span>; <span class="name">startY</span>: <span class="number">0</span>
+         <span class="type"><a href="qml-pathquad.html">PathQuad</a></span> { <span class="name">x</span>: <span class="number">50</span>; <span class="name">y</span>: <span class="number">80</span>; <span class="name">controlX</span>: <span class="number">0</span>; <span class="name">controlY</span>: <span class="number">80</span> }
+         <span class="type">PathPercent</span> { <span class="name">value</span>: <span class="number">0.25</span> }
+         <span class="type"><a href="qml-pathline.html">PathLine</a></span> { <span class="name">x</span>: <span class="number">150</span>; <span class="name">y</span>: <span class="number">80</span> }
+         <span class="type">PathPercent</span> { <span class="name">value</span>: <span class="number">0.75</span> }
+         <span class="type"><a href="qml-pathquad.html">PathQuad</a></span> { <span class="name">x</span>: <span class="number">180</span>; <span class="name">y</span>: <span class="number">0</span>; <span class="name">controlX</span>: <span class="number">200</span>; <span class="name">controlY</span>: <span class="number">80</span> }
+         <span class="type">PathPercent</span> { <span class="name">value</span>: <span class="number">1</span> }
+     }
+ }</pre>
+</td></tr>
+</table>
+<p><b>See also </b><a href="qml-path.html">Path</a>.</p>
+<!-- @@@PathPercent -->
+<h2>Property Documentation</h2>
+<!-- $$$value -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="value-prop"></a><span class="name">value</span> : <span class="type"><a href="qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The proporation of items that should be laid out up to this point.</p>
+<p>This value should always be higher than the last value specified by a <a href="qml-pathpercent.html">PathPercent</a> at a previous position in the Path.</p>
+<p>In the following example we have a Path made up of three PathLines. Normally, the items of the <a href="qml-pathview.html">PathView</a> would be laid out equally along this path, with an equal number of items per line segment. <a href="qml-pathpercent.html">PathPercent</a> allows us to specify that the first and third lines should each hold 10% of the laid out items, while the second line should hold the remaining 80%.</p>
+<pre class="qml"> <span class="type"><a href="qml-pathview.html">PathView</a></span> {
+     <span class="comment">// ...</span>
+     <span class="type"><a href="qml-path.html">Path</a></span> {
+         <span class="name">startX</span>: <span class="number">0</span>; <span class="name">startY</span>: <span class="number">0</span>
+         <span class="type"><a href="qml-pathline.html">PathLine</a></span> { <span class="name">x</span>:<span class="number">100</span>; <span class="name">y</span>: <span class="number">0</span>; }
+         <span class="type"><a href="qml-pathpercent.html">PathPercent</a></span> { <span class="name">value</span>: <span class="number">0.1</span> }
+         <span class="type"><a href="qml-pathline.html">PathLine</a></span> { <span class="name">x</span>: <span class="number">100</span>; <span class="name">y</span>: <span class="number">100</span> }
+         <span class="type"><a href="qml-pathpercent.html">PathPercent</a></span> { <span class="name">value</span>: <span class="number">0.9</span> }
+         <span class="type"><a href="qml-pathline.html">PathLine</a></span> { <span class="name">x</span>: <span class="number">100</span>; <span class="name">y</span>: <span class="number">0</span> }
+         <span class="type"><a href="qml-pathpercent.html">PathPercent</a></span> { <span class="name">value</span>: <span class="number">1</span> }
+     }
+ }</pre>
+</div></div><!-- @@@value -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

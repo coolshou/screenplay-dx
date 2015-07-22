@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: CurtainEffect.qml Example File (declarative/shadereffects/qml/CurtainEffect.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">CurtainEffect.qml Example File</h1>
+<span class="small-subtitle">declarative/shadereffects/qml/CurtainEffect.qml</span>
+<!-- $$$declarative/shadereffects/qml/CurtainEffect.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.0
+ import Qt.labs.shaders 1.0
+
+ <span class="type"><a href="qml-shadereffectitem.html">ShaderEffectItem</a></span> {
+     <span class="name">anchors</span>.fill: <span class="name">parent</span>
+     property <span class="type">variant</span> <span class="name">source</span>
+     <span class="name">meshResolution</span>: <span class="name">Qt</span>.<span class="name">size</span>(<span class="number">50</span>, <span class="number">50</span>)
+
+     property <span class="type">real</span> <span class="name">topWidth</span>: <span class="name">width</span> <span class="operator">/</span> <span class="number">2</span>
+     property <span class="type">real</span> <span class="name">bottomWidth</span>: <span class="name">width</span> <span class="operator">/</span> <span class="number">2</span>
+     property <span class="type">real</span> <span class="name">originalWidth</span>: <span class="name">width</span>
+     property <span class="type">real</span> <span class="name">originalHeight</span>: <span class="name">height</span>
+     property <span class="type">real</span> <span class="name">amplitude</span>: <span class="number">0.1</span>
+
+     <span class="name">vertexShader</span>: <span class="string">&quot;
+         attribute highp vec4 qt_Vertex;
+         attribute highp vec2 qt_MultiTexCoord0;
+         uniform highp mat4 qt_ModelViewProjectionMatrix;
+         varying highp vec2 qt_TexCoord0;
+         varying lowp float shade;
+
+         uniform highp float topWidth;
+         uniform highp float bottomWidth;
+         uniform highp float originalWidth;
+         uniform highp float originalHeight;
+         uniform highp float amplitude;
+
+         void main() {
+             qt_TexCoord0 = qt_MultiTexCoord0;
+
+             highp vec4 shift = vec4(0, 0, 0, 0);
+             shift.x = qt_Vertex.x * ((originalWidth - topWidth) + (topWidth - bottomWidth) * (qt_Vertex.y / originalHeight)) / originalWidth;
+
+             shade = sin(21.9911486 * qt_Vertex.x / originalWidth);
+             shift.y = amplitude * (originalWidth - topWidth + (topWidth - bottomWidth) * (qt_Vertex.y / originalHeight)) * shade;
+
+             gl_Position = qt_ModelViewProjectionMatrix * (qt_Vertex - shift);
+
+             shade = 0.2 * (2.0 - shade ) * (1.0 - (bottomWidth + (topWidth  - bottomWidth) * (1.0 - qt_Vertex.y / originalHeight)) / originalWidth);
+         }
+     &quot;</span>
+
+     <span class="name">fragmentShader</span>: <span class="string">&quot;
+         uniform sampler2D source;
+         varying highp vec2 qt_TexCoord0;
+         varying lowp float shade;
+         void main() {
+             highp vec4 color = texture2D(source, qt_TexCoord0);
+             color.rgb *= 1.0 - shade;
+             gl_FragColor = color;
+         }
+     &quot;</span>
+ }</pre>
+</div>
+<!-- @@@declarative/shadereffects/qml/CurtainEffect.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

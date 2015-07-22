@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- platform-notes.qdoc -->
+  <title>Qt 4.7: Platform and Compiler Notes - X11</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Platform and Compiler Notes - X11</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#aix-5-2">AIX - 5.2</a></li>
+<li class="level2"><a href="#ibm-xlc">IBM xlC</a></li>
+<li class="level2"><a href="#visualage-c-for-aix-version-6-0">VisualAge C++ for AIX, Version 6.0</a></li>
+<li class="level1"><a href="#freebsd-6-0-release">FreeBSD - 6.0-RELEASE</a></li>
+<li class="level1"><a href="#hp-ux">HP-UX</a></li>
+<li class="level2"><a href="#pa-risc-b-11-11-or-later">PA-RISC - B.11.11 or later</a></li>
+<li class="level2"><a href="#itanium-b-11-23-or-later">Itanium - B.11.23 or later</a></li>
+<li class="level2"><a href="#hp-ansi-c-acc">HP ANSI C++ (aCC)</a></li>
+<li class="level2"><a href="#gcc">GCC</a></li>
+<li class="level2"><a href="#opengl-support">OpenGL Support</a></li>
+<li class="level1"><a href="#irix-6-5-x">IRIX - 6.5&#x2e;x</a></li>
+<li class="level2"><a href="#mipspro">MIPSpro</a></li>
+<li class="level1"><a href="#linux">Linux</a></li>
+<li class="level2"><a href="#installation-problems">Installation problems</a></li>
+<li class="level2"><a href="#intel-c-compiler-for-linux">Intel C++ Compiler for Linux</a></li>
+<li class="level2"><a href="#known-issues-with-intel-c-compiler-for-linux">Known Issues with Intel C++ Compiler for Linux</a></li>
+<li class="level1"><a href="#solaris-9-or-later">Solaris - 9 or later</a></li>
+<li class="level2"><a href="#unpackaging-and-solaris-tar">Unpackaging and Solaris tar</a></li>
+<li class="level2"><a href="#cc">CC</a></li>
+<li class="level2"><a href="#gcc">GCC</a></li>
+<li class="level2"><a href="#forte-developer-sun-studio">Forte Developer / Sun Studio</a></li>
+<li class="level2"><a href="#sun-workshop-5-0">Sun WorkShop 5.0</a></li>
+</ul>
+</div>
+<h1 class="title">Platform and Compiler Notes - X11</h1>
+<span class="subtitle"></span>
+<!-- $$$platform-notes-x11.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This page contains information about the X11 platforms Qt is currently known to run on, with links to platform-specific notes. More information about the combinations of platforms and compilers supported by Qt can be found on the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
+<a name="aix"></a><a name="aix-5-2"></a>
+<h2>AIX - 5.2</h2>
+<p>Qt has been tested on AIX 5.2, using the xlC compiler.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Compiler</th><th >Notes</th></tr></thead>
+<tr valign="top" class="odd"><td >xlC</td><td >If Qt is built correctly but all symbols are reported to be missing when you link an application, your makeC++SharedLib script might be out of date. Make sure you have the latest version from the <a href="http://www-306.ibm.com/software/awdtools/vacpp/support/">IBM website</a>.</td></tr>
+<tr valign="top" class="even"><td >GCC</td><td >We have tested earlier versions of Qt 4 successfully with GCC version 3.3 and above. Some versions of GCC may fail to link Qt with a &quot;TOC overflow&quot; message. Fix this by upgrading to the latest maintenance release of the dynamic linker. On AIX this is bos.rte.bind_cmds.4.1&#x2e;5&#x2e;3 or later. Some versions of GCC may fail to build Qt with STL and large-file support enabled, due to <a href="http://gcc.gnu.org/bugzilla/show_bug.cgi?id=9551">a bug in GCC</a>. Fix this by upgrading to the latest maintenance release of the compiler. It is also possible to work around this problem by running configure with either <tt>-no-stl</tt> or <tt>-no-largefile</tt>.</td></tr>
+</table>
+<a name="ibm-xlc"></a>
+<h3>IBM xlC</h3>
+<p>The makeC++SharedLib utility must be in your PATH and be up to date to build shared libraries. From IBM's <a href="http://www.redbooks.ibm.com/abstracts/sg245674.html">C and C++ Application Development on AIX</a> Redbook:</p>
+<ul>
+<li>&quot;The second step is to use the makeC++SharedLib command to create the shared object. The command has many optional arguments, but in its simplest form, can be used as follows:&quot;<pre class="cpp"> /usr/vacpp/bin/makeC++SharedLib -o shr1.o cplussource1.o</pre>
+</li>
+<li>&quot;The full path name to the command is not required; however, to avoid this, you will have to add the directory in which it is located to your PATH environment variable. The command is located in the /usr/vacpp/bin directory with the VisualAge C++ Professional for AIX, Version 5 compiler.&quot;</li>
+</ul>
+<a name="visualage-c-for-aix-version-6-0"></a>
+<h3>VisualAge C++ for AIX, Version 6.0</h3>
+<p>Make sure you have the <a href="http://www-1.ibm.com/support/search.wss?rs=32&amp;tc=SSEP5D&amp;dc=D400">latest upgrades</a> installed.</p>
+<a name="freebsd"></a><a name="freebsd-6-0-release"></a>
+<h2>FreeBSD - 6.0-RELEASE</h2>
+<p><b>Note:</b> <a href="#freebsd">FreeBSD</a> is a community supported platform. See the <a href="supported-platforms.html">Supported Platforms</a> page for more information.</p>
+<p>The system compiler on <a href="#freebsd">FreeBSD</a> 4.x is GCC 2.95.4, which is not officially supported by Qt 4. We develop using and recommend ports/lang/gcc34. You will need to run configure with the <tt>-platform freebsd-g++34</tt> arguments. Optionally, you may use ports/lang/icc.</p>
+<p>The system compiler on <a href="#freebsd">FreeBSD</a> 5.x and 6.x is GCC 3.4&#x2e;4, which should be sufficient to build Qt. You do not need to add any special arguments when running configure. Optionally, you may use ports/lang/icc.</p>
+<p>Note that we do not actively test <a href="#freebsd">FreeBSD</a> 4.x and 5.x&#x2e; Our developers migrated to 6.x after the Qt 4 launch. <a href="#freebsd">FreeBSD</a>-CURRENT is not supported.</p>
+<a name="hp-ux"></a>
+<h2>HP-UX</h2>
+<p>Qt supports HP-UX on both PA-RISC and the Itanium (IA64) architectures.</p>
+<a name="pa-risc-b-11-11-or-later"></a>
+<h3>PA-RISC - B.11.11 or later</h3>
+<p>You can configure Qt for aCC in 32 and 64 bit mode (hpux-acc-64 or hpux-acc-32), or GCC in 32 bit mode (hpux-g++). The default platform is hpux-acc-32. The minimum required version for aCC (HP ANSI C++) on PA-RISC is A.03.57. The supported GCC compiler is GCC 3.4&#x2e;3&#x2e;</p>
+<a name="itanium-b-11-23-or-later"></a>
+<h3>Itanium - B.11.23 or later</h3>
+<p>You can configure Qt for aCC in 32 and 64 bit mode (hpuxi-acc-64 or hpuxi-acc-32). GCC is currently unsupported. The default platform is hpuxi-acc-64. The minimum required version for aCC (HP ANSI C++) on Itanium is A.06.12.</p>
+<a name="hp-ansi-c-acc"></a>
+<h3>HP ANSI C++ (aCC)</h3>
+<p>The hpux-acc-32 and hpux-acc-64 platforms are tested with aCC A.03.57. The hpuxi-acc-32 and hpuxi-acc-64 platforms are tested with aCC A.06.10.</p>
+<a name="gcc"></a>
+<h3>GCC</h3>
+<p>The hpux-g++ platform is tested with GCC 3.4&#x2e;4&#x2e;</p>
+<a name="opengl-support"></a>
+<h3>OpenGL Support</h3>
+<p>Qt's <a href="qtopengl.html">OpenGL</a> module requires GLX 1.3 or later to be installed. This is available for HP-UX 11i - see the <a href="http://docs.hp.com/en/5992-2331/ch04s02.html">Graphics and Technical Computing Software</a> section of the release notes for more information.</p>
+<a name="irix"></a><a name="irix-6-5-x"></a>
+<h2>IRIX - 6.5&#x2e;x</h2>
+<p><b>IRIX is an unsupported platform. See the <a href="supported-platforms.html">Supported Platforms</a> page and Qt's Software's online <a href="http://doc.qt.nokia.com/supported-platforms.html">Platform Support Policy</a> page for details.</b></p>
+<p>Unpackaging and IRIX tar: Because of long filenames some files will be cut off incorrectly with IRIX tar. Please use GNU tar to unpack Qt packages.</p>
+<a name="mipspro"></a>
+<h3>MIPSpro</h3>
+<p>Qt 4.4&#x2e;x requires <a href="#mipspro">MIPSpro</a> version 7.4&#x2e;2m.</p>
+<p>Note that <a href="#mipspro">MIPSpro</a> version 7.4&#x2e;4m is currently not supported, since it has introduced a number of problems that have not yet been resolved. We recommend using 7.4&#x2e;2m for Qt development. However, please note the unsupported status of this platform.</p>
+<a name="linux"></a>
+<h2>Linux</h2>
+<p>There are no known problems with using Qt on production versions of Linux/x86, Linux/ppc, Linux/amd64 and Linux/ia64 (including Altix(R)).</p>
+<p>For the GCC compiler, please also see the relevant <a href="platform-notes.html#general-compiler-notes">General Compiler Notes</a>.</p>
+<a name="installation-problems"></a>
+<h3>Installation problems</h3>
+<p>See also the <a href="http://qt.nokia.com/developer/faqs/qt/installation">Installation FAQ</a>.</p>
+<p>If you experience problems when installing new open source versions of Qt versions, try to use the open source Qt archives (e.g&#x2e;, RPM) provided by your Linux distribution. If you need to install the source (.tgz) archive, be aware that you will probably end up with two different versions of the Qt library installed on your system, which will probably lead to link errors, like this:</p>
+<pre class="cpp"> undefined reference to `_vt.11QPushButton'</pre>
+<p>Fix this by removing the old version of the library.</p>
+<p>If you have problems installing open source versions of Qt provided by your Linux distribution (e.g&#x2e;, RPM), please consult the maintainers of the distribution, not us.</p>
+<p>Some RPM versions have problems installing some of the Qt RPM archives where installation stops with an error message warning about a &quot;Failed Dependency&quot;. Use the <tt>--nodeps</tt> option to <tt>rpm</tt> to workaround this problem.</p>
+<a name="intel-c-compiler-for-linux"></a>
+<h3>Intel C++ Compiler for Linux</h3>
+<p>Nokia currently tests the following compilers:</p>
+<ul>
+<li>Intel(R) C++ Compiler for applications running on IA-32, Version 10.1 Build 20080602 Package ID: l_cc_p_10.1.017</li>
+<li>Intel(R) C++ Compiler for applications running on Intel(R) 64, Version 10.1 Build 20080602 Package ID: l_cc_p_10.1.017</li>
+</ul>
+<p>We do not currently test the IA-64 (Itanium) compiler.</p>
+<a name="known-issues-with-intel-c-compiler-for-linux"></a>
+<h3>Known Issues with Intel C++ Compiler for Linux</h3>
+<ul>
+<li>Precompiled header support does not work in version 10.0&#x2e;025 and older. For these compilers, you should configure Qt with -no-pch. Precompiled header support works properly in version 10.0&#x2e;026 and later.</li>
+<li>Version 10.0&#x2e;026 for Intel 64 is known to miscompile qmake when building in release mode. For now, configure Qt with -debug. Version 10.1&#x2e;008 and later can compile qmake in release mode.</li>
+<li>Versions 10.1&#x2e;008 to 10.1&#x2e;015 for both IA-32 and Intel 64 are known crash with &quot;(0): internal error: 0_47021&quot; when compiling <a href="qtxmlpatterns.html">QtXmlPatterns</a>, <a href="qtwebkit.html">QtWebKit</a>, and Designer in release mode. Version 10.1&#x2e;017 compiles these modules correctly in release mode.</li>
+</ul>
+<a name="solaris"></a><a name="solaris-9-or-later"></a>
+<h2>Solaris - 9 or later</h2>
+<a name="unpackaging-and-solaris-tar"></a>
+<h3>Unpackaging and Solaris tar</h3>
+<p>On some Solaris systems, both Solaris tar and GNU tar have been reported to truncate long filenames. We recommend using star instead (http://star.berlios.de).</p>
+<p>Please note that WebKit is not supported for Solaris, regardless of which compiler is used.</p>
+<a name="cc"></a>
+<h3>CC</h3>
+<p>See the notes for <a href="#forte-developer-sun-studio">Forte Developer / Sun Studio</a>.</p>
+<a name="gcc"></a>
+<h3>GCC</h3>
+<p>Please use GCC 3.4&#x2e;2 or later.</p>
+<p>Do not use GCC with Sun's assembler/linker, this will result in link-time errors in shared libraries. Use GNU binutils instead.</p>
+<p>GCC 3.2&#x2e;* is known to miscompile Qt due to an optimizer bug that will cause the resulting binaries to hang.</p>
+<a name="forte-developer-sun-studio"></a>
+<h3>Forte Developer / Sun Studio</h3>
+<p>Qt is tested using Sun Studio 12 (Sun CC 5.9). Go to <a href="http://developers.sun.com/sunstudio/downloads/patches/index.jsp">Sun Studio Patches</a> page on Sun's Web site to download the latest patches for your Sun compiler.</p>
+<p>Please note that Qt 4.6 is stricter in its STL requirements and that the default STL implementation used by Sun CC does not pass those requirements. This does not affect binary compatibility and you can continue to use STL in your own code, but Qt's STL-compatibility functions will be disabled.</p>
+<p>Sun CC ships with a secondary STL implementation (called stlport4) which is standards-compliant and can be used by Qt. You can enable it by passing the -library=stlport4 option to the compiler. Note that this does not affect Qt's binary compatibility, but it may affect that of other libraries and programs that use STL.</p>
+<a name="sun-workshop-5-0"></a>
+<h3>Sun WorkShop 5.0</h3>
+<p>Sun WorkShop 5.0 is not supported with Qt 4.</p>
+</div>
+<!-- @@@platform-notes-x11.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

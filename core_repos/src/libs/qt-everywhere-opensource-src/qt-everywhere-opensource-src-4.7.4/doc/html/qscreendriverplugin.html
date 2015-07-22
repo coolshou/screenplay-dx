@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscreendriverplugin_qws.cpp -->
+  <title>Qt 4.7: QScreenDriverPlugin Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QScreenDriverPlugin</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QScreenDriverPlugin Class Reference</h1>
+<!-- $$$QScreenDriverPlugin-brief -->
+<p>The QScreenDriverPlugin class is an abstract base class for screen driver plugins in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QScreenDriverPlugin -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QScreenDriverPlugin&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="qscreendriverplugin-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscreendriverplugin.html#QScreenDriverPlugin">QScreenDriverPlugin</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscreendriverplugin.html#dtor.QScreenDriverPlugin">~QScreenDriverPlugin</a></b> ()</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QScreen * </td><td class="memItemRight bottomAlign"><b><a href="qscreendriverplugin.html#create">create</a></b> ( const QString &amp; <i>key</i>, int <i>displayId</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QStringList </td><td class="memItemRight bottomAlign"><b><a href="qscreendriverplugin.html#keys">keys</a></b> () const = 0</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QScreenDriverPlugin-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScreenDriverPlugin class is an abstract base class for screen driver plugins in Qt for Embedded Linux.</p>
+<p>Note that this class is only available in <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.</p>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> provides ready-made drivers for several screen protocols, see the <a href="qt-embedded-displaymanagement.html">display management</a> documentation for details. Custom screen drivers can be implemented by subclassing the <a href="qscreen.html">QScreen</a> class and creating a screen driver plugin.</p>
+<p>A screen driver plugin can be created by subclassing QScreenDriverPlugin and reimplementing the pure virtual <a href="qscreendriverplugin.html#keys">keys</a>() and <a href="qscreendriverplugin.html#create">create</a>() functions. By exporting the derived class using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro, The default implementation of the <a href="qscreendriverfactory.html">QScreenDriverFactory</a> class will automatically detect the plugin and load the driver into the server application at run-time. See <a href="plugins-howto.html">How to Create Qt Plugins</a> for details.</p>
+</div>
+<p><b>See also </b><a href="qscreen.html">QScreen</a> and <a href="qscreendriverfactory.html">QScreenDriverFactory</a>.</p>
+<!-- @@@QScreenDriverPlugin -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScreenDriverPlugin[overload1]$$$QScreenDriverPluginQObject* -->
+<h3 class="fn"><a name="QScreenDriverPlugin"></a>QScreenDriverPlugin::<span class="name">QScreenDriverPlugin</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a screen driver plugin with the given <i>parent</i>.</p>
+<p>Note that this constructor is invoked automatically by the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro, so there is no need for calling it explicitly.</p>
+<!-- @@@QScreenDriverPlugin -->
+<!-- $$$~QScreenDriverPlugin[overload1]$$$~QScreenDriverPlugin -->
+<h3 class="fn"><a name="dtor.QScreenDriverPlugin"></a>QScreenDriverPlugin::<span class="name">~QScreenDriverPlugin</span> ()</h3>
+<p>Destroys this screen driver plugin.</p>
+<p>Note that Qt destroys a plugin automatically when it is no longer used, so there is no need for calling the destructor explicitly.</p>
+<!-- @@@~QScreenDriverPlugin -->
+<!-- $$$create[overload1]$$$createconstQString&int -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qscreen.html">QScreen</a></span> * QScreenDriverPlugin::<span class="name">create</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i>, <span class="type">int</span> <i>displayId</i> )<tt> [pure virtual]</tt></h3>
+<p>Implement this function to create a driver matching the type specified by the given <i>key</i> and <i>displayId</i> parameters. Note that keys are case-insensitive.</p>
+<p><b>See also </b><a href="qscreendriverplugin.html#keys">keys</a>().</p>
+<!-- @@@create -->
+<!-- $$$keys[overload1]$$$keys -->
+<h3 class="fn"><a name="keys"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QScreenDriverPlugin::<span class="name">keys</span> () const<tt> [pure virtual]</tt></h3>
+<p>Implement this function to return the list of valid keys, i.e&#x2e; the screen drivers supported by this plugin.</p>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> provides ready-made drivers for several screen protocols, see the <a href="qt-embedded-displaymanagement.html">display management</a> documentation for details.</p>
+<p><b>See also </b><a href="qscreendriverplugin.html#create">create</a>().</p>
+<!-- @@@keys -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

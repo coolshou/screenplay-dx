@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdbusextratypes.cpp -->
+  <title>Qt 4.7: QDBusVariant Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdbus.html">QtDBus</a></li>
+<li>QDBusVariant</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDBusVariant Class Reference</h1>
+<!-- $$$QDBusVariant-brief -->
+<p>The QDBusVariant class enables the programmer to identify the variant type provided by the D-Bus typesystem. <a href="#details">More...</a></p>
+<!-- @@@QDBusVariant -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDBusVariant&gt;</span></pre><p><b>Inherits: </b><a href="qvariant.html">QVariant</a> (private).</p>
+<p>This class was introduced in Qt 4.2.</p>
+<ul>
+<li><a href="qdbusvariant-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdbusvariant.html#QDBusVariant">QDBusVariant</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdbusvariant.html#QDBusVariant-2">QDBusVariant</a></b> ( const QVariant &amp; <i>variant</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qdbusvariant.html#setVariant">setVariant</a></b> ( const QVariant &amp; <i>variant</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QVariant </td><td class="memItemRight bottomAlign"><b><a href="qdbusvariant.html#variant">variant</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">45 public functions inherited from <a href="qvariant.html#public-functions">QVariant</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">3 static public members inherited from <a href="qvariant.html#static-public-members">QVariant</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QDBusVariant-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDBusVariant class enables the programmer to identify the variant type provided by the D-Bus typesystem.</p>
+<p>A D-Bus function that takes an integer, a D-Bus variant and a string as parameters can be called with the following argument list (see <a href="qdbusmessage.html#setArguments">QDBusMessage::setArguments</a>()):</p>
+<pre class="cpp">     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">&gt;</span> arguments;
+     arguments <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvariant.html">QVariant</a></span>(<span class="number">42</span>) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvariant.html">QVariant</a></span><span class="operator">::</span>fromValue(<span class="type">QDBusVariant</span>(<span class="number">43</span>)) <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="type"><a href="qvariant.html">QVariant</a></span>(<span class="string">&quot;hello&quot;</span>);
+     myDBusMessage<span class="operator">.</span>setArguments(arguments);</pre>
+<p>When a D-Bus function returns a D-Bus variant, it can be retrieved as follows:</p>
+<pre class="cpp">     <span class="comment">// call a D-Bus function that returns a D-Bus variant</span>
+     <span class="type"><a href="qvariant.html">QVariant</a></span> v <span class="operator">=</span> callMyDBusFunction();
+     <span class="comment">// retrieve the D-Bus variant</span>
+     <span class="type">QDBusVariant</span> dbusVariant <span class="operator">=</span> qvariant_cast<span class="operator">&lt;</span><span class="type">QDBusVariant</span><span class="operator">&gt;</span>(v);
+     <span class="comment">// retrieve the actual value stored in the D-Bus variant</span>
+     <span class="type"><a href="qvariant.html">QVariant</a></span> result <span class="operator">=</span> dbusVariant<span class="operator">.</span>variant();</pre>
+<p>The <a href="qvariant.html">QVariant</a> within a QDBusVariant is required to distinguish between a normal D-Bus value and a value within a D-Bus variant.</p>
+</div>
+<p><b>See also </b><a href="qdbustypesystem.html">The QtDBus type system</a>.</p>
+<!-- @@@QDBusVariant -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QDBusVariant[overload1]$$$QDBusVariant -->
+<h3 class="fn"><a name="QDBusVariant"></a>QDBusVariant::<span class="name">QDBusVariant</span> ()</h3>
+<p>Constructs a new D-Bus variant.</p>
+<!-- @@@QDBusVariant -->
+<!-- $$$QDBusVariant$$$QDBusVariantconstQVariant& -->
+<h3 class="fn"><a name="QDBusVariant-2"></a>QDBusVariant::<span class="name">QDBusVariant</span> ( const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>variant</i> )</h3>
+<p>Constructs a new D-Bus variant from the given Qt <i>variant</i>.</p>
+<p><b>See also </b><a href="qdbusvariant.html#setVariant">setVariant</a>().</p>
+<!-- @@@QDBusVariant -->
+<!-- $$$setVariant[overload1]$$$setVariantconstQVariant& -->
+<h3 class="fn"><a name="setVariant"></a><span class="type">void</span> QDBusVariant::<span class="name">setVariant</span> ( const <span class="type"><a href="qvariant.html">QVariant</a></span> &amp; <i>variant</i> )</h3>
+<p>Assigns the value of the given Qt <i>variant</i> to this D-Bus variant.</p>
+<p><b>See also </b><a href="qdbusvariant.html#variant">variant</a>().</p>
+<!-- @@@setVariant -->
+<!-- $$$variant[overload1]$$$variant -->
+<h3 class="fn"><a name="variant"></a><span class="type"><a href="qvariant.html">QVariant</a></span> QDBusVariant::<span class="name">variant</span> () const</h3>
+<p>Returns this D-Bus variant as a <a href="qvariant.html">QVariant</a> object.</p>
+<p><b>See also </b><a href="qdbusvariant.html#setVariant">setVariant</a>().</p>
+<!-- @@@variant -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

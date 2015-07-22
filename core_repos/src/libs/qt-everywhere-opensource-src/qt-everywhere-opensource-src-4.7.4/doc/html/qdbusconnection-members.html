@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdbusconnection.cpp -->
+  <title>Qt 4.7: List of All Members for QDBusConnection</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdbus.html">QtDBus</a></li>
+<li>QDBusConnection</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QDBusConnection</h1>
+<p>This is the complete list of members for <a href="qdbusconnection.html">QDBusConnection</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">enum <span class="name"><b><a href="qdbusconnection.html#BusType-enum">BusType</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qdbusconnection.html#RegisterOption-enum">RegisterOption</a></b></span></li>
+<li class="fn">flags <span class="name"><b><a href="qdbusconnection.html#RegisterOption-enum">RegisterOptions</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qdbusconnection.html#UnregisterMode-enum">UnregisterMode</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#QDBusConnection">QDBusConnection</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#QDBusConnection-2">QDBusConnection</a></b></span> ( const QDBusConnection &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#dtor.QDBusConnection">~QDBusConnection</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#asyncCall">asyncCall</a></b></span> ( const QDBusMessage &amp;, int ) const : QDBusPendingCall</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#baseService">baseService</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#call">call</a></b></span> ( const QDBusMessage &amp;, QDBus::CallMode, int ) const : QDBusMessage</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#callWithCallback">callWithCallback</a></b></span> ( const QDBusMessage &amp;, QObject *, const char *, const char *, int ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#callWithCallback-2">callWithCallback</a></b></span> ( const QDBusMessage &amp;, QObject *, const char *, int ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#connect">connect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#connect-2">connect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#connect-3">connect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, const QStringList &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#connectToBus">connectToBus</a></b></span> ( BusType, const QString &amp; ) : QDBusConnection</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#connectToBus-2">connectToBus</a></b></span> ( const QString &amp;, const QString &amp; ) : QDBusConnection</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#disconnect">disconnect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#disconnect-2">disconnect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#disconnect-3">disconnect</a></b></span> ( const QString &amp;, const QString &amp;, const QString &amp;, const QString &amp;, const QStringList &amp;, const QString &amp;, QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#disconnectFromBus">disconnectFromBus</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#interface">interface</a></b></span> () const : QDBusConnectionInterface *</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#isConnected">isConnected</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#lastError">lastError</a></b></span> () const : QDBusError</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#name">name</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#objectRegisteredAt">objectRegisteredAt</a></b></span> ( const QString &amp; ) const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#registerObject">registerObject</a></b></span> ( const QString &amp;, QObject *, RegisterOptions ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#registerService">registerService</a></b></span> ( const QString &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#send">send</a></b></span> ( const QDBusMessage &amp; ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#sender">sender</a></b></span> () : QDBusConnection</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#sessionBus">sessionBus</a></b></span> () : QDBusConnection</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#systemBus">systemBus</a></b></span> () : QDBusConnection</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#unregisterObject">unregisterObject</a></b></span> ( const QString &amp;, UnregisterMode )</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#unregisterService">unregisterService</a></b></span> ( const QString &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qdbusconnection.html#operator-eq">operator=</a></b></span> ( const QDBusConnection &amp; ) : QDBusConnection &amp;</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

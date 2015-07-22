@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: sprites.h Example File (graphicsview/portedasteroids/sprites.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">sprites.h Example File</h1>
+<span class="small-subtitle">graphicsview/portedasteroids/sprites.h</span>
+<!-- $$$graphicsview/portedasteroids/sprites.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="comment">/*
+  * KAsteroids - Copyright (c) Martin R. Jones 1997
+  *
+  * Part of the KDE project
+  */</span>
+
+ <span class="preprocessor">#ifndef __SPRITES_H__</span>
+ <span class="preprocessor">#define __SPRITES_H__</span>
+
+ <span class="preprocessor">#include &quot;animateditem.h&quot;</span>
+
+ <span class="preprocessor">#define ID_ROCK_LARGE           1024</span>
+ <span class="preprocessor">#define ID_ROCK_MEDIUM          1025</span>
+ <span class="preprocessor">#define ID_ROCK_SMALL           1026</span>
+
+ <span class="preprocessor">#define ID_MISSILE              1030</span>
+
+ <span class="preprocessor">#define ID_BIT                  1040</span>
+ <span class="preprocessor">#define ID_EXHAUST              1041</span>
+
+ <span class="preprocessor">#define ID_ENERGY_POWERUP       1310</span>
+ <span class="preprocessor">#define ID_TELEPORT_POWERUP     1311</span>
+ <span class="preprocessor">#define ID_BRAKE_POWERUP        1312</span>
+ <span class="preprocessor">#define ID_SHIELD_POWERUP       1313</span>
+ <span class="preprocessor">#define ID_SHOOT_POWERUP        1314</span>
+
+ <span class="preprocessor">#define ID_SHIP                 1350</span>
+ <span class="preprocessor">#define ID_SHIELD               1351</span>
+
+ <span class="preprocessor">#define MAX_SHIELD_AGE          350</span>
+ <span class="preprocessor">#define MAX_POWERUP_AGE         500</span>
+ <span class="preprocessor">#define MAX_MISSILE_AGE         40</span>
+
+ <span class="keyword">class</span> KMissile : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+     KMissile( <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c ) : AnimatedPixmapItem( s<span class="operator">,</span> c )
+         { myAge <span class="operator">=</span> <span class="number">0</span>; }
+
+     <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> ID_MISSILE; }
+
+     <span class="type">void</span> growOlder() { myAge<span class="operator">+</span><span class="operator">+</span>; }
+     <span class="type">bool</span> expired() { <span class="keyword">return</span> myAge <span class="operator">&gt;</span> MAX_MISSILE_AGE; }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> myAge;
+ };
+
+ <span class="keyword">class</span> KBit : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+     KBit( <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c ) : AnimatedPixmapItem( s<span class="operator">,</span> c )
+         {  death <span class="operator">=</span> <span class="number">7</span>; }
+
+     <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> {  <span class="keyword">return</span> ID_BIT; }
+
+     <span class="type">void</span> setDeath( <span class="type">int</span> d ) { death <span class="operator">=</span> d; }
+     <span class="type">void</span> growOlder() { death<span class="operator">-</span><span class="operator">-</span>; }
+     <span class="type">bool</span> expired() { <span class="keyword">return</span> death <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>; }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> death;
+ };
+
+ <span class="keyword">class</span> KExhaust : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+     KExhaust( <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c ) : AnimatedPixmapItem( s<span class="operator">,</span> c )
+         {  death <span class="operator">=</span> <span class="number">1</span>; }
+
+     <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> {  <span class="keyword">return</span> ID_EXHAUST; }
+
+     <span class="type">void</span> setDeath( <span class="type">int</span> d ) { death <span class="operator">=</span> d; }
+     <span class="type">void</span> growOlder() { death<span class="operator">-</span><span class="operator">-</span>; }
+     <span class="type">bool</span> expired() { <span class="keyword">return</span> death <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>; }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> death;
+ };
+
+ <span class="keyword">class</span> KPowerup : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+   KPowerup( <span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c<span class="operator">,</span> <span class="type">int</span> t ) : AnimatedPixmapItem( s<span class="operator">,</span> c )<span class="operator">,</span>
+         myAge( <span class="number">0</span> )<span class="operator">,</span> _type(t) { }
+
+   <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> _type; }
+
+   <span class="type">void</span> growOlder() { myAge<span class="operator">+</span><span class="operator">+</span>; }
+   <span class="type">bool</span> expired() <span class="keyword">const</span> { <span class="keyword">return</span> myAge <span class="operator">&gt;</span> MAX_POWERUP_AGE; }
+
+ <span class="keyword">protected</span>:
+   <span class="type">int</span> myAge;
+   <span class="type">int</span> _type;
+ };
+
+ <span class="keyword">class</span> KRock : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+     KRock (<span class="keyword">const</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c<span class="operator">,</span> <span class="type">int</span> t<span class="operator">,</span> <span class="type">int</span> sk<span class="operator">,</span> <span class="type">int</span> st) : AnimatedPixmapItem( s<span class="operator">,</span> c )
+         { _type <span class="operator">=</span> t; skip <span class="operator">=</span> cskip <span class="operator">=</span> sk; step <span class="operator">=</span> st; }
+
+     <span class="type">void</span> nextFrame()
+         {
+             <span class="keyword">if</span> (cskip<span class="operator">-</span><span class="operator">-</span> <span class="operator">&lt;</span><span class="operator">=</span> <span class="number">0</span>) {
+                 setFrame( (frame()<span class="operator">+</span>step<span class="operator">+</span>frameCount())<span class="operator">%</span>frameCount() );
+                 cskip <span class="operator">=</span> QABS(skip);
+             }
+         }
+
+     <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> _type; }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> _type;
+     <span class="type">int</span> skip;
+     <span class="type">int</span> cskip;
+     <span class="type">int</span> step;
+ };
+
+ <span class="keyword">class</span> KShield : <span class="keyword">public</span> AnimatedPixmapItem
+ {
+ <span class="keyword">public</span>:
+   KShield( <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qpixmap.html">QPixmap</a></span><span class="operator">&gt;</span> <span class="operator">&amp;</span>s<span class="operator">,</span> <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> <span class="operator">*</span>c )
+       : AnimatedPixmapItem( s<span class="operator">,</span> c ) {}
+
+   <span class="keyword">virtual</span> <span class="type">int</span> type() <span class="keyword">const</span> { <span class="keyword">return</span> ID_SHIELD; }
+ };
+
+ <span class="preprocessor">#endif</span></pre>
+</div>
+<!-- @@@graphicsview/portedasteroids/sprites.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- formbuilder.cpp -->
+  <title>Qt 4.7: QFormBuilder Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdesigner.html">QtDesigner</a></li>
+<li>QFormBuilder</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QFormBuilder Class Reference</h1>
+<!-- $$$QFormBuilder-brief -->
+<p>The QFormBuilder class is used to dynamically construct user interfaces from UI files at run-time. <a href="#details">More...</a></p>
+<!-- @@@QFormBuilder -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QFormBuilder&gt;</span></pre><p><b>Inherits: </b><a href="qabstractformbuilder.html">QAbstractFormBuilder</a>.</p>
+<ul>
+<li><a href="qformbuilder-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#QFormBuilder">QFormBuilder</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#dtor.QFormBuilder">~QFormBuilder</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#addPluginPath">addPluginPath</a></b> ( const QString &amp; <i>pluginPath</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#clearPluginPaths">clearPluginPaths</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QList&lt;QDesignerCustomWidgetInterface *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#customWidgets">customWidgets</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStringList </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#pluginPaths">pluginPaths</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qformbuilder.html#setPluginPath">setPluginPath</a></b> ( const QStringList &amp; <i>pluginPaths</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">4 public functions inherited from <a href="qabstractformbuilder.html#public-functions">QAbstractFormBuilder</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QFormBuilder-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QFormBuilder class is used to dynamically construct user interfaces from UI files at run-time.</p>
+<p>The QFormBuilder class provides a mechanism for dynamically creating user interfaces at run-time, based on UI files created with <i>Qt Designer</i>. For example:</p>
+<pre class="cpp">         MyForm<span class="operator">::</span>MyForm(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+             : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+         {
+             <span class="type">QFormBuilder</span> builder;
+             <span class="type"><a href="qfile.html">QFile</a></span> file(<span class="string">&quot;:/forms/myWidget.ui&quot;</span>);
+             file<span class="operator">.</span>open(<span class="type"><a href="qfile.html">QFile</a></span><span class="operator">::</span>ReadOnly);
+             <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>myWidget <span class="operator">=</span> builder<span class="operator">.</span>load(<span class="operator">&amp;</span>file<span class="operator">,</span> <span class="keyword">this</span>);
+             file<span class="operator">.</span>close();
+
+             <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span> <span class="operator">*</span>layout <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qvboxlayout.html">QVBoxLayout</a></span>;
+             layout<span class="operator">-</span><span class="operator">&gt;</span>addWidget(myWidget);
+             setLayout(layout);
+         }</pre>
+<p>By including the user interface in the example's resources (<tt>myForm.qrc</tt>), we ensure that it will be present when the example is run:</p>
+<pre class="cpp">     <span class="operator">&lt;</span><span class="operator">!</span>DOCTYPE RCC<span class="operator">&gt;</span><span class="operator">&lt;</span>RCC version<span class="operator">=</span><span class="string">&quot;1.0&quot;</span><span class="operator">&gt;</span>
+     <span class="operator">&lt;</span>qresource prefix<span class="operator">=</span><span class="string">&quot;/forms&quot;</span><span class="operator">&gt;</span>
+        <span class="operator">&lt;</span>file<span class="operator">&gt;</span>mywidget<span class="operator">.</span>ui<span class="operator">&lt;</span><span class="operator">/</span>file<span class="operator">&gt;</span>
+     <span class="operator">&lt;</span><span class="operator">/</span>qresource<span class="operator">&gt;</span>
+     <span class="operator">&lt;</span><span class="operator">/</span>RCC<span class="operator">&gt;</span></pre>
+<p>QFormBuilder extends the <a href="qabstractformbuilder.html">QAbstractFormBuilder</a> base class with a number of functions that are used to support custom widget plugins:</p>
+<ul>
+<li><a href="qformbuilder.html#pluginPaths">pluginPaths</a>() returns the list of paths that the form builder searches when loading custom widget plugins.</li>
+<li><a href="qformbuilder.html#addPluginPath">addPluginPath</a>() allows additional paths to be registered with the form builder.</li>
+<li><a href="qformbuilder.html#setPluginPath">setPluginPath</a>() is used to replace the existing list of paths with a list obtained from some other source.</li>
+<li><a href="qformbuilder.html#clearPluginPaths">clearPluginPaths</a>() removes all paths registered with the form builder.</li>
+<li><a href="qformbuilder.html#customWidgets">customWidgets</a>() returns a list of interfaces to plugins that can be used to create new instances of registered custom widgets.</li>
+</ul>
+<p>The QFormBuilder class is typically used by custom components and applications that embed <i>Qt Designer</i>. Standalone applications that need to dynamically generate user interfaces at run-time use the <a href="quiloader.html">QUiLoader</a> class, found in the <a href="qtuitools.html">QtUiTools</a> module.</p>
+</div>
+<p><b>See also </b><a href="qabstractformbuilder.html">QAbstractFormBuilder</a> and <a href="qtuitools.html">QtUiTools Module</a>.</p>
+<!-- @@@QFormBuilder -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QFormBuilder[overload1]$$$QFormBuilder -->
+<h3 class="fn"><a name="QFormBuilder"></a>QFormBuilder::<span class="name">QFormBuilder</span> ()</h3>
+<p>Constructs a new form builder.</p>
+<!-- @@@QFormBuilder -->
+<!-- $$$~QFormBuilder[overload1]$$$~QFormBuilder -->
+<h3 class="fn"><a name="dtor.QFormBuilder"></a>QFormBuilder::<span class="name">~QFormBuilder</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the form builder.</p>
+<!-- @@@~QFormBuilder -->
+<!-- $$$addPluginPath[overload1]$$$addPluginPathconstQString& -->
+<h3 class="fn"><a name="addPluginPath"></a><span class="type">void</span> QFormBuilder::<span class="name">addPluginPath</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>pluginPath</i> )</h3>
+<p>Adds a new plugin path specified by <i>pluginPath</i> to the list of paths that will be searched by the form builder when loading a custom widget plugin.</p>
+<p><b>See also </b><a href="qformbuilder.html#setPluginPath">setPluginPath</a>() and <a href="qformbuilder.html#clearPluginPaths">clearPluginPaths</a>().</p>
+<!-- @@@addPluginPath -->
+<!-- $$$clearPluginPaths[overload1]$$$clearPluginPaths -->
+<h3 class="fn"><a name="clearPluginPaths"></a><span class="type">void</span> QFormBuilder::<span class="name">clearPluginPaths</span> ()</h3>
+<p>Clears the list of paths that the form builder uses to search for custom widget plugins.</p>
+<p><b>See also </b><a href="qformbuilder.html#pluginPaths">pluginPaths</a>().</p>
+<!-- @@@clearPluginPaths -->
+<!-- $$$customWidgets[overload1]$$$customWidgets -->
+<h3 class="fn"><a name="customWidgets"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span> *&gt; QFormBuilder::<span class="name">customWidgets</span> () const</h3>
+<p>Returns a list of the available plugins.</p>
+<!-- @@@customWidgets -->
+<!-- $$$pluginPaths[overload1]$$$pluginPaths -->
+<h3 class="fn"><a name="pluginPaths"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QFormBuilder::<span class="name">pluginPaths</span> () const</h3>
+<p>Returns the list of paths the form builder searches for plugins.</p>
+<p><b>See also </b><a href="qformbuilder.html#addPluginPath">addPluginPath</a>().</p>
+<!-- @@@pluginPaths -->
+<!-- $$$setPluginPath[overload1]$$$setPluginPathconstQStringList& -->
+<h3 class="fn"><a name="setPluginPath"></a><span class="type">void</span> QFormBuilder::<span class="name">setPluginPath</span> ( const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>pluginPaths</i> )</h3>
+<p>Sets the list of plugin paths to the list specified by <i>pluginPaths</i>.</p>
+<p><b>See also </b><a href="qformbuilder.html#addPluginPath">addPluginPath</a>().</p>
+<!-- @@@setPluginPath -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

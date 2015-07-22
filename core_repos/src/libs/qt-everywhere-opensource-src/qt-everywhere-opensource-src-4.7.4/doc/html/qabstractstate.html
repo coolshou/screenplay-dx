@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractstate.cpp -->
+  <title>Qt 4.7: QAbstractState Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QAbstractState</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#subclassing">Subclassing</a></li>
+</ul>
+</div>
+<h1 class="title">QAbstractState Class Reference</h1>
+<!-- $$$QAbstractState-brief -->
+<p>The QAbstractState class is the base class of states of a <a href="qstatemachine.html">QStateMachine</a>. <a href="#details">More...</a></p>
+<!-- @@@QAbstractState -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAbstractState&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<p><b>Inherited by: </b><a href="qfinalstate.html">QFinalState</a>, <a href="qhistorystate.html">QHistoryState</a>, and <a href="qstate.html">QState</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qabstractstate-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#dtor.QAbstractState">~QAbstractState</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QStateMachine * </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#machine">machine</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QState * </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#parentState">parentState</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#entered">entered</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#exited">exited</a></b> ()</td></tr>
+</table>
+<ul>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#QAbstractState">QAbstractState</a></b> ( QState * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#onEntry">onEntry</a></b> ( QEvent * <i>event</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#onExit">onExit</a></b> ( QEvent * <i>event</i> ) = 0</td></tr>
+</table>
+<a name="reimplemented-protected-functions"></a>
+<h2>Reimplemented Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="qabstractstate.html#event">event</a></b> ( QEvent * <i>e</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAbstractState-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAbstractState class is the base class of states of a <a href="qstatemachine.html">QStateMachine</a>.</p>
+<p>The QAbstractState class is the abstract base class of states that are part of a <a href="qstatemachine.html">QStateMachine</a>. It defines the interface that all state objects have in common. QAbstractState is part of <a href="statemachine-api.html">The State Machine Framework</a>.</p>
+<p>The <a href="qabstractstate.html#entered">entered</a>() signal is emitted when the state has been entered. The <a href="qabstractstate.html#exited">exited</a>() signal is emitted when the state has been exited.</p>
+<p>The <a href="qabstractstate.html#parentState">parentState</a>() function returns the state's parent state. The <a href="qabstractstate.html#machine">machine</a>() function returns the state machine that the state is part of.</p>
+<a name="subclassing"></a>
+<h3>Subclassing</h3>
+<p>The <a href="qabstractstate.html#onEntry">onEntry</a>() function is called when the state is entered; reimplement this function to perform custom processing when the state is entered.</p>
+<p>The <a href="qabstractstate.html#onExit">onExit</a>() function is called when the state is exited; reimplement this function to perform custom processing when the state is exited.</p>
+</div>
+<!-- @@@QAbstractState -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAbstractState[overload1]$$$QAbstractStateQState* -->
+<h3 class="fn"><a name="QAbstractState"></a>QAbstractState::<span class="name">QAbstractState</span> ( <span class="type"><a href="qstate.html">QState</a></span> * <i>parent</i> = 0 )<tt> [protected]</tt></h3>
+<p>Constructs a new state with the given <i>parent</i> state.</p>
+<!-- @@@QAbstractState -->
+<!-- $$$~QAbstractState[overload1]$$$~QAbstractState -->
+<h3 class="fn"><a name="dtor.QAbstractState"></a>QAbstractState::<span class="name">~QAbstractState</span> ()</h3>
+<p>Destroys this state.</p>
+<!-- @@@~QAbstractState -->
+<!-- $$$entered[overload1]$$$entered -->
+<h3 class="fn"><a name="entered"></a><span class="type">void</span> QAbstractState::<span class="name">entered</span> ()<tt> [signal]</tt></h3>
+<p>This signal is emitted when the state has been entered (after <a href="qabstractstate.html#onEntry">onEntry</a>() has been called).</p>
+<!-- @@@entered -->
+<!-- $$$event[overload1]$$$eventQEvent* -->
+<h3 class="fn"><a name="event"></a><span class="type">bool</span> QAbstractState::<span class="name">event</span> ( <span class="type"><a href="qevent.html">QEvent</a></span> * <i>e</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qobject.html#event">QObject::event</a>().</p>
+<!-- @@@event -->
+<!-- $$$exited[overload1]$$$exited -->
+<h3 class="fn"><a name="exited"></a><span class="type">void</span> QAbstractState::<span class="name">exited</span> ()<tt> [signal]</tt></h3>
+<p>This signal is emitted when the state has been exited (after <a href="qabstractstate.html#onExit">onExit</a>() has been called).</p>
+<!-- @@@exited -->
+<!-- $$$machine[overload1]$$$machine -->
+<h3 class="fn"><a name="machine"></a><span class="type"><a href="qstatemachine.html">QStateMachine</a></span> * QAbstractState::<span class="name">machine</span> () const</h3>
+<p>Returns the state machine that this state is part of, or 0 if the state is not part of a state machine.</p>
+<!-- @@@machine -->
+<!-- $$$onEntry[overload1]$$$onEntryQEvent* -->
+<h3 class="fn"><a name="onEntry"></a><span class="type">void</span> QAbstractState::<span class="name">onEntry</span> ( <span class="type"><a href="qevent.html">QEvent</a></span> * <i>event</i> )<tt> [pure virtual protected]</tt></h3>
+<p>This function is called when the state is entered. The given <i>event</i> is what caused the state to be entered. Reimplement this function to perform custom processing when the state is entered.</p>
+<!-- @@@onEntry -->
+<!-- $$$onExit[overload1]$$$onExitQEvent* -->
+<h3 class="fn"><a name="onExit"></a><span class="type">void</span> QAbstractState::<span class="name">onExit</span> ( <span class="type"><a href="qevent.html">QEvent</a></span> * <i>event</i> )<tt> [pure virtual protected]</tt></h3>
+<p>This function is called when the state is exited. The given <i>event</i> is what caused the state to be exited. Reimplement this function to perform custom processing when the state is exited.</p>
+<!-- @@@onExit -->
+<!-- $$$parentState[overload1]$$$parentState -->
+<h3 class="fn"><a name="parentState"></a><span class="type"><a href="qstate.html">QState</a></span> * QAbstractState::<span class="name">parentState</span> () const</h3>
+<p>Returns this state's parent state, or 0 if the state has no parent state.</p>
+<!-- @@@parentState -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

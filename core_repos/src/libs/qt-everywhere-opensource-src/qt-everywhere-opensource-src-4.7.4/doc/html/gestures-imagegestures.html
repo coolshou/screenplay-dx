@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- imagegestures.qdoc -->
+  <title>Qt 4.7: Image Gestures Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Image Gestures Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#imagewidget-class-definition">ImageWidget Class Definition</a></li>
+<li class="level1"><a href="#imagewidget-class-implementation">ImageWidget Class Implementation</a></li>
+</ul>
+</div>
+<h1 class="title">Image Gestures Example</h1>
+<span class="subtitle"></span>
+<!-- $$$gestures/imagegestures-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="gestures-imagegestures-imagewidget-cpp.html">gestures/imagegestures/imagewidget.cpp</a></li>
+<li><a href="gestures-imagegestures-imagewidget-h.html">gestures/imagegestures/imagewidget.h</a></li>
+<li><a href="gestures-imagegestures-mainwidget-cpp.html">gestures/imagegestures/mainwidget.cpp</a></li>
+<li><a href="gestures-imagegestures-mainwidget-h.html">gestures/imagegestures/mainwidget.h</a></li>
+<li><a href="gestures-imagegestures-main-cpp.html">gestures/imagegestures/main.cpp</a></li>
+<li><a href="gestures-imagegestures-imagegestures-pro.html">gestures/imagegestures/imagegestures.pro</a></li>
+</ul>
+<p>This example shows how to enable gestures for a widget and use gesture input to perform actions.</p>
+<p>We use two classes to create the user interface for the application: <tt>MainWidget</tt> and <tt>ImageWidget</tt>. The <tt>MainWidget</tt> class is simply used as a container for the <tt>ImageWidget</tt> class, which we will configure to accept gesture input. Since we are interested in the way gestures are used, we will concentrate on the implementation of the <tt>ImageWidget</tt> class.</p>
+<a name="imagewidget-class-definition"></a>
+<h2>ImageWidget Class Definition</h2>
+<p>The <tt>ImageWidget</tt> class is a simple <a href="qwidget.html">QWidget</a> subclass that reimplements the general <a href="qwidget.html#event">QWidget::event</a>() handler function in addition to several more specific event handlers:</p>
+<pre class="cpp"> <span class="keyword">class</span> ImageWidget : <span class="keyword">public</span> <span class="type"><a href="qwidget.html">QWidget</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="type">void</span> openDirectory(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>path);
+
+ <span class="keyword">protected</span>:
+     <span class="type">bool</span> event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> paintEvent(<span class="type"><a href="qpaintevent.html">QPaintEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> mouseDoubleClickEvent(<span class="type"><a href="qmouseevent.html">QMouseEvent</a></span> <span class="operator">*</span>event);
+
+ <span class="keyword">private</span>:
+     <span class="type">bool</span> gestureEvent(<span class="type"><a href="qgestureevent.html">QGestureEvent</a></span> <span class="operator">*</span>event);
+     <span class="type">void</span> panTriggered(<span class="type"><a href="qpangesture.html">QPanGesture</a></span><span class="operator">*</span>);
+     <span class="type">void</span> pinchTriggered(<span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span><span class="operator">*</span>);
+     <span class="type">void</span> swipeTriggered(<span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">*</span>);
+     ...
+ };</pre>
+<p>We also implement a private helper function, <tt>gestureEvent()</tt>, to help manage gesture events delivered to the widget, and three functions to perform actions based on gestures: <tt>panTriggered()</tt>, <tt>pinchTriggered()</tt> and <tt>swipeTriggered()</tt>.</p>
+<a name="imagewidget-class-implementation"></a>
+<h2>ImageWidget Class Implementation</h2>
+<p>In the widget's constructor, we begin by setting up various parameters that will be used to control the way images are displayed.</p>
+<pre class="cpp"> ImageWidget<span class="operator">::</span>ImageWidget(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)<span class="operator">,</span>
+     position(<span class="number">0</span>)<span class="operator">,</span>
+     horizontalOffset(<span class="number">0</span>)<span class="operator">,</span>
+     verticalOffset(<span class="number">0</span>)<span class="operator">,</span>
+     rotationAngle(<span class="number">0</span>)<span class="operator">,</span>
+     scaleFactor(<span class="number">1</span>)<span class="operator">,</span>
+     currentStepScaleFactor(<span class="number">1</span>)
+
+ {
+     setMinimumSize(<span class="type"><a href="qsize.html">QSize</a></span>(<span class="number">100</span><span class="operator">,</span><span class="number">100</span>));
+
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture);
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture);
+     grabGesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture);
+ }</pre>
+<p>We enable three of the standard gestures for the widget by calling <a href="qwidget.html#grabGesture">QWidget::grabGesture</a>() with the types of gesture we need. These will be recognized by the application's default gesture recognizer, and events will be delivered to our widget.</p>
+<p>Since <a href="qwidget.html">QWidget</a> does not define a specific event handler for gestures, the widget needs to reimplement the general <a href="qwidget.html#event">QWidget::event</a>() to receive gesture events.</p>
+<pre class="cpp"> <span class="type">bool</span> ImageWidget<span class="operator">::</span>event(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (event<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>Gesture)
+         <span class="keyword">return</span> gestureEvent(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qgestureevent.html">QGestureEvent</a></span><span class="operator">*</span><span class="operator">&gt;</span>(event));
+     <span class="keyword">return</span> <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>event(event);
+ }</pre>
+<p>We implement the event handler to delegate gesture events to a private function specifically written for the task, and pass all other events to <a href="qwidget.html">QWidget</a>'s implementation.</p>
+<p>The <tt>gestureHandler()</tt> function examines the gestures supplied by the newly-delivered <a href="qgestureevent.html">QGestureEvent</a>. Since only one gesture of a given type can be used on a widget at any particular time, we can check for each gesture type using the <a href="qgestureevent.html#gesture">QGestureEvent::gesture</a>() function:</p>
+<pre class="cpp"> <span class="type">bool</span> ImageWidget<span class="operator">::</span>gestureEvent(<span class="type"><a href="qgestureevent.html">QGestureEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>swipe <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>SwipeGesture))
+         swipeTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(swipe));
+     <span class="keyword">else</span> <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pan <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PanGesture))
+         panTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qpangesture.html">QPanGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(pan));
+     <span class="keyword">if</span> (<span class="type"><a href="qgesture.html">QGesture</a></span> <span class="operator">*</span>pinch <span class="operator">=</span> event<span class="operator">-</span><span class="operator">&gt;</span>gesture(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>PinchGesture))
+         pinchTriggered(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qpinchgesture.html">QPinchGesture</a></span> <span class="operator">*</span><span class="operator">&gt;</span>(pinch));
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+<p>If a <a href="qgesture.html">QGesture</a> object is supplied for a certain type of gesture, we call a special purpose function to deal with it, casting the gesture object to the appropriate <a href="qgesture.html">QGesture</a> subclass.</p>
+<p>To illustrate how a standard gesture can be interpreted by an application, we show the implementation of the <tt>swipeTriggered()</tt> function, which handles the gesture associated with a brushing or swiping motion on the user's display or input device:</p>
+<pre class="cpp"> <span class="type">void</span> ImageWidget<span class="operator">::</span>swipeTriggered(<span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span> <span class="operator">*</span>gesture)
+ {
+     <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>state() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>GestureFinished) {
+         <span class="keyword">if</span> (gesture<span class="operator">-</span><span class="operator">&gt;</span>horizontalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Left
+             <span class="operator">|</span><span class="operator">|</span> gesture<span class="operator">-</span><span class="operator">&gt;</span>verticalDirection() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qswipegesture.html">QSwipeGesture</a></span><span class="operator">::</span>Up)
+             goPrevImage();
+         <span class="keyword">else</span>
+             goNextImage();
+         update();
+     }
+ }</pre>
+<p>The <a href="qswipegesture.html">QSwipeGesture</a> class provides specialized functions and defines a enum to make it more convenient for developers to discover which direction, if any, the user swiped the display. Here, we simply navigate to the previous image in the collection if the user swiped upwards or to the left; otherwise we navigate to the next image in the collection.</p>
+<p>The other gestures are also handled by special purpose functions, but use the values of properties held by the <a href="qgesture.html">QGesture</a> object passed to them.</p>
+</div>
+<!-- @@@gestures/imagegestures -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

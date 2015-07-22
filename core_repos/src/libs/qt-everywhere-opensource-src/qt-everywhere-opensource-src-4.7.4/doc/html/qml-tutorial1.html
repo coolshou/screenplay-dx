@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- tutorial.qdoc -->
+  <title>Qt 4.7: QML Tutorial 1 - Basic Types</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>QML Tutorial 1 - Basic Types</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="qml-tutorial.html" />
+  <link rel="next" href="qml-tutorial2.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qml-tutorial.html">QML Tutorial</a>]
+[Next: <a href="qml-tutorial2.html">QML Tutorial 2 - QML Components</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#walkthrough">Walkthrough</a></li>
+<li class="level2"><a href="#import">Import</a></li>
+<li class="level2"><a href="#rectangle-element">Rectangle element</a></li>
+<li class="level2"><a href="#text-element">Text element</a></li>
+<li class="level2"><a href="#viewing-the-example">Viewing the example</a></li>
+</ul>
+</div>
+<h1 class="title">QML Tutorial 1 - Basic Types</h1>
+<span class="subtitle"></span>
+<!-- $$$qml-tutorial1.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This first program is a very simple &quot;Hello world&quot; example that introduces some basic QML concepts. The picture below is a screenshot of this program.</p>
+<p class="centerAlign"><img src="images/declarative-tutorial1.png" /></p><p>Here is the QML code for the application:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">page</span>
+     <span class="name">width</span>: <span class="number">500</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="name">color</span>: <span class="string">&quot;lightgray&quot;</span>
+
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">helloText</span>
+         <span class="name">text</span>: <span class="string">&quot;Hello world!&quot;</span>
+         <span class="name">y</span>: <span class="number">30</span>
+         <span class="name">anchors</span>.horizontalCenter: <span class="name">page</span>.<span class="name">horizontalCenter</span>
+         <span class="name">font</span>.pointSize: <span class="number">24</span>; <span class="name">font</span>.bold: <span class="number">true</span>
+     }
+ }</pre>
+<a name="walkthrough"></a>
+<h2>Walkthrough</h2>
+<a name="import"></a>
+<h3>Import</h3>
+<p>First, we need to import the types that we need for this example. Most QML files will import the built-in QML types (like <a href="qml-rectangle.html">Rectangle</a>, <a href="qml-image.html">Image</a>, ..&#x2e;) that come with Qt, using:</p>
+<pre class="qml"> import QtQuick 1.0</pre>
+<a name="rectangle-element"></a>
+<h3>Rectangle element</h3>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">page</span>
+     <span class="name">width</span>: <span class="number">500</span>; <span class="name">height</span>: <span class="number">200</span>
+     <span class="name">color</span>: <span class="string">&quot;lightgray&quot;</span></pre>
+<p>We declare a root element of type <a href="qml-rectangle.html">Rectangle</a>. It is one of the basic building blocks you can use to create an application in QML. We give it an <tt>id</tt> to be able to refer to it later. In this case, we call it &quot;page&quot;. We also set the <tt>width</tt>, <tt>height</tt> and <tt>color</tt> properties. The <a href="qml-rectangle.html">Rectangle</a> element contains many other properties (such as <tt>x</tt> and <tt>y</tt>), but these are left at their default values.</p>
+<a name="text-element"></a>
+<h3>Text element</h3>
+<pre class="qml">     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">helloText</span>
+         <span class="name">text</span>: <span class="string">&quot;Hello world!&quot;</span>
+         <span class="name">y</span>: <span class="number">30</span>
+         <span class="name">anchors</span>.horizontalCenter: <span class="name">page</span>.<span class="name">horizontalCenter</span>
+         <span class="name">font</span>.pointSize: <span class="number">24</span>; <span class="name">font</span>.bold: <span class="number">true</span>
+     }</pre>
+<p>We add a <a href="qml-text.html">Text</a> element as a child of the root Rectangle element that displays the text 'Hello world!'.</p>
+<p>The <tt>y</tt> property is used to position the text vertically at 30 pixels from the top of its parent.</p>
+<p>The <tt>anchors.horizontalCenter</tt> property refers to the horizontal center of an element. In this case, we specify that our text element should be horizontally centered in the <i>page</i> element (see <a href="qml-anchor-layout.html#anchor-layout">Anchor-Based Layout</a>).</p>
+<p>The <tt>font.pointSize</tt> and <tt>font.bold</tt> properties are related to fonts and use the <a href="qdeclarativeintroduction.html#dot-properties">dot notation</a>.</p>
+<a name="viewing-the-example"></a>
+<h3>Viewing the example</h3>
+<p>To view what you have created, run the <a href="qmlviewer.html">QML Viewer</a> tool (located in the <tt>bin</tt> directory) with your filename as the first argument. For example, to run the provided completed Tutorial 1 example from the install location, you would type:</p>
+<pre class="cpp"> bin<span class="operator">/</span>qmlviewer $QTDIR<span class="operator">/</span>examples<span class="operator">/</span>declarative<span class="operator">/</span>tutorials<span class="operator">/</span>helloworld<span class="operator">/</span>tutorial1<span class="operator">.</span>qml</pre>
+</div>
+<!-- @@@qml-tutorial1.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="qml-tutorial.html">QML Tutorial</a>]
+[Next: <a href="qml-tutorial2.html">QML Tutorial 2 - QML Components</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

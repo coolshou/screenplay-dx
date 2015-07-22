@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qpainter.cpp -->
+  <title>Qt 4.7: PixmapFragment Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>PixmapFragment</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-variables">Public Variables</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">PixmapFragment Class Reference</h1>
+<span class="small-subtitle">(QPainter::PixmapFragment)<br/></span>
+<!-- $$$PixmapFragment-brief -->
+<p>This class is used in conjunction with the <a href="qpainter.html#drawPixmapFragments">QPainter::drawPixmapFragments</a>() function to specify how a pixmap, or sub-rect of a pixmap, is drawn. <a href="#details">More...</a></p>
+<!-- @@@PixmapFragment -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;<a href="qpainter.html">QPainter</a>&gt;</span></pre><p>This class was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qpainter-pixmapfragment-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-variables"></a>
+<h2>Public Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#height-var">height</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#opacity-var">opacity</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#rotation-var">rotation</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#scaleX-var">scaleX</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#scaleY-var">scaleY</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#sourceLeft-var">sourceLeft</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#sourceTop-var">sourceTop</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#width-var">width</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#x-var">x</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#y-var">y</a></b></td></tr>
+</table>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> PixmapFragment </td><td class="memItemRight bottomAlign"><b><a href="qpainter-pixmapfragment.html#create">create</a></b> ( const QPointF &amp; <i>pos</i>, const QRectF &amp; <i>sourceRect</i>, qreal <i>scaleX</i> = 1, qreal <i>scaleY</i> = 1, qreal <i>rotation</i> = 0, qreal <i>opacity</i> = 1 )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$PixmapFragment-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>This class is used in conjunction with the <a href="qpainter.html#drawPixmapFragments">QPainter::drawPixmapFragments</a>() function to specify how a pixmap, or sub-rect of a pixmap, is drawn.</p>
+<p>The <i>sourceLeft</i>, <i>sourceTop</i>, <i>width</i> and <i>height</i> variables are used as a source rectangle within the pixmap passed into the <a href="qpainter.html#drawPixmapFragments">QPainter::drawPixmapFragments</a>() function. The variables <i>x</i>, <i>y</i>, <i>width</i> and <i>height</i> are used to calculate the target rectangle that is drawn. <i>x</i> and <i>y</i> denotes the center of the target rectangle. The <i>width</i> and <i>height</i> in the target rectangle is scaled by the <i>scaleX</i> and <i>scaleY</i> values. The resulting target rectangle is then rotated <i>rotation</i> degrees around the <i>x</i>, <i>y</i> center point.</p>
+</div>
+<p><b>See also </b><a href="qpainter.html#drawPixmapFragments">QPainter::drawPixmapFragments</a>().</p>
+<!-- @@@PixmapFragment -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$create[overload1]$$$createconstQPointF&constQRectF&qrealqrealqrealqreal -->
+<h3 class="fn"><a name="create"></a><span class="type">PixmapFragment</span> PixmapFragment::<span class="name">create</span> ( const <span class="type"><a href="qpointf.html">QPointF</a></span> &amp; <i>pos</i>, const <span class="type"><a href="qrectf.html">QRectF</a></span> &amp; <i>sourceRect</i>, <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>scaleX</i> = 1, <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>scaleY</i> = 1, <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>rotation</i> = 0, <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>opacity</i> = 1 )<tt> [static]</tt></h3>
+<p>This is a convenience function that returns a <a href="qpainter-pixmapfragment.html">QPainter::PixmapFragment</a> that is initialized with the <i>pos</i>, <i>sourceRect</i>, <i>scaleX</i>, <i>scaleY</i>, <i>rotation</i>, <i>opacity</i> parameters.</p>
+<p>This function was introduced in Qt 4.7.</p>
+<!-- @@@create -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$height -->
+<h3 class="fn"><a name="height-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">height</span></h3>
+<p>This variable holds the height of the source rectangle and is used to calculate the height of the target rectangle.</p>
+<!-- @@@height -->
+<!-- $$$opacity -->
+<h3 class="fn"><a name="opacity-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">opacity</span></h3>
+<p>This variable holds the opacity of the target rectangle, where 0.0 is fully transparent and 1.0 is fully opaque.</p>
+<!-- @@@opacity -->
+<!-- $$$rotation -->
+<h3 class="fn"><a name="rotation-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">rotation</span></h3>
+<p>This variable holds the rotation of the target rectangle in degrees. The target rectangle is rotated after it has been scaled.</p>
+<!-- @@@rotation -->
+<!-- $$$scaleX -->
+<h3 class="fn"><a name="scaleX-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">scaleX</span></h3>
+<p>This variable holds the horizontal scale of the target rectangle.</p>
+<!-- @@@scaleX -->
+<!-- $$$scaleY -->
+<h3 class="fn"><a name="scaleY-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">scaleY</span></h3>
+<p>This variable holds the vertical scale of the target rectangle.</p>
+<!-- @@@scaleY -->
+<!-- $$$sourceLeft -->
+<h3 class="fn"><a name="sourceLeft-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">sourceLeft</span></h3>
+<p>This variable holds the left coordinate of the source rectangle.</p>
+<!-- @@@sourceLeft -->
+<!-- $$$sourceTop -->
+<h3 class="fn"><a name="sourceTop-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">sourceTop</span></h3>
+<p>This variable holds the top coordinate of the source rectangle.</p>
+<!-- @@@sourceTop -->
+<!-- $$$width -->
+<h3 class="fn"><a name="width-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">width</span></h3>
+<p>This variable holds the width of the source rectangle and is used to calculate the width of the target rectangle.</p>
+<!-- @@@width -->
+<!-- $$$x -->
+<h3 class="fn"><a name="x-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">x</span></h3>
+<p>This variable holds the x coordinate of center point in the target rectangle.</p>
+<!-- @@@x -->
+<!-- $$$y -->
+<h3 class="fn"><a name="y-var"></a><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> PixmapFragment::<span class="name">y</span></h3>
+<p>This variable holds the y coordinate of the center point in the target rectangle.</p>
+<!-- @@@y -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

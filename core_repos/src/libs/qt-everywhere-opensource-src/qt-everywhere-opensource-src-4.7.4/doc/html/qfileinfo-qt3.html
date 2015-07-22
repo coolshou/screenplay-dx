@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qfileinfo.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QFileInfo</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QFileInfo</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QFileInfo</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qfileinfo.html">QFileInfo class reference</a></li></ul></p>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#Permission-enum">Permission</a></b> { ReadOwner, WriteOwner, ExeOwner, ReadUser, ..., ExeOther }</td></tr>
+</table>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#absFilePath">absFilePath</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#baseName-2">baseName</a></b> ( bool <i>complete</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#convertToAbs">convertToAbs</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QDir </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#dir-2">dir</a></b> ( bool <i>absPath</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#dirPath">dirPath</a></b> ( bool <i>absPath</i> = false ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#extension">extension</a></b> ( bool <i>complete</i> = true ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qfileinfo-qt3.html#permission-2">permission</a></b> ( PermissionSpec <i>permissions</i> ) const</td></tr>
+</table>
+<h2>Member Type Documentation</h2>
+<!-- $$$Permission$$$ReadOwner$$$WriteOwner$$$ExeOwner$$$ReadUser$$$WriteUser$$$ExeUser$$$ReadGroup$$$WriteGroup$$$ExeGroup$$$ReadOther$$$WriteOther$$$ExeOther -->
+<h3 class="flags"><a name="Permission-enum"></a>enum QFileInfo::<span class="name">Permission</span><br/>flags QFileInfo::<span class="name">PermissionSpec</span></h3>
+<table class="valuelist"><tr><th class="tblConst">Constant</th><th class="tblVal">Value</th></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ReadOwner</tt></td><td class="topAlign"><tt>QFile::ReadOwner</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::WriteOwner</tt></td><td class="topAlign"><tt>QFile::WriteOwner</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ExeOwner</tt></td><td class="topAlign"><tt>QFile::ExeOwner</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ReadUser</tt></td><td class="topAlign"><tt>QFile::ReadUser</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::WriteUser</tt></td><td class="topAlign"><tt>QFile::WriteUser</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ExeUser</tt></td><td class="topAlign"><tt>QFile::ExeUser</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ReadGroup</tt></td><td class="topAlign"><tt>QFile::ReadGroup</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::WriteGroup</tt></td><td class="topAlign"><tt>QFile::WriteGroup</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ExeGroup</tt></td><td class="topAlign"><tt>QFile::ExeGroup</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ReadOther</tt></td><td class="topAlign"><tt>QFile::ReadOther</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::WriteOther</tt></td><td class="topAlign"><tt>QFile::WriteOther</tt></td></tr>
+<tr><td class="topAlign"><tt>QFileInfo::ExeOther</tt></td><td class="topAlign"><tt>QFile::ExeOther</tt></td></tr>
+</table>
+<p>The PermissionSpec type is a typedef for <a href="qflags.html">QFlags</a>&lt;Permission&gt;. It stores an OR combination of Permission values.</p>
+<!-- @@@Permission -->
+<h2>Member Function Documentation</h2>
+<!-- $$$absFilePath[overload1]$$$absFilePath -->
+<h3 class="fn"><a name="absFilePath"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">absFilePath</span> () const</h3>
+<p>Use <a href="qfileinfo.html#absoluteFilePath">absoluteFilePath</a>() instead.</p>
+<!-- @@@absFilePath -->
+<!-- $$$baseName$$$baseNamebool -->
+<h3 class="fn"><a name="baseName-2"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">baseName</span> ( <span class="type">bool</span> <i>complete</i> )</h3>
+<p>Use <a href="qfileinfo.html#completeBaseName">completeBaseName</a>() or the <a href="qfileinfo.html#baseName">baseName</a>() overload that takes no parameters instead.</p>
+<!-- @@@baseName -->
+<!-- $$$convertToAbs[overload1]$$$convertToAbs -->
+<h3 class="fn"><a name="convertToAbs"></a><span class="type">bool</span> QFileInfo::<span class="name">convertToAbs</span> ()</h3>
+<p>Use <a href="qfileinfo.html#makeAbsolute">makeAbsolute</a>() instead.</p>
+<!-- @@@convertToAbs -->
+<!-- $$$dir$$$dirbool -->
+<h3 class="fn"><a name="dir-2"></a><span class="type"><a href="qdir.html">QDir</a></span> QFileInfo::<span class="name">dir</span> ( <span class="type">bool</span> <i>absPath</i> ) const</h3>
+<p>Use <a href="qfileinfo.html#absoluteDir">absoluteDir</a>() or the <a href="qfileinfo.html#dir">dir</a>() overload that takes no parameters instead.</p>
+<!-- @@@dir -->
+<!-- $$$dirPath[overload1]$$$dirPathbool -->
+<h3 class="fn"><a name="dirPath"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">dirPath</span> ( <span class="type">bool</span> <i>absPath</i> = false ) const</h3>
+<p>Use <a href="qfileinfo.html#absolutePath">absolutePath</a>() if the absolute path is wanted (<i>absPath</i> is true) or <a href="qfileinfo.html#pathx">path</a>() if it's not necessary (<i>absPath</i> is false).</p>
+<!-- @@@dirPath -->
+<!-- $$$extension[overload1]$$$extensionbool -->
+<h3 class="fn"><a name="extension"></a><span class="type"><a href="qstring.html">QString</a></span> QFileInfo::<span class="name">extension</span> ( <span class="type">bool</span> <i>complete</i> = true ) const</h3>
+<p>Use <a href="qfileinfo.html#completeSuffix">completeSuffix</a>() or <a href="qfileinfo.html#suffix">suffix</a>() instead.</p>
+<!-- @@@extension -->
+<!-- $$$permission$$$permissionPermissionSpec -->
+<h3 class="fn"><a name="permission-2"></a><span class="type">bool</span> QFileInfo::<span class="name">permission</span> ( <span class="type"><a href="qfileinfo.html#Permission-enum">PermissionSpec</a></span> <i>permissions</i> ) const</h3>
+<p>Use <a href="qfileinfo.html#permission">permission</a>() instead.</p>
+<!-- @@@permission -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

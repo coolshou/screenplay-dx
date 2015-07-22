@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- platform-notes.qdoc -->
+  <title>Qt 4.7: Platform and Compiler Notes</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Platform and Compiler Notes</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#general-compiler-notes">General Compiler Notes</a></li>
+<li class="level2"><a href="#supported-features">Supported Features</a></li>
+<li class="level2"><a href="#gcc-3-4-6-debian-3-4-6-5-on-amd64-x86-64">GCC 3.4&#x2e;6 (Debian 3.4&#x2e;6-5) on AMD64 (x86_64)</a></li>
+<li class="level2"><a href="#gcc-4-0-0">GCC 4.0&#x2e;0</a></li>
+<li class="level2"><a href="#intel-c-compiler">Intel C++ Compiler</a></li>
+<li class="level1"><a href="#feedback-and-corrections">Feedback and Corrections</a></li>
+</ul>
+</div>
+<h1 class="title">Platform and Compiler Notes</h1>
+<span class="subtitle"></span>
+<!-- $$$platform-notes.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>This page contains information about the platforms Qt is currently known to run on, with links to platform-specific notes, including any known bugs or incompatibilities.</p>
+<p>Information about the combinations of platforms and compilers supported by Qt can be found on the <a href="supported-platforms.html">Supported Platforms</a> page.</p>
+<ul>
+<li><a href="platform-notes-x11.html">Platform and Compiler Notes - X11</a> </li>
+<li><a href="platform-notes-windows.html">Platform and Compiler Notes - Windows</a> </li>
+<li><a href="platform-notes-mac.html">Platform and Compiler Notes - Mac OS X</a> </li>
+<li><a href="platform-notes-symbian.html">Platform and Compiler Notes - Symbian</a> </li>
+<li><a href="platform-notes-embedded-linux.html">Platform and Compiler Notes - Embedded Linux</a> </li>
+<li><a href="platform-notes-windows-ce.html">Platform and Compiler Notes - Windows CE</a> </li>
+<li><a href="platform-notes-qnx.html">Platform and Compiler Notes - QNX</a> </li>
+<li><a href="platform-notes-vxworks.html">Platform and Compiler Notes - VxWorks</a> </li>
+</ul>
+<a name="general-compiler-notes"></a>
+<h2>General Compiler Notes</h2>
+<a name="supported-features"></a>
+<h3>Supported Features</h3>
+<p>Not all compilers used to build Qt are able to compile all modules. The following table shows the compiler support for five modules that are not uniformly available for all platforms and compilers.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Compiler</th><th  colspan="5">Features</th></tr>
+<tr class="qt-style"><th ></th><th >Concurrent</th><th >XmlPatterns</th><th >WebKit(*)</th><th >CLucene</th><th >Phonon</th></tr></thead>
+<tr valign="top" class="odd"><td >g++ 3.3</td><td ></td><td ><b>X</b></td><td ></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="even"><td >g++ 3.4 and up</td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="odd"><td >SunCC 5.5</td><td ></td><td ></td><td ></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="even"><td >aCC series 3</td><td ></td><td ></td><td ></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="odd"><td >aCC series 6</td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="even"><td >xlC 6</td><td ></td><td ></td><td ></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="odd"><td >Intel CC 10</td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="even"><td >MSVC 2003</td><td ><b>X</b></td><td ><b>X</b></td><td ></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+<tr valign="top" class="odd"><td >MSVC 2005 and up</td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td><td ><b>X</b></td></tr>
+</table>
+<p>* WebKit is only supported as a dynamically built library. Static linkage is not supported.</p>
+<a name="gcc-3-4-6-debian-3-4-6-5-on-amd64-x86-64"></a>
+<h3>GCC 3.4&#x2e;6 (Debian 3.4&#x2e;6-5) on AMD64 (x86_64)</h3>
+<p>This compiler is known to miscompile some parts of Qt when doing a release build. There are several workarounds:</p>
+<ol class="1">
+<li>Use a debug build instead.</li>
+<li>For each miscompilation encountered, recompile the file, removing the <tt>-O2</tt> option.</li>
+<li>Add <tt>-fno-gcse</tt> to the <a href="qmake-variable-reference.html#qmake-cxxflags-release">QMAKE_CXXFLAGS_RELEASE</a> qmake variable.</li>
+</ol>
+<a name="gcc-4-0-0"></a>
+<h3>GCC 4.0&#x2e;0</h3>
+<p>The released package of the compiler has some bugs that lead to miscompilations. We recommend using GCC 4.0&#x2e;1 or later, or to use a recent CVS snapshot of the GCC 4.0 branch. The version of GCC 4.0&#x2e;0 that is shipped with Mac OS X 10.4 &quot;Tiger&quot; is known to work with Qt for Mac OS X.</p>
+<a name="intel-c-compiler"></a>
+<h3>Intel C++ Compiler</h3>
+<p>Qt supports the Intel C++ compiler on both Windows and Linux. However, there are a few issues on Linux; see <a href="platform-notes-x11.html#intel-c-compiler-for-linux">Intel C++ Compiler for Linux</a> for details.</p>
+<a name="feedback-and-corrections"></a>
+<h2>Feedback and Corrections</h2>
+<p>If you have anything to add to this list or any of the platform or compiler-specific pages, please submit it via the <a href="http://bugreports.qt.nokia.com">Bug Report Form</a> or through the <a href="http://qt.gitorious.org">Public Qt Repository</a>.</p>
+</div>
+<!-- @@@platform-notes.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qhelpsearchengine.cpp -->
+  <title>Qt 4.7: QHelpSearchQuery Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qthelp.html">QtHelp</a></li>
+<li>QHelpSearchQuery</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QHelpSearchQuery Class Reference</h1>
+<!-- $$$QHelpSearchQuery-brief -->
+<p>The QHelpSearchQuery class contains the field name and the associated search term <a href="#details">More...</a></p>
+<!-- @@@QHelpSearchQuery -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QHelpSearchQuery&gt;</span></pre><p>This class was introduced in Qt 4.4.</p>
+<ul>
+<li><a href="qhelpsearchquery-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquery.html#FieldName-enum">FieldName</a></b> { DEFAULT, FUZZY, WITHOUT, PHRASE, ALL, ATLEAST }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquery.html#QHelpSearchQuery">QHelpSearchQuery</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qhelpsearchquery.html#QHelpSearchQuery-2">QHelpSearchQuery</a></b> ( FieldName <i>field</i>, const QStringList &amp; <i>wordList</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QHelpSearchQuery-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QHelpSearchQuery class contains the field name and the associated search term</p>
+<p>The QHelpSearchQuery class contains the field name and the associated search term. Depending on the field the search term might get split up into separate terms to be parsed differently by the search engine.</p>
+</div>
+<p><b>See also </b><a href="qhelpsearchquerywidget.html">QHelpSearchQueryWidget</a>.</p>
+<!-- @@@QHelpSearchQuery -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$FieldName$$$DEFAULT$$$FUZZY$$$WITHOUT$$$PHRASE$$$ALL$$$ATLEAST -->
+<h3 class="fn"><a name="FieldName-enum"></a>enum QHelpSearchQuery::<span class="name">FieldName</span></h3>
+<p>This enum type specifies the field names that are handled by the search engine.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::DEFAULT</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">the default field provided by the search widget, several terms should be split and stored in the word list except search terms enclosed in quotes.</td></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::FUZZY</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">a field only provided in use with clucene. Terms should be split in separate words and passed to the search engine.</td></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::WITHOUT</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">a field only provided in use with clucene. Terms should be split in separate words and passed to the search engine.</td></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::PHRASE</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">a field only provided in use with clucene. Terms should not be split in separate words.</td></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::ALL</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign">a field only provided in use with clucene. Terms should be split in separate words and passed to the search engine</td></tr>
+<tr><td class="topAlign"><tt>QHelpSearchQuery::ATLEAST</tt></td><td class="topAlign"><tt>5</tt></td><td class="topAlign">a field only provided in use with clucene. Terms should be split in separate words and passed to the search engine</td></tr>
+</table>
+<!-- @@@FieldName -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QHelpSearchQuery[overload1]$$$QHelpSearchQuery -->
+<h3 class="fn"><a name="QHelpSearchQuery"></a>QHelpSearchQuery::<span class="name">QHelpSearchQuery</span> ()</h3>
+<p>Constructs a new empty <a href="qhelpsearchquery.html">QHelpSearchQuery</a>.</p>
+<!-- @@@QHelpSearchQuery -->
+<!-- $$$QHelpSearchQuery$$$QHelpSearchQueryFieldNameconstQStringList& -->
+<h3 class="fn"><a name="QHelpSearchQuery-2"></a>QHelpSearchQuery::<span class="name">QHelpSearchQuery</span> ( <span class="type"><a href="qhelpsearchquery.html#FieldName-enum">FieldName</a></span> <i>field</i>, const <span class="type"><a href="qstringlist.html">QStringList</a></span> &amp; <i>wordList</i> )</h3>
+<p>Constructs a new <a href="qhelpsearchquery.html">QHelpSearchQuery</a> and initializes it with the given <i>field</i> and <i>wordList</i>.</p>
+<!-- @@@QHelpSearchQuery -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

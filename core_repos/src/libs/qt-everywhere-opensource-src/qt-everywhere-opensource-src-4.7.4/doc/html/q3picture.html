@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3picture.cpp -->
+  <title>Qt 4.7: Q3Picture Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3Picture</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3Picture Class Reference</h1>
+<!-- $$$Q3Picture-brief -->
+<p>The Q3Picture class is a paint device that records and replays <a href="q3painter.html">Q3Painter</a> commands. <a href="#details">More...</a></p>
+<!-- @@@Q3Picture -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3Picture&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html#qpicture">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="qpicture.html">QPicture</a>.</p>
+<ul>
+<li><a href="q3picture-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#Q3Picture">Q3Picture</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#Q3Picture-2">Q3Picture</a></b> ( const QPicture &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#load">load</a></b> ( QIODevice * <i>device</i>, const char * <i>format</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#load-2">load</a></b> ( const QString &amp; <i>fileName</i>, const char * <i>format</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#save">save</a></b> ( QIODevice * <i>device</i>, const char * <i>format</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3picture.html#save-2">save</a></b> ( const QString &amp; <i>fileName</i>, const char * <i>format</i> = 0 )</td></tr>
+</table>
+<ul>
+<li class="fn">12 public functions inherited from <a href="qpicture.html#public-functions">QPicture</a></li>
+<li class="fn">13 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 protected function inherited from <a href="qpaintdevice.html#protected-functions">QPaintDevice</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3Picture-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3Picture class is a paint device that records and replays <a href="q3painter.html">Q3Painter</a> commands.</p>
+<p>Q3Picture can also read and write SVG (Scalable Vector Graphics) files, a <a href="http://www.w3.org/Graphics/SVG/">W3C</a> XML format. Note that when using the <a href="q3picture.html#load">load</a>() and <a href="q3picture.html#save">save</a>() functions to read and write SVG files, the format must be specified.</p>
+</div>
+<p><b>See also </b><a href="qpicture.html">QPicture</a>.</p>
+<!-- @@@Q3Picture -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3Picture[overload1]$$$Q3Picture -->
+<h3 class="fn"><a name="Q3Picture"></a>Q3Picture::<span class="name">Q3Picture</span> ()</h3>
+<p>Constructs a <a href="q3picture.html" class="compat">Q3Picture</a>.</p>
+<!-- @@@Q3Picture -->
+<!-- $$$Q3Picture$$$Q3PictureconstQPicture& -->
+<h3 class="fn"><a name="Q3Picture-2"></a>Q3Picture::<span class="name">Q3Picture</span> ( const <span class="type"><a href="qpicture.html">QPicture</a></span> &amp; <i>other</i> )</h3>
+<p>Constructs a copy of <i>other</i>.</p>
+<!-- @@@Q3Picture -->
+<!-- $$$load[overload1]$$$loadQIODevice*constchar* -->
+<h3 class="fn"><a name="load"></a><span class="type">bool</span> Q3Picture::<span class="name">load</span> ( <span class="type"><a href="qiodevice.html">QIODevice</a></span> * <i>device</i>, const <span class="type">char</span> * <i>format</i> = 0 )</h3>
+<p>Loads the picture in the specified <i>format</i> from the given <i>device</i>. Returns true if the file is loaded successfully; otherwise returns false.</p>
+<p>Note that when using the load() function to read SVG files, the format must be specified. For example:</p>
+<pre class="cpp"> <span class="type"><a href="q3picture.html">Q3Picture</a></span> picture;
+ picture<span class="operator">.</span>load(<span class="string">&quot;drawing.svg&quot;</span><span class="operator">,</span> SVG);</pre>
+<p><b>See also </b><a href="q3picture.html#save">save</a>().</p>
+<!-- @@@load -->
+<!-- $$$load$$$loadconstQString&constchar* -->
+<h3 class="fn"><a name="load-2"></a><span class="type">bool</span> Q3Picture::<span class="name">load</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>fileName</i>, const <span class="type">char</span> * <i>format</i> = 0 )</h3>
+<p>This is an overloaded function.</p>
+<p>Loads the picture in the specified <i>format</i> from a file with the given <i>fileName</i>. Returns true if the file is loaded successfully; otherwise returns false.</p>
+<!-- @@@load -->
+<!-- $$$save[overload1]$$$saveQIODevice*constchar* -->
+<h3 class="fn"><a name="save"></a><span class="type">bool</span> Q3Picture::<span class="name">save</span> ( <span class="type"><a href="qiodevice.html">QIODevice</a></span> * <i>device</i>, const <span class="type">char</span> * <i>format</i> = 0 )</h3>
+<p>Saves the picture in the specified <i>format</i> to the given <i>device</i>. Returns true if the save is successful. Returns false if, for example, the picture is still being painted, i.e&#x2e;, <a href="qpainter.html#end">QPainter::end</a>() has not yet been called.</p>
+<p>Note that when using the save() function to save SVG files, the format must be specified. For example:</p>
+<pre class="cpp"> <span class="type"><a href="q3picture.html">Q3Picture</a></span> picture;
+ <span class="type"><a href="qpainter.html">QPainter</a></span> painter;
+ painter<span class="operator">.</span>begin(<span class="operator">&amp;</span>picture);           <span class="comment">// paint in picture</span>
+ <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+ painter<span class="operator">.</span>end();                     <span class="comment">// painting done</span>
+ picture<span class="operator">.</span>save(<span class="string">&quot;drawing.svg&quot;</span><span class="operator">,</span> SVG);  <span class="comment">// save picture</span></pre>
+<p><b>See also </b><a href="q3picture.html#load">load</a>().</p>
+<!-- @@@save -->
+<!-- $$$save$$$saveconstQString&constchar* -->
+<h3 class="fn"><a name="save-2"></a><span class="type">bool</span> Q3Picture::<span class="name">save</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>fileName</i>, const <span class="type">char</span> * <i>format</i> = 0 )</h3>
+<p>This is an overloaded function.</p>
+<p>Saves the picture in the specified <i>format</i> to the file with the given <i>fileName</i>.</p>
+<p><b>See also </b><a href="q3picture.html#load">load</a>().</p>
+<!-- @@@save -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

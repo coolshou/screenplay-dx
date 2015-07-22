@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: samegame.qml Example File (demos/declarative/samegame/samegame.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">samegame.qml Example File</h1>
+<span class="small-subtitle">demos/declarative/samegame/samegame.qml</span>
+<!-- $$$demos/declarative/samegame/samegame.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.1
+ import &quot;SamegameCore&quot;
+ import &quot;SamegameCore/samegame.js&quot; as Logic
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">screen</span>
+     <span class="name">width</span>: <span class="number">490</span>; <span class="name">height</span>: <span class="number">720</span>
+     property <span class="type">bool</span> <span class="name">inAnotherDemo</span>: <span class="number">false</span> <span class="comment">//Samegame often is just plonked straight into other demos</span>
+
+     <span class="type"><a href="qml-systempalette.html">SystemPalette</a></span> { <span class="name">id</span>: <span class="name">activePalette</span> }
+
+     <span class="type"><a href="qml-item.html">Item</a></span> {
+         <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+         <span class="type">anchors</span> { <span class="name">top</span>: <span class="name">parent</span>.<span class="name">top</span>; <span class="name">bottom</span>: <span class="name">toolBar</span>.<span class="name">top</span> }
+
+         <span class="type"><a href="qml-image.html">Image</a></span> {
+             <span class="name">id</span>: <span class="name">background</span>
+             <span class="name">anchors</span>.fill: <span class="name">parent</span>
+             <span class="name">source</span>: <span class="string">&quot;SamegameCore/pics/background.png&quot;</span>
+             <span class="name">fillMode</span>: <span class="name">Image</span>.<span class="name">PreserveAspectCrop</span>
+         }
+
+         <span class="type"><a href="qml-item.html">Item</a></span> {
+             <span class="name">id</span>: <span class="name">gameCanvas</span>
+             property <span class="type">int</span> <span class="name">score</span>: <span class="number">0</span>
+             property <span class="type">int</span> <span class="name">blockSize</span>: <span class="number">40</span>
+
+             <span class="name">z</span>: <span class="number">20</span>; <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+             <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span> <span class="operator">-</span> (<span class="name">parent</span>.<span class="name">width</span> <span class="operator">%</span> <span class="name">blockSize</span>);
+             <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span> <span class="operator">-</span> (<span class="name">parent</span>.<span class="name">height</span> <span class="operator">%</span> <span class="name">blockSize</span>);
+
+             <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+                 <span class="name">anchors</span>.fill: <span class="name">parent</span>; <span class="name">onClicked</span>: <span class="name">Logic</span>.<span class="name">handleClick</span>(<span class="name">mouse</span>.<span class="name">x</span>,<span class="name">mouse</span>.<span class="name">y</span>);
+             }
+         }
+     }
+
+     <span class="type">Dialog</span> { <span class="name">id</span>: <span class="name">dialog</span>; <span class="name">anchors</span>.centerIn: <span class="name">parent</span>; <span class="name">z</span>: <span class="number">21</span> }
+
+     <span class="type">Dialog</span> {
+         <span class="name">id</span>: <span class="name">nameInputDialog</span>
+
+         property <span class="type">int</span> <span class="name">initialWidth</span>: <span class="number">0</span>
+         property <span class="type">alias</span> <span class="name">name</span>: <span class="name">nameInputText</span>.<span class="name">text</span>
+
+         <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+         <span class="name">z</span>: <span class="number">22</span>;
+
+         Behavior on <span class="name">width</span> {
+             <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> {}
+             <span class="name">enabled</span>: <span class="name">nameInputDialog</span>.<span class="name">initialWidth</span> <span class="operator">!=</span> <span class="number">0</span>
+         }
+
+         <span class="name">onClosed</span>: {
+             <span class="keyword">if</span> (<span class="name">nameInputText</span>.<span class="name">text</span> <span class="operator">!=</span> <span class="string">&quot;&quot;</span>)
+                 <span class="name">Logic</span>.<span class="name">saveHighScore</span>(<span class="name">nameInputText</span>.<span class="name">text</span>);
+         }
+         <span class="type"><a href="qml-text.html">Text</a></span> {
+             <span class="name">id</span>: <span class="name">dialogText</span>
+             <span class="type">anchors</span> { <span class="name">left</span>: <span class="name">nameInputDialog</span>.<span class="name">left</span>; <span class="name">leftMargin</span>: <span class="number">20</span>; <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span> }
+             <span class="name">text</span>: <span class="string">&quot;You won! Please enter your name: &quot;</span>
+         }
+         <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+             <span class="name">anchors</span>.fill: <span class="name">parent</span>
+             <span class="name">onClicked</span>: {
+                 <span class="keyword">if</span> (<span class="name">nameInputText</span>.<span class="name">text</span> <span class="operator">==</span> <span class="string">&quot;&quot;</span>)
+                     <span class="name">nameInputText</span>.<span class="name">openSoftwareInputPanel</span>();
+                 else
+                     <span class="name">nameInputDialog</span>.<span class="name">forceClose</span>();
+             }
+         }
+
+         <span class="type"><a href="qml-textinput.html">TextInput</a></span> {
+             <span class="name">id</span>: <span class="name">nameInputText</span>
+             <span class="type">anchors</span> { <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span>; <span class="name">left</span>: <span class="name">dialogText</span>.<span class="name">right</span> }
+             <span class="name">focus</span>: <span class="name">visible</span>
+             <span class="name">autoScroll</span>: <span class="number">false</span>
+             <span class="name">maximumLength</span>: <span class="number">24</span>
+             <span class="name">onTextChanged</span>: {
+                 var <span class="name">newWidth</span> = <span class="name">nameInputText</span>.<span class="name">width</span> <span class="operator">+</span> <span class="name">dialogText</span>.<span class="name">width</span> <span class="operator">+</span> <span class="number">40</span>;
+                 <span class="keyword">if</span> ( (<span class="name">newWidth</span> <span class="operator">&gt;</span> <span class="name">nameInputDialog</span>.<span class="name">width</span> <span class="operator">&amp;&amp;</span> <span class="name">newWidth</span> <span class="operator">&lt;</span> <span class="name">screen</span>.<span class="name">width</span>)
+                         <span class="operator">||</span> (<span class="name">nameInputDialog</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">nameInputDialog</span>.<span class="name">initialWidth</span>) )
+                     <span class="name">nameInputDialog</span>.<span class="name">width</span> <span class="operator">=</span> <span class="name">newWidth</span>;
+             }
+             <span class="name">onAccepted</span>: {
+                 <span class="name">nameInputDialog</span>.<span class="name">forceClose</span>();
+             }
+         }
+     }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">toolBar</span>
+         <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>; <span class="name">height</span>: <span class="number">58</span>
+         <span class="name">color</span>: <span class="name">activePalette</span>.<span class="name">window</span>
+         <span class="name">anchors</span>.bottom: <span class="name">screen</span>.<span class="name">bottom</span>
+
+         <span class="type">Button</span> {
+             <span class="name">id</span>: <span class="name">newGameButton</span>
+             <span class="type">anchors</span> { <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>; <span class="name">leftMargin</span>: <span class="number">3</span>; <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span> }
+             <span class="name">text</span>: <span class="string">&quot;New Game&quot;</span>
+             <span class="name">onClicked</span>: <span class="name">Logic</span>.<span class="name">startNewGame</span>()
+         }
+
+         <span class="type">Button</span> {
+             <span class="name">visible</span>: !<span class="name">inAnotherDemo</span>
+             <span class="name">text</span>: <span class="string">&quot;Quit&quot;</span>
+             <span class="type">anchors</span> { <span class="name">left</span>: <span class="name">newGameButton</span>.<span class="name">right</span>; <span class="name">leftMargin</span>: <span class="number">3</span>; <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span> }
+             <span class="name">onClicked</span>: <span class="name">Qt</span>.<span class="name">quit</span>();
+         }
+
+         <span class="type"><a href="qml-text.html">Text</a></span> {
+             <span class="name">id</span>: <span class="name">score</span>
+             <span class="type">anchors</span> { <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>; <span class="name">rightMargin</span>: <span class="number">3</span>; <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span> }
+             <span class="name">text</span>: <span class="string">&quot;Score: &quot;</span> <span class="operator">+</span> <span class="name">gameCanvas</span>.<span class="name">score</span>
+             <span class="name">font</span>.bold: <span class="number">true</span>
+             <span class="name">font</span>.pixelSize: <span class="number">24</span>
+             <span class="name">color</span>: <span class="name">activePalette</span>.<span class="name">windowText</span>
+         }
+     }
+ }</pre>
+</div>
+<!-- @@@demos/declarative/samegame/samegame.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

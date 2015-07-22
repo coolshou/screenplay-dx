@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: main.cpp Example File (animation/moveblocks/main.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">main.cpp Example File</h1>
+<span class="small-subtitle">animation/moveblocks/main.cpp</span>
+<!-- $$$animation/moveblocks/main.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtCore module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &lt;QtCore&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+
+ <span class="keyword">class</span> StateSwitchEvent: <span class="keyword">public</span> <span class="type"><a href="qevent.html">QEvent</a></span>
+ {
+ <span class="keyword">public</span>:
+     StateSwitchEvent()
+         : <span class="type"><a href="qevent.html">QEvent</a></span>(Type(StateSwitchType))
+     {
+     }
+
+     StateSwitchEvent(<span class="type">int</span> rand)
+         : <span class="type"><a href="qevent.html">QEvent</a></span>(Type(StateSwitchType))<span class="operator">,</span>
+           m_rand(rand)
+     {
+     }
+
+     <span class="keyword">enum</span> { StateSwitchType <span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>User <span class="operator">+</span> <span class="number">256</span> };
+
+     <span class="type">int</span> rand() <span class="keyword">const</span> { <span class="keyword">return</span> m_rand; }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> m_rand;
+ };
+
+ <span class="keyword">class</span> <span class="type">QGraphicsRectWidget</span> : <span class="keyword">public</span> <span class="type"><a href="qgraphicswidget.html">QGraphicsWidget</a></span>
+ {
+ <span class="keyword">public</span>:
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span><span class="operator">,</span>
+                <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>)
+     {
+         painter<span class="operator">-</span><span class="operator">&gt;</span>fillRect(rect()<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>blue);
+     }
+ };
+
+ <span class="keyword">class</span> StateSwitchTransition: <span class="keyword">public</span> <span class="type"><a href="qabstracttransition.html">QAbstractTransition</a></span>
+ {
+ <span class="keyword">public</span>:
+     StateSwitchTransition(<span class="type">int</span> rand)
+         : <span class="type"><a href="qabstracttransition.html">QAbstractTransition</a></span>()<span class="operator">,</span>
+           m_rand(rand)
+     {
+     }
+
+ <span class="keyword">protected</span>:
+     <span class="keyword">virtual</span> <span class="type">bool</span> eventTest(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>event)
+     {
+         <span class="keyword">return</span> (event<span class="operator">-</span><span class="operator">&gt;</span>type() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qevent.html">QEvent</a></span><span class="operator">::</span>Type(StateSwitchEvent<span class="operator">::</span>StateSwitchType))
+             <span class="operator">&amp;</span><span class="operator">&amp;</span> (<span class="keyword">static_cast</span><span class="operator">&lt;</span>StateSwitchEvent <span class="operator">*</span><span class="operator">&gt;</span>(event)<span class="operator">-</span><span class="operator">&gt;</span>rand() <span class="operator">=</span><span class="operator">=</span> m_rand);
+     }
+
+     <span class="keyword">virtual</span> <span class="type">void</span> onTransition(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>) {}
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> m_rand;
+ };
+
+ <span class="keyword">class</span> StateSwitcher : <span class="keyword">public</span> <span class="type"><a href="qstate.html">QState</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     StateSwitcher(<span class="type"><a href="qstatemachine.html">QStateMachine</a></span> <span class="operator">*</span>machine)
+         : <span class="type"><a href="qstate.html">QState</a></span>(machine)<span class="operator">,</span> m_stateCount(<span class="number">0</span>)<span class="operator">,</span> m_lastIndex(<span class="number">0</span>)
+     { }
+
+     <span class="keyword">virtual</span> <span class="type">void</span> onEntry(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>)
+     {
+         <span class="type">int</span> n;
+         <span class="keyword">while</span> ((n <span class="operator">=</span> (qrand() <span class="operator">%</span> m_stateCount <span class="operator">+</span> <span class="number">1</span>)) <span class="operator">=</span><span class="operator">=</span> m_lastIndex)
+         { }
+         m_lastIndex <span class="operator">=</span> n;
+         machine()<span class="operator">-</span><span class="operator">&gt;</span>postEvent(<span class="keyword">new</span> StateSwitchEvent(n));
+     }
+     <span class="keyword">virtual</span> <span class="type">void</span> onExit(<span class="type"><a href="qevent.html">QEvent</a></span> <span class="operator">*</span>) {}
+
+     <span class="type">void</span> addState(<span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state<span class="operator">,</span> <span class="type"><a href="qabstractanimation.html">QAbstractAnimation</a></span> <span class="operator">*</span>animation) {
+         StateSwitchTransition <span class="operator">*</span>trans <span class="operator">=</span> <span class="keyword">new</span> StateSwitchTransition(<span class="operator">+</span><span class="operator">+</span>m_stateCount);
+         trans<span class="operator">-</span><span class="operator">&gt;</span>setTargetState(state);
+         addTransition(trans);
+         trans<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(animation);
+     }
+
+ <span class="keyword">private</span>:
+     <span class="type">int</span> m_stateCount;
+     <span class="type">int</span> m_lastIndex;
+ };
+
+ <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>createGeometryState(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>w1<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect1<span class="operator">,</span>
+                             <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>w2<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect2<span class="operator">,</span>
+                             <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>w3<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect3<span class="operator">,</span>
+                             <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>w4<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qrect.html">QRect</a></span> <span class="operator">&amp;</span>rect4<span class="operator">,</span>
+                             <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>parent)
+ {
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>result <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>(parent);
+     result<span class="operator">-</span><span class="operator">&gt;</span>assignProperty(w1<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span><span class="operator">,</span> rect1);
+     result<span class="operator">-</span><span class="operator">&gt;</span>assignProperty(w2<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span><span class="operator">,</span> rect2);
+     result<span class="operator">-</span><span class="operator">&gt;</span>assignProperty(w3<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span><span class="operator">,</span> rect3);
+     result<span class="operator">-</span><span class="operator">&gt;</span>assignProperty(w4<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span><span class="operator">,</span> rect4);
+
+     <span class="keyword">return</span> result;
+ }
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+ <span class="preprocessor">#if 0</span>
+     <span class="type"><a href="qwidget.html">QWidget</a></span> window;
+     <span class="type"><a href="qpalette.html">QPalette</a></span> palette;
+     palette<span class="operator">.</span>setBrush(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Window<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     window<span class="operator">.</span>setPalette(palette);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="string">&quot;A&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>window);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="string">&quot;B&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>window);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button3 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="string">&quot;C&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>window);
+     <span class="type"><a href="qpushbutton.html">QPushButton</a></span> <span class="operator">*</span>button4 <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpushbutton.html">QPushButton</a></span>(<span class="string">&quot;D&quot;</span><span class="operator">,</span> <span class="operator">&amp;</span>window);
+
+     button1<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;button1&quot;</span>);
+     button2<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;button2&quot;</span>);
+     button3<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;button3&quot;</span>);
+     button4<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;button4&quot;</span>);
+ <span class="preprocessor">#else</span>
+     <span class="type">QGraphicsRectWidget</span> <span class="operator">*</span>button1 <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QGraphicsRectWidget</span>;
+     <span class="type">QGraphicsRectWidget</span> <span class="operator">*</span>button2 <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QGraphicsRectWidget</span>;
+     <span class="type">QGraphicsRectWidget</span> <span class="operator">*</span>button3 <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QGraphicsRectWidget</span>;
+     <span class="type">QGraphicsRectWidget</span> <span class="operator">*</span>button4 <span class="operator">=</span> <span class="keyword">new</span> <span class="type">QGraphicsRectWidget</span>;
+     button2<span class="operator">-</span><span class="operator">&gt;</span>setZValue(<span class="number">1</span>);
+     button3<span class="operator">-</span><span class="operator">&gt;</span>setZValue(<span class="number">2</span>);
+     button4<span class="operator">-</span><span class="operator">&gt;</span>setZValue(<span class="number">3</span>);
+     <span class="type"><a href="qgraphicsscene.html">QGraphicsScene</a></span> scene(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">300</span><span class="operator">,</span> <span class="number">300</span>);
+     scene<span class="operator">.</span>setBackgroundBrush(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>black);
+     scene<span class="operator">.</span>addItem(button1);
+     scene<span class="operator">.</span>addItem(button2);
+     scene<span class="operator">.</span>addItem(button3);
+     scene<span class="operator">.</span>addItem(button4);
+     <span class="type"><a href="qgraphicsview.html">QGraphicsView</a></span> window(<span class="operator">&amp;</span>scene);
+     window<span class="operator">.</span>setFrameStyle(<span class="number">0</span>);
+     window<span class="operator">.</span>setAlignment(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignLeft <span class="operator">|</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>AlignTop);
+     window<span class="operator">.</span>setHorizontalScrollBarPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ScrollBarAlwaysOff);
+     window<span class="operator">.</span>setVerticalScrollBarPolicy(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>ScrollBarAlwaysOff);
+ <span class="preprocessor">#endif</span>
+     <span class="type"><a href="qstatemachine.html">QStateMachine</a></span> machine;
+
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>group <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qstate.html">QState</a></span>();
+     group<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;group&quot;</span>);
+     <span class="type"><a href="qtimer.html">QTimer</a></span> timer;
+     timer<span class="operator">.</span>setInterval(<span class="number">1250</span>);
+     timer<span class="operator">.</span>setSingleShot(<span class="keyword">true</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>connect(group<span class="operator">,</span> SIGNAL(entered())<span class="operator">,</span> <span class="operator">&amp;</span>timer<span class="operator">,</span> SLOT(start()));
+
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state1;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state2;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state3;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state4;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state5;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state6;
+     <span class="type"><a href="qstate.html">QState</a></span> <span class="operator">*</span>state7;
+
+     state1 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">150</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">200</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state2 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">150</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">200</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state3 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">150</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state4 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">150</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state5 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">150</span><span class="operator">,</span> <span class="number">100</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">100</span><span class="operator">,</span> <span class="number">150</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">150</span><span class="operator">,</span> <span class="number">150</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state6 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">200</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">50</span><span class="operator">,</span> <span class="number">200</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">200</span><span class="operator">,</span> <span class="number">200</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     state7 <span class="operator">=</span> createGeometryState(button1<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button2<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button3<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">0</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  button4<span class="operator">,</span> <span class="type"><a href="qrect.html">QRect</a></span>(<span class="number">250</span><span class="operator">,</span> <span class="number">250</span><span class="operator">,</span> <span class="number">50</span><span class="operator">,</span> <span class="number">50</span>)<span class="operator">,</span>
+                                  group);
+     group<span class="operator">-</span><span class="operator">&gt;</span>setInitialState(state1);
+
+     <span class="type"><a href="qparallelanimationgroup.html">QParallelAnimationGroup</a></span> animationGroup;
+     <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span> <span class="operator">*</span>subGroup;
+
+     <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span> <span class="operator">*</span>anim <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(button4<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">1000</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setEasingCurve(<span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span><span class="operator">::</span>OutElastic);
+     animationGroup<span class="operator">.</span>addAnimation(anim);
+
+     subGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span>(<span class="operator">&amp;</span>animationGroup);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addPause(<span class="number">100</span>);
+     anim <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(button3<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">1000</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setEasingCurve(<span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span><span class="operator">::</span>OutElastic);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(anim);
+
+     subGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span>(<span class="operator">&amp;</span>animationGroup);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addPause(<span class="number">150</span>);
+     anim <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(button2<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">1000</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setEasingCurve(<span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span><span class="operator">::</span>OutElastic);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(anim);
+
+     subGroup <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qsequentialanimationgroup.html">QSequentialAnimationGroup</a></span>(<span class="operator">&amp;</span>animationGroup);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addPause(<span class="number">200</span>);
+     anim <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qpropertyanimation.html">QPropertyAnimation</a></span>(button1<span class="operator">,</span> <span class="string">&quot;geometry&quot;</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setDuration(<span class="number">1000</span>);
+     anim<span class="operator">-</span><span class="operator">&gt;</span>setEasingCurve(<span class="type"><a href="qeasingcurve.html">QEasingCurve</a></span><span class="operator">::</span>OutElastic);
+     subGroup<span class="operator">-</span><span class="operator">&gt;</span>addAnimation(anim);
+
+     StateSwitcher <span class="operator">*</span>stateSwitcher <span class="operator">=</span> <span class="keyword">new</span> StateSwitcher(<span class="operator">&amp;</span>machine);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(<span class="string">&quot;stateSwitcher&quot;</span>);
+     group<span class="operator">-</span><span class="operator">&gt;</span>addTransition(<span class="operator">&amp;</span>timer<span class="operator">,</span> SIGNAL(timeout())<span class="operator">,</span> stateSwitcher);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state1<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state2<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state3<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state4<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state5<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state6<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+     stateSwitcher<span class="operator">-</span><span class="operator">&gt;</span>addState(state7<span class="operator">,</span> <span class="operator">&amp;</span>animationGroup);
+
+     machine<span class="operator">.</span>addState(group);
+     machine<span class="operator">.</span>setInitialState(group);
+     machine<span class="operator">.</span>start();
+
+     window<span class="operator">.</span>resize(<span class="number">300</span><span class="operator">,</span> <span class="number">300</span>);
+     window<span class="operator">.</span>show();
+
+     qsrand(<span class="type"><a href="qtime.html">QTime</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">0</span>)<span class="operator">.</span>secsTo(<span class="type"><a href="qtime.html">QTime</a></span><span class="operator">::</span>currentTime()));
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }
+
+ <span class="preprocessor">#include &quot;main.moc&quot;</span></pre>
+</div>
+<!-- @@@animation/moveblocks/main.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- basictypes.qdoc -->
+  <title>Qt 4.7: QML Basic Type: variant</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">QML Basic Type: variant</h1>
+<span class="subtitle"></span>
+<!-- $$$variant-description -->
+<div class="descr"> <a name="details"></a>
+<p>A variant is a generic property type. A variant type property can hold any of the <a href="qdeclarativebasictypes.html">basic type</a> values:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">variant</span> <span class="name">aNumber</span>: <span class="number">100</span>
+     property <span class="type">variant</span> <span class="name">aString</span>: <span class="string">&quot;Hello world!&quot;</span>
+     property <span class="type">variant</span> <span class="name">aBool</span>: <span class="number">false</span>
+ }</pre>
+<p>The <tt>variant</tt> type can also hold:</p>
+<ul>
+<li>An array of <a href="qdeclarativebasictypes.html">basic type</a> values</li>
+<li>A map of key-value pairs with <a href="qdeclarativebasictypes.html">basic-type</a> values</li>
+</ul>
+<p>For example, below is an <tt>items</tt> array and an <tt>attributes</tt> map. Their contents can be examined using JavaScript <tt>for</tt> loops. Individual array values are accessible by index, and individual map values are accessible by key:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">variant</span> <span class="name">items</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&quot;four&quot;</span>, <span class="string">&quot;five&quot;</span>]
+     property <span class="type">variant</span> <span class="name">attributes</span>: { 'color': <span class="string">'red'</span>, 'width': 100 }
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">i</span>=<span class="number">0</span>; <span class="name">i</span><span class="operator">&lt;</span><span class="name">items</span>.<span class="name">length</span>; i++)
+             <span class="name">console</span>.<span class="name">log</span>(<span class="name">items</span>[<span class="name">i</span>])
+
+         <span class="keyword">for</span> (<span class="keyword">var</span> <span class="name">prop</span> in <span class="name">attributes</span>)
+             <span class="name">console</span>.<span class="name">log</span>(<span class="name">prop</span>, <span class="string">&quot;=&quot;</span>, <span class="name">attributes</span>[<span class="name">prop</span>])
+     }
+ }</pre>
+<p>While this is a convenient way to store array and map-type values, you must be aware that the <tt>items</tt> and <tt>attributes</tt> properties above are <i>not</i> QML objects (and certainly not JavaScript object either) and the key-value pairs in <tt>attributes</tt> are <i>not</i> QML properties. Rather, the <tt>items</tt> property holds an array of values, and <tt>attributes</tt> holds a set of key-value pairs. Since they are stored as a set of values, instead of as an object, their contents <i>cannot</i> be modified individually:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">variant</span> <span class="name">items</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">&quot;four&quot;</span>, <span class="string">&quot;five&quot;</span>]
+     property <span class="type">variant</span> <span class="name">attributes</span>: { 'color': <span class="string">'red'</span>, 'width': 100 }
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="name">items</span>[<span class="number">0</span>] <span class="operator">=</span> <span class="number">10</span>
+         <span class="name">console</span>.<span class="name">log</span>(<span class="name">items</span>[<span class="number">0</span>])     <span class="comment">// This will still be '1'!</span>
+         <span class="name">attributes</span>.<span class="name">color</span> <span class="operator">=</span> <span class="string">'blue'</span>
+         <span class="name">console</span>.<span class="name">log</span>(<span class="name">attributes</span>.<span class="name">color</span>)     <span class="comment">// This will still be 'red'!</span>
+     }
+ }</pre>
+<p>Additionally, since <tt>items</tt> and <tt>attributes</tt> are not QML objects, changing their individual values do not trigger property change notifications. If the above example had <tt>onNumberChanged</tt> or <tt>onAnimalChanged</tt> signal handlers, they would not have been called. If, however, the <tt>items</tt> or <tt>attributes</tt> properties themselves were reassigned to different values, then such handlers would be called.</p>
+<p>One way to &quot;update&quot; the contents of an array or map is to copy the property to a JavaScript object, modify the copy as desired, and then reassign the property to the updated copy. Note, however, that this is not efficient. In the example below, which reassigns the <tt>attributes</tt> property, the <i>entire</i> set of key-value pairs must be serialized and deserialized every time it is copied between a JavaScript object and a QML property:</p>
+<pre class="qml"> <span class="type"><a href="qml-item.html">Item</a></span> {
+     property <span class="type">variant</span> <span class="name">attributes</span>: { 'color': <span class="string">'red'</span>, 'width': 100 }
+
+     <span class="name">Component</span>.onCompleted: {
+         <span class="comment">// Change the value of attributes.color to 'blue':</span>
+         var <span class="name">temp</span> = <span class="name">attributes</span>     <span class="comment">// copy all values to 'temp'</span>
+         <span class="name">temp</span>.<span class="name">color</span> <span class="operator">=</span> <span class="string">'blue'</span>
+         <span class="name">attributes</span> <span class="operator">=</span> <span class="name">temp</span>         <span class="comment">// copy all values back to 'attributes'</span>
+     }
+ }</pre>
+<p>Since this operation is inefficient, if a list or map should be modifiable, it is better to use alternative approaches. For example, you could implement a custom C++ list element, or write to a JavaScript object defined from within a JavaScript file.</p>
+<p>JavaScript programmers should also note that when a JavaScript object is copied to an array or map property, the <i>contents</i> of the object (that is, its key-value properties) are copied, rather than the object itself. The property does not hold a reference to the original JavaScript object, and extra data such as the object's JavaScript prototype chain is also lost in the process.</p>
+</div>
+<p><b>See also </b><a href="qdeclarativebasictypes.html">QML Basic Types</a>.</p>
+<!-- @@@variant -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

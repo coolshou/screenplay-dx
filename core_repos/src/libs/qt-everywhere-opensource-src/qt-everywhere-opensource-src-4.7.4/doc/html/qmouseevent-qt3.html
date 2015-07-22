@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qevent.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QMouseEvent</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QMouseEvent</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QMouseEvent</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qmouseevent.html">QMouseEvent class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmouseevent-qt3.html#QMouseEvent-3">QMouseEvent</a></b> ( Type <i>type</i>, const QPoint &amp; <i>pos</i>, Qt::ButtonState <i>button</i>, int <i>state</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qmouseevent-qt3.html#QMouseEvent-4">QMouseEvent</a></b> ( Type <i>type</i>, const QPoint &amp; <i>pos</i>, const QPoint &amp; <i>globalPos</i>, Qt::ButtonState <i>button</i>, int <i>state</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::ButtonState </td><td class="memItemRight bottomAlign"><b><a href="qmouseevent-qt3.html#state">state</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::ButtonState </td><td class="memItemRight bottomAlign"><b><a href="qmouseevent-qt3.html#stateAfter">stateAfter</a></b> () const</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$QMouseEvent$$$QMouseEventTypeconstQPoint&Qt::ButtonStateint -->
+<h3 class="fn"><a name="QMouseEvent-3"></a>QMouseEvent::<span class="name">QMouseEvent</span> ( <span class="type"><a href="qevent.html#Type-enum">Type</a></span> <i>type</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i>, <span class="type"><a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a></span> <i>button</i>, <span class="type">int</span> <i>state</i> )</h3>
+<p>Use <a href="qmouseevent.html">QMouseEvent</a>(<i>type</i>, <i>pos</i>, <i>button</i>, <tt>buttons</tt>, <tt>modifiers</tt>) instead, where <tt>buttons</tt> is <i>state</i> &amp; <a href="qt.html#MouseButton-enum">Qt::MouseButtonMask</a> and <tt>modifiers</tt> is <i>state</i> &amp; <a href="qt-qt3.html#ButtonState_enum-enum">Qt::KeyButtonMask</a>.</p>
+<!-- @@@QMouseEvent -->
+<!-- $$$QMouseEvent$$$QMouseEventTypeconstQPoint&constQPoint&Qt::ButtonStateint -->
+<h3 class="fn"><a name="QMouseEvent-4"></a>QMouseEvent::<span class="name">QMouseEvent</span> ( <span class="type"><a href="qevent.html#Type-enum">Type</a></span> <i>type</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>globalPos</i>, <span class="type"><a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a></span> <i>button</i>, <span class="type">int</span> <i>state</i> )</h3>
+<p>Use <a href="qmouseevent.html">QMouseEvent</a>(<i>type</i>, <i>pos</i>, <i>globalPos</i>, <i>button</i>, <tt>buttons</tt>, <tt>modifiers</tt>) instead, where <tt>buttons</tt> is <i>state</i> &amp; <a href="qt.html#MouseButton-enum">Qt::MouseButtonMask</a> and <tt>modifiers</tt> is <i>state</i> &amp; <a href="qt-qt3.html#ButtonState_enum-enum">Qt::KeyButtonMask</a>.</p>
+<!-- @@@QMouseEvent -->
+<!-- $$$state[overload1]$$$state -->
+<h3 class="fn"><a name="state"></a><span class="type"><a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a></span> QMouseEvent::<span class="name">state</span> () const</h3>
+<p>Returns the button state immediately before the event was generated. The button state is a combination of mouse buttons (see <a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a>) and keyboard modifiers (<a href="qt.html#MouseButton-enum">Qt::MouseButtons</a>).</p>
+<p>Use <a href="qmouseevent.html#buttons">buttons</a>() and/or <a href="qinputevent.html#modifiers">modifiers</a>() instead. Be aware that <a href="qmouseevent.html#buttons">buttons</a>() return the state immediately <i>after</i> the event was generated.</p>
+<!-- @@@state -->
+<!-- $$$stateAfter[overload1]$$$stateAfter -->
+<h3 class="fn"><a name="stateAfter"></a><span class="type"><a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a></span> QMouseEvent::<span class="name">stateAfter</span> () const</h3>
+<p>Returns the button state immediately after the event was generated. The button state is a combination of mouse buttons (see <a href="qt-qt3.html#ButtonState-typedef">Qt::ButtonState</a>) and keyboard modifiers (<a href="qt.html#MouseButton-enum">Qt::MouseButtons</a>).</p>
+<p>Use <a href="qmouseevent.html#buttons">buttons</a>() and/or <a href="qinputevent.html#modifiers">modifiers</a>() instead.</p>
+<!-- @@@stateAfter -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

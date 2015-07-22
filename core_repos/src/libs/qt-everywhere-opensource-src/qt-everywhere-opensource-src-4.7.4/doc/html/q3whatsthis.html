@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3whatsthis.cpp -->
+  <title>Qt 4.7: Q3WhatsThis Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3WhatsThis</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3WhatsThis Class Reference</h1>
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3WhatsThis&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html#qwhatsthis">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<ul>
+<li><a href="q3whatsthis-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#Q3WhatsThis">Q3WhatsThis</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#dtor.Q3WhatsThis">~Q3WhatsThis</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual bool </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#clicked">clicked</a></b> ( const QString &amp; <i>href</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QString </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#text">text</a></b> ( const QPoint &amp; <i>pos</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#add">add</a></b> ( QWidget * <i>widget</i>, const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#display">display</a></b> ( const QString &amp; <i>text</i>, const QPoint &amp; <i>pos</i> = QCursor::pos(), QWidget * <i>widget</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#enterWhatsThisMode">enterWhatsThisMode</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#inWhatsThisMode">inWhatsThisMode</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#leaveWhatsThisMode">leaveWhatsThisMode</a></b> ( const QString &amp; <i>text</i> = QString(), const QPoint &amp; <i>pos</i> = QCursor::pos(), QWidget * <i>widget</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#remove">remove</a></b> ( QWidget * <i>widget</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QToolButton * </td><td class="memItemRight bottomAlign"><b><a href="q3whatsthis.html#whatsThisButton">whatsThisButton</a></b> ( QWidget * <i>parent</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3WhatsThis-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@Q3WhatsThis -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3WhatsThis[overload1]$$$Q3WhatsThisQWidget* -->
+<h3 class="fn"><a name="Q3WhatsThis"></a>Q3WhatsThis::<span class="name">Q3WhatsThis</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> )</h3>
+<p>Constructs a new &quot;What's This?&quot; object for <i>widget</i>.</p>
+<!-- @@@Q3WhatsThis -->
+<!-- $$$~Q3WhatsThis[overload1]$$$~Q3WhatsThis -->
+<h3 class="fn"><a name="dtor.Q3WhatsThis"></a>Q3WhatsThis::<span class="name">~Q3WhatsThis</span> ()</h3>
+<p>Destroys the &quot;What's This?&quot; object.</p>
+<!-- @@@~Q3WhatsThis -->
+<!-- $$$add[overload1]$$$addQWidget*constQString& -->
+<h3 class="fn"><a name="add"></a><span class="type">void</span> Q3WhatsThis::<span class="name">add</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i> )<tt> [static]</tt></h3>
+<p>Adds <i>text</i> as &quot;What's This?&quot; help for <i>widget</i>. If the text is rich text formatted (i.e&#x2e; it contains markup) it will be rendered with the default stylesheet QStyleSheet::defaultSheet().</p>
+<p>The text is destroyed if the widget is later destroyed, so it need not be explicitly removed.</p>
+<p><b>See also </b><a href="q3whatsthis.html#remove">remove</a>().</p>
+<!-- @@@add -->
+<!-- $$$clicked[overload1]$$$clickedconstQString& -->
+<h3 class="fn"><a name="clicked"></a><span class="type">bool</span> Q3WhatsThis::<span class="name">clicked</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>href</i> )<tt> [virtual]</tt></h3>
+<p>This virtual function is called when the user clicks inside the &quot;What's this?&quot; window. <i>href</i> is the link the user clicked on, or an empty string if there was no link.</p>
+<p>If the function returns true (the default), the &quot;What's this?&quot; window is closed, otherwise it remains visible.</p>
+<p>The default implementation ignores <i>href</i> and returns true.</p>
+<!-- @@@clicked -->
+<!-- $$$display[overload1]$$$displayconstQString&constQPoint&QWidget* -->
+<h3 class="fn"><a name="display"></a><span class="type">void</span> Q3WhatsThis::<span class="name">display</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i> = QCursor::pos(), <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> = 0 )<tt> [static]</tt></h3>
+<p>Display <i>text</i> in a help window at the global screen position <i>pos</i>.</p>
+<p>If widget <i>widget</i> is not 0 and has its own dedicated <a href="qwhatsthis.html">QWhatsThis</a> object, this object will receive <a href="q3whatsthis.html#clicked">clicked</a>() messages when the user clicks on hyperlinks inside the help text.</p>
+<p><b>See also </b><a href="q3whatsthis.html#clicked">clicked</a>().</p>
+<!-- @@@display -->
+<!-- $$$enterWhatsThisMode[overload1]$$$enterWhatsThisMode -->
+<h3 class="fn"><a name="enterWhatsThisMode"></a><span class="type">void</span> Q3WhatsThis::<span class="name">enterWhatsThisMode</span> ()<tt> [static]</tt></h3>
+<p>Enters &quot;What's This?&quot; mode and returns immediately.</p>
+<p>Qt will install a special cursor and take over mouse input until the user clicks somewhere. It then shows any help available and ends &quot;What's This?&quot; mode. Finally, Qt removes the special cursor and help window and then restores ordinary event processing, at which point the left mouse button is no longer pressed.</p>
+<p>The user can also use the Esc key to leave &quot;What's This?&quot; mode.</p>
+<p><b>See also </b><a href="q3whatsthis.html#inWhatsThisMode">inWhatsThisMode</a>() and <a href="q3whatsthis.html#leaveWhatsThisMode">leaveWhatsThisMode</a>().</p>
+<!-- @@@enterWhatsThisMode -->
+<!-- $$$inWhatsThisMode[overload1]$$$inWhatsThisMode -->
+<h3 class="fn"><a name="inWhatsThisMode"></a><span class="type">bool</span> Q3WhatsThis::<span class="name">inWhatsThisMode</span> ()<tt> [static]</tt></h3>
+<p>Returns true if the application is in &quot;What's This?&quot; mode; otherwise returns false.</p>
+<p><b>See also </b><a href="q3whatsthis.html#enterWhatsThisMode">enterWhatsThisMode</a>() and <a href="q3whatsthis.html#leaveWhatsThisMode">leaveWhatsThisMode</a>().</p>
+<!-- @@@inWhatsThisMode -->
+<!-- $$$leaveWhatsThisMode[overload1]$$$leaveWhatsThisModeconstQString&constQPoint&QWidget* -->
+<h3 class="fn"><a name="leaveWhatsThisMode"></a><span class="type">void</span> Q3WhatsThis::<span class="name">leaveWhatsThisMode</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i> = QString(), const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i> = QCursor::pos(), <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> = 0 )<tt> [static]</tt></h3>
+<p>This function is used internally by widgets that support QWidget::customWhatsThis(); applications do not usually call it. An example of such a widget is <a href="q3popupmenu.html" class="compat">Q3PopupMenu</a>: menus still work normally in &quot;What's This?&quot; mode but also provide help texts for individual menu items.</p>
+<p>If <i>text</i> is not empty, a &quot;What's This?&quot; help window is displayed at the global screen position <i>pos</i>. If widget <i>widget</i> is not 0 and has its own dedicated <a href="qwhatsthis.html">QWhatsThis</a> object, this object will receive <a href="q3whatsthis.html#clicked">clicked</a>() messages when the user clicks on hyperlinks inside the help text.</p>
+<p><b>See also </b><a href="q3whatsthis.html#inWhatsThisMode">inWhatsThisMode</a>(), <a href="q3whatsthis.html#enterWhatsThisMode">enterWhatsThisMode</a>(), and <a href="q3whatsthis.html#clicked">clicked</a>().</p>
+<!-- @@@leaveWhatsThisMode -->
+<!-- $$$remove[overload1]$$$removeQWidget* -->
+<h3 class="fn"><a name="remove"></a><span class="type">void</span> Q3WhatsThis::<span class="name">remove</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>widget</i> )<tt> [static]</tt></h3>
+<p>Removes the &quot;What's This?&quot; help associated with the <i>widget</i>. This happens automatically if the widget is destroyed.</p>
+<p><b>See also </b><a href="q3whatsthis.html#add">add</a>().</p>
+<!-- @@@remove -->
+<!-- $$$text[overload1]$$$textconstQPoint& -->
+<h3 class="fn"><a name="text"></a><span class="type"><a href="qstring.html">QString</a></span> Q3WhatsThis::<span class="name">text</span> ( const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i> )<tt> [virtual]</tt></h3>
+<p>This virtual function returns the text for position <i>pos</i> in the widget that this &quot;What's This?&quot; object documents. If there is no &quot;What's This?&quot; text for the position, an empty string is returned.</p>
+<p>The default implementation returns an empty string.</p>
+<!-- @@@text -->
+<!-- $$$whatsThisButton[overload1]$$$whatsThisButtonQWidget* -->
+<h3 class="fn"><a name="whatsThisButton"></a><span class="type"><a href="qtoolbutton.html">QToolButton</a></span> * Q3WhatsThis::<span class="name">whatsThisButton</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i> )<tt> [static]</tt></h3>
+<p>Creates a <a href="qtoolbutton.html">QToolButton</a> preconfigured to enter &quot;What's This?&quot; mode when clicked. You will often use this with a tool bar as <i>parent</i>:</p>
+<pre class="cpp"> (<span class="type">void</span>)<span class="type"><a href="q3whatsthis.html">Q3WhatsThis</a></span><span class="operator">::</span>whatsThisButton( my_help_tool_bar );</pre>
+<!-- @@@whatsThisButton -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

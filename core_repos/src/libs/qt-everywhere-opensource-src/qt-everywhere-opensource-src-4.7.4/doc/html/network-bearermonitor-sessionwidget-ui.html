@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: sessionwidget.ui Example File (network/bearermonitor/sessionwidget.ui)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">sessionwidget.ui Example File</h1>
+<span class="small-subtitle">network/bearermonitor/sessionwidget.ui</span>
+<!-- $$$network/bearermonitor/sessionwidget.ui-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;ui version=&quot;4.0&quot;&gt;
+  &lt;class&gt;SessionWidget&lt;/class&gt;
+  &lt;widget class=&quot;QWidget&quot; name=&quot;SessionWidget&quot;&gt;
+   &lt;property name=&quot;geometry&quot;&gt;
+    &lt;rect&gt;
+     &lt;x&gt;0&lt;/x&gt;
+     &lt;y&gt;0&lt;/y&gt;
+     &lt;width&gt;340&lt;/width&gt;
+     &lt;height&gt;276&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;windowTitle&quot;&gt;
+    &lt;string&gt;Session Details&lt;/string&gt;
+   &lt;/property&gt;
+   &lt;layout class=&quot;QVBoxLayout&quot; name=&quot;verticalLayout_2&quot;&gt;
+    &lt;item&gt;
+     &lt;layout class=&quot;QVBoxLayout&quot; name=&quot;verticalLayout&quot;&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;sessionIdLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;sessionIdLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Session ID:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;sessionId&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;sessionStateLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;sessionStateLabel&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;Preferred&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Session State:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;sessionState&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Invalid&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;configurationLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;configurationLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Configuration:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;configuration&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;bearerLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;bearerLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Bearer:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;bearer&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;interfaceNameLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;interfaceNameLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Interface Name:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;interfaceName&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;interfaceGuidLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;interfaceGuidLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Interface GUID:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;interfaceGuid&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;lastErrorLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;lastErrorLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Last Error:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;lastError&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;errorStringLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;errorStringLabel&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Error String:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;errorString&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string/&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;horizontalLayout_3&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;rxData&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;0&lt;/string&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;alignment&quot;&gt;
+           &lt;set&gt;Qt::AlignCenter&lt;/set&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;txData&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;0&lt;/string&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;alignment&quot;&gt;
+           &lt;set&gt;Qt::AlignCenter&lt;/set&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;horizontalLayout_4&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;label_3&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Active Time:&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QLabel&quot; name=&quot;activeTime&quot;&gt;
+          &lt;property name=&quot;sizePolicy&quot;&gt;
+           &lt;sizepolicy hsizetype=&quot;MinimumExpanding&quot; vsizetype=&quot;Preferred&quot;&gt;
+            &lt;horstretch&gt;0&lt;/horstretch&gt;
+            &lt;verstretch&gt;0&lt;/verstretch&gt;
+           &lt;/sizepolicy&gt;
+          &lt;/property&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;0 seconds&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;horizontalLayout&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QPushButton&quot; name=&quot;openSessionButton&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Open&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QPushButton&quot; name=&quot;openSyncSessionButton&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Blocking Open&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+       &lt;layout class=&quot;QHBoxLayout&quot; name=&quot;horizontalLayout_2&quot;&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QPushButton&quot; name=&quot;closeSessionButton&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Close&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+         &lt;widget class=&quot;QPushButton&quot; name=&quot;stopSessionButton&quot;&gt;
+          &lt;property name=&quot;text&quot;&gt;
+           &lt;string&gt;Stop&lt;/string&gt;
+          &lt;/property&gt;
+         &lt;/widget&gt;
+        &lt;/item&gt;
+       &lt;/layout&gt;
+      &lt;/item&gt;
+     &lt;/layout&gt;
+    &lt;/item&gt;
+   &lt;/layout&gt;
+  &lt;/widget&gt;
+  &lt;resources/&gt;
+  &lt;connections/&gt;
+ &lt;/ui&gt;</pre>
+</div>
+<!-- @@@network/bearermonitor/sessionwidget.ui -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

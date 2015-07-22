@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: BrowserView.cpp Example File (demos/embedded/anomaly/src/BrowserView.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">BrowserView.cpp Example File</h1>
+<span class="small-subtitle">demos/embedded/anomaly/src/BrowserView.cpp</span>
+<!-- $$$demos/embedded/anomaly/src/BrowserView.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the demos of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;BrowserView.h&quot;</span>
+
+ <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &lt;QtNetwork&gt;</span>
+ <span class="preprocessor">#include &lt;QtWebKit&gt;</span>
+
+ <span class="preprocessor">#include &quot;ControlStrip.h&quot;</span>
+ <span class="preprocessor">#include &quot;TitleBar.h&quot;</span>
+ <span class="preprocessor">#include &quot;flickcharm.h&quot;</span>
+ <span class="preprocessor">#include &quot;webview.h&quot;</span>
+ <span class="preprocessor">#include &quot;ZoomStrip.h&quot;</span>
+
+ BrowserView<span class="operator">::</span>BrowserView(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qwidget.html">QWidget</a></span>(parent)
+     <span class="operator">,</span> m_titleBar(<span class="number">0</span>)
+     <span class="operator">,</span> m_webView(<span class="number">0</span>)
+     <span class="operator">,</span> m_progress(<span class="number">0</span>)
+     <span class="operator">,</span> m_currentZoom(<span class="number">100</span>)
+ {
+     m_titleBar <span class="operator">=</span> <span class="keyword">new</span> TitleBar(<span class="keyword">this</span>);
+     m_webView <span class="operator">=</span> <span class="keyword">new</span> WebView(<span class="keyword">this</span>);
+     m_zoomStrip <span class="operator">=</span> <span class="keyword">new</span> ZoomStrip(<span class="keyword">this</span>);
+     m_controlStrip <span class="operator">=</span> <span class="keyword">new</span> ControlStrip(<span class="keyword">this</span>);
+
+     m_zoomLevels <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">30</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">50</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">67</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">80</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">90</span>;
+     m_zoomLevels <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">100</span>;
+     m_zoomLevels <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">110</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">120</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">133</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">150</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">170</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">200</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">240</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="number">300</span>;
+
+     <span class="type"><a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a></span> manager;
+     <span class="keyword">if</span> (manager<span class="operator">.</span>capabilities() <span class="operator">&amp;</span> <span class="type"><a href="qnetworkconfigurationmanager.html">QNetworkConfigurationManager</a></span><span class="operator">::</span>NetworkSessionRequired) {
+         <span class="comment">// Get saved network configuration</span>
+         <span class="type"><a href="qsettings.html">QSettings</a></span> settings(<span class="type"><a href="qsettings.html">QSettings</a></span><span class="operator">::</span>UserScope<span class="operator">,</span> QLatin1String(<span class="string">&quot;Trolltech&quot;</span>));
+         settings<span class="operator">.</span>beginGroup(QLatin1String(<span class="string">&quot;QtNetwork&quot;</span>));
+         <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> id <span class="operator">=</span>
+             settings<span class="operator">.</span>value(QLatin1String(<span class="string">&quot;DefaultNetworkConfiguration&quot;</span>))<span class="operator">.</span>toString();
+         settings<span class="operator">.</span>endGroup();
+
+         <span class="comment">// If the saved network configuration is not currently discovered use the system</span>
+         <span class="comment">// default</span>
+         <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span> config <span class="operator">=</span> manager<span class="operator">.</span>configurationFromIdentifier(id);
+         <span class="keyword">if</span> ((config<span class="operator">.</span>state() <span class="operator">&amp;</span> <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Discovered) <span class="operator">!</span><span class="operator">=</span>
+             <span class="type"><a href="qnetworkconfiguration.html">QNetworkConfiguration</a></span><span class="operator">::</span>Discovered) {
+             config <span class="operator">=</span> manager<span class="operator">.</span>defaultConfiguration();
+         }
+
+         m_webView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>networkAccessManager()<span class="operator">-</span><span class="operator">&gt;</span>setConfiguration(config);
+     }
+
+     <span class="type"><a href="qtimer.html">QTimer</a></span><span class="operator">::</span>singleShot(<span class="number">0</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(initialize()));
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>initialize()
+ {
+     connect(m_zoomStrip<span class="operator">,</span> SIGNAL(zoomInClicked())<span class="operator">,</span> SLOT(zoomIn()));
+     connect(m_zoomStrip<span class="operator">,</span> SIGNAL(zoomOutClicked())<span class="operator">,</span> SLOT(zoomOut()));
+
+     connect(m_controlStrip<span class="operator">,</span> SIGNAL(menuClicked())<span class="operator">,</span> SIGNAL(menuButtonClicked()));
+     connect(m_controlStrip<span class="operator">,</span> SIGNAL(backClicked())<span class="operator">,</span> m_webView<span class="operator">,</span> SLOT(back()));
+     connect(m_controlStrip<span class="operator">,</span> SIGNAL(forwardClicked())<span class="operator">,</span> m_webView<span class="operator">,</span> SLOT(forward()));
+     connect(m_controlStrip<span class="operator">,</span> SIGNAL(closeClicked())<span class="operator">,</span> qApp<span class="operator">,</span> SLOT(quit()));
+
+     <span class="type"><a href="qpalette.html">QPalette</a></span> pal <span class="operator">=</span> m_webView<span class="operator">-</span><span class="operator">&gt;</span>palette();
+     pal<span class="operator">.</span>setBrush(<span class="type"><a href="qpalette.html">QPalette</a></span><span class="operator">::</span>Base<span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>white);
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setPalette(pal);
+
+     FlickCharm <span class="operator">*</span>flickCharm <span class="operator">=</span> <span class="keyword">new</span> FlickCharm(<span class="keyword">this</span>);
+     flickCharm<span class="operator">-</span><span class="operator">&gt;</span>activateOn(m_webView);
+
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setZoomFactor(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(m_currentZoom)<span class="operator">/</span><span class="number">100.0</span>);
+     connect(m_webView<span class="operator">,</span> SIGNAL(loadStarted())<span class="operator">,</span> SLOT(start()));
+     connect(m_webView<span class="operator">,</span> SIGNAL(loadProgress(<span class="type">int</span>))<span class="operator">,</span> SLOT(setProgress(<span class="type">int</span>)));
+     connect(m_webView<span class="operator">,</span> SIGNAL(loadFinished(<span class="type">bool</span>))<span class="operator">,</span> SLOT(finish(<span class="type">bool</span>)));
+     connect(m_webView<span class="operator">,</span> SIGNAL(urlChanged(<span class="type"><a href="qurl.html">QUrl</a></span>))<span class="operator">,</span> SLOT(updateTitleBar()));
+
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setHtml(<span class="string">&quot;about:blank&quot;</span>);
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setSizePolicy(<span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding<span class="operator">,</span> <span class="type"><a href="qsizepolicy.html">QSizePolicy</a></span><span class="operator">::</span>Expanding);
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setFocus();
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>start()
+ {
+     m_progress <span class="operator">=</span> <span class="number">0</span>;
+     updateTitleBar();
+     <span class="comment">//m_titleBar-&gt;setText(m_webView-&gt;url().toString());</span>
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>setProgress(<span class="type">int</span> percent)
+ {
+     m_progress <span class="operator">=</span> percent;
+     updateTitleBar();
+     <span class="comment">//m_titleBar-&gt;setText(QString(&quot;Loading %1%&quot;).arg(percent));</span>
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>updateTitleBar()
+ {
+     <span class="type"><a href="qurl.html">QUrl</a></span> url <span class="operator">=</span> m_webView<span class="operator">-</span><span class="operator">&gt;</span>url();
+     m_titleBar<span class="operator">-</span><span class="operator">&gt;</span>setHost(url<span class="operator">.</span>host());
+     m_titleBar<span class="operator">-</span><span class="operator">&gt;</span>setTitle(m_webView<span class="operator">-</span><span class="operator">&gt;</span>title());
+     m_titleBar<span class="operator">-</span><span class="operator">&gt;</span>setProgress(m_progress);
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>finish(<span class="type">bool</span> ok)
+ {
+     m_progress <span class="operator">=</span> <span class="number">0</span>;
+     updateTitleBar();
+
+     <span class="comment">// TODO: handle error</span>
+     <span class="keyword">if</span> (<span class="operator">!</span>ok) {
+         <span class="comment">//m_titleBar-&gt;setText(&quot;Loading failed.&quot;);</span>
+     }
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>zoomIn()
+ {
+     <span class="type">int</span> i <span class="operator">=</span> m_zoomLevels<span class="operator">.</span>indexOf(m_currentZoom);
+     Q_ASSERT(i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>);
+     <span class="keyword">if</span> (i <span class="operator">&lt;</span> m_zoomLevels<span class="operator">.</span>count() <span class="operator">-</span> <span class="number">1</span>)
+         m_currentZoom <span class="operator">=</span> m_zoomLevels<span class="operator">[</span>i <span class="operator">+</span> <span class="number">1</span><span class="operator">]</span>;
+
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setZoomFactor(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(m_currentZoom)<span class="operator">/</span><span class="number">100.0</span>);
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>zoomOut()
+ {
+     <span class="type">int</span> i <span class="operator">=</span> m_zoomLevels<span class="operator">.</span>indexOf(m_currentZoom);
+     Q_ASSERT(i <span class="operator">&gt;</span><span class="operator">=</span> <span class="number">0</span>);
+     <span class="keyword">if</span> (i <span class="operator">&gt;</span> <span class="number">0</span>)
+         m_currentZoom <span class="operator">=</span> m_zoomLevels<span class="operator">[</span>i <span class="operator">-</span> <span class="number">1</span><span class="operator">]</span>;
+
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setZoomFactor(<span class="keyword">static_cast</span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span><span class="operator">&gt;</span>(m_currentZoom)<span class="operator">/</span><span class="number">100.0</span>);
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>resizeEvent(<span class="type"><a href="qresizeevent.html">QResizeEvent</a></span> <span class="operator">*</span>event)
+ {
+     <span class="type"><a href="qwidget.html">QWidget</a></span><span class="operator">::</span>resizeEvent(event);
+
+     <span class="type">int</span> h1 <span class="operator">=</span> m_titleBar<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>height();
+     <span class="type">int</span> h2 <span class="operator">=</span> m_controlStrip<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>height();
+
+     m_titleBar<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="number">0</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> width()<span class="operator">,</span> h1);
+     m_controlStrip<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="number">0</span><span class="operator">,</span> height() <span class="operator">-</span> h2<span class="operator">,</span> width()<span class="operator">,</span> h2);
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>setGeometry(<span class="number">0</span><span class="operator">,</span> h1<span class="operator">,</span> width()<span class="operator">,</span> height() <span class="operator">-</span> h1);
+
+     <span class="type">int</span> zw <span class="operator">=</span> m_zoomStrip<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>width();
+     <span class="type">int</span> zh <span class="operator">=</span> m_zoomStrip<span class="operator">-</span><span class="operator">&gt;</span>sizeHint()<span class="operator">.</span>height();
+     m_zoomStrip<span class="operator">-</span><span class="operator">&gt;</span>move(width() <span class="operator">-</span> zw<span class="operator">,</span> (height() <span class="operator">-</span> zh) <span class="operator">/</span> <span class="number">2</span>);
+ }
+
+ <span class="type">void</span> BrowserView<span class="operator">::</span>navigate(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>url)
+ {
+     m_webView<span class="operator">-</span><span class="operator">&gt;</span>load(url);
+ }</pre>
+</div>
+<!-- @@@demos/embedded/anomaly/src/BrowserView.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

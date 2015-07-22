@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: chat.cpp Example File (dbus/dbus-chat/chat.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">chat.cpp Example File</h1>
+<span class="small-subtitle">dbus/dbus-chat/chat.cpp</span>
+<!-- $$$dbus/dbus-chat/chat.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;chat.h&quot;</span>
+ <span class="preprocessor">#include &lt;QtGui/QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QtGui/QMessageBox&gt;</span>
+
+ <span class="preprocessor">#include &quot;chat_adaptor.h&quot;</span>
+ <span class="preprocessor">#include &quot;chat_interface.h&quot;</span>
+
+ ChatMainWindow<span class="operator">::</span>ChatMainWindow()
+     : m_nickname(QLatin1String(<span class="string">&quot;nickname&quot;</span>))
+ {
+     setupUi(<span class="keyword">this</span>);
+     sendButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="keyword">false</span>);
+
+     connect(messageLineEdit<span class="operator">,</span> SIGNAL(textChanged(<span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span>
+             <span class="keyword">this</span><span class="operator">,</span> SLOT(textChangedSlot(<span class="type"><a href="qstring.html">QString</a></span>)));
+     connect(sendButton<span class="operator">,</span> SIGNAL(clicked(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(sendClickedSlot()));
+     connect(actionChangeNickname<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(changeNickname()));
+     connect(actionAboutQt<span class="operator">,</span> SIGNAL(triggered(<span class="type">bool</span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(aboutQt()));
+     connect(qApp<span class="operator">,</span> SIGNAL(lastWindowClosed())<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(exiting()));
+
+     <span class="comment">// add our D-Bus interface and connect to D-Bus</span>
+     <span class="keyword">new</span> ChatAdaptor(<span class="keyword">this</span>);
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>registerObject(<span class="string">&quot;/&quot;</span><span class="operator">,</span> <span class="keyword">this</span>);
+
+     com<span class="operator">::</span>trolltech<span class="operator">::</span>chat <span class="operator">*</span>iface;
+     iface <span class="operator">=</span> <span class="keyword">new</span> com<span class="operator">::</span>trolltech<span class="operator">::</span>chat(<span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span> <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">,</span> <span class="keyword">this</span>);
+     <span class="comment">//connect(iface, SIGNAL(message(QString,QString)), this, SLOT(messageSlot(QString,QString)));</span>
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>connect(<span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>()<span class="operator">,</span> <span class="string">&quot;com.trolltech.chat&quot;</span><span class="operator">,</span> <span class="string">&quot;message&quot;</span><span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(messageSlot(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qstring.html">QString</a></span>)));
+     connect(iface<span class="operator">,</span> SIGNAL(action(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qstring.html">QString</a></span>))<span class="operator">,</span> <span class="keyword">this</span><span class="operator">,</span> SLOT(actionSlot(<span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span><span class="type"><a href="qstring.html">QString</a></span>)));
+
+     NicknameDialog dialog;
+     dialog<span class="operator">.</span>cancelButton<span class="operator">-</span><span class="operator">&gt;</span>setVisible(<span class="keyword">false</span>);
+     dialog<span class="operator">.</span>exec();
+     m_nickname <span class="operator">=</span> dialog<span class="operator">.</span>nickname<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>trimmed();
+     <span class="keyword">emit</span> action(m_nickname<span class="operator">,</span> QLatin1String(<span class="string">&quot;joins the chat&quot;</span>));
+ }
+
+ ChatMainWindow<span class="operator">::</span><span class="operator">~</span>ChatMainWindow()
+ {
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>rebuildHistory()
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> history <span class="operator">=</span> m_messages<span class="operator">.</span>join( QLatin1String(<span class="string">&quot;\n&quot;</span> ) );
+     chatHistory<span class="operator">-</span><span class="operator">&gt;</span>setPlainText(history);
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>messageSlot(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>nickname<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> msg( QLatin1String(<span class="string">&quot;&lt;%1&gt; %2&quot;</span>) );
+     msg <span class="operator">=</span> msg<span class="operator">.</span>arg(nickname<span class="operator">,</span> text);
+     m_messages<span class="operator">.</span>append(msg);
+
+     <span class="keyword">if</span> (m_messages<span class="operator">.</span>count() <span class="operator">&gt;</span> <span class="number">100</span>)
+         m_messages<span class="operator">.</span>removeFirst();
+     rebuildHistory();
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>actionSlot(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>nickname<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>text)
+ {
+     <span class="type"><a href="qstring.html">QString</a></span> msg( QLatin1String(<span class="string">&quot;* %1 %2&quot;</span>) );
+     msg <span class="operator">=</span> msg<span class="operator">.</span>arg(nickname<span class="operator">,</span> text);
+     m_messages<span class="operator">.</span>append(msg);
+
+     <span class="keyword">if</span> (m_messages<span class="operator">.</span>count() <span class="operator">&gt;</span> <span class="number">100</span>)
+         m_messages<span class="operator">.</span>removeFirst();
+     rebuildHistory();
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>textChangedSlot(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>newText)
+ {
+     sendButton<span class="operator">-</span><span class="operator">&gt;</span>setEnabled(<span class="operator">!</span>newText<span class="operator">.</span>isEmpty());
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>sendClickedSlot()
+ {
+     <span class="comment">//emit message(m_nickname, messageLineEdit-&gt;text());</span>
+     <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span> msg <span class="operator">=</span> <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span><span class="operator">::</span>createSignal(<span class="string">&quot;/&quot;</span><span class="operator">,</span> <span class="string">&quot;com.trolltech.chat&quot;</span><span class="operator">,</span> <span class="string">&quot;message&quot;</span>);
+     msg <span class="operator">&lt;</span><span class="operator">&lt;</span> m_nickname <span class="operator">&lt;</span><span class="operator">&lt;</span> messageLineEdit<span class="operator">-</span><span class="operator">&gt;</span>text();
+     <span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>send(msg);
+     messageLineEdit<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="type"><a href="qstring.html">QString</a></span>());
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>changeNickname()
+ {
+     NicknameDialog dialog(<span class="keyword">this</span>);
+     <span class="keyword">if</span> (dialog<span class="operator">.</span>exec() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qdialog.html">QDialog</a></span><span class="operator">::</span>Accepted) {
+         <span class="type"><a href="qstring.html">QString</a></span> old <span class="operator">=</span> m_nickname;
+         m_nickname <span class="operator">=</span> dialog<span class="operator">.</span>nickname<span class="operator">-</span><span class="operator">&gt;</span>text()<span class="operator">.</span>trimmed();
+         <span class="keyword">emit</span> action(old<span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span>(<span class="string">&quot;is now known as %1&quot;</span>)<span class="operator">.</span>arg(m_nickname));
+     }
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>aboutQt()
+ {
+     <span class="type"><a href="qmessagebox.html">QMessageBox</a></span><span class="operator">::</span>aboutQt(<span class="keyword">this</span>);
+ }
+
+ <span class="type">void</span> ChatMainWindow<span class="operator">::</span>exiting()
+ {
+     <span class="keyword">emit</span> action(m_nickname<span class="operator">,</span> QLatin1String(<span class="string">&quot;leaves the chat&quot;</span>));
+ }
+
+ NicknameDialog<span class="operator">::</span>NicknameDialog(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qdialog.html">QDialog</a></span>(parent)
+ {
+     setupUi(<span class="keyword">this</span>);
+ }
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span><span class="operator">*</span>argv)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="keyword">if</span> (<span class="operator">!</span><span class="type"><a href="qdbusconnection.html">QDBusConnection</a></span><span class="operator">::</span>sessionBus()<span class="operator">.</span>isConnected()) {
+         <a href="qtglobal.html#qWarning">qWarning</a>(<span class="string">&quot;Cannot connect to the D-Bus session bus.\n&quot;</span>
+                  <span class="string">&quot;Please check your system settings and try again.\n&quot;</span>);
+         <span class="keyword">return</span> <span class="number">1</span>;
+     }
+
+     ChatMainWindow chat;
+     chat<span class="operator">.</span>show();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+</div>
+<!-- @@@dbus/dbus-chat/chat.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

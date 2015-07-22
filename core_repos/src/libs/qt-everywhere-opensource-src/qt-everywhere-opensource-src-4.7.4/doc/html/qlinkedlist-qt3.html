@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qlinkedlist.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QLinkedList</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QLinkedList</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QLinkedList</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qlinkedlist.html">QLinkedList class reference</a></li></ul></p>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#find">find</a></b> ( iterator <i>from</i>, const T &amp; <i>t</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#find-2">find</a></b> ( const T &amp; <i>t</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const_iterator </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#find-3">find</a></b> ( const_iterator <i>from</i>, const T &amp; <i>t</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> const_iterator </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#find-4">find</a></b> ( const T &amp; <i>t</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#findIndex">findIndex</a></b> ( const T &amp; <i>t</i> ) const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> iterator </td><td class="memItemRight bottomAlign"><b><a href="qlinkedlist-qt3.html#remove">remove</a></b> ( iterator <i>pos</i> )</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$find[overload1]$$$finditeratorconstT& -->
+<h3 class="fn"><a name="find"></a><span class="type"><a href="qlinkedlist-iterator.html">iterator</a></span> QLinkedList::<span class="name">find</span> ( <span class="type"><a href="qlinkedlist-iterator.html">iterator</a></span> <i>from</i>, const <span class="type">T</span> &amp; <i>t</i> )</h3>
+<p>If you need random access to a data structure then <a href="qlist.html">QList</a>, <a href="qvector.html">QVector</a>, <a href="qmap.html">QMap</a>, or <a href="qhash.html">QHash</a>, are all better choices than <a href="qlinkedlist.html">QLinkedList</a>.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QLinkedList::iterator i = list-&gt;find(from, value);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span><span class="operator">::</span>iterator i <span class="operator">=</span> from;
+ <span class="keyword">while</span> (i <span class="operator">!</span><span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>end() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">*</span>i <span class="operator">!</span><span class="operator">=</span> value)
+     <span class="operator">+</span><span class="operator">+</span>i;</pre>
+<!-- @@@find -->
+<!-- $$$find$$$findconstT& -->
+<h3 class="fn"><a name="find-2"></a><span class="type"><a href="qlinkedlist-iterator.html">iterator</a></span> QLinkedList::<span class="name">find</span> ( const <span class="type">T</span> &amp; <i>t</i> )</h3>
+<p>If you need random access to a data structure then <a href="qlist.html">QList</a>, <a href="qvector.html">QVector</a>, <a href="qmap.html">QMap</a>, or <a href="qhash.html">QHash</a>, are all better choices than <a href="qlinkedlist.html">QLinkedList</a>.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QLinkedList::iterator i = list-&gt;find(value);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span><span class="operator">::</span>iterator i <span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span><a href="qlinkedlist.html#begin">begin</a>();
+ <span class="keyword">while</span> (i <span class="operator">!</span><span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>end() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">*</span>i <span class="operator">!</span><span class="operator">=</span> value)
+     <span class="operator">+</span><span class="operator">+</span>i;</pre>
+<!-- @@@find -->
+<!-- $$$find$$$findconst_iteratorconstT& -->
+<h3 class="fn"><a name="find-3"></a><span class="type"><a href="qlinkedlist-const-iterator.html">const_iterator</a></span> QLinkedList::<span class="name">find</span> ( <span class="type"><a href="qlinkedlist-const-iterator.html">const_iterator</a></span> <i>from</i>, const <span class="type">T</span> &amp; <i>t</i> ) const</h3>
+<p>If you need random access to a data structure then <a href="qlist.html">QList</a>, <a href="qvector.html">QVector</a>, <a href="qmap.html">QMap</a>, or <a href="qhash.html">QHash</a>, are all better choices than <a href="qlinkedlist.html">QLinkedList</a>.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QLinkedList::const_iterator i = list-&gt;find(from, value);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span><span class="operator">::</span>const_iterator i <span class="operator">=</span> from;
+ <span class="keyword">while</span> (i <span class="operator">!</span><span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>end() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">*</span>i <span class="operator">!</span><span class="operator">=</span> value)
+     <span class="operator">+</span><span class="operator">+</span>i;</pre>
+<!-- @@@find -->
+<!-- $$$find$$$findconstT& -->
+<h3 class="fn"><a name="find-4"></a><span class="type"><a href="qlinkedlist-const-iterator.html">const_iterator</a></span> QLinkedList::<span class="name">find</span> ( const <span class="type">T</span> &amp; <i>t</i> ) const</h3>
+<p>If you need random access to a data structure then <a href="qlist.html">QList</a>, <a href="qvector.html">QVector</a>, <a href="qmap.html">QMap</a>, or <a href="qhash.html">QHash</a>, are all better choices than <a href="qlinkedlist.html">QLinkedList</a>.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> QLinkedList::const_iterator i = list-&gt;find(value);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span><span class="operator">::</span>const_iterator i <span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span><a href="qlinkedlist.html#begin">begin</a>();
+ <span class="keyword">while</span> (i <span class="operator">!</span><span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>end() <span class="operator">&amp;</span><span class="operator">&amp;</span> <span class="operator">*</span>i <span class="operator">!</span><span class="operator">=</span> value)
+     <span class="operator">+</span><span class="operator">+</span>i;</pre>
+<!-- @@@find -->
+<!-- $$$findIndex[overload1]$$$findIndexconstT& -->
+<h3 class="fn"><a name="findIndex"></a><span class="type">int</span> QLinkedList::<span class="name">findIndex</span> ( const <span class="type">T</span> &amp; <i>t</i> ) const</h3>
+<p>If you need indexes then <a href="qlist.html">QList</a> or <a href="qvector.html">QVector</a> are better choices than <a href="qlinkedlist.html">QLinkedList</a>.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> int index = list-&gt;findIndex(value);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type">int</span> index <span class="operator">=</span> <span class="number">0</span>;
+ <span class="type">bool</span> found <span class="operator">=</span> <span class="keyword">false</span>;
+ <span class="keyword">for</span> (const_iterator i <span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>begin(); i <span class="operator">!</span><span class="operator">=</span> list<span class="operator">-</span><span class="operator">&gt;</span>end(); <span class="operator">+</span><span class="operator">+</span>i; <span class="operator">+</span><span class="operator">+</span>index)
+     <span class="keyword">if</span> (<span class="operator">*</span>i <span class="operator">=</span><span class="operator">=</span> value) {
+         found <span class="operator">=</span> <span class="keyword">true</span>;
+         <span class="keyword">break</span>;
+     }
+ <span class="keyword">if</span> (<span class="operator">!</span>found)
+     index <span class="operator">=</span> <span class="operator">-</span><span class="number">1</span>;</pre>
+<!-- @@@findIndex -->
+<!-- $$$remove[overload1]$$$removeiterator -->
+<h3 class="fn"><a name="remove"></a><span class="type"><a href="qlinkedlist-iterator.html">iterator</a></span> QLinkedList::<span class="name">remove</span> ( <span class="type"><a href="qlinkedlist-iterator.html">iterator</a></span> <i>pos</i> )</h3>
+<p>Use <a href="qlinkedlist.html#erase">erase</a>() instead.</p>
+<!-- @@@remove -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

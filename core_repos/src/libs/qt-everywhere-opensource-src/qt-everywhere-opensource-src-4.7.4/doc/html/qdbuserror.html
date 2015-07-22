@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdbuserror.cpp -->
+  <title>Qt 4.7: QDBusError Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdbus.html">QtDBus</a></li>
+<li>QDBusError</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDBusError Class Reference</h1>
+<!-- $$$QDBusError-brief -->
+<p>The QDBusError class represents an error received from the D-Bus bus or from remote applications found in the bus. <a href="#details">More...</a></p>
+<!-- @@@QDBusError -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDBusError&gt;</span></pre><p>This class was introduced in Qt 4.2.</p>
+<ul>
+<li><a href="qdbuserror-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#ErrorType-enum">ErrorType</a></b> { NoError, Other, Failed, NoMemory, ..., UnknownObject }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#isValid">isValid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#message">message</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#name">name</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> ErrorType </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#type">type</a></b> () const</td></tr>
+</table>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qdbuserror.html#errorString">errorString</a></b> ( ErrorType <i>error</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QDBusError-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDBusError class represents an error received from the D-Bus bus or from remote applications found in the bus.</p>
+<p>When dealing with the D-Bus bus service or with remote applications over D-Bus, a number of error conditions can happen. This error conditions are sometimes signalled by a returned error value or by a QDBusError.</p>
+<p>C++ and Java exceptions are a valid analogy for D-Bus errors: instead of returning normally with a return value, remote applications and the bus may decide to throw an error condition. However, the <a href="qtdbus.html">QtDBus</a> implementation does not use the C++ exception-throwing mechanism, so you will receive QDBusErrors in the return reply (see <a href="qdbusreply.html#error">QDBusReply::error</a>()).</p>
+<p>QDBusError objects are used to inspect the error name and message as received from the bus and remote applications. You should not create such objects yourself to signal error conditions when called from D-Bus: instead, use <a href="qdbusmessage.html#createError">QDBusMessage::createError</a>() and <a href="qdbusconnection.html#send">QDBusConnection::send</a>().</p>
+</div>
+<p><b>See also </b><a href="qdbusconnection.html#send">QDBusConnection::send</a>(), <a href="qdbusmessage.html">QDBusMessage</a>, and <a href="qdbusreply.html">QDBusReply</a>.</p>
+<!-- @@@QDBusError -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$ErrorType$$$NoError$$$Other$$$Failed$$$NoMemory$$$ServiceUnknown$$$NoReply$$$BadAddress$$$NotSupported$$$LimitsExceeded$$$AccessDenied$$$NoServer$$$Timeout$$$NoNetwork$$$AddressInUse$$$Disconnected$$$InvalidArgs$$$UnknownMethod$$$TimedOut$$$InvalidSignature$$$UnknownInterface$$$InternalError$$$UnknownObject$$$InvalidService$$$InvalidObjectPath$$$InvalidInterface$$$InvalidMember -->
+<h3 class="fn"><a name="ErrorType-enum"></a>enum QDBusError::<span class="name">ErrorType</span></h3>
+<p>In order to facilitate verification of the most common D-Bus errors generated by the D-Bus implementation and by the bus daemon itself, <a href="qdbuserror.html">QDBusError</a> can be compared to a set of pre-defined values:</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QDBusError::NoError</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign"><a href="qdbuserror.html">QDBusError</a> is invalid (i.e&#x2e;, the call succeeded)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::Other</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign"><a href="qdbuserror.html">QDBusError</a> contains an error that is one of the well-known ones</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::Failed</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">The call failed (<tt>org.freedesktop.DBus.Error.Failed</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::NoMemory</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">Out of memory (<tt>org.freedesktop.DBus.Error.NoMemory</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::ServiceUnknown</tt></td><td class="topAlign"><tt>4</tt></td><td class="topAlign">The called service is not known (<tt>org.freedesktop.DBus.Error.ServiceUnknown</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::NoReply</tt></td><td class="topAlign"><tt>5</tt></td><td class="topAlign">The called method did not reply within the specified timeout (<tt>org.freedesktop.DBus.Error.NoReply</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::BadAddress</tt></td><td class="topAlign"><tt>6</tt></td><td class="topAlign">The address given is not valid (<tt>org.freedesktop.DBus.Error.BadAddress</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::NotSupported</tt></td><td class="topAlign"><tt>7</tt></td><td class="topAlign">The call/operation is not supported (<tt>org.freedesktop.DBus.Error.NotSupported</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::LimitsExceeded</tt></td><td class="topAlign"><tt>8</tt></td><td class="topAlign">The limits allocated to this process/call/connection exceeded the pre-defined values (<tt>org.freedesktop.DBus.Error.LimitsExceeded</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::AccessDenied</tt></td><td class="topAlign"><tt>9</tt></td><td class="topAlign">The call/operation tried to access a resource it isn't allowed to (<tt>org.freedesktop.DBus.Error.AccessDenied</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::NoServer</tt></td><td class="topAlign"><tt>10</tt></td><td class="topAlign"><i>Documentation doesn't say what this is for</i> (<tt>org.freedesktop.DBus.Error.NoServer</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::Timeout</tt></td><td class="topAlign"><tt>11</tt></td><td class="topAlign"><i>Documentation doesn't say what this is for or how it's used</i> (<tt>org.freedesktop.DBus.Error.Timeout</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::NoNetwork</tt></td><td class="topAlign"><tt>12</tt></td><td class="topAlign"><i>Documentation doesn't say what this is for</i> (<tt>org.freedesktop.DBus.Error.NoNetwork</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::AddressInUse</tt></td><td class="topAlign"><tt>13</tt></td><td class="topAlign">QDBusServer tried to bind to an address that is already in use (<tt>org.freedesktop.DBus.Error.AddressInUse</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::Disconnected</tt></td><td class="topAlign"><tt>14</tt></td><td class="topAlign">The call/process/message was sent after <a href="qdbusconnection.html">QDBusConnection</a> disconnected (<tt>org.freedesktop.DBus.Error.Disconnected</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidArgs</tt></td><td class="topAlign"><tt>15</tt></td><td class="topAlign">The arguments passed to this call/operation are not valid (<tt>org.freedesktop.DBus.Error.InvalidArgs</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::UnknownMethod</tt></td><td class="topAlign"><tt>16</tt></td><td class="topAlign">The method called was not found in this object/interface with the given parameters (<tt>org.freedesktop.DBus.Error.UnknownMethod</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::TimedOut</tt></td><td class="topAlign"><tt>17</tt></td><td class="topAlign"><i>Documentation doesn't say..&#x2e;</i> (<tt>org.freedesktop.DBus.Error.TimedOut</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidSignature</tt></td><td class="topAlign"><tt>18</tt></td><td class="topAlign">The type signature is not valid or compatible (<tt>org.freedesktop.DBus.Error.InvalidSignature</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::UnknownInterface</tt></td><td class="topAlign"><tt>19</tt></td><td class="topAlign">The interface is not known</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InternalError</tt></td><td class="topAlign"><tt>20</tt></td><td class="topAlign">An internal error occurred (<tt>com.trolltech.QtDBus.Error.InternalError</tt>)</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidObjectPath</tt></td><td class="topAlign"><tt>23</tt></td><td class="topAlign">The object path provided is invalid.</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidService</tt></td><td class="topAlign"><tt>22</tt></td><td class="topAlign">The service requested is invalid.</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidMember</tt></td><td class="topAlign"><tt>25</tt></td><td class="topAlign">The member is invalid.</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::InvalidInterface</tt></td><td class="topAlign"><tt>24</tt></td><td class="topAlign">The interface is invalid.</td></tr>
+<tr><td class="topAlign"><tt>QDBusError::UnknownObject</tt></td><td class="topAlign"><tt>21</tt></td><td class="topAlign">The remote object could not be found.</td></tr>
+</table>
+<!-- @@@ErrorType -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$errorString[overload1]$$$errorStringErrorType -->
+<h3 class="fn"><a name="errorString"></a><span class="type"><a href="qstring.html">QString</a></span> QDBusError::<span class="name">errorString</span> ( <span class="type"><a href="qdbuserror.html#ErrorType-enum">ErrorType</a></span> <i>error</i> )<tt> [static]</tt></h3>
+<p>Returns the error name associated with error condition <i>error</i>.</p>
+<p>This function was introduced in Qt 4.3.</p>
+<!-- @@@errorString -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a><span class="type">bool</span> QDBusError::<span class="name">isValid</span> () const</h3>
+<p>Returns true if this is a valid error condition (i.e&#x2e;, if there was an error), otherwise false.</p>
+<!-- @@@isValid -->
+<!-- $$$message[overload1]$$$message -->
+<h3 class="fn"><a name="message"></a><span class="type"><a href="qstring.html">QString</a></span> QDBusError::<span class="name">message</span> () const</h3>
+<p>Returns the message that the callee associated with this error. Error messages are implementation defined and usually contain a human-readable error code, though this does not mean it is suitable for your end-users.</p>
+<!-- @@@message -->
+<!-- $$$name[overload1]$$$name -->
+<h3 class="fn"><a name="name"></a><span class="type"><a href="qstring.html">QString</a></span> QDBusError::<span class="name">name</span> () const</h3>
+<p>Returns this error's name. Error names are similar to D-Bus Interface names, like <tt>org.freedesktop.DBus.InvalidArgs</tt>.</p>
+<p><b>See also </b><a href="qdbuserror.html#type">type</a>().</p>
+<!-- @@@name -->
+<!-- $$$type[overload1]$$$type -->
+<h3 class="fn"><a name="type"></a><span class="type"><a href="qdbuserror.html#ErrorType-enum">ErrorType</a></span> QDBusError::<span class="name">type</span> () const</h3>
+<p>Returns this error's <a href="qdbuserror.html#ErrorType-enum">ErrorType</a>.</p>
+<p><b>See also </b><a href="qdbuserror.html#ErrorType-enum">ErrorType</a>.</p>
+<!-- @@@type -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

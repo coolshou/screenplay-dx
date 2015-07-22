@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: voiceanalyzer.h Example File (demos/mobile/guitartuner/src/voiceanalyzer.h)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">voiceanalyzer.h Example File</h1>
+<span class="small-subtitle">demos/mobile/guitartuner/src/voiceanalyzer.h</span>
+<!-- $$$demos/mobile/guitartuner/src/voiceanalyzer.h-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#ifndef VOICEANALYZER_H</span>
+ <span class="preprocessor">#define VOICEANALYZER_H</span>
+
+ <span class="preprocessor">#include &lt;QObject&gt;</span>
+ <span class="preprocessor">#include &lt;QAudioFormat&gt;</span>
+ <span class="preprocessor">#include &lt;QDebug&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/qmath.h&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/qendian.h&gt;</span>
+ <span class="preprocessor">#include &lt;QVariant&gt;</span>
+
+ <span class="preprocessor">#include &quot;constants.h&quot;</span>
+ <span class="preprocessor">#include &quot;fastfouriertransformer.h&quot;</span>
+ <span class="preprocessor">#include &quot;math.h&quot;</span>
+
+ <span class="keyword">class</span> VoiceAnalyzer : <span class="keyword">public</span> <span class="type"><a href="qiodevice.html">QIODevice</a></span>
+ {
+     Q_OBJECT
+ <span class="keyword">public</span>:
+     VoiceAnalyzer(<span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> <span class="operator">&amp;</span>format<span class="operator">,</span> <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> readData(<span class="type">char</span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> maxlen);
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> writeData(<span class="keyword">const</span> <span class="type">char</span> <span class="operator">*</span>data<span class="operator">,</span> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> maxlen);
+     <span class="type">void</span> start(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> frequency);
+     <span class="type">void</span> stop();
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> frequency();
+     <span class="type">int</span> getMaximumVoiceDifference();
+     <span class="type">int</span> getMaximumPrecisionPerNote();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> setCutOffPercentage(<span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> cutoff);
+
+ <span class="keyword">private</span>:
+     <span class="keyword">const</span> <span class="type"><a href="qaudioformat.html">QAudioFormat</a></span> m_format;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span><span class="operator">&gt;</span> m_samples;
+     <span class="type">int</span> m_totalSampleCount;
+     <span class="type">int</span> m_maximumVoiceDifference;
+
+     <span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span> getValueInt16(<span class="keyword">const</span> <span class="type"><a href="qtglobal.html#uchar-typedef">uchar</a></span> <span class="operator">*</span>ptr);
+     <span class="type">int</span> m_stepSize;
+     <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> m_frequency;
+     <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> m_position;
+     FastFourierTransformer <span class="operator">*</span>m_fftHelper;
+     <span class="type">void</span> analyzeVoice();
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> voiceDifference(<span class="type"><a href="qvariant.html">QVariant</a></span> frequency);
+     <span class="type">void</span> correctFrequency();
+     <span class="type">void</span> lowVoice();
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+
+ };
+
+ <span class="preprocessor">#endif // VOICEANALYZER_H</span></pre>
+</div>
+<!-- @@@demos/mobile/guitartuner/src/voiceanalyzer.h -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

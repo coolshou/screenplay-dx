@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- desktop-integration.qdoc -->
+  <title>Qt 4.7: Desktop Integration</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Desktop Integration</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#useful-classes">Useful Classes</a></li>
+<li class="level1"><a href="#setting-the-application-icon">Setting the Application Icon</a></li>
+<li class="level1"><a href="#opening-external-resources">Opening External Resources</a></li>
+<li class="level1"><a href="#system-tray-icons">System Tray Icons</a></li>
+<li class="level1"><a href="#desktop-widgets">Desktop Widgets</a></li>
+</ul>
+</div>
+<h1 class="title">Desktop Integration</h1>
+<span class="subtitle"></span>
+<!-- $$$desktop-integration.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qt applications behave well in the user's desktop environment, but certain integrations require additional, and sometimes platform specific, techniques.</p>
+<a name="useful-classes"></a>
+<h2>Useful Classes</h2>
+<p>Various classes in Qt are designed to help developers integrate applications into users' desktop environments. These classes enable developers to take advantage of native services while still using a cross-platform API.</p>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdesktopservices.html">QDesktopServices</a></p></td><td class="tblDescr"><p>Methods for accessing common desktop services</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdesktopwidget.html">QDesktopWidget</a></p></td><td class="tblDescr"><p>Access to screen information on multi-head systems</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qsystemtrayicon.html">QSystemTrayIcon</a></p></td><td class="tblDescr"><p>Icon for an application in the system tray</p></td></tr>
+</table>
+<a name="setting-the-application-icon"></a>
+<h2>Setting the Application Icon</h2>
+<p>In order to change the icon of the executable application file itself, as it is presented on the desktop (i.e&#x2e;, prior to application execution), it is necessary to employ another, platform-dependent technique.</p>
+<a name="opening-external-resources"></a>
+<h2>Opening External Resources</h2>
+<p>Although Qt provides facilities to handle and display resources, such as <a href="qimageiohandler.html">common image formats</a> and <a href="qtextdocument.html">HTML</a>, it is sometimes necessary to open files and external resources using external applications.</p>
+<p><a href="qdesktopservices.html">QDesktopServices</a> provides an interface to services offered by the user's desktop environment. In particular, the <a href="qdesktopservices.html#openUrl">openUrl()</a> function is used to open resources using the appropriate application, which may have been specifically configured by the user.</p>
+<a name="system-tray-icons"></a>
+<h2>System Tray Icons</h2>
+<p>Many modern desktop environments feature docks or panels with <i>system trays</i> in which applications can install icons. Applications often use system tray icons to display status information, either by updating the icon itself or by showing information in &quot;balloon messages&quot;. Additionally, many applications provide pop-up menus that can be accessed via their system tray icons.</p>
+<p>The <a href="qsystemtrayicon.html">QSystemTrayIcon</a> class exposes all of the above features via an intuitive Qt-style API that can be used on all desktop platforms.</p>
+<a name="desktop-widgets"></a>
+<h2>Desktop Widgets</h2>
+<p>On systems where the user's desktop is displayed using more than one screen, certain types of applications may need to obtain information about the configuration of the user's workspace to ensure that new windows and dialogs are opened in appropriate locations.</p>
+<p>The <a href="qdesktopwidget.html">QDesktopWidget</a> class can be used to monitor the positions of widgets and notify applications about changes to the way the desktop is split over the available screens. This enables applications to implement policies for positioning new windows so that, for example, they do not distract a user who is working on a specific task.</p>
+</div>
+<!-- @@@desktop-integration.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

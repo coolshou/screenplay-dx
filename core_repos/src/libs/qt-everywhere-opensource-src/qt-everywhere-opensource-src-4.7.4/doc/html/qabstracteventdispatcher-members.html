@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstracteventdispatcher.cpp -->
+  <title>Qt 4.7: List of All Members for QAbstractEventDispatcher</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QAbstractEventDispatcher</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QAbstractEventDispatcher</h1>
+<p>This is the complete list of members for <a href="qabstracteventdispatcher.html">QAbstractEventDispatcher</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">typedef <span class="name"><b><a href="qabstracteventdispatcher.html#EventFilter-typedef">EventFilter</a></b></span></li>
+<li class="fn">typedef <span class="name"><b><a href="qabstracteventdispatcher.html#TimerInfo-typedef">TimerInfo</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#QAbstractEventDispatcher">QAbstractEventDispatcher</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#dtor.QAbstractEventDispatcher">~QAbstractEventDispatcher</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#aboutToBlock">aboutToBlock</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#awake">awake</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#blockSignals">blockSignals</a></b></span> ( bool ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#childEvent">childEvent</a></b></span> ( QChildEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#children">children</a></b></span> () const : const QObjectList &amp;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connect">connect</a></b></span> ( const QObject *, const char *, const QObject *, const char *, Qt::ConnectionType ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connect-2">connect</a></b></span> ( const QObject *, const char *, const char *, Qt::ConnectionType ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#connectNotify">connectNotify</a></b></span> ( const char * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#customEvent">customEvent</a></b></span> ( QEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#d_ptr-var">d_ptr</a></b></span> : QScopedPointer&lt;QObjectData&gt;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#deleteLater">deleteLater</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#destroyed">destroyed</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect">disconnect</a></b></span> ( const QObject *, const char *, const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect-2">disconnect</a></b></span> ( const char *, const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnect-3">disconnect</a></b></span> ( const QObject *, const char * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#disconnectNotify">disconnectNotify</a></b></span> ( const char * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dumpObjectInfo">dumpObjectInfo</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dumpObjectTree">dumpObjectTree</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#dynamicPropertyNames">dynamicPropertyNames</a></b></span> () const : QList&lt;QByteArray&gt;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#event">event</a></b></span> ( QEvent * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#eventFilter">eventFilter</a></b></span> ( QObject *, QEvent * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#filterEvent">filterEvent</a></b></span> ( void * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChild">findChild</a></b></span> ( const QString &amp; ) const : T</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChildren">findChildren</a></b></span> ( const QString &amp; ) const : QList&lt;T&gt;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#findChildren-2">findChildren</a></b></span> ( const QRegExp &amp; ) const : QList&lt;T&gt;</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#flush">flush</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#hasPendingEvents">hasPendingEvents</a></b></span> () : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#inherits">inherits</a></b></span> ( const char * ) const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#installEventFilter">installEventFilter</a></b></span> ( QObject * )</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#instance">instance</a></b></span> ( QThread * ) : QAbstractEventDispatcher *</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#interrupt">interrupt</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#isWidgetType">isWidgetType</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#killTimer">killTimer</a></b></span> ( int )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#metaObject">metaObject</a></b></span> () const : const QMetaObject *</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#moveToThread">moveToThread</a></b></span> ( QThread * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#objectName-prop">objectName</a></b></span> () const : QString</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#parent">parent</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#processEvents">processEvents</a></b></span> ( QEventLoop::ProcessEventsFlags ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#property">property</a></b></span> ( const char * ) const : QVariant</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#receivers">receivers</a></b></span> ( const char * ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#registerSocketNotifier">registerSocketNotifier</a></b></span> ( QSocketNotifier * )</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#registerTimer">registerTimer</a></b></span> ( int, QObject * ) : int</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#registerTimer-2">registerTimer</a></b></span> ( int, int, QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#registeredTimers">registeredTimers</a></b></span> ( QObject * ) const : QList&lt;TimerInfo&gt;</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#removeEventFilter">removeEventFilter</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#sender">sender</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#setEventFilter">setEventFilter</a></b></span> ( EventFilter ) : EventFilter</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#objectName-prop">setObjectName</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#setParent">setParent</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#setProperty">setProperty</a></b></span> ( const char *, const QVariant &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#signalsBlocked">signalsBlocked</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#startTimer">startTimer</a></b></span> ( int ) : int</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#staticMetaObject-var">staticMetaObject</a></b></span> : const QMetaObject</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#staticQtMetaObject-var">staticQtMetaObject</a></b></span> : const QMetaObject</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#thread">thread</a></b></span> () const : QThread *</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#timerEvent">timerEvent</a></b></span> ( QTimerEvent * )</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#tr">tr</a></b></span> ( const char *, const char *, int ) : QString</li>
+<li class="fn"><span class="name"><b><a href="qobject.html#trUtf8">trUtf8</a></b></span> ( const char *, const char *, int ) : QString</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#unregisterSocketNotifier">unregisterSocketNotifier</a></b></span> ( QSocketNotifier * )</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#unregisterTimer">unregisterTimer</a></b></span> ( int ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#unregisterTimers">unregisterTimers</a></b></span> ( QObject * ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qabstracteventdispatcher.html#wakeUp">wakeUp</a></b></span> ()</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

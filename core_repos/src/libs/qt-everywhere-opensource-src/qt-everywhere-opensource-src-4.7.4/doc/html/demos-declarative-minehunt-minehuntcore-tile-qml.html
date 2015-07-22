@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: Tile.qml Example File (demos/declarative/minehunt/MinehuntCore/Tile.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Tile.qml Example File</h1>
+<span class="small-subtitle">demos/declarative/minehunt/MinehuntCore/Tile.qml</span>
+<!-- $$$demos/declarative/minehunt/MinehuntCore/Tile.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-flipable.html">Flipable</a></span> {
+     <span class="name">id</span>: <span class="name">flipable</span>
+     property <span class="type">int</span> <span class="name">angle</span>: <span class="number">0</span>
+
+     <span class="name">width</span>: <span class="number">40</span>;  <span class="name">height</span>: <span class="number">40</span>
+     <span class="name">transform</span>: <span class="name">Rotation</span> { <span class="name">origin</span>.x: <span class="number">20</span>; <span class="name">origin</span>.y: <span class="number">20</span>; <span class="name">axis</span>.x: <span class="number">1</span>; <span class="name">axis</span>.z: <span class="number">0</span>; <span class="name">angle</span>: <span class="name">flipable</span>.<span class="name">angle</span> }
+
+     <span class="name">front</span>: <span class="name">Image</span> {
+         <span class="name">source</span>: <span class="string">&quot;pics/front.png&quot;</span>; <span class="name">width</span>: <span class="number">40</span>; <span class="name">height</span>: <span class="number">40</span>
+
+         <span class="type"><a href="qml-image.html">Image</a></span> {
+             <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+             <span class="name">source</span>: <span class="string">&quot;pics/flag.png&quot;</span>; <span class="name">opacity</span>: <span class="name">modelData</span>.<span class="name">hasFlag</span>
+
+             Behavior on <span class="name">opacity</span> { <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> {} }
+         }
+     }
+
+     <span class="name">back</span>: <span class="name">Image</span> {
+         <span class="name">source</span>: <span class="string">&quot;pics/back.png&quot;</span>
+         <span class="name">width</span>: <span class="number">40</span>; <span class="name">height</span>: <span class="number">40</span>
+
+         <span class="type"><a href="qml-text.html">Text</a></span> {
+             <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+             <span class="name">text</span>: <span class="name">modelData</span>.<span class="name">hint</span>; <span class="name">color</span>: <span class="string">&quot;white&quot;</span>; <span class="name">font</span>.bold: <span class="number">true</span>
+             <span class="name">opacity</span>: !<span class="name">modelData</span>.<span class="name">hasMine</span> <span class="operator">&amp;&amp;</span> <span class="name">modelData</span>.<span class="name">hint</span> <span class="operator">&gt;</span> <span class="number">0</span>
+         }
+
+         <span class="type"><a href="qml-image.html">Image</a></span> {
+             <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+             <span class="name">source</span>: <span class="string">&quot;pics/bomb.png&quot;</span>; <span class="name">opacity</span>: <span class="name">modelData</span>.<span class="name">hasMine</span>
+         }
+
+         <span class="type">Explosion</span> { <span class="name">id</span>: <span class="name">expl</span> }
+     }
+
+     <span class="name">states</span>: <span class="name">State</span> {
+         <span class="name">name</span>: <span class="string">&quot;back&quot;</span>; <span class="name">when</span>: <span class="name">modelData</span>.<span class="name">flipped</span>
+         <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> { <span class="name">target</span>: <span class="name">flipable</span>; <span class="name">angle</span>: <span class="number">180</span> }
+     }
+
+     property <span class="type">real</span> <span class="name">pauseDur</span>: <span class="number">250</span>
+     <span class="name">transitions</span>: <span class="name">Transition</span> {
+         <span class="type"><a href="qml-sequentialanimation.html">SequentialAnimation</a></span> {
+             <span class="type"><a href="qml-scriptaction.html">ScriptAction</a></span> {
+                 <span class="name">script</span>: {
+                     var <span class="name">ret</span> = <span class="name">Math</span>.<span class="name">abs</span>(<span class="name">flipable</span>.<span class="name">x</span> <span class="operator">-</span> <span class="name">field</span>.<span class="name">clickx</span>)
+                         <span class="operator">+</span> <span class="name">Math</span>.<span class="name">abs</span>(<span class="name">flipable</span>.<span class="name">y</span> <span class="operator">-</span> <span class="name">field</span>.<span class="name">clicky</span>);
+                     <span class="keyword">if</span> (<span class="name">modelData</span>.<span class="name">hasMine</span> <span class="operator">&amp;&amp;</span> <span class="name">modelData</span>.<span class="name">flipped</span>)
+                         <span class="name">pauseDur</span> <span class="operator">=</span> <span class="name">ret</span> <span class="operator">*</span> <span class="number">3</span>
+                     else
+                         <span class="name">pauseDur</span> <span class="operator">=</span> <span class="name">ret</span>
+                 }
+             }
+             <span class="type"><a href="qml-pauseanimation.html">PauseAnimation</a></span> {
+                 <span class="name">duration</span>: <span class="name">pauseDur</span>
+             }
+             <span class="type"><a href="qml-rotationanimation.html">RotationAnimation</a></span> { <span class="name">easing</span>.type: <span class="name">Easing</span>.<span class="name">InOutQuad</span> }
+             <span class="type"><a href="qml-scriptaction.html">ScriptAction</a></span> { <span class="name">script</span>: <span class="keyword">if</span> (<span class="name">modelData</span>.<span class="name">hasMine</span> <span class="operator">&amp;&amp;</span> <span class="name">modelData</span>.<span class="name">flipped</span>) { <span class="name">expl</span>.<span class="name">explode</span> <span class="operator">=</span> <span class="number">true</span> } }
+         }
+     }
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">acceptedButtons</span>: <span class="name">Qt</span>.<span class="name">LeftButton</span> <span class="operator">|</span> <span class="name">Qt</span>.<span class="name">RightButton</span>
+         <span class="name">onClicked</span>: {
+             <span class="name">field</span>.<span class="name">clickx</span> <span class="operator">=</span> <span class="name">flipable</span>.<span class="name">x</span>
+             <span class="name">field</span>.<span class="name">clicky</span> <span class="operator">=</span> <span class="name">flipable</span>.<span class="name">y</span>
+             var <span class="name">row</span> = <span class="name">Math</span>.<span class="name">floor</span>(<span class="name">index</span> <span class="operator">/</span> <span class="number">9</span>)
+             var <span class="name">col</span> = <span class="name">index</span> <span class="operator">-</span> (<span class="name">Math</span>.<span class="name">floor</span>(<span class="name">index</span> <span class="operator">/</span> <span class="number">9</span>) <span class="operator">*</span> <span class="number">9</span>)
+             <span class="keyword">if</span> (<span class="name">mouse</span>.<span class="name">button</span> <span class="operator">==</span> <span class="name">undefined</span> <span class="operator">||</span> <span class="name">mouse</span>.<span class="name">button</span> <span class="operator">==</span> <span class="name">Qt</span>.<span class="name">RightButton</span>) {
+                 <span class="name">flag</span>(<span class="name">row</span>, <span class="name">col</span>)
+             } else {
+                 <span class="name">flip</span>(<span class="name">row</span>, <span class="name">col</span>)
+             }
+         }
+         <span class="name">onPressAndHold</span>: {
+             <span class="name">field</span>.<span class="name">clickx</span> <span class="operator">=</span> <span class="name">flipable</span>.<span class="name">x</span>
+             <span class="name">field</span>.<span class="name">clicky</span> <span class="operator">=</span> <span class="name">flipable</span>.<span class="name">y</span>
+             var <span class="name">row</span> = <span class="name">Math</span>.<span class="name">floor</span>(<span class="name">index</span> <span class="operator">/</span> <span class="number">9</span>)
+             var <span class="name">col</span> = <span class="name">index</span> <span class="operator">-</span> (<span class="name">Math</span>.<span class="name">floor</span>(<span class="name">index</span> <span class="operator">/</span> <span class="number">9</span>) <span class="operator">*</span> <span class="number">9</span>)
+             <span class="name">flag</span>(<span class="name">row</span>, <span class="name">col</span>)
+         }
+     }
+ }</pre>
+</div>
+<!-- @@@demos/declarative/minehunt/MinehuntCore/Tile.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

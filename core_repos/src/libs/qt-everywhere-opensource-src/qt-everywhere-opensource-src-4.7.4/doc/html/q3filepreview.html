@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3filedialog.cpp -->
+  <title>Qt 4.7: Q3FilePreview Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3FilePreview</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3FilePreview Class Reference</h1>
+<!-- $$$Q3FilePreview-brief -->
+<p>The Q3FilePreview class provides file previewing in <a href="q3filedialog.html">Q3FileDialog</a>. <a href="#details">More...</a></p>
+<!-- @@@Q3FilePreview -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3FilePreview&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html">Porting to Qt 4</a> for more information.</p>
+<ul>
+<li><a href="q3filepreview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3filepreview.html#Q3FilePreview">Q3FilePreview</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="q3filepreview.html#dtor.Q3FilePreview">~Q3FilePreview</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="q3filepreview.html#previewUrl">previewUrl</a></b> ( const Q3Url &amp; <i>url</i> ) = 0</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$Q3FilePreview-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3FilePreview class provides file previewing in <a href="q3filedialog.html">Q3FileDialog</a>.</p>
+<p>This class is an abstract base class which is used to implement widgets that can display a preview of a file in a <a href="q3filedialog.html">Q3FileDialog</a>.</p>
+<p>You must derive the preview widget from both <a href="qwidget.html">QWidget</a> and from this class. Then you must reimplement this class's <a href="q3filepreview.html#previewUrl">previewUrl</a>() function, which is called by the file dialog if the preview of a file (specified as a URL) should be shown.</p>
+<p>See also <a href="q3filedialog.html#previewMode-prop">Q3FileDialog::setPreviewMode</a>(), <a href="q3filedialog.html#setContentsPreview">Q3FileDialog::setContentsPreview</a>(), <a href="q3filedialog.html#setInfoPreview">Q3FileDialog::setInfoPreview</a>(), <a href="q3filedialog.html#infoPreview-prop">Q3FileDialog::setInfoPreviewEnabled</a>(), <a href="q3filedialog.html#contentsPreview-prop">Q3FileDialog::setContentsPreviewEnabled</a>().</p>
+</div>
+<!-- @@@Q3FilePreview -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3FilePreview[overload1]$$$Q3FilePreview -->
+<h3 class="fn"><a name="Q3FilePreview"></a>Q3FilePreview::<span class="name">Q3FilePreview</span> ()</h3>
+<p>Constructs the <a href="q3filepreview.html" class="compat">Q3FilePreview</a>.</p>
+<!-- @@@Q3FilePreview -->
+<!-- $$$~Q3FilePreview[overload1]$$$~Q3FilePreview -->
+<h3 class="fn"><a name="dtor.Q3FilePreview"></a>Q3FilePreview::<span class="name">~Q3FilePreview</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the file preview object.</p>
+<!-- @@@~Q3FilePreview -->
+<!-- $$$previewUrl[overload1]$$$previewUrlconstQ3Url& -->
+<h3 class="fn"><a name="previewUrl"></a><span class="type">void</span> Q3FilePreview::<span class="name">previewUrl</span> ( const <span class="type"><a href="q3url.html">Q3Url</a></span> &amp; <i>url</i> )<tt> [pure virtual]</tt></h3>
+<p>This function is called by <a href="q3filedialog.html" class="compat">Q3FileDialog</a> if a preview for the <i>url</i> should be shown. Reimplement this function to provide file previewing.</p>
+<!-- @@@previewUrl -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

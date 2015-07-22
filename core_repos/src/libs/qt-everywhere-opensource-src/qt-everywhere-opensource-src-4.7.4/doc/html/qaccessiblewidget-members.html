@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qaccessiblewidget.cpp -->
+  <title>Qt 4.7: List of All Members for QAccessibleWidget</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QAccessibleWidget</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">List of All Members for QAccessibleWidget</h1>
+<p>This is the complete list of members for <a href="qaccessiblewidget.html">QAccessibleWidget</a>, including inherited members.</p>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#Action-enum">Action</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#Event-enum">Event</a></b></span></li>
+<li class="fn">typedef <span class="name"><b><a href="qaccessible.html#InterfaceFactory-typedef">InterfaceFactory</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#Method-enum">Method</a></b></span></li>
+<li class="fn">flags <span class="name"><b><a href="qaccessible.html#RelationFlag-enum">Relation</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#RelationFlag-enum">RelationFlag</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#Role-enum">Role</a></b></span></li>
+<li class="fn">flags <span class="name"><b><a href="qaccessible.html#StateFlag-enum">State</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#StateFlag-enum">StateFlag</a></b></span></li>
+<li class="fn">enum <span class="name"><b><a href="qaccessible.html#Text-enum">Text</a></b></span></li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#QAccessibleWidget">QAccessibleWidget</a></b></span> ( QWidget *, Role, const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#dtor.QAccessibleWidget">~QAccessibleWidget</a></b></span> ()</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#actionText">actionText</a></b></span> ( int, Text, int ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#addControllingSignal">addControllingSignal</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#childAt">childAt</a></b></span> ( int, int ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#childCount">childCount</a></b></span> () const : int</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#doAction">doAction</a></b></span> ( int, int, const QVariantList &amp; ) : bool</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#indexOfChild">indexOfChild</a></b></span> ( const QAccessibleInterface * ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#installFactory">installFactory</a></b></span> ( InterfaceFactory )</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#installRootObjectHandler">installRootObjectHandler</a></b></span> ( RootObjectHandler ) : RootObjectHandler</li>
+<li class="fn"><span class="name"><b><a href="qaccessibleinterface.html#invokeMethod">invokeMethod</a></b></span> ( Method, int, const QVariantList &amp; ) : QVariant</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#isActive">isActive</a></b></span> () : bool</li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><span class="name"><b><a href="qaccessibleobject.html#isValid">isValid</a></b></span> () const : bool</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#navigate">navigate</a></b></span> ( RelationFlag, int, QAccessibleInterface ** ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qaccessibleobject.html#object">object</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#parentObject">parentObject</a></b></span> () const : QObject *</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#queryAccessibleInterface">queryAccessibleInterface</a></b></span> ( QObject * ) : QAccessibleInterface *</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#rect">rect</a></b></span> ( int ) const : QRect</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#relationTo">relationTo</a></b></span> ( int, const QAccessibleInterface *, int ) const : Relation</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#removeFactory">removeFactory</a></b></span> ( InterfaceFactory )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#role">role</a></b></span> ( int ) const : Role</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#setAccelerator">setAccelerator</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#setDescription">setDescription</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#setHelp">setHelp</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#setRootObject">setRootObject</a></b></span> ( QObject * )</li>
+<li class="fn"><span class="name"><b><a href="qaccessibleobject.html#setText">setText</a></b></span> ( Text, int, const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#setValue">setValue</a></b></span> ( const QString &amp; )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#state">state</a></b></span> ( int ) const : State</li>
+<li class="fn"><span class="name"><b><a href="qaccessibleinterface.html#supportedMethods">supportedMethods</a></b></span> () : QSet&lt;Method&gt;</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#text">text</a></b></span> ( Text, int ) const : QString</li>
+<li class="fn"><span class="name"><b><a href="qaccessible.html#updateAccessibility">updateAccessibility</a></b></span> ( QObject *, int, Event )</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#userActionCount">userActionCount</a></b></span> ( int ) const : int</li>
+<li class="fn"><span class="name"><b><a href="qaccessiblewidget.html#widget">widget</a></b></span> () const : QWidget *</li>
+</ul>
+</td></tr>
+</table>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

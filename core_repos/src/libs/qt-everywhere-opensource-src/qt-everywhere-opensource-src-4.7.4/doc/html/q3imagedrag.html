@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3dragobject.cpp -->
+  <title>Qt 4.7: Q3ImageDrag Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3ImageDrag</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3ImageDrag Class Reference</h1>
+<!-- $$$Q3ImageDrag-brief -->
+<p>The Q3ImageDrag class provides a drag and drop object for transferring images. <a href="#details">More...</a></p>
+<!-- @@@Q3ImageDrag -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3ImageDrag&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html#qimagedrag">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="q3dragobject.html">Q3DragObject</a>.</p>
+<ul>
+<li><a href="q3imagedrag-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#Q3ImageDrag">Q3ImageDrag</a></b> ( QImage <i>image</i>, QWidget * <i>dragSource</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#Q3ImageDrag-2">Q3ImageDrag</a></b> ( QWidget * <i>dragSource</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#dtor.Q3ImageDrag">~Q3ImageDrag</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#setImage">setImage</a></b> ( QImage <i>image</i> )</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QByteArray </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#encodedData">encodedData</a></b> ( const char * <i>fmt</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual const char * </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#format">format</a></b> ( int <i>i</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">9 public functions inherited from <a href="q3dragobject.html#public-functions">Q3DragObject</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">3 public functions inherited from <a href="qmimesource.html#public-functions">QMimeSource</a></li>
+</ul>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#canDecode">canDecode</a></b> ( const QMimeSource * <i>source</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#decode">decode</a></b> ( const QMimeSource * <i>source</i>, QImage &amp; <i>image</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="q3imagedrag.html#decode-2">decode</a></b> ( const QMimeSource * <i>source</i>, QPixmap &amp; <i>pixmap</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 static public member inherited from <a href="q3dragobject.html#static-public-members">Q3DragObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">1 protected function inherited from <a href="q3dragobject.html#protected-functions">Q3DragObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3ImageDrag-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3ImageDrag class provides a drag and drop object for transferring images.</p>
+<p>Images are offered to the receiving application in multiple formats, determined by Qt's output formats.</p>
+</div>
+<!-- @@@Q3ImageDrag -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3ImageDrag[overload1]$$$Q3ImageDragQImageQWidget*constchar* -->
+<h3 class="fn"><a name="Q3ImageDrag"></a>Q3ImageDrag::<span class="name">Q3ImageDrag</span> ( <span class="type"><a href="qimage.html">QImage</a></span> <i>image</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>dragSource</i> = 0, const <span class="type">char</span> * <i>name</i> = 0 )</h3>
+<p>Constructs an image drag object with the given <i>name</i>, and sets its data to <i>image</i>. The <i>dragSource</i> is the widget that the drag operation started from.</p>
+<!-- @@@Q3ImageDrag -->
+<!-- $$$Q3ImageDrag$$$Q3ImageDragQWidget*constchar* -->
+<h3 class="fn"><a name="Q3ImageDrag-2"></a>Q3ImageDrag::<span class="name">Q3ImageDrag</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>dragSource</i> = 0, const <span class="type">char</span> * <i>name</i> = 0 )</h3>
+<p>Constructs a default image drag object with the given <i>name</i>. The <i>dragSource</i> is the widget that the drag operation started from.</p>
+<!-- @@@Q3ImageDrag -->
+<!-- $$$~Q3ImageDrag[overload1]$$$~Q3ImageDrag -->
+<h3 class="fn"><a name="dtor.Q3ImageDrag"></a>Q3ImageDrag::<span class="name">~Q3ImageDrag</span> ()</h3>
+<p>Destroys the image drag object.</p>
+<!-- @@@~Q3ImageDrag -->
+<!-- $$$canDecode[overload1]$$$canDecodeconstQMimeSource* -->
+<h3 class="fn"><a name="canDecode"></a><span class="type">bool</span> Q3ImageDrag::<span class="name">canDecode</span> ( const <span class="type"><a href="qmimesource.html">QMimeSource</a></span> * <i>source</i> )<tt> [static]</tt></h3>
+<p>Returns true if the information in the MIME <i>source</i> can be decoded into an image; otherwise returns false.</p>
+<p><b>See also </b><a href="q3imagedrag.html#decode">decode</a>().</p>
+<!-- @@@canDecode -->
+<!-- $$$decode[overload1]$$$decodeconstQMimeSource*QImage& -->
+<h3 class="fn"><a name="decode"></a><span class="type">bool</span> Q3ImageDrag::<span class="name">decode</span> ( const <span class="type"><a href="qmimesource.html">QMimeSource</a></span> * <i>source</i>, <span class="type"><a href="qimage.html">QImage</a></span> &amp; <i>image</i> )<tt> [static]</tt></h3>
+<p>Decode the dropped information in the MIME <i>source</i> into the <i>image</i>. Returns true if successful; otherwise returns false.</p>
+<p><b>See also </b><a href="q3imagedrag.html#canDecode">canDecode</a>().</p>
+<!-- @@@decode -->
+<!-- $$$decode$$$decodeconstQMimeSource*QPixmap& -->
+<h3 class="fn"><a name="decode-2"></a><span class="type">bool</span> Q3ImageDrag::<span class="name">decode</span> ( const <span class="type"><a href="qmimesource.html">QMimeSource</a></span> * <i>source</i>, <span class="type"><a href="qpixmap.html">QPixmap</a></span> &amp; <i>pixmap</i> )<tt> [static]</tt></h3>
+<p>This is an overloaded function.</p>
+<p>Decodes the dropped information in the MIME <i>source</i> into the <i>pixmap</i>. Returns true if successful; otherwise returns false.</p>
+<p>This is a convenience function that converts the information to a <a href="qpixmap.html">QPixmap</a> via a <a href="qimage.html">QImage</a>.</p>
+<p><b>See also </b><a href="q3imagedrag.html#canDecode">canDecode</a>().</p>
+<!-- @@@decode -->
+<!-- $$$encodedData[overload1]$$$encodedDataconstchar* -->
+<h3 class="fn"><a name="encodedData"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> Q3ImageDrag::<span class="name">encodedData</span> ( const <span class="type">char</span> * <i>fmt</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qmimesource.html#encodedData">QMimeSource::encodedData</a>().</p>
+<!-- @@@encodedData -->
+<!-- $$$format[overload1]$$$formatint -->
+<h3 class="fn"><a name="format"></a>const <span class="type">char</span> * Q3ImageDrag::<span class="name">format</span> ( <span class="type">int</span> <i>i</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qmimesource.html#format">QMimeSource::format</a>().</p>
+<!-- @@@format -->
+<!-- $$$setImage[overload1]$$$setImageQImage -->
+<h3 class="fn"><a name="setImage"></a><span class="type">void</span> Q3ImageDrag::<span class="name">setImage</span> ( <span class="type"><a href="qimage.html">QImage</a></span> <i>image</i> )<tt> [virtual]</tt></h3>
+<p>Sets the <i>image</i> to be dragged. You will need to call this if you did not pass the image during construction.</p>
+<!-- @@@setImage -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

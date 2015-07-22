@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3dragobject.cpp -->
+  <title>Qt 4.7: Q3StoredDrag Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3StoredDrag</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3StoredDrag Class Reference</h1>
+<!-- $$$Q3StoredDrag-brief -->
+<p>The Q3StoredDrag class provides a simple stored-value drag object for arbitrary MIME data. <a href="#details">More...</a></p>
+<!-- @@@Q3StoredDrag -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3StoredDrag&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html#qstoreddrag">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="q3dragobject.html">Q3DragObject</a>.</p>
+<p><b>Inherited by: </b><a href="q3colordrag.html">Q3ColorDrag</a> and <a href="q3uridrag.html">Q3UriDrag</a>.</p>
+<ul>
+<li><a href="q3storeddrag-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3storeddrag.html#Q3StoredDrag">Q3StoredDrag</a></b> ( const char * <i>mimeType</i>, QWidget * <i>dragSource</i> = 0, const char * <i>name</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3storeddrag.html#dtor.Q3StoredDrag">~Q3StoredDrag</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="q3storeddrag.html#setEncodedData">setEncodedData</a></b> ( const QByteArray &amp; <i>data</i> )</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QByteArray </td><td class="memItemRight bottomAlign"><b><a href="q3storeddrag.html#encodedData">encodedData</a></b> ( const char * <i>format</i> ) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual const char * </td><td class="memItemRight bottomAlign"><b><a href="q3storeddrag.html#format">format</a></b> ( int <i>i</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">9 public functions inherited from <a href="q3dragobject.html#public-functions">Q3DragObject</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">3 public functions inherited from <a href="qmimesource.html#public-functions">QMimeSource</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">1 static public member inherited from <a href="q3dragobject.html#static-public-members">Q3DragObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">1 protected function inherited from <a href="q3dragobject.html#protected-functions">Q3DragObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3StoredDrag-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3StoredDrag class provides a simple stored-value drag object for arbitrary MIME data.</p>
+<p>When a block of data has only one representation, you can use a Q3StoredDrag to hold it.</p>
+<p>For more information about drag and drop, see the <a href="q3dragobject.html">Q3DragObject</a> class and the <a href="dnd.html">drag and drop documentation</a>.</p>
+</div>
+<!-- @@@Q3StoredDrag -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3StoredDrag[overload1]$$$Q3StoredDragconstchar*QWidget*constchar* -->
+<h3 class="fn"><a name="Q3StoredDrag"></a>Q3StoredDrag::<span class="name">Q3StoredDrag</span> ( const <span class="type">char</span> * <i>mimeType</i>, <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>dragSource</i> = 0, const <span class="type">char</span> * <i>name</i> = 0 )</h3>
+<p>Constructs a <a href="q3storeddrag.html" class="compat">Q3StoredDrag</a>. The <i>dragSource</i> and <i>name</i> are passed to the <a href="q3dragobject.html" class="compat">Q3DragObject</a> constructor, and the format is set to <i>mimeType</i>.</p>
+<p>The data will be unset. Use <a href="q3storeddrag.html#setEncodedData">setEncodedData</a>() to set it.</p>
+<!-- @@@Q3StoredDrag -->
+<!-- $$$~Q3StoredDrag[overload1]$$$~Q3StoredDrag -->
+<h3 class="fn"><a name="dtor.Q3StoredDrag"></a>Q3StoredDrag::<span class="name">~Q3StoredDrag</span> ()</h3>
+<p>Destroys the drag object.</p>
+<!-- @@@~Q3StoredDrag -->
+<!-- $$$encodedData[overload1]$$$encodedDataconstchar* -->
+<h3 class="fn"><a name="encodedData"></a><span class="type"><a href="qbytearray.html">QByteArray</a></span> Q3StoredDrag::<span class="name">encodedData</span> ( const <span class="type">char</span> * <i>format</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qmimesource.html#encodedData">QMimeSource::encodedData</a>().</p>
+<p>Returns the stored data in the <i>format</i> given.</p>
+<p><b>See also </b><a href="q3storeddrag.html#setEncodedData">setEncodedData</a>().</p>
+<!-- @@@encodedData -->
+<!-- $$$format[overload1]$$$formatint -->
+<h3 class="fn"><a name="format"></a>const <span class="type">char</span> * Q3StoredDrag::<span class="name">format</span> ( <span class="type">int</span> <i>i</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qmimesource.html#format">QMimeSource::format</a>().</p>
+<!-- @@@format -->
+<!-- $$$setEncodedData[overload1]$$$setEncodedDataconstQByteArray& -->
+<h3 class="fn"><a name="setEncodedData"></a><span class="type">void</span> Q3StoredDrag::<span class="name">setEncodedData</span> ( const <span class="type"><a href="qbytearray.html">QByteArray</a></span> &amp; <i>data</i> )<tt> [virtual]</tt></h3>
+<p>Sets the encoded <i>data</i> of this drag object. The encoded data is delivered to drop sites; it must be in a strictly defined and portable format.</p>
+<p>The drag object can't be dropped (by the user) until this function has been called.</p>
+<p><b>See also </b><a href="q3storeddrag.html#encodedData">encodedData</a>().</p>
+<!-- @@@setEncodedData -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

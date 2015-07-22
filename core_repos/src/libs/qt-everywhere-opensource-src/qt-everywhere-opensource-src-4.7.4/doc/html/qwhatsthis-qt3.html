@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwhatsthis.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QWhatsThis</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QWhatsThis</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QWhatsThis</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qwhatsthis.html">QWhatsThis class reference</a></li></ul></p>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwhatsthis-qt3.html#add">add</a></b> ( QWidget * <i>w</i>, const QString &amp; <i>s</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qwhatsthis-qt3.html#remove">remove</a></b> ( QWidget * <i>w</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QToolButton * </td><td class="memItemRight bottomAlign"><b><a href="qwhatsthis-qt3.html#whatsThisButton">whatsThisButton</a></b> ( QWidget * <i>parent</i> )</td></tr>
+</table>
+<h2>Member Function Documentation</h2>
+<!-- $$$add[overload1]$$$addQWidget*constQString& -->
+<h3 class="fn"><a name="add"></a><span class="type">void</span> QWhatsThis::<span class="name">add</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>w</i>, const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>s</i> )<tt> [static]</tt></h3>
+<p>Sets the What's This text <i>s</i> for the widget <i>w</i>.</p>
+<p>Use <a href="qwidget.html#whatsThis-prop">QWidget::setWhatsThis</a>() or <a href="qaction.html#whatsThis-prop">QAction::setWhatsThis</a>() instead.</p>
+<!-- @@@add -->
+<!-- $$$remove[overload1]$$$removeQWidget* -->
+<h3 class="fn"><a name="remove"></a><span class="type">void</span> QWhatsThis::<span class="name">remove</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>w</i> )<tt> [static]</tt></h3>
+<p>Remove's the What's This text for the widget <i>w</i>.</p>
+<p>Use <a href="qwidget.html#whatsThis-prop">QWidget::setWhatsThis</a>() or <a href="qaction.html#whatsThis-prop">QAction::setWhatsThis</a>() instead.</p>
+<!-- @@@remove -->
+<!-- $$$whatsThisButton[overload1]$$$whatsThisButtonQWidget* -->
+<h3 class="fn"><a name="whatsThisButton"></a><span class="type"><a href="qtoolbutton.html">QToolButton</a></span> * QWhatsThis::<span class="name">whatsThisButton</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i> )<tt> [static]</tt></h3>
+<p>Returns a new &quot;What's This?&quot; <a href="qtoolbutton.html">QToolButton</a> with the given <i>parent</i>. To do this now, create your own <a href="qtoolbutton.html">QToolButton</a> and a <a href="qwhatsthis.html">QWhatsThis</a> object and call the <a href="qwhatsthis.html">QWhatsThis</a> object's <a href="qwhatsthis.html#showText">showText</a>() function when the <a href="qtoolbutton.html">QToolButton</a> is invoked.</p>
+<p>Use <a href="qwhatsthis.html#createAction">createAction</a>() instead.</p>
+<!-- @@@whatsThisButton -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

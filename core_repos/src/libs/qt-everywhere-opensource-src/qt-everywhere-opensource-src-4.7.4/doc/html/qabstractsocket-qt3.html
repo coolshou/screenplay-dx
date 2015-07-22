@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractsocket.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QAbstractSocket</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtnetwork.html">QtNetwork</a></li>
+<li>QAbstractSocket</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QAbstractSocket</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qabstractsocket.html">QAbstractSocket class reference</a></li></ul></p>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#Error-enum">Error</a></b> { ErrConnectionRefused, ErrHostNotFound, ErrSocketRead }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#State-typedef">State</a></b></td></tr>
+</table>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#setSocket">setSocket</a></b> ( int <i>socket</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#socket">socket</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> qulonglong </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#waitForMore">waitForMore</a></b> ( int <i>msecs</i>, bool * <i>timeout</i> = 0 ) const</td></tr>
+</table>
+<ul>
+<li class="fn">22 public functions inherited from <a href="qiodevice.html#public-functions">QIODevice</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#connectionClosed">connectionClosed</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qabstractsocket-qt3.html#delayedCloseFinished">delayedCloseFinished</a></b> ()</td></tr>
+</table>
+<h2>Member Type Documentation</h2>
+<!-- $$$Error$$$ErrConnectionRefused$$$ErrHostNotFound$$$ErrSocketRead -->
+<h3 class="fn"><a name="Error-enum"></a>enum QAbstractSocket::<span class="name">Error</span></h3>
+<p>Use <a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::SocketError</a> instead.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QAbstractSocket::ErrConnectionRefused</tt></td><td class="topAlign"><tt>ConnectionRefusedError</tt></td><td class="topAlign">Use <a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::ConnectionRefusedError</a> instead.</td></tr>
+<tr><td class="topAlign"><tt>QAbstractSocket::ErrHostNotFound</tt></td><td class="topAlign"><tt>HostNotFoundError</tt></td><td class="topAlign">Use <a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::HostNotFoundError</a> instead.</td></tr>
+<tr><td class="topAlign"><tt>QAbstractSocket::ErrSocketRead</tt></td><td class="topAlign"><tt>UnknownSocketError</tt></td><td class="topAlign">Use <a href="qabstractsocket.html#SocketError-enum">QAbstractSocket::UnknownSocketError</a> instead.</td></tr>
+</table>
+<!-- @@@Error -->
+<!-- $$$State -->
+<h3 class="fn"><a name="State-typedef"></a>typedef QAbstractSocket::<span class="name">State</span></h3>
+<p>Use <a href="qabstractsocket.html#SocketState-enum">QAbstractSocket::SocketState</a> instead.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Qt 3 enum value</th><th >Qt 4 enum value</th></tr></thead>
+<tr valign="top" class="odd"><td ><tt>Idle</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">UnconnectedState</a></td></tr>
+<tr valign="top" class="even"><td ><tt>HostLookup</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">HostLookupState</a></td></tr>
+<tr valign="top" class="odd"><td ><tt>Connecting</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">ConnectingState</a></td></tr>
+<tr valign="top" class="even"><td ><tt>Connected</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">ConnectedState</a></td></tr>
+<tr valign="top" class="odd"><td ><tt>Closing</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">ClosingState</a></td></tr>
+<tr valign="top" class="even"><td ><tt>Connection</tt></td><td ><a href="qabstractsocket.html#SocketState-enum">ConnectedState</a></td></tr>
+</table>
+<!-- @@@State -->
+<h2>Member Function Documentation</h2>
+<!-- $$$connectionClosed[overload1]$$$connectionClosed -->
+<h3 class="fn"><a name="connectionClosed"></a><span class="type">void</span> QAbstractSocket::<span class="name">connectionClosed</span> ()<tt> [signal]</tt></h3>
+<p>Use <a href="qabstractsocket.html#disconnected">disconnected</a>() instead.</p>
+<!-- @@@connectionClosed -->
+<!-- $$$delayedCloseFinished[overload1]$$$delayedCloseFinished -->
+<h3 class="fn"><a name="delayedCloseFinished"></a><span class="type">void</span> QAbstractSocket::<span class="name">delayedCloseFinished</span> ()<tt> [signal]</tt></h3>
+<p>Use <a href="qabstractsocket.html#disconnected">disconnected</a>() instead.</p>
+<!-- @@@delayedCloseFinished -->
+<!-- $$$setSocket[overload1]$$$setSocketint -->
+<h3 class="fn"><a name="setSocket"></a><span class="type">void</span> QAbstractSocket::<span class="name">setSocket</span> ( <span class="type">int</span> <i>socket</i> )</h3>
+<p>Use <a href="qabstractsocket.html#setSocketDescriptor">setSocketDescriptor</a>() instead.</p>
+<p><b>See also </b><a href="qabstractsocket-qt3.html#socket">socket</a>().</p>
+<!-- @@@setSocket -->
+<!-- $$$socket[overload1]$$$socket -->
+<h3 class="fn"><a name="socket"></a><span class="type">int</span> QAbstractSocket::<span class="name">socket</span> () const</h3>
+<p>Use <a href="qabstractsocket.html#socketDescriptor">socketDescriptor</a>() instead.</p>
+<p><b>See also </b><a href="qabstractsocket-qt3.html#setSocket">setSocket</a>().</p>
+<!-- @@@socket -->
+<!-- $$$waitForMore[overload1]$$$waitForMoreintbool* -->
+<h3 class="fn"><a name="waitForMore"></a><span class="type"><a href="qtglobal.html#qulonglong-typedef">qulonglong</a></span> QAbstractSocket::<span class="name">waitForMore</span> ( <span class="type">int</span> <i>msecs</i>, <span class="type">bool</span> * <i>timeout</i> = 0 ) const</h3>
+<p>Use <a href="qabstractsocket.html#waitForReadyRead">waitForReadyRead</a>() instead.</p>
+<p>For example, if you have code like</p>
+<pre class="cpp"> bool timeout;
+ Q_ULONG numBytes = socket-&gt;waitForMore(30000, &amp;timeout);</pre>
+<p>you can rewrite it as</p>
+<pre class="cpp"> <span class="type"><a href="qtglobal.html#qint64-typedef">qint64</a></span> numBytes <span class="operator">=</span> <span class="number">0</span>;
+ <span class="keyword">if</span> (socket<span class="operator">-</span><span class="operator">&gt;</span>waitForReadyRead(msecs))
+     numBytes <span class="operator">=</span> socket<span class="operator">-</span><span class="operator">&gt;</span><a href="qabstractsocket.html#bytesAvailable">bytesAvailable</a>();
+ <span class="type">bool</span> timeout <span class="operator">=</span> (error() <span class="operator">=</span><span class="operator">=</span> <span class="type"><a href="qabstractsocket.html">QAbstractSocket</a></span><span class="operator">::</span>SocketTimeoutError);</pre>
+<p><b>See also </b><a href="qabstractsocket.html#waitForReadyRead">waitForReadyRead</a>(), <a href="qabstractsocket.html#bytesAvailable">bytesAvailable</a>(), <a href="qabstractsocket.html#error">error</a>(), and <a href="qabstractsocket.html#SocketError-enum">SocketTimeoutError</a>.</p>
+<!-- @@@waitForMore -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- activeqt.qdoc -->
+  <title>Qt 4.7: Qt's ActiveX Framework (ActiveQt)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Qt's ActiveX Framework (ActiveQt)</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt's ActiveX Framework (ActiveQt)</h1>
+<span class="subtitle"></span>
+<!-- $$$activeqt.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="activeqt"></a><a name="activeqt-framework"></a><p>Qt's ActiveX and COM support allows Qt for Windows developers to:</p>
+<ol class="1">
+<li>Access and use ActiveX controls and COM objects provided by any ActiveX server in their Qt applications.</li>
+<li>Make their Qt applications available as COM servers, with any number of Qt objects and widgets as COM objects and ActiveX controls.</li>
+</ol>
+<p>For more information about using ActiveX with Qt, see <a href="activeqt-server.html">Building ActiveX servers in Qt</a>.</p>
+<p>The <a href="#activeqt">ActiveQt</a> framework consists of two modules:</p>
+<ul>
+<li>The <a href="activeqt-container.html">QAxContainer</a> module is a static library implementing <a href="qobject.html">QObject</a> and <a href="qwidget.html">QWidget</a> subclasses, <a href="qaxobject.html">QAxObject</a> and <a href="qaxwidget.html">QAxWidget</a>, that act as containers for COM objects and ActiveX controls.</li>
+<li>The <a href="activeqt-server.html">QAxServer</a> module is a static library that implements functionality for in-process and executable COM servers. This module provides the <a href="qaxaggregated.html">QAxAggregated</a>, <a href="qaxbindable.html">QAxBindable</a> and <a href="qaxfactory.html">QAxFactory</a> classes.</li>
+</ul>
+<p>A set of <a href="activeqt-tools.html">tools</a> is provided to simplify the developing and building of Qt projects that use ActiveX.</p>
+<p>To build the static libraries, change into the <tt>activeqt</tt> directory (usually <tt>QTDIR/src/activeqt</tt>), and run <tt>qmake</tt> and your make tool in both the <tt>container</tt> and the <tt>control</tt> subdirectory. The libraries <tt>qaxcontainer.lib</tt> and <tt>qaxserver.lib</tt> will be linked into <tt>QTDIR/lib</tt>.</p>
+<p>If you are using a shared configuration of Qt enter the <tt>plugin</tt> subdirectory and run <tt>qmake</tt> and your make tool to build a plugin that integrates the <a href="qaxcontainer.html">QAxContainer</a> module into <a href="designer-manual.html#qt-designer">Qt Designer</a>.</p>
+<p>The <a href="#activeqt">ActiveQt</a> modules are part of the <a href="commercialedition.html">Qt Commercial Edition</a> and the <a href="opensourceedition.html">Open Source Versions of Qt</a>.</p>
+</div>
+<p><b>See also </b><a href="qaxcontainer.html">QAxContainer Module</a> and <a href="qaxserver.html">QAxServer Module</a>.</p>
+<!-- @@@activeqt.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdbuspendingcall.cpp -->
+  <title>Qt 4.7: QDBusPendingCall Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdbus.html">QtDBus</a></li>
+<li>QDBusPendingCall</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDBusPendingCall Class Reference</h1>
+<!-- $$$QDBusPendingCall-brief -->
+<p>The QDBusPendingCall class refers to one pending asynchronous call <a href="#details">More...</a></p>
+<!-- @@@QDBusPendingCall -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDBusPendingCall&gt;</span></pre><p><b>Inherited by: </b><a href="qdbuspendingcallwatcher.html">QDBusPendingCallWatcher</a> and <a href="qdbuspendingreply.html">QDBusPendingReply</a>.</p>
+<p>This class was introduced in Qt 4.5.</p>
+<ul>
+<li><a href="qdbuspendingcall-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdbuspendingcall.html#QDBusPendingCall">QDBusPendingCall</a></b> ( const QDBusPendingCall &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qdbuspendingcall.html#dtor.QDBusPendingCall">~QDBusPendingCall</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDBusPendingCall &amp; </td><td class="memItemRight bottomAlign"><b><a href="qdbuspendingcall.html#operator-eq">operator=</a></b> ( const QDBusPendingCall &amp; <i>other</i> )</td></tr>
+</table>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> QDBusPendingCall </td><td class="memItemRight bottomAlign"><b><a href="qdbuspendingcall.html#fromCompletedCall">fromCompletedCall</a></b> ( const QDBusMessage &amp; <i>msg</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QDBusPendingCall </td><td class="memItemRight bottomAlign"><b><a href="qdbuspendingcall.html#fromError">fromError</a></b> ( const QDBusError &amp; <i>error</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QDBusPendingCall-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDBusPendingCall class refers to one pending asynchronous call</p>
+<p>A QDBusPendingCall object is a reference to a method call that was sent over D-Bus without waiting for a reply. QDBusPendingCall is an opaque type, meant to be used as a handle for a pending reply.</p>
+<p>In most programs, the QDBusPendingCall class will not be used directly. It can be safely replaced with the template-based <a href="qdbuspendingreply.html">QDBusPendingReply</a>, in order to access the contents of the reply or wait for it to be complete.</p>
+<p>The <a href="qdbuspendingcallwatcher.html">QDBusPendingCallWatcher</a> class allows one to connect to a signal that will indicate when the reply has arrived or if the call has timed out. It also provides the <a href="qdbuspendingcallwatcher.html#waitForFinished">QDBusPendingCallWatcher::waitForFinished</a>() method which will suspend the execution of the program until the reply has arrived.</p>
+<p><b>Note:</b> If you create a copy of a QDBusPendingCall object, all information will be shared among the many copies. Therefore, QDBusPendingCall is an explicitly-shared object and does not provide a method of detaching the copies (since they refer to the same pending call)</p>
+</div>
+<p><b>See also </b><a href="qdbuspendingreply.html">QDBusPendingReply</a>, <a href="qdbuspendingcallwatcher.html">QDBusPendingCallWatcher</a>, and <a href="qdbusabstractinterface.html#asyncCall">QDBusAbstractInterface::asyncCall</a>().</p>
+<!-- @@@QDBusPendingCall -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QDBusPendingCall[overload1]$$$QDBusPendingCallconstQDBusPendingCall& -->
+<h3 class="fn"><a name="QDBusPendingCall"></a>QDBusPendingCall::<span class="name">QDBusPendingCall</span> ( const <span class="type">QDBusPendingCall</span> &amp; <i>other</i> )</h3>
+<p>Creates a copy of the <i>other</i> pending asynchronous call. Note that both objects will refer to the same pending call.</p>
+<!-- @@@QDBusPendingCall -->
+<!-- $$$~QDBusPendingCall[overload1]$$$~QDBusPendingCall -->
+<h3 class="fn"><a name="dtor.QDBusPendingCall"></a>QDBusPendingCall::<span class="name">~QDBusPendingCall</span> ()</h3>
+<p>Destroys this copy of the <a href="qdbuspendingcall.html">QDBusPendingCall</a> object. If this copy is also the last copy of a pending asynchronous call, the call will be canceled and no further notifications will be received. There will be no way of accessing the reply's contents when it arrives.</p>
+<!-- @@@~QDBusPendingCall -->
+<!-- $$$fromCompletedCall[overload1]$$$fromCompletedCallconstQDBusMessage& -->
+<h3 class="fn"><a name="fromCompletedCall"></a><span class="type">QDBusPendingCall</span> QDBusPendingCall::<span class="name">fromCompletedCall</span> ( const <span class="type"><a href="qdbusmessage.html">QDBusMessage</a></span> &amp; <i>msg</i> )<tt> [static]</tt></h3>
+<p>Creates a <a href="qdbuspendingcall.html">QDBusPendingCall</a> object based on the message <i>msg</i>. The message must be of type <a href="qdbusmessage.html#MessageType-enum">QDBusMessage::ErrorMessage</a> or <a href="qdbusmessage.html#MessageType-enum">QDBusMessage::ReplyMessage</a> (that is, a message that is typical of a completed call).</p>
+<p>This function is useful for code that requires simulating a pending call, but that has already finished.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<p><b>See also </b><a href="qdbuspendingcall.html#fromError">fromError</a>().</p>
+<!-- @@@fromCompletedCall -->
+<!-- $$$fromError[overload1]$$$fromErrorconstQDBusError& -->
+<h3 class="fn"><a name="fromError"></a><span class="type">QDBusPendingCall</span> QDBusPendingCall::<span class="name">fromError</span> ( const <span class="type"><a href="qdbuserror.html">QDBusError</a></span> &amp; <i>error</i> )<tt> [static]</tt></h3>
+<p>Creates a <a href="qdbuspendingcall.html">QDBusPendingCall</a> object based on the error condition <i>error</i>. The resulting pending call object will be in the &quot;finished&quot; state and <a href="qdbuspendingreply.html#isError">QDBusPendingReply::isError</a>() will return true.</p>
+<p>This function was introduced in Qt 4.6.</p>
+<p><b>See also </b><a href="qdbuspendingcall.html#fromCompletedCall">fromCompletedCall</a>().</p>
+<!-- @@@fromError -->
+<!-- $$$operator=[overload1]$$$operator=constQDBusPendingCall& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QDBusPendingCall</span> &amp; QDBusPendingCall::<span class="name">operator=</span> ( const <span class="type">QDBusPendingCall</span> &amp; <i>other</i> )</h3>
+<p>Creates a copy of the <i>other</i> pending asynchronous call and drops the reference to the previously-referenced call. Note that both objects will refer to the same pending call after this function.</p>
+<p>If this object contained the last reference of a pending asynchronous call, the call will be canceled and no further notifications will be received. There will be no way of accessing the reply's contents when it arrives.</p>
+<!-- @@@operator= -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

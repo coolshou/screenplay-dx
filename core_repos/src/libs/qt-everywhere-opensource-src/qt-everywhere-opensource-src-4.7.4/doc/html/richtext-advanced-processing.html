@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- richtext.qdoc -->
+  <title>Qt 4.7: Advanced Rich Text Processing</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Advanced Rich Text Processing</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="richtext-common-tasks.html" />
+  <link rel="next" href="richtext-html-subset.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="richtext-common-tasks.html">Common Rich Text Editing Tasks</a>]
+[Next: <a href="richtext-html-subset.html">Supported HTML Subset</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#handling-large-files">Handling Large Files</a></li>
+</ul>
+</div>
+<h1 class="title">Advanced Rich Text Processing</h1>
+<span class="subtitle"></span>
+<!-- $$$richtext-advanced-processing.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="handling-large-files"></a>
+<h2>Handling Large Files</h2>
+<p>Qt does not limit the size of files that are used for text processing. In most cases, this will not present a problem. For especially large files, however, you might experience that your application will become unresponsive or that you will run out of memory. The size of the files you can load depends on your hardware and on Qt's and your own application's implementation.</p>
+<p>If you are faced with this problem, we recommend that you address the following issues:</p>
+<ul>
+<li>You should consider breaking up large paragraphs into smaller ones as Qt handles small paragraphs better. You could also insert line breaks at regular intervals, which will look the same as one large paragraph in a <a href="qtextedit.html">QTextEdit</a>.</li>
+<li>You can reduce the amount of blocks in a <a href="qtextdocument.html">QTextDocument</a> with <a href="qtextdocument.html#maximumBlockCount-prop">maximumBlockCount()</a>. The document is only as large as the number of blocks as far as <a href="qtextedit.html">QTextEdit</a> is concerned.</li>
+<li>When adding text to a text edit, it is an advantage to add it in an edit block (see example below). The result is that the text edit does not need to build the entire document structure at once.</li>
+</ul>
+<p>We give an example of the latter technique from the list. We assume that the text edit is visible.</p>
+<pre class="cpp"> textEdit<span class="operator">.</span>show();
+
+ textCursor<span class="operator">.</span>beginEditBlock();
+
+ <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> <span class="number">1000</span>; <span class="operator">+</span><span class="operator">+</span>i) {
+     textCursor<span class="operator">.</span>insertBlock();
+     textCursor<span class="operator">.</span>insertText(paragraphText<span class="operator">.</span>at(i));
+ }
+
+ textCursor<span class="operator">.</span>endEditBlock();</pre>
+</div>
+<!-- @@@richtext-advanced-processing.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="richtext-common-tasks.html">Common Rich Text Editing Tasks</a>]
+[Next: <a href="richtext-html-subset.html">Supported HTML Subset</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

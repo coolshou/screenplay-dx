@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmake-manual.qdoc -->
+  <title>Qt 4.7: Using qmake</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Using qmake</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="qmake-manual.html" />
+  <link rel="next" href="qmake-project-files.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qmake-manual.html">qmake Manual</a>]
+[Next: <a href="qmake-project-files.html">qmake Project Files</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#describing-a-project">Describing a Project</a></li>
+<li class="level1"><a href="#building-a-project">Building a Project</a></li>
+<li class="level1"><a href="#using-precompiled-headers">Using Precompiled Headers</a></li>
+</ul>
+</div>
+<h1 class="title">Using qmake</h1>
+<span class="subtitle"></span>
+<!-- $$$qmake-using.html-description -->
+<div class="descr"> <a name="details"></a>
+<p><a href="qmake-manual.html#qmake"><tt>qmake</tt></a> provides a project-oriented system for managing the buildprocess for applications, libraries, and other components. This approach gives developers control over the source files used, and allows each of the steps in the process to be described concisely, typically within a single file. <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> expands the information in each project file to a Makefile that executes the necessary commands for compiling and linking.</p>
+<p>In this document, we provide a basic introduction to project files, describe some of the main features of <a href="qmake-manual.html#qmake"><tt>qmake</tt></a>, and show how to use <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> on the command line.</p>
+<a name="describing-a-project"></a>
+<h2>Describing a Project</h2>
+<p>Projects are described by the contents of project (<tt>.pro</tt>) files. The information within these is used by <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> to generate a Makefile containing all the commands that are needed to build each project. Project files typically contain a list of source and header files, general configuration information, and any application-specific details, such as a list of extra libraries to link against, or a list of extra include paths to use.</p>
+<p>Project files can contain a number of different elements, including comments, variable declarations, built-in functions, and some simple control structures. In most simple projects, it is only necessary to declare the source and header files that are used to build the project with some basic configuration options.</p>
+<p>Complete examples of project files can be found in the <a href="qmake-tutorial.html">qmake Tutorial</a>. An introduction to project files can be found in the <a href="qmake-project-files.html">qmake Project Files</a> chapter, and a more detailed description is available in the <a href="qmake-reference.html">qmake Reference</a>.</p>
+<a name="building-a-project"></a>
+<h2>Building a Project</h2>
+<p>For simple projects, you only need to run <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> in the top level directory of your project. By default, <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> generates a Makefile that you then use to build the project, and you can then run your platform's <tt>make</tt> tool to build the project.</p>
+<p><a href="qmake-manual.html#qmake"><tt>qmake</tt></a> can also be used to generate project files. A full description of <tt>qmake</tt>'s command line options can be found in the <a href="qmake-running.html">Running qmake</a> chapter of this manual.</p>
+<a name="using-precompiled-headers"></a>
+<h2>Using Precompiled Headers</h2>
+<p>In large projects, it is possible to take advantage of precompiled header files to speed up the build process. This feature is described in detail in the <a href="qmake-precompiledheaders.html">Using Precompiled Headers</a> chapter.</p>
+</div>
+<!-- @@@qmake-using.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="qmake-manual.html">qmake Manual</a>]
+[Next: <a href="qmake-project-files.html">qmake Project Files</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

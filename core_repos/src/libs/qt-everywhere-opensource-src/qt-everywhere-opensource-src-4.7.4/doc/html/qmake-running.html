@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmake-manual.qdoc -->
+  <title>Qt 4.7: Running qmake</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Running qmake</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="qmake-project-files.html" />
+  <link rel="next" href="qmake-platform-notes.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="qmake-project-files.html">qmake Project Files</a>]
+[Next: <a href="qmake-platform-notes.html">qmake Platform Notes</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#command-line-options">Command-Line Options</a></li>
+<li class="level2"><a href="#syntax">Syntax</a></li>
+<li class="level2"><a href="#options">Options</a></li>
+<li class="level2"><a href="#makefile-mode-options">Makefile Mode Options</a></li>
+<li class="level2"><a href="#project-mode-options">Project Mode Options</a></li>
+</ul>
+</div>
+<h1 class="title">Running qmake</h1>
+<span class="subtitle"></span>
+<!-- $$$qmake-running.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The behavior of <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> can be customized when it is run by specifying various options on the command line. These allow the build process to be fine-tuned, provide useful diagnostic information, and can be used to specify the target platform for your project.</p>
+<a name="commands"></a><a name="command-line-options"></a>
+<h2>Command-Line Options</h2>
+<a name="syntax"></a>
+<h3>Syntax</h3>
+<p>The syntax used to run <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> takes the following simple form:</p>
+<pre class="cpp"> qmake [mode] [options] files</pre>
+<p><a href="qmake-manual.html#qmake"><tt>qmake</tt></a> supports two different modes of operation: In the default mode,<a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will use the description in a project file to generate a Makefile, but it is also possible to use <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> to generate project files. If you want to explicitly set the mode, you must specify it before all other options. The <tt>mode</tt> can be either of the following two values:</p>
+<ul>
+<li><tt>-makefile</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> output will be a Makefile.</li>
+<li><tt>-project</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> output will be a project file. <br /> <b>Note:</b> It is likely that the created file will need to be edited; for example, adding the <tt>QT</tt> variable to suit what modules are required for the project.</li>
+</ul>
+<p>The following <tt>options</tt> are used to specify both general and mode-specific settings. Options that only apply to the Makefile mode are described in the <a href="#makefilemode">Makefile Mode Options</a> section; options that influence the creation of project files are described in the <a href="#projectmode">Project File Options</a> section.</p>
+<p>The <tt>files</tt> argument represents a list of one or more project files, separated by spaces.</p>
+<a name="options"></a>
+<h3>Options</h3>
+<p>A wide range of options can be specified on the command line to <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> in order to customize the build process, and to override default settings for your platform. The following basic options provide usage information, specify where <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> writes the output file, and control the level of debugging information that will be written to the console:</p>
+<ul>
+<li><tt>-help</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will go over these features and give some useful help.</li>
+<li><tt>-o</tt> file <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> output will be directed to <i>file</i>. If this option is not specified, <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will try to use a suitable file name for its output, depending on the mode it is running in.<br /> If '-' is specified, output is directed to stdout.</li>
+<li><tt>-d</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will output debugging information.</li>
+</ul>
+<p>For projects that need to be built differently on each target platform, with many subdirectories, you can run <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> with each of the following options to set the corresponding platform-specific variable in each project file:</p>
+<ul>
+<li><tt>-unix</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will run in unix mode. In this mode, Unix file naming and path conventions will be used, additionally testing for <tt>unix</tt> (as a scope) will succeed. This is the default mode on all Unices.</li>
+<li><tt>-macx</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will run in Mac OS X mode. In this mode, Unix file naming and path conventions will be used, additionally testing for <tt>macx</tt> (as a scope) will succeed. This is the default mode on Mac OS X.</li>
+<li><tt>-win32</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will run in win32 mode. In this mode, Windows file naming and path conventions will be used, additionally testing for <tt>win32</tt> (as a scope) will succeed. This is the default mode on Windows.</li>
+</ul>
+<p>The template used for the project is usually specified by the <tt>TEMPLATE</tt> variable in the project file. We can override or modify this by using the following options:</p>
+<ul>
+<li><tt>-t</tt> tmpl <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will override any set <tt>TEMPLATE</tt> variables with tmpl, but only <i>after</i> the .pro file has been processed.</li>
+<li><tt>-tp</tt> prefix <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will add the prefix to the <tt>TEMPLATE</tt> variable.</li>
+</ul>
+<p>The level of warning information can be fine-tuned to help you find problems in your project file:</p>
+<ul>
+<li><tt>-Wall</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will report all known warnings.</li>
+<li><tt>-Wnone</tt> <br /> No warning information will be generated by l{qmake Manual#qmake}{<tt>qmake</tt>}.</li>
+<li><tt>-Wparser</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will only generate parser warnings. This will alert you to common pitfalls and potential problems in the parsing of your project files.</li>
+<li><tt>-Wlogic</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will warn of common pitfalls and potential problems in your project file. For example, <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will report whether a file is placed into a list of files multiple times, or if a file cannot be found.</li>
+</ul>
+<a name="makefilemode"></a><a name="makefile-mode-options"></a>
+<h3>Makefile Mode Options</h3>
+<pre class="cpp"> qmake -makefile [options] files</pre>
+<p>In Makefile mode, <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will generate a Makefile that is used to build the project. Additionally, the following options may be used in this mode to influence the way the project file is generated:</p>
+<ul>
+<li><tt>-after</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will process assignments given on the command line after the specified files.</li>
+<li><tt>-nocache</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will ignore the .qmake.cache file.</li>
+<li><tt>-nodepend</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will not generate any dependency information.</li>
+<li><tt>-cache</tt> file <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will use <i>file</i> as the cache file, ignoring any other .qmake.cache files found.</li>
+<li><tt>-spec</tt> spec <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will use <i>spec</i> as a path to platform and compiler information, and the value of <tt>QMAKESPEC</tt> will be ignored.</li>
+</ul>
+<p>You may also pass <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> assignments on the command line; they will be processed before all of the files specified. For example:</p>
+<pre class="cpp"> qmake -makefile -unix -o Makefile &quot;CONFIG+=test&quot; test.pro</pre>
+<p>This will generate a Makefile, from test.pro with Unix pathnames. However many of the specified options aren't necessary as they are the default. Therefore, the line can be simplified on Unix to:</p>
+<pre class="cpp"> qmake &quot;CONFIG+=test&quot; test.pro</pre>
+<p>If you are certain you want your variables processed after the files specified, then you may pass the <tt>-after</tt> option. When this is specified, all assignments on the command line after the <tt>-after</tt> option will be postponed until after the specified files are parsed.</p>
+<a name="projectmode"></a><a name="project-mode-options"></a>
+<h3>Project Mode Options</h3>
+<pre class="cpp"> qmake -project [options] files</pre>
+<p>In project mode, <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will generate a project file. Additionally, you may supply the following options in this mode:</p>
+<ul>
+<li><tt>-r</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will look through supplied directories recursively</li>
+<li><tt>-nopwd</tt> <br /> <a href="qmake-manual.html#qmake"><tt>qmake</tt></a> will not look in your current working directory for source code and only use the specified <tt>files</tt></li>
+</ul>
+<p>In this mode, the <tt>files</tt> argument can be a list of files or directories. If a directory is specified, it will be included in the <tt>DEPENDPATH</tt> variable, and relevant code from there will be included in the generated project file. If a file is given, it will be appended to the correct variable, depending on its extension; for example, UI files are added to <tt>FORMS</tt>, and C++ files are added to <tt>SOURCES</tt>.</p>
+<p>You may also pass assignments on the command line in this mode. When doing so, these assignments will be placed last in the generated project file.</p>
+</div>
+<!-- @@@qmake-running.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="qmake-project-files.html">qmake Project Files</a>]
+[Next: <a href="qmake-platform-notes.html">qmake Platform Notes</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

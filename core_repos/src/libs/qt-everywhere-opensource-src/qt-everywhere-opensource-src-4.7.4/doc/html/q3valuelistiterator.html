@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- q3valuelist.qdoc -->
+  <title>Qt 4.7: Q3ValueListIterator Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>Qt3SupportLight</li>
+<li>Q3ValueListIterator</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Q3ValueListIterator Class Reference</h1>
+<!-- $$$Q3ValueListIterator-brief -->
+<p>The Q3ValueListIterator class provides an iterator for <a href="q3valuelist.html">Q3ValueList</a>. <a href="#details">More...</a></p>
+<!-- @@@Q3ValueListIterator -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;Q3ValueListIterator&gt;</span></pre><p><b>This class is part of the Qt 3 support library.</b> It is provided to keep old source code working. We strongly advise against using it in new code. See <a href="porting4.html">Porting to Qt 4</a> for more information.</p>
+<p><b>Inherits: </b><a href="qlinkedlist-iterator.html">QLinkedList&lt;T&gt;::iterator</a>.</p>
+<ul>
+<li><a href="q3valuelistiterator-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistiterator.html#Q3ValueListIterator">Q3ValueListIterator</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistiterator.html#Q3ValueListIterator-2">Q3ValueListIterator</a></b> ( const Q3ValueListIterator &amp; <i>o</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="q3valuelistiterator.html#Q3ValueListIterator-3">Q3ValueListIterator</a></b> ( const QLinkedList&lt;T&gt;::iterator &amp; <i>o</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">15 public functions inherited from <a href="qlinkedlist-iterator.html#public-functions">QLinkedList::iterator</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$Q3ValueListIterator-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The Q3ValueListIterator class provides an iterator for <a href="q3valuelist.html">Q3ValueList</a>.</p>
+<p>An iterator is a class for accessing the items of a container class: a generalization of the index in an array. A pointer into a &quot;const char *&quot; and an index into an &quot;int[]&quot; are both iterators, and the general idea is to provide that functionality for any data structure.</p>
+<p>The Q3ValueListIterator class is an iterator for <a href="q3valuelist.html">Q3ValueList</a> instantiations. You can create the appropriate iterator type by using the <tt>iterator</tt> typedef provided by <a href="q3valuelist.html">Q3ValueList</a>.</p>
+<p>The only way to access the items in a <a href="q3valuelist.html">Q3ValueList</a> is to use an iterator.</p>
+<p>Example (see <a href="q3valuelist.html">Q3ValueList</a> for the complete code):</p>
+<pre class="cpp"> EmployeeList<span class="operator">::</span>iterator it;
+ <span class="keyword">for</span> ( it <span class="operator">=</span> list<span class="operator">.</span>begin(); it <span class="operator">!</span><span class="operator">=</span> list<span class="operator">.</span>end(); <span class="operator">+</span><span class="operator">+</span>it )
+     cout <span class="operator">&lt;</span><span class="operator">&lt;</span> (<span class="operator">*</span>it)<span class="operator">.</span>surname()<span class="operator">.</span>latin1() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;, &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span>
+             (<span class="operator">*</span>it)<span class="operator">.</span>forename()<span class="operator">.</span>latin1() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot; earns &quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span>
+             (<span class="operator">*</span>it)<span class="operator">.</span>salary() <span class="operator">&lt;</span><span class="operator">&lt;</span> endl;
+
+ <span class="comment">// Output:</span>
+ <span class="comment">// Doe, John earns 50000</span>
+ <span class="comment">// Williams, Jane earns 80000</span>
+ <span class="comment">// Hawthorne, Mary earns 90000</span>
+ <span class="comment">// Jones, Tom earns 60000</span></pre>
+<p><a href="q3valuelist.html">Q3ValueList</a> is highly optimized for performance and memory usage. This means that you must be careful: <a href="q3valuelist.html">Q3ValueList</a> does not know about all its iterators and the iterators don't know to which list they belong. This makes things very fast, but if you're not careful, you can get spectacular bugs. Always make sure iterators are valid before dereferencing them or using them as parameters to generic algorithms in the STL.</p>
+<p>Using an invalid iterator is undefined (your application will probably crash). Many Qt functions return const value lists; to iterate over these you should make a copy and iterate over the copy.</p>
+<p>For every Iterator there is a ConstIterator. When accessing a <a href="q3valuelist.html">Q3ValueList</a> in a const environment or if the reference or pointer to the list is itself const, then you must use the ConstIterator. Its semantics are the same as the Iterator, but it only returns const references.</p>
+</div>
+<p><b>See also </b><a href="q3valuelist.html">Q3ValueList</a> and <a href="q3valuelistconstiterator.html">Q3ValueListConstIterator</a>.</p>
+<!-- @@@Q3ValueListIterator -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$Q3ValueListIterator[overload1]$$$Q3ValueListIterator -->
+<h3 class="fn"><a name="Q3ValueListIterator"></a>Q3ValueListIterator::<span class="name">Q3ValueListIterator</span> ()</h3>
+<p>Constructs an unitialized iterator.</p>
+<!-- @@@Q3ValueListIterator -->
+<!-- $$$Q3ValueListIterator$$$Q3ValueListIteratorconstQ3ValueListIterator& -->
+<h3 class="fn"><a name="Q3ValueListIterator-2"></a>Q3ValueListIterator::<span class="name">Q3ValueListIterator</span> ( const <span class="type">Q3ValueListIterator</span> &amp; <i>o</i> )</h3>
+<p>Constucts a copy of iterator <i>o</i>.</p>
+<!-- @@@Q3ValueListIterator -->
+<!-- $$$Q3ValueListIterator$$$Q3ValueListIteratorconstQLinkedList<T>::iterator& -->
+<h3 class="fn"><a name="Q3ValueListIterator-3"></a>Q3ValueListIterator::<span class="name">Q3ValueListIterator</span> ( const <span class="type"><a href="qlinkedlist.html">QLinkedList</a></span>&lt;<span class="type">T</span>&gt;<span class="type">::iterator</span> &amp; <i>o</i> )</h3>
+<p>Constucts a copy of iterator <i>o</i>.</p>
+<!-- @@@Q3ValueListIterator -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

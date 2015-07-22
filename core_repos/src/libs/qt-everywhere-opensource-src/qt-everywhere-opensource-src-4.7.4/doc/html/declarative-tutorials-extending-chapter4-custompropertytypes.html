@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- extending-tutorial.qdoc -->
+  <title>Qt 4.7: Chapter 4: Using Custom Property Types</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QML Examples &amp; Demos</li>
+<li>Chapter 4: Using Custom Property Types</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Chapter 4: Using Custom Property Types</h1>
+<span class="subtitle"></span>
+<!-- $$$declarative/tutorials/extending/chapter4-customPropertyTypes-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-app-qml.html">declarative/tutorials/extending/chapter4-customPropertyTypes/app.qml</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-piechart-cpp.html">declarative/tutorials/extending/chapter4-customPropertyTypes/piechart.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-piechart-h.html">declarative/tutorials/extending/chapter4-customPropertyTypes/piechart.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-pieslice-cpp.html">declarative/tutorials/extending/chapter4-customPropertyTypes/pieslice.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-pieslice-h.html">declarative/tutorials/extending/chapter4-customPropertyTypes/pieslice.h</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-main-cpp.html">declarative/tutorials/extending/chapter4-customPropertyTypes/main.cpp</a></li>
+<li><a href="declarative-tutorials-extending-chapter4-custompropertytypes-chapter4-custompropertytypes-pro.html">declarative/tutorials/extending/chapter4-customPropertyTypes/chapter4-customPropertyTypes.pro</a></li>
+</ul>
+<p>The <tt>PieChart</tt> type currently has a string-type property and a color-type property. It could have many other types of properties. For example, it could have an int-type property to store an identifier for each chart:</p>
+<pre class="cpp"> <span class="comment">// C++</span>
+ <span class="keyword">class</span> PieChart : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_PROPERTY(<span class="type">int</span> chartId READ chartId WRITE setChartId NOTIFY chartIdChanged)
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+
+ <span class="keyword">public</span>:
+     <span class="type">void</span> setChartId(<span class="type">int</span> chartId);
+     <span class="type">int</span> chartId() <span class="keyword">const</span>;
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+
+ <span class="keyword">signals</span>:
+     <span class="type">void</span> chartIdChanged();
+ };
+
+ <span class="comment">// QML</span>
+ PieChart {
+     <span class="operator">.</span><span class="operator">.</span><span class="operator">.</span>
+     chartId: <span class="number">100</span>
+ }</pre>
+<p>We can also use various other property types. QML has built-in support for the types listed in the <a href="qdeclarativebasictypes.html">QML Basic Types</a> documentation, which includes the following:</p>
+<ul>
+<li>bool, unsigned int, int, float, double, qreal</li>
+<li><a href="qstring.html">QString</a>, <a href="qurl.html">QUrl</a>, <a href="qcolor.html">QColor</a></li>
+<li><a href="qdate.html">QDate</a>, <a href="qtime.html">QTime</a>, <a href="qdatetime.html">QDateTime</a></li>
+<li><a href="qpoint.html">QPoint</a>, <a href="qpointf.html">QPointF</a>, <a href="qsize.html">QSize</a>, <a href="qsizef.html">QSizeF</a>, <a href="qrect.html">QRect</a>, <a href="qrectf.html">QRectF</a></li>
+<li><a href="qvariant.html">QVariant</a></li>
+</ul>
+<p>If we want to create a property whose type is not supported by QML by default, we need to register the type with QML.</p>
+<p>For example, let's replace the use of the <tt>property</tt> with a type called &quot;PieSlice&quot; that has a <tt>color</tt> property. Instead of assigning a color, we assign an <tt>PieSlice</tt> value which itself contains a <tt>color</tt>:</p>
+<pre class="qml"> import Charts 1.0
+ import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">width</span>: <span class="number">300</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type">PieChart</span> {
+         <span class="name">id</span>: <span class="name">chart</span>
+         <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+
+         <span class="name">pieSlice</span>: <span class="name">PieSlice</span> {
+             <span class="name">anchors</span>.fill: <span class="name">parent</span>
+             <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+         }
+     }
+
+     <span class="name">Component</span>.onCompleted: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;The pie is colored &quot;</span> <span class="operator">+</span> <span class="name">chart</span>.<span class="name">pieSlice</span>.<span class="name">color</span>)
+ }</pre>
+<p>Like <tt>PieChart</tt>, this new <tt>PieSlice</tt> type inherits from <a href="qdeclarativeitem.html">QDeclarativeItem</a> and declares its properties with <a href="qobject.html#Q_PROPERTY">Q_PROPERTY</a>():</p>
+<pre class="cpp"> <span class="keyword">class</span> PieSlice : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(<span class="type"><a href="qcolor.html">QColor</a></span> color READ color WRITE setColor)
+
+ <span class="keyword">public</span>:
+     PieSlice(<span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="type"><a href="qcolor.html">QColor</a></span> color() <span class="keyword">const</span>;
+     <span class="type">void</span> setColor(<span class="keyword">const</span> <span class="type"><a href="qcolor.html">QColor</a></span> <span class="operator">&amp;</span>color);
+
+     <span class="type">void</span> paint(<span class="type"><a href="qpainter.html">QPainter</a></span> <span class="operator">*</span>painter<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstyleoptiongraphicsitem.html">QStyleOptionGraphicsItem</a></span> <span class="operator">*</span>option<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>widget <span class="operator">=</span> <span class="number">0</span>);
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qcolor.html">QColor</a></span> m_color;
+ };</pre>
+<p>To use it in <tt>PieChart</tt>, we modify the <tt>color</tt> property declaration and associated method signatures:</p>
+<pre class="cpp"> <span class="keyword">class</span> PieChart : <span class="keyword">public</span> <span class="type"><a href="qdeclarativeitem.html">QDeclarativeItem</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(PieSlice<span class="operator">*</span> pieSlice READ pieSlice WRITE setPieSlice)
+     ...
+ <span class="keyword">public</span>:
+     ...
+     PieSlice <span class="operator">*</span>pieSlice() <span class="keyword">const</span>;
+     <span class="type">void</span> setPieSlice(PieSlice <span class="operator">*</span>pieSlice);
+     ...
+ };</pre>
+<p>There is one thing to be aware of when implementing <tt>setPieSlice()</tt>. The <tt>PieSlice</tt> is a visual item, so it must be set as a child of the <tt>PieChart</tt> using <a href="qdeclarativeitem.html#parent-prop">QDeclarativeItem::setParentItem</a>() so that the <tt>PieChart</tt> knows to paint this child item when its contents are drawn:</p>
+<pre class="cpp"> <span class="type">void</span> PieChart<span class="operator">::</span>setPieSlice(PieSlice <span class="operator">*</span>pieSlice)
+ {
+     m_pieSlice <span class="operator">=</span> pieSlice;
+     pieSlice<span class="operator">-</span><span class="operator">&gt;</span>setParentItem(<span class="keyword">this</span>);
+ }</pre>
+<p>Like the <tt>PieChart</tt> type, the <tt>PieSlice</tt> type has to be registered using <a href="qdeclarativeengine.html#qmlRegisterType">qmlRegisterType</a>() to be used from QML. As with <tt>PieChart</tt>, we'll add the type to the &quot;Charts&quot; module, version 1.0:</p>
+<pre class="cpp"> <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     ...
+     qmlRegisterType<span class="operator">&lt;</span>PieSlice<span class="operator">&gt;</span>(<span class="string">&quot;Charts&quot;</span><span class="operator">,</span> <span class="number">1</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="string">&quot;PieSlice&quot;</span>);
+     ...
+ }</pre>
+<p>Try it out with the code in Qt's <tt>examples/tutorials/extending/chapter4-customPropertyTypes</tt> directory.</p>
+</div>
+<!-- @@@declarative/tutorials/extending/chapter4-customPropertyTypes -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

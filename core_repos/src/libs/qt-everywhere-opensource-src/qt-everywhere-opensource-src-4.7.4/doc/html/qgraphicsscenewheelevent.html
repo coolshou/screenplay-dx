@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgraphicssceneevent.cpp -->
+  <title>Qt 4.7: QGraphicsSceneWheelEvent Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QGraphicsSceneWheelEvent</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QGraphicsSceneWheelEvent Class Reference</h1>
+<!-- $$$QGraphicsSceneWheelEvent-brief -->
+<p>The QGraphicsSceneWheelEvent class provides wheel events in the graphics view framework. <a href="#details">More...</a></p>
+<!-- @@@QGraphicsSceneWheelEvent -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QGraphicsSceneWheelEvent&gt;</span></pre><p><b>Inherits: </b><a href="qgraphicssceneevent.html">QGraphicsSceneEvent</a>.</p>
+<p>This class was introduced in Qt 4.2.</p>
+<ul>
+<li><a href="qgraphicsscenewheelevent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent">~QGraphicsSceneWheelEvent</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::MouseButtons </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#buttons">buttons</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#delta">delta</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::KeyboardModifiers </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#modifiers">modifiers</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Qt::Orientation </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#orientation">orientation</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#pos">pos</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPointF </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#scenePos">scenePos</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QPoint </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsscenewheelevent.html#screenPos">screenPos</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">1 public function inherited from <a href="qgraphicssceneevent.html#public-functions">QGraphicsSceneEvent</a></li>
+<li class="fn">6 public functions inherited from <a href="qevent.html#public-functions">QEvent</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qevent.html#properties">QEvent</a></li>
+<li class="fn">1 static public member inherited from <a href="qevent.html#static-public-members">QEvent</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QGraphicsSceneWheelEvent-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QGraphicsSceneWheelEvent class provides wheel events in the graphics view framework.</p>
+<p>The QGraphicsSceneWheelEvent class provides wheel events in the graphics view framework.</p>
+<p><a href="qwheelevent.html">QWheelEvent</a>s received by a <a href="qgraphicsview.html">QGraphicsView</a> are translated into QGraphicsSceneWheelEvents; it translates the <a href="qwheelevent.html#globalPos">QWheelEvent::globalPos</a>() into item, scene, and screen coordinates (<a href="qgraphicsscenewheelevent.html#pos">pos</a>(), <a href="qgraphicsscenewheelevent.html#scenePos">scenePos</a>(), and <a href="qgraphicsscenewheelevent.html#screenPos">screenPos</a>()).</p>
+</div>
+<p><b>See also </b><a href="qgraphicsscenemouseevent.html">QGraphicsSceneMouseEvent</a>, <a href="qgraphicsscenecontextmenuevent.html">QGraphicsSceneContextMenuEvent</a>, <a href="qgraphicsscenehoverevent.html">QGraphicsSceneHoverEvent</a>, and <a href="qwheelevent.html">QWheelEvent</a>.</p>
+<!-- @@@QGraphicsSceneWheelEvent -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QGraphicsSceneWheelEvent[overload1]$$$~QGraphicsSceneWheelEvent -->
+<h3 class="fn"><a name="dtor.QGraphicsSceneWheelEvent"></a>QGraphicsSceneWheelEvent::<span class="name">~QGraphicsSceneWheelEvent</span> ()</h3>
+<p>Destroys the <a href="qgraphicsscenewheelevent.html">QGraphicsSceneWheelEvent</a>.</p>
+<!-- @@@~QGraphicsSceneWheelEvent -->
+<!-- $$$buttons[overload1]$$$buttons -->
+<h3 class="fn"><a name="buttons"></a><span class="type"><a href="qt.html#MouseButton-enum">Qt::MouseButtons</a></span> QGraphicsSceneWheelEvent::<span class="name">buttons</span> () const</h3>
+<p>Returns the mouse buttons that were pressed when the wheel event occurred.</p>
+<p><b>See also </b><a href="qgraphicsscenewheelevent.html#modifiers">modifiers</a>().</p>
+<!-- @@@buttons -->
+<!-- $$$delta[overload1]$$$delta -->
+<h3 class="fn"><a name="delta"></a><span class="type">int</span> QGraphicsSceneWheelEvent::<span class="name">delta</span> () const</h3>
+<p>Returns the distance that the wheel is rotated, in eighths (1/8s) of a degree. A positive value indicates that the wheel was rotated forwards away from the user; a negative value indicates that the wheel was rotated backwards toward the user.</p>
+<p>Most mouse types work in steps of 15 degrees, in which case the delta value is a multiple of 120 (== 15 * 8).</p>
+<!-- @@@delta -->
+<!-- $$$modifiers[overload1]$$$modifiers -->
+<h3 class="fn"><a name="modifiers"></a><span class="type"><a href="qt.html#KeyboardModifier-enum">Qt::KeyboardModifiers</a></span> QGraphicsSceneWheelEvent::<span class="name">modifiers</span> () const</h3>
+<p>Returns the keyboard modifiers that were active when the wheel event occurred.</p>
+<p><b>See also </b><a href="qgraphicsscenewheelevent.html#buttons">buttons</a>().</p>
+<!-- @@@modifiers -->
+<!-- $$$orientation[overload1]$$$orientation -->
+<h3 class="fn"><a name="orientation"></a><span class="type"><a href="qt.html#Orientation-enum">Qt::Orientation</a></span> QGraphicsSceneWheelEvent::<span class="name">orientation</span> () const</h3>
+<p>Returns the wheel orientation.</p>
+<!-- @@@orientation -->
+<!-- $$$pos[overload1]$$$pos -->
+<h3 class="fn"><a name="pos"></a><span class="type"><a href="qpointf.html">QPointF</a></span> QGraphicsSceneWheelEvent::<span class="name">pos</span> () const</h3>
+<p>Returns the position of the cursor in item coordinates when the wheel event occurred.</p>
+<p><b>See also </b><a href="qgraphicsscenewheelevent.html#scenePos">scenePos</a>() and <a href="qgraphicsscenewheelevent.html#screenPos">screenPos</a>().</p>
+<!-- @@@pos -->
+<!-- $$$scenePos[overload1]$$$scenePos -->
+<h3 class="fn"><a name="scenePos"></a><span class="type"><a href="qpointf.html">QPointF</a></span> QGraphicsSceneWheelEvent::<span class="name">scenePos</span> () const</h3>
+<p>Returns the position of the cursor in scene coordinates when the wheel event occurred.</p>
+<p><b>See also </b><a href="qgraphicsscenewheelevent.html#pos">pos</a>() and <a href="qgraphicsscenewheelevent.html#screenPos">screenPos</a>().</p>
+<!-- @@@scenePos -->
+<!-- $$$screenPos[overload1]$$$screenPos -->
+<h3 class="fn"><a name="screenPos"></a><span class="type"><a href="qpoint.html">QPoint</a></span> QGraphicsSceneWheelEvent::<span class="name">screenPos</span> () const</h3>
+<p>Returns the position of the cursor in screen coordinates when the wheel event occurred.</p>
+<p><b>See also </b><a href="qgraphicsscenewheelevent.html#pos">pos</a>() and <a href="qgraphicsscenewheelevent.html#scenePos">scenePos</a>().</p>
+<!-- @@@screenPos -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

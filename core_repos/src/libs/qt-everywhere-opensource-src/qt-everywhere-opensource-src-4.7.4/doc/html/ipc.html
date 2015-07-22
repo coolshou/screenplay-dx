@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ipc.qdoc -->
+  <title>Qt 4.7: Inter-Process Communication in Qt</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Inter-Process Communication in Qt</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#tcp-ip">TCP/IP</a></li>
+<li class="level1"><a href="#shared-memory">Shared Memory</a></li>
+<li class="level1"><a href="#d-bus">D-Bus</a></li>
+<li class="level1"><a href="#qt-communications-protocol-qcop">Qt COmmunications Protocol (QCOP)</a></li>
+</ul>
+</div>
+<h1 class="title">Inter-Process Communication in Qt</h1>
+<span class="subtitle"></span>
+<!-- $$$ipc.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qt provides several ways to implement Inter-Process Communication (IPC) in Qt applications.</p>
+<a name="tcp-ip"></a>
+<h2>TCP/IP</h2>
+<p>The cross-platform <a href="qtnetwork.html">QtNetwork</a> module provides classes that make network programming portable and easy. It offers high-level classes (e.g&#x2e;, <a href="qnetworkaccessmanager.html">QNetworkAccessManager</a>, <a href="qftp.html">QFtp</a>) that communicate using specific application-level protocols, and lower-level classes (e.g&#x2e;, <a href="qtcpsocket.html">QTcpSocket</a>, <a href="qtcpserver.html">QTcpServer</a>, <a href="qsslsocket.html">QSslSocket</a>) for implementing protocols.</p>
+<a name="shared-memory"></a>
+<h2>Shared Memory</h2>
+<p>The cross-platform shared memory class, <a href="qsharedmemory.html">QSharedMemory</a>, provides access to the operating system's shared memory implementation. It allows safe access to shared memory segments by multiple threads and processes. Additionally, <a href="qsystemsemaphore.html">QSystemSemaphore</a> can be used to control access to resources shared by the system, as well as to communicate between processes.</p>
+<a name="d-bus"></a>
+<h2>D-Bus</h2>
+<p>The <a href="qtdbus.html">QtDBus</a> module is a Unix-only library you can use to implement IPC using the D-Bus protocol. It extends Qt's <a href="signalsandslots.html">Signals and Slots</a> mechanism to the IPC level, allowing a signal emitted by one process to be connected to a slot in another process. This <a href="intro-to-dbus.html">D-Bus</a> page has detailed information on how to use the <a href="qtdbus.html">QtDBus</a> module.</p>
+<a name="qt-communications-protocol-qcop"></a>
+<h2>Qt COmmunications Protocol (QCOP)</h2>
+<p>The <a href="qcopchannel.html">QCopChannel</a> class implements a protocol for transferring messages between client processes across named channels. <a href="qcopchannel.html">QCopChannel</a> is only available in <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>. Like the <a href="qtdbus.html">QtDBus</a> module, QCOP extends Qt's <a href="signalsandslots.html#signals-and-slots">Signals and Slots</a> mechanism to the IPC level, allowing a signal emitted by one process to be connected to a slot in another process, but unlike <a href="qtdbus.html">QtDBus</a>, QCOP does not depend on a third party library.</p>
+</div>
+<!-- @@@ipc.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

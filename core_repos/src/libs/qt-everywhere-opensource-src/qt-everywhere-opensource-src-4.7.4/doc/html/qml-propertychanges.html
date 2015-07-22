@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativepropertychanges.cpp -->
+  <title>Qt 4.7: QML PropertyChanges Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML PropertyChanges Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#resetting-property-values">Resetting property values</a></li>
+<li class="level2"><a href="#immediate-property-changes-in-transitions">Immediate property changes in transitions</a></li>
+</ul>
+</div>
+<h1 class="title">QML PropertyChanges Element</h1>
+<span class="subtitle"></span>
+<!-- $$$PropertyChanges-brief -->
+<p>The PropertyChanges element describes new property bindings or values for a state. <a href="#details">More...</a></p>
+<!-- @@@PropertyChanges -->
+<p>This element was introduced in Qt 4.7.</p>
+<ul>
+<li><a href="qml-propertychanges-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-propertychanges.html#explicit-prop">explicit</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-propertychanges.html#restoreEntryValues-prop">restoreEntryValues</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-propertychanges.html#target-prop">target</a></b></b> : Object</li>
+</ul>
+<!-- $$$PropertyChanges-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>PropertyChanges is used to define the property values or bindings in a <a href="qml-state.html">State</a>. This enables an item's property values to be changed when it <a href="qdeclarativestates.html">changes between states</a>.</p>
+<p>To create a PropertyChanges object, specify the <a href="qml-propertychanges.html#target-prop">target</a> item whose properties are to be modified, and define the new property values or bindings. For example:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-item.html">Item</a></span> {
+     <span class="name">id</span>: <span class="name">container</span>
+     <span class="name">width</span>: <span class="number">300</span>; <span class="name">height</span>: <span class="number">300</span>
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">rect</span>
+         <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>
+         <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+         <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+            <span class="name">id</span>: <span class="name">mouseArea</span>
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         }
+
+         <span class="name">states</span>: <span class="name">State</span> {
+            <span class="name">name</span>: <span class="string">&quot;resized&quot;</span>; <span class="name">when</span>: <span class="name">mouseArea</span>.<span class="name">pressed</span>
+            <span class="type">PropertyChanges</span> { <span class="name">target</span>: <span class="name">rect</span>; <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>; <span class="name">height</span>: <span class="name">container</span>.<span class="name">height</span> }
+         }
+     }
+ }</pre>
+<p>When the mouse is pressed, the <a href="qml-rectangle.html">Rectangle</a> changes to the <i>resized</i> state. In this state, the PropertyChanges object sets the rectangle's color to blue and the <tt>height</tt> value to that of <tt>container.height</tt>.</p>
+<p>Note this automatically binds <tt>rect.height</tt> to <tt>container.height</tt> in the <i>resized</i> state. If a property binding should not be established, and the height should just be set to the value of <tt>container.height</tt> at the time of the state change, set the <a href="qml-propertychanges.html#explicit-prop">explicit</a> property to <tt>true</tt>.</p>
+<p>A PropertyChanges object can also override the default signal handler for an object to implement a signal handler specific to the new state:</p>
+<pre class="qml"> <span class="type">PropertyChanges</span> {
+     <span class="name">target</span>: <span class="name">myMouseArea</span>
+     <span class="name">onClicked</span>: <span class="name">doSomethingDifferent</span>()
+ }</pre>
+<p><b>Note:</b> PropertyChanges can be used to change anchor margins, but not other anchor values; use <a href="qml-anchorchanges.html">AnchorChanges</a> for this instead. Similarly, to change an <a href="qml-item.html">Item</a>'s <a href="qml-item.html#parent-prop">parent</a> value, use ParentChanges instead.</p>
+<a name="resetting-property-values"></a>
+<h3>Resetting property values</h3>
+<p>The <tt>undefined</tt> value can be used to reset the property value for a state. In the following example, when <tt>theText</tt> changes to the <i>widerText</i> state, its <tt>width</tt> property is reset, giving the text its natural width and displaying the whole string on a single line.</p>
+<pre class="qml"> <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">width</span>: <span class="number">300</span>; <span class="name">height</span>: <span class="number">200</span>
+
+     <span class="type"><a href="qml-text.html">Text</a></span> {
+         <span class="name">id</span>: <span class="name">myText</span>
+         <span class="name">width</span>: <span class="number">50</span>
+         <span class="name">wrapMode</span>: <span class="name">Text</span>.<span class="name">WordWrap</span>
+         <span class="name">text</span>: <span class="string">&quot;a text string that is longer than 50 pixels&quot;</span>
+
+         <span class="name">states</span>: <span class="name">State</span> {
+             <span class="name">name</span>: <span class="string">&quot;widerText&quot;</span>
+             <span class="type">PropertyChanges</span> { <span class="name">target</span>: <span class="name">myText</span>; <span class="name">width</span>: <span class="name">undefined</span> }
+         }
+     }
+
+     <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+         <span class="name">anchors</span>.fill: <span class="name">parent</span>
+         <span class="name">onClicked</span>: <span class="name">myText</span>.<span class="name">state</span> <span class="operator">=</span> <span class="string">&quot;widerText&quot;</span>
+     }
+ }</pre>
+<a name="immediate-property-changes-in-transitions"></a>
+<h3>Immediate property changes in transitions</h3>
+<p>When <a href="qdeclarativeanimation.html">Transitions</a> are used to animate state changes, they animate properties from their values in the current state to those defined in the new state (as defined by PropertyChanges objects). However, it is sometimes desirable to set a property value <i>immediately</i> during a <a href="qml-transition.html">Transition</a>, without animation; in these cases, the <a href="qml-propertyaction.html">PropertyAction</a> element can be used to force an immediate property change.</p>
+<p>See the <a href="qml-propertyaction.html">PropertyAction</a> documentation for more details.</p>
+<p><b>See also </b><a href="declarative-animation-states.html">states example</a>, <a href="qdeclarativestates.html#qmlstates">States</a>, and <a href="qtdeclarative.html">QtDeclarative</a>.</p>
+<!-- @@@PropertyChanges -->
+<h2>Property Documentation</h2>
+<!-- $$$explicit -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="explicit-prop"></a><span class="qmlreadonly">read-only</span><span class="name">explicit</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>If explicit is set to true, any potential bindings will be interpreted as once-off assignments that occur when the state is entered.</p>
+<p>In the following example, the addition of explicit prevents <tt>myItem.width</tt> from being bound to <tt>parent.width</tt>. Instead, it is assigned the value of <tt>parent.width</tt> at the time of the state change.</p>
+<pre class="qml"> <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {
+     <span class="name">target</span>: <span class="name">myItem</span>
+     <span class="name">explicit</span>: <span class="number">true</span>
+     <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+ }</pre>
+<p>By default, explicit is false.</p>
+</div></div><!-- @@@explicit -->
+<br/>
+<!-- $$$restoreEntryValues -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="restoreEntryValues-prop"></a><span class="name">restoreEntryValues</span> : <span class="type"><a href="qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the previous values should be restored when leaving the state.</p>
+<p>The default value is <tt>true</tt>. Setting this value to <tt>false</tt> creates a temporary state that has permanent effects on property values.</p>
+</div></div><!-- @@@restoreEntryValues -->
+<br/>
+<!-- $$$target -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="target-prop"></a><span class="name">target</span> : <span class="type">Object</span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the object which contains the properties to be changed.</p>
+</div></div><!-- @@@target -->
+<br/>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

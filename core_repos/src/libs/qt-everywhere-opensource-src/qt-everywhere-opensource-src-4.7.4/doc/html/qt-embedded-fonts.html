@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- emb-fonts.qdoc -->
+  <title>Qt 4.7: Qt for Embedded Linux Fonts</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Qt for Embedded Linux Fonts</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#freetype-formats">FreeType Formats</a></li>
+<li class="level1"><a href="#qt-prerendered-font-qpf2">Qt Prerendered Font (QPF2)</a></li>
+<li class="level1"><a href="#legacy-qt-prerendered-font-qpf">Legacy Qt Prerendered Font (QPF)</a></li>
+<li class="level1"><a href="#the-legacy-file">The Legacy <tt>fontdir</tt> File</a></li>
+</ul>
+</div>
+<h1 class="title">Qt for Embedded Linux Fonts</h1>
+<span class="subtitle"></span>
+<!-- $$$qt-embedded-fonts.html-description -->
+<div class="descr"> <a name="details"></a>
+<p><a href="qt-embedded-linux.html">Qt for Embedded Linux</a> uses the <a href="http://freetype.sourceforge.net/freetype2/index.html">FreeType 2</a> font engine to produce font output. The formats supported depends on the locally installed version of the <a href="#freetype">FreeType</a> library. In addition, <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> supports the Qt Prerendered Font formats (<a href="#qpf">QPF</a> and <a href="#qpf2">QPF2</a>): light-weight non-scalable font formats specific to <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>. QPF2 is the native format of <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>. QPF is the legacy format used by Qt/Embedded 2.x and 3.x&#x2e; Several of the formats may be rendered using anti-aliasing for improved readability.</p>
+<p>When <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> applications run, they look for fonts in Qt's <tt>lib/fonts/</tt> directory. <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> will automatically detect prerendered fonts and TrueType fonts. For compatibility, it will also read the legacy <tt>lib/fonts/fontdir</tt> file.</p>
+<p>Support for other font formats can be added. To make a suggestion, please create a task in our bug tracker at <a href="http://bugreports.qt.nokia.com">http://bugreports.qt.nokia.com</a>.</p>
+<table class="generic" width="100%">
+ <tr valign="top" class="odd"><td ><b>Optimization</b><p>The <a href="#freetype">FreeType</a>, <a href="#qpf2">QPF2</a> and <a href="#qpf">QPF</a> formats are features that can be disabled using the <a href="fine-tuning-features.html">feature definition system</a>, reducing the size of Qt and saving resources.</p>
+<p>Note that at least one font format must be defined.</p>
+<p>See the <a href="fine-tuning-features.html">Fine-Tuning Features in Qt</a> documentation for details.</p>
+</td><td ><img src="images/qt-embedded-fontfeatures.png" /></td></tr>
+</table>
+<p>All supported fonts use the Unicode character encoding. Most fonts available today do, but they usually don't contain <i>all</i> the Unicode characters. A complete 16-point Unicode font uses over 1 MB of memory.</p>
+<a name="freetype"></a><a name="freetype-formats"></a>
+<h2>FreeType Formats</h2>
+<p>The <a href="http://freetype.sourceforge.net/freetype2/index.html">FreeType 2</a> library (and therefore <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>) can support the following font formats:</p>
+<ul>
+<li>TrueType (TTF)</li>
+<li>PostScript Type1 (PFA/PFB)</li>
+<li>Bitmap Distribution Format (BDF)</li>
+<li>CID-keyed Type1</li>
+<li>Compact Font Format (CFF)</li>
+<li>OpenType fonts</li>
+<li>SFNT-based bitmap fonts</li>
+<li>Portable Compiled Format (PCF)</li>
+<li>Microsoft Windows Font File Format (Windows FNT)</li>
+<li>Portable Font Resource (PFR)</li>
+<li>Type 42 (limited support)</li>
+</ul>
+<p>It is possible to add modules to the <a href="http://freetype.sourceforge.net/freetype2/index.html">FreeType 2</a> font engine to support other types of font files. For more information, see the font engine's own website: <a href="http://freetype.sourceforge.net/freetype2/index.html">http://freetype.sourceforge.net/freetype2/index.html</a>.</p>
+<p>Glyphs rendered using <a href="#freetype">FreeType</a> are shared efficiently between applications, reducing memory requirements and speeding up text rendering.</p>
+<a name="qpf2"></a><a name="qt-prerendered-font-qpf2"></a>
+<h2>Qt Prerendered Font (QPF2)</h2>
+<p>The Qt Prerendered Font (QPF2) is an architecture-independent, light-weight and non-scalable font format specific to <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>.</p>
+<p>Nokia provides the cross-platform <a href="qt-embedded-makeqpf.html">makeqpf</a> tool, included in the <tt>tools</tt> directory of both <a href="qt.html">Qt</a> and <a href="qt-embedded-linux.html">Qt for Embedded Linux</a>, which allows generation of QPF2 files from system fonts.</p>
+<p>QPF2 supports anti-aliasing and complex writing systems, using information from the corresponding TrueType font, if present on the system. The format is designed to be mapped directly to memory. The same format is used to share glyphs from non-prerendered fonts between applications.</p>
+<a name="qpf"></a><a name="legacy-qt-prerendered-font-qpf"></a>
+<h2>Legacy Qt Prerendered Font (QPF)</h2>
+<p>Nokia provides support for the legacy QPF format for compatibility reasons. QPF is based on the internal font engine data structure of Qt/Embedded versions 2 and 3.</p>
+<p>Note that the file name describes the font, for example <tt>helvetica_120_50.qpf</tt> is 12 point Helvetica while <tt>helvetica_120_50i.qpf</tt> is 12 point Helvetica <i>italic</i>.</p>
+<a name="the-legacy-file"></a>
+<h2>The Legacy <tt>fontdir</tt> File</h2>
+<p>For compatibility reasons <a href="qt-embedded-linux.html">Qt for Embedded Linux</a> supports the <tt>fontdir</tt> file, if present. The file defines additional fonts available to the application, and has the following format:</p>
+<pre class="cpp"> name file renderer italic weight size flags</pre>
+<table class="generic" width="100%">
+ <thead><tr class="qt-style"><th >Field</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td ><b>name</b></td><td >The name of the font format, e.g&#x2e;,<tt>Helvetica</tt>, <tt>Times</tt>, etc.</td></tr>
+<tr valign="top" class="even"><td ><b>file</b></td><td >The name of the file containing the font, e.g&#x2e;, <tt>helvR0810.bdf</tt>, <tt>verdana.ttf</tt>, etc.</td></tr>
+<tr valign="top" class="odd"><td ><b>renderer</b></td><td >Specifies the font engine that should be used to render the font, currently only the <a href="#freetype">FreeType</a> font engine (<tt>FT</tt>) is supported.</td></tr>
+<tr valign="top" class="even"><td ><b>italic</b></td><td >Specifies whether the font is italic or not; the accepted values are <tt>y</tt> or <tt>n</tt>.</td></tr>
+<tr valign="top" class="odd"><td ><b>weight</b></td><td >Specifies the font's weight: <tt>50</tt> is normal, <tt>75</tt> is bold, etc.</td></tr>
+<tr valign="top" class="even"><td ><b>size</b></td><td >Specifies the font size, i.e&#x2e;, point size * 10. For example, a value of 120 means 12pt. A value of 0 means that the font is scalable.</td></tr>
+<tr valign="top" class="odd"><td ><b>flags</b></td><td >The following flag is supported:<ul>
+<li><tt>s</tt>: smooth (anti-aliased)</li>
+</ul>
+<p>All other flags are ignored.</p>
+</td></tr>
+</table>
+</div>
+<!-- @@@qt-embedded-fonts.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

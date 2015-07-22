@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qaccessibleplugin.cpp -->
+  <title>Qt 4.7: QAccessiblePlugin Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QAccessiblePlugin</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAccessiblePlugin Class Reference</h1>
+<!-- $$$QAccessiblePlugin-brief -->
+<p>The QAccessiblePlugin class provides an abstract base for accessibility plugins. <a href="#details">More...</a></p>
+<!-- @@@QAccessiblePlugin -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAccessiblePlugin&gt;</span></pre><p><b>Inherits: </b><a href="qobject.html">QObject</a> and <a href="qaccessible.html">QAccessible</a>.</p>
+<ul>
+<li><a href="qaccessibleplugin-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleplugin.html#QAccessiblePlugin">QAccessiblePlugin</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleplugin.html#dtor.QAccessiblePlugin">~QAccessiblePlugin</a></b> ()</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QAccessibleInterface * </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleplugin.html#create">create</a></b> ( const QString &amp; <i>key</i>, QObject * <i>object</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QStringList </td><td class="memItemRight bottomAlign"><b><a href="qaccessibleplugin.html#keys">keys</a></b> () const = 0</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 static public members inherited from <a href="qaccessible.html#static-public-members">QAccessible</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QAccessiblePlugin-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAccessiblePlugin class provides an abstract base for accessibility plugins.</p>
+<p>Writing an accessibility plugin is achieved by subclassing this base class, reimplementing the pure virtual functions <a href="qaccessibleplugin.html#keys">keys</a>() and <a href="qaccessibleplugin.html#create">create</a>(), and exporting the class with the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro.</p>
+</div>
+<p><b>See also </b><a href="qaccessiblebridgeplugin.html">QAccessibleBridgePlugin</a> and <a href="plugins-howto.html">How to Create Qt Plugins</a>.</p>
+<!-- @@@QAccessiblePlugin -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QAccessiblePlugin[overload1]$$$QAccessiblePluginQObject* -->
+<h3 class="fn"><a name="QAccessiblePlugin"></a>QAccessiblePlugin::<span class="name">QAccessiblePlugin</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs an accessibility plugin with the given <i>parent</i>. This is invoked automatically by the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro.</p>
+<!-- @@@QAccessiblePlugin -->
+<!-- $$$~QAccessiblePlugin[overload1]$$$~QAccessiblePlugin -->
+<h3 class="fn"><a name="dtor.QAccessiblePlugin"></a>QAccessiblePlugin::<span class="name">~QAccessiblePlugin</span> ()</h3>
+<p>Destroys the accessibility plugin.</p>
+<p>You never have to call this explicitly. Qt destroys a plugin automatically when it is no longer used.</p>
+<!-- @@@~QAccessiblePlugin -->
+<!-- $$$create[overload1]$$$createconstQString&QObject* -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qaccessibleinterface.html">QAccessibleInterface</a></span> * QAccessiblePlugin::<span class="name">create</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>key</i>, <span class="type"><a href="qobject.html">QObject</a></span> * <i>object</i> )<tt> [pure virtual]</tt></h3>
+<p>Creates and returns a <a href="qaccessibleinterface.html">QAccessibleInterface</a> implementation for the class <i>key</i> and the object <i>object</i>. Keys are case sensitive.</p>
+<p><b>See also </b><a href="qaccessibleplugin.html#keys">keys</a>().</p>
+<!-- @@@create -->
+<!-- $$$keys[overload1]$$$keys -->
+<h3 class="fn"><a name="keys"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QAccessiblePlugin::<span class="name">keys</span> () const<tt> [pure virtual]</tt></h3>
+<p>Returns the list of keys this plugin supports.</p>
+<p>These keys must be the class names that this plugin provides an accessibility implementation for.</p>
+<p><b>See also </b><a href="qaccessibleplugin.html#create">create</a>().</p>
+<!-- @@@keys -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qevent.cpp -->
+  <title>Qt 4.7: QHoverEvent Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QHoverEvent</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QHoverEvent Class Reference</h1>
+<!-- $$$QHoverEvent-brief -->
+<p>The QHoverEvent class contains parameters that describe a mouse event. <a href="#details">More...</a></p>
+<!-- @@@QHoverEvent -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QHoverEvent&gt;</span></pre><p><b>Inherits: </b><a href="qevent.html">QEvent</a>.</p>
+<ul>
+<li><a href="qhoverevent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qhoverevent.html#QHoverEvent">QHoverEvent</a></b> ( Type <i>type</i>, const QPoint &amp; <i>pos</i>, const QPoint &amp; <i>oldPos</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint &amp; </td><td class="memItemRight bottomAlign"><b><a href="qhoverevent.html#oldPos">oldPos</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const QPoint &amp; </td><td class="memItemRight bottomAlign"><b><a href="qhoverevent.html#pos">pos</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">6 public functions inherited from <a href="qevent.html#public-functions">QEvent</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qevent.html#properties">QEvent</a></li>
+<li class="fn">1 static public member inherited from <a href="qevent.html#static-public-members">QEvent</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QHoverEvent-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QHoverEvent class contains parameters that describe a mouse event.</p>
+<p>Mouse events occur when a mouse cursor is moved into, out of, or within a widget, and if the widget has the <a href="qt.html#WidgetAttribute-enum">Qt::WA_Hover</a> attribute.</p>
+<p>The function <a href="qhoverevent.html#pos">pos</a>() gives the current cursor position, while <a href="qhoverevent.html#oldPos">oldPos</a>() gives the old mouse position.</p>
+<p>There are a few similarities between the events <a href="qevent.html#Type-enum">QEvent::HoverEnter</a> and <a href="qevent.html#Type-enum">QEvent::HoverLeave</a>, and the events <a href="qevent.html#Type-enum">QEvent::Enter</a> and <a href="qevent.html#Type-enum">QEvent::Leave</a>. However, they are slightly different because we do an update() in the event handler of <a href="qevent.html#Type-enum">HoverEnter</a> and <a href="qevent.html#Type-enum">HoverLeave</a>.</p>
+<p><a href="qevent.html#Type-enum">QEvent::HoverMove</a> is also slightly different from <a href="qevent.html#Type-enum">QEvent::MouseMove</a>. Let us consider a top-level window A containing a child B which in turn contains a child C (all with mouse tracking enabled):</p>
+<p class="centerAlign"><img src="images/hoverevents.png" /></p><p>Now, if you move the cursor from the top to the bottom in the middle of A, you will get the following <a href="qevent.html#Type-enum">QEvent::MouseMove</a> events:</p>
+<ol class="1">
+<li>A::MouseMove</li>
+<li>B::MouseMove</li>
+<li>C::MouseMove</li>
+</ol>
+<p>You will get the same events for <a href="qevent.html#Type-enum">QEvent::HoverMove</a>, except that the event always propagates to the top-level regardless whether the event is accepted or not. It will only stop propagating with the <a href="qt.html#WidgetAttribute-enum">Qt::WA_NoMousePropagation</a> attribute.</p>
+<p>In this case the events will occur in the following way:</p>
+<ol class="1">
+<li>A::HoverMove</li>
+<li>A::HoverMove, B::HoverMove</li>
+<li>A::HoverMove, B::HoverMove, C::HoverMove</li>
+</ol>
+</div>
+<!-- @@@QHoverEvent -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QHoverEvent[overload1]$$$QHoverEventTypeconstQPoint&constQPoint& -->
+<h3 class="fn"><a name="QHoverEvent"></a>QHoverEvent::<span class="name">QHoverEvent</span> ( <span class="type"><a href="qevent.html#Type-enum">Type</a></span> <i>type</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>pos</i>, const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; <i>oldPos</i> )</h3>
+<p>Constructs a hover event object.</p>
+<p>The <i>type</i> parameter must be <a href="qevent.html#Type-enum">QEvent::HoverEnter</a>, <a href="qevent.html#Type-enum">QEvent::HoverLeave</a>, or <a href="qevent.html#Type-enum">QEvent::HoverMove</a>.</p>
+<p>The <i>pos</i> is the current mouse cursor's position relative to the receiving widget, while <i>oldPos</i> is the previous mouse cursor's position relative to the receiving widget.</p>
+<!-- @@@QHoverEvent -->
+<!-- $$$oldPos[overload1]$$$oldPos -->
+<h3 class="fn"><a name="oldPos"></a>const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; QHoverEvent::<span class="name">oldPos</span> () const</h3>
+<p>Returns the previous position of the mouse cursor, relative to the widget that received the event. If there is no previous position, oldPos() will return the same position as <a href="qhoverevent.html#pos">pos</a>().</p>
+<p>On <a href="qevent.html#Type-enum">QEvent::HoverEnter</a> events, this position will always be <a href="qpoint.html">QPoint</a>(-1, -1).</p>
+<p><b>See also </b><a href="qhoverevent.html#pos">pos</a>().</p>
+<!-- @@@oldPos -->
+<!-- $$$pos[overload1]$$$pos -->
+<h3 class="fn"><a name="pos"></a>const <span class="type"><a href="qpoint.html">QPoint</a></span> &amp; QHoverEvent::<span class="name">pos</span> () const</h3>
+<p>Returns the position of the mouse cursor, relative to the widget that received the event.</p>
+<p>On <a href="qevent.html#Type-enum">QEvent::HoverLeave</a> events, this position will always be <a href="qpoint.html">QPoint</a>(-1, -1).</p>
+<p><b>See also </b><a href="qhoverevent.html#oldPos">oldPos</a>().</p>
+<!-- @@@pos -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

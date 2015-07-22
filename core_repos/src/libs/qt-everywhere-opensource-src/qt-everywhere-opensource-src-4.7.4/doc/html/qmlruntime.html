@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmlruntime.qdoc -->
+  <title>Qt 4.7: Qt Declarative UI Runtime</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Qt Declarative UI Runtime</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#deploying-qml-based-applications">Deploying QML-based applications</a></li>
+<li class="level2"><a href="#deploying-with-qdeclarativeview">Deploying with QDeclarativeView</a></li>
+<li class="level2"><a href="#creating-a-qdeclarativeengine-directly">Creating a QDeclarativeEngine directly</a></li>
+<li class="level1"><a href="#developing-and-prototyping-with-qml-viewer">Developing and prototyping with QML Viewer</a></li>
+</ul>
+</div>
+<h1 class="title">Qt Declarative UI Runtime</h1>
+<span class="subtitle"></span>
+<!-- $$$qmlruntime.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>QML documents are loaded and executed by the QML runtime. This includes the Declarative UI engine along with the built-in QML elements and plugin modules, and it also provides access to third-party QML elements and modules.</p>
+<p>Applications that use QML need to invoke the QML runtime in order to execute QML documents. This can be done by creating a <a href="qdeclarativeview.html">QDeclarativeView</a> or a <a href="qdeclarativeengine.html">QDeclarativeEngine</a>, as described below. In addition, the Declarative UI package includes the <i>Qt QML Viewer</i> tool, which loads <tt>.qml</tt> files. This tool is useful for developing and testing QML code without the need to write a C++ application to load the QML runtime.</p>
+<a name="deploying-qml-based-applications"></a>
+<h2>Deploying QML-based applications</h2>
+<p>To deploy an application that uses QML, the QML runtime must be invoked by the application. This is done by writing a Qt C++ application that loads the <a href="qdeclarativeengine.html">QDeclarativeEngine</a> by either:</p>
+<ul>
+<li>Loading the QML file through a <a href="qdeclarativeview.html">QDeclarativeView</a> instance, or</li>
+<li>Creating a <a href="qdeclarativeengine.html">QDeclarativeEngine</a> instance and loading QML files with <a href="qdeclarativecomponent.html">QDeclarativeComponent</a></li>
+</ul>
+<a name="deploying-with-qdeclarativeview"></a>
+<h3>Deploying with QDeclarativeView</h3>
+<p><a href="qdeclarativeview.html">QDeclarativeView</a> is a <a href="qwidget.html">QWidget</a>-based class that is able to load QML files. For example, if there is a QML file, <tt>application.qml</tt>, like this:</p>
+<pre class="qml"> import QtQuick 1.0
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> { <span class="name">width</span>: <span class="number">100</span>; <span class="name">height</span>: <span class="number">100</span>; <span class="name">color</span>: <span class="string">&quot;red&quot;</span> }</pre>
+<p>It can be loaded in a Qt application's <tt>main.cpp</tt> file like this:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeView&gt;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> view;
+     view<span class="operator">.</span>setSource(<span class="type"><a href="qurl.html">QUrl</a></span><span class="operator">::</span>fromLocalFile(<span class="string">&quot;application.qml&quot;</span>));
+     view<span class="operator">.</span>show();
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>This creates a <a href="qwidget.html">QWidget</a>-based view that displays the contents of <tt>application.qml</tt>.</p>
+<p>The application's <tt>.pro</tt> <a href="qmake-project-files.html">project file</a> must specify the <tt>declarative</tt> module for the <tt>QT</tt> variable. For example:</p>
+<pre class="cpp"> TEMPLATE <span class="operator">+</span><span class="operator">=</span> app
+ QT <span class="operator">+</span><span class="operator">=</span> gui declarative
+ SOURCES <span class="operator">+</span><span class="operator">=</span> main<span class="operator">.</span>cpp</pre>
+<a name="creating-a-qdeclarativeengine-directly"></a>
+<h3>Creating a QDeclarativeEngine directly</h3>
+<p>If <tt>application.qml</tt> does not have any graphical components, or if it is preferred to avoid <a href="qdeclarativeview.html">QDeclarativeView</a> for other reasons, the <a href="qdeclarativeengine.html">QDeclarativeEngine</a> can be constructed directly instead. In this case, <tt>application.qml</tt> is loaded as a <a href="qdeclarativecomponent.html">QDeclarativeComponent</a> instance rather than placed into a view:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QApplication&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeEngine&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeContext&gt;</span>
+ <span class="preprocessor">#include &lt;QDeclarativeComponent&gt;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+
+     <span class="type"><a href="qdeclarativeengine.html">QDeclarativeEngine</a></span> engine;
+     <span class="type"><a href="qdeclarativecontext.html">QDeclarativeContext</a></span> <span class="operator">*</span>objectContext <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qdeclarativecontext.html">QDeclarativeContext</a></span>(engine<span class="operator">.</span>rootContext());
+
+     <span class="type"><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></span> component(<span class="operator">&amp;</span>engine<span class="operator">,</span> <span class="string">&quot;application.qml&quot;</span>);
+     <span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>object <span class="operator">=</span> component<span class="operator">.</span>create(objectContext);
+
+     <span class="comment">// ... delete object and objectContext when necessary</span>
+
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>See <a href="qtbinding.html">Using QML Bindings in C++ Applications</a> for more information about using <a href="qdeclarativeengine.html">QDeclarativeEngine</a>, <a href="qdeclarativecontext.html">QDeclarativeContext</a> and <a href="qdeclarativecomponent.html">QDeclarativeComponent</a>, as well as details on including QML files through <a href="resources.html">Qt's Resource system</a>.</p>
+<a name="developing-and-prototyping-with-qml-viewer"></a>
+<h2>Developing and prototyping with QML Viewer</h2>
+<p>The Declarative UI package includes a QML runtime tool, the <i>Qt QML Viewer</i>, which loads and displays QML documents. This is useful during the application development phase for prototyping QML-based applications without writing your own C++ applications to invoke the QML runtime.</p>
+<p>See the <a href="qmlviewer.html">QML Viewer</a> documentation for more details.</p>
+</div>
+<!-- @@@qmlruntime.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

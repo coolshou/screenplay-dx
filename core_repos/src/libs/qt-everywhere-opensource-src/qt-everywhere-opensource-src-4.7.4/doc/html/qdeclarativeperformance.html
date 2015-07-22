@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativeperformance.qdoc -->
+  <title>Qt 4.7: QML Performance</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>QML Performance</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#opaque-items">Opaque Items</a></li>
+<li class="level1"><a href="#clipping">Clipping</a></li>
+<li class="level1"><a href="#anchors-vs-binding">Anchors vs. Binding</a></li>
+<li class="level1"><a href="#images">Images</a></li>
+<li class="level1"><a href="#view-delegates">View Delegates</a></li>
+<li class="level1"><a href="#image-resources-over-composition">Image resources over composition</a></li>
+<li class="level1"><a href="#limit-javascript">Limit JavaScript</a></li>
+<li class="level1"><a href="#rendering">Rendering</a></li>
+</ul>
+</div>
+<h1 class="title">QML Performance</h1>
+<span class="subtitle"></span>
+<!-- $$$qdeclarativeperformance.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="opaque-items"></a>
+<h2>Opaque Items</h2>
+<p>Items hidden behind an opaque item incur a cost. If an item will be enitrely obscured by an opaque item, set its opacity to 0. One common example of this is when a &quot;details&quot; page is shown over the main application view.</p>
+<a name="clipping"></a>
+<h2>Clipping</h2>
+<p><i>clip</i> is set to false by default. Enable clipping only when necessary.</p>
+<a name="anchors-vs-binding"></a>
+<h2>Anchors vs. Binding</h2>
+<p>It is more efficient to use anchors rather than bindings to position items relative to each other. Consider this use of bindings to position rect2 relative to rect1:</p>
+<pre class="cpp"> Rectangle {
+     id: rect1
+     x: <span class="number">20</span>
+     width: <span class="number">200</span>; height: <span class="number">200</span>
+ }
+ Rectangle {
+     id: rect2
+     x: rect1<span class="operator">.</span>x
+     y: rect1<span class="operator">.</span>y <span class="operator">+</span> rect1<span class="operator">.</span>height
+     width: rect1<span class="operator">.</span>width <span class="operator">-</span> <span class="number">20</span>
+     height: <span class="number">200</span>
+ }</pre>
+<p>This is achieved more efficiently using anchors:</p>
+<pre class="cpp"> Rectangle {
+     id: rect1
+     x: <span class="number">20</span>
+     width: <span class="number">200</span>; height: <span class="number">200</span>
+ }
+ Rectangle {
+     id: rect2
+     height: <span class="number">200</span>
+     anchors<span class="operator">.</span>left: rect1<span class="operator">.</span>left
+     anchors<span class="operator">.</span>top: rect1<span class="operator">.</span>bottom
+     anchors<span class="operator">.</span>right: rect1<span class="operator">.</span>right
+     anchors<span class="operator">.</span>rightMargin: <span class="number">20</span>
+ }</pre>
+<a name="images"></a>
+<h2>Images</h2>
+<p>Images consume a great deal of memory and may also be costly to load. In order to deal with large images efficiently it is recommended that the <a href="qml-image.html#sourceSize-prop">Image::sourceSize</a> property be set to a size no greater than that necessary to render it. Beware that changing the sourceSize will cause the image to be reloaded.</p>
+<p>Images on the local filesystem are usually loaded synchronously. This is usually the desired behavior for user interface elements, however for large images that do not necessarily need to be visible immediately, set the <a href="qml-image.html#asynchronous-prop">Image::asynchronous</a> property to true. This will load the image in a low priority thread.</p>
+<a name="view-delegates"></a>
+<h2>View Delegates</h2>
+<p>Delegates must be created quickly as the view is flicked. There are two important aspects to maintaining a smooth view:</p>
+<ul>
+<li>Small delegates - keep the amount of QML to a minimum. Have just enough QML in the delegate to display the necessary information. Any additional functionality that is only needed when the delegate is clicked, for example, should be created by a Loader as needed.</li>
+<li>Fast data access - ensure the data model is as fast as possible.</li>
+</ul>
+<a name="image-resources-over-composition"></a>
+<h2>Image resources over composition</h2>
+<p>If possible, provide a single image resource, rather than using composition of a number of elements. For example, a frame with a shadow could be created using a Rectangle placed over an Image providing the shadow. It is more efficient to provide an image that includes the frame and the shadow.</p>
+<a name="limit-javascript"></a>
+<h2>Limit JavaScript</h2>
+<p>Avoid running JavaScript during animation. For example, running a complex JavaScript expression for each frame of an x property animation.</p>
+<a name="rendering"></a>
+<h2>Rendering</h2>
+<p>Often using a different graphics system will give superior performance to the native graphics system (this is especially the case on X11). This can be configured using <a href="qapplication.html#setGraphicsSystem">QApplication::setGraphicsSystem</a>() or via the command line using the <tt>-graphicssystem</tt> switch.</p>
+<p>You can enable OpenGL acceleration using the <tt>opengl</tt> graphics system, or by setting a <a href="qglwidget.html">QGLWidget</a> as the viewport of your <a href="qdeclarativeview.html">QDeclarativeView</a>.</p>
+<p>You may need to try various options to find what works the best for your application. For embedded X11-based devices one recommended combination is to use the raster graphics system with a <a href="qglwidget.html">QGLWidget</a> for the viewport. While this doesn't guarantee the <b>fastest</b> performance for all use-cases, it typically has <b>consistently good</b> performance for all use-cases. In contrast, only using the raster paint engine may result in very good performance for parts of your application and very poor performance elsewhere.</p>
+<p>The QML Viewer uses the raster graphics system by default for X11 and OS X. It also includes a <tt>-opengl</tt> command line option which sets a <a href="qglwidget.html">QGLWidget</a> as the viewport of the view. On OS X, a <a href="qglwidget.html">QGLWidget</a> is always used.</p>
+<p>You can also prevent <a href="qdeclarativeview.html">QDeclarativeView</a> from painting its window background if you will provide the background of your application using QML, e.g&#x2e;</p>
+<pre class="cpp"> <span class="type"><a href="qdeclarativeview.html">QDeclarativeView</a></span> window;
+ window<span class="operator">.</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_OpaquePaintEvent);
+ window<span class="operator">.</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_NoSystemBackground);
+ window<span class="operator">.</span>viewport()<span class="operator">-</span><span class="operator">&gt;</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_OpaquePaintEvent);
+ window<span class="operator">.</span>viewport()<span class="operator">-</span><span class="operator">&gt;</span>setAttribute(<span class="type"><a href="qt.html">Qt</a></span><span class="operator">::</span>WA_NoSystemBackground);</pre>
+</div>
+<!-- @@@qdeclarativeperformance.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

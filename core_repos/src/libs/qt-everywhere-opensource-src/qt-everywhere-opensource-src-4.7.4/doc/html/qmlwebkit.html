@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qmlwebkit.qdoc -->
+  <title>Qt 4.7: QtWebKit QML Module</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>QtWebKit QML Module</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#webkit-qml-elements">WebKit QML Elements</a></li>
+<li class="level1"><a href="#qtwebkit-module">QtWebKit Module</a></li>
+<li class="level1"><a href="#simple-usage">Simple Usage</a></li>
+</ul>
+</div>
+<h1 class="title">QtWebKit QML Module</h1>
+<span class="subtitle"></span>
+<!-- $$$qmlwebkit.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Qt WebKit QML</p>
+<a name="webkit-qml-elements"></a>
+<h2>WebKit QML Elements</h2>
+<ul>
+<li><a href="qml-webview.html">WebView</a></li>
+</ul>
+<a name="qtwebkit-module"></a>
+<h2>QtWebKit Module</h2>
+<p>The <a href="qtwebkit.html">QtWebKit</a> Module has a QML element, <a href="qml-webview.html">WebView</a> for displaying web content from a <tt>URL</tt>.</p>
+<p>Import the <a href="qtwebkit.html">QtWebKit</a> module before declaring a <tt>WebView</tt> element:</p>
+<pre class="qml"> import QtWebKit 1.0</pre>
+<a name="simple-usage"></a>
+<h2>Simple Usage</h2>
+<pre class="qml"> import QtWebKit 1.0
+
+ <span class="type"><a href="qml-webview.html">WebView</a></span> {
+     <span class="name">url</span>: <span class="string">&quot;http://www.nokia.com&quot;</span>
+     <span class="name">preferredWidth</span>: <span class="number">490</span>
+     <span class="name">preferredHeight</span>: <span class="number">400</span>
+     <span class="name">scale</span>: <span class="number">0.5</span>
+     <span class="name">smooth</span>: <span class="number">false</span>
+ }</pre>
+<p class="centerAlign"><img src="images/webview.png" /></p></div>
+<p><b>See also </b><a href="declarative-modelviews-webview.html">WebView Example</a> and <a href="demos-declarative-webbrowser.html">QML Web Browser</a>.</p>
+<!-- @@@qmlwebkit.html -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qssl.cpp -->
+  <title>Qt 4.7: QSsl Namespace</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="namespaces.html">Namespaces</a></li>
+<li>QSsl Namespace</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#types">Types</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QSsl Namespace</h1>
+<!-- $$$QSsl-brief -->
+<p>The QSsl namespace declares enums common to all SSL classes in <a href="qtnetwork.html">QtNetwork</a>. <a href="#details">More...</a></p>
+<!-- @@@QSsl -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QSsl&gt;</span></pre><p>This namespace was introduced in Qt 4.3.</p>
+<ul>
+</ul>
+<a name="types"></a>
+<h2>Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qssl.html#AlternateNameEntryType-enum">AlternateNameEntryType</a></b> { EmailEntry, DnsEntry }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qssl.html#EncodingFormat-enum">EncodingFormat</a></b> { Pem, Der }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qssl.html#KeyAlgorithm-enum">KeyAlgorithm</a></b> { Rsa, Dsa }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qssl.html#KeyType-enum">KeyType</a></b> { PrivateKey, PublicKey }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qssl.html#SslProtocol-enum">SslProtocol</a></b> { SslV3, SslV2, TlsV1, UnknownProtocol, AnyProtocol }</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QSsl-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QSsl namespace declares enums common to all SSL classes in <a href="qtnetwork.html">QtNetwork</a>.</p>
+</div>
+<!-- @@@QSsl -->
+<div class="types">
+<h2>Type Documentation</h2>
+<!-- $$$AlternateNameEntryType$$$EmailEntry$$$DnsEntry -->
+<h3 class="fn"><a name="AlternateNameEntryType-enum"></a>enum QSsl::<span class="name">AlternateNameEntryType</span></h3>
+<p>Describes the key types for alternate name entries in <a href="qsslcertificate.html">QSslCertificate</a>.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSsl::EmailEntry</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">An email entry; the entry contains an email address that the certificate is valid for.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::DnsEntry</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">A DNS host name entry; the entry contains a host name entry that the certificate is valid for. The entry may contain wildcards.</td></tr>
+</table>
+<p><b>See also </b><a href="qsslcertificate.html#alternateSubjectNames">QSslCertificate::alternateSubjectNames</a>().</p>
+<!-- @@@AlternateNameEntryType -->
+<!-- $$$EncodingFormat$$$Pem$$$Der -->
+<h3 class="fn"><a name="EncodingFormat-enum"></a>enum QSsl::<span class="name">EncodingFormat</span></h3>
+<p>Describes supported encoding formats for certificates and keys.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSsl::Pem</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The PEM format.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::Der</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The DER format.</td></tr>
+</table>
+<!-- @@@EncodingFormat -->
+<!-- $$$KeyAlgorithm$$$Rsa$$$Dsa -->
+<h3 class="fn"><a name="KeyAlgorithm-enum"></a>enum QSsl::<span class="name">KeyAlgorithm</span></h3>
+<p>Describes the different key algorithms supported by <a href="qsslkey.html">QSslKey</a>.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSsl::Rsa</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The RSA algorithm.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::Dsa</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The DSA algorithm.</td></tr>
+</table>
+<!-- @@@KeyAlgorithm -->
+<!-- $$$KeyType$$$PrivateKey$$$PublicKey -->
+<h3 class="fn"><a name="KeyType-enum"></a>enum QSsl::<span class="name">KeyType</span></h3>
+<p>Describes the two types of keys <a href="qsslkey.html">QSslKey</a> supports.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSsl::PrivateKey</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">A private key.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::PublicKey</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">A public key.</td></tr>
+</table>
+<!-- @@@KeyType -->
+<!-- $$$SslProtocol$$$SslV3$$$SslV2$$$TlsV1$$$AnyProtocol$$$UnknownProtocol -->
+<h3 class="fn"><a name="SslProtocol-enum"></a>enum QSsl::<span class="name">SslProtocol</span></h3>
+<p>Describes the protocol of the cipher.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSsl::SslV3</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">SSLv3 - the default protocol.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::SslV2</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">SSLv2</td></tr>
+<tr><td class="topAlign"><tt>QSsl::TlsV1</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">TLSv1</td></tr>
+<tr><td class="topAlign"><tt>QSsl::UnknownProtocol</tt></td><td class="topAlign"><tt>-1</tt></td><td class="topAlign">The cipher's protocol cannot be determined.</td></tr>
+<tr><td class="topAlign"><tt>QSsl::AnyProtocol</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">The socket understands SSLv2, SSLv3, and TLSv1. This value is used by <a href="qsslsocket.html">QSslSocket</a> only.</td></tr>
+</table>
+<p>Note: most servers using SSL understand both versions (2 and 3), but it is recommended to use the latest version only for security reasons. However, SSL and TLS are not compatible with each other: if you get unexpected handshake failures, verify that you chose the correct setting for your protocol.</p>
+<!-- @@@SslProtocol -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

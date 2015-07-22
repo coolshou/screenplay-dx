@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: fastfouriertransformer.cpp Example File (demos/mobile/guitartuner/src/fastfouriertransformer.cpp)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">fastfouriertransformer.cpp Example File</h1>
+<span class="small-subtitle">demos/mobile/guitartuner/src/fastfouriertransformer.cpp</span>
+<!-- $$$demos/mobile/guitartuner/src/fastfouriertransformer.cpp-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:BSD$
+ ** You may use this file under the terms of the BSD license as follows:
+ **
+ ** &quot;Redistribution and use in source and binary forms, with or without
+ ** modification, are permitted provided that the following conditions are
+ ** met:
+ **   * Redistributions of source code must retain the above copyright
+ **     notice, this list of conditions and the following disclaimer.
+ **   * Redistributions in binary form must reproduce the above copyright
+ **     notice, this list of conditions and the following disclaimer in
+ **     the documentation and/or other materials provided with the
+ **     distribution.
+ **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
+ **     the names of its contributors may be used to endorse or promote
+ **     products derived from this software without specific prior written
+ **     permission.
+ **
+ ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ ** &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ ** LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ ** A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ ** OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ ** SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ ** LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ ** DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ ** THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ ** (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ ** OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.&quot;
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ <span class="preprocessor">#include &quot;fastfouriertransformer.h&quot;</span>
+ <span class="preprocessor">#include &quot;math.h&quot;</span>
+
+ <span class="preprocessor">#define STIN  inline</span>
+ <span class="preprocessor">#define __STATIC</span>
+
+ <span class="preprocessor">#include &quot;fftpack.c&quot;</span>
+
+ <span class="comment">// called by __ogg_fdrffti</span>
+ __STATIC <span class="type">void</span> drfti1(<span class="type">int</span> n<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>wa<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdrffti(<span class="type">int</span> n<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdcosqi(<span class="type">int</span> n<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="comment">// called by drftf1</span>
+ STIN <span class="type">void</span> dradf2(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa1);
+ <span class="comment">// called by drftf1</span>
+ STIN <span class="type">void</span> dradf4(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa1<span class="operator">,</span>
+         <span class="type">float</span> <span class="operator">*</span>wa2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa3);
+ <span class="comment">// called by drftf1</span>
+ STIN <span class="type">void</span> dradfg(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> ip<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">int</span> idl1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>c1<span class="operator">,</span>
+         <span class="type">float</span> <span class="operator">*</span>c2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa);
+ <span class="comment">// called by drftf1</span>
+ STIN <span class="type">void</span> drftf1(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>c<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdrfftf(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>r<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+ STIN <span class="type">void</span> dcsqf1(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>x<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>w<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>xh<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdcosqf(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>x<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+ STIN <span class="type">void</span> dradb2(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa1);
+ STIN <span class="type">void</span> dradb3(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa1<span class="operator">,</span>
+                           <span class="type">float</span> <span class="operator">*</span>wa2);
+ STIN <span class="type">void</span> dradb4(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa1<span class="operator">,</span>
+         <span class="type">float</span> <span class="operator">*</span>wa2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa3);
+ STIN <span class="type">void</span> dradbg(<span class="type">int</span> ido<span class="operator">,</span><span class="type">int</span> ip<span class="operator">,</span><span class="type">int</span> l1<span class="operator">,</span><span class="type">int</span> idl1<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>cc<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>c1<span class="operator">,</span>
+             <span class="type">float</span> <span class="operator">*</span>c2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>ch2<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wa);
+ STIN <span class="type">void</span> drftb1(<span class="type">int</span> n<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>c<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>ch<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>wa<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdrfftb(<span class="type">int</span> n<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>r<span class="operator">,</span> <span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span> <span class="type">int</span> <span class="operator">*</span>ifac);
+ STIN <span class="type">void</span> dcsqb1(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>x<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>w<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>xh<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+ <span class="type">void</span> __ogg_fdcosqb(<span class="type">int</span> n<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>x<span class="operator">,</span><span class="type">float</span> <span class="operator">*</span>wsave<span class="operator">,</span><span class="type">int</span> <span class="operator">*</span>ifac);
+
+ FastFourierTransformer<span class="operator">::</span>FastFourierTransformer(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent) :
+         <span class="type"><a href="qobject.html">QObject</a></span>(parent)<span class="operator">,</span>
+         m_waveFloat(<span class="number">0</span>)<span class="operator">,</span>
+         m_workingArray(<span class="number">0</span>)<span class="operator">,</span>
+         m_ifac(<span class="number">0</span>)<span class="operator">,</span>
+         m_last_n(<span class="operator">-</span><span class="number">1</span>)
+ {
+ }
+
+ FastFourierTransformer<span class="operator">::</span><span class="operator">~</span>FastFourierTransformer()
+ {
+     <span class="keyword">if</span> (m_waveFloat <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_waveFloat;
+     }
+     <span class="keyword">if</span> (m_workingArray <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+        <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_workingArray;
+     }
+     <span class="keyword">if</span> (m_ifac <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_ifac;
+     }
+ }
+
+ <span class="comment">/**
+   * Prepares the arrays to be of length n.
+   */</span>
+ <span class="type">void</span> FastFourierTransformer<span class="operator">::</span>reserve(<span class="type">int</span> n)
+ {
+     Q_ASSERT(n<span class="operator">&gt;</span><span class="number">0</span>);
+     <span class="keyword">if</span> (m_waveFloat <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_waveFloat;
+     }
+     <span class="keyword">if</span> (m_workingArray <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+        <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_workingArray;
+     }
+     <span class="keyword">if</span> (m_ifac <span class="operator">!</span><span class="operator">=</span> <span class="number">0</span>) {
+         <span class="keyword">delete</span> <span class="operator">[</span><span class="operator">]</span> m_ifac;
+     }
+     m_workingArray <span class="operator">=</span> <span class="keyword">new</span> <span class="type">float</span><span class="operator">[</span><span class="number">2</span><span class="operator">*</span>n<span class="operator">+</span><span class="number">15</span><span class="operator">]</span>;
+     m_waveFloat <span class="operator">=</span> <span class="keyword">new</span> <span class="type">float</span><span class="operator">[</span>n<span class="operator">]</span>;
+     m_ifac <span class="operator">=</span> <span class="keyword">new</span> <span class="type">int</span><span class="operator">[</span>n<span class="operator">]</span>;
+     __ogg_fdrffti(n<span class="operator">,</span> m_workingArray<span class="operator">,</span> m_ifac);
+     m_last_n <span class="operator">=</span> n;
+ }
+
+ <span class="comment">/**
+   * Calculates the Fast Fourier Transformation (FFT).
+   */</span>
+ <span class="type">void</span> FastFourierTransformer<span class="operator">::</span>calculateFFT(<span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qtglobal.html#qint16-typedef">qint16</a></span><span class="operator">&gt;</span> wave)
+ {
+     <span class="keyword">const</span> <span class="type">int</span> n <span class="operator">=</span> wave<span class="operator">.</span>size();
+     <span class="keyword">if</span> (m_last_n <span class="operator">!</span><span class="operator">=</span> n) {
+         reserve(n);
+     }
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> n; i<span class="operator">+</span><span class="operator">+</span>) {
+         m_waveFloat<span class="operator">[</span>i<span class="operator">]</span> <span class="operator">=</span> (<span class="type">float</span>) wave<span class="operator">.</span>at(i);
+     }
+
+     __ogg_fdrfftf(n<span class="operator">,</span> m_waveFloat<span class="operator">,</span> m_workingArray<span class="operator">,</span> m_ifac);
+
+ }
+
+ <span class="comment">/**
+   * Returns the index which corresponds to the maximum density
+   * of the FFT.
+   */</span>
+ <span class="type">int</span> FastFourierTransformer<span class="operator">::</span>getMaximumDensityIndex()
+ {
+     <span class="keyword">const</span> <span class="type">int</span> halfN <span class="operator">=</span> m_last_n <span class="operator">/</span> <span class="number">2</span>;
+     <span class="type">float</span> maxDensity <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">int</span> maxDensityIndex <span class="operator">=</span> <span class="number">0</span>;
+     <span class="type">float</span> densitySquared <span class="operator">=</span> <span class="number">0.f</span>;
+     <span class="keyword">for</span> (<span class="type">int</span> k <span class="operator">=</span> <span class="number">1</span>; k <span class="operator">&lt;</span> halfN; k<span class="operator">+</span><span class="operator">+</span>) {
+         <span class="comment">// Here, we calculate the frequency k/N.</span>
+         <span class="comment">// k=1, the wave oscillation time is N, and the frequency</span>
+         <span class="comment">//      is 1/sample.</span>
+         <span class="comment">// k=2, the wave oscillation time is N/2, and the frequency</span>
+         <span class="comment">//      is 2/sample.</span>
+         <span class="comment">// k=3, the wave oscillation time is N/3, and the frequency</span>
+         <span class="comment">//      is 3/sample.</span>
+         <span class="comment">// Note, that the documentation is for Fortran, so indexes in the</span>
+         <span class="comment">// documentation does not match.</span>
+         <span class="comment">// The sine and cosine coefficients are obtained thus as follows:</span>
+         <span class="keyword">const</span> <span class="type">float</span> cosCoefficient <span class="operator">=</span> <a href="qtglobal.html#qAbs">qAbs</a>(m_waveFloat<span class="operator">[</span><span class="number">2</span><span class="operator">*</span>k<span class="operator">-</span><span class="number">1</span><span class="operator">]</span>);
+         <span class="keyword">const</span> <span class="type">float</span> sinCoefficient <span class="operator">=</span> <a href="qtglobal.html#qAbs">qAbs</a>(m_waveFloat<span class="operator">[</span><span class="number">2</span><span class="operator">*</span>k<span class="operator">]</span>);
+
+         densitySquared <span class="operator">=</span> sinCoefficient<span class="operator">*</span>sinCoefficient <span class="operator">+</span> cosCoefficient<span class="operator">*</span>cosCoefficient;
+         <span class="keyword">if</span> (densitySquared <span class="operator">&gt;</span> maxDensity) {
+             maxDensity <span class="operator">=</span> densitySquared;
+             maxDensityIndex <span class="operator">=</span> k;
+         }
+     }
+
+     <span class="keyword">if</span> (m_cutOffForDensitySquared <span class="operator">&lt;</span> maxDensity) {
+         <span class="keyword">return</span> maxDensityIndex;
+     }
+     <span class="keyword">else</span> {
+         <span class="keyword">return</span> <span class="operator">-</span><span class="number">1</span>;
+     }
+ }
+
+ <span class="comment">/**
+   * Sets the cutoff density.
+   */</span>
+ <span class="type">void</span> FastFourierTransformer<span class="operator">::</span>setCutOffForDensity(<span class="type">float</span> cutoff)
+ {
+     m_cutOffForDensitySquared <span class="operator">=</span> cutoff<span class="operator">*</span>cutoff;
+ }</pre>
+</div>
+<!-- @@@demos/mobile/guitartuner/src/fastfouriertransformer.cpp -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

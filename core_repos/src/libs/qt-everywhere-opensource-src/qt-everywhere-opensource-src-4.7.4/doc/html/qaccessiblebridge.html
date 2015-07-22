@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qaccessiblebridge.cpp -->
+  <title>Qt 4.7: QAccessibleBridge Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QAccessibleBridge</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QAccessibleBridge Class Reference</h1>
+<!-- $$$QAccessibleBridge-brief -->
+<p>The QAccessibleBridge class is the base class for accessibility back-ends. <a href="#details">More...</a></p>
+<!-- @@@QAccessibleBridge -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QAccessibleBridge&gt;</span></pre><ul>
+<li><a href="qaccessiblebridge-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qaccessiblebridge.html#dtor.QAccessibleBridge">~QAccessibleBridge</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qaccessiblebridge.html#notifyAccessibilityUpdate">notifyAccessibilityUpdate</a></b> ( int <i>reason</i>, QAccessibleInterface * <i>interface</i>, int <i>child</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qaccessiblebridge.html#setRootObject">setRootObject</a></b> ( QAccessibleInterface * <i>object</i> ) = 0</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QAccessibleBridge-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QAccessibleBridge class is the base class for accessibility back-ends.</p>
+<p>Qt supports Microsoft Active Accessibility (MSAA), Mac OS X Accessibility, and the Unix/X11 AT-SPI standard. By subclassing QAccessibleBridge, you can support other backends than the predefined ones.</p>
+<p>Currently, custom bridges are only supported on Unix. We might add support for them on other platforms as well if there is enough demand.</p>
+</div>
+<p><b>See also </b><a href="qaccessible.html">QAccessible</a> and <a href="qaccessiblebridgeplugin.html">QAccessibleBridgePlugin</a>.</p>
+<!-- @@@QAccessibleBridge -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QAccessibleBridge[overload1]$$$~QAccessibleBridge -->
+<h3 class="fn"><a name="dtor.QAccessibleBridge"></a>QAccessibleBridge::<span class="name">~QAccessibleBridge</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the accessibility bridge object.</p>
+<!-- @@@~QAccessibleBridge -->
+<!-- $$$notifyAccessibilityUpdate[overload1]$$$notifyAccessibilityUpdateintQAccessibleInterface*int -->
+<h3 class="fn"><a name="notifyAccessibilityUpdate"></a><span class="type">void</span> QAccessibleBridge::<span class="name">notifyAccessibilityUpdate</span> ( <span class="type">int</span> <i>reason</i>, <span class="type"><a href="qaccessibleinterface.html">QAccessibleInterface</a></span> * <i>interface</i>, <span class="type">int</span> <i>child</i> )<tt> [pure virtual]</tt></h3>
+<p>This function is called by Qt to notify the bridge about a change in the accessibility information for object wrapped by the given <i>interface</i>.</p>
+<p><i>reason</i> specifies the cause of the change. It can take values of type <a href="qaccessible.html#Event-enum">QAccessible::Event</a>.</p>
+<p><i>child</i> is the (1-based) index of the child element that has changed. When <i>child</i> is 0, the object itself has changed.</p>
+<p><b>See also </b><a href="qaccessible.html#updateAccessibility">QAccessible::updateAccessibility</a>().</p>
+<!-- @@@notifyAccessibilityUpdate -->
+<!-- $$$setRootObject[overload1]$$$setRootObjectQAccessibleInterface* -->
+<h3 class="fn"><a name="setRootObject"></a><span class="type">void</span> QAccessibleBridge::<span class="name">setRootObject</span> ( <span class="type"><a href="qaccessibleinterface.html">QAccessibleInterface</a></span> * <i>object</i> )<tt> [pure virtual]</tt></h3>
+<p>This function is called by Qt at application startup to set the root accessible object of the application to <i>object</i>. All other accessible objects in the application can be reached by the client using object navigation.</p>
+<!-- @@@setRootObject -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

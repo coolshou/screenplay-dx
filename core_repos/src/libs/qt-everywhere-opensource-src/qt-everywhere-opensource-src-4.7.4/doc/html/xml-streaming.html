@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- xml-processing.qdoc -->
+  <title>Qt 4.7: XML Streaming</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>XML Streaming</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="prev" href="xml-namespaces.html" />
+  <link rel="next" href="xml-sax.html" />
+<p class="naviNextPrevious headerNavi">
+[Previous: <a href="xml-namespaces.html">An Introduction to Namespaces</a>]
+[Next: <a href="xml-sax.html">The SAX interface</a>]
+</p><p/>
+<h1 class="title">XML Streaming</h1>
+<span class="subtitle"></span>
+<!-- $$$xml-streaming.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Since version 4.3, Qt provides two new classes for reading and writing XML: <a href="qxmlstreamreader.html">QXmlStreamReader</a> and <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>.</p>
+<p>The <a href="qxmlstreamreader.html">QXmlStreamReader</a> and <a href="qxmlstreamwriter.html">QXmlStreamWriter</a> are two new classes provided in Qt 4.3 and later. A stream reader reports an XML document as a stream of tokens. This differs from SAX as SAX applications provide handlers to receive XML events from the parser whereas the <a href="qxmlstreamreader.html">QXmlStreamReader</a> drives the loop, pulling tokens from the reader when they are needed. This pulling approach makes it possible to build recursive descent parsers, allowing XML parsing code to be split into different methods or classes.</p>
+<p><a href="qxmlstreamreader.html">QXmlStreamReader</a> is a well-formed XML 1.0 parser that excludes external parsed entities. Hence, data provided by the stream reader adheres to the W3C's criteria for well-formed XML, as long as no error occurs. Otherwise, functions such as <a href="qxmlstreamreader.html#atEnd">atEnd()</a>, <a href="qxmlstreamreader.html#error">error()</a> and <a href="qxmlstreamreader.html#hasError">hasError()</a> can be used to check and view the errors.</p>
+<p>An example of <a href="qxmlstreamreader.html">QXmlStreamReader</a> implementation would be the <tt>XbelReader</tt> in <a href="xml-streambookmarks.html">QXmlStream Bookmarks Example</a>, which is a subclass of <a href="qxmlstreamreader.html">QXmlStreamReader</a>. The constructor takes <i>treeWidget</i> as a parameter and the class has Xbel specific functions:</p>
+<pre class="cpp">     XbelReader(<span class="type"><a href="qtreewidget.html">QTreeWidget</a></span> <span class="operator">*</span>treeWidget);
+     ...
+     <span class="type">void</span> readXBEL();
+     <span class="type">void</span> readTitle(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item);
+     <span class="type">void</span> readSeparator(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item);
+     <span class="type">void</span> readFolder(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item);
+     <span class="type">void</span> readBookmark(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item);
+
+     <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>createChildItem(<span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item);
+
+     <span class="type"><a href="qxmlstreamreader.html">QXmlStreamReader</a></span> xml;
+     <span class="type"><a href="qtreewidget.html">QTreeWidget</a></span> <span class="operator">*</span>treeWidget;
+     ...</pre>
+<p>The <tt>read()</tt> function accepts a <a href="qiodevice.html">QIODevice</a> and sets it with <a href="qxmlstreamreader.html#setDevice">setDevice()</a>. The <a href="qxmlstreamreader.html#raiseError">raiseError()</a> function is used to display a custom error message, inidicating that the file's version is incorrect.</p>
+<pre class="cpp"> <span class="type">bool</span> XbelReader<span class="operator">::</span>read(<span class="type"><a href="qiodevice.html">QIODevice</a></span> <span class="operator">*</span>device)
+ {
+     xml<span class="operator">.</span>setDevice(device);
+
+     <span class="keyword">if</span> (xml<span class="operator">.</span>readNextStartElement()) {
+         <span class="keyword">if</span> (xml<span class="operator">.</span>name() <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;xbel&quot;</span> <span class="operator">&amp;</span><span class="operator">&amp;</span> xml<span class="operator">.</span>attributes()<span class="operator">.</span>value(<span class="string">&quot;version&quot;</span>) <span class="operator">=</span><span class="operator">=</span> <span class="string">&quot;1.0&quot;</span>)
+             readXBEL();
+         <span class="keyword">else</span>
+             xml<span class="operator">.</span>raiseError(<span class="type"><a href="qobject.html">QObject</a></span><span class="operator">::</span>tr(<span class="string">&quot;The file is not an XBEL version 1.0 file.&quot;</span>));
+     }
+
+     <span class="keyword">return</span> <span class="operator">!</span>xml<span class="operator">.</span>error();
+ }</pre>
+<p>The pendent to <a href="qxmlstreamreader.html">QXmlStreamReader</a> is <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>, which provides an XML writer with a simple streaming API. <a href="qxmlstreamwriter.html">QXmlStreamWriter</a> operates on a <a href="qiodevice.html">QIODevice</a> and has specialised functions for all XML tokens or events you want to write, such as <a href="qxmlstreamwriter.html#writeDTD">writeDTD()</a>, <a href="qxmlstreamwriter.html#writeCharacters">writeCharacters()</a>, <a href="qxmlstreamwriter.html#writeComment">writeComment()</a> and so on.</p>
+<p>To write XML document with <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>, you start a document with the <a href="qxmlstreamwriter.html#writeStartDocument">writeStartDocument()</a> function and end it with <a href="qxmlstreamwriter.html#writeEndDocument">writeEndDocument()</a>, which implicitly closes all remaining open tags. Element tags are opened with <a href="qxmlstreamwriter.html#writeStartDocument">writeStartDocument()</a> and followed by <a href="qxmlstreamwriter.html#writeAttribute">writeAttribute()</a> or <a href="qxmlstreamwriter.html#writeAttributes">writeAttributes()</a>, element content, and then <a href="qxmlstreamwriter.html#writeEndDocument">writeEndDocument()</a>. Also, <a href="qxmlstreamwriter.html#writeEmptyElement">writeEmptyElement()</a> can be used to write empty elements.</p>
+<p>Element content comprises characters, entity references or nested elements. Content can be written with <a href="qxmlstreamwriter.html#writeCharacters">writeCharacters()</a>, a function that also takes care of escaping all forbidden characters and character sequences, <a href="qxmlstreamwriter.html#writeEntityReference">writeEntityReference()</a>, or subsequent calls to <a href="qxmlstreamwriter.html#writeStartElement">writeStartElement()</a>.</p>
+<p>The <tt>XbelWriter</tt> class from <a href="xml-streambookmarks.html">QXmlStream Bookmarks Example</a> is a subclass of <a href="qxmlstreamwriter.html">QXmlStreamWriter</a>. Its <tt>writeFile()</tt> function illustrates the core functions of <a href="qxmlstreamwriter.html">QXmlStreamWriter</a> mentioned above:</p>
+<pre class="cpp"> <span class="type">bool</span> XbelWriter<span class="operator">::</span>writeFile(<span class="type"><a href="qiodevice.html">QIODevice</a></span> <span class="operator">*</span>device)
+ {
+     xml<span class="operator">.</span>setDevice(device);
+
+     xml<span class="operator">.</span>writeStartDocument();
+     xml<span class="operator">.</span>writeDTD(<span class="string">&quot;&lt;!DOCTYPE xbel&gt;&quot;</span>);
+     xml<span class="operator">.</span>writeStartElement(<span class="string">&quot;xbel&quot;</span>);
+     xml<span class="operator">.</span>writeAttribute(<span class="string">&quot;version&quot;</span><span class="operator">,</span> <span class="string">&quot;1.0&quot;</span>);
+     <span class="keyword">for</span> (<span class="type">int</span> i <span class="operator">=</span> <span class="number">0</span>; i <span class="operator">&lt;</span> treeWidget<span class="operator">-</span><span class="operator">&gt;</span>topLevelItemCount(); <span class="operator">+</span><span class="operator">+</span>i)
+         writeItem(treeWidget<span class="operator">-</span><span class="operator">&gt;</span>topLevelItem(i));
+
+     xml<span class="operator">.</span>writeEndDocument();
+     <span class="keyword">return</span> <span class="keyword">true</span>;
+ }</pre>
+</div>
+<!-- @@@xml-streaming.html -->
+<p class="naviNextPrevious footerNavi">
+[Previous: <a href="xml-namespaces.html">An Introduction to Namespaces</a>]
+[Next: <a href="xml-sax.html">The SAX interface</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

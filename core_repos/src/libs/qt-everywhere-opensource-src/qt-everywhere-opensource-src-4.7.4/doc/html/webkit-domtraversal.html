@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- domtraversal.qdoc -->
+  <title>Qt 4.7: DOM Traversal Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>DOM Traversal Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#window-class-definition">Window Class Definition</a></li>
+<li class="level1"><a href="#window-class-implementation">Window Class Implementation</a></li>
+<li class="level1"><a href="#starting-the-example">Starting the Example</a></li>
+<li class="level1"><a href="#further-reading">Further Reading</a></li>
+</ul>
+</div>
+<h1 class="title">DOM Traversal Example</h1>
+<span class="subtitle"></span>
+<!-- $$$webkit/domtraversal-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="webkit-domtraversal-window-cpp.html">webkit/domtraversal/window.cpp</a></li>
+<li><a href="webkit-domtraversal-window-h.html">webkit/domtraversal/window.h</a></li>
+<li><a href="webkit-domtraversal-window-ui.html">webkit/domtraversal/window.ui</a></li>
+<li><a href="webkit-domtraversal-main-cpp.html">webkit/domtraversal/main.cpp</a></li>
+<li><a href="webkit-domtraversal-domtraversal-pro.html">webkit/domtraversal/domtraversal.pro</a></li>
+</ul>
+<p>The DOM Traversal example shows how to use the <a href="qwebelement.html">QWebElement</a> class to access the structure of a Web page.</p>
+<p class="centerAlign"><img src="images/webkit-domtraversal.png" /></p><p>The <a href="qwebelement.html">QWebElement</a> class provides an API that can be used to examine the structure and content of a Web page via a Document Object Model (DOM) interface. It can be used for basic traversal of the document structure, to search for particular elements (see the <a href="webkit-simpleselector.html">Simple Selector Example</a>), and to modify content in-place.</p>
+<p>This example uses a <a href="qwebview.html">QWebView</a> widget to display the Web page, and a dock widget holds the <a href="qtreewidget.html">QTreeWidget</a> that shows the document structure. These widgets are placed in an instance of the <tt>Window</tt> class, which we describe below.</p>
+<a name="window-class-definition"></a>
+<h2>Window Class Definition</h2>
+<p>The <tt>Window</tt> class is derived from <a href="qmainwindow.html">QMainWindow</a> and its user interface is created using <a href="designer-manual.html#qt-designer">Qt Designer</a>. As a result, the class is also derived from the user interface class created by <a href="uic.html#uic">uic</a>:</p>
+<pre class="cpp"> <span class="preprocessor">#include &quot;ui_window.h&quot;</span>
+
+ <span class="keyword">class</span> Window : <span class="keyword">public</span> <span class="type"><a href="qmainwindow.html">QMainWindow</a></span><span class="operator">,</span> <span class="keyword">private</span> Ui<span class="operator">::</span>Window
+ {
+     Q_OBJECT
+
+ <span class="keyword">public</span>:
+     Window(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+     <span class="type">void</span> setUrl(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>url);
+
+ <span class="keyword">public</span> <span class="keyword">slots</span>:
+     <span class="type">void</span> on_webView_loadFinished();
+
+ <span class="keyword">private</span>:
+     <span class="type">void</span> examineChildElements(<span class="keyword">const</span> <span class="type"><a href="qwebelement.html">QWebElement</a></span> <span class="operator">&amp;</span>parentElement<span class="operator">,</span>
+                               <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>parentItem);
+ };</pre>
+<p>Two important functions to note are the <tt>on_webView_loadFinished()</tt> slot and the <tt>examineChildElements()</tt> function. The former is automatically called when the <a href="qwebview.html">QWebView</a> widget finishes loading a page &mdash; see the <a href="#further-reading">Further Reading</a> section for more information on this mechanism.</p>
+<p>The <tt>examineChildElements()</tt> function is used to traverse the document structure and add items to the <a href="qtreewidget.html">QTreeWidget</a>.</p>
+<a name="window-class-implementation"></a>
+<h2>Window Class Implementation</h2>
+<p>In the <tt>Window</tt> class constructor, we call the <a href="qwidget.html#setupUi">setupUi()</a> function to set up the user interface described in the <tt>window.ui</tt> file:</p>
+<pre class="cpp"> Window<span class="operator">::</span>Window(<span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent)
+     : <span class="type"><a href="qmainwindow.html">QMainWindow</a></span>(parent)
+ {
+     setupUi(<span class="keyword">this</span>);
+ }</pre>
+<p>When the Web page is loaded, the <tt>on_webView_loadFinished()</tt> slot is called. Here, we clear the tree widget and begin inspection of the document by obtaining the document element from the page's main frame:</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>on_webView_loadFinished()
+ {
+     treeWidget<span class="operator">-</span><span class="operator">&gt;</span>clear();
+
+     <span class="type"><a href="qwebframe.html">QWebFrame</a></span> <span class="operator">*</span>frame <span class="operator">=</span> webView<span class="operator">-</span><span class="operator">&gt;</span>page()<span class="operator">-</span><span class="operator">&gt;</span>mainFrame();
+     <span class="type"><a href="qwebelement.html">QWebElement</a></span> document <span class="operator">=</span> frame<span class="operator">-</span><span class="operator">&gt;</span>documentElement();
+
+     examineChildElements(document<span class="operator">,</span> treeWidget<span class="operator">-</span><span class="operator">&gt;</span>invisibleRootItem());
+ }</pre>
+<p>At this point, we call the <tt>examineChildElements()</tt> function to traverse the document, starting with the child elements of the document element for which we will create top level items in the tree widget.</p>
+<p>The <tt>examineChildElements()</tt> function accepts a parent element and a parent item. Starting with the first child element, which we obtain with the element's <a href="qwebelement.html#firstChild">firstChild()</a> function, we examine each child element of the parent item. For each valid (non-null) element, which we check by calling its <a href="qwebelement.html#isNull">isNull()</a> function, we create a new <a href="qtreewidgetitem.html">QTreeWidgetItem</a> instance with the element name and add it to the parent item.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>examineChildElements(<span class="keyword">const</span> <span class="type"><a href="qwebelement.html">QWebElement</a></span> <span class="operator">&amp;</span>parentElement<span class="operator">,</span>
+                                   <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>parentItem)
+ {
+     <span class="type"><a href="qwebelement.html">QWebElement</a></span> element <span class="operator">=</span> parentElement<span class="operator">.</span>firstChild();
+     <span class="keyword">while</span> (<span class="operator">!</span>element<span class="operator">.</span>isNull()) {
+
+         <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span> <span class="operator">*</span>item <span class="operator">=</span> <span class="keyword">new</span> <span class="type"><a href="qtreewidgetitem.html">QTreeWidgetItem</a></span>();
+         item<span class="operator">-</span><span class="operator">&gt;</span>setText(<span class="number">0</span><span class="operator">,</span> element<span class="operator">.</span>tagName());
+         parentItem<span class="operator">-</span><span class="operator">&gt;</span>addChild(item);
+
+         examineChildElements(element<span class="operator">,</span> item);
+
+         element <span class="operator">=</span> element<span class="operator">.</span>nextSibling();
+     }
+ }</pre>
+<p>We recursively examine the child elements for each element by calling <tt>examineChildElements()</tt> with the current child element and the newly-created item. To obtain the next element at the same level in the document, we call its <a href="qwebelement.html#nextSibling">nextSibling()</a> function.</p>
+<p>This recursive approach to reading the document makes it easy to create a simple representation of the document structure in a tree widget.</p>
+<p>For completeness, we show the <tt>setUrl()</tt> function, which is provided to allow the document URL to be set from the example's <tt>main()</tt> function.</p>
+<pre class="cpp"> <span class="type">void</span> Window<span class="operator">::</span>setUrl(<span class="keyword">const</span> <span class="type"><a href="qurl.html">QUrl</a></span> <span class="operator">&amp;</span>url)
+ {
+     webView<span class="operator">-</span><span class="operator">&gt;</span>setUrl(url);
+ }</pre>
+<a name="starting-the-example"></a>
+<h2>Starting the Example</h2>
+<p>We set up the application, create a <tt>Window</tt> instance, set its URL, and show it:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtGui&gt;</span>
+ <span class="preprocessor">#include &quot;window.h&quot;</span>
+
+ <span class="type">int</span> main(<span class="type">int</span> argc<span class="operator">,</span> <span class="type">char</span> <span class="operator">*</span>argv<span class="operator">[</span><span class="operator">]</span>)
+ {
+     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     Window window;
+     window<span class="operator">.</span>setUrl(<span class="type"><a href="qurl.html">QUrl</a></span>(<span class="string">&quot;http://www.webkit.org&quot;</span>));
+     window<span class="operator">.</span>show();
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();
+ }</pre>
+<p>When the application's event loop is run, the Qt home page will load, and the tree widget will be updated to show the document structure. Navigating to another page will cause the tree widget to be updated to show the document structure of the new page.</p>
+<a name="further-reading"></a>
+<h2>Further Reading</h2>
+<p>The <a href="qwebelement.html">QWebElement</a> documentation contains more information about DOM access for the <a href="qtwebkit.html">QtWebKit</a> classes.</p>
+<p>In this example, we take advantage of Qt's <a href="designer-using-a-ui-file.html#automatic-connections">auto-connection</a> feature to avoid explicitly connecting signals to slots. The user interface contains a <a href="qwebview.html">QWebView</a> widget called <tt>webView</tt> whose <a href="qwebview.html#loadFinished">loadFinished()</a> signal is automatically connected to the <tt>on_webView_loadFinished()</tt> slot when we call <a href="qwidget.html#setupUi">setupUi()</a> in the <tt>Window</tt> constructor.</p>
+</div>
+<!-- @@@webkit/domtraversal -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qml-extending.qdoc -->
+  <title>Qt 4.7: Extending QML - Default Property Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>QML Examples &amp; Demos</li>
+<li>Extending QML - Default Property Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#declaring-the-birthdayparty-class">Declaring the BirthdayParty class</a></li>
+<li class="level1"><a href="#running-the-example">Running the example</a></li>
+</ul>
+</div>
+<h1 class="title">Extending QML - Default Property Example</h1>
+<span class="subtitle"></span>
+<!-- $$$declarative/cppextensions/referenceexamples/default-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="declarative-cppextensions-referenceexamples-default-birthdayparty-cpp.html">declarative/cppextensions/referenceexamples/default/birthdayparty.cpp</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-birthdayparty-h.html">declarative/cppextensions/referenceexamples/default/birthdayparty.h</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-example-qml.html">declarative/cppextensions/referenceexamples/default/example.qml</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-person-cpp.html">declarative/cppextensions/referenceexamples/default/person.cpp</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-person-h.html">declarative/cppextensions/referenceexamples/default/person.h</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-main-cpp.html">declarative/cppextensions/referenceexamples/default/main.cpp</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-default-pro.html">declarative/cppextensions/referenceexamples/default/default.pro</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-default-default-qrc.html">declarative/cppextensions/referenceexamples/default/default.qrc</a></li>
+</ul>
+<p>This example builds on:</p>
+<ul>
+<li><a href="declarative-cppextensions-referenceexamples-coercion.html">Extending QML - Inheritance and Coercion Example</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-properties.html">Extending QML - Object and List Property Types Example</a></li>
+<li><a href="declarative-cppextensions-referenceexamples-adding.html">Extending QML - Adding Types Example</a></li>
+</ul>
+<p>The Default Property Example is a minor modification of the <a href="declarative-cppextensions-referenceexamples-coercion.html">Extending QML - Inheritance and Coercion Example</a> that simplifies the specification of a BirthdayParty through the use of a default property.</p>
+<pre class="qml"> <span class="type">BirthdayParty</span> {
+     <span class="name">host</span>: <span class="name">Boy</span> {
+         <span class="name">name</span>: <span class="string">&quot;Bob Jones&quot;</span>
+         <span class="name">shoeSize</span>: <span class="number">12</span>
+     }
+
+     <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Leo Hodges&quot;</span> }
+     <span class="type">Boy</span> { <span class="name">name</span>: <span class="string">&quot;Jack Smith&quot;</span> }
+     <span class="type">Girl</span> { <span class="name">name</span>: <span class="string">&quot;Anne Brown&quot;</span> }
+ }</pre>
+<a name="declaring-the-birthdayparty-class"></a>
+<h2>Declaring the BirthdayParty class</h2>
+<p>The only difference between this example and the last, is the addition of the <tt>DefaultProperty</tt> class info annotation.</p>
+<pre class="cpp"> <span class="keyword">class</span> BirthdayParty : <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span>
+ {
+     Q_OBJECT
+     Q_PROPERTY(Person <span class="operator">*</span>host READ host WRITE setHost)
+     Q_PROPERTY(<span class="type"><a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a></span><span class="operator">&lt;</span>Person<span class="operator">&gt;</span> guests READ guests)
+     Q_CLASSINFO(<span class="string">&quot;DefaultProperty&quot;</span><span class="operator">,</span> <span class="string">&quot;guests&quot;</span>)
+ <span class="keyword">public</span>:
+     BirthdayParty(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     Person <span class="operator">*</span>host() <span class="keyword">const</span>;
+     <span class="type">void</span> setHost(Person <span class="operator">*</span>);
+
+     <span class="type"><a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a></span><span class="operator">&lt;</span>Person<span class="operator">&gt;</span> guests();
+     <span class="type">int</span> guestCount() <span class="keyword">const</span>;
+     Person <span class="operator">*</span>guest(<span class="type">int</span>) <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     Person <span class="operator">*</span>m_host;
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span>Person <span class="operator">*</span><span class="operator">&gt;</span> m_guests;
+ };</pre>
+<p>The default property specifies the property to assign to whenever an explicit property is not specified, in the case of the BirthdayParty element the guest property. It is purely a syntactic simplification, the behavior is identical to specifying the property by name, but it can add a more natural feel in many situations. The default property must be either an object or list property.</p>
+<a name="running-the-example"></a>
+<h2>Running the example</h2>
+<p>The main.cpp file in the example includes a simple shell application that loads and runs the QML snippet shown at the beginning of this page.</p>
+</div>
+<!-- @@@declarative/cppextensions/referenceexamples/default -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

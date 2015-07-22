@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- customwidget.qdoc -->
+  <title>Qt 4.7: QDesignerCustomWidgetCollectionInterface Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtdesigner.html">QtDesigner</a></li>
+<li>QDesignerCustomWidgetCollectionInterface</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QDesignerCustomWidgetCollectionInterface Class Reference</h1>
+<!-- $$$QDesignerCustomWidgetCollectionInterface-brief -->
+<p>The QDesignerCustomWidgetCollectionInterface class allows you to include several custom widgets in one single library. <a href="#details">More...</a></p>
+<!-- @@@QDesignerCustomWidgetCollectionInterface -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QDesignerCustomWidgetCollectionInterface&gt;</span></pre><ul>
+<li><a href="qdesignercustomwidgetcollectioninterface-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qdesignercustomwidgetcollectioninterface.html#dtor.QDesignerCustomWidgetCollectionInterface">~QDesignerCustomWidgetCollectionInterface</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QList&lt;QDesignerCustomWidgetInterface *&gt; </td><td class="memItemRight bottomAlign"><b><a href="qdesignercustomwidgetcollectioninterface.html#customWidgets">customWidgets</a></b> () const = 0</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QDesignerCustomWidgetCollectionInterface-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QDesignerCustomWidgetCollectionInterface class allows you to include several custom widgets in one single library.</p>
+<p>When implementing a custom widget plugin, you build it as a separate library. If you want to include several custom widget plugins in the same library, you must in addition subclass QDesignerCustomWidgetCollectionInterface.</p>
+<p>QDesignerCustomWidgetCollectionInterface contains one single function returning a list of the collection's <a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a> objects. For example, if you have several custom widgets <tt>CustomWidgetOne</tt>, <tt>CustomWidgetTwo</tt> and <tt>CustomWidgetThree</tt>, the class definition may look like this:</p>
+<pre class="cpp"> <span class="preprocessor">#include customwidgetoneinterface.h</span>
+ <span class="preprocessor">#include customwidgettwointerface.h</span>
+ <span class="preprocessor">#include customwidgetthreeinterface.h</span>
+
+ <span class="preprocessor">#include &lt;QtDesigner/QtDesigner&gt;</span>
+ <span class="preprocessor">#include &lt;QtCore/qplugin.h&gt;</span>
+
+ <span class="keyword">class</span> MyCustomWidgets: <span class="keyword">public</span> <span class="type"><a href="qobject.html">QObject</a></span><span class="operator">,</span> <span class="keyword">public</span> <span class="type">QDesignerCustomWidgetCollectionInterface</span>
+ {
+     Q_OBJECT
+     Q_INTERFACES(<span class="type">QDesignerCustomWidgetCollectionInterface</span>)
+
+ <span class="keyword">public</span>:
+     MyCustomWidgets(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>);
+
+     <span class="keyword">virtual</span> <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span><span class="operator">*</span><span class="operator">&gt;</span> customWidgets() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span><span class="operator">*</span><span class="operator">&gt;</span> widgets;
+ };</pre>
+<p>In the class constructor you add the interfaces to your custom widgets to the list which you return in the <a href="qdesignercustomwidgetcollectioninterface.html#customWidgets">customWidgets</a>() function:</p>
+<pre class="cpp"> MyCustomWidgets<span class="operator">::</span>MyCustomWidgets(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent)
+         : <span class="type"><a href="qobject.html">QObject</a></span>(parent)
+ {
+     widgets<span class="operator">.</span>append(<span class="keyword">new</span> CustomWidgetOneInterface(<span class="keyword">this</span>));
+     widgets<span class="operator">.</span>append(<span class="keyword">new</span> CustomWidgetTwoInterface(<span class="keyword">this</span>));
+     widgets<span class="operator">.</span>append(<span class="keyword">new</span> CustomWidgetThreeInterface(<span class="keyword">this</span>));
+ }
+
+ <span class="type"><a href="qlist.html">QList</a></span><span class="operator">&lt;</span><span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span><span class="operator">*</span><span class="operator">&gt;</span> MyCustomWidgets<span class="operator">::</span><a href="qdesignercustomwidgetcollectioninterface.html#customWidgets">customWidgets</a>() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> widgets;
+ }
+
+ <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>(customwidgetsplugin<span class="operator">,</span> MyCustomWidgets)</pre>
+<p>Note that instead of exporting each custom widget plugin using the <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro, you export the entire collection. The <a href="qtplugin.html#Q_EXPORT_PLUGIN2">Q_EXPORT_PLUGIN2</a>() macro ensures that <i>Qt Designer</i> can access and construct the custom widgets. Without this macro, there is no way for <i>Qt Designer</i> to use them.</p>
+</div>
+<p><b>See also </b><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a> and <a href="designer-creating-custom-widgets.html">Creating Custom Widgets for Qt Designer</a>.</p>
+<!-- @@@QDesignerCustomWidgetCollectionInterface -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QDesignerCustomWidgetCollectionInterface[overload1]$$$~QDesignerCustomWidgetCollectionInterface -->
+<h3 class="fn"><a name="dtor.QDesignerCustomWidgetCollectionInterface"></a>QDesignerCustomWidgetCollectionInterface::<span class="name">~QDesignerCustomWidgetCollectionInterface</span> ()<tt> [virtual]</tt></h3>
+<p>Destroys the custom widget collection interface.</p>
+<!-- @@@~QDesignerCustomWidgetCollectionInterface -->
+<!-- $$$customWidgets[overload1]$$$customWidgets -->
+<h3 class="fn"><a name="customWidgets"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qdesignercustomwidgetinterface.html">QDesignerCustomWidgetInterface</a></span> *&gt; QDesignerCustomWidgetCollectionInterface::<span class="name">customWidgets</span> () const<tt> [pure virtual]</tt></h3>
+<p>Returns a list of interfaces to the collection's custom widgets.</p>
+<!-- @@@customWidgets -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

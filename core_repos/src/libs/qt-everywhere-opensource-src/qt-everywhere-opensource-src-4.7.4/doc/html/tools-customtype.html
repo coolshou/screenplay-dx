@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- customtype.qdoc -->
+  <title>Qt 4.7: Custom Type Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Custom Type Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#the-message-class-definition">The Message Class Definition</a></li>
+<li class="level1"><a href="#the-message-class-implementation">The Message Class Implementation</a></li>
+<li class="level1"><a href="#using-the-message">Using the Message</a></li>
+<li class="level1"><a href="#further-reading">Further Reading</a></li>
+</ul>
+</div>
+<h1 class="title">Custom Type Example</h1>
+<span class="subtitle"></span>
+<!-- $$$tools/customtype-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="tools-customtype-message-cpp.html">tools/customtype/message.cpp</a></li>
+<li><a href="tools-customtype-message-h.html">tools/customtype/message.h</a></li>
+<li><a href="tools-customtype-main-cpp.html">tools/customtype/main.cpp</a></li>
+<li><a href="tools-customtype-customtype-pro.html">tools/customtype/customtype.pro</a></li>
+</ul>
+<p>The Custom Type example shows how to integrate a custom type into Qt's meta-object system.</p>
+<p>Contents:</p>
+<a name="overview"></a>
+<h2>Overview</h2>
+<p>Qt provides a range of standard value types that are used to provide rich and meaningful APIs. These types are integrated with the meta-object system, enabling them to be stored in <a href="qvariant.html">QVariant</a> objects, written out in debugging information and sent between components in signal-slot communication.</p>
+<p>Custom types can also be integrated with the meta-object system as long as they are written to conform to some simple guidelines. In this example, we introduce a simple <tt>Message</tt> class, we describe how we make it work with <a href="qvariant.html">QVariant</a>, and we show how it can be extended to generate a printable representation of itself for use in debugging output.</p>
+<a name="the-message-class-definition"></a>
+<h2>The Message Class Definition</h2>
+<p>The <tt>Message</tt> class is a simple value class that contains two pieces of information (a <a href="qstring.html">QString</a> and a <a href="qstringlist.html">QStringList</a>), each of which can be read using trivial getter functions:</p>
+<pre class="cpp"> <span class="keyword">class</span> Message
+ {
+ <span class="keyword">public</span>:
+     Message();
+     Message(<span class="keyword">const</span> Message <span class="operator">&amp;</span>other);
+     <span class="operator">~</span>Message();
+
+     Message(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>body<span class="operator">,</span> <span class="keyword">const</span> <span class="type"><a href="qstringlist.html">QStringList</a></span> <span class="operator">&amp;</span>headers);
+
+     <span class="type"><a href="qstring.html">QString</a></span> body() <span class="keyword">const</span>;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> headers() <span class="keyword">const</span>;
+
+ <span class="keyword">private</span>:
+     <span class="type"><a href="qstring.html">QString</a></span> m_body;
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> m_headers;
+ };</pre>
+<p>The default constructor, copy constructor and destructor are all required, and must be public, if the type is to be integrated into the meta-object system. Other than this, we are free to implement whatever we need to make the type do what we want, so we also include a constructor that lets us set the type's data members.</p>
+<p>To enable the type to be used with <a href="qvariant.html">QVariant</a>, we declare it using the <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>() macro:</p>
+<pre class="cpp"> <a href="qmetatype.html#Q_DECLARE_METATYPE">Q_DECLARE_METATYPE</a>(Message);</pre>
+<p>We do not need to write any additional code to accompany this macro.</p>
+<p>To allow us to see a readable description of each <tt>Message</tt> object when it is sent to the debug output stream, we define a streaming operator:</p>
+<pre class="cpp"> <span class="type"><a href="qdebug.html">QDebug</a></span> <span class="keyword">operator</span><span class="operator">&lt;</span><span class="operator">&lt;</span>(<span class="type"><a href="qdebug.html">QDebug</a></span> dbg<span class="operator">,</span> <span class="keyword">const</span> Message <span class="operator">&amp;</span>message);</pre>
+<p>This facility is useful if you need to insert tracing statements in your code for debugging purposes.</p>
+<a name="the-message-class-implementation"></a>
+<h2>The Message Class Implementation</h2>
+<p>The implementation of the default constructor, copy constructor and destructor are straightforward for the <tt>Message</tt> class:</p>
+<pre class="cpp"> Message<span class="operator">::</span>Message()
+ {
+ }
+
+ Message<span class="operator">::</span>Message(<span class="keyword">const</span> Message <span class="operator">&amp;</span>other)
+ {
+     m_body <span class="operator">=</span> other<span class="operator">.</span>m_body;
+     m_headers <span class="operator">=</span> other<span class="operator">.</span>m_headers;
+ }
+
+ Message<span class="operator">::</span><span class="operator">~</span>Message()
+ {
+ }</pre>
+<p>The streaming operator is implemented in the following way:</p>
+<pre class="cpp"> <span class="type"><a href="qdebug.html">QDebug</a></span> <span class="keyword">operator</span><span class="operator">&lt;</span><span class="operator">&lt;</span>(<span class="type"><a href="qdebug.html">QDebug</a></span> dbg<span class="operator">,</span> <span class="keyword">const</span> Message <span class="operator">&amp;</span>message)
+ {
+     <span class="type"><a href="qstringlist.html">QStringList</a></span> pieces <span class="operator">=</span> message<span class="operator">.</span>body()<span class="operator">.</span>split(<span class="string">&quot;\r\n&quot;</span><span class="operator">,</span> <span class="type"><a href="qstring.html">QString</a></span><span class="operator">::</span>SkipEmptyParts);
+     <span class="keyword">if</span> (pieces<span class="operator">.</span>isEmpty())
+         dbg<span class="operator">.</span>nospace() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Message()&quot;</span>;
+     <span class="keyword">else</span> <span class="keyword">if</span> (pieces<span class="operator">.</span>size() <span class="operator">=</span><span class="operator">=</span> <span class="number">1</span>)
+         dbg<span class="operator">.</span>nospace() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Message(&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> pieces<span class="operator">.</span>first() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;)&quot;</span>;
+     <span class="keyword">else</span>
+         dbg<span class="operator">.</span>nospace() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Message(&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> pieces<span class="operator">.</span>first() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot; ...)&quot;</span>;
+     <span class="keyword">return</span> dbg<span class="operator">.</span>maybeSpace();
+ }</pre>
+<p>Here, we want to represent each value depending on how many lines are stored in the message body. We stream text to the <a href="qdebug.html">QDebug</a> object passed to the operator and return the <a href="qdebug.html">QDebug</a> object obtained from its maybeSpace() member function; this is described in more detail in the <a href="custom-types.html#making-the-type-printable">Creating Custom Qt Types</a> document.</p>
+<p>We include the code for the getter functions for completeness:</p>
+<pre class="cpp"> <span class="type"><a href="qstring.html">QString</a></span> Message<span class="operator">::</span>body() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_body;
+ }
+
+ <span class="type"><a href="qstringlist.html">QStringList</a></span> Message<span class="operator">::</span>headers() <span class="keyword">const</span>
+ {
+     <span class="keyword">return</span> m_headers;
+ }</pre>
+<p>With the type fully defined, implemented, and integrated with the meta-object system, we can now use it.</p>
+<a name="using-the-message"></a>
+<h2>Using the Message</h2>
+<p>In the example's <tt>main()</tt> function, we show how a <tt>Message</tt> object can be printed to the console by sending it to the debug stream:</p>
+<pre class="cpp">     Message message(body<span class="operator">,</span> headers);
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Original:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> message;</pre>
+<p>You can use the type with <a href="qvariant.html">QVariant</a> in exactly the same way as you would use standard Qt value types. Here's how to store a value using the <a href="qvariant.html#setValue">QVariant::setValue</a>() function:</p>
+<pre class="cpp">     <span class="type"><a href="qvariant.html">QVariant</a></span> stored;
+     stored<span class="operator">.</span>setValue(message);</pre>
+<p>Alternatively, the <a href="qvariant.html#qVariantFromValue">qVariantFromValue</a>() and <a href="qvariant.html#qVariantSetValue">qVariantSetValue</a>() functions can be used if you are using a compiler without support for member template functions.</p>
+<p>The value can be retrieved using the <a href="qvariant.html#value">QVariant::value</a>() member template function:</p>
+<pre class="cpp">     Message retrieved <span class="operator">=</span> stored<span class="operator">.</span>value<span class="operator">&lt;</span>Message<span class="operator">&gt;</span>();
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Retrieved:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> retrieved;
+     retrieved <span class="operator">=</span> <a href="qvariant.html#qVariantValue">qVariantValue</a><span class="operator">&lt;</span>Message<span class="operator">&gt;</span>(stored);
+     <a href="qtglobal.html#qDebug">qDebug</a>() <span class="operator">&lt;</span><span class="operator">&lt;</span> <span class="string">&quot;Retrieved:&quot;</span> <span class="operator">&lt;</span><span class="operator">&lt;</span> retrieved;</pre>
+<p>Alternatively, the <a href="qvariant.html#qVariantValue">qVariantValue</a>() template function can be used if you are using a compiler without support for member template functions.</p>
+<a name="further-reading"></a>
+<h2>Further Reading</h2>
+<p>The custom <tt>Message</tt> type can also be used with direct signal-slot connections; see the <a href="tools-customtypesending.html">Custom Type Sending Example</a> for a demonstration of this. To register a custom type for use with queued signals and slots, such as those used in cross-thread communication, see the <a href="threads-queuedcustomtype.html">Queued Custom Type Example</a>.</p>
+<p>More information on using custom types with Qt can be found in the <a href="custom-types.html">Creating Custom Qt Types</a> document.</p>
+</div>
+<!-- @@@tools/customtype -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

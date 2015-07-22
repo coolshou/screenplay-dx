@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qabstractfontengine_qws.cpp -->
+  <title>Qt 4.7: QFontEnginePlugin Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QFontEnginePlugin</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QFontEnginePlugin Class Reference</h1>
+<!-- $$$QFontEnginePlugin-brief -->
+<p>The QFontEnginePlugin class is the base class for font engine factory plugins in Qt for Embedded Linux. <a href="#details">More...</a></p>
+<!-- @@@QFontEnginePlugin -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QFontEnginePlugin&gt;</span></pre><p><b>This class is under development and is subject to change.</b></p>
+<p><b>Inherits: </b><a href="qobject.html">QObject</a>.</p>
+<p>This class was introduced in Qt 4.3.</p>
+<ul>
+<li><a href="qfontengineplugin-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qfontengineplugin.html#QFontEnginePlugin">QFontEnginePlugin</a></b> ( const QString &amp; <i>foundry</i>, QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qfontengineplugin.html#dtor.QFontEnginePlugin">~QFontEnginePlugin</a></b> ()</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QList&lt;QFontEngineInfo&gt; </td><td class="memItemRight bottomAlign"><b><a href="qfontengineplugin.html#availableFontEngines">availableFontEngines</a></b> () const = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QAbstractFontEngine * </td><td class="memItemRight bottomAlign"><b><a href="qfontengineplugin.html#create">create</a></b> ( const QFontEngineInfo &amp; <i>info</i> ) = 0</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QStringList </td><td class="memItemRight bottomAlign"><b><a href="qfontengineplugin.html#keys">keys</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QFontEnginePlugin-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QFontEnginePlugin class is the base class for font engine factory plugins in Qt for Embedded Linux.</p>
+<p>QFontEnginePlugin is provided by font engine plugins to create instances of subclasses of <a href="qabstractfontengine.html">QAbstractFontEngine</a>.</p>
+<p>The member functions <a href="qfontengineplugin.html#create">create</a>() and <a href="qfontengineplugin.html#availableFontEngines">availableFontEngines</a>() must be implemented.</p>
+</div>
+<p><b>See also </b><a href="qabstractfontengine.html">QAbstractFontEngine</a> and <a href="qfontengineinfo.html">QFontEngineInfo</a>.</p>
+<!-- @@@QFontEnginePlugin -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QFontEnginePlugin[overload1]$$$QFontEnginePluginconstQString&QObject* -->
+<h3 class="fn"><a name="QFontEnginePlugin"></a>QFontEnginePlugin::<span class="name">QFontEnginePlugin</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>foundry</i>, <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Creates a font engine plugin that creates font engines with the specified <i>foundry</i> and <i>parent</i>.</p>
+<!-- @@@QFontEnginePlugin -->
+<!-- $$$~QFontEnginePlugin[overload1]$$$~QFontEnginePlugin -->
+<h3 class="fn"><a name="dtor.QFontEnginePlugin"></a>QFontEnginePlugin::<span class="name">~QFontEnginePlugin</span> ()</h3>
+<p>Destroys this font engine plugin.</p>
+<!-- @@@~QFontEnginePlugin -->
+<!-- $$$availableFontEngines[overload1]$$$availableFontEngines -->
+<h3 class="fn"><a name="availableFontEngines"></a><span class="type"><a href="qlist.html">QList</a></span>&lt;<span class="type"><a href="qfontengineinfo.html">QFontEngineInfo</a></span>&gt; QFontEnginePlugin::<span class="name">availableFontEngines</span> () const<tt> [pure virtual]</tt></h3>
+<p>Implemented in subclasses to return a list of <a href="qfontengineinfo.html">QFontEngineInfo</a> objects that represents all font engines the plugin can create.</p>
+<!-- @@@availableFontEngines -->
+<!-- $$$create[overload1]$$$createconstQFontEngineInfo& -->
+<h3 class="fn"><a name="create"></a><span class="type"><a href="qabstractfontengine.html">QAbstractFontEngine</a></span> * QFontEnginePlugin::<span class="name">create</span> ( const <span class="type"><a href="qfontengineinfo.html">QFontEngineInfo</a></span> &amp; <i>info</i> )<tt> [pure virtual]</tt></h3>
+<p>Implemented in subclasses to create a new font engine that provides a font that matches <i>info</i>.</p>
+<!-- @@@create -->
+<!-- $$$keys[overload1]$$$keys -->
+<h3 class="fn"><a name="keys"></a><span class="type"><a href="qstringlist.html">QStringList</a></span> QFontEnginePlugin::<span class="name">keys</span> () const<tt> [virtual]</tt></h3>
+<p>Returns a list of foundries the font engine plugin provides. The default implementation returns the foundry specified with the constructor.</p>
+<!-- @@@keys -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

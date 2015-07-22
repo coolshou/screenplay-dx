@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: sslclient.ui Example File (network/securesocketclient/sslclient.ui)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">sslclient.ui Example File</h1>
+<span class="small-subtitle">network/securesocketclient/sslclient.ui</span>
+<!-- $$$network/securesocketclient/sslclient.ui-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> &lt;ui version=&quot;4.0&quot; &gt;
+  &lt;class&gt;Form&lt;/class&gt;
+  &lt;widget class=&quot;QWidget&quot; name=&quot;Form&quot; &gt;
+   &lt;property name=&quot;geometry&quot; &gt;
+    &lt;rect&gt;
+     &lt;x&gt;0&lt;/x&gt;
+     &lt;y&gt;0&lt;/y&gt;
+     &lt;width&gt;343&lt;/width&gt;
+     &lt;height&gt;320&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;windowTitle&quot; &gt;
+    &lt;string&gt;Secure Socket Client&lt;/string&gt;
+   &lt;/property&gt;
+   &lt;layout class=&quot;QVBoxLayout&quot; &gt;
+    &lt;item&gt;
+     &lt;layout class=&quot;QGridLayout&quot; &gt;
+      &lt;item row=&quot;0&quot; column=&quot;0&quot; &gt;
+       &lt;widget class=&quot;QLabel&quot; name=&quot;hostNameLabel&quot; &gt;
+        &lt;property name=&quot;text&quot; &gt;
+         &lt;string&gt;Host name:&lt;/string&gt;
+        &lt;/property&gt;
+       &lt;/widget&gt;
+      &lt;/item&gt;
+      &lt;item row=&quot;0&quot; column=&quot;1&quot; &gt;
+       &lt;widget class=&quot;QLineEdit&quot; name=&quot;hostNameEdit&quot; &gt;
+        &lt;property name=&quot;text&quot; &gt;
+         &lt;string&gt;imap.example.com&lt;/string&gt;
+        &lt;/property&gt;
+       &lt;/widget&gt;
+      &lt;/item&gt;
+      &lt;item row=&quot;1&quot; column=&quot;0&quot; &gt;
+       &lt;widget class=&quot;QLabel&quot; name=&quot;portLabel&quot; &gt;
+        &lt;property name=&quot;text&quot; &gt;
+         &lt;string&gt;Port:&lt;/string&gt;
+        &lt;/property&gt;
+       &lt;/widget&gt;
+      &lt;/item&gt;
+      &lt;item row=&quot;1&quot; column=&quot;1&quot; &gt;
+       &lt;widget class=&quot;QSpinBox&quot; name=&quot;portBox&quot; &gt;
+        &lt;property name=&quot;minimum&quot; &gt;
+         &lt;number&gt;1&lt;/number&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;maximum&quot; &gt;
+         &lt;number&gt;65535&lt;/number&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;value&quot; &gt;
+         &lt;number&gt;993&lt;/number&gt;
+        &lt;/property&gt;
+       &lt;/widget&gt;
+      &lt;/item&gt;
+     &lt;/layout&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+     &lt;widget class=&quot;QPushButton&quot; name=&quot;connectButton&quot; &gt;
+      &lt;property name=&quot;enabled&quot; &gt;
+       &lt;bool&gt;true&lt;/bool&gt;
+      &lt;/property&gt;
+      &lt;property name=&quot;text&quot; &gt;
+       &lt;string&gt;Connect to host&lt;/string&gt;
+      &lt;/property&gt;
+      &lt;property name=&quot;default&quot; &gt;
+       &lt;bool&gt;true&lt;/bool&gt;
+      &lt;/property&gt;
+     &lt;/widget&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+     &lt;widget class=&quot;QGroupBox&quot; name=&quot;sessionBox&quot; &gt;
+      &lt;property name=&quot;enabled&quot; &gt;
+       &lt;bool&gt;false&lt;/bool&gt;
+      &lt;/property&gt;
+      &lt;property name=&quot;title&quot; &gt;
+       &lt;string&gt;Active session&lt;/string&gt;
+      &lt;/property&gt;
+      &lt;layout class=&quot;QVBoxLayout&quot; &gt;
+       &lt;item&gt;
+        &lt;layout class=&quot;QHBoxLayout&quot; &gt;
+         &lt;item&gt;
+          &lt;widget class=&quot;QLabel&quot; name=&quot;cipherText&quot; &gt;
+           &lt;property name=&quot;text&quot; &gt;
+            &lt;string&gt;Cryptographic Cipher:&lt;/string&gt;
+           &lt;/property&gt;
+          &lt;/widget&gt;
+         &lt;/item&gt;
+         &lt;item&gt;
+          &lt;widget class=&quot;QLabel&quot; name=&quot;cipherLabel&quot; &gt;
+           &lt;property name=&quot;text&quot; &gt;
+            &lt;string&gt;&amp;lt;none&gt;&lt;/string&gt;
+           &lt;/property&gt;
+           &lt;property name=&quot;alignment&quot; &gt;
+            &lt;set&gt;Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter&lt;/set&gt;
+           &lt;/property&gt;
+          &lt;/widget&gt;
+         &lt;/item&gt;
+        &lt;/layout&gt;
+       &lt;/item&gt;
+       &lt;item&gt;
+        &lt;widget class=&quot;QTextEdit&quot; name=&quot;sessionOutput&quot; &gt;
+         &lt;property name=&quot;enabled&quot; &gt;
+          &lt;bool&gt;false&lt;/bool&gt;
+         &lt;/property&gt;
+         &lt;property name=&quot;focusPolicy&quot; &gt;
+          &lt;enum&gt;Qt::NoFocus&lt;/enum&gt;
+         &lt;/property&gt;
+         &lt;property name=&quot;readOnly&quot; &gt;
+          &lt;bool&gt;true&lt;/bool&gt;
+         &lt;/property&gt;
+         &lt;property name=&quot;html&quot; &gt;
+          &lt;string&gt;&amp;lt;html&gt;&amp;lt;head&gt;&amp;lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&amp;lt;style type=&quot;text/css&quot;&gt;
+ p, li { white-space: pre-wrap; }
+ &amp;lt;/style&gt;&amp;lt;/head&gt;&amp;lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+ &amp;lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;lt;/p&gt;&amp;lt;/body&gt;&amp;lt;/html&gt;&lt;/string&gt;
+         &lt;/property&gt;
+        &lt;/widget&gt;
+       &lt;/item&gt;
+       &lt;item&gt;
+        &lt;layout class=&quot;QHBoxLayout&quot; &gt;
+         &lt;item&gt;
+          &lt;widget class=&quot;QLabel&quot; name=&quot;sessionInputLabel&quot; &gt;
+           &lt;property name=&quot;text&quot; &gt;
+            &lt;string&gt;Input:&lt;/string&gt;
+           &lt;/property&gt;
+          &lt;/widget&gt;
+         &lt;/item&gt;
+         &lt;item&gt;
+          &lt;widget class=&quot;QLineEdit&quot; name=&quot;sessionInput&quot; &gt;
+           &lt;property name=&quot;enabled&quot; &gt;
+            &lt;bool&gt;false&lt;/bool&gt;
+           &lt;/property&gt;
+          &lt;/widget&gt;
+         &lt;/item&gt;
+         &lt;item&gt;
+          &lt;widget class=&quot;QPushButton&quot; name=&quot;sendButton&quot; &gt;
+           &lt;property name=&quot;enabled&quot; &gt;
+            &lt;bool&gt;false&lt;/bool&gt;
+           &lt;/property&gt;
+           &lt;property name=&quot;focusPolicy&quot; &gt;
+            &lt;enum&gt;Qt::TabFocus&lt;/enum&gt;
+           &lt;/property&gt;
+           &lt;property name=&quot;text&quot; &gt;
+            &lt;string&gt;&amp;amp;Send&lt;/string&gt;
+           &lt;/property&gt;
+           &lt;property name=&quot;default&quot; &gt;
+            &lt;bool&gt;true&lt;/bool&gt;
+           &lt;/property&gt;
+          &lt;/widget&gt;
+         &lt;/item&gt;
+        &lt;/layout&gt;
+       &lt;/item&gt;
+      &lt;/layout&gt;
+     &lt;/widget&gt;
+    &lt;/item&gt;
+   &lt;/layout&gt;
+  &lt;/widget&gt;
+  &lt;resources/&gt;
+  &lt;connections&gt;
+   &lt;connection&gt;
+    &lt;sender&gt;hostNameEdit&lt;/sender&gt;
+    &lt;signal&gt;returnPressed()&lt;/signal&gt;
+    &lt;receiver&gt;connectButton&lt;/receiver&gt;
+    &lt;slot&gt;animateClick()&lt;/slot&gt;
+    &lt;hints&gt;
+     &lt;hint type=&quot;sourcelabel&quot; &gt;
+      &lt;x&gt;126&lt;/x&gt;
+      &lt;y&gt;20&lt;/y&gt;
+     &lt;/hint&gt;
+     &lt;hint type=&quot;destinationlabel&quot; &gt;
+      &lt;x&gt;142&lt;/x&gt;
+      &lt;y&gt;78&lt;/y&gt;
+     &lt;/hint&gt;
+    &lt;/hints&gt;
+   &lt;/connection&gt;
+   &lt;connection&gt;
+    &lt;sender&gt;sessionInput&lt;/sender&gt;
+    &lt;signal&gt;returnPressed()&lt;/signal&gt;
+    &lt;receiver&gt;sendButton&lt;/receiver&gt;
+    &lt;slot&gt;animateClick()&lt;/slot&gt;
+    &lt;hints&gt;
+     &lt;hint type=&quot;sourcelabel&quot; &gt;
+      &lt;x&gt;142&lt;/x&gt;
+      &lt;y&gt;241&lt;/y&gt;
+     &lt;/hint&gt;
+     &lt;hint type=&quot;destinationlabel&quot; &gt;
+      &lt;x&gt;297&lt;/x&gt;
+      &lt;y&gt;234&lt;/y&gt;
+     &lt;/hint&gt;
+    &lt;/hints&gt;
+   &lt;/connection&gt;
+  &lt;/connections&gt;
+ &lt;/ui&gt;</pre>
+</div>
+<!-- @@@network/securesocketclient/sslclient.ui -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

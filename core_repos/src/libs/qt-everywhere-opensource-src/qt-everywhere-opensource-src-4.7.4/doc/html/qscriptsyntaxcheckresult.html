@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptengine.cpp -->
+  <title>Qt 4.7: QScriptSyntaxCheckResult Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtscript.html">QtScript</a></li>
+<li>QScriptSyntaxCheckResult</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QScriptSyntaxCheckResult Class Reference</h1>
+<!-- $$$QScriptSyntaxCheckResult-brief -->
+<p>The QScriptSyntaxCheckResult class provides the result of a script syntax check. <a href="#details">More...</a></p>
+<!-- @@@QScriptSyntaxCheckResult -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QScriptSyntaxCheckResult&gt;</span></pre><p>This class was introduced in Qt 4.5.</p>
+<ul>
+<li><a href="qscriptsyntaxcheckresult-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#State-enum">State</a></b> { Error, Intermediate, Valid }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#QScriptSyntaxCheckResult">QScriptSyntaxCheckResult</a></b> ( const QScriptSyntaxCheckResult &amp; <i>other</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#dtor.QScriptSyntaxCheckResult">~QScriptSyntaxCheckResult</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#errorColumnNumber">errorColumnNumber</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#errorLineNumber">errorLineNumber</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#errorMessage">errorMessage</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> State </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#state">state</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> QScriptSyntaxCheckResult &amp; </td><td class="memItemRight bottomAlign"><b><a href="qscriptsyntaxcheckresult.html#operator-eq">operator=</a></b> ( const QScriptSyntaxCheckResult &amp; <i>other</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptSyntaxCheckResult-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QScriptSyntaxCheckResult class provides the result of a script syntax check.</p>
+<p>QScriptSyntaxCheckResult is returned by <a href="qscriptengine.html#checkSyntax">QScriptEngine::checkSyntax</a>() to provide information about the syntactical (in)correctness of a script.</p>
+</div>
+<!-- @@@QScriptSyntaxCheckResult -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$State$$$Error$$$Intermediate$$$Valid -->
+<h3 class="fn"><a name="State-enum"></a>enum QScriptSyntaxCheckResult::<span class="name">State</span></h3>
+<p>This enum specifies the state of a syntax check.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QScriptSyntaxCheckResult::Error</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The program contains a syntax error.</td></tr>
+<tr><td class="topAlign"><tt>QScriptSyntaxCheckResult::Intermediate</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">The program is incomplete.</td></tr>
+<tr><td class="topAlign"><tt>QScriptSyntaxCheckResult::Valid</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">The program is a syntactically correct Qt Script program.</td></tr>
+</table>
+<!-- @@@State -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptSyntaxCheckResult[overload1]$$$QScriptSyntaxCheckResultconstQScriptSyntaxCheckResult& -->
+<h3 class="fn"><a name="QScriptSyntaxCheckResult"></a>QScriptSyntaxCheckResult::<span class="name">QScriptSyntaxCheckResult</span> ( const <span class="type">QScriptSyntaxCheckResult</span> &amp; <i>other</i> )</h3>
+<p>Constructs a new <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a> from the <i>other</i> result.</p>
+<!-- @@@QScriptSyntaxCheckResult -->
+<!-- $$$~QScriptSyntaxCheckResult[overload1]$$$~QScriptSyntaxCheckResult -->
+<h3 class="fn"><a name="dtor.QScriptSyntaxCheckResult"></a>QScriptSyntaxCheckResult::<span class="name">~QScriptSyntaxCheckResult</span> ()</h3>
+<p>Destroys this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>.</p>
+<!-- @@@~QScriptSyntaxCheckResult -->
+<!-- $$$errorColumnNumber[overload1]$$$errorColumnNumber -->
+<h3 class="fn"><a name="errorColumnNumber"></a><span class="type">int</span> QScriptSyntaxCheckResult::<span class="name">errorColumnNumber</span> () const</h3>
+<p>Returns the error column number of this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>, or -1 if there is no error.</p>
+<p><b>See also </b><a href="qscriptsyntaxcheckresult.html#state">state</a>() and <a href="qscriptsyntaxcheckresult.html#errorLineNumber">errorLineNumber</a>().</p>
+<!-- @@@errorColumnNumber -->
+<!-- $$$errorLineNumber[overload1]$$$errorLineNumber -->
+<h3 class="fn"><a name="errorLineNumber"></a><span class="type">int</span> QScriptSyntaxCheckResult::<span class="name">errorLineNumber</span> () const</h3>
+<p>Returns the error line number of this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>, or -1 if there is no error.</p>
+<p><b>See also </b><a href="qscriptsyntaxcheckresult.html#state">state</a>() and <a href="qscriptsyntaxcheckresult.html#errorMessage">errorMessage</a>().</p>
+<!-- @@@errorLineNumber -->
+<!-- $$$errorMessage[overload1]$$$errorMessage -->
+<h3 class="fn"><a name="errorMessage"></a><span class="type"><a href="qstring.html">QString</a></span> QScriptSyntaxCheckResult::<span class="name">errorMessage</span> () const</h3>
+<p>Returns the error message of this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>, or an empty string if there is no error.</p>
+<p><b>See also </b><a href="qscriptsyntaxcheckresult.html#state">state</a>() and <a href="qscriptsyntaxcheckresult.html#errorLineNumber">errorLineNumber</a>().</p>
+<!-- @@@errorMessage -->
+<!-- $$$state[overload1]$$$state -->
+<h3 class="fn"><a name="state"></a><span class="type"><a href="qscriptsyntaxcheckresult.html#State-enum">State</a></span> QScriptSyntaxCheckResult::<span class="name">state</span> () const</h3>
+<p>Returns the state of this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>.</p>
+<!-- @@@state -->
+<!-- $$$operator=[overload1]$$$operator=constQScriptSyntaxCheckResult& -->
+<h3 class="fn"><a name="operator-eq"></a><span class="type">QScriptSyntaxCheckResult</span> &amp; QScriptSyntaxCheckResult::<span class="name">operator=</span> ( const <span class="type">QScriptSyntaxCheckResult</span> &amp; <i>other</i> )</h3>
+<p>Assigns the <i>other</i> result to this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>, and returns a reference to this <a href="qscriptsyntaxcheckresult.html">QScriptSyntaxCheckResult</a>.</p>
+<!-- @@@operator= -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

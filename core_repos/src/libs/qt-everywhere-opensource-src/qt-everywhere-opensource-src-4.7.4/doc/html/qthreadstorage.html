@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qthreadstorage.cpp -->
+  <title>Qt 4.7: QThreadStorage Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtcore.html">QtCore</a></li>
+<li>QThreadStorage</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+<li class="level2"><a href="#caveats">Caveats</a></li>
+</ul>
+</div>
+<h1 class="title">QThreadStorage Class Reference</h1>
+<!-- $$$QThreadStorage-brief -->
+<p>The QThreadStorage class provides per-thread data storage. <a href="#details">More...</a></p>
+<!-- @@@QThreadStorage -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QThreadStorage&gt;</span></pre><p><b>Note:</b> All functions in this class are <a href="threads-reentrancy.html#thread-safe">thread-safe</a>.</p>
+<ul>
+<li><a href="qthreadstorage-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#QThreadStorage">QThreadStorage</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#dtor.QThreadStorage">~QThreadStorage</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#hasLocalData">hasLocalData</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T &amp; </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#localData">localData</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> T </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#localData-2">localData</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qthreadstorage.html#setLocalData">setLocalData</a></b> ( T <i>data</i> )</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QThreadStorage-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QThreadStorage class provides per-thread data storage.</p>
+<p>QThreadStorage is a template class that provides per-thread data storage.</p>
+<p><i>Note that due to compiler limitations, QThreadStorage can only store pointers.</i></p>
+<p>The <a href="qthreadstorage.html#setLocalData">setLocalData</a>() function stores a single thread-specific value for the calling thread. The data can be accessed later using <a href="qthreadstorage.html#localData">localData</a>(). QThreadStorage takes ownership of the data (which must be created on the heap with <tt>new</tt>) and deletes it when the thread exits, either normally or via termination.</p>
+<p>The <a href="qthreadstorage.html#hasLocalData">hasLocalData</a>() function allows the programmer to determine if data has previously been set using the <a href="qthreadstorage.html#setLocalData">setLocalData</a>() function. This is also useful for lazy initializiation.</p>
+<p>For example, the following code uses QThreadStorage to store a single cache for each thread that calls the cacheObject() and removeFromCache() functions. The cache is automatically deleted when the calling thread exits.</p>
+<pre class="cpp"> <span class="type">QThreadStorage</span><span class="operator">&lt;</span><span class="type"><a href="qcache.html">QCache</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> SomeClass<span class="operator">&gt;</span> <span class="operator">*</span><span class="operator">&gt;</span> caches;
+
+ <span class="type">void</span> cacheObject(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>key<span class="operator">,</span> SomeClass <span class="operator">*</span>object)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>caches<span class="operator">.</span>hasLocalData())
+         caches<span class="operator">.</span>setLocalData(<span class="keyword">new</span> <span class="type"><a href="qcache.html">QCache</a></span><span class="operator">&lt;</span><span class="type"><a href="qstring.html">QString</a></span><span class="operator">,</span> SomeClass<span class="operator">&gt;</span>);
+
+     caches<span class="operator">.</span>localData()<span class="operator">-</span><span class="operator">&gt;</span>insert(key<span class="operator">,</span> object);
+ }
+
+ <span class="type">void</span> removeFromCache(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>key)
+ {
+     <span class="keyword">if</span> (<span class="operator">!</span>caches<span class="operator">.</span>hasLocalData())
+         <span class="keyword">return</span>;
+
+     caches<span class="operator">.</span>localData()<span class="operator">-</span><span class="operator">&gt;</span>remove(key);
+ }</pre>
+<a name="caveats"></a>
+<h3>Caveats</h3>
+<ul>
+<li>As noted above, QThreadStorage can only store pointers due to compiler limitations.</li>
+<li>The QThreadStorage destructor does not delete per-thread data. QThreadStorage only deletes per-thread data when the thread exits or when <a href="qthreadstorage.html#setLocalData">setLocalData</a>() is called multiple times.</li>
+<li>QThreadStorage can be used to store data for the <tt>main()</tt> thread. QThreadStorage deletes all data set for the <tt>main()</tt> thread when <a href="qapplication.html">QApplication</a> is destroyed, regardless of whether or not the <tt>main()</tt> thread has actually finished.</li>
+</ul>
+</div>
+<p><b>See also </b><a href="qthread.html">QThread</a>.</p>
+<!-- @@@QThreadStorage -->
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QThreadStorage[overload1]$$$QThreadStorage -->
+<h3 class="fn"><a name="QThreadStorage"></a>QThreadStorage::<span class="name">QThreadStorage</span> ()</h3>
+<p>Constructs a new per-thread data storage object.</p>
+<!-- @@@QThreadStorage -->
+<!-- $$$~QThreadStorage[overload1]$$$~QThreadStorage -->
+<h3 class="fn"><a name="dtor.QThreadStorage"></a>QThreadStorage::<span class="name">~QThreadStorage</span> ()</h3>
+<p>Destroys the per-thread data storage object.</p>
+<p>Note: The per-thread data stored is not deleted. Any data left in <a href="qthreadstorage.html">QThreadStorage</a> is leaked. Make sure that all threads using <a href="qthreadstorage.html">QThreadStorage</a> have exited before deleting the <a href="qthreadstorage.html">QThreadStorage</a>.</p>
+<p><b>See also </b><a href="qthreadstorage.html#hasLocalData">hasLocalData</a>().</p>
+<!-- @@@~QThreadStorage -->
+<!-- $$$hasLocalData[overload1]$$$hasLocalData -->
+<h3 class="fn"><a name="hasLocalData"></a><span class="type">bool</span> QThreadStorage::<span class="name">hasLocalData</span> () const</h3>
+<p>Returns true if the calling thread has non-zero data available; otherwise returns false.</p>
+<p><b>See also </b><a href="qthreadstorage.html#localData">localData</a>().</p>
+<!-- @@@hasLocalData -->
+<!-- $$$localData[overload1]$$$localData -->
+<h3 class="fn"><a name="localData"></a><span class="type">T</span> &amp; QThreadStorage::<span class="name">localData</span> ()</h3>
+<p>Returns a reference to the data that was set by the calling thread.</p>
+<p>Note: <a href="qthreadstorage.html">QThreadStorage</a> can only store pointers. This function returns a reference to the pointer that was set by the calling thread. The value of this reference is 0 if no data was set by the calling thread,</p>
+<p><b>See also </b><a href="qthreadstorage.html#setLocalData">setLocalData</a>() and <a href="qthreadstorage.html#hasLocalData">hasLocalData</a>().</p>
+<!-- @@@localData -->
+<!-- $$$localData$$$localData -->
+<h3 class="fn"><a name="localData-2"></a><span class="type">T</span> QThreadStorage::<span class="name">localData</span> () const</h3>
+<p>This is an overloaded function.</p>
+<p>Returns a copy of the data that was set by the calling thread.</p>
+<p>Note: <a href="qthreadstorage.html">QThreadStorage</a> can only store pointers. This function returns a pointer to the data that was set by the calling thread. If no data was set by the calling thread, this function returns 0.</p>
+<p><b>See also </b><a href="qthreadstorage.html#hasLocalData">hasLocalData</a>().</p>
+<!-- @@@localData -->
+<!-- $$$setLocalData[overload1]$$$setLocalDataT -->
+<h3 class="fn"><a name="setLocalData"></a><span class="type">void</span> QThreadStorage::<span class="name">setLocalData</span> ( <span class="type">T</span> <i>data</i> )</h3>
+<p>Sets the local data for the calling thread to <i>data</i>. It can be accessed later using the <a href="qthreadstorage.html#localData">localData</a>() functions.</p>
+<p>If <i>data</i> is 0, this function deletes the previous data (if any) and returns immediately.</p>
+<p>If <i>data</i> is non-zero, <a href="qthreadstorage.html">QThreadStorage</a> takes ownership of the <i>data</i> and deletes it automatically either when the thread exits (either normally or via termination) or when setLocalData() is called again.</p>
+<p>Note: <a href="qthreadstorage.html">QThreadStorage</a> can only store pointers. The <i>data</i> argument must be either a pointer to an object created on the heap (i.e&#x2e; using <tt>new</tt>) or 0. You should not delete <i>data</i> yourself; <a href="qthreadstorage.html">QThreadStorage</a> takes ownership and will delete the <i>data</i> itself.</p>
+<p><b>See also </b><a href="qthreadstorage.html#localData">localData</a>() and <a href="qthreadstorage.html#hasLocalData">hasLocalData</a>().</p>
+<!-- @@@setLocalData -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

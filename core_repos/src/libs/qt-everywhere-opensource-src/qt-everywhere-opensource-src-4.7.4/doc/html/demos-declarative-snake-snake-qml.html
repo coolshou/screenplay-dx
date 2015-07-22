@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: snake.qml Example File (demos/declarative/snake/snake.qml)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">snake.qml Example File</h1>
+<span class="small-subtitle">demos/declarative/snake/snake.qml</span>
+<!-- $$$demos/declarative/snake/snake.qml-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="qml"> <span class="comment">/****************************************************************************
+ **
+ ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the QtDeclarative module of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** GNU Lesser General Public License Usage
+ ** This file may be used under the terms of the GNU Lesser General Public
+ ** License version 2.1 as published by the Free Software Foundation and
+ ** appearing in the file LICENSE.LGPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU Lesser
+ ** General Public License version 2.1 requirements will be met:
+ ** http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights. These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU General
+ ** Public License version 3.0 as published by the Free Software Foundation
+ ** and appearing in the file LICENSE.GPL included in the packaging of this
+ ** file. Please review the following information to ensure the GNU General
+ ** Public License version 3.0 requirements will be met:
+ ** http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** Other Usage
+ ** Alternatively, this file may be used in accordance with the terms and
+ ** conditions contained in a signed written agreement between you and Nokia.
+ **
+ **
+ **
+ **
+ **
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</span>
+
+ import QtQuick 1.0
+ import &quot;content&quot; as Content
+ import &quot;content/snake.js&quot; as Logic
+
+ <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+     <span class="name">id</span>: <span class="name">screen</span>;
+     <span class="type"><a href="qml-systempalette.html">SystemPalette</a></span> { <span class="name">id</span>: <span class="name">activePalette</span> }
+     <span class="name">color</span>: <span class="name">activePalette</span>.<span class="name">window</span>
+     property <span class="type">bool</span> <span class="name">activeGame</span>: <span class="number">false</span>
+
+     property <span class="type">int</span> <span class="name">gridSize</span> : <span class="number">34</span>
+     property <span class="type">int</span> <span class="name">margin</span>: <span class="number">4</span>
+     property <span class="type">int</span> <span class="name">numRowsAvailable</span>: <span class="name">Math</span>.<span class="name">floor</span>((<span class="name">height</span><span class="operator">-</span><span class="number">32</span><span class="operator">-</span><span class="number">2</span><span class="operator">*</span><span class="name">margin</span>)<span class="operator">/</span><span class="name">gridSize</span>)
+     property <span class="type">int</span> <span class="name">numColumnsAvailable</span>: <span class="name">Math</span>.<span class="name">floor</span>((<span class="name">width</span><span class="operator">-</span><span class="number">2</span><span class="operator">*</span><span class="name">margin</span>)<span class="operator">/</span><span class="name">gridSize</span>)
+
+     property <span class="type">int</span> <span class="name">lastScore</span> : <span class="number">0</span>
+
+     property <span class="type">int</span> <span class="name">score</span>: <span class="number">0</span>;
+     property <span class="type">int</span> <span class="name">heartbeatInterval</span>: <span class="number">200</span>
+     property <span class="type">int</span> <span class="name">halfbeatInterval</span>: <span class="number">160</span>
+
+     <span class="name">width</span>: <span class="number">480</span>
+     <span class="name">height</span>: <span class="number">750</span>
+
+     property <span class="type">int</span> <span class="name">direction</span>
+     property <span class="type">int</span> <span class="name">headDirection</span>
+
+     property <span class="type">variant</span> <span class="name">head</span>;
+
+     <span class="type">Content</span>.HighScoreModel {
+         <span class="name">id</span>: <span class="name">highScores</span>
+         <span class="name">game</span>: <span class="string">&quot;Snake&quot;</span>
+     }
+
+     <span class="type"><a href="qml-timer.html">Timer</a></span> {
+         <span class="name">id</span>: <span class="name">heartbeat</span>;
+         <span class="name">interval</span>: <span class="name">heartbeatInterval</span>;
+         <span class="name">running</span>: <span class="name">activeGame</span> <span class="operator">&amp;&amp;</span> <span class="name">runtime</span>.<span class="name">isActiveWindow</span>
+         <span class="name">repeat</span>: <span class="number">true</span>
+         <span class="name">onTriggered</span>: { <span class="name">Logic</span>.<span class="name">move</span>() }
+     }
+     <span class="type"><a href="qml-timer.html">Timer</a></span> {
+         <span class="name">id</span>: <span class="name">halfbeat</span>;
+         <span class="name">interval</span>: <span class="name">halfbeatInterval</span>;
+         <span class="name">repeat</span>: <span class="number">true</span>
+         <span class="name">running</span>: <span class="name">heartbeat</span>.<span class="name">running</span>
+         <span class="name">onTriggered</span>: { <span class="name">Logic</span>.<span class="name">moveSkull</span>() }
+     }
+     <span class="type"><a href="qml-timer.html">Timer</a></span> {
+         <span class="name">id</span>: <span class="name">startNewGameTimer</span>;
+         <span class="name">interval</span>: <span class="number">700</span>;
+         <span class="name">onTriggered</span>: { <span class="name">Logic</span>.<span class="name">startNewGame</span>(); }
+     }
+
+     <span class="type"><a href="qml-timer.html">Timer</a></span> {
+         <span class="name">id</span>: <span class="name">startHeartbeatTimer</span>;
+         <span class="name">interval</span>: <span class="number">1000</span> ;
+         <span class="name">onTriggered</span>: { <span class="name">state</span> <span class="operator">=</span> <span class="string">&quot;running&quot;</span>; <span class="name">activeGame</span> <span class="operator">=</span> <span class="number">true</span>; }
+     }
+
+     <span class="type"><a href="qml-image.html">Image</a></span>{
+         <span class="name">id</span>: <span class="name">pauseDialog</span>
+         <span class="name">z</span>: <span class="number">1</span>
+         <span class="name">source</span>: <span class="string">&quot;content/pics/pause.png&quot;</span>
+         <span class="name">anchors</span>.centerIn: <span class="name">parent</span>;
+         <span class="comment">//opacity is deliberately not animated</span>
+         <span class="name">opacity</span>: <span class="name">activeGame</span> <span class="operator">&amp;&amp;</span> !<span class="name">Qt</span>.<span class="name">application</span>.<span class="name">active</span>
+     }
+
+     <span class="type"><a href="qml-image.html">Image</a></span> {
+         <span class="type"><a href="qml-image.html">Image</a></span> {
+             <span class="name">id</span>: <span class="name">title</span>
+             <span class="name">source</span>: <span class="string">&quot;content/pics/snake.jpg&quot;</span>
+             <span class="name">fillMode</span>: <span class="name">Image</span>.<span class="name">PreserveAspectCrop</span>
+             <span class="name">anchors</span>.fill: <span class="name">parent</span>
+             <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+             <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+
+             <span class="type"><a href="qml-text.html">Text</a></span> {
+                 <span class="name">color</span>: <span class="string">&quot;white&quot;</span>
+                 <span class="name">font</span>.pointSize: <span class="number">24</span>
+                 <span class="name">horizontalAlignment</span>: <span class="name">Text</span>.<span class="name">AlignHCenter</span>
+                 <span class="name">text</span>: <span class="string">&quot;Last Score:\t&quot;</span> <span class="operator">+</span> <span class="name">lastScore</span> <span class="operator">+</span> <span class="string">&quot;\nHighscore:\t&quot;</span> <span class="operator">+</span> <span class="name">highScores</span>.<span class="name">topScore</span>;
+                 <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+                 <span class="name">anchors</span>.bottom: <span class="name">parent</span>.<span class="name">bottom</span>
+                 <span class="name">anchors</span>.bottomMargin: <span class="name">gridSize</span>
+             }
+         }
+
+         <span class="name">source</span>: <span class="string">&quot;content/pics/background.png&quot;</span>
+         <span class="name">fillMode</span>: <span class="name">Image</span>.<span class="name">PreserveAspectCrop</span>
+
+         <span class="name">anchors</span>.left: <span class="name">parent</span>.<span class="name">left</span>
+         <span class="name">anchors</span>.right: <span class="name">parent</span>.<span class="name">right</span>
+         <span class="name">anchors</span>.top: <span class="name">parent</span>.<span class="name">top</span>
+         <span class="name">anchors</span>.bottom: <span class="name">toolbar</span>.<span class="name">top</span>
+
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">id</span>: <span class="name">playfield</span>
+             <span class="name">border</span>.width: <span class="number">1</span>
+             <span class="name">border</span>.color: <span class="string">&quot;white&quot;</span>
+             <span class="name">color</span>: <span class="string">&quot;transparent&quot;</span>
+             <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+             <span class="name">y</span>: (<span class="name">screen</span>.<span class="name">height</span> <span class="operator">-</span> <span class="number">32</span> <span class="operator">-</span> <span class="name">height</span>)<span class="operator">/</span><span class="number">2</span>;
+             <span class="name">width</span>: <span class="name">numColumnsAvailable</span> <span class="operator">*</span> <span class="name">gridSize</span> <span class="operator">+</span> <span class="number">2</span><span class="operator">*</span><span class="name">margin</span>
+             <span class="name">height</span>: <span class="name">numRowsAvailable</span> <span class="operator">*</span> <span class="name">gridSize</span> <span class="operator">+</span> <span class="number">2</span><span class="operator">*</span><span class="name">margin</span>
+
+             <span class="type">Content</span>.Skull {
+                 <span class="name">id</span>: <span class="name">skull</span>
+             }
+
+             <span class="type"><a href="qml-mousearea.html">MouseArea</a></span> {
+                 <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                 <span class="name">onPressed</span>: {
+                     <span class="keyword">if</span> (!<span class="name">head</span> <span class="operator">||</span> !<span class="name">heartbeat</span>.<span class="name">running</span>) {
+                         <span class="name">Logic</span>.<span class="name">startNewGame</span>();
+                         <span class="keyword">return</span>;
+                     }
+                     <span class="keyword">if</span> (<span class="name">direction</span> <span class="operator">==</span> <span class="number">0</span> <span class="operator">||</span> <span class="name">direction</span> <span class="operator">==</span> <span class="number">2</span>)
+                         <span class="name">Logic</span>.<span class="name">scheduleDirection</span>((<span class="name">mouseX</span> <span class="operator">&gt;</span> (<span class="name">head</span>.<span class="name">x</span> <span class="operator">+</span> <span class="name">head</span>.<span class="name">width</span><span class="operator">/</span><span class="number">2</span>)) ? <span class="number">1</span> : <span class="number">3</span>);
+                     else
+                         <span class="name">Logic</span>.<span class="name">scheduleDirection</span>((<span class="name">mouseY</span> <span class="operator">&gt;</span> (<span class="name">head</span>.<span class="name">y</span> <span class="operator">+</span> <span class="name">head</span>.<span class="name">height</span><span class="operator">/</span><span class="number">2</span>)) ? <span class="number">2</span> : <span class="number">0</span>);
+                 }
+             }
+         }
+
+     }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">progressBar</span>
+         <span class="name">opacity</span>: <span class="number">0</span>
+         Behavior on <span class="name">opacity</span> { <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">duration</span>: <span class="number">200</span> } }
+         <span class="name">color</span>: <span class="string">&quot;transparent&quot;</span>
+         <span class="name">border</span>.width: <span class="number">2</span>
+         <span class="name">border</span>.color: <span class="string">&quot;#221edd&quot;</span>
+         <span class="name">x</span>: <span class="number">50</span>
+         <span class="name">y</span>: <span class="number">50</span>
+         <span class="name">width</span>: <span class="number">200</span>
+         <span class="name">height</span>: <span class="number">30</span>
+         <span class="name">anchors</span>.horizontalCenter: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+         <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+         <span class="name">anchors</span>.verticalCenterOffset: <span class="number">40</span>
+
+         <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+             <span class="name">id</span>: <span class="name">progressIndicator</span>
+             <span class="name">color</span>: <span class="string">&quot;#221edd&quot;</span>;
+             <span class="name">width</span>: <span class="number">0</span>;
+             <span class="name">height</span>: <span class="number">30</span>;
+         }
+     }
+
+     <span class="type"><a href="qml-rectangle.html">Rectangle</a></span> {
+         <span class="name">id</span>: <span class="name">toolbar</span>
+         <span class="name">color</span>: <span class="name">activePalette</span>.<span class="name">window</span>
+         <span class="name">height</span>: <span class="number">32</span>; <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+         <span class="name">anchors</span>.bottom: <span class="name">screen</span>.<span class="name">bottom</span>
+
+         <span class="type">Content</span>.Button {
+             <span class="name">id</span>: <span class="name">btnA</span>; <span class="name">text</span>: <span class="string">&quot;New Game&quot;</span>; <span class="name">onClicked</span>: <span class="name">Logic</span>.<span class="name">startNewGame</span>();
+             <span class="name">anchors</span>.left: <span class="name">parent</span>.<span class="name">left</span>; <span class="name">anchors</span>.leftMargin: <span class="number">3</span>
+             <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+         }
+
+         <span class="type">Content</span>.Button {
+             <span class="name">text</span>: <span class="string">&quot;Quit&quot;</span>
+             <span class="type">anchors</span> { <span class="name">left</span>: <span class="name">btnA</span>.<span class="name">right</span>; <span class="name">leftMargin</span>: <span class="number">3</span>; <span class="name">verticalCenter</span>: <span class="name">parent</span>.<span class="name">verticalCenter</span> }
+             <span class="name">onClicked</span>: <span class="name">Qt</span>.<span class="name">quit</span>();
+         }
+
+         <span class="type"><a href="qml-text.html">Text</a></span> {
+             <span class="name">color</span>: <span class="name">activePalette</span>.<span class="name">text</span>
+             <span class="name">text</span>: <span class="string">&quot;Score: &quot;</span> <span class="operator">+</span> <span class="name">score</span>; <span class="name">font</span>.bold: <span class="number">true</span>
+             <span class="name">anchors</span>.right: <span class="name">parent</span>.<span class="name">right</span>; <span class="name">anchors</span>.rightMargin: <span class="number">3</span>
+             <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+         }
+     }
+
+     <span class="name">focus</span>: <span class="number">true</span>
+     <span class="name">Keys</span>.onSpacePressed: <span class="name">Logic</span>.<span class="name">startNewGame</span>();
+     <span class="name">Keys</span>.onLeftPressed: <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span> <span class="operator">||</span> <span class="name">direction</span> <span class="operator">!=</span> <span class="number">1</span>) <span class="name">Logic</span>.<span class="name">scheduleDirection</span>(<span class="number">3</span>);
+     <span class="name">Keys</span>.onRightPressed: <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span> <span class="operator">||</span> <span class="name">direction</span> <span class="operator">!=</span> <span class="number">3</span>) <span class="name">Logic</span>.<span class="name">scheduleDirection</span>(<span class="number">1</span>);
+     <span class="name">Keys</span>.onUpPressed: <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span> <span class="operator">||</span> <span class="name">direction</span> <span class="operator">!=</span> <span class="number">2</span>) <span class="name">Logic</span>.<span class="name">scheduleDirection</span>(<span class="number">0</span>);
+     <span class="name">Keys</span>.onDownPressed: <span class="keyword">if</span> (<span class="name">state</span> <span class="operator">==</span> <span class="string">&quot;starting&quot;</span> <span class="operator">||</span> <span class="name">direction</span> <span class="operator">!=</span> <span class="number">0</span>) <span class="name">Logic</span>.<span class="name">scheduleDirection</span>(<span class="number">2</span>);
+
+     <span class="name">states</span>: [
+         <span class="type"><a href="qml-state.html">State</a></span> {
+             <span class="name">name</span>: <span class="string">&quot;starting&quot;</span>
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">progressIndicator</span>; <span class="name">width</span>: <span class="number">200</span>}
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">title</span>; <span class="name">opacity</span>: <span class="number">0</span>}
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">progressBar</span>; <span class="name">opacity</span>: <span class="number">1</span>}
+         },
+         <span class="type"><a href="qml-state.html">State</a></span> {
+             <span class="name">name</span>: <span class="string">&quot;running&quot;</span>
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">progressIndicator</span>; <span class="name">width</span>: <span class="number">200</span>}
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">title</span>; <span class="name">opacity</span>: <span class="number">0</span>}
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">skull</span>; <span class="name">row</span>: <span class="number">0</span>; <span class="name">column</span>: <span class="number">0</span>; }
+             <span class="type"><a href="qml-propertychanges.html">PropertyChanges</a></span> {<span class="name">target</span>: <span class="name">skull</span>; <span class="name">spawned</span>: <span class="number">1</span>}
+         }
+     ]
+
+     <span class="name">transitions</span>: [
+         <span class="type"><a href="qml-transition.html">Transition</a></span> {
+             <span class="name">from</span>: <span class="string">&quot;*&quot;</span>
+             <span class="name">to</span>: <span class="string">&quot;starting&quot;</span>
+             <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">progressIndicator</span>; <span class="name">property</span>: <span class="string">&quot;width&quot;</span>; <span class="name">duration</span>: <span class="number">1000</span> }
+             <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">title</span>; <span class="name">property</span>: <span class="string">&quot;opacity&quot;</span>; <span class="name">duration</span>: <span class="number">500</span> }
+         },
+         <span class="type"><a href="qml-transition.html">Transition</a></span> {
+             <span class="type"><a href="qml-numberanimation.html">NumberAnimation</a></span> { <span class="name">target</span>: <span class="name">title</span>; <span class="name">property</span>: <span class="string">&quot;opacity&quot;</span>; <span class="name">duration</span>: <span class="number">500</span> }
+         }
+     ]
+
+ }</pre>
+</div>
+<!-- @@@demos/declarative/snake/snake.qml -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

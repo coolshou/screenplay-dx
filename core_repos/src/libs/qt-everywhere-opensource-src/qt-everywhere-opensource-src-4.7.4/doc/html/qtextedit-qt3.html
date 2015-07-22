@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtextedit.cpp -->
+  <title>Qt 4.7: Qt 3 Support Members for QTextEdit</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QTextEdit</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">Qt 3 Support Members for QTextEdit</h1>
+<p><b>The following class members are part of the <a href="qt3support.html">Qt 3 support layer</a>.</b> They are provided to help you port old code to Qt 4. We advise against using them in new code.</p>
+<p><ul><li><a href="qtextedit.html">QTextEdit class reference</a></li></ul></p>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#CursorAction-enum">CursorAction</a></b> { MoveBackward, MoveForward, MoveWordBackward, MoveWordForward, ..., MovePageDown }</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#KeyboardAction-enum">KeyboardAction</a></b> { ActionBackspace, ActionDelete, ActionReturn, ActionKill, ActionWordBackspace, ActionWordDelete }</td></tr>
+</table>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#QTextEdit-4">QTextEdit</a></b> ( QWidget * <i>parent</i>, const char * <i>name</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#bold">bold</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QColor </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#color">color</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#doKeyboardAction">doKeyboardAction</a></b> ( KeyboardAction <i>action</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#family">family</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#find-2">find</a></b> ( const QString &amp; <i>exp</i>, bool <i>cs</i>, bool <i>wo</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#hasSelectedText">hasSelectedText</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#insert">insert</a></b> ( const QString &amp; <i>text</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#isModified">isModified</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#isRedoAvailable">isRedoAvailable</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#isUndoAvailable">isUndoAvailable</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#italic">italic</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#moveCursor-2">moveCursor</a></b> ( CursorAction <i>action</i>, QTextCursor::MoveMode <i>mode</i> = QTextCursor::MoveAnchor )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#moveCursor-3">moveCursor</a></b> ( CursorAction <i>action</i>, bool <i>select</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#pointSize">pointSize</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#redo-2">redo</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#selectedText">selectedText</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setBold">setBold</a></b> ( bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setFamily">setFamily</a></b> ( const QString &amp; <i>family</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setItalic">setItalic</a></b> ( bool <i>i</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setPointSize">setPointSize</a></b> ( int <i>size</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setTextFormat">setTextFormat</a></b> ( Qt::TextFormat <i>f</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setUnderline">setUnderline</a></b> ( bool <i>b</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#sync">sync</a></b> ()</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> QString </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#text">text</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> Qt::TextFormat </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#textFormat">textFormat</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#underline">underline</a></b> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#undo-2">undo</a></b> () const</td></tr>
+</table>
+<ul>
+<li class="fn">60 public functions inherited from <a href="qwidget.html#public-functions">QWidget</a></li>
+<li class="fn">8 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+<li class="fn">8 public functions inherited from <a href="qpaintdevice.html#public-functions">QPaintDevice</a></li>
+</ul>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setColor">setColor</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#setModified">setModified</a></b> ( bool <i>m</i> = true )</td></tr>
+</table>
+<ul>
+<li class="fn">1 public slot inherited from <a href="qwidget.html#public-slots">QWidget</a></li>
+</ul>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#currentColorChanged">currentColorChanged</a></b> ( const QColor &amp; <i>color</i> )</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qtextedit-qt3.html#currentFontChanged">currentFontChanged</a></b> ( const QFont &amp; <i>font</i> )</td></tr>
+</table>
+<h2>Member Type Documentation</h2>
+<!-- $$$CursorAction$$$MoveBackward$$$MoveForward$$$MoveWordBackward$$$MoveWordForward$$$MoveUp$$$MoveDown$$$MoveLineStart$$$MoveLineEnd$$$MoveHome$$$MoveEnd$$$MovePageUp$$$MovePageDown$$$MovePgUp$$$MovePgDown -->
+<h3 class="fn"><a name="CursorAction-enum"></a>enum QTextEdit::<span class="name">CursorAction</span></h3>
+<table class="valuelist"><tr><th class="tblConst">Constant</th><th class="tblVal">Value</th></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveBackward</tt></td><td class="topAlign"><tt>0</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveForward</tt></td><td class="topAlign"><tt>1</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveWordBackward</tt></td><td class="topAlign"><tt>2</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveWordForward</tt></td><td class="topAlign"><tt>3</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveUp</tt></td><td class="topAlign"><tt>4</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveDown</tt></td><td class="topAlign"><tt>5</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveLineStart</tt></td><td class="topAlign"><tt>6</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveLineEnd</tt></td><td class="topAlign"><tt>7</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveHome</tt></td><td class="topAlign"><tt>8</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MoveEnd</tt></td><td class="topAlign"><tt>9</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MovePageUp</tt></td><td class="topAlign"><tt>10</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::MovePageDown</tt></td><td class="topAlign"><tt>11</tt></td></tr>
+</table>
+<!-- @@@CursorAction -->
+<!-- $$$KeyboardAction$$$ActionBackspace$$$ActionDelete$$$ActionReturn$$$ActionKill$$$ActionWordBackspace$$$ActionWordDelete -->
+<h3 class="fn"><a name="KeyboardAction-enum"></a>enum QTextEdit::<span class="name">KeyboardAction</span></h3>
+<table class="valuelist"><tr><th class="tblConst">Constant</th><th class="tblVal">Value</th></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionBackspace</tt></td><td class="topAlign"><tt>0</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionDelete</tt></td><td class="topAlign"><tt>1</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionReturn</tt></td><td class="topAlign"><tt>2</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionKill</tt></td><td class="topAlign"><tt>3</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionWordBackspace</tt></td><td class="topAlign"><tt>4</tt></td></tr>
+<tr><td class="topAlign"><tt>QTextEdit::ActionWordDelete</tt></td><td class="topAlign"><tt>5</tt></td></tr>
+</table>
+<!-- @@@KeyboardAction -->
+<h2>Member Function Documentation</h2>
+<!-- $$$QTextEdit$$$QTextEditQWidget*constchar* -->
+<h3 class="fn"><a name="QTextEdit-4"></a>QTextEdit::<span class="name">QTextEdit</span> ( <span class="type"><a href="qwidget.html">QWidget</a></span> * <i>parent</i>, const <span class="type">char</span> * <i>name</i> )</h3>
+<p>Use one of the constructors that doesn't take the <i>name</i> argument and then use <a href="qobject.html#objectName-prop">setObjectName</a>() instead.</p>
+<!-- @@@QTextEdit -->
+<!-- $$$bold[overload1]$$$bold -->
+<h3 class="fn"><a name="bold"></a><span class="type">bool</span> QTextEdit::<span class="name">bold</span> () const</h3>
+<p>Use <a href="qtextedit.html#fontWeight">fontWeight</a>() &gt;= <a href="qfont.html#Weight-enum">QFont::Bold</a> instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setBold">setBold</a>().</p>
+<!-- @@@bold -->
+<!-- $$$color[overload1]$$$color -->
+<h3 class="fn"><a name="color"></a><span class="type"><a href="qcolor.html">QColor</a></span> QTextEdit::<span class="name">color</span> () const</h3>
+<p>Use <a href="qtextedit.html#textColor">textColor</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setColor">setColor</a>().</p>
+<!-- @@@color -->
+<!-- $$$currentColorChanged[overload1]$$$currentColorChangedconstQColor& -->
+<h3 class="fn"><a name="currentColorChanged"></a><span class="type">void</span> QTextEdit::<span class="name">currentColorChanged</span> ( const <span class="type"><a href="qcolor.html">QColor</a></span> &amp; <i>color</i> )<tt> [signal]</tt></h3>
+<p>Use <a href="qtextedit.html#currentCharFormatChanged">currentCharFormatChanged</a>() instead.</p>
+<!-- @@@currentColorChanged -->
+<!-- $$$currentFontChanged[overload1]$$$currentFontChangedconstQFont& -->
+<h3 class="fn"><a name="currentFontChanged"></a><span class="type">void</span> QTextEdit::<span class="name">currentFontChanged</span> ( const <span class="type"><a href="qfont.html">QFont</a></span> &amp; <i>font</i> )<tt> [signal]</tt></h3>
+<p>Use <a href="qtextedit.html#currentCharFormatChanged">currentCharFormatChanged</a>() instead.</p>
+<!-- @@@currentFontChanged -->
+<!-- $$$doKeyboardAction[overload1]$$$doKeyboardActionKeyboardAction -->
+<h3 class="fn"><a name="doKeyboardAction"></a><span class="type">void</span> QTextEdit::<span class="name">doKeyboardAction</span> ( <span class="type"><a href="qtextedit-qt3.html#KeyboardAction-enum">KeyboardAction</a></span> <i>action</i> )</h3>
+<p>Executes keyboard action <i>action</i>.</p>
+<p>Use the <a href="qtextcursor.html">QTextCursor</a> class instead.</p>
+<p><b>See also </b><a href="qtextedit.html#textCursor">textCursor</a>().</p>
+<!-- @@@doKeyboardAction -->
+<!-- $$$family[overload1]$$$family -->
+<h3 class="fn"><a name="family"></a><span class="type"><a href="qstring.html">QString</a></span> QTextEdit::<span class="name">family</span> () const</h3>
+<p>Use <a href="qtextedit.html#fontFamily">fontFamily</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setFamily">setFamily</a>().</p>
+<!-- @@@family -->
+<!-- $$$find$$$findconstQString&boolbool -->
+<h3 class="fn"><a name="find-2"></a><span class="type">bool</span> QTextEdit::<span class="name">find</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>exp</i>, <span class="type">bool</span> <i>cs</i>, <span class="type">bool</span> <i>wo</i> )</h3>
+<p>Use the <a href="qtextedit.html#find">find</a>() overload that takes a <a href="qtextdocument.html#FindFlag-enum">QTextDocument::FindFlags</a> argument.</p>
+<!-- @@@find -->
+<!-- $$$hasSelectedText[overload1]$$$hasSelectedText -->
+<h3 class="fn"><a name="hasSelectedText"></a><span class="type">bool</span> QTextEdit::<span class="name">hasSelectedText</span> () const</h3>
+<p>Use <a href="qtextedit.html#textCursor">textCursor</a>().hasSelection() instead.</p>
+<!-- @@@hasSelectedText -->
+<!-- $$$insert[overload1]$$$insertconstQString& -->
+<h3 class="fn"><a name="insert"></a><span class="type">void</span> QTextEdit::<span class="name">insert</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>text</i> )</h3>
+<p>Use <a href="qtextedit.html#insertPlainText">insertPlainText</a>() instead.</p>
+<!-- @@@insert -->
+<!-- $$$isModified[overload1]$$$isModified -->
+<h3 class="fn"><a name="isModified"></a><span class="type">bool</span> QTextEdit::<span class="name">isModified</span> () const</h3>
+<p>Use <a href="qtextedit.html#document">document</a>()-&gt;isModified() instead.</p>
+<!-- @@@isModified -->
+<!-- $$$isRedoAvailable[overload1]$$$isRedoAvailable -->
+<h3 class="fn"><a name="isRedoAvailable"></a><span class="type">bool</span> QTextEdit::<span class="name">isRedoAvailable</span> () const</h3>
+<p>Use <a href="qtextedit.html#document">document</a>()-&gt;isRedoAvailable() instead.</p>
+<!-- @@@isRedoAvailable -->
+<!-- $$$isUndoAvailable[overload1]$$$isUndoAvailable -->
+<h3 class="fn"><a name="isUndoAvailable"></a><span class="type">bool</span> QTextEdit::<span class="name">isUndoAvailable</span> () const</h3>
+<p>Use <a href="qtextedit.html#document">document</a>()-&gt;isUndoAvailable() instead.</p>
+<!-- @@@isUndoAvailable -->
+<!-- $$$italic[overload1]$$$italic -->
+<h3 class="fn"><a name="italic"></a><span class="type">bool</span> QTextEdit::<span class="name">italic</span> () const</h3>
+<p>Use <a href="qtextedit.html#fontItalic">fontItalic</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setItalic">setItalic</a>().</p>
+<!-- @@@italic -->
+<!-- $$$moveCursor$$$moveCursorCursorActionQTextCursor::MoveMode -->
+<h3 class="fn"><a name="moveCursor-2"></a><span class="type">void</span> QTextEdit::<span class="name">moveCursor</span> ( <span class="type"><a href="qtextedit-qt3.html#CursorAction-enum">CursorAction</a></span> <i>action</i>, <span class="type"><a href="qtextcursor.html#MoveMode-enum">QTextCursor::MoveMode</a></span> <i>mode</i> = QTextCursor::MoveAnchor )</h3>
+<p>Use the <a href="qtextcursor.html">QTextCursor</a> class instead.</p>
+<!-- @@@moveCursor -->
+<!-- $$$moveCursor$$$moveCursorCursorActionbool -->
+<h3 class="fn"><a name="moveCursor-3"></a><span class="type">void</span> QTextEdit::<span class="name">moveCursor</span> ( <span class="type"><a href="qtextedit-qt3.html#CursorAction-enum">CursorAction</a></span> <i>action</i>, <span class="type">bool</span> <i>select</i> )</h3>
+<p>Use the <a href="qtextcursor.html">QTextCursor</a> class instead.</p>
+<!-- @@@moveCursor -->
+<!-- $$$pointSize[overload1]$$$pointSize -->
+<h3 class="fn"><a name="pointSize"></a><span class="type">int</span> QTextEdit::<span class="name">pointSize</span> () const</h3>
+<p>Use int(<a href="qtextedit.html#fontPointSize">fontPointSize</a>()+0.5) instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setPointSize">setPointSize</a>().</p>
+<!-- @@@pointSize -->
+<!-- $$$redo$$$redo -->
+<h3 class="fn"><a name="redo-2"></a><span class="type">void</span> QTextEdit::<span class="name">redo</span> () const</h3>
+<p>This is an overloaded function.</p>
+<p>Use the non-const overload instead.</p>
+<!-- @@@redo -->
+<!-- $$$selectedText[overload1]$$$selectedText -->
+<h3 class="fn"><a name="selectedText"></a><span class="type"><a href="qstring.html">QString</a></span> QTextEdit::<span class="name">selectedText</span> () const</h3>
+<p>Use <a href="qtextedit.html#textCursor">textCursor</a>().selectedText() instead.</p>
+<!-- @@@selectedText -->
+<!-- $$$setBold[overload1]$$$setBoldbool -->
+<h3 class="fn"><a name="setBold"></a><span class="type">void</span> QTextEdit::<span class="name">setBold</span> ( <span class="type">bool</span> <i>b</i> )</h3>
+<p>Use <a href="qtextedit.html#setFontWeight">setFontWeight</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#bold">bold</a>().</p>
+<!-- @@@setBold -->
+<!-- $$$setColor[overload1]$$$setColorconstQColor& -->
+<h3 class="fn"><a name="setColor"></a><span class="type">void</span> QTextEdit::<span class="name">setColor</span> ( const <span class="type"><a href="qcolor.html">QColor</a></span> &amp; <i>color</i> )<tt> [slot]</tt></h3>
+<p>Use <a href="qtextedit.html#setTextColor">setTextColor</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#color">color</a>().</p>
+<!-- @@@setColor -->
+<!-- $$$setFamily[overload1]$$$setFamilyconstQString& -->
+<h3 class="fn"><a name="setFamily"></a><span class="type">void</span> QTextEdit::<span class="name">setFamily</span> ( const <span class="type"><a href="qstring.html">QString</a></span> &amp; <i>family</i> )</h3>
+<p>Use <a href="qtextedit.html#setFontFamily">setFontFamily</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#family">family</a>().</p>
+<!-- @@@setFamily -->
+<!-- $$$setItalic[overload1]$$$setItalicbool -->
+<h3 class="fn"><a name="setItalic"></a><span class="type">void</span> QTextEdit::<span class="name">setItalic</span> ( <span class="type">bool</span> <i>i</i> )</h3>
+<p>Use <a href="qtextedit.html#setFontItalic">setFontItalic</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#italic">italic</a>().</p>
+<!-- @@@setItalic -->
+<!-- $$$setModified[overload1]$$$setModifiedbool -->
+<h3 class="fn"><a name="setModified"></a><span class="type">void</span> QTextEdit::<span class="name">setModified</span> ( <span class="type">bool</span> <i>m</i> = true )<tt> [slot]</tt></h3>
+<p>Use document-&gt;setModified() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#isModified">isModified</a>().</p>
+<!-- @@@setModified -->
+<!-- $$$setPointSize[overload1]$$$setPointSizeint -->
+<h3 class="fn"><a name="setPointSize"></a><span class="type">void</span> QTextEdit::<span class="name">setPointSize</span> ( <span class="type">int</span> <i>size</i> )</h3>
+<p>Use <a href="qtextedit.html#setFontPointSize">setFontPointSize</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#pointSize">pointSize</a>().</p>
+<!-- @@@setPointSize -->
+<!-- $$$setTextFormat[overload1]$$$setTextFormatQt::TextFormat -->
+<h3 class="fn"><a name="setTextFormat"></a><span class="type">void</span> QTextEdit::<span class="name">setTextFormat</span> ( <span class="type"><a href="qt.html#TextFormat-enum">Qt::TextFormat</a></span> <i>f</i> )</h3>
+<p>Sets the text format to format <i>f</i>.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#textFormat">textFormat</a>().</p>
+<!-- @@@setTextFormat -->
+<!-- $$$setUnderline[overload1]$$$setUnderlinebool -->
+<h3 class="fn"><a name="setUnderline"></a><span class="type">void</span> QTextEdit::<span class="name">setUnderline</span> ( <span class="type">bool</span> <i>b</i> )</h3>
+<p>Use <a href="qtextedit.html#setFontUnderline">setFontUnderline</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#underline">underline</a>().</p>
+<!-- @@@setUnderline -->
+<!-- $$$sync[overload1]$$$sync -->
+<h3 class="fn"><a name="sync"></a><span class="type">void</span> QTextEdit::<span class="name">sync</span> ()</h3>
+<p>Does nothing.</p>
+<!-- @@@sync -->
+<!-- $$$text[overload1]$$$text -->
+<h3 class="fn"><a name="text"></a><span class="type"><a href="qstring.html">QString</a></span> QTextEdit::<span class="name">text</span> () const</h3>
+<p>Returns all the text in the text edit as plain text.</p>
+<p><b>See also </b><a href="qtextedit.html#setText">setText</a>().</p>
+<!-- @@@text -->
+<!-- $$$textFormat[overload1]$$$textFormat -->
+<h3 class="fn"><a name="textFormat"></a><span class="type"><a href="qt.html#TextFormat-enum">Qt::TextFormat</a></span> QTextEdit::<span class="name">textFormat</span> () const</h3>
+<p>Returns the text format.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setTextFormat">setTextFormat</a>().</p>
+<!-- @@@textFormat -->
+<!-- $$$underline[overload1]$$$underline -->
+<h3 class="fn"><a name="underline"></a><span class="type">bool</span> QTextEdit::<span class="name">underline</span> () const</h3>
+<p>Use <a href="qtextedit.html#fontUnderline">fontUnderline</a>() instead.</p>
+<p><b>See also </b><a href="qtextedit-qt3.html#setUnderline">setUnderline</a>().</p>
+<!-- @@@underline -->
+<!-- $$$undo$$$undo -->
+<h3 class="fn"><a name="undo-2"></a><span class="type">void</span> QTextEdit::<span class="name">undo</span> () const</h3>
+<p>This is an overloaded function.</p>
+<p>Use the non-const overload instead.</p>
+<!-- @@@undo -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

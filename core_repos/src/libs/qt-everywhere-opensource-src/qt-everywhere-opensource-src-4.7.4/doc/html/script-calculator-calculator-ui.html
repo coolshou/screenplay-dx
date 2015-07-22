@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Qt 4.7: calculator.ui Example File (script/calculator/calculator.ui)</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<h1 class="title">calculator.ui Example File</h1>
+<span class="small-subtitle">script/calculator/calculator.ui</span>
+<!-- $$$script/calculator/calculator.ui-description -->
+<div class="descr"> <a name="details"></a>
+<pre class="cpp"> &lt;ui version=&quot;4.0&quot; &gt;
+  &lt;class&gt;Calculator&lt;/class&gt;
+  &lt;widget class=&quot;QWidget&quot; name=&quot;Calculator&quot; &gt;
+   &lt;property name=&quot;geometry&quot; &gt;
+    &lt;rect&gt;
+     &lt;x&gt;0&lt;/x&gt;
+     &lt;y&gt;0&lt;/y&gt;
+     &lt;width&gt;314&lt;/width&gt;
+     &lt;height&gt;301&lt;/height&gt;
+    &lt;/rect&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;sizePolicy&quot; &gt;
+    &lt;sizepolicy vsizetype=&quot;Fixed&quot; hsizetype=&quot;Fixed&quot; &gt;
+     &lt;horstretch&gt;0&lt;/horstretch&gt;
+     &lt;verstretch&gt;0&lt;/verstretch&gt;
+    &lt;/sizepolicy&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;minimumSize&quot; &gt;
+    &lt;size&gt;
+     &lt;width&gt;314&lt;/width&gt;
+     &lt;height&gt;301&lt;/height&gt;
+    &lt;/size&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;maximumSize&quot; &gt;
+    &lt;size&gt;
+     &lt;width&gt;314&lt;/width&gt;
+     &lt;height&gt;301&lt;/height&gt;
+    &lt;/size&gt;
+   &lt;/property&gt;
+   &lt;property name=&quot;windowTitle&quot; &gt;
+    &lt;string&gt;Calculator&lt;/string&gt;
+   &lt;/property&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;backspaceButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;50&lt;/y&gt;
+      &lt;width&gt;91&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;Backspace&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;clearButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;110&lt;/x&gt;
+      &lt;y&gt;50&lt;/y&gt;
+      &lt;width&gt;91&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;Clear&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;clearAllButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;50&lt;/y&gt;
+      &lt;width&gt;91&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;Clear All&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;clearMemoryButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;MC&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;readMemoryButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;MR&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;setMemoryButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;MS&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;addToMemoryButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;M+&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;sevenButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;60&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;7&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;eightButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;110&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;8&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;nineButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;160&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;9&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;fourButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;60&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;4&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;fiveButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;110&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;5&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;sixButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;160&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;6&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;oneButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;60&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;1&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;twoButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;110&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;2&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;threeButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;160&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;3&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;zeroButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;60&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;0&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;pointButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;110&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;.&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;changeSignButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;160&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;+-&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;plusButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;+&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;divisionButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;/&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;timesButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;*&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;minusButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;210&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;-&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;squareRootButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;260&lt;/x&gt;
+      &lt;y&gt;100&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;Sqrt&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;powerButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;260&lt;/x&gt;
+      &lt;y&gt;150&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;x^2&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;reciprocalButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;260&lt;/x&gt;
+      &lt;y&gt;200&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;1/x&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QToolButton&quot; name=&quot;equalButton&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;260&lt;/x&gt;
+      &lt;y&gt;250&lt;/y&gt;
+      &lt;width&gt;41&lt;/width&gt;
+      &lt;height&gt;41&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;text&quot; &gt;
+     &lt;string&gt;=&lt;/string&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+   &lt;widget class=&quot;QLineEdit&quot; name=&quot;display&quot; &gt;
+    &lt;property name=&quot;geometry&quot; &gt;
+     &lt;rect&gt;
+      &lt;x&gt;10&lt;/x&gt;
+      &lt;y&gt;10&lt;/y&gt;
+      &lt;width&gt;291&lt;/width&gt;
+      &lt;height&gt;31&lt;/height&gt;
+     &lt;/rect&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;maxLength&quot; &gt;
+     &lt;number&gt;15&lt;/number&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;alignment&quot; &gt;
+     &lt;set&gt;Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter&lt;/set&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;readOnly&quot; &gt;
+     &lt;bool&gt;true&lt;/bool&gt;
+    &lt;/property&gt;
+   &lt;/widget&gt;
+  &lt;/widget&gt;
+  &lt;resources/&gt;
+  &lt;connections/&gt;
+ &lt;/ui&gt;</pre>
+</div>
+<!-- @@@script/calculator/calculator.ui -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

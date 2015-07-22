@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- threads.qdoc -->
+  <title>Qt 4.7: Starting Threads with QThread</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li>Starting Threads with QThread</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+  <link rel="next" href="threads-synchronizing.html" />
+<p class="naviNextPrevious headerNavi">
+[Next: <a href="threads-synchronizing.html">Synchronizing Threads</a>]
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#creating-a-thread">Creating a Thread</a></li>
+<li class="level1"><a href="#starting-a-thread">Starting a Thread</a></li>
+</ul>
+</div>
+<h1 class="title">Starting Threads with QThread</h1>
+<span class="subtitle"></span>
+<!-- $$$threads-starting.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>A <a href="qthread.html">QThread</a> instance represents a thread and provides the means to <a href="qthread.html#start">start()</a> a thread, which will then execute the reimplementation of <a href="qthread.html#run">QThread::run</a>(). The <tt>run()</tt> implementation is for a thread what the <tt>main()</tt> entry point is for the application. All code executed in a call stack that starts in the <tt>run()</tt> function is executed by the new thread, and the thread finishes when the function returns. <a href="qthread.html">QThread</a> emits signals to indicate that the thread started or finished executing.</p>
+<a name="creating-a-thread"></a>
+<h2>Creating a Thread</h2>
+<p>To create a thread, subclass <a href="qthread.html">QThread</a> and reimplement its <a href="qthread.html#run">run()</a> function. For example:</p>
+<pre class="cpp"> <span class="keyword">class</span> MyThread : <span class="keyword">public</span> <span class="type"><a href="qthread.html">QThread</a></span>
+ {
+     Q_OBJECT
+
+ <span class="keyword">protected</span>:
+     <span class="type">void</span> run();
+ };
+
+ <span class="type">void</span> MyThread<span class="operator">::</span>run()
+ {
+     ...
+ }</pre>
+<a name="starting-a-thread"></a>
+<h2>Starting a Thread</h2>
+<p>Then, create an instance of the thread object and call <a href="qthread.html#start">QThread::start</a>(). Note that you must create the <a href="qapplication.html">QApplication</a> (or <a href="qcoreapplication.html">QCoreApplication</a>) object before you can create a <a href="qthread.html">QThread</a>.</p>
+<p>The function will return immediately and the main thread will continue. The code that appears in the <a href="qthread.html#run">run()</a> reimplementation will then be executed in a separate thread.</p>
+<p>Creating threads is explained in more detail in the <a href="qthread.html">QThread</a> documentation.</p>
+<p>Note that <a href="qcoreapplication.html#exec">QCoreApplication::exec</a>() must always be called from the main thread (the thread that executes <tt>main()</tt>), not from a <a href="qthread.html">QThread</a>. In GUI applications, the main thread is also called the GUI thread because it's the only thread that is allowed to perform GUI-related operations.</p>
+</div>
+<!-- @@@threads-starting.html -->
+<p class="naviNextPrevious footerNavi">
+[Next: <a href="threads-synchronizing.html">Synchronizing Threads</a>]
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

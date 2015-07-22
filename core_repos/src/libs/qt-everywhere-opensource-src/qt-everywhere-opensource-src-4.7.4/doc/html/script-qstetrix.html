@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtscripttetrix.qdoc -->
+  <title>Qt 4.7: Qt Script Tetrix Example</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="all-examples.html">Examples</a></li>
+<li>Qt Script Tetrix Example</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#overview">Overview</a></li>
+<li class="level1"><a href="#setting-up-the-gui">Setting up the GUI</a></li>
+</ul>
+</div>
+<h1 class="title">Qt Script Tetrix Example</h1>
+<span class="subtitle"></span>
+<!-- $$$script/qstetrix-description -->
+<div class="descr"> <a name="details"></a>
+<p>Files:</p>
+<ul>
+<li><a href="script-qstetrix-tetrixboard-cpp.html">script/qstetrix/tetrixboard.cpp</a></li>
+<li><a href="script-qstetrix-tetrixboard-h.html">script/qstetrix/tetrixboard.h</a></li>
+<li><a href="script-qstetrix-tetrixboard-js.html">script/qstetrix/tetrixboard.js</a></li>
+<li><a href="script-qstetrix-tetrixpiece-js.html">script/qstetrix/tetrixpiece.js</a></li>
+<li><a href="script-qstetrix-tetrixwindow-js.html">script/qstetrix/tetrixwindow.js</a></li>
+<li><a href="script-qstetrix-tetrixwindow-ui.html">script/qstetrix/tetrixwindow.ui</a></li>
+<li><a href="script-qstetrix-main-cpp.html">script/qstetrix/main.cpp</a></li>
+<li><a href="script-qstetrix-qstetrix-pro.html">script/qstetrix/qstetrix.pro</a></li>
+<li><a href="script-qstetrix-tetrix-qrc.html">script/qstetrix/tetrix.qrc</a></li>
+</ul>
+<p>The QSTetrix example is a Qt Script version of the classic Tetrix game.</p>
+<p class="centerAlign"><img src="images/tetrix-example.png" /></p><a name="overview"></a>
+<h2>Overview</h2>
+<p>The program logic in this example is a fairly straight port of the logic in the C++ <a href="widgets-tetrix.html">Tetrix Example</a>. You may find it useful to compare the implementations of the <tt>TetrixBoard</tt>, <tt>TetrixPiece</tt> and <tt>TetrixWindow</tt> classes to see how Qt Script is used to implement methods, call Qt functions, and emit signals.</p>
+<a name="setting-up-the-gui"></a>
+<h2>Setting up the GUI</h2>
+<p>The graphical user interface is defined in a UI file, created using Qt Designer, and is set up in the example's C++ <tt>main.cpp</tt> file.</p>
+<pre class="cpp"> <span class="keyword">class</span> TetrixUiLoader : <span class="keyword">public</span> <span class="type"><a href="quiloader.html">QUiLoader</a></span>
+ {
+ <span class="keyword">public</span>:
+     TetrixUiLoader(<span class="type"><a href="qobject.html">QObject</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span>)
+         : <span class="type"><a href="quiloader.html">QUiLoader</a></span>(parent)
+         { }
+     <span class="keyword">virtual</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>createWidget(<span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>className<span class="operator">,</span> <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>parent <span class="operator">=</span> <span class="number">0</span><span class="operator">,</span>
+                                   <span class="keyword">const</span> <span class="type"><a href="qstring.html">QString</a></span> <span class="operator">&amp;</span>name <span class="operator">=</span> <span class="type"><a href="qstring.html">QString</a></span>())
+     {
+         <span class="keyword">if</span> (className <span class="operator">=</span><span class="operator">=</span> QLatin1String(<span class="string">&quot;TetrixBoard&quot;</span>)) {
+             <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>board <span class="operator">=</span> <span class="keyword">new</span> TetrixBoard(parent);
+             board<span class="operator">-</span><span class="operator">&gt;</span>setObjectName(name);
+             <span class="keyword">return</span> board;
+         }
+         <span class="keyword">return</span> <span class="type"><a href="quiloader.html">QUiLoader</a></span><span class="operator">::</span>createWidget(className<span class="operator">,</span> parent<span class="operator">,</span> name);
+     }
+ };</pre>
+<p>We define a custom UI loader that handles our <tt>TetrixBoard</tt> widget; this is the main component of the UI (where the pieces are drawn).</p>
+<pre class="cpp">     <span class="type"><a href="qapplication.html">QApplication</a></span> app(argc<span class="operator">,</span> argv);
+     <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> engine;
+
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> <span class="type"><a href="qt.html">Qt</a></span> <span class="operator">=</span> engine<span class="operator">.</span>newQMetaObject(<span class="type">QtMetaObject</span><span class="operator">::</span>get());
+     <span class="type"><a href="qt.html">Qt</a></span><span class="operator">.</span>setProperty(<span class="string">&quot;App&quot;</span><span class="operator">,</span> engine<span class="operator">.</span>newQObject(<span class="operator">&amp;</span>app));
+     engine<span class="operator">.</span>globalObject()<span class="operator">.</span>setProperty(<span class="string">&quot;Qt&quot;</span><span class="operator">,</span> <span class="type"><a href="qt.html">Qt</a></span>);</pre>
+<p>We initialize the script engine to have the Qt namespace, so that e.g&#x2e;, <a href="qt.html#Key-enum">Qt.Key_Left</a> will be available to script code. We also make the application object available (for the <a href="qcoreapplication.html#quit">quit()</a> slot).</p>
+<pre class="cpp">     evaluateFile(engine<span class="operator">,</span> <span class="string">&quot;:/tetrixpiece.js&quot;</span>);
+     evaluateFile(engine<span class="operator">,</span> <span class="string">&quot;:/tetrixboard.js&quot;</span>);
+     evaluateFile(engine<span class="operator">,</span> <span class="string">&quot;:/tetrixwindow.js&quot;</span>);</pre>
+<p>Several scripts are evaluated as part of the engine setup process. The <tt>tetrixpiece.js</tt> file contains the definition of the <tt>TetrixPiece</tt> class, which is used to populate the play field. The <tt>tetrixboard.js</tt> file contains the definition of the <tt>TetrixBoard</tt> class, which contains the main game logic. Finally, <tt>tetrixwindow.js</tt> contains the definition of the <tt>TetrixWindow</tt> class, which wires up the top-level widget.</p>
+<pre class="cpp">     TetrixUiLoader loader;
+     <span class="type"><a href="qfile.html">QFile</a></span> uiFile(<span class="string">&quot;:/tetrixwindow.ui&quot;</span>);
+     uiFile<span class="operator">.</span>open(<span class="type"><a href="qiodevice.html">QIODevice</a></span><span class="operator">::</span>ReadOnly);
+     <span class="type"><a href="qwidget.html">QWidget</a></span> <span class="operator">*</span>ui <span class="operator">=</span> loader<span class="operator">.</span>load(<span class="operator">&amp;</span>uiFile);
+     uiFile<span class="operator">.</span>close();
+
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> ctor <span class="operator">=</span> engine<span class="operator">.</span>evaluate(<span class="string">&quot;TetrixWindow&quot;</span>);
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> scriptUi <span class="operator">=</span> engine<span class="operator">.</span>newQObject(ui<span class="operator">,</span> <span class="type"><a href="qscriptengine.html">QScriptEngine</a></span><span class="operator">::</span>ScriptOwnership);
+     <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> tetrix <span class="operator">=</span> ctor<span class="operator">.</span>construct(<span class="type">QScriptValueList</span>() <span class="operator">&lt;</span><span class="operator">&lt;</span> scriptUi);</pre>
+<p>A form is created from the UI file. A new <tt>TetrixWindow</tt> script object is then constructed, passing the form as its argument.</p>
+<pre class="cpp">     ui<span class="operator">-</span><span class="operator">&gt;</span>resize(<span class="number">550</span><span class="operator">,</span> <span class="number">370</span>);
+     ui<span class="operator">-</span><span class="operator">&gt;</span>show();
+
+     qsrand(<span class="type"><a href="qtime.html">QTime</a></span>(<span class="number">0</span><span class="operator">,</span><span class="number">0</span><span class="operator">,</span><span class="number">0</span>)<span class="operator">.</span>secsTo(<span class="type"><a href="qtime.html">QTime</a></span><span class="operator">::</span>currentTime()));
+     <span class="keyword">return</span> app<span class="operator">.</span>exec();</pre>
+<p>The form is shown, and the event loop is entered.</p>
+</div>
+<!-- @@@script/qstetrix -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

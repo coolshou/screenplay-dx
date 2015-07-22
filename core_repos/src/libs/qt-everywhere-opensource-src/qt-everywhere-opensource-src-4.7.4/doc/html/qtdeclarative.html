@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qtdeclarative.qdoc -->
+  <title>Qt 4.7: Qt Declarative Module</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li>QtDeclarative</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#classes">Classes</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Qt Declarative Module</h1>
+<span class="subtitle"></span>
+<!-- $$$QtDeclarative-brief -->
+<p>The Qt Declarative module provides a declarative framework for building highly dynamic, custom user interfaces. <a href="#details">More...</a></p>
+<!-- @@@QtDeclarative -->
+<a name="classes"></a>
+<h2>Classes</h2>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativecomponent.html">QDeclarativeComponent</a></p></td><td class="tblDescr"><p>Encapsulates a QML component definition</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativecontext.html">QDeclarativeContext</a></p></td><td class="tblDescr"><p>Defines a context within a QML engine</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativeengine.html">QDeclarativeEngine</a></p></td><td class="tblDescr"><p>Environment for instantiating QML components</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativeerror.html">QDeclarativeError</a></p></td><td class="tblDescr"><p>Encapsulates a QML error</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativeexpression.html">QDeclarativeExpression</a></p></td><td class="tblDescr"><p>Evaluates JavaScript in a QML context</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativeextensionplugin.html">QDeclarativeExtensionPlugin</a></p></td><td class="tblDescr"><p>Abstract base for custom QML extension plugins</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativeimageprovider.html">QDeclarativeImageProvider</a></p></td><td class="tblDescr"><p>Interface for supporting pixmaps and threaded image requests in QML</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativeitem.html">QDeclarativeItem</a></p></td><td class="tblDescr"><p>The most basic of all visual items in QML</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativelistproperty.html">QDeclarativeListProperty</a></p></td><td class="tblDescr"><p>Allows applications to expose list-like properties to QML</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativelistreference.html">QDeclarativeListReference</a></p></td><td class="tblDescr"><p>Allows the manipulation of QDeclarativeListProperty properties</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativenetworkaccessmanagerfactory.html">QDeclarativeNetworkAccessManagerFactory</a></p></td><td class="tblDescr"><p>Creates QNetworkAccessManager instances for a QML engine</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativeparserstatus.html">QDeclarativeParserStatus</a></p></td><td class="tblDescr"><p>Updates on the QML parser state</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativeproperty.html">QDeclarativeProperty</a></p></td><td class="tblDescr"><p>Abstracts accessing properties on objects created from QML</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativepropertymap.html">QDeclarativePropertyMap</a></p></td><td class="tblDescr"><p>Allows you to set key-value pairs that can be used in QML bindings</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativepropertyvaluesource.html">QDeclarativePropertyValueSource</a></p></td><td class="tblDescr"><p>Interface for property value sources such as animations and bindings</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qdeclarativescriptstring.html">QDeclarativeScriptString</a></p></td><td class="tblDescr"><p>Encapsulates a script and its context</p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qdeclarativeview.html">QDeclarativeView</a></p></td><td class="tblDescr"><p>Widget for displaying a Qt Declarative user interface</p></td></tr>
+</table>
+<!-- $$$QtDeclarative-description -->
+<a name="details"></a>
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>To include the definitions of the module's classes, use the following directive:</p>
+<pre class="cpp"> <span class="preprocessor">#include &lt;QtDeclarative&gt;</span></pre>
+<p>To link against the module, add this line to your <a href="qmake-manual.html#qmake">qmake</a> <tt>.pro</tt> file:</p>
+<pre class="cpp"> QT <span class="operator">+</span><span class="operator">=</span> declarative</pre>
+<p>For more information on the Qt Declarative module, see the <a href="qtquick.html">Qt Quick</a> documentation.</p>
+</div>
+<!-- @@@QtDeclarative -->
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

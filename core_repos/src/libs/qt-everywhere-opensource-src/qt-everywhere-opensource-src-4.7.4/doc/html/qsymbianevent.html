@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qsymbianevent.cpp -->
+  <title>Qt 4.7: QSymbianEvent Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QSymbianEvent</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QSymbianEvent Class Reference</h1>
+<!-- $$$QSymbianEvent-brief -->
+<p>The QSymbianEvent class contains a Symbian event of any type. <a href="#details">More...</a></p>
+<!-- @@@QSymbianEvent -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QSymbianEvent&gt;</span></pre><p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qsymbianevent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#Type-enum">Type</a></b> { InvalidEvent, WindowServerEvent, CommandEvent, ResourceChangeEvent }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#QSymbianEvent">QSymbianEvent</a></b> ( const TWsEvent * <i>windowServerEvent</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#QSymbianEvent-2">QSymbianEvent</a></b> ( Type <i>eventType</i>, int <i>value</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#dtor.QSymbianEvent">~QSymbianEvent</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#command">command</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> bool </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#isValid">isValid</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#resourceChangeType">resourceChangeType</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> Type </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#type">type</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> const TWsEvent * </td><td class="memItemRight bottomAlign"><b><a href="qsymbianevent.html#windowServerEvent">windowServerEvent</a></b> () const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QSymbianEvent-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QSymbianEvent class contains a Symbian event of any type.</p>
+<p>The class is used as a generic container type for all types of Symbian events.</p>
+<p><b>Note:</b> This class is only available on Symbian.</p>
+</div>
+<p><b>See also </b><a href="qapplication.html#symbianEventFilter">QApplication::symbianEventFilter</a>().</p>
+<!-- @@@QSymbianEvent -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Type$$$InvalidEvent$$$WindowServerEvent$$$CommandEvent$$$ResourceChangeEvent -->
+<h3 class="fn"><a name="Type-enum"></a>enum QSymbianEvent::<span class="name">Type</span></h3>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QSymbianEvent::InvalidEvent</tt></td><td class="topAlign"><tt>0</tt></td><td class="topAlign">The event is not valid.</td></tr>
+<tr><td class="topAlign"><tt>QSymbianEvent::WindowServerEvent</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">Indicates an event of type <tt>TWsEvent</tt>.</td></tr>
+<tr><td class="topAlign"><tt>QSymbianEvent::CommandEvent</tt></td><td class="topAlign"><tt>2</tt></td><td class="topAlign">Indicates that the event is a Symbian command.</td></tr>
+<tr><td class="topAlign"><tt>QSymbianEvent::ResourceChangeEvent</tt></td><td class="topAlign"><tt>3</tt></td><td class="topAlign">Indicates that the event is a Symbian resource change type.</td></tr>
+</table>
+<!-- @@@Type -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QSymbianEvent[overload1]$$$QSymbianEventconstTWsEvent* -->
+<h3 class="fn"><a name="QSymbianEvent"></a>QSymbianEvent::<span class="name">QSymbianEvent</span> ( const <span class="type">TWsEvent</span> * <i>windowServerEvent</i> )</h3>
+<p>Constructs a <a href="qsymbianevent.html">QSymbianEvent</a> containing the given window server event <i>windowServerEvent</i>.</p>
+<!-- @@@QSymbianEvent -->
+<!-- $$$QSymbianEvent$$$QSymbianEventTypeint -->
+<h3 class="fn"><a name="QSymbianEvent-2"></a>QSymbianEvent::<span class="name">QSymbianEvent</span> ( <span class="type"><a href="qsymbianevent.html#Type-enum">Type</a></span> <i>eventType</i>, <span class="type">int</span> <i>value</i> )</h3>
+<p>Constructs a <a href="qsymbianevent.html">QSymbianEvent</a> containing the given event value <i>value</i>. The type of event is controlled by the <i>eventType</i> parameter.</p>
+<!-- @@@QSymbianEvent -->
+<!-- $$$~QSymbianEvent[overload1]$$$~QSymbianEvent -->
+<h3 class="fn"><a name="dtor.QSymbianEvent"></a>QSymbianEvent::<span class="name">~QSymbianEvent</span> ()</h3>
+<p>Destroys the <a href="qsymbianevent.html">QSymbianEvent</a>.</p>
+<!-- @@@~QSymbianEvent -->
+<!-- $$$command[overload1]$$$command -->
+<h3 class="fn"><a name="command"></a><span class="type">int</span> QSymbianEvent::<span class="name">command</span> () const</h3>
+<p>Returns the command contained in the class instance, or 0 if the event type is not <tt>CommandEvent</tt>.</p>
+<!-- @@@command -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a><span class="type">bool</span> QSymbianEvent::<span class="name">isValid</span> () const</h3>
+<p>Returns whether this <a href="qsymbianevent.html">QSymbianEvent</a> instance contains a valid event.</p>
+<!-- @@@isValid -->
+<!-- $$$resourceChangeType[overload1]$$$resourceChangeType -->
+<h3 class="fn"><a name="resourceChangeType"></a><span class="type">int</span> QSymbianEvent::<span class="name">resourceChangeType</span> () const</h3>
+<p>Returns the resource change type contained in the class instance, or 0 if the event type is not <tt>ResourceChangeEvent</tt>.</p>
+<!-- @@@resourceChangeType -->
+<!-- $$$type[overload1]$$$type -->
+<h3 class="fn"><a name="type"></a><span class="type"><a href="qsymbianevent.html#Type-enum">Type</a></span> QSymbianEvent::<span class="name">type</span> () const</h3>
+<p>Returns the event type contained in the <a href="qsymbianevent.html">QSymbianEvent</a> instance.</p>
+<!-- @@@type -->
+<!-- $$$windowServerEvent[overload1]$$$windowServerEvent -->
+<h3 class="fn"><a name="windowServerEvent"></a>const <span class="type">TWsEvent</span> * QSymbianEvent::<span class="name">windowServerEvent</span> () const</h3>
+<p>Returns the window server event contained in the class instance, or 0 if the event type is not <tt>WindowServerEvent</tt>.</p>
+<!-- @@@windowServerEvent -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qstyleoption.cpp -->
+  <title>Qt 4.7: QStyleOptionFrame Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QStyleOptionFrame</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-variables">Public Variables</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QStyleOptionFrame Class Reference</h1>
+<!-- $$$QStyleOptionFrame-brief -->
+<p>The QStyleOptionFrame class is used to describe the parameters for drawing a frame. <a href="#details">More...</a></p>
+<!-- @@@QStyleOptionFrame -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QStyleOptionFrame&gt;</span></pre><p><b>Inherits: </b><a href="qstyleoption.html">QStyleOption</a>.</p>
+<p><b>Inherited by: </b><a href="qstyleoptionframev2.html">QStyleOptionFrameV2</a>.</p>
+<ul>
+<li><a href="qstyleoptionframe-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#StyleOptionType-enum">StyleOptionType</a></b> { Type }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#StyleOptionVersion-enum">StyleOptionVersion</a></b> { Version }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#QStyleOptionFrame">QStyleOptionFrame</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#QStyleOptionFrame-2">QStyleOptionFrame</a></b> ( const QStyleOptionFrame &amp; <i>other</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">2 public functions inherited from <a href="qstyleoption.html#public-functions">QStyleOption</a></li>
+</ul>
+<a name="public-variables"></a>
+<h2>Public Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#lineWidth-var">lineWidth</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> int </td><td class="memItemRight bottomAlign"><b><a href="qstyleoptionframe.html#midLineWidth-var">midLineWidth</a></b></td></tr>
+</table>
+<ul>
+<li class="fn">7 public variables inherited from <a href="qstyleoption.html#public-variables">QStyleOption</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QStyleOptionFrame-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QStyleOptionFrame class is used to describe the parameters for drawing a frame.</p>
+<p>QStyleOptionFrame is used for drawing several built-in Qt widgets, including <a href="qframe.html">QFrame</a>, <a href="qgroupbox.html">QGroupBox</a>, <a href="qlineedit.html">QLineEdit</a>, and <a href="qmenu.html">QMenu</a>. Note that to describe the parameters necessary for drawing a frame in Qt 4.1 or above, you must use the <a href="qstyleoptionframev2.html">QStyleOptionFrameV2</a> subclass.</p>
+<p>An instance of the QStyleOptionFrame class has <a href="qstyleoption.html#type-var">type</a> <a href="qstyleoption.html#OptionType-enum">SO_Frame</a> and <a href="qstyleoption.html#version-var">version</a> 1.</p>
+<p>The type is used internally by <a href="qstyleoption.html">QStyleOption</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstyleoption.html">QStyleOption</a> subclass and your own styles. The version is used by <a href="qstyleoption.html">QStyleOption</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
+<p>If you create your own <a href="qstyle.html">QStyle</a> subclass, you should handle both QStyleOptionFrame and <a href="qstyleoptionframev2.html">QStyleOptionFrameV2</a>.</p>
+<p>For an example demonstrating how style options can be used, see the <a href="widgets-styles.html">Styles</a> example.</p>
+</div>
+<p><b>See also </b><a href="qstyleoptionframev2.html">QStyleOptionFrameV2</a> and <a href="qstyleoption.html">QStyleOption</a>.</p>
+<!-- @@@QStyleOptionFrame -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$StyleOptionType$$$Type -->
+<h3 class="fn"><a name="StyleOptionType-enum"></a>enum QStyleOptionFrame::<span class="name">StyleOptionType</span></h3>
+<p>This enum is used to hold information about the type of the style option, and is defined for each <a href="qstyleoption.html">QStyleOption</a> subclass.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QStyleOptionFrame::Type</tt></td><td class="topAlign"><tt>SO_Frame</tt></td><td class="topAlign">The type of style option provided (<a href="qstyleoption.html#OptionType-enum">SO_Frame</a> for this class).</td></tr>
+</table>
+<p>The type is used internally by <a href="qstyleoption.html">QStyleOption</a>, its subclasses, and <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>() to determine the type of style option. In general you do not need to worry about this unless you want to create your own <a href="qstyleoption.html">QStyleOption</a> subclass and your own styles.</p>
+<p><b>See also </b><a href="qstyleoptionframe.html#StyleOptionVersion-enum">StyleOptionVersion</a>.</p>
+<!-- @@@StyleOptionType -->
+<!-- $$$StyleOptionVersion$$$Version -->
+<h3 class="fn"><a name="StyleOptionVersion-enum"></a>enum QStyleOptionFrame::<span class="name">StyleOptionVersion</span></h3>
+<p>This enum is used to hold information about the version of the style option, and is defined for each <a href="qstyleoption.html">QStyleOption</a> subclass.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QStyleOptionFrame::Version</tt></td><td class="topAlign"><tt>1</tt></td><td class="topAlign">1</td></tr>
+</table>
+<p>The version is used by <a href="qstyleoption.html">QStyleOption</a> subclasses to implement extensions without breaking compatibility. If you use <a href="qstyleoption.html#qstyleoption_cast">qstyleoption_cast</a>(), you normally do not need to check it.</p>
+<p><b>See also </b><a href="qstyleoptionframe.html#StyleOptionType-enum">StyleOptionType</a>.</p>
+<!-- @@@StyleOptionVersion -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QStyleOptionFrame[overload1]$$$QStyleOptionFrame -->
+<h3 class="fn"><a name="QStyleOptionFrame"></a>QStyleOptionFrame::<span class="name">QStyleOptionFrame</span> ()</h3>
+<p>Constructs a <a href="qstyleoptionframe.html">QStyleOptionFrame</a>, initializing the members variables to their default values.</p>
+<!-- @@@QStyleOptionFrame -->
+<!-- $$$QStyleOptionFrame$$$QStyleOptionFrameconstQStyleOptionFrame& -->
+<h3 class="fn"><a name="QStyleOptionFrame-2"></a>QStyleOptionFrame::<span class="name">QStyleOptionFrame</span> ( const <span class="type">QStyleOptionFrame</span> &amp; <i>other</i> )</h3>
+<p>Constructs a copy of the <i>other</i> style option.</p>
+<!-- @@@QStyleOptionFrame -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$lineWidth -->
+<h3 class="fn"><a name="lineWidth-var"></a><span class="type">int</span> QStyleOptionFrame::<span class="name">lineWidth</span></h3>
+<p>This variable holds the line width for drawing the frame.</p>
+<p>The default value is 0.</p>
+<p><b>See also </b><a href="qframe.html#lineWidth-prop">QFrame::lineWidth</a>.</p>
+<!-- @@@lineWidth -->
+<!-- $$$midLineWidth -->
+<h3 class="fn"><a name="midLineWidth-var"></a><span class="type">int</span> QStyleOptionFrame::<span class="name">midLineWidth</span></h3>
+<p>This variable holds the mid-line width for drawing the frame.</p>
+<p>This is usually used in drawing sunken or raised frames.</p>
+<p>The default value is 0.</p>
+<p><b>See also </b><a href="qframe.html#midLineWidth-prop">QFrame::midLineWidth</a>.</p>
+<!-- @@@midLineWidth -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

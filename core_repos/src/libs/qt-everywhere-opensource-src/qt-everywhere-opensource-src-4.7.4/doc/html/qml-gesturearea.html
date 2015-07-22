@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qdeclarativegesturearea.cpp -->
+  <title>Qt 4.7: QML GestureArea Element</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="qdeclarativeelements.html">QML Elements</a></li>
+<li>QML GestureArea Element</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QML GestureArea Element</h1>
+<span class="subtitle"></span>
+<!-- $$$GestureArea-brief -->
+<p>The GestureArea item enables simple gesture handling. <a href="#details">More...</a></p>
+<!-- @@@GestureArea -->
+<p>Inherits <a href="qml-item.html">Item</a></p>
+<ul>
+<li><a href="qml-gesturearea-members.html">List of all members, including inherited members</a></li>
+</ul>
+<!-- $$$GestureArea-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>A GestureArea is like a <a href="qml-mousearea.html">MouseArea</a>, but it has signals for gesture events.</p>
+<p><b>Warning:</b> Elements in the Qt.labs module are not guaranteed to remain compatible in future versions.</p>
+<p><b>Warning:</b> GestureArea is an experimental element whose development has been discontinued. <a href="qml-pincharea.html">PinchArea</a> is available in QtQuick 1.1 and handles two finger gesture input.</p>
+<p><b>Note:</b> This element is only functional on devices with touch input.</p>
+<pre class="qml"> import Qt.labs.gestures 1.0
+
+ <span class="type">GestureArea</span> {
+     <span class="name">anchors</span>.fill: <span class="name">parent</span>
+  <span class="comment">// onPan:        ... gesture.acceleration ...</span>
+  <span class="comment">// onPinch:      ... gesture.rotationAngle ...</span>
+  <span class="comment">// onSwipe:      ...</span>
+  <span class="comment">// onTapAndHold: ...</span>
+  <span class="comment">// onTap:        ...</span>
+  <span class="comment">// onGesture:    ...</span>
+ }</pre>
+<p>Each signal has a <i>gesture</i> parameter that has the properties of the gesture.</p>
+<table class="generic">
+<thead><tr class="qt-style"><th >Signal</th><th >Type</th><th >Property</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >onTap</td><td >point</td><td >position</td><td >the position of the tap</td></tr>
+<tr valign="top" class="even"><td >onTapAndHold</td><td >point</td><td >position</td><td >the position of the tap</td></tr>
+<tr valign="top" class="odd"><td >onPan</td><td >real</td><td >acceleration</td><td >the acceleration of the pan</td></tr>
+<tr valign="top" class="even"><td >onPan</td><td >point</td><td >delta</td><td >the offset from the previous input position to the current input</td></tr>
+<tr valign="top" class="odd"><td >onPan</td><td >point</td><td >offset</td><td >the total offset from the first input position to the current input position</td></tr>
+<tr valign="top" class="even"><td >onPan</td><td >point</td><td >lastOffset</td><td >the previous value of offset</td></tr>
+<tr valign="top" class="odd"><td >onPinch</td><td >point</td><td >centerPoint</td><td >the midpoint between the two input points</td></tr>
+<tr valign="top" class="even"><td >onPinch</td><td >point</td><td >lastCenterPoint</td><td >the previous value of centerPoint</td></tr>
+<tr valign="top" class="odd"><td >onPinch</td><td >point</td><td >startCenterPoint</td><td >the first value of centerPoint</td></tr>
+<tr valign="top" class="even"><td >onPinch</td><td >real</td><td >rotationAngle</td><td >the angle covered by the gesture motion</td></tr>
+<tr valign="top" class="odd"><td >onPinch</td><td >real</td><td >lastRotationAngle</td><td >the previous value of rotationAngle</td></tr>
+<tr valign="top" class="even"><td >onPinch</td><td >real</td><td >totalRotationAngle</td><td >the complete angle covered by the gesture</td></tr>
+<tr valign="top" class="odd"><td >onPinch</td><td >real</td><td >scaleFactor</td><td >the change in distance between the two input points</td></tr>
+<tr valign="top" class="even"><td >onPinch</td><td >real</td><td >lastScaleFactor</td><td >the previous value of scaleFactor</td></tr>
+<tr valign="top" class="odd"><td >onPinch</td><td >real</td><td >totalScaleFactor</td><td >the complete scale factor of the gesture</td></tr>
+<tr valign="top" class="even"><td >onSwipe</td><td >real</td><td >swipeAngle</td><td >the angle of the swipe</td></tr>
+</table>
+<p>Custom gestures, handled by onGesture, will have custom properties.</p>
+<p>GestureArea is an invisible item: it is never painted.</p>
+<p><b>See also </b><a href="qml-mousearea.html">MouseArea</a>.</p>
+<!-- @@@GestureArea -->
+<p class="naviNextPrevious footerNavi">
+</p>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

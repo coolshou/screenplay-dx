@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qgraphicseffect.cpp -->
+  <title>Qt 4.7: QGraphicsBlurEffect Class Reference</title>
+  <link rel="stylesheet" type="text/css" href="style/offline.css" />
+</head>
+<body>
+<div class="header" id="qtdocheader">
+  <div class="content"> 
+    <a href="index.html" class="qtref"><span>Qt Reference Documentation</span></a>
+  </div>
+  <div class="breadcrumb toolblock">
+    <ul>
+      <li class="first"><a href="index.html">Home</a></li>
+      <!--  Breadcrumbs go here -->
+<li><a href="modules.html">Modules</a></li>
+<li><a href="qtgui.html">QtGui</a></li>
+<li>QGraphicsBlurEffect</li>
+    </ul>
+  </div>
+</div>
+<div class="content mainContent">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="#public-types">Public Types</a></li>
+<li class="level1"><a href="#properties">Properties</a></li>
+<li class="level1"><a href="#public-functions">Public Functions</a></li>
+<li class="level1"><a href="#public-slots">Public Slots</a></li>
+<li class="level1"><a href="#signals">Signals</a></li>
+<li class="level1"><a href="#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">QGraphicsBlurEffect Class Reference</h1>
+<!-- $$$QGraphicsBlurEffect-brief -->
+<p>The QGraphicsBlurEffect class provides a blur effect. <a href="#details">More...</a></p>
+<!-- @@@QGraphicsBlurEffect -->
+<pre class="cpp"> <span class="preprocessor">#include &lt;QGraphicsBlurEffect&gt;</span></pre><p><b>Inherits: </b><a href="qgraphicseffect.html">QGraphicsEffect</a>.</p>
+<p>This class was introduced in Qt 4.6.</p>
+<ul>
+<li><a href="qgraphicsblureffect-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#BlurHint-enum">BlurHint</a></b> { PerformanceHint, QualityHint, AnimationHint }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> flags </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#BlurHint-enum">BlurHints</a></b></td></tr>
+</table>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><a href="qgraphicsblureffect.html#blurHints-prop">blurHints</a></b> : BlurHints</li>
+<li class="fn"><b><a href="qgraphicsblureffect.html#blurRadius-prop">blurRadius</a></b> : qreal</li>
+</ul>
+<ul>
+<li class="fn">1 property inherited from <a href="qgraphicseffect.html#properties">QGraphicsEffect</a></li>
+<li class="fn">1 property inherited from <a href="qobject.html#properties">QObject</a></li>
+</ul>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#QGraphicsBlurEffect">QGraphicsBlurEffect</a></b> ( QObject * <i>parent</i> = 0 )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#dtor.QGraphicsBlurEffect">~QGraphicsBlurEffect</a></b> ()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> BlurHints </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurHints-prop">blurHints</a></b> () const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> qreal </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurRadius-prop">blurRadius</a></b> () const</td></tr>
+</table>
+<a name="reimplemented-public-functions"></a>
+<h2>Reimplemented Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual QRectF </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#boundingRectFor">boundingRectFor</a></b> ( const QRectF &amp; <i>rect</i> ) const</td></tr>
+</table>
+<ul>
+<li class="fn">3 public functions inherited from <a href="qgraphicseffect.html#public-functions">QGraphicsEffect</a></li>
+<li class="fn">29 public functions inherited from <a href="qobject.html#public-functions">QObject</a></li>
+</ul>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurHints-prop">setBlurHints</a></b> ( BlurHints <i>hints</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurRadius-prop">setBlurRadius</a></b> ( qreal <i>blurRadius</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">2 public slots inherited from <a href="qgraphicseffect.html#public-slots">QGraphicsEffect</a></li>
+<li class="fn">1 public slot inherited from <a href="qobject.html#public-slots">QObject</a></li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurHintsChanged">blurHintsChanged</a></b> ( BlurHints <i>hints</i> )</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#blurRadiusChanged">blurRadiusChanged</a></b> ( qreal <i>radius</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">1 signal inherited from <a href="qgraphicseffect.html#signals">QGraphicsEffect</a></li>
+<li class="fn">1 signal inherited from <a href="qobject.html#signals">QObject</a></li>
+</ul>
+<a name="reimplemented-protected-functions"></a>
+<h2>Reimplemented Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual void </td><td class="memItemRight bottomAlign"><b><a href="qgraphicsblureffect.html#draw">draw</a></b> ( QPainter * <i>painter</i> )</td></tr>
+</table>
+<ul>
+<li class="fn">7 protected functions inherited from <a href="qgraphicseffect.html#protected-functions">QGraphicsEffect</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<h3>Additional Inherited Members</h3>
+<ul>
+<li class="fn">5 static public members inherited from <a href="qobject.html#static-public-members">QObject</a></li>
+<li class="fn">7 protected functions inherited from <a href="qgraphicseffect.html#protected-functions">QGraphicsEffect</a></li>
+<li class="fn">7 protected functions inherited from <a href="qobject.html#protected-functions">QObject</a></li>
+</ul>
+<a name="details"></a>
+<!-- $$$QGraphicsBlurEffect-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+<p>The QGraphicsBlurEffect class provides a blur effect.</p>
+<p>A blur effect blurs the source. This effect is useful for reducing details, such as when the source loses focus and you want to draw attention to other elements. The level of detail can be modified using the <a href="qgraphicsblureffect.html#blurRadius-prop">setBlurRadius</a>() function. Use <a href="qgraphicsblureffect.html#blurHints-prop">setBlurHints</a>() to choose the blur hints.</p>
+<p>By default, the blur radius is 5 pixels. The blur radius is specified in device coordinates.</p>
+<p class="centerAlign"><img src="images/graphicseffect-blur.png" /></p></div>
+<p><b>See also </b><a href="qgraphicsdropshadoweffect.html">QGraphicsDropShadowEffect</a>, <a href="qgraphicscolorizeeffect.html">QGraphicsColorizeEffect</a>, and <a href="qgraphicsopacityeffect.html">QGraphicsOpacityEffect</a>.</p>
+<!-- @@@QGraphicsBlurEffect -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$BlurHint$$$PerformanceHint$$$QualityHint$$$AnimationHint -->
+<h3 class="flags"><a name="BlurHint-enum"></a>enum QGraphicsBlurEffect::<span class="name">BlurHint</span><br/>flags QGraphicsBlurEffect::<span class="name">BlurHints</span></h3>
+<p>This enum describes the possible hints that can be used to control how blur effects are applied. The hints might not have an effect in all the paint engines.</p>
+<table class="valuelist"><tr valign="top" class="odd"><th class="tblConst">Constant</th><th class="tblval">Value</th><th class="tbldscr">Description</th></tr>
+<tr><td class="topAlign"><tt>QGraphicsBlurEffect::PerformanceHint</tt></td><td class="topAlign"><tt>0x00</tt></td><td class="topAlign">Indicates that rendering performance is the most important factor, at the potential cost of lower quality.</td></tr>
+<tr><td class="topAlign"><tt>QGraphicsBlurEffect::QualityHint</tt></td><td class="topAlign"><tt>0x01</tt></td><td class="topAlign">Indicates that rendering quality is the most important factor, at the potential cost of lower performance.</td></tr>
+<tr><td class="topAlign"><tt>QGraphicsBlurEffect::AnimationHint</tt></td><td class="topAlign"><tt>0x02</tt></td><td class="topAlign">Indicates that the blur radius is going to be animated, hinting that the implementation can keep a cache of blurred verisons of the source. Do not use this hint if the source is going to be dynamically changing.</td></tr>
+</table>
+<p>This enum was introduced or modified in Qt 4.6.</p>
+<p>The BlurHints type is a typedef for <a href="qflags.html">QFlags</a>&lt;BlurHint&gt;. It stores an OR combination of BlurHint values.</p>
+<p><b>See also </b><a href="qgraphicsblureffect.html#blurHints-prop">blurHints</a>() and <a href="qgraphicsblureffect.html#blurHints-prop">setBlurHints</a>().</p>
+<!-- @@@BlurHint -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$blurHints-prop$$$blurHints$$$setBlurHintsBlurHints$$$blurHintsChangedBlurHints -->
+<h3 class="fn"><a name="blurHints-prop"></a><span class="name">blurHints</span> : <span class="type"><a href="qgraphicsblureffect.html#BlurHint-enum">BlurHints</a></span></h3>
+<p>This property holds the blur hint of the effect.</p>
+<p>Use the <a href="qgraphicsblureffect.html#BlurHint-enum">PerformanceHint</a> hint to say that you want a faster blur, the <a href="qgraphicsblureffect.html#BlurHint-enum">QualityHint</a> hint to say that you prefer a higher quality blur, or the <a href="qgraphicsblureffect.html#BlurHint-enum">AnimationHint</a> when you want to animate the blur radius.</p>
+<p>By default, the blur hint is <a href="qgraphicsblureffect.html#BlurHint-enum">PerformanceHint</a>.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> BlurHints </td><td class="memItemRight bottomAlign"><span class="name"><b>blurHints</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setBlurHints</b></span> ( BlurHints <i>hints</i> )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicsblureffect.html#blurHintsChanged">blurHintsChanged</a></b></span> ( BlurHints <i>hints</i> )</td></tr>
+</table>
+<!-- @@@blurHints -->
+<!-- $$$blurRadius-prop$$$blurRadius$$$setBlurRadiusqreal$$$blurRadiusChangedqreal -->
+<h3 class="fn"><a name="blurRadius-prop"></a><span class="name">blurRadius</span> : <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span></h3>
+<p>This property holds the blur radius of the effect.</p>
+<p>Using a smaller radius results in a sharper appearance, whereas a bigger radius results in a more blurred appearance.</p>
+<p>By default, the blur radius is 5 pixels.</p>
+<p>The radius is given in device coordinates, meaning it is unaffected by scale.</p>
+<p><b>Access functions:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> qreal </td><td class="memItemRight bottomAlign"><span class="name"><b>blurRadius</b></span> () const</td></tr>
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b>setBlurRadius</b></span> ( qreal <i>blurRadius</i> )</td></tr>
+</table>
+<p><b>Notifier signal:</b></p>
+<table class="alignedsummary">
+<tr><td class="memItemLeft topAlign rightAlign"> void </td><td class="memItemRight bottomAlign"><span class="name"><b><a href="qgraphicsblureffect.html#blurRadiusChanged">blurRadiusChanged</a></b></span> ( qreal <i>radius</i> )</td></tr>
+</table>
+<!-- @@@blurRadius -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QGraphicsBlurEffect[overload1]$$$QGraphicsBlurEffectQObject* -->
+<h3 class="fn"><a name="QGraphicsBlurEffect"></a>QGraphicsBlurEffect::<span class="name">QGraphicsBlurEffect</span> ( <span class="type"><a href="qobject.html">QObject</a></span> * <i>parent</i> = 0 )</h3>
+<p>Constructs a new <a href="qgraphicsblureffect.html">QGraphicsBlurEffect</a> instance. The <i>parent</i> parameter is passed to <a href="qgraphicseffect.html">QGraphicsEffect</a>'s constructor.</p>
+<!-- @@@QGraphicsBlurEffect -->
+<!-- $$$~QGraphicsBlurEffect[overload1]$$$~QGraphicsBlurEffect -->
+<h3 class="fn"><a name="dtor.QGraphicsBlurEffect"></a>QGraphicsBlurEffect::<span class="name">~QGraphicsBlurEffect</span> ()</h3>
+<p>Destroys the effect.</p>
+<!-- @@@~QGraphicsBlurEffect -->
+<!-- $$$blurHintsChanged[overload1]$$$blurHintsChangedBlurHints -->
+<h3 class="fn"><a name="blurHintsChanged"></a><span class="type">void</span> QGraphicsBlurEffect::<span class="name">blurHintsChanged</span> ( <span class="type"><a href="qgraphicsblureffect.html#BlurHint-enum">BlurHints</a></span> <i>hints</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the effect's blur hints changes. The <i>hints</i> parameter holds the effect's new blur hints.</p>
+<!-- @@@blurHintsChanged -->
+<!-- $$$blurRadiusChanged[overload1]$$$blurRadiusChangedqreal -->
+<h3 class="fn"><a name="blurRadiusChanged"></a><span class="type">void</span> QGraphicsBlurEffect::<span class="name">blurRadiusChanged</span> ( <span class="type"><a href="qtglobal.html#qreal-typedef">qreal</a></span> <i>radius</i> )<tt> [signal]</tt></h3>
+<p>This signal is emitted whenever the effect's blur radius changes. The <i>radius</i> parameter holds the effect's new blur radius.</p>
+<!-- @@@blurRadiusChanged -->
+<!-- $$$boundingRectFor[overload1]$$$boundingRectForconstQRectF& -->
+<h3 class="fn"><a name="boundingRectFor"></a><span class="type"><a href="qrectf.html">QRectF</a></span> QGraphicsBlurEffect::<span class="name">boundingRectFor</span> ( const <span class="type"><a href="qrectf.html">QRectF</a></span> &amp; <i>rect</i> ) const<tt> [virtual]</tt></h3>
+<p>Reimplemented from <a href="qgraphicseffect.html#boundingRectFor">QGraphicsEffect::boundingRectFor</a>().</p>
+<!-- @@@boundingRectFor -->
+<!-- $$$draw[overload1]$$$drawQPainter* -->
+<h3 class="fn"><a name="draw"></a><span class="type">void</span> QGraphicsBlurEffect::<span class="name">draw</span> ( <span class="type"><a href="qpainter.html">QPainter</a></span> * <i>painter</i> )<tt> [virtual protected]</tt></h3>
+<p>Reimplemented from <a href="qgraphicseffect.html#draw">QGraphicsEffect::draw</a>().</p>
+<!-- @@@draw -->
+</div>
+  <div class="ft">
+    <span></span>
+  </div>
+</div> 
+<div class="footer">
+  <p>
+     <acronym title="Copyright">&copy;</acronym> 2008-2011 Nokia Corporation and/or its
+     subsidiaries. Nokia, Qt and their respective logos are trademarks of Nokia Corporation 
+     in Finland and/or other countries worldwide.</p>
+  <p>
+     All other trademarks are property of their respective owners. <a title="Privacy Policy"
+     href="http://qt.nokia.com/about/privacy-policy">Privacy Policy</a></p>
+  <br />
+  <p>
+    Licensees holding valid Qt Commercial licenses may use this document in accordance with the    Qt Commercial License Agreement provided with the Software or, alternatively, in accordance    with the terms contained in a written agreement between you and Nokia.</p>
+  <p>
+    Alternatively, this document may be used under the terms of the <a href="http://www.gnu.org/licenses/fdl.html">GNU
+    Free Documentation License version 1.3</a>
+    as published by the Free Software Foundation.</p>
+</div>
+</body>
+</html>

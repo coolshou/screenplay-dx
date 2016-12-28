@@ -89,7 +89,7 @@ dropbear-config:
 
 dropbear-configured:  dropbear-unpacked $(DROPBEAR_DIR)/.dropbear_configured
 
-$(DROPBEAR_DIR)/.dropbear_configured: $(DROPBEAR_CONFIG) $(TOP_CURRENT_SET)
+$(DROPBEAR_DIR)/.dropbear_configured: $(DROPBEAR_CONFIG) $(TOP_CURRENT_SET) dropbear-unpacked
 	@echo "Configuring $(DROPBEAR) ..." 
 	(declare +x CROSS_COMPILE;cd $(DROPBEAR_SOURCE)/$(DROPBEAR); $(DROPBEAR_CONFIGURE))
 	@echo "Configuring $(DROPBEAR) done"

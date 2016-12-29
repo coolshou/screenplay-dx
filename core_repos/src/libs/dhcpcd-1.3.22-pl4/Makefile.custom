@@ -1,0 +1,61 @@
+##############################################################################
+# Copyright (C) alphanetworks 2006-- 
+# All Rights Reserved -- Company Confidential
+# Author:  joshua_lee@alphanetworks.com
+# dhcpcd top-level Makefile
+##############################################################################
+
+############################# global variables section #######################
+
+TOP        := $(shell pwd)/../../..#
+
+COMPONENT  := src/libs/dhcpcd# 
+LEAF_BINS  := dhcpcd
+
+include $(TOP)/Target.mk
+include $(TOP)/Target.options
+
+############################# objects rules section ##########################
+
+#
+# objects
+#
+DHCPCD_OBJS	:= \
+	peekfd.o    \
+	udpipgen.o  \
+	buildmsg.o  \
+	signals.o   \
+	arp.o       \
+	client.o    \
+	dhcpcd.o    \
+	cache.o
+
+#
+# CFLAGS
+#
+CFLAGS_$(AUTOIP) 	+= -DAUTOIP
+CFLAGS_$(SCRIPT2CFG)	+= -D__SCRIPT2CFG__
+
+# shipment option
+CFLAGS_$(CONF_DISABLE_DEBUG_OUTPUT) += -D__DISABLE_DEBUG_OUTPUT__
+
+CFLAGS 			+= $(CFLAGS_y)
+
+############################ common rules section ############################
+
+include $(TOP_SCRIPTS_DIR)/rules.mk
+
+########################### target section ###################################
+
+LEAF := dhcpcd
+$(LEAF)_OBJECTS := $(DHCPCD_OBJS)
+$(LEAF)_DEPLIBS := 
+$(LEAF)_SYSLIBS :=
+$(BUILD_BIN_CMD)
+
+install:
+	-mkdir -p $(TOP_INSTALL_ROOTFS_DIR)/sbin
+	-mkdir -p $(TOP_INSTALL_ROOTFS_DIR)/etc/dhcpc
+	-cp -f $(BIN_DIR)/dhcpcd $(TOP_INSTALL_ROOTFS_DIR)/sbin/
+	-$(STRIP) $(TOP_INSTALL_ROOTFS_DIR)/sbin/dhcpcd
+	-chmod +x $(TOP_INSTALL_ROOTFS_DIR)/sbin/dhcpcd

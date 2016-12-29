@@ -31,6 +31,9 @@ endif
 ifeq ($(CONF_RT3572_VERSION_2_5_0_0), y)
 WIRELESS_RT3572_SERVER_URL  := $(TOP_LIBS_URL)/wireless_drivers/ralink/2010_1215_RT3572_Linux_STA_v2.5.0.0.DPA#
 endif
+ifeq ($(CONF_RT5572_VERSION_2_6_1_4), y)
+WIRELESS_RT5572_SERVER_URL  := $(TOP_LIBS_URL)/wireless_drivers/ralink/DPA_RT5572_LinuxSTA_2.6.1.4_20121211
+endif
 WIRELESS_AR9170_SERVER_URL  := $(TOP_LIBS_URL)/wireless_drivers/atheros/ar9170/srcOtusLinux_3_2_0_32#
 WIRELESS_RTL8192_SERVER_URL  := $(TOP_LIBS_URL)/wireless_drivers/realtek/rtl8192u_linux_2.6.0006.1031.2008#
 WIRELESS_RTL8712_SERVER_URL  := $(TOP_LIBS_URL)/wireless_drivers/realtek/rtl8712_8188_8191_8192SU#
@@ -59,9 +62,12 @@ endif
 ifeq ($(CONF_RT3572_VERSION_2_5_0_0), y)
 WIRELESS_RT3572_SOURCE      := $(WIRELESS_DRIVERS_DIR)/2010_1215_RT3572_Linux_STA_v2.5.0.0.DPA
 endif
+ifeq ($(CONF_RT5572_VERSION_2_6_1_4), y)
+WIRELESS_RT5572_SOURCE      := $(WIRELESS_DRIVERS_DIR)/DPA_RT5572_LinuxSTA_2.6.1.4_20121211
+endif
 WIRELESS_AR9170_SOURCE      := $(WIRELESS_DRIVERS_DIR)/srcOtusLinux_3_2_0_32
-WIRELESS_RTL8192_SOURCE      := $(WIRELESS_DRIVERS_DIR)/rtl8192u_linux_2.6.0006.1031.2008
-WIRELESS_RTL8712_SOURCE      := $(WIRELESS_DRIVERS_DIR)/rtl8712_8188_8191_8192SU
+WIRELESS_RTL8192_SOURCE     := $(WIRELESS_DRIVERS_DIR)/rtl8192u_linux_2.6.0006.1031.2008
+WIRELESS_RTL8712_SOURCE     := $(WIRELESS_DRIVERS_DIR)/rtl8712_8188_8191_8192SU
 WIRELESS_BCM4323_SOURCE		:= $(WIRELESS_DRIVERS_DIR)/bcm4323
 WIRELESS_UB94_SOURCE		:= $(WIRELESS_DRIVERS_DIR)/ub94
 #WIRELESS_UB94_SOURCE		:= $(WIRELESS_DRIVERS_DIR)/atheros_ub9x.patched
@@ -131,6 +137,10 @@ ifeq ($(CONF_WIRELESS_RT3572), y)
 		cd $(WIRELESS_DRIVERS_DIR); \
 		$(TOP_DOWNLOAD) $(WIRELESS_RT3572_SERVER_URL); \
 	fi
+endif
+
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@echo "Downloading Ralink RT5572 from $(WIRELESS_RT5572_SERVER_URL)"
 endif
 
 ifeq ($(CONF_WIRELESS_AR9170), y)
@@ -248,6 +258,11 @@ ifeq ($(CONF_WIRELESS_RT3572), y)
 	make -C $(WIRELESS_RT3572_SOURCE) CC=$(CC) AR=$(AR) RANLIB=$(RANLIB) STRIP=$(CROSS)strip LD=$(LD)
 endif
 
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@echo "Compiling Ralink RT5572"
+	make -C $(WIRELESS_RT5572_SOURCE) CC=$(CC) AR=$(AR) RANLIB=$(RANLIB) STRIP=$(CROSS)strip LD=$(LD)
+endif
+
 ifeq ($(CONF_WIRELESS_RTL8192), y)
 	@echo "Compiling Realtek RTL8192"
 	make -C $(WIRELESS_RTL8192_SOURCE) CC=$(CC) AR=$(AR) RANLIB=$(RANLIB) STRIP=$(CROSS)strip LD=$(LD)
@@ -327,6 +342,14 @@ ifeq ($(CONF_WIRELESS_RT3572), y)
 		$(TOP_UPDATE) $(WIRELESS_RT3572_SOURCE); \
 	fi
 	@echo "Updating RT3572 done"
+endif
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@echo "Updating RT5572 driver"
+	@cd $(WIRELESS_RT5572_SOURCE);$(TOP_UPDATE)
+	@if [ -d "$(WIRELESS_RT5572_SOURCE)" ]; then \
+		$(TOP_UPDATE) $(WIRELESS_RT5572_SOURCE); \
+	fi
+	@echo "Updating RT5572 done"
 endif
 ifeq ($(CONF_WIRELESS_AR9170), y)
 	@echo "Updating AR9170 driver"
@@ -411,6 +434,13 @@ ifeq ($(CONF_WIRELESS_RT3572), y)
 	fi
 	@echo "Statusing RT3572 done"
 endif
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@echo "Statusing RT5572 driver ..."
+	@if [ -d "$(WIRELESS_RT5572_SOURCE)" ]; then \
+		$(TOP_STATUS) $(WIRELESS_RT5572_SOURCE); \
+	fi
+	@echo "Statusing RT5572 done"
+endif
 ifeq ($(CONF_WIRELESS_AR9170), y)
 	@echo "Statusing AR9170 driver ..."
 	@if [ -d "$(WIRELESS_AR9170_SOURCE)" ]; then \
@@ -476,6 +506,11 @@ endif
 ifeq ($(CONF_WIRELESS_RT3572), y)
 	@if [ -d "$(WIRELESS_RT3572_SOURCE)" ]; then \
 		make -C $(WIRELESS_RT3572_SOURCE) clean; \
+	fi
+endif
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@if [ -d "$(WIRELESS_RT5572_SOURCE)" ]; then \
+		make -C $(WIRELESS_RT5572_SOURCE) clean; \
 	fi
 endif
 ifeq ($(CONF_WIRELESS_AR9170), y)
@@ -553,6 +588,13 @@ ifeq ($(CONF_WIRELESS_RT3572), y)
 	@if [ -d "$(WIRELESS_RT3572_SOURCE)" ]; then \
 		@echo "Installing Ralink RT3572";	\
 		make -C $(WIRELESS_RT3572_SOURCE) install;	\
+	fi
+endif
+
+ifeq ($(CONF_WIRELESS_RT5572), y)
+	@if [ -d "$(WIRELESS_RT5572_SOURCE)" ]; then \
+		@echo "Installing Ralink RT5572";	\
+		make -C $(WIRELESS_RT5572_SOURCE) install;	\
 	fi
 endif
 

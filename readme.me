@@ -11,7 +11,7 @@ Firmware building steps:
 
 4. To make the firmware, please follow these steps in order:
     a) cd core_repos
-    b) PATH=$PATH:$PWD/tools
+    b) PATH=$PATH:$PWD/tools:/opt/mips-4.3
     c) cp config/default_config_IOM_X2 .config
     d) export DIRECTFB_I=$PWD/src/libs/qt-everywhere-opensource-src/directfb/
     e) make oldconfig
